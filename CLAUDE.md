@@ -9,7 +9,8 @@ Python 3.12 + `uv`. Single CLI (`monitorul-ii`) that scrapes Monitorul Oficial P
 ## Layout
 
 - `src/monitorul_ii/scraper.py` — pure functions: `fetch_index`, `parse_issues`, `download_pdf`, `scrape_day`. No CLI concerns.
-- `src/monitorul_ii/cli.py` — argparse wrapper exposing `monitorul-ii` (entry point in `pyproject.toml`).
+- `src/monitorul_ii/uploader.py` — `S3Config.from_env()` + `Uploader` (boto3, S3-compatible incl. R2).
+- `src/monitorul_ii/cli.py` — argparse wrapper exposing `monitorul-ii` (entry point in `pyproject.toml`); orchestrates download → upload per file.
 - `src/monitorul_ii/__main__.py` — also runnable via `python -m monitorul_ii`.
 
 ## How the scraper talks to the site
@@ -24,11 +25,13 @@ There is no documented API. Reverse-engineered from the e-monitor page:
 ## Commands
 
 - Install / sync deps: `uv sync`
-- Run the CLI: `uv run monitorul-ii <YYYY-MM-DD> [--until YYYY-MM-DD] [--out DIR] [--part II] [--delay 0.5] [--proxy URL | --no-proxy]`
+- Run the CLI: `uv run monitorul-ii <YYYY-MM-DD> [--until YYYY-MM-DD] [--out DIR] [--part II] [--delay 0.5] [--proxy URL | --no-proxy] [--bucket NAME | --no-upload]`
 - Lint: `uv run ruff check`
 - Format: `uv run ruff format`
 
 `PROXY_URL` from `.env` (auto-loaded via `python-dotenv`) routes all monitoruloficial.ro traffic through an HTTP/HTTPS proxy. `--proxy` overrides; `--no-proxy` bypasses both. Passwords in the proxy URL are masked in stderr logs.
+
+When the full set of `S3_ENDPOINT` / `S3_ACCESS_KEY_ID` / `S3_SECRET_ACCESS_KEY` / `S3_BUCKET` env vars is present, every PDF is also pushed to S3 (Cloudflare R2 works as the S3 endpoint). Upload is per-file and idempotent: `head_object` first, `upload_file` only if missing. `--no-upload` disables the mirror; `--bucket` overrides `S3_BUCKET`. Object key = local filename, flat. Startup does a `head_bucket` fail-fast.
 
 PDFs land directly in `<out>/<YYYY-MM-DD>_MO-P<part>-<num>-<year>.pdf` (no per-day subdirectory — the date is in the filename so everything sorts chronologically in one folder). Re-runs skip files already on disk; partial downloads write to a `.part` file and are renamed atomically on success.
 

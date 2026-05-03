@@ -7,8 +7,11 @@ Deep dives. CLAUDE.md has the scannable summary; this file is the reference for 
 ```
 CLI (cli.py)
   ├─ load .env (python-dotenv)
-  ├─ parse argv (date, --until, --out, --part, --delay, --proxy, --no-proxy)
-  ├─ resolve proxy:  --proxy  >  PROXY_URL env  >  none   (--no-proxy short-circuits)
+  ├─ parse argv (date, --until, --out, --part, --delay, --proxy/--no-proxy,
+  │              --bucket/--no-upload)
+  ├─ resolve proxy:    --proxy   > PROXY_URL env > none   (--no-proxy short-circuits)
+  ├─ resolve uploader: S3Config.from_env() if all S3_* set; head_bucket fail-fast
+  │                    (--no-upload short-circuits, --bucket overrides)
   ├─ open httpx.Client with headers preset (UA + Referer) and optional proxy
   └─ for each day in [date .. until]:
        scrape_day(client, day, out_dir, part, delay, on_event)
@@ -17,6 +20,7 @@ CLI (cli.py)
          └─ for each Issue:
               ├─ if target file exists & non-empty → emit "skip"
               └─ else download_pdf(client, issue, target) → emit "ok"/"error"
+       (CLI's on_event closure: after "skip"/"ok", uploader.upload_if_missing(target))
 ```
 
 The split is deliberate: `scraper.py` has no I/O of its own beyond httpx + the filesystem, and emits structured events through `on_event`. `cli.py` owns argv parsing, stdout/stderr formatting, and exit codes. Tests can drive `scrape_day` directly with a captured-events callback.
@@ -135,6 +139,41 @@ Monitorul Oficial sometimes geo-blocks or rate-limits direct traffic. The scrape
 - Logs print the proxy URL with the password masked (`user:***@host:port`); the raw `.env` value never hits stdout/stderr.
 - TLS verification is left at httpx default (system trust store). If a proxy MITMs HTTPS with its own CA, install the CA into the system store rather than disabling verification.
 
+## S3 / R2 mirror
+
+When `S3_ENDPOINT`, `S3_ACCESS_KEY_ID`, `S3_SECRET_ACCESS_KEY`, and `S3_BUCKET` are all set, every PDF the scraper touches (whether freshly downloaded or already on disk) is also pushed to S3. R2 is the intended target — it's an S3-compatible service, so boto3 with `endpoint_url=<R2 URL>` and SigV4 just works.
+
+### Module split
+
+`uploader.py` owns all S3 concerns. `scraper.py` knows nothing about S3 — the `on_event` callback in `cli.py` is what wires the two together. This means:
+
+- A library user can call `scrape_day` directly without dragging in boto3.
+- Tests for the parser/scraper don't touch the network or boto3.
+- Adding a second sink (e.g. archive.org, internal API) is a CLI-layer change, not a scraper change.
+
+### Idempotency
+
+`Uploader.upload_if_missing(path, key=None)`:
+
+1. `head_object(Bucket, Key)` → if 200, return `False` (no upload, file already there).
+2. On `404` / `NoSuchKey` / `NotFound`, `upload_file(...)` with `ContentType=application/pdf` and return `True`.
+3. Other errors propagate.
+
+The default `key` is `path.name`, mirroring the local flat layout (e.g. `2026-04-29_MO-PII-47-2026.pdf`). The date prefix gives chronological order in any S3 listing tool, so we don't bother with year/month prefixes.
+
+The `head_object`-per-file policy is one extra HTTP RTT per PDF on re-runs. For ranges in the hundreds it's fine; if we ever scrape years at a time, switch to a one-shot `ListObjectsV2` to build an in-memory key set up front.
+
+### Fail-fast
+
+CLI startup calls `uploader.validate()` which does `head_bucket`. If the bucket is unreachable (wrong endpoint, missing creds, typo'd name), the run aborts with exit 2 *before* any scraping starts. This avoids the failure mode where you spend ten minutes downloading and then discover every upload silently failed.
+
+### R2 specifics
+
+- `endpoint_url`: `https://<account-id>.r2.cloudflarestorage.com`
+- `region_name`: R2 ignores this but boto3 requires a value — we default to `auto` (matches Cloudflare's docs).
+- `signature_version="s3v4"` is set explicitly because some boto3 defaults can fall back to v2 in odd configurations; v4 is the only thing R2 accepts.
+- No `ChecksumAlgorithm` or `ServerSideEncryption` extras — R2 is happy with the bare upload.
+
 ## Rate-limiting
 
 `scrape_day` sleeps `delay` seconds (default 0.5) **between successful downloads**, not before the first one and not when a file is skipped. This keeps re-runs over already-downloaded ranges fast while staying polite for fresh fetches.
@@ -144,6 +183,6 @@ The site has no `robots.txt` (the path returns a generic challenge page) and no 
 ## What is *not* here
 
 - **No HTML parser dependency.** Regex is sufficient given the fragment shape; revisit if the site ever returns a richer payload.
-- **No persistent state / DB.** The filesystem *is* the state. Adding an index would be premature until we need cross-run features (e.g. metadata search).
+- **No persistent state / DB.** The filesystem (and the bucket) *is* the state. Adding an index would be premature until we need cross-run features (e.g. metadata search).
 - **No retries / circuit breakers.** Errors fall through and the user re-runs. If we ever scrape large historical ranges unattended, add an exponential-backoff retry to `download_pdf`.
 - **No async.** N is small (single-digit PDFs per day) and httpx sync keeps the code straight-line. Switch to `httpx.AsyncClient` only if we ever need to fan out across many days concurrently.
