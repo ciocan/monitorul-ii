@@ -1,9 +1,24 @@
 [project]
 name = "monitorul-ii"
 version = "0.1.0"
-description = "Add your description here"
+description = "Scrape Monitorul Oficial Partea a II-a PDFs by date"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
+    "httpx>=0.28.1",
+]
+
+[project.scripts]
+monitorul-ii = "monitorul_ii.cli:main"
+
+[dependency-groups]
+dev = [
     "ruff>=0.15.12",
 ]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/monitorul_ii"]
