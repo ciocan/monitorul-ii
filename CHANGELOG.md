@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.4.0](https://github.com/ciocan/monitorul-ii/compare/monitorul-ii-v0.3.0...monitorul-ii-v0.4.0) (2026-05-03)
+
+
+### Features
+
+* enhance scraping and upload functionality with SQLite audit log ([33c980a](https://github.com/ciocan/monitorul-ii/commit/33c980a2f4a3291fdd6525f9f62d354bd1d75e09))
+* implement S3 upload functionality ([9911474](https://github.com/ciocan/monitorul-ii/commit/9911474c0df37f6b845050e735713bec7628a2e3))
+
 ## [0.3.0](https://github.com/ciocan/monitorul-ii/compare/monitorul-ii-v0.2.0...monitorul-ii-v0.3.0) (2026-05-03)
 
 
