@@ -3,13 +3,22 @@ from __future__ import annotations
 import argparse
 import os
 import sys
+import time
 from dataclasses import replace
-from datetime import date, datetime
+from datetime import date, datetime, timezone
 from pathlib import Path
 
 from dotenv import load_dotenv
 
-from monitorul_ii.scraper import DayResult, FileEvent, _client, daterange, scrape_day
+from monitorul_ii.db import DB
+from monitorul_ii.scraper import (
+    DayResult,
+    FileEvent,
+    FileEventPayload,
+    _client,
+    daterange,
+    scrape_day,
+)
 from monitorul_ii.uploader import S3Config, Uploader
 
 _LABELS: dict[FileEvent, str] = {
@@ -17,6 +26,8 @@ _LABELS: dict[FileEvent, str] = {
     "download": "ok   ",
     "error": "ERR  ",
 }
+
+_HEARTBEAT_EVERY = 100  # days
 
 
 def _parse_date(s: str) -> date:
@@ -77,21 +88,61 @@ def _build_parser() -> argparse.ArgumentParser:
         default=None,
         help="Override S3_BUCKET from env.",
     )
+    p.add_argument(
+        "--db",
+        type=Path,
+        default=Path("data/monitorul.db"),
+        help="SQLite path for the audit log + resume gate (default: data/monitorul.db).",
+    )
+    p.add_argument(
+        "--no-db",
+        action="store_true",
+        help="Disable the SQLite audit log entirely. Re-runs lose 'empty day' memory.",
+    )
+    p.add_argument(
+        "--reverse",
+        action="store_true",
+        help="Walk the date range newest→oldest. A partial run leaves you with the most recent stretch.",
+    )
+    p.add_argument(
+        "--force",
+        action="store_true",
+        help="Re-fetch every day's index regardless of DB status.",
+    )
+    p.add_argument(
+        "--rescrape-recent",
+        type=int,
+        default=0,
+        metavar="N",
+        help="Re-fetch the last N days regardless of DB status (default: 0). Today is always re-fetched.",
+    )
     return p
 
 
-def _print_summary(
+def _print_day_summary(
     r: DayResult, uploaded: int, in_bucket: int, upload_errors: int
 ) -> None:
+    if not r.fetched_index and r.found == 0 and r.skipped == 0 and r.downloaded == 0:
+        # Pure DB-cached skip — heartbeat carries the progress, don't spam stdout.
+        return
     line = (
         f"{r.day}: found={r.found} downloaded={r.downloaded} "
         f"skipped={r.skipped} errors={len(r.errors)}"
     )
+    if not r.fetched_index:
+        line += " (cached)"
     if uploaded or in_bucket or upload_errors:
         line += (
             f" | s3 uploaded={uploaded} in-bucket={in_bucket} errors={upload_errors}"
         )
     print(line)
+
+
+def _fmt_duration(seconds: float) -> str:
+    s = int(seconds)
+    h, rem = divmod(s, 3600)
+    m, s = divmod(rem, 60)
+    return f"{h:02d}:{m:02d}:{s:02d}"
 
 
 def _resolve_uploader(args: argparse.Namespace) -> Uploader | None:
@@ -131,51 +182,107 @@ def main(argv: list[str] | None = None) -> int:
 
     uploader = _resolve_uploader(args)
 
+    db: DB | None = None
+    if not args.no_db:
+        db = DB(args.db)
+        print(f"db: {args.db}", file=sys.stderr)
+
+    today = datetime.now(timezone.utc).date()
     counters = {"uploaded": 0, "in_bucket": 0, "upload_errors": 0}
 
-    def on_event(kind: FileEvent, path: Path, detail: str | None) -> None:
-        label = _LABELS[kind]
-        if kind == "error":
-            print(f"  {label} {path.name}  ({detail})", file=sys.stderr)
+    def on_event(p: FileEventPayload) -> None:
+        label = _LABELS[p.kind]
+        if p.kind == "error":
+            print(f"  {label} {p.path.name}  ({p.detail})", file=sys.stderr)
         else:
-            print(f"  {label} {path.name}")
+            print(f"  {label} {p.path.name}")
 
-        if uploader is None or kind == "error":
+        if uploader is None or p.kind == "error":
             return
-        if not (path.exists() and path.stat().st_size > 0):
+        if not (p.path.exists() and p.path.stat().st_size > 0):
+            return
+        if (
+            db is not None
+            and db.issue_status(p.day, p.issue.part, p.issue.number, p.issue.year)
+            == "uploaded"
+        ):
+            counters["in_bucket"] += 1
             return
         try:
-            if uploader.upload_if_missing(path):
+            result = uploader.upload_if_missing(p.path)
+            if result.uploaded:
                 counters["uploaded"] += 1
-                print(f"  s3+   {path.name}")
+                print(f"  s3+   {p.path.name}")
             else:
                 counters["in_bucket"] += 1
-                print(f"  s3=   {path.name}")
+                print(f"  s3=   {p.path.name}")
+            if db is not None:
+                db.record_issue_uploaded(
+                    p.day,
+                    p.issue.part,
+                    p.issue.number,
+                    p.issue.year,
+                    s3_etag=result.etag,
+                )
         except Exception as exc:
             counters["upload_errors"] += 1
-            print(f"  s3!   {path.name}  ({exc})", file=sys.stderr)
+            print(f"  s3!   {p.path.name}  ({exc})", file=sys.stderr)
 
+    days_total = (end - args.date).days + 1
+    start_time = time.monotonic()
+    days_done = 0
+    totals = {"found": 0, "downloaded": 0, "failed": 0}
     total_errors = 0
-    with _client(proxy=proxy) as client:
-        for day in daterange(args.date, end):
-            day_uploaded_before = counters["uploaded"]
-            day_inbucket_before = counters["in_bucket"]
-            day_uperr_before = counters["upload_errors"]
-            r = scrape_day(
-                client,
-                day,
-                args.out,
-                part=args.part,
-                delay=args.delay,
-                on_event=on_event,
-            )
-            _print_summary(
-                r,
-                counters["uploaded"] - day_uploaded_before,
-                counters["in_bucket"] - day_inbucket_before,
-                counters["upload_errors"] - day_uperr_before,
-            )
-            total_errors += len(r.errors)
+
+    try:
+        with _client(proxy=proxy) as client:
+            for day in daterange(args.date, end, reverse=args.reverse):
+                day_uploaded_before = counters["uploaded"]
+                day_inbucket_before = counters["in_bucket"]
+                day_uperr_before = counters["upload_errors"]
+                r = scrape_day(
+                    client,
+                    day,
+                    args.out,
+                    part=args.part,
+                    delay=args.delay,
+                    on_event=on_event,
+                    db=db,
+                    today=today,
+                    force=args.force,
+                    rescrape_recent_days=args.rescrape_recent,
+                )
+                _print_day_summary(
+                    r,
+                    counters["uploaded"] - day_uploaded_before,
+                    counters["in_bucket"] - day_inbucket_before,
+                    counters["upload_errors"] - day_uperr_before,
+                )
+                total_errors += len(r.errors)
+                totals["found"] += r.found
+                totals["downloaded"] += r.downloaded
+                totals["failed"] += len(r.errors)
+                days_done += 1
+
+                if days_done % _HEARTBEAT_EVERY == 0 and days_done < days_total:
+                    elapsed = time.monotonic() - start_time
+                    rate = days_done / elapsed if elapsed > 0 else 0.0
+                    eta = (days_total - days_done) / rate if rate > 0 else 0.0
+                    pct = days_done / days_total * 100
+                    print(
+                        f"progress: {days_done:,}/{days_total:,} ({pct:.1f}%) | "
+                        f"found={totals['found']:,} downloaded={totals['downloaded']:,} "
+                        f"failed={totals['failed']:,} | "
+                        f"s3 uploaded={counters['uploaded']:,} "
+                        f"in-bucket={counters['in_bucket']:,} "
+                        f"errors={counters['upload_errors']:,} | "
+                        f"elapsed={_fmt_duration(elapsed)} ETA={_fmt_duration(eta)}",
+                        file=sys.stderr,
+                    )
+    finally:
+        if db is not None:
+            db.close()
+
     total_errors += counters["upload_errors"]
     return 1 if total_errors else 0
 

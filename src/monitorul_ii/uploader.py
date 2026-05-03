@@ -36,6 +36,17 @@ class S3Config:
         )
 
 
+@dataclass(frozen=True)
+class UploadResult:
+    uploaded: bool
+    etag: str | None
+
+
+def _etag(head: dict) -> str | None:
+    raw = head.get("ETag")
+    return raw.strip('"') if raw else None
+
+
 class Uploader:
     """Thin wrapper around boto3 for idempotent PDF uploads.
 
@@ -58,28 +69,34 @@ class Uploader:
         """head_bucket as a fail-fast check at startup."""
         self._s3.head_bucket(Bucket=self.config.bucket)
 
-    def exists(self, key: str) -> bool:
+    def _head(self, key: str) -> dict | None:
         try:
-            self._s3.head_object(Bucket=self.config.bucket, Key=key)
-            return True
+            return self._s3.head_object(Bucket=self.config.bucket, Key=key)
         except ClientError as e:
             err = e.response.get("Error", {})
             if err.get("Code") in ("404", "NoSuchKey", "NotFound"):
-                return False
+                return None
             raise
 
-    def upload_if_missing(self, path: Path, key: str | None = None) -> bool:
+    def exists(self, key: str) -> bool:
+        return self._head(key) is not None
+
+    def upload_if_missing(self, path: Path, key: str | None = None) -> UploadResult:
         """Upload `path` to S3 unless an object with `key` already exists.
 
-        Returns True when an upload happened, False when it was skipped.
+        Returns UploadResult(uploaded, etag). `etag` is populated in both branches:
+        from `head_object` when the object was already there, from a follow-up
+        `head_object` after the upload otherwise.
         """
         object_key = key or path.name
-        if self.exists(object_key):
-            return False
+        head = self._head(object_key)
+        if head is not None:
+            return UploadResult(uploaded=False, etag=_etag(head))
         self._s3.upload_file(
             str(path),
             self.config.bucket,
             object_key,
             ExtraArgs={"ContentType": "application/pdf"},
         )
-        return True
+        head = self._s3.head_object(Bucket=self.config.bucket, Key=object_key)
+        return UploadResult(uploaded=True, etag=_etag(head))

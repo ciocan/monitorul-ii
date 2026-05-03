@@ -8,9 +8,10 @@ Python 3.12 + `uv`. Single CLI (`monitorul-ii`) that scrapes Monitorul Oficial P
 
 ## Layout
 
-- `src/monitorul_ii/scraper.py` — pure functions: `fetch_index`, `parse_issues`, `download_pdf`, `scrape_day`. No CLI concerns.
-- `src/monitorul_ii/uploader.py` — `S3Config.from_env()` + `Uploader` (boto3, S3-compatible incl. R2).
-- `src/monitorul_ii/cli.py` — argparse wrapper exposing `monitorul-ii` (entry point in `pyproject.toml`); orchestrates download → upload per file.
+- `src/monitorul_ii/scraper.py` — pure functions: `fetch_index`, `parse_issues`, `download_pdf`, `scrape_day`, plus `_with_retry`. Sha256 + size are computed in the streaming download. No CLI concerns.
+- `src/monitorul_ii/uploader.py` — `S3Config.from_env()` + `Uploader` (boto3, S3-compatible incl. R2). `upload_if_missing` returns `UploadResult(uploaded, etag)`.
+- `src/monitorul_ii/db.py` — `DB` wraps the SQLite audit log (`days` + `issues` tables). Owns the resume-gate logic via `should_fetch_index`.
+- `src/monitorul_ii/cli.py` — argparse wrapper exposing `monitorul-ii` (entry point in `pyproject.toml`); orchestrates download → upload per file, threads the DB through `scrape_day`, prints heartbeat every 100 days for long ranges.
 - `src/monitorul_ii/__main__.py` — also runnable via `python -m monitorul_ii`.
 
 ## How the scraper talks to the site
@@ -25,15 +26,19 @@ There is no documented API. Reverse-engineered from the e-monitor page:
 ## Commands
 
 - Install / sync deps: `uv sync`
-- Run the CLI: `uv run monitorul-ii <YYYY-MM-DD> [--until YYYY-MM-DD] [--out DIR] [--part II] [--delay 0.5] [--proxy URL | --no-proxy] [--bucket NAME | --no-upload]`
+- Run the CLI: `uv run monitorul-ii <YYYY-MM-DD> [--until YYYY-MM-DD] [--out DIR] [--part II] [--delay 0.5] [--proxy URL | --no-proxy] [--bucket NAME | --no-upload] [--db PATH | --no-db] [--reverse] [--force] [--rescrape-recent N]`
 - Lint: `uv run ruff check`
 - Format: `uv run ruff format`
 
 `PROXY_URL` from `.env` (auto-loaded via `python-dotenv`) routes all monitoruloficial.ro traffic through an HTTP/HTTPS proxy. `--proxy` overrides; `--no-proxy` bypasses both. Passwords in the proxy URL are masked in stderr logs.
 
-When the full set of `S3_ENDPOINT` / `S3_ACCESS_KEY_ID` / `S3_SECRET_ACCESS_KEY` / `S3_BUCKET` env vars is present, every PDF is also pushed to S3 (Cloudflare R2 works as the S3 endpoint). Upload is per-file and idempotent: `head_object` first, `upload_file` only if missing. `--no-upload` disables the mirror; `--bucket` overrides `S3_BUCKET`. Object key = local filename, flat. Startup does a `head_bucket` fail-fast.
+When the full set of `S3_ENDPOINT` / `S3_ACCESS_KEY_ID` / `S3_SECRET_ACCESS_KEY` / `S3_BUCKET` env vars is present, every PDF is also pushed to S3 (Cloudflare R2 works as the S3 endpoint). Upload is per-file and idempotent: `head_object` first, `upload_file` only if missing. `--no-upload` disables the mirror; `--bucket` overrides `S3_BUCKET`. Object key = local filename, flat. Startup does a `head_bucket` fail-fast. ETags are recorded in the DB.
 
-PDFs land directly in `<out>/<YYYY-MM-DD>_MO-P<part>-<num>-<year>.pdf` (no per-day subdirectory — the date is in the filename so everything sorts chronologically in one folder). Re-runs skip files already on disk; partial downloads write to a `.part` file and are renamed atomically on success.
+A SQLite audit log at `data/monitorul.db` (override `--db PATH`, disable `--no-db`) gates whether each day's index POST happens. `days.status='ok'` past days short-circuit the index fetch on resume — including weekends and empty days that have zero Partea II issues. The filesystem and bucket still gate per-PDF skip; the DB doesn't pretend to know whether a file actually exists. `--reverse` walks newest→oldest. `--force` ignores the DB skip; `--rescrape-recent N` re-fetches the last N days regardless of status (today is always re-fetched). See `docs/architecture.md` for the schema and resume contract.
+
+Per-request retries: 3 attempts with backoff `1s → 2s → 4s` for transient errors (5xx, 429, transport). 4xx-not-429 / parse / content-type errors raise immediately. After exhaustion the row goes `status='failed'` and is auto-retried on the next run. No `failed_permanent` distinction; `attempts` is informational.
+
+PDFs land directly in `<out>/<YYYY-MM-DD>_MO-P<part>-<num>-<year>.pdf` (no per-day subdirectory — the date is in the filename so everything sorts chronologically in one folder). Re-runs skip files already on disk; partial downloads write to a `.part` file and are renamed atomically on success. Sha256 + size land in the DB during streaming download (or lazily during the existing-file skip path).
 
 (A `.ruff_cache` is present; no committed config, so ruff defaults apply.)
 
