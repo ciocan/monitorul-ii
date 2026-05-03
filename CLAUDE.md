@@ -24,9 +24,11 @@ There is no documented API. Reverse-engineered from the e-monitor page:
 ## Commands
 
 - Install / sync deps: `uv sync`
-- Run the CLI: `uv run monitorul-ii <YYYY-MM-DD> [--until YYYY-MM-DD] [--out DIR] [--part II] [--delay 0.5]`
+- Run the CLI: `uv run monitorul-ii <YYYY-MM-DD> [--until YYYY-MM-DD] [--out DIR] [--part II] [--delay 0.5] [--proxy URL | --no-proxy]`
 - Lint: `uv run ruff check`
 - Format: `uv run ruff format`
+
+`PROXY_URL` from `.env` (auto-loaded via `python-dotenv`) routes all monitoruloficial.ro traffic through an HTTP/HTTPS proxy. `--proxy` overrides; `--no-proxy` bypasses both. Passwords in the proxy URL are masked in stderr logs.
 
 PDFs land directly in `<out>/<YYYY-MM-DD>_MO-P<part>-<num>-<year>.pdf` (no per-day subdirectory — the date is in the filename so everything sorts chronologically in one folder). Re-runs skip files already on disk; partial downloads write to a `.part` file and are renamed atomically on success.
 

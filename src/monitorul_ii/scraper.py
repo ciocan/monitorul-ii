@@ -38,12 +38,14 @@ class Issue:
         return f"{pub_date.isoformat()}_MO-P{self.part}-{self.number}-{self.year}.pdf"
 
 
-def _client(timeout: float = 30.0) -> httpx.Client:
+def _client(timeout: float = 30.0, proxy: str | None = None) -> httpx.Client:
+    """Build the httpx client. If `proxy` is set, all requests route through it."""
     return httpx.Client(
         http2=False,
         timeout=timeout,
         headers={"User-Agent": USER_AGENT, "Referer": INDEX_REFERER},
         follow_redirects=True,
+        proxy=proxy,
     )
 
 

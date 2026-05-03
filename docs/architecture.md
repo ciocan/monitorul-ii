@@ -6,8 +6,10 @@ Deep dives. CLAUDE.md has the scannable summary; this file is the reference for 
 
 ```
 CLI (cli.py)
-  ├─ parse argv (date, --until, --out, --part, --delay)
-  ├─ open httpx.Client with headers preset (UA + Referer)
+  ├─ load .env (python-dotenv)
+  ├─ parse argv (date, --until, --out, --part, --delay, --proxy, --no-proxy)
+  ├─ resolve proxy:  --proxy  >  PROXY_URL env  >  none   (--no-proxy short-circuits)
+  ├─ open httpx.Client with headers preset (UA + Referer) and optional proxy
   └─ for each day in [date .. until]:
        scrape_day(client, day, out_dir, part, delay, on_event)
          ├─ fetch_index(client, day)        # POST → HTML fragment (string)
@@ -123,6 +125,15 @@ Implications:
 - `"error"` — fetch failed; `detail` carries the error message and the issue is also added to `DayResult.errors`
 
 `cli.py` prints `skip` / `ok` / `ERR` lines per file plus a summary line per day. Library users (e.g. an importer pipeline) can ignore the callback and just consume `DayResult`.
+
+## Proxy support
+
+Monitorul Oficial sometimes geo-blocks or rate-limits direct traffic. The scraper supports routing through any HTTP/HTTPS proxy:
+
+- `_client(proxy=…)` passes the URL straight to `httpx.Client(proxy=…)`. Both the index POST and the PDF GETs reuse the same client, so they share the same proxy connection.
+- The CLI resolves the proxy URL with this precedence: `--proxy` flag → `PROXY_URL` env (loaded from `.env` via `python-dotenv`) → none. `--no-proxy` short-circuits everything.
+- Logs print the proxy URL with the password masked (`user:***@host:port`); the raw `.env` value never hits stdout/stderr.
+- TLS verification is left at httpx default (system trust store). If a proxy MITMs HTTPS with its own CA, install the CA into the system store rather than disabling verification.
 
 ## Rate-limiting
 

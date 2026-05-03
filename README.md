@@ -19,9 +19,22 @@ uv run monitorul-ii 2026-04-01 --until 2026-04-30 --out ./pdfs
 
 # different Partea (default is II)
 uv run monitorul-ii 2026-04-29 --part IV
+
+# bypass the proxy
+uv run monitorul-ii 2026-04-29 --no-proxy
 ```
 
 PDFs land in `<out>/<YYYY-MM-DD>_MO-P<part>-<num>-<year>.pdf`. The date is baked into the filename so everything sorts chronologically. Re-runs skip files already on disk.
+
+## Proxy
+
+Set `PROXY_URL` in `.env` (see `.env.example`) to route all monitoruloficial.ro traffic — both the index endpoint and PDF downloads — through an HTTP/HTTPS proxy:
+
+```
+PROXY_URL=http://brd-customer-XXX-zone-YYY:PASSWORD@brd.superproxy.io:33335
+```
+
+`--proxy URL` on the CLI overrides whatever is in the env. `--no-proxy` bypasses both.
 
 ## How it works
 
