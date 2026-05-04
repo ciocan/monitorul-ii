@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.9.0](https://github.com/ciocan/monitorul-ii/compare/monitorul-ii-v0.8.0...monitorul-ii-v0.9.0) (2026-05-04)
+
+
+### Features
+
+* add --reverse option for PDF conversion to process files in newest→oldest order ([31a0de8](https://github.com/ciocan/monitorul-ii/commit/31a0de825f6f78f1e9c0680221d524f56182674a))
+
 ## [0.8.0](https://github.com/ciocan/monitorul-ii/compare/monitorul-ii-v0.7.0...monitorul-ii-v0.8.0) (2026-05-04)
 
 
