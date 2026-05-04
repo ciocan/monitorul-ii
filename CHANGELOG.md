@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.10.2](https://github.com/ciocan/monitorul-ii/compare/monitorul-ii-v0.10.1...monitorul-ii-v0.10.2) (2026-05-04)
+
+
+### Documentation
+
+* update extraction schema to version 1.2.0 with findings from broader corpus audit ([d9750f3](https://github.com/ciocan/monitorul-ii/commit/d9750f3877de8e2b60f470e2c05caf085a4f5729))
+
 ## [0.10.1](https://github.com/ciocan/monitorul-ii/compare/monitorul-ii-v0.10.0...monitorul-ii-v0.10.1) (2026-05-04)
 
 
