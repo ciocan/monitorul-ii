@@ -286,6 +286,37 @@ def _build_parser() -> argparse.ArgumentParser:
     _add_s3_args(extract)
     extract.set_defaults(func=cmd_extract)
 
+    link = sub.add_parser(
+        "link",
+        help="Cross-document linker: fill report_facsimile back-links to receiving stenogram sidecars.",
+        description=(
+            "Walk `*.extraction.json` sidecars under one or more paths, "
+            "build an index of joint-session + single-chamber stenogram "
+            "sidecars by session date, and fill each report_facsimile's "
+            "`received_at.received_in_document` with the matching document_id. "
+            "Pre-write schema validation; atomic write via .part rename. "
+            "Idempotent — already-linked entries are skipped unless --force."
+        ),
+    )
+    link.add_argument(
+        "paths",
+        nargs="+",
+        type=Path,
+        help="Sidecar JSON files or directories (non-recursive).",
+    )
+    link.add_argument(
+        "--force",
+        action="store_true",
+        help="Re-link sidecars whose `received_in_document` is already populated.",
+    )
+    link.add_argument(
+        "--dry-run",
+        action="store_true",
+        help="Print what would be linked without modifying any files.",
+    )
+    _add_s3_args(link)
+    link.set_defaults(func=cmd_link)
+
     return p
 
 
@@ -1040,6 +1071,157 @@ def _emit_coverage_outlier(result: object, report: object) -> None:
         ],
     }
     print(json.dumps(row, ensure_ascii=False))
+
+
+_LINK_LABELS = {
+    "linked": "ok   ",
+    "skip": "skip ",
+    "error": "ERROR",
+}
+
+
+def _collect_sidecars(paths: list[Path]) -> list[Path]:
+    """Resolve a mix of files and directories into a sidecar list.
+
+    Files must end with `.extraction.json`. Directories are globbed for
+    `*.extraction.json` non-recursively (mirroring `collect_mds` for MDs).
+    """
+    out: list[Path] = []
+    seen: set[Path] = set()
+    for raw in paths:
+        p = raw if isinstance(raw, Path) else Path(raw)
+        if p.is_dir():
+            for child in sorted(p.glob("*.extraction.json")):
+                if child not in seen:
+                    seen.add(child)
+                    out.append(child)
+        elif p.is_file() and p.name.endswith(".extraction.json"):
+            if p not in seen:
+                seen.add(p)
+                out.append(p)
+    return out
+
+
+def cmd_link(args: argparse.Namespace) -> int:
+    from monitorul_ii.extraction.linker import build_session_index, link_report
+
+    sidecars = _collect_sidecars(list(args.paths))
+    if not sidecars:
+        print("no .extraction.json files found", file=sys.stderr)
+        return 0
+
+    uploader = _resolve_uploader(args) if not args.dry_run else None
+
+    session_index = build_session_index(sidecars)
+    print(
+        f"indexed {len(session_index)} receiving sessions across {len(sidecars)} sidecars",
+        file=sys.stderr,
+    )
+
+    counters: dict[str, int] = {
+        "linked": 0,
+        "skipped": 0,
+        "errors": 0,
+        "uploaded": 0,
+        "in_bucket": 0,
+        "upload_errors": 0,
+    }
+    skip_reasons: dict[str, int] = {}
+
+    try:
+        for path in sidecars:
+            # Filter early: cheap read of document_type alone would still
+            # require a JSON parse, so just delegate — link_report's first
+            # action is the type check and yields a fast skip for non-rf.
+            try:
+                with path.open(encoding="utf-8") as f:
+                    head = json.load(f)
+            except (OSError, json.JSONDecodeError):
+                continue
+            if head.get("document_type") != "report_facsimile":
+                continue
+            try:
+                result = link_report(
+                    path,
+                    session_index=session_index,
+                    force=args.force,
+                    write=not args.dry_run,
+                )
+            except KeyboardInterrupt:
+                raise
+            except Exception as exc:
+                counters["errors"] += 1
+                print(f"  ERROR {path.name}  ({exc!r})", file=sys.stderr)
+                continue
+
+            label = _LINK_LABELS[result.status]
+            line = f"  {label} {path.name}"
+            if result.status == "linked":
+                counters["linked"] += 1
+                line += f"  -> {result.target_document_id}"
+            elif result.status == "skip":
+                counters["skipped"] += 1
+                reason = result.reason or "unknown"
+                skip_reasons[reason] = skip_reasons.get(reason, 0) + 1
+                line += f"  ({reason})"
+            else:
+                counters["errors"] += 1
+                line += f"  ({result.reason or 'unknown'})"
+            # All per-sidecar output goes to stdout with flush — keeps the
+            # stream in order even when stderr (used for the trailing
+            # summary/skip-reasons block) is unbuffered. Errors also go to
+            # stderr for greppability.
+            print(line, flush=True)
+            if result.status == "error":
+                print(line, file=sys.stderr, flush=True)
+
+            if (
+                uploader is not None
+                and result.status == "linked"
+                and not args.dry_run
+                and path.exists()
+            ):
+                try:
+                    up = uploader.upload_if_missing(
+                        path, content_type="application/json"
+                    )
+                    if up.uploaded:
+                        counters["uploaded"] += 1
+                        print(f"  s3+   {path.name}")
+                    else:
+                        counters["in_bucket"] += 1
+                        print(f"  s3=   {path.name}")
+                except Exception as exc:
+                    counters["upload_errors"] += 1
+                    print(f"  s3!   {path.name}  ({exc})", file=sys.stderr)
+    except KeyboardInterrupt:
+        print(
+            f"\ninterrupted: linked={counters['linked']} "
+            f"skipped={counters['skipped']} errors={counters['errors']}",
+            file=sys.stderr,
+        )
+        return 130
+
+    summary = (
+        f"linked={counters['linked']} "
+        f"skipped={counters['skipped']} "
+        f"errors={counters['errors']}"
+    )
+    if counters["uploaded"] or counters["in_bucket"] or counters["upload_errors"]:
+        summary += (
+            f" | s3 uploaded={counters['uploaded']} "
+            f"in-bucket={counters['in_bucket']} "
+            f"errors={counters['upload_errors']}"
+        )
+    # Flush so the headline summary lands before the stderr skip-reasons
+    # footer (uv-on-snap buffers stdout in non-tty contexts; without
+    # flush, stderr lines appear ahead of the buffered stdout summary).
+    print(summary, flush=True)
+    if skip_reasons:
+        print("skip reasons:", file=sys.stderr)
+        for reason, n in sorted(skip_reasons.items(), key=lambda kv: -kv[1]):
+            print(f"  {reason}: {n}", file=sys.stderr)
+    return 1 if counters["errors"] or counters["upload_errors"] else 0
 
 
 def main(argv: list[str] | None = None) -> int:

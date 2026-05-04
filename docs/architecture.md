@@ -889,9 +889,50 @@ Strict body shape for `report_facsimile` replaced the v1.7.0 `PendingBody` place
 
 ### What's deferred to v0.2+
 
-- **`received_in_document` cross-document linker.** Each report references the stenogram document where it was received (e.g. CSAT 2010 was received at the joint Camera+Senat session of 2013-12-04 — that stenogram is its own MO Partea II issue). v0.2 adds a corpus-wide pass that finds the matching stenogram by `(received_at.session_date, session_kind=joint)` and writes the `mo://YYYY/PART/ISSUE` back-link.
+- **`received_in_document` cross-document linker.** **Shipped (v0.1.x)** — see "Cross-document linker" below.
 - **`issuing_body_normalized`** — currently null. The institutional-bodies registry (CSAT, SRI, SIE, BNR, ICR, Avocatul Poporului, Consiliul Legislativ, SRTv, SRR, ANCOM, ANRE, Curtea de Conturi, etc. — small enum, ~20 entries) is the canonical normalisation source. Once that registry exists, a one-script backfill on every report sidecar populates the slot.
 - **Institution-specific outline detection.** The current heading extractor pulls every `## **...**` heading minus a skip-list. CSAT reports use `CAPITOLUL I/II/...` outlining; SRI uses `OBIECTIVELE PRIORITARE`; ANCOM uses numbered `N.M.K.L` decimal sections. v0.2 could add per-issuer outline parsers that classify each heading as `chapter` / `section` / `appendix` etc. — but the discovery loop hasn't surfaced a query that needs it yet.
+
+## Cross-document linker
+
+A separate post-extract pass that fills back-pointer fields no per-type extractor can populate at single-doc time. v0.1 ships exactly one slot: `report_facsimile.body.report.received_at.received_in_document` — the `mo://YYYY/PART/ISSUE` document_id of the joint-session (or single-chamber) stenogram that received the report.
+
+Code: `src/monitorul_ii/extraction/linker.py`. CLI surface: `monitorul-ii link <paths>`.
+
+### Why a separate subcommand instead of inline-in-extract
+
+Extract is single-pass per-MD. Linking needs the global picture: build an index of all stenogram sidecars, then look up each report's `received_at.session_date`. Forcing extract to know about other sidecars at extract-time would break two contracts: (a) per-MD parallelism becomes harder (each worker would need to read the full sidecar set), and (b) the dispatcher's "single source of truth for body content" guarantee gets muddied. Splitting into `extract` (writes body content from MD) + `link` (writes cross-doc back-pointers) keeps each pass small and re-runnable.
+
+The natural workflow is **extract first, then link**:
+
+```
+$ uv run monitorul-ii extract pdfs/        # writes all sidecars; received_in_document=null
+$ uv run monitorul-ii link pdfs/           # fills back-pointers cross-document
+```
+
+### Indexing strategy
+
+`build_session_index(sidecars)` walks the input list once, reading each sidecar's `document_type` + `metadata.session_date` (with `metadata.published` fallback). Two document types act as receiving sessions: `plenary_joint_session` (priority 0, the dominant case — every R-suffix doc observed in the corpus is received in joint session) and `plenary_stenogram` (priority 1, single-chamber receptions for completeness, since the schema's `received_at.session_kind` enum allows `camera` / `senat`). When both share a date, joint wins.
+
+The index is a flat `dict[date_str, document_id]`. Date collision within the same priority falls back to first-seen — defensible for 2013-2025 corpus; if multi-session days become a query problem, v0.2 can promote the value to a `dict[date, list[document_id]]` and let the caller pick.
+
+### Linking + idempotency
+
+`link_report(path, *, session_index, force, write)` reads a single report_facsimile sidecar, looks up its `received_at.session_date` in the index, writes the matched document_id into `received_in_document`. Pre-write schema validation; atomic write via `.part` rename. Self-link prevention is a defensive guard (the index excludes report_facsimile, but if the corpus ever changes shape, we don't write a self-pointer).
+
+Idempotent by default: already-linked sidecars yield `status="skip"`, `reason="already linked"`. `--force` re-links populated entries — useful after a stenogram cohort re-extract that may have rewritten `document_id` for some receiving sessions. (In practice that doesn't happen since `document_id` is a deterministic projection of `metadata`, but the contract preserves the option.)
+
+`link_all(sidecars, *, force, write)` is the iterator entry point: two-pass over the input list (build index, then yield one `LinkResult` per report). Non-report sidecars are silently filtered.
+
+### Versioning contract
+
+`LINKER_VERSION = "0.1.0"` lives in `linker.py` but is **not** propagated into the sidecar's `extraction.extractor_versions` dict. The version-keying contract there uses exact-match (`_versions_current` returns False on any key mismatch); adding linker as a key would force extractor re-runs whenever the linker bumped. Instead, linker output lives entirely inside body content. Tradeoff: re-extracting a sidecar (extractor version bump → re-extract per the cache-invalidation contract) clobbers `received_in_document`. Recovery: `monitorul-ii link` is fast (~1ms per doc — pure dict lookup) and re-runnable.
+
+### CLI surface
+
+`monitorul-ii link <paths> [--force] [--dry-run] [--bucket NAME | --no-upload]`. Path arguments are files or directories (non-recursive glob for `*.extraction.json`). Output is one line per processed report sidecar to stdout — `ok    <name>  -> mo://YYYY/PART/N` for linked, `skip  <name>  (reason)` for skipped, `ERROR <name>  (reason)` for validation failures. Trailing summary on stdout (`linked=N skipped=M errors=K | s3 ...`). Skip-reasons histogram on stderr when any skips occurred.
+
+S3 mirror runs after each successful link when env vars are set: re-uploads the modified sidecar with `Content-Type: application/json`, overwriting the bucket copy. `--dry-run` skips both writes and uploads — useful for sanity-checking before a corpus-wide run.
 
 ## Testing
 

@@ -141,6 +141,35 @@ When the S3 vars are set, sidecars mirror to the same bucket as the PDFs/MDs (fl
 
 Schema validation runs *pre-write*: a sidecar that doesn't validate against the canonical schema (`src/monitorul_ii/extraction_schema.json`) never lands on disk. The rejected dict is dumped to `<basename>.rejected.json` for inspection so you don't have to re-derive it from logs.
 
+### `link`
+
+Cross-document linker — fills `report_facsimile` sidecars' `received_at.received_in_document` back-pointer with the matching joint-session (or single-chamber) stenogram's `document_id`. Run it after `extract`: extract writes report sidecars with `received_in_document: null`; link walks all sidecars, builds an index of receiving sessions by `metadata.session_date`, and fills the back-pointers cross-document.
+
+```sh
+# link every sidecar in a directory
+uv run monitorul-ii link pdfs/
+
+# preview without writing anything
+uv run monitorul-ii link pdfs/ --dry-run
+
+# re-link sidecars whose received_in_document is already populated
+# (useful after a stenogram cohort re-extract)
+uv run monitorul-ii link pdfs/ --force
+
+# skip the S3 mirror (otherwise modified sidecars re-upload)
+uv run monitorul-ii link pdfs/ --no-upload
+```
+
+Why a separate subcommand and not part of `extract`? Linking needs the global picture (scan all sidecars to build the session index), while extract is single-pass per-MD. Keeping them separate preserves extract's "single source of truth for body content" contract and lets each pass run independently.
+
+`--force` re-links populated entries — by default already-linked sidecars are skipped with reason. `--dry-run` prints what would be linked without modifying any files.
+
+Pre-write schema validation runs on every linked sidecar — an invalid post-link shape is rejected and the file is NOT touched. Atomic write via `.part` rename, same contract as `extract`.
+
+When S3 env vars are set, modified sidecars re-upload (overwriting the bucket copy) so the bucket stays in sync with the local files. `--no-upload` disables the mirror.
+
+The linker is idempotent and fast (~1ms per doc — pure dict lookup): re-extracting a sidecar (extractor version bump → re-extract) clobbers `received_in_document`, but a quick `monitorul-ii link` recovers.
+
 ## Progress and interrupts
 
 Both subcommands show a live [`rich`](https://github.com/Textualize/rich) progress bar on stderr when stderr is a terminal, and fall back to a periodic plain-text heartbeat in pipes/CI/cron.
