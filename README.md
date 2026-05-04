@@ -69,6 +69,8 @@ uv run monitorul-ii convert pdfs/ -j 4
 
 Each `<basename>.pdf` produces `<basename>.md` next to it. The MD opens with a YAML frontmatter block (issue, year, part, published, plus best-effort `chamber`, `session`, `session_date`, `legislature` parsed from the first page), followed by the cleaned body text. Per-page running headers, page numbers, and image placeholders are stripped; soft line breaks are re-flowed; hyphenated word breaks are joined.
 
+`-j N` (or `--workers N`) controls conversion parallelism — default is `os.cpu_count()`; set `-j 1` for strictly sequential. Throughput plateaus around `-j 8` on a 20-core box because the layout model is small per-PDF and past that you mostly add scheduling overhead. The CLI also forces `OMP_NUM_THREADS=1` / `ORT_INTRA_OP_NUM_THREADS=1` at startup so the outer worker pool doesn't compete with onnxruntime's auto-threading (3.8× speedup vs the unfixed defaults). Export those env vars yourself to override.
+
 When the S3 vars are set, MDs mirror to the same bucket alongside the PDFs (flat layout, `Content-Type: text/markdown`). Idempotent in the same way as `fetch`: skip if the local `.md` exists, `head_object` before each upload.
 
 ## Progress and interrupts

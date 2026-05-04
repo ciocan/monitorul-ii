@@ -396,9 +396,25 @@ If a future feature needs per-MD state (e.g. retry budgets for conversion failur
 2. The worker function `_process_one(pdf, force)` is a pure value→value mapping (returns `(kind, pdf, md, detail)`). It never touches the event callback, the summary counters, or the uploader — the calling thread does, after `as_completed` yields the result. This keeps the S3 upload path single-threaded without locks and preserves the existing `on_event` contract for library users.
 3. `as_completed` (rather than `executor.map`) is intentional: events arrive in finish-order, so a slow PDF doesn't stall progress reporting on faster ones. The cost is that lines aren't in input order — acceptable given each line carries the full filename.
 
-The CLI default is `--workers / -j os.cpu_count()`. Empirically, throughput plateaus around `-j 8` even on a 20-core box because `pymupdf-layout` uses an onnxruntime layout model that auto-fans across cores internally — outer thread workers then compete with inner ORT threads for the same physical cores. Past `-j 8` you get diminishing returns; below `-j 4` you're leaving cores idle. The user can tune per machine.
+The CLI default is `--workers / -j os.cpu_count()`.
 
-A `ProcessPoolExecutor` would push past the ORT-vs-thread contention by giving each process its own ORT thread pool, but pickle/IPC overhead and process startup eat the win for short ranges. If a future workload regularly converts thousands of PDFs in one shot, swap the executor — the worker is already pickle-clean.
+`cli.py` sets `OMP_NUM_THREADS=1` and `ORT_INTRA_OP_NUM_THREADS=1` via `os.environ.setdefault` *before* importing `converter` (which transitively imports `pymupdf4llm` → `pymupdf-layout` → `onnxruntime`). This is critical: the layout model's ORT session otherwise auto-spawns its own intra-op thread pool that fights the outer `ThreadPoolExecutor` for cores, and throughput collapses. With both flags set, outer threads cleanly own one core each and the layout model runs single-threaded inside them. Measured speedup on 8 PDFs:
+
+| config | wall | per-PDF |
+|---|---|---|
+| seq, default ORT threading (old) | 110.10 s | 13.8 s |
+| seq, `OMP=1` | 37.01 s | 4.6 s |
+| `-j 8`, default ORT | 67.94 s | 8.5 s |
+| `-j 8`, `OMP=1` (current default) | **28.70 s** | **3.6 s** |
+| `-j 16`, `OMP=1` | 31.55 s | 3.9 s |
+
+So the *biggest* per-PDF win came from disabling ORT auto-threading even in sequential mode (3× faster) — the small layout model just doesn't have enough work for ORT's intra-op pool to amortize its own threading overhead. The outer pool then adds another 1.3× on top. `setdefault` keeps explicit user overrides intact (`OMP_NUM_THREADS=4 monitorul-ii convert ...` still wins).
+
+A `ProcessPoolExecutor` would push further by giving each process its own ORT pool, but pickle/IPC overhead and process startup eat the win for short ranges. If a future workload regularly converts thousands of PDFs in one shot, swap the executor — `_process_one` is already pickle-clean.
+
+### GPU
+
+Not currently. `pymupdf-layout` runs two ORT inference sessions per PDF: the main `session` honors the default provider list (would use CUDA if `onnxruntime-gpu` were installed), but the `feature_extractor` is **hardcoded** to `providers=['CPUExecutionProvider']` in `pymupdf/layout/onnx/BoxRFDGNN.py:221`. So even installing `onnxruntime-gpu` (~3 GB, plus a CUDA 12.x runtime) would only accelerate one of the two inference calls. With layout-model work already reduced to ~3 s/PDF on an 8-thread CPU pool, the marginal GPU win on the bigger of the two sessions wouldn't justify the install weight or the GPU-as-hard-dep on this tool. Revisit if `pymupdf-layout` ever exposes an execution-providers knob.
 
 ## Rate-limiting
 

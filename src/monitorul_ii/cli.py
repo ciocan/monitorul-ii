@@ -1,23 +1,32 @@
 from __future__ import annotations
 
-import argparse
 import os
-import sys
-import time
-from dataclasses import replace
-from datetime import date, datetime, timezone
-from pathlib import Path
 
-from dotenv import load_dotenv
+# Disable onnxruntime / OpenMP intra-op threading before pymupdf4llm imports it.
+# pymupdf-layout creates an ort.InferenceSession internally; if ORT auto-threads,
+# our outer ThreadPoolExecutor (-j N) competes with inner threads for the same
+# cores and throughput collapses (8 PDFs: 110 s default → 28.7 s with OMP=1 -j 8).
+# `setdefault` keeps explicit user overrides intact.
+os.environ.setdefault("OMP_NUM_THREADS", "1")
+os.environ.setdefault("ORT_INTRA_OP_NUM_THREADS", "1")
 
-from monitorul_ii.converter import (
+import argparse  # noqa: E402
+import sys  # noqa: E402
+import time  # noqa: E402
+from dataclasses import replace  # noqa: E402
+from datetime import date, datetime, timezone  # noqa: E402
+from pathlib import Path  # noqa: E402
+
+from dotenv import load_dotenv  # noqa: E402
+
+from monitorul_ii.converter import (  # noqa: E402
     ConvertEvent,
     ConvertEventPayload,
     collect_pdfs,
     convert_all,
 )
-from monitorul_ii.db import DB
-from monitorul_ii.scraper import (
+from monitorul_ii.db import DB  # noqa: E402
+from monitorul_ii.scraper import (  # noqa: E402
     DayResult,
     FileEvent,
     FileEventPayload,
@@ -25,7 +34,7 @@ from monitorul_ii.scraper import (
     daterange,
     scrape_day,
 )
-from monitorul_ii.uploader import S3Config, Uploader
+from monitorul_ii.uploader import S3Config, Uploader  # noqa: E402
 
 _FETCH_LABELS: dict[FileEvent, str] = {
     "skip": "skip ",

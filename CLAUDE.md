@@ -44,7 +44,7 @@ PDFs land directly in `<out>/<YYYY-MM-DD>_MO-P<part>-<num>-<year>.pdf` (no per-d
 
 `convert` produces `<basename>.md` next to each `<basename>.pdf` via `pymupdf4llm.to_markdown` plus an MO-specific cleanup pass (strips per-page `MONITORUL OFICIAL...` running headers, image placeholders, standalone page numbers; joins hyphenated word breaks; collapses extra blank lines) and a YAML frontmatter prepend (`issue`, `year`, `part`, `published` from the filename; best-effort `chamber`, `session`, `session_date`, `legislature` parsed from the first ~5 KB of body — graceful fallback if any field can't be detected). Idempotent: skip when `.md` exists & non-empty; `--force` re-converts. MDs mirror to S3 with `Content-Type: text/markdown` (same bucket, flat key). The DB is *not* extended for MD state — filesystem + `head_object` cover idempotency.
 
-Conversion is parallelized via `ThreadPoolExecutor(-j N)`. PyMuPDF releases the GIL during PDF parsing so threads scale on multi-core. `pymupdf-layout` uses an ML model via onnxruntime which already auto-threads internally, so per-CLI throughput plateaus around `-j 8` even on a 20-core box (sequential 14 s/PDF → 8 s/PDF at `-j 8`). Events fire in completion order (not input order); the `on_event` callback runs in the calling thread, which keeps S3 uploads serialized without locks.
+Conversion is parallelized via `ThreadPoolExecutor(-j N)`. PyMuPDF releases the GIL during PDF parsing so threads scale on multi-core. `cli.py` sets `OMP_NUM_THREADS=1` + `ORT_INTRA_OP_NUM_THREADS=1` via `setdefault` *before* importing `pymupdf4llm`, otherwise the layout model's ORT session auto-spawns its own intra-op pool that fights the outer workers for cores (8 PDFs measured: 110 s default → 28.7 s with the env vars + `-j 8`, 3.8× speedup). Events fire in completion order (not input order); `on_event` runs in the calling thread to keep S3 uploads serialized without locks. Throughput plateaus around `-j 8` on the 20-core test box. **No GPU path** — `pymupdf-layout` hardcodes one of its two ORT sessions to `CPUExecutionProvider`, so `onnxruntime-gpu` would only accelerate half the work; not worth the ~3 GB install.
 
 (A `.ruff_cache` is present; no committed config, so ruff defaults apply.)
 
@@ -52,8 +52,17 @@ Conversion is parallelized via `ThreadPoolExecutor(-j N)`. PyMuPDF releases the 
 
 **If a code change breaks tests, fix the tests in the same change — don't leave a red suite.** When tests fail because the production code's contract changed (renamed paths, refactored APIs, removed helpers), update the tests to match the new contract; don't revert the code or skip the tests. Only treat a test failure as a real bug to fix in production code when the test is asserting still-intended behavior.
 
-**After meaningful feature changes, update `README.md` (user-facing) and `CLAUDE.md` (this file).**, and `docs/architecture.md` (deep dives).** "Meaningful" = a new CLI flag, a new behavior or default, a new module, a new external dependency, or anything a future user/agent would otherwise have to read the diff to discover.
-**Keep CLAUDE.md scannable** — push detailed mechanics into `docs/architecture.md` and link from here.
+**Document every new feature, in the same change. Non-negotiable.** A feature is shipped only when *all three* docs reflect it:
+
+- `README.md` — user-facing prose. Every CLI flag must be described in prose (not just shown in an example), including its semantics, default, and any non-obvious interaction with other flags or env vars. If you added a flag, search README to confirm its name appears in a sentence, not only inside a code fence.
+- `CLAUDE.md` (this file) — agent-facing scannable summary. The "Commands" section's CLI signature must include the new flag; the prose paragraph for the relevant subcommand must mention any new behavior, default, or dep.
+- `docs/architecture.md` — deep mechanics: *why* the flag exists, what tradeoffs it encodes, what was tried and rejected, measured numbers if relevant.
+
+"Meaningful" = a new CLI flag, a new behavior or default, a new module, a new external dependency, a new env-var the CLI reads or sets, a new failure mode, or anything a future user/agent would otherwise have to read the diff to discover. Touching `pyproject.toml` `[project.dependencies]` always counts.
+
+**Keep CLAUDE.md scannable** — push detailed mechanics into `docs/architecture.md` and link from here. CLAUDE.md is the index; architecture.md is the manual.
+
+**Self-check before reporting the task complete:** for each new flag, run `grep -n '<flag-name>' README.md CLAUDE.md docs/architecture.md` and confirm hits in all three. If not, write the missing doc *now*, not "as a follow-up".
 
 ## uv-on-snap quirk
 
