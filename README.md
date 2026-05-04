@@ -10,7 +10,7 @@ uv sync
 
 ## Usage
 
-Two subcommands: `fetch` (download PDFs) and `convert` (PDF → markdown).
+Three subcommands: `fetch` (download PDFs), `convert` (PDF → markdown), and `classify` (type-detect MDs into the extraction-schema buckets).
 
 ### `fetch`
 
@@ -77,6 +77,26 @@ Each `<basename>.pdf` produces `<basename>.md` next to it. The MD opens with a Y
 `--reverse` flips the processing order. PDF filenames are date-prefixed (`<YYYY-MM-DD>_MO-PII-...pdf`), so reversing the sorted list walks newest→oldest — same semantics as `fetch --reverse`. Useful for backfills where a Ctrl+C should leave you with the recent stretch already converted.
 
 When the S3 vars are set, MDs mirror to the same bucket alongside the PDFs (flat layout, `Content-Type: text/markdown`). Idempotent in the same way as `fetch`: skip if the local `.md` exists, `head_object` before each upload.
+
+### `classify`
+
+Step 1 of the extraction pipeline (see [`docs/extraction-schema.md`](docs/extraction-schema.md)) — sweep MDs and tag each with one of the six document-type buckets defined by the schema (`plenary_stenogram`, `plenary_joint_session`, `committee_synthesis`, `report_facsimile`, `question_register`, `other`). Pure regex over the filename suffix + first 10 KB of body; runs over thousands of docs in seconds.
+
+```sh
+# classify everything; one JSONL row per doc to stdout, summary counts to stderr
+uv run monitorul-ii classify pdfs/
+
+# only emit docs that need human review (other-bucket + ambiguous classifications)
+uv run monitorul-ii classify pdfs/ --outliers
+
+# tighten the ambiguity threshold (default 0.2)
+uv run monitorul-ii classify pdfs/ --outliers --ambiguity-threshold 0.05
+
+# walk newest→oldest like the other subcommands
+uv run monitorul-ii classify pdfs/ --reverse
+```
+
+Each row carries `top_type`, `top_score`, `second_type`, `second_score`, an `ambiguous` flag, the full `all_scores` map, and the list of `matched_signals` (which detection rules fired). `--outliers` filters to docs that classified as `other` *or* flagged `ambiguous` — those are the unknown unknowns the schema-discovery loop wants to inspect. Structural co-evidence (a joint session also matches the plenary-stenogram marker; an `R`-suffix report carries the joint-session marker from where it was received) is **not** counted as ambiguity — those are enriching signals, suppressed via a small compatible-runners-up rule. On the current 2300+ doc corpus the sweep produces zero `other` and zero ambiguous results.
 
 ## Progress and interrupts
 
@@ -149,6 +169,7 @@ Layout:
 |---|---|
 | `src/monitorul_ii/scraper.py` | Pure functions: `fetch_index`, `parse_issues`, `download_pdf`, `scrape_day`, `_with_retry`. No CLI concerns. |
 | `src/monitorul_ii/converter.py` | Pure functions: `convert_pdf`, `convert_all`, `clean_markdown`, `enrich_meta`. Wraps `pymupdf4llm`. |
+| `src/monitorul_ii/classifier.py` | Pure functions: `classify`, `classify_file`, `parse_issue_suffix`, `collect_mds`. Type detector — step 1 of the extraction pipeline. |
 | `src/monitorul_ii/uploader.py` | `S3Config.from_env()` + `Uploader` (boto3, S3-compatible incl. R2). |
 | `src/monitorul_ii/db.py` | `DB` — thin SQLite wrapper over `days` + `issues` tables; owns the resume-gate logic. |
 | `src/monitorul_ii/cli.py` | argparse, exit codes, the live progress bar / heartbeat, the upload→DB write path. |

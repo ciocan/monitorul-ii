@@ -11,6 +11,7 @@ os.environ.setdefault("OMP_NUM_THREADS", "1")
 os.environ.setdefault("ORT_INTRA_OP_NUM_THREADS", "1")
 
 import argparse  # noqa: E402
+import json  # noqa: E402
 import sys  # noqa: E402
 import time  # noqa: E402
 from dataclasses import replace  # noqa: E402
@@ -19,6 +20,10 @@ from pathlib import Path  # noqa: E402
 
 from dotenv import load_dotenv  # noqa: E402
 
+from monitorul_ii.classifier import (  # noqa: E402
+    classify_file,
+    collect_mds,
+)
 from monitorul_ii.converter import (  # noqa: E402
     ConvertEvent,
     ConvertEventPayload,
@@ -189,6 +194,43 @@ def _build_parser() -> argparse.ArgumentParser:
     )
     _add_s3_args(convert)
     convert.set_defaults(func=cmd_convert)
+
+    classify = sub.add_parser(
+        "classify",
+        help="Classify converted MDs by document type (step 1 of extraction).",
+        description=(
+            "Run the v1.3.0 type detector over one or more MD files or "
+            "directories and emit one JSONL row per file to stdout. The "
+            "load-bearing output is `--outliers`, which filters to the docs "
+            "that fell into `other` or that match multiple types ambiguously "
+            "— those are the unknown unknowns the schema discovery loop "
+            "wants to inspect."
+        ),
+    )
+    classify.add_argument(
+        "paths",
+        nargs="+",
+        type=Path,
+        help="MD files or directories containing MDs (non-recursive).",
+    )
+    classify.add_argument(
+        "--outliers",
+        action="store_true",
+        help="Only emit rows that classified as `other` or are ambiguous (top-vs-second margin below --ambiguity-threshold).",
+    )
+    classify.add_argument(
+        "--ambiguity-threshold",
+        type=float,
+        default=0.2,
+        metavar="MARGIN",
+        help="Ambiguity threshold: doc is flagged ambiguous when top_score - second_score < MARGIN (default: 0.2).",
+    )
+    classify.add_argument(
+        "--reverse",
+        action="store_true",
+        help="Process MDs in reverse order (newest→oldest).",
+    )
+    classify.set_defaults(func=cmd_classify)
 
     return p
 
@@ -640,6 +682,61 @@ def cmd_convert(args: argparse.Namespace) -> int:
 
     print(_convert_summary_line(counters))
     return 1 if counters["errors"] or counters["upload_errors"] else 0
+
+
+def cmd_classify(args: argparse.Namespace) -> int:
+    mds = collect_mds(list(args.paths), reverse=args.reverse)
+    if not mds:
+        print("no MDs found", file=sys.stderr)
+        return 0
+
+    counters: dict[str, int] = {}
+    ambiguous = 0
+    emitted = 0
+    threshold = args.ambiguity_threshold
+
+    for md in mds:
+        try:
+            result = classify_file(md)
+        except Exception as exc:
+            print(f"  ERR  {md}  ({exc})", file=sys.stderr)
+            counters["error"] = counters.get("error", 0) + 1
+            continue
+
+        is_amb = result.is_ambiguous(threshold)
+        is_other = result.top_type == "other"
+        counters[result.top_type] = counters.get(result.top_type, 0) + 1
+        if is_amb:
+            ambiguous += 1
+
+        if args.outliers and not (is_other or is_amb):
+            continue
+
+        row = {
+            "file": str(md),
+            "top_type": result.top_type,
+            "top_score": result.top_score,
+            "second_type": result.second_type,
+            "second_score": result.second_score,
+            "ambiguous": is_amb,
+            "all_scores": result.all_scores,
+            "matched_signals": result.matched_signals,
+        }
+        print(json.dumps(row, ensure_ascii=False))
+        emitted += 1
+
+    print(f"classified {len(mds)} docs:", file=sys.stderr)
+    for t in sorted(counters, key=lambda k: -counters[k]):
+        print(f"  {t:25s} {counters[t]:>5}", file=sys.stderr)
+    if ambiguous:
+        print(
+            f"  ambiguous (margin < {threshold}): {ambiguous}",
+            file=sys.stderr,
+        )
+    if args.outliers:
+        print(f"  emitted (outliers only): {emitted}", file=sys.stderr)
+
+    return 0
 
 
 def main(argv: list[str] | None = None) -> int:

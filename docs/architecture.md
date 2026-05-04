@@ -451,6 +451,52 @@ A `ProcessPoolExecutor` would push further by giving each process its own ORT po
 
 Not currently. `pymupdf-layout` runs two ORT inference sessions per PDF: the main `session` honors the default provider list (would use CUDA if `onnxruntime-gpu` were installed), but the `feature_extractor` is **hardcoded** to `providers=['CPUExecutionProvider']` in `pymupdf/layout/onnx/BoxRFDGNN.py:221`. So even installing `onnxruntime-gpu` (~3 GB, plus a CUDA 12.x runtime) would only accelerate one of the two inference calls. With layout-model work already reduced to ~3 s/PDF on an 8-thread CPU pool, the marginal GPU win on the bigger of the two sessions wouldn't justify the install weight or the GPU-as-hard-dep on this tool. Revisit if `pymupdf-layout` ever exposes an execution-providers knob.
 
+## Type detector — `monitorul-ii classify`
+
+Step 1 of the extraction pipeline. Sweeps every converted MD and tags it with one of the six document types from `docs/extraction-schema.md` (`plenary_stenogram | plenary_joint_session | committee_synthesis | report_facsimile | question_register | other`). Implemented as `src/monitorul_ii/classifier.py`: pure regex, pure functions, no I/O outside `classify_file` reading the front of one MD.
+
+```
+CLI (cli.py: cmd_classify)
+  ├─ collect_mds(paths, reverse)        # mirrors collect_pdfs but for *.md
+  └─ for each md:
+       ├─ classify_file(md):
+       │    ├─ open and read first HEADER_WINDOW_BYTES (10_000) of body
+       │    ├─ parse_issue_suffix(filename)        # 'c', 'R', 'Bis', or ''
+       │    └─ classify(text, suffix) → ClassifyResult
+       └─ emit JSONL row → stdout
+       (--outliers filter drops confidently-classified rows)
+```
+
+### Why pure regex (not ML, not LLM)
+
+The detection rules fit on one page (`docs/extraction-schema.md` build order step 1) and the publisher (Romanian state press) is mechanically consistent about the markers — issue-number suffixes for committee/report genres, parenthesized header markers for plenary/question-register/joint genres. ML buys nothing on a problem this regular and costs replayability: a regex misclassification can be pinned to a single line of code and a single sample. We measured this empirically — the v1.3.0 ruleset sweeps 2300+ docs in <2 s and lands every document into a typed bucket with **zero `other` and zero residual ambiguous classifications** (after the structural-compatibility fix below).
+
+### Score-and-rank instead of priority-pick
+
+Each rule that fires *adds* score evidence rather than short-circuiting. The result carries `top_type`, `top_score`, `second_type`, `second_score`, the full `all_scores` map, and the list of `matched_signals` (which detection rules fired). Two reasons:
+
+- **Audit trail.** A classification of `report_facsimile` from the `R` suffix that *also* sees `(RAPOARTE DE ACTIVITATE)` and `ȘEDINȚE COMUNE` markers tells you the report was reproduced verbatim and was received in a joint session — useful downstream signal that priority-pick would discard.
+- **Ambiguity surfacing.** Without all-rules-evaluated, you can't tell apart "decisive" from "I happened to hit one rule first" classifications.
+
+Suffix rules score `1.0` (deterministic from the filename); body markers score `0.85–0.95` (still very high — these are unambiguous header phrases — but leave room below the suffix to express confidence ranking). The `DEZBATERI PARLAMENTARE` marker alone scores `0.65` because it appears on both plenary stenograms *and* question-register documents, so it can't decide between them on its own.
+
+### Structural co-evidence ≠ ambiguity
+
+`is_ambiguous(threshold)` returns `True` when `top_score - second_score < threshold` — *unless* the runner-up is structurally implied by the winner. Two pairs are encoded in `_COMPATIBLE_RUNNERS_UP`:
+
+- `plenary_joint_session` ⊃ `plenary_stenogram` — joint sessions are stenograms; the `(STENOGRAMA)` marker firing alongside `ȘEDINȚE COMUNE …` is co-evidence, not classification doubt.
+- `report_facsimile` ⊃ `{plenary_joint_session, plenary_stenogram}` — `R`-suffix reports are received in a (typically joint) session whose markers will also fire.
+
+Without this rule the corpus had 259 "ambiguous" docs that were nothing of the sort — every joint session showed up in the outliers list because joint-session = 0.95 and stenogram-co-evidence = 0.85 fall inside a 0.2 default threshold. With the rule, the outliers filter is precise: it surfaces only docs that genuinely don't classify cleanly.
+
+### `SINTEZA LUCRĂRILOR COMISIILOR` body-marker fallback
+
+Most committee syntheses are detected by their `c` issue suffix (decisive, score `1.0`). One historical doc (`2017-06-27_MO-PII-19-2017.md`) is published as `Nr. 19/C` in the body but the URL routed it under bare `19` upstream, so the suffix was lost. The body-marker rule (`SINTEZA LUCRĂRILOR COMISI[I/EI]…` at score `0.9`) is the safety net that catches this case — and any future upstream metadata drift of the same shape. The score is just below the suffix `1.0` because the suffix is canonical when present; both are well above the 0.0 threshold so either alone classifies confidently.
+
+### Reading window
+
+`HEADER_WINDOW_BYTES = 10_000`. Markers always live in the front matter / first heading block; reading more burns I/O for no win. `errors='replace'` on the read so a corrupted older PDF (CP1250→Latin1 mojibake, e.g. `2014-01-21_MO-PII-3R-2014.md`) doesn't blow up the sweep — those still classify on the suffix.
+
 ## Testing
 
 Suite lives in `tests/`, mirrors `src/monitorul_ii/`, and ships ~130 unit tests that run in well under a second. Run with `uv run pytest`. The deliberate choices:
