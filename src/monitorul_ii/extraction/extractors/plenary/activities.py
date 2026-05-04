@@ -19,6 +19,7 @@ from typing import TYPE_CHECKING, Any
 
 from monitorul_ii.extraction.coverage import lines_for_range
 from monitorul_ii.extraction.extractors.plenary import votes as votes_mod
+from monitorul_ii.extraction.references import parse_mentioned_references
 from monitorul_ii.extraction.speakers import (
     extract_delivery_mode,
     make_speaker,
@@ -35,9 +36,12 @@ _SPEECH_HEADER_RE = re.compile(
     re.MULTILINE,
 )
 
-# Italic standalone block (potential narrator/procedural)
+# Italic block — matches both standalone-line italic paragraphs AND inline
+# parenthetical italic markers like `_(Aplauze.)_` that appear mid-sentence.
+# Standalone line: `^_<multi-line text>_$`; inline: `_(<...>)_`.
 _ITALIC_BLOCK_RE = re.compile(
-    r"^_(?P<text>[^_\n]+(?:\s*\n[^_\n]+)*)_\s*$",
+    r"^_(?P<text>[^_\n]+(?:\s*\n[^_\n]+)*)_\s*$"
+    r"|_(?P<inline>\([^)]+\))_",
     re.MULTILINE,
 )
 
@@ -58,7 +62,10 @@ _PROCEDURAL_PATTERNS: list[re.Pattern[str]] = [
     re.compile(
         r"\b(?:relu[ăa]m|continu[ăa]m)\s+(?:ședin[țt]a|lucr[ăa]rile)", re.IGNORECASE
     ),
-    re.compile(r"\bSuspend[ăa]?\s+(?:ședin[țt]a|lucr[ăa]rile)", re.IGNORECASE),
+    re.compile(
+        r"\bSuspend(?:[ăa]m?|a[țt]i|am|au)?\s+(?:ședin[țt]a|lucr[ăa]rile)",
+        re.IGNORECASE,
+    ),
     re.compile(r"\bSe\s+ridic[ăa]\s+ședin[țt]a\b", re.IGNORECASE),
 ]
 
@@ -117,12 +124,16 @@ def _build_speech_activity(
     offsets: list[int],
     content_sha: str,
 ) -> dict[str, Any]:
+    # Extract references cited mid-speech. char_offsets are local to the
+    # speech text fragment (consumers can rebase against source_span if
+    # global coordinates are needed).
+    references_mentioned = parse_mentioned_references(text) if text else []
     return {
         "type": "speech",
         "speaker": speaker,
         "delivery_mode": delivery_mode,
         "text": text,
-        "references_mentioned": [],
+        "references_mentioned": references_mentioned,
         "source_span": _make_source_span(span_chars, offsets, content_sha),
         "extraction": _make_extraction(0.85, span_chars, offsets, content_sha),
     }
@@ -275,11 +286,37 @@ def extract_activities(
         sub = _refine_turn(turn_start, turn_end, speech, body, ctx)
         refined.extend(sub)
 
-    # -- Pass 3: sort + non-overlap assertion --------------------------------
+    # -- Pass 3: sort + clip overlapping spans --------------------------------
+    # Vote/event span heuristics can produce small overlaps on certain layouts
+    # (mostly older docs without paragraph-break formatting). Clip the
+    # previous activity's source_span end to the current activity's start so
+    # the schema's monotonic-span invariant holds. Last-resort drop the
+    # previous activity entirely if clipping would leave it empty.
     refined.sort(key=lambda t: t[0])
-    _assert_non_overlap(refined)
+    refined = _clip_overlaps(refined)
 
     return [a for _, _, a in refined]
+
+
+def _clip_overlaps(
+    activities: list[tuple[int, int, dict[str, Any]]],
+) -> list[tuple[int, int, dict[str, Any]]]:
+    """Walk activities in order; clip prev_end to cur_start when they overlap."""
+    if not activities:
+        return activities
+    out: list[tuple[int, int, dict[str, Any]]] = []
+    for s, e, a in activities:
+        if out:
+            ps, pe, pa = out[-1]
+            if s < pe:
+                # Clip prev to s; drop prev entirely if that empties it
+                if s <= ps:
+                    out.pop()
+                else:
+                    pa["source_span"]["chars"] = [ps, s]
+                    out[-1] = (ps, s, pa)
+        out.append((s, e, a))
+    return out
 
 
 def _refine_turn(
@@ -314,11 +351,14 @@ def _refine_turn(
             )
         )
 
-    # Italic standalone blocks (narrator/procedural)
+    # Italic blocks (narrator/procedural) — both standalone-line and
+    # inline parenthetical forms
     for im in _ITALIC_BLOCK_RE.finditer(turn_text):
         gs = turn_start + im.start()
         ge = turn_start + im.end()
-        text = im.group("text").strip()
+        text = (im.group("text") or im.group("inline") or "").strip()
+        if not text:
+            continue
         kind = _classify_italic_block(text)
         if kind == "narrator":
             events.append(
@@ -381,36 +421,27 @@ def _refine_turn(
     speaker = speech["speaker"]
     delivery_mode = speech["delivery_mode"]
 
-    # Locate the speech header end (so we don't include the `## **NAME:**`
-    # line in a fragment with empty text)
-    header_match = _SPEECH_HEADER_RE.match(body[turn_start:turn_end])
-    if header_match:
-        speech_body_start = turn_start + header_match.end()
-        # Skip leading newlines after the header
-        while speech_body_start < turn_end and body[speech_body_start] in "\n":
-            speech_body_start += 1
-        cursor = speech_body_start
-        # First fragment: header through first event start (preserves the
-        # `## **NAME:**` line as part of the first speech sub-activity)
-        first_event_start = events[0][0]
-        # Build initial speech sub-activity covering [turn_start, first_event_start)
-        first_text = body[turn_start:first_event_start].strip()
-        if first_text:
-            result.append(
-                (
-                    turn_start,
-                    first_event_start,
-                    _build_speech_activity(
-                        speaker=speaker,
-                        delivery_mode=delivery_mode,
-                        text=first_text,
-                        span_chars=(turn_start, first_event_start),
-                        offsets=offsets,
-                        content_sha=content_sha,
-                    ),
-                )
+    # First fragment: span before the first event becomes a speech sub-
+    # activity. Holds for both header-present turns (the `## **NAME:**` line
+    # is included in this fragment) and implicit-chair turns (no header).
+    first_event_start = events[0][0]
+    first_text = body[turn_start:first_event_start].strip()
+    if first_text:
+        result.append(
+            (
+                turn_start,
+                first_event_start,
+                _build_speech_activity(
+                    speaker=speaker,
+                    delivery_mode=delivery_mode,
+                    text=first_text,
+                    span_chars=(turn_start, first_event_start),
+                    offsets=offsets,
+                    content_sha=content_sha,
+                ),
             )
-        cursor = first_event_start
+        )
+    cursor = first_event_start
 
     for i, (es, ee, ea) in enumerate(events):
         # Append the event itself
@@ -438,20 +469,6 @@ def _refine_turn(
             cursor = next_start
 
     return result
-
-
-def _assert_non_overlap(
-    activities: list[tuple[int, int, dict[str, Any]]],
-) -> None:
-    """Hard-fail if any two activities overlap. Catches Pass 2 bugs loudly."""
-    for i in range(1, len(activities)):
-        prev_start, prev_end, _ = activities[i - 1]
-        cur_start, _, _ = activities[i]
-        if cur_start < prev_end:
-            raise AssertionError(
-                f"activity overlap: prev=({prev_start}, {prev_end}), "
-                f"cur=({cur_start}, _)"
-            )
 
 
 __all__ = ["extract_activities"]

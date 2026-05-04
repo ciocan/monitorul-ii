@@ -582,13 +582,68 @@ Symmetric with `convert` — sidecar's own envelope is the source of truth. Addi
 
 The contract is small:
 
-1. Author `src/monitorul_ii/extraction/extractors/<type>.py` with `extract(ctx) → tuple[BodyDict, list[Claim]]` and an `EXTRACTOR_VERSION = "0.1.0"` constant.
+1. Author `src/monitorul_ii/extraction/extractors/<type>.py` with `extract(ctx) → tuple[BodyDict, list[Claim]]` and an `EXTRACTOR_VERSION = "0.1.0"` constant. (For larger extractors, use a sub-subpackage `extractors/<type>/` with sibling modules per concern — see `extractors/plenary/` for the canonical example.)
 2. Register it in `extractors/__init__.py` (`EXTRACTORS[type] = module.extract` + `EXTRACTOR_VERSIONS[type] = module.EXTRACTOR_VERSION`).
 3. Tighten the corresponding `$defs/<TypeBody>` in `extraction_schema.json` from `additionalProperties: true` to the strict shape.
-4. Bump `schema_version` in both the JSON file and `pipeline.py` if the body shape introduces new keys outside what v1.5.0 already documents.
+4. Bump `schema_version` in both the JSON file and `pipeline.py` if the body shape introduces new keys outside what v1.6.0 already documents.
 5. Add fixtures + golden + targeted unit tests under `tests/extraction/`.
 
 The dispatcher picks it up automatically — no changes to `cli.py`, the progress bar, the upload tier, or the version-aware idempotency gate.
+
+## Extract pipeline — plenary types (`plenary_stenogram`, `plenary_joint_session`)
+
+v0.1 ships both plenary types together. Single-chamber plenary covers ~2240 docs (the bulk of the queryable corpus); joint sessions are ~50 docs but structurally distinct (two chairs, parallel bill codes). Per the Q12 design lock, they share machinery via composition: `extractors/plenary/__init__.py` is the orchestrator for `plenary_stenogram`; `extractors/plenary_joint_session.py` is a thin wrapper that calls into the same sub-extractors and augments `session.chambers_present`.
+
+### Module split
+
+Six modules under `extractors/plenary/`:
+
+- **`session.py`** — owns the body's pre-first-speaker span (chair narrative italic block, `Ședința a început` italic line, attendance announce, format markers) and the body suffix (closing phrase → `outcome`, `Ședința s-a încheiat la HH:MM` → `closed_at`). Also claims SUMAR table + `(STENOGRAMA)` marker as plenary-specific boilerplate. Multi-segment chair narratives are detected via `în prima parte` / `Ultima parte` markers; chairs and secretaries are dedup'd across segments. Format detection includes pre-2020 `in_person` default for docs without explicit markers (pandemic-era added the marker universally — see schema § X3-2). Special_procedure detection runs over the body header for explicit markers (`Ședință solemnă consacrată` → `sedinta_solemna`, etc.); v0.1 does not yet derive it from agenda category combinations.
+- **`agenda.py`** — 28-category rule table (`_CATEGORY_RULES`) with weighted resolution: specific patterns (oath_taking, government_hour, foreign_address, etc.) carry weight 1.0; generic `bill_debate` baseline carries weight 0.5 so it loses ties to specifics. Multi-match returns runners-up within 0.2 of the winner for confidence-encoding. Category-conditional sub-fields: `confidence_type ∈ {învestitură, cenzură, angajare_răspundere, demitere}` for `government_confidence`; `requested_by_group` for `government_hour`; `reexamination_reason` for any title containing `reexaminare`. SUMAR-driven enumeration via three patterns: (1) `<br>`-separated cells inside one big table cell (modern docs), (2) per-item `|N.|...|page|` rows (multi-table SUMARs), (3) plain `N. Title ........ page` lines (older docs). Body-scan fallback for docs without SUMAR. The partition tail-extension lifts the last SUMAR-marked entry's end to `agenda_end` so unmatched ordinals at the body tail are absorbed (covers SUMAR-parser misses on long agendas).
+- **`votes.py`** — 5-stage state machine (open / result / outcome / deferral / quorum). Vote-open patterns: `Supun votului`, `Vă rog să vă pregătiți de vot`, `Să înceapă votul`, `Trecem la vot`, `Vă rog să votați`. Result patterns parse counts per field (`for | for_unanimous | against | abstain | not_voting`); accept Romanian decimal-thousands notation (`1.234`). Window upper bound is the next `## **` speaker header — NOT the next vote-open phrase, because chair sequences like "Supun votului... Să înceapă votul... result" use multiple open-style phrases as part of one event (bounding by next-open would cut the window before the result line). Vote `actual_end` caps at the next newline after the result line — never swallows trailing italic narrators or next-paragraph chair narration. Motion type detector: 8 enum values; `system_check` filter for hardware tests (per v1.3.0 P3-1 finding). Voting method: 7 enum values; null when chair doesn't restate. Unanimous-literal handling: `counts.for = "unanimous"` (string) when chair says only `Mulțumesc` or `Cu unanimitate de voturi` — preserves the protocol verbatim per schema § 8 line 211.
+- **`activities.py`** — 2-pass partitioner per Q6 design. Pass 1 splits by `## **NAME:**` speaker headers into turns. Pass 2 within each turn finds embedded events (votes via `votes.detect_votes`, italic blocks discriminated as narrator vs procedural by content patterns, bare deferral phrases not paired with a vote-open) and splits the speech around them, producing speech sub-activities + interleaved event activities. Pass 3 sorts by `source_span.chars[0]` and hard-asserts non-overlap (catches Pass 2 bugs loudly). Implicit-chair speech wrap when no headers present (final_vote_batch items get a `<chair narration>` speaker placeholder). Speech sub-activities populate `references_mentioned[]` via `parse_mentioned_references` on each fragment text. Italic block regex matches both standalone-line `_text_$` and inline parenthetical `_(Aplauze.)_` forms.
+- **`interpellations.py`** — `find_interpellation_block` scans for 6 transition phrases (`trecem la primirea răspunsurilor la interpelări`, `începem ora interpelărilor`, etc.); earliest match wins. Block ends at EOF (no observed case of agenda content following). Per-interpellation parser uses the same `## **<inner>:**` header pattern as activities; default `genre=interpelare` (more procedural / formal); flips to `întrebare` only when the questioner block strongly hints at oral-question form. `addressed_to` extracted from `adresat[ă] doamnei/domnului ROLE` or `Ministerului X` patterns; v0.1 leaves `addressed_to_normalized` null (deferred to ministry registry per schema § 8 line 231). `interpellation_number` reuses qr's `Nr. N(.NNN)?[A-Z]?` regex (last match wins). `response_deferred=True` when `(în scris)` notation present. `response` and `question_text` are null in v0.1 (responder-block parsing deferred).
+- **`boilerplate.py`** — plenary-specific patterns: bold-only PARTEA banner (when MD lacks `#` prefix), joint-session `ȘEDINȚE COMUNE...` header line, SUMAR keyword, `Doamnelor și domnilor [deputați și senatori]` chair-address opener. Kept separate from shared `extraction/boilerplate.py` so its bumps only invalidate plenary sidecars (not qr / committee / report sidecars).
+
+### Composition over inheritance for joint session
+
+`extractors/plenary_joint_session.py` is ~30 LOC: detect `chambers_present` via `_JOINT_HEADER_RE`, reuse `session.extract_session` / `agenda.extract_agenda` / `interpellations.extract_interpellations` from `plenary/`, augment the session dict with `chambers_present`, return the joint-shape body. Schema discriminator at the top-level `oneOf` routes the body to `PlenaryJointSessionBody` ($defs/plenary; the only field difference from `PlenaryStenogramBody` is `session.chambers_present: array of string`).
+
+### Coverage targets and measurement
+
+Per Q9: **discovery margin 0.85** (CLI default for `--coverage-below`), **test fixture floor 0.80** (suite asserts ≥0.80 per fixture), **mean target 0.90 documented (ungated)**. No per-doc production gate — coverage stays diagnostic per the existing pipeline contract. Median + p10 are the more useful diagnostic than mean (mean is dragged by catastrophic outliers). Five hand-picked fixtures span:
+
+| Fixture | Type | Coverage |
+|---|---|---|
+| `2025-10-13_MO-PII-117-2025.md` (multi-segment chairs, joint, 19-item SUMAR) | `plenary_joint_session` | 0.988 |
+| `2024-04-22_MO-PII-53-2024.md` (single chair, modern Camera) | `plenary_stenogram` | 0.894 |
+| `2025-11-28_MO-PII-150-2025.md` (modern Senat) | `plenary_stenogram` | 0.996 |
+| `2017-01-12_MO-PII-6-2017.md` (mid-corpus, post-PHCD adoption, pre-pandemic) | `plenary_stenogram` | 0.995 |
+| `2013-01-30_MO-PII-1-2013.md` (older joint, no modern PHCD) | `plenary_joint_session` | 0.9999 |
+
+Smoke on 15 recent 2025-12 plenary samples: 12 of 15 extracted (other 3 classified as different types), all 12 schema-valid; mean coverage 0.81, median 0.997. Outliers (~20% of corpus below 0.85) are discovery-loop work for v0.2 — different layout patterns my regex packs don't yet recognise.
+
+### Helper graduations at v0.1
+
+| Helper | Pre-v0.1 | v0.1 ship | Why |
+|---|---|---|---|
+| `boilerplate` | 0.1.0 | 0.1.0 | Plenary boilerplate stayed in `extractors/plenary/`, not hoisted |
+| `coverage` | 0.1.0 | 0.1.0 | No changes needed |
+| `references` | 0.1.0 (stub) | **0.2.0** | 6 strict variants (bill, law, oug, og, chamber_resolution, parliamentary_resolution) + `unknown` catch-all. 6 long-tail variants (motion, court_decision, constitution, regulation, eu_doc, treaty) deferred to v0.2+ |
+| `speakers` | 0.1.0 | **0.2.0** | Adds shared primitives (HONORIFIC_RE, PARLIAMENTARY_TITLE_RE, extract_delivery_mode, parse_honorific_speaker) — used by plenary's per-form parsers; qr's `parse_questioner` is unchanged |
+| `topics` | (new key) | **0.1.0** | 15 canonical primary topics aligned with parliamentary committees; title-scoped detection only; secondary topics deferred to v0.2 LLM pass |
+| `plenary_stenogram` | (new key) | **0.1.0** | First per-type ship |
+| `plenary_joint_session` | (new key) | **0.1.0** | First per-type ship |
+
+The flat `_shared_helper_versions()` contract (Q11) means qr sidecars re-extract on first plenary run because their cached `extractor_versions` no longer matches (added `topics` key, bumped `references` and `speakers`). Acceptable cost (~2.5s for 53 qr docs) per the conservative-by-design version-keying contract — over-invalidate on helper-output-shape changes rather than risk stale sidecars when a static dependency declaration drifts.
+
+### Schema deltas at v1.6.0
+
+Strict body shapes for `plenary_stenogram` and `plenary_joint_session` replaced the v1.5.0 `PendingBody` placeholders. New `$defs`: `Reference` (oneOf 7 variants — bill, law, oug, og, chamber_resolution, parliamentary_resolution, unknown), `VoteCounts` (with `for: oneOf [int, "unanimous", null]`), `Topics`, `Attendance`, `ChairSegment`, `PlenarySession`, `PlenaryJointSession` (extends with `chambers_present`), `Activity` (oneOf 5 variants — speech, vote, procedural, narrator, deferral), `Interpellation`, `AgendaItem` (with `category` enum extended by `"other"`), `PlenaryStenogramBody`, `PlenaryJointSessionBody`. `committee_synthesis` and `report_facsimile` continue as `PendingBody` until their extractors land.
+
+### What's deferred to v0.2+
+
+Backfill-registry-dependent fields (always null in v0.1): `Speaker.person_id` (person registry), `QuestionAddressee.ministry_normalized` and `Interpellation.addressed_to_normalized` (ministry registry), `Vote.proposed_by` (bill-sponsor registry), `Vote.nominal_breakdown` (parlament.ro per-MP voting feed), `bill.subject` / `law.subject` / `parliamentary_resolution.subject` (best-effort context labels). Schema-modeled but stubbed: 6 long-tail reference variants, `topics.secondary` (LLM pass), per-topic `extraction` provenance block. Interpellation `response` and `question_text` parsing deferred. Cross-document `defers_to` / `resolves` linker for tying cross-session deferrals to their resolving final-vote document.
 
 ## Testing
 

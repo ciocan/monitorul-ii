@@ -297,15 +297,18 @@ def _find_next_vote_open(body: str, start: int) -> re.Match[str] | None:
     return best
 
 
-def _next_speaker_or_open(body: str, start: int) -> int:
-    """Find the next `## **NAME:**` speaker header or vote-open boundary."""
+def _next_speaker_boundary(body: str, start: int) -> int:
+    """Find the next `## **NAME:**` speaker header (vote window upper bound).
+
+    Vote-open phrases are NOT used as boundaries — chair sequences like
+    `Supun votului... Să înceapă votul!... result` use multiple open-style
+    phrases as part of one vote event. Bounding by next-open would cut the
+    window before the result line. Speaker change is the unambiguous
+    boundary.
+    """
     speaker_re = re.compile(r"^##\s+\*\*", re.MULTILINE)
     sm = speaker_re.search(body, start)
-    om = _find_next_vote_open(body, start)
-    candidates = [m.start() for m in (sm, om) if m is not None]
-    if not candidates:
-        return len(body)
-    return min(candidates)
+    return sm.start() if sm else len(body)
 
 
 def _extract_announce_text(body: str, vote_open_start: int) -> str:
@@ -346,18 +349,38 @@ def detect_votes(
         if open_match is None:
             break
 
-        # Look-ahead window: until next speaker header, next vote-open, or
-        # 30 lines later — whichever comes first
-        window_end = _next_speaker_or_open(span_text, open_match.end())
-        # Cap at 2000 chars to avoid runaway windows
-        window_end = min(window_end, open_match.end() + 2000)
+        # Look-ahead window: until next speaker header, OR the next vote-open
+        # phrase that follows a result-line / paragraph break (so back-to-back
+        # votes stay separate), OR a 2000-char cap.
+        speaker_boundary = _next_speaker_boundary(span_text, open_match.end())
+        window_end = min(speaker_boundary, open_match.end() + 2000)
         window = span_text[open_match.end() : window_end]
+        # If we find a result line followed by another vote-open, end the
+        # window after the result so the next vote is detected separately.
+        for _key, pat in _RESULT_PATTERNS.items():
+            rm = pat.search(window)
+            if rm:
+                next_open = _find_next_vote_open(span_text, open_match.end() + rm.end())
+                if next_open and next_open.start() < window_end:
+                    window_end = min(window_end, next_open.start())
+                    window = span_text[open_match.end() : window_end]
+                break
 
         # Announce text (chair's sentence preceding the open)
         announce_text = _extract_announce_text(span_text, open_match.start())
-        # Build motion_text from the open phrase + a slice of context
+        # Build motion_text from the open phrase + the *rest* of the chair's
+        # motion sentence — extends from open_match.end through the next
+        # sentence-ending punctuation (`.` / `!` / `?`) or 300 chars.
+        sentence_end_re = re.compile(r"[.!?]")
+        sm = sentence_end_re.search(span_text, open_match.end())
+        sentence_end = (
+            sm.end()
+            if sm and sm.start() - open_match.end() < 300
+            else (open_match.end() + 300)
+        )
+        sentence_end = min(sentence_end, len(span_text))
         motion_text_chunk = span_text[
-            max(0, open_match.start() - 200) : open_match.end()
+            max(0, open_match.start() - 200) : sentence_end
         ].strip()
 
         # Resolution priority: numeric result > deferral > quorum failure
@@ -377,15 +400,20 @@ def detect_votes(
             # Live vote with numeric result
             outcome = detect_outcome_from_window(window, counts)
             timing = "live"
-            # Find actual result-line end (the result line + outcome qualifier)
-            # use last sub-match end as boundary
+            # Find actual result-line end (last sub-match within window)
             result_end = open_match.end()
             for key, pat in _RESULT_PATTERNS.items():
                 m = pat.search(window)
                 if m:
                     result_end = max(result_end, open_match.end() + m.end())
-            actual_end = result_end + 50  # padding for outcome qualifier
-            actual_end = min(actual_end, window_end)
+            # Extend through any trailing outcome qualifier ("Cu majoritate
+            # de voturi, ... a fost aprobat") on the SAME line; cap at next
+            # newline to avoid swallowing the next paragraph (italic
+            # narrator, next chair narration, etc.)
+            tail_end = span_text.find("\n", result_end)
+            if tail_end == -1:
+                tail_end = window_end
+            actual_end = min(tail_end, window_end)
         elif deferral_match is not None:
             counts = {
                 "for": None,

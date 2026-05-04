@@ -54,7 +54,7 @@ _CATEGORY_RULES: list[_CategoryRule] = [
     _CategoryRule(
         "government_confidence",
         re.compile(
-            r"vot\s+de\s+încredere|mo[țt]iune(?:a)?\s+de\s+cenzur[ăa]|"
+            r"vot\s+de\s+încredere|mo[țt]iun(?:e|ea|ii|ile|ilor)\s+de\s+cenzur[ăa]|"
             r"angajare(?:a)?\s+r[ăa]spunderii|investitur(?:a|ii)?\s+Guvernului|"
             r"învestire\s+a\s+Guvernului",
             re.IGNORECASE,
@@ -255,7 +255,10 @@ def detect_category(title: str) -> tuple[str, float, list[str]]:
 
 _CONFIDENCE_TYPE_RULES: list[tuple[str, re.Pattern[str]]] = [
     ("învestitură", re.compile(r"învestir|investitur", re.IGNORECASE)),
-    ("cenzură", re.compile(r"mo[țt]iun(?:e|ea)\s+de\s+cenzur[ăa]", re.IGNORECASE)),
+    (
+        "cenzură",
+        re.compile(r"mo[țt]iun(?:e|ea|ii|ile|ilor)\s+de\s+cenzur[ăa]", re.IGNORECASE),
+    ),
     (
         "angajare_răspundere",
         re.compile(r"angajare(?:a)?\s+r[ăa]spunderii", re.IGNORECASE),
@@ -272,12 +275,21 @@ def detect_confidence_type(title: str) -> str | None:
 
 
 _REQUESTED_BY_GROUP_RE = re.compile(
-    r"la\s+solicitarea\s+Grupului\s+parlamentar\s+al\s+(?P<group>[^,\n.]+)",
-    re.IGNORECASE,
+    r"la\s+solicitarea\s+Grupului\s+parlamentar\s+al\s+"
+    r"(?P<group>[A-ZȘȚÂÎĂ][\w\-+ăâîșțĂÂÎȘȚ]*"
+    r"(?:\s+(?:și|şi)\s+[A-ZȘȚÂÎĂ][\w\-+ăâîșțĂÂÎȘȚ]*)?)",
+    re.UNICODE,
 )
 
 
 def detect_requested_by_group(title: str) -> str | None:
+    """Extract the parliamentary group name from a `government_hour` title.
+
+    Group names are short acronyms (PNL, PSD, USR, AUR) or short conjunctive
+    forms ("USR și Forța Dreptei"). The regex deliberately doesn't capture
+    everything after the group name to avoid swallowing the trailing
+    "cu privire la X" clause.
+    """
     m = _REQUESTED_BY_GROUP_RE.search(title)
     if m:
         return m.group("group").strip()
@@ -360,6 +372,26 @@ _SUMAR_ITEM_RE = re.compile(
 )
 
 
+# Multi-table SUMAR variant — second-format rows render as
+# `|N.|Title spans multiple<br>lines|page|`. Each table is a markdown
+# table block; the data row starts with `|N.|` and content continues
+# across cell boundaries until the next `|N.|` row or end of span.
+_SUMAR_TABLE_ROW_RE = re.compile(
+    r"^\|\s*(?P<ord>\d{1,3})\.\s*\|(?P<body>(?:(?!^\|\s*\d{1,3}\.\s*\|).)+?)"
+    r"(?=^\|\s*\d{1,3}\.\s*\||\Z)",
+    re.MULTILINE | re.DOTALL,
+)
+
+
+# Plain-text body agenda marker — older docs sometimes have agenda items
+# rendered as `N. Title` lines without table wrapping. Used as a fallback
+# when neither SUMAR variant catches an entry.
+_SUMAR_PLAIN_LINE_RE = re.compile(
+    r"^(?P<ord>\d{1,3})\.\s+(?P<rest>[^\n]{20,400})\.{2,}\s*(?P<page>\d+(?:[–\-]\d+)?)?",
+    re.MULTILINE,
+)
+
+
 @dataclass
 class _SumarEntry:
     ordinal: int
@@ -382,42 +414,76 @@ def _parse_pages_chunk(s: str) -> list[int]:
     return sorted(out)
 
 
+def _clean_sumar_title(rest: str) -> tuple[str, list[int]]:
+    """Strip dot-leaders, `<br>`, table separators; pull pages out of tail."""
+    cleaned = re.sub(r"\.{3,}", "", rest)
+    cleaned = cleaned.replace("<br>", " ")
+    cleaned = cleaned.replace("|", " ")
+    cleaned = re.sub(r"\s{2,}", " ", cleaned).strip()
+    pages: list[int] = []
+    # Trailing page-range chunk inside `|...|`
+    page_match = re.search(r"\|\s*(?P<pages>[\d–\-;,\s]+)\s*\|?\s*$", rest)
+    if page_match:
+        pages = _parse_pages_chunk(page_match.group("pages"))
+    if not pages:
+        # Trailing "...100" or "...18-19; 23" pattern
+        trail_m = re.search(
+            r"(?P<pages>\b\d{1,4}(?:[–\-]\d{1,4})?(?:\s*;\s*\d{1,4})*\b)\s*$",
+            cleaned,
+        )
+        if trail_m:
+            pages = _parse_pages_chunk(trail_m.group("pages"))
+            cleaned = cleaned[: trail_m.start()].strip()
+    return cleaned, pages
+
+
 def parse_sumar(body: str, sumar_span: tuple[int, int]) -> list[_SumarEntry]:
     """Best-effort SUMAR parser → list of (ordinal, title, pages).
 
-    The SUMAR is rendered by PyMuPDF as a markdown table with `<br>` line
-    breaks inside cells; per-item titles are interleaved with page numbers.
-    We extract title chunks and pages separately, then align them.
+    Three layouts coexist across the corpus:
+      1. `<br>`-separated items inside one big table cell (modern docs)
+      2. Per-item table rows: `|N.|title spans cells|page|` (after first
+         table tabs out — common in long SUMARs)
+      3. Plain-text `N. Title ........ page` lines (older docs, no tables)
+
+    Run all three patterns in order, dedup by ordinal (first wins).
     """
     span_text = body[sumar_span[0] : sumar_span[1]]
     entries: list[_SumarEntry] = []
     seen_ordinals: set[int] = set()
-    # Iterate ordinal-prefixed segments
+
+    # Pass 1: `<br>`-separated items (covers the first SUMAR table)
     for m in _SUMAR_ITEM_RE.finditer(span_text):
         ord_n = int(m.group("ord"))
         if ord_n in seen_ordinals or ord_n < 1 or ord_n > 200:
             continue
-        rest = m.group("rest").strip()
-        # Title cleanup: drop trailing dot-leaders ("..........") and `<br>`
-        cleaned = re.sub(r"\.{3,}", "", rest)
-        cleaned = cleaned.replace("<br>", " ")
-        cleaned = re.sub(r"\s{2,}", " ", cleaned).strip()
-        # Sometimes the page range is appended at the end of the title chunk;
-        # we leave it in title for now (the body-scan extractor uses the
-        # title as-is) and parse pages out of it.
-        page_match = re.search(r"\|\s*(?P<pages>[\d–\-;,\s]+)\s*\|?\s*$", cleaned)
-        pages: list[int] = []
-        if page_match:
-            pages = _parse_pages_chunk(page_match.group("pages"))
-            cleaned = cleaned[: page_match.start()].strip()
-        # Sometimes the trailing ".......100" pattern stays
-        trail_m = re.search(r"(?P<pages>\b\d{1,4}(?:[–\-]\d{1,4})?\b)\s*$", cleaned)
-        if not pages and trail_m:
-            pages = _parse_pages_chunk(trail_m.group("pages"))
-            cleaned = cleaned[: trail_m.start()].strip()
+        cleaned, pages = _clean_sumar_title(m.group("rest"))
         if cleaned:
             entries.append(_SumarEntry(ordinal=ord_n, title=cleaned, pages=pages))
             seen_ordinals.add(ord_n)
+
+    # Pass 2: per-item table rows (covers second-table-onwards layout)
+    for m in _SUMAR_TABLE_ROW_RE.finditer(span_text):
+        ord_n = int(m.group("ord"))
+        if ord_n in seen_ordinals or ord_n < 1 or ord_n > 200:
+            continue
+        cleaned, pages = _clean_sumar_title(m.group("body"))
+        if cleaned:
+            entries.append(_SumarEntry(ordinal=ord_n, title=cleaned, pages=pages))
+            seen_ordinals.add(ord_n)
+
+    # Pass 3: plain-text fallback (older docs without tables)
+    for m in _SUMAR_PLAIN_LINE_RE.finditer(span_text):
+        ord_n = int(m.group("ord"))
+        if ord_n in seen_ordinals or ord_n < 1 or ord_n > 200:
+            continue
+        cleaned, pages = _clean_sumar_title(m.group("rest"))
+        if cleaned:
+            entries.append(_SumarEntry(ordinal=ord_n, title=cleaned, pages=pages))
+            seen_ordinals.add(ord_n)
+
+    # Sort by ordinal (passes may interleave finds)
+    entries.sort(key=lambda e: e.ordinal)
     return entries
 
 
