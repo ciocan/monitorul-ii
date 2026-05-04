@@ -191,6 +191,27 @@ def _fmt_duration(seconds: float) -> str:
     return f"{h:02d}:{m:02d}:{s:02d}"
 
 
+def _progress_line(
+    days_done: int,
+    days_total: int,
+    totals: dict[str, int],
+    counters: dict[str, int],
+    elapsed: float,
+) -> str:
+    rate = days_done / elapsed if elapsed > 0 else 0.0
+    eta = (days_total - days_done) / rate if rate > 0 else 0.0
+    pct = days_done / days_total * 100 if days_total else 0.0
+    return (
+        f"{days_done:,}/{days_total:,} ({pct:.1f}%) | "
+        f"found={totals['found']:,} downloaded={totals['downloaded']:,} "
+        f"failed={totals['failed']:,} | "
+        f"s3 uploaded={counters['uploaded']:,} "
+        f"in-bucket={counters['in_bucket']:,} "
+        f"errors={counters['upload_errors']:,} | "
+        f"elapsed={_fmt_duration(elapsed)} ETA={_fmt_duration(eta)}"
+    )
+
+
 def _resolve_uploader(args: argparse.Namespace) -> Uploader | None:
     if args.no_upload:
         return None
@@ -309,20 +330,30 @@ def cmd_fetch(args: argparse.Namespace) -> int:
                 days_done += 1
 
                 if days_done % _HEARTBEAT_EVERY == 0 and days_done < days_total:
-                    elapsed = time.monotonic() - start_time
-                    rate = days_done / elapsed if elapsed > 0 else 0.0
-                    eta = (days_total - days_done) / rate if rate > 0 else 0.0
-                    pct = days_done / days_total * 100
                     print(
-                        f"progress: {days_done:,}/{days_total:,} ({pct:.1f}%) | "
-                        f"found={totals['found']:,} downloaded={totals['downloaded']:,} "
-                        f"failed={totals['failed']:,} | "
-                        f"s3 uploaded={counters['uploaded']:,} "
-                        f"in-bucket={counters['in_bucket']:,} "
-                        f"errors={counters['upload_errors']:,} | "
-                        f"elapsed={_fmt_duration(elapsed)} ETA={_fmt_duration(eta)}",
+                        "progress: "
+                        + _progress_line(
+                            days_done,
+                            days_total,
+                            totals,
+                            counters,
+                            time.monotonic() - start_time,
+                        ),
                         file=sys.stderr,
                     )
+    except KeyboardInterrupt:
+        print(
+            "\ninterrupted: "
+            + _progress_line(
+                days_done,
+                days_total,
+                totals,
+                counters,
+                time.monotonic() - start_time,
+            ),
+            file=sys.stderr,
+        )
+        return 130
     finally:
         if db is not None:
             db.close()
@@ -363,7 +394,11 @@ def cmd_convert(args: argparse.Namespace) -> int:
             counters["upload_errors"] += 1
             print(f"  s3!   {p.md_path.name}  ({exc})", file=sys.stderr)
 
-    summary = convert_all(pdfs, force=args.force, on_event=on_event)
+    try:
+        summary = convert_all(pdfs, force=args.force, on_event=on_event)
+    except KeyboardInterrupt:
+        print("\ninterrupted", file=sys.stderr)
+        return 130
     line = (
         f"converted={summary.converted} skipped={summary.skipped} "
         f"errors={len(summary.errors)}"
@@ -381,7 +416,11 @@ def cmd_convert(args: argparse.Namespace) -> int:
 def main(argv: list[str] | None = None) -> int:
     load_dotenv()
     args = _build_parser().parse_args(argv)
-    return args.func(args)
+    try:
+        return args.func(args)
+    except KeyboardInterrupt:
+        print("\ninterrupted", file=sys.stderr)
+        return 130
 
 
 def _redact_proxy(url: str) -> str:
