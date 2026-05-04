@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://github.com/ciocan/monitorul-ii/blob/main/src/monitorul_ii/extraction_schema.json",
   "title": "Monitorul Oficial Partea II extraction sidecar",
-  "description": "Canonical machine-readable schema for the per-document JSON sidecars emitted by `monitorul-ii extract`. Mirrors docs/extraction-schema.md (the human-readable spec). Schema_version 1.7.0 graduates committee_synthesis from PendingBody to a strict body shape (period + per-committee meetings with roster/agenda/joint_with). report_facsimile remains PendingBody until its extractor lands.",
+  "description": "Canonical machine-readable schema for the per-document JSON sidecars emitted by `monitorul-ii extract`. Mirrors docs/extraction-schema.md (the human-readable spec). Schema_version 1.8.0 graduates report_facsimile from PendingBody to a strict body shape (report metadata + headings outline + raw_markdown_excerpt). All six document types now have strict body shapes; PendingBody is no longer referenced by the discriminator (kept as a $def placeholder for future types).",
   "type": "object",
   "required": [
     "schema_version",
@@ -18,7 +18,7 @@
   ],
   "additionalProperties": false,
   "properties": {
-    "schema_version": { "const": "1.7.0" },
+    "schema_version": { "const": "1.8.0" },
     "document_id": {
       "type": "string",
       "pattern": "^mo://\\d{4}/[IVXM]+/[0-9A-Za-z]+$"
@@ -69,7 +69,7 @@
     {
       "properties": {
         "document_type": { "const": "report_facsimile" },
-        "body": { "$ref": "#/$defs/PendingBody" }
+        "body": { "$ref": "#/$defs/ReportFacsimileBody" }
       }
     }
   ],
@@ -328,8 +328,72 @@
     },
     "PendingBody": {
       "type": "object",
-      "description": "Placeholder for body shapes whose per-type extractor has not yet landed (currently: report_facsimile). Tightened to its full shape when its extractor ships. Until then, additionalProperties is true so the discriminator works without forcing a partial body shape now.",
+      "description": "Placeholder for body shapes whose per-type extractor has not yet landed. As of v1.8.0 no document_type variant references this — kept as a $def for future types that may need staged graduation.",
       "additionalProperties": true
+    },
+    "ReportFacsimileBody": {
+      "type": "object",
+      "description": "Body shape for `report_facsimile` documents — annual activity reports from constitutional bodies (CSAT, SRI, SIE, BNR, ANCOM, ANRE, Avocatul Poporului, Consiliul Legislativ, SRTv/SRR, etc.) reproduced verbatim ('reprodus în facsimil') in MO Partea II under R-suffix issues. Body intentionally carries minimal structure: report metadata + heading outline + excerpt. Full text remains in the sidecar markdown.",
+      "required": ["report", "headings", "raw_markdown_excerpt"],
+      "additionalProperties": false,
+      "properties": {
+        "report": { "$ref": "#/$defs/ReportMetadata" },
+        "headings": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/Heading" }
+        },
+        "raw_markdown_excerpt": { "type": "string" }
+      }
+    },
+    "ReportMetadata": {
+      "type": "object",
+      "required": [
+        "title",
+        "issuing_body",
+        "issuing_body_normalized",
+        "reporting_period",
+        "received_at"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "title": { "type": ["string", "null"] },
+        "issuing_body": { "type": ["string", "null"] },
+        "issuing_body_normalized": { "type": ["string", "null"] },
+        "reporting_period": { "$ref": "#/$defs/ReportingPeriod" },
+        "received_at": { "$ref": "#/$defs/ReceivedAt" }
+      }
+    },
+    "ReportingPeriod": {
+      "type": "object",
+      "description": "Annual reports cover Jan 1 – Dec 31 of the reported year; both endpoints inclusive. Multi-year periods (e.g. CSAT bi-annual reports) widen `start`/`end` accordingly.",
+      "required": ["start", "end"],
+      "additionalProperties": false,
+      "properties": {
+        "start": {
+          "anyOf": [{ "type": "string", "format": "date" }, { "type": "null" }]
+        },
+        "end": {
+          "anyOf": [{ "type": "string", "format": "date" }, { "type": "null" }]
+        }
+      }
+    },
+    "ReceivedAt": {
+      "type": "object",
+      "description": "Parliamentary session in which the report was received. `received_in_document` is the back-link to the stenogram sidecar (`mo://YYYY/PART/ISSUE`), populated by a v0.2 cross-document linker pass.",
+      "required": ["session_kind", "session_date", "received_in_document"],
+      "additionalProperties": false,
+      "properties": {
+        "session_kind": {
+          "anyOf": [
+            { "enum": ["joint", "camera", "senat"] },
+            { "type": "null" }
+          ]
+        },
+        "session_date": {
+          "anyOf": [{ "type": "string", "format": "date" }, { "type": "null" }]
+        },
+        "received_in_document": { "type": ["string", "null"] }
+      }
     },
     "CommitteeSynthesisBody": {
       "type": "object",

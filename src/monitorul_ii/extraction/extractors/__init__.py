@@ -25,6 +25,7 @@ from monitorul_ii.extraction.extractors import (
     plenary,
     plenary_joint_session,
     question_register,
+    report_facsimile,
 )
 
 if TYPE_CHECKING:
@@ -41,6 +42,7 @@ EXTRACTORS: dict[DocumentType, ExtractorFn] = {
     "plenary_stenogram": plenary.extract,
     "plenary_joint_session": plenary_joint_session.extract,
     "committee_synthesis": committee_synthesis.extract,
+    "report_facsimile": report_facsimile.extract,
 }
 
 
@@ -49,4 +51,5 @@ EXTRACTOR_VERSIONS: dict[DocumentType, str] = {
     "plenary_stenogram": plenary.EXTRACTOR_VERSION,
     "plenary_joint_session": plenary_joint_session.EXTRACTOR_VERSION,
     "committee_synthesis": committee_synthesis.EXTRACTOR_VERSION,
+    "report_facsimile": report_facsimile.EXTRACTOR_VERSION,
 }

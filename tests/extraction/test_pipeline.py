@@ -112,13 +112,17 @@ def test_envelope_top_level_shape(md_name: str, isolated_md) -> None:
 
 
 def test_dispatch_skips_unimplemented_types(isolated_md, monkeypatch) -> None:
-    """A doc that classifies as a still-unimplemented type (currently only
-    `report_facsimile`) must skip with reason — not produce a stub
-    `body=other` sidecar. v1.7.0 ships committee_synthesis, leaving
-    report_facsimile as the only remaining unimplemented type.
+    """The skip-with-reason contract for unimplemented types: when a doc
+    classifies as a type without an extractor registered, it must skip with
+    reason — not produce a stub `body=other` sidecar. v1.8.0 ships extractors
+    for all 6 types; we monkeypatch EXTRACTORS to drop one and verify the
+    contract still holds for any future type that ships before its
+    extractor.
     """
+    import monitorul_ii.extraction.extractors as extractors_pkg
+
+    monkeypatch.delitem(extractors_pkg.EXTRACTORS, "report_facsimile")
     md_path = isolated_md("qr_2026-03-25_29.md")
-    # Force the classifier off-track via override_type to a still-pending type
     result = extract(md_path, override_type="report_facsimile", write=False)
     assert result.status == "skip"
     assert "no extractor" in (result.reason or "")

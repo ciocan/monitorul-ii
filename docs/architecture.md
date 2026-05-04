@@ -585,7 +585,7 @@ The contract is small:
 1. Author `src/monitorul_ii/extraction/extractors/<type>.py` with `extract(ctx) → tuple[BodyDict, list[Claim]]` and an `EXTRACTOR_VERSION = "0.1.0"` constant. (For larger extractors, use a sub-subpackage `extractors/<type>/` with sibling modules per concern — see `extractors/plenary/` for the canonical example.)
 2. Register it in `extractors/__init__.py` (`EXTRACTORS[type] = module.extract` + `EXTRACTOR_VERSIONS[type] = module.EXTRACTOR_VERSION`).
 3. Tighten the corresponding `$defs/<TypeBody>` in `extraction_schema.json` from `additionalProperties: true` to the strict shape.
-4. Bump `schema_version` in both the JSON file and `pipeline.py` if the body shape introduces new keys outside what v1.7.0 already documents.
+4. Bump `schema_version` in both the JSON file and `pipeline.py` if the body shape introduces new keys outside what v1.8.0 already documents.
 5. Add fixtures + golden + targeted unit tests under `tests/extraction/`.
 
 The dispatcher picks it up automatically — no changes to `cli.py`, the progress bar, the upload tier, or the version-aware idempotency gate.
@@ -813,6 +813,85 @@ Best-effort fields that v0.1 frequently emits as null/[] and v0.2 may tighten:
 - `joint_with[]` — `în comun cu Comisia X[, Y, Z] din [Camera Deputaților|Senat]` detection. Currently `[]`. Multi-committee comma-list parsing is straightforward but bumps against ambiguous Romanian conjunction syntax (`X, Y și Z`); deferred for grilling.
 - `committee.kind` for `special_joint` / `inquiry_joint` — the joint-Camera+Senat permanent committees (Statutul Deputaților și Senatorilor, etc.). Currently classified as `permanent`; the joint-prefix regex is conservative.
 - Tabular agenda parsing (2025+) — when the agenda is rendered as a table (`|Nr.|PL-x|Title|Scopul|Rezoluție|`), the numbered-narrative regex misses the rows entirely. Coverage stays high because the partition still claims the table, but `agenda_items` is empty for those committees on those docs (~10-15% of 2025 cohort).
+
+## Extract pipeline — `report_facsimile`
+
+v0.1 ships the fifth — and final — per-type extractor. Cohort: 52 docs across 2014-2024, all `R`-suffix MO Partea II issues containing annual / activity reports from constitutional bodies (CSAT, SRI, SIE, BNR, ANCOM, ANRE, Avocatul Poporului, Consiliul Legislativ, SRTv/SRR, Curtea de Conturi, etc.) reproduced verbatim. Single-file extractor at `src/monitorul_ii/extraction/extractors/report_facsimile.py` — under 350 LOC; the body shape is intentionally minimal (report metadata + heading outline + excerpt), the lightest of the five per-type extractors.
+
+### Why "minimal body shape"
+
+The spec is explicit: "the full text remains in the sidecar markdown." A `report_facsimile` document IS the report — it's not extracted as records of speeches / votes / agenda items because the report's internal structure varies by issuing institution (CSAT chapters, SRI capitole, ANCOM ordered sections — no shared shape). Forcing a structured record-array would either (a) over-fit one institution's outline, or (b) produce nulls and noise. The pragmatic choice: extract metadata + a heading outline so consumers can search-and-snippet, leave the body verbatim, defer institutional sub-shape extraction to specialised tools per institution.
+
+This shapes the coverage strategy: a single record claim spans the entire `(RAPOARTE DE ACTIVITATE)` genre marker through the trailing footer (or EOF). The full report content gets claimed once as one record, no per-section invention. Combined with rf-specific boilerplate (universal page-running headers, NOTĂ disclaimer, SUMAR block), coverage clears 0.97 on every doc tested.
+
+### Title harvesting + issuing-body discrimination
+
+Title hunt order: SUMAR row first (cleanest single-line form), `## **RAPORT ...**` body heading second. The SUMAR-row regex captures four observed surface forms via one alternation:
+
+```
+Raportul X privind activitatea desfășurată în anul YYYY    (CSAT — preposition before X)
+Raport privind activitatea desfășurată de X în anul YYYY   (SRI/SIE)
+Raport asupra activității desfășurate de X în anul YYYY    (Consiliul Legislativ, ANCOM)
+Raport de activitate al X pe anul YYYY                     (SRTv/SRR, ANRE)
+```
+
+`_extract_issuing_body` then discriminates: each form has a unique preposition pattern (`Raportul X privind`, `... desfășurată de X`, `... activității desfășurate de X`, `Raport de activitate al X`), and a 4-pattern walk picks the matching one. Each pattern stops at `în anul`/`pe anul` / `privind` to keep the body label tight (no trailing year).
+
+Reporting period is straightforward: `în anul YYYY` / `pe anul YYYY` → Jan 1 – Dec 31 of YYYY. Multi-year `în perioada YYYY-YYYY` widens both endpoints (rare; only a couple of CSAT bi-annuals in the cohort).
+
+### Reception session
+
+Every R-suffix doc in the corpus is received in joint session — Parliament receives the report at a `ȘEDINȚE COMUNE ALE CAMEREI DEPUTAȚILOR ȘI SENATULUI` session. The body line `## **Ședința din ziua de DD month YYYY**` (cedilla-tolerant for older docs) gives the reception date; frontmatter `session_date` is the fallback. `session_kind` = `joint` when the joint header is present, else falls back to frontmatter `chamber`. `received_in_document` (back-link to the receiving stenogram's `mo://YYYY/PART/ISSUE` document_id) stays null in v0.1 — the cross-document linker is a v0.2 pass that joins receiving stenograms to received reports.
+
+### Coverage targets and measurement
+
+Per Q9: **discovery margin 0.85**, **test fixture floor 0.80**, **mean target 0.90 documented (ungated)**.
+
+Four hand-picked fixtures span the cohort eras:
+
+| Fixture | Layout | Coverage |
+|---|---|---|
+| `2014-01-20_MO-PII-1R-2014.md` | CSAT 2010, image-only PDF (page-residue body) | 0.970 |
+| `2014-04-24_MO-PII-13R-2014.md` | SRI 2007, modern body with H2 chapter headings | 0.999 |
+| `2017-10-24_MO-PII-1R-2017.md` | Consiliul Legislativ 2010, mid-cohort | 0.999 |
+| `2024-04-09_MO-PII-1R-2024.md` | ANCOM 2019, modern Camera-published, 100+ headings | 0.9998 |
+
+Discovery-loop sweep over all 52 R-suffix MDs (2014-2024):
+
+| Metric | Value |
+|---|---|
+| Extracted | 52 / 52 (zero errors, zero classify mismatches) |
+| Mean | 0.9985 |
+| Median | 0.9994 |
+| p10 | 0.9972 |
+| p25 | 0.9989 |
+| Min | 0.9700 |
+| Below 0.85 | 0 |
+
+Tightest coverage band of the five per-type extractors — the partition-trivial design (one big record claim) means there's no room for layout-specific failure modes to creep in. The 2014 image-only docs (lowest coverage at 0.97) hit that floor because their body is mostly page-running-header lines and the heading regex finds nothing useful inside; 0.97 is essentially the theoretical max for those given the source PDF's lossy conversion.
+
+### Helper graduations at v0.1
+
+| Helper | Pre-v0.1 | report_facsimile ship | Why |
+|---|---|---|---|
+| `boilerplate` | 0.1.0 | 0.1.0 | RF-specific boilerplate stayed in the per-type module |
+| `coverage` | 0.1.0 | 0.1.0 | No changes |
+| `references` | 0.2.0 | 0.2.0 | Not used (reports don't carry bill cites in their metadata) |
+| `speakers` | 0.2.0 | 0.2.0 | Not used (no speakers in report metadata; full text stays unstructured) |
+| `topics` | 0.1.0 | 0.1.0 | Not used (institutional reports don't map cleanly to the closed plenary topic set) |
+| `report_facsimile` | (new key) | **0.1.0** | First per-type ship |
+
+Adding the `report_facsimile` key to `EXTRACTOR_VERSIONS` triggers re-extraction of every existing sidecar on first run because the cached `extractor_versions` dict on those sidecars now lacks the new key (Q11 conservative-by-design contract). Acceptable — the corpus is now small enough that a full re-extract is fast and the version-keying contract is the load-bearing safety net.
+
+### Schema deltas at v1.8.0
+
+Strict body shape for `report_facsimile` replaced the v1.7.0 `PendingBody` placeholder. New `$defs`: `ReportFacsimileBody`, `ReportMetadata`, `ReportingPeriod`, `ReceivedAt`. Reuses existing `Heading` $def from `OtherBody`. With this bump, all six document types have strict body shapes; `PendingBody` is no longer referenced by the discriminator (kept as a $def placeholder for future types that may need staged graduation).
+
+### What's deferred to v0.2+
+
+- **`received_in_document` cross-document linker.** Each report references the stenogram document where it was received (e.g. CSAT 2010 was received at the joint Camera+Senat session of 2013-12-04 — that stenogram is its own MO Partea II issue). v0.2 adds a corpus-wide pass that finds the matching stenogram by `(received_at.session_date, session_kind=joint)` and writes the `mo://YYYY/PART/ISSUE` back-link.
+- **`issuing_body_normalized`** — currently null. The institutional-bodies registry (CSAT, SRI, SIE, BNR, ICR, Avocatul Poporului, Consiliul Legislativ, SRTv, SRR, ANCOM, ANRE, Curtea de Conturi, etc. — small enum, ~20 entries) is the canonical normalisation source. Once that registry exists, a one-script backfill on every report sidecar populates the slot.
+- **Institution-specific outline detection.** The current heading extractor pulls every `## **...**` heading minus a skip-list. CSAT reports use `CAPITOLUL I/II/...` outlining; SRI uses `OBIECTIVELE PRIORITARE`; ANCOM uses numbered `N.M.K.L` decimal sections. v0.2 could add per-issuer outline parsers that classify each heading as `chapter` / `section` / `appendix` etc. — but the discovery loop hasn't surfaced a query that needs it yet.
 
 ## Testing
 
