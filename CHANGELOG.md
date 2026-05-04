@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.10.1](https://github.com/ciocan/monitorul-ii/compare/monitorul-ii-v0.10.0...monitorul-ii-v0.10.1) (2026-05-04)
+
+
+### Documentation
+
+* add extraction schema documentation for Monitorul Oficial Partea II ([7b36a55](https://github.com/ciocan/monitorul-ii/commit/7b36a5534fd7ebad7f1f891a36374d5a1128080e))
+
 ## [0.10.0](https://github.com/ciocan/monitorul-ii/compare/monitorul-ii-v0.9.0...monitorul-ii-v0.10.0) (2026-05-04)
 
 
