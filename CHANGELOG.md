@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.10.0](https://github.com/ciocan/monitorul-ii/compare/monitorul-ii-v0.9.0...monitorul-ii-v0.10.0) (2026-05-04)
+
+
+### Features
+
+* implement retry mechanism for permanent failures and enhance error handling ([57c8bc4](https://github.com/ciocan/monitorul-ii/commit/57c8bc4d6161d1c5605228433d1e4b2c899db3b2))
+
 ## [0.9.0](https://github.com/ciocan/monitorul-ii/compare/monitorul-ii-v0.8.0...monitorul-ii-v0.9.0) (2026-05-04)
 
 
