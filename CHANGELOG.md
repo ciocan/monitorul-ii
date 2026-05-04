@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.11.1](https://github.com/ciocan/monitorul-ii/compare/monitorul-ii-v0.11.0...monitorul-ii-v0.11.1) (2026-05-04)
+
+
+### Documentation
+
+* add discourse-analysis schema documentation ([d2981b6](https://github.com/ciocan/monitorul-ii/commit/d2981b64858a85165a3a2651c5f995d91fa5ba07))
+
 ## [0.11.0](https://github.com/ciocan/monitorul-ii/compare/monitorul-ii-v0.10.3...monitorul-ii-v0.11.0) (2026-05-04)
 
 
