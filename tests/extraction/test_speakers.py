@@ -2,7 +2,9 @@ from __future__ import annotations
 
 from monitorul_ii.extraction.speakers import (
     SPEAKERS_VERSION,
+    extract_delivery_mode,
     make_speaker,
+    parse_honorific_speaker,
     parse_questioner,
 )
 
@@ -70,3 +72,94 @@ def test_parse_questioner_strips_whitespace():
     assert q["name"] == "Tudor Ciuhodaru"
     assert q["title"] == "deputat"
     assert q["party_group"] == "PP-DD"
+
+
+# --- v0.2.0 shared primitives ------------------------------------------------
+
+
+def test_extract_delivery_mode_tribune():
+    stripped, mode = extract_delivery_mode("Domnul X (de la tribună)")
+    assert mode == "tribune"
+    assert "(de la tribună)" not in stripped
+
+
+def test_extract_delivery_mode_din_sala():
+    _, mode = extract_delivery_mode("Domnul Y (din sală)")
+    assert mode == "from_floor"
+
+
+def test_extract_delivery_mode_audio_collapses_online():
+    _, mode = extract_delivery_mode("Domnul Z (prin audioconferință)")
+    assert mode == "online"
+
+
+def test_extract_delivery_mode_video_collapses_online():
+    _, mode = extract_delivery_mode("Doamna A (prin videoconferință)")
+    assert mode == "online"
+
+
+def test_extract_delivery_mode_balcony():
+    _, mode = extract_delivery_mode("Domnul B (de la balcon)")
+    assert mode == "from_balcony"
+
+
+def test_extract_delivery_mode_written():
+    _, mode = extract_delivery_mode("Domnul C (în scris)")
+    assert mode == "written"
+
+
+def test_extract_delivery_mode_no_match():
+    stripped, mode = extract_delivery_mode("Domnul D")
+    assert mode is None
+    assert stripped == "Domnul D"
+
+
+def test_parse_honorific_speaker_simple_domnul():
+    s = parse_honorific_speaker("Domnul Sorin-Mihai Grindeanu")
+    assert s["name"] == "Sorin-Mihai Grindeanu"
+    assert s["title"] is None
+    assert s["role"] is None
+
+
+def test_parse_honorific_speaker_doamna():
+    s = parse_honorific_speaker("Doamna Alina-Ștefania Gorghiu")
+    assert s["name"] == "Alina-Ștefania Gorghiu"
+
+
+def test_parse_honorific_speaker_with_role():
+    s = parse_honorific_speaker("Domnul Mircea Abrudean, președintele Senatului")
+    assert s["name"] == "Mircea Abrudean"
+    assert s["role"] == "președintele Senatului"
+
+
+def test_parse_honorific_speaker_with_rank_deputat():
+    s = parse_honorific_speaker("Domnul deputat Daniel Grofu")
+    assert s["name"] == "Daniel Grofu"
+    assert s["title"] == "deputat"
+
+
+def test_parse_honorific_speaker_with_rank_senator_and_role():
+    s = parse_honorific_speaker(
+        "Doamna senator Doina-Elena Federovici, secretar al Senatului"
+    )
+    assert s["name"] == "Doina-Elena Federovici"
+    assert s["title"] == "senator"
+    assert s["role"] == "secretar al Senatului"
+
+
+def test_parse_honorific_speaker_strips_definite_article():
+    """Romanian: deputatul → deputat, senatorul → senator."""
+    s = parse_honorific_speaker("Domnul deputatul Test Person")
+    assert s["title"] == "deputat"
+
+
+def test_parse_honorific_speaker_empty_string():
+    s = parse_honorific_speaker("")
+    assert s["raw"] == ""
+    assert s["name"] is None
+
+
+def test_parse_honorific_speaker_no_honorific_falls_back():
+    s = parse_honorific_speaker("Test Name, some role")
+    assert s["name"] == "Test Name"
+    assert s["role"] == "some role"

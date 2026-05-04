@@ -20,7 +20,11 @@ from collections.abc import Callable
 from typing import TYPE_CHECKING
 
 from monitorul_ii.classifier import DocumentType
-from monitorul_ii.extraction.extractors import question_register
+from monitorul_ii.extraction.extractors import (
+    plenary,
+    plenary_joint_session,
+    question_register,
+)
 
 if TYPE_CHECKING:
     from monitorul_ii.extraction.pipeline import ExtractContext
@@ -33,9 +37,13 @@ ExtractorFn = Callable[
 
 EXTRACTORS: dict[DocumentType, ExtractorFn] = {
     "question_register": question_register.extract,
+    "plenary_stenogram": plenary.extract,
+    "plenary_joint_session": plenary_joint_session.extract,
 }
 
 
 EXTRACTOR_VERSIONS: dict[DocumentType, str] = {
     "question_register": question_register.EXTRACTOR_VERSION,
+    "plenary_stenogram": plenary.EXTRACTOR_VERSION,
+    "plenary_joint_session": plenary_joint_session.EXTRACTOR_VERSION,
 }

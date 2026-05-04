@@ -240,7 +240,7 @@ def _build_parser() -> argparse.ArgumentParser:
         description=(
             "Run the per-type extractor over one or more MD files or "
             "directories and emit a `<basename>.extraction.json` sidecar "
-            "next to each MD. Document type is determined by the v1.5.0 "
+            "next to each MD. Document type is determined by the v1.6.0 "
             "classifier; types whose extractor has not yet shipped are "
             "skipped with a `not-yet-implemented` reason. Use `--type` to "
             "override the classifier on a single doc."

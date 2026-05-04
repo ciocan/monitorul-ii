@@ -54,8 +54,9 @@ from monitorul_ii.extraction.extractors import EXTRACTOR_VERSIONS, EXTRACTORS
 from monitorul_ii.extraction.references import REFERENCES_VERSION
 from monitorul_ii.extraction.schema import SchemaError, validate
 from monitorul_ii.extraction.speakers import SPEAKERS_VERSION
+from monitorul_ii.extraction.topics import TOPICS_VERSION
 
-SCHEMA_VERSION = "1.5.0"
+SCHEMA_VERSION = "1.6.0"
 EXTRACTOR_LABEL = "regex@1"
 
 
@@ -68,6 +69,7 @@ def _shared_helper_versions() -> dict[str, str]:
         "coverage": COVERAGE_VERSION,
         "references": REFERENCES_VERSION,
         "speakers": SPEAKERS_VERSION,
+        "topics": TOPICS_VERSION,
     }
 
 
@@ -181,13 +183,28 @@ def _pdf_path_for(md_path: Path) -> Path:
 
 
 def _aggregate_confidence(body_dict: dict[str, Any]) -> float:
-    """Mean of per-section confidences, or 1.0 when nothing extracted."""
+    """Mean of per-section confidences, or 1.0 when nothing extracted.
+
+    Scans every body shape's record arrays: question_register's `questions`,
+    plenary's `agenda_items` (+ nested `activities[]`) and `interpellations`.
+    """
     scores: list[float] = []
-    for q in body_dict.get("questions", []) or []:
-        ext = q.get("extraction") or {}
+
+    def _maybe_score(d: dict[str, Any]) -> None:
+        ext = d.get("extraction") or {}
         c = ext.get("confidence")
         if isinstance(c, (int, float)):
             scores.append(float(c))
+
+    for q in body_dict.get("questions", []) or []:
+        _maybe_score(q)
+    for item in body_dict.get("agenda_items", []) or []:
+        _maybe_score(item)
+        for act in item.get("activities", []) or []:
+            _maybe_score(act)
+    for interp in body_dict.get("interpellations", []) or []:
+        _maybe_score(interp)
+
     if not scores:
         return 1.0
     return sum(scores) / len(scores)
