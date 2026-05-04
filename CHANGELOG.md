@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.10.3](https://github.com/ciocan/monitorul-ii/compare/monitorul-ii-v0.10.2...monitorul-ii-v0.10.3) (2026-05-04)
+
+
+### Documentation
+
+* update extraction schema to version 1.3.0 with findings from recent audit ([d88fdb3](https://github.com/ciocan/monitorul-ii/commit/d88fdb307acf24f06b2ae3d3060bb3f8e1b399ac))
+
 ## [0.10.2](https://github.com/ciocan/monitorul-ii/compare/monitorul-ii-v0.10.1...monitorul-ii-v0.10.2) (2026-05-04)
 
 
