@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.6.1](https://github.com/ciocan/monitorul-ii/compare/monitorul-ii-v0.6.0...monitorul-ii-v0.6.1) (2026-05-04)
+
+
+### Bug Fixes
+
+* optimize threading for PDF processing ([427a6c0](https://github.com/ciocan/monitorul-ii/commit/427a6c01bbf75e1d7ab3fae4d42a10051f21d458))
+
 ## [0.6.0](https://github.com/ciocan/monitorul-ii/compare/monitorul-ii-v0.5.0...monitorul-ii-v0.6.0) (2026-05-04)
 
 
