@@ -270,6 +270,20 @@ def test_collect_pdfs_directory_glob_is_sorted(tmp_path: Path):
     assert [p.name for p in collect_pdfs([tmp_path])] == ["a.pdf", "b.pdf", "c.pdf"]
 
 
+def test_collect_pdfs_reverse_flips_order(tmp_path: Path):
+    for n in ("2026-04-01.pdf", "2026-04-02.pdf", "2026-04-03.pdf"):
+        (tmp_path / n).write_text("")
+    out = [p.name for p in collect_pdfs([tmp_path], reverse=True)]
+    assert out == ["2026-04-03.pdf", "2026-04-02.pdf", "2026-04-01.pdf"]
+
+
+def test_collect_pdfs_reverse_default_false(tmp_path: Path):
+    """Without `reverse=True` the order is unchanged from the existing contract."""
+    for n in ("a.pdf", "b.pdf"):
+        (tmp_path / n).write_text("")
+    assert [p.name for p in collect_pdfs([tmp_path])] == ["a.pdf", "b.pdf"]
+
+
 def test_collect_pdfs_dedupes_by_resolved_path(tmp_path: Path):
     pdf = tmp_path / "a.pdf"
     pdf.write_text("")

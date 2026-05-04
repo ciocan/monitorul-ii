@@ -205,8 +205,13 @@ def convert_pdf(pdf_path: Path, md_path: Path) -> ConvertResult:
     return ConvertResult(pdf_path=pdf_path, md_path=md_path, bytes_written=len(output))
 
 
-def collect_pdfs(paths: list[Path]) -> list[Path]:
-    """Resolve a list of file/dir paths into a sorted list of PDF files."""
+def collect_pdfs(paths: list[Path], *, reverse: bool = False) -> list[Path]:
+    """Resolve a list of file/dir paths into a sorted list of PDF files.
+
+    With `reverse=True` the final list is reversed — for filenames prefixed by
+    the publication date this gives newest→oldest order, mirroring `fetch`'s
+    `--reverse` semantics.
+    """
     out: list[Path] = []
     for p in paths:
         if p.is_file() and p.suffix.lower() == ".pdf":
@@ -221,6 +226,8 @@ def collect_pdfs(paths: list[Path]) -> list[Path]:
             continue
         seen.add(rp)
         deduped.append(p)
+    if reverse:
+        deduped.reverse()
     return deduped
 
 

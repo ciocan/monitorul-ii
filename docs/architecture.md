@@ -306,9 +306,9 @@ CLI startup calls `uploader.validate()` which does `head_bucket`. If the bucket 
 ```
 CLI (cli.py: cmd_convert)
   ├─ load .env (python-dotenv)
-  ├─ parse argv (paths..., --force, --bucket/--no-upload)
+  ├─ parse argv (paths..., --force, -j/--workers, --reverse, --bucket/--no-upload)
   ├─ resolve uploader: same fail-fast head_bucket as `fetch`
-  ├─ collect_pdfs(paths)        # files + non-recursive *.pdf in dirs, dedup'd
+  ├─ collect_pdfs(paths, reverse=args.reverse)  # files + non-recursive *.pdf in dirs, dedup'd
   └─ for each pdf:
        ├─ if md exists & non-empty (and not --force) → emit "skip"
        └─ else convert_pdf(pdf, md):
@@ -387,6 +387,10 @@ If a future feature needs per-MD state (e.g. retry budgets for conversion failur
 - **Filesystem**: `<basename>.md` exists and `size > 0` → skip. Same shape as PDF skip.
 - **Atomic write**: body streams to `<basename>.md.part`, then `Path.replace`. A crash mid-write leaves a `.part`; the canonical path is never half-written.
 - **S3**: `head_object(<basename>.md)` before each `upload_file`. Same pattern as PDFs; only the `Content-Type` differs.
+
+### `--reverse`
+
+`collect_pdfs(paths, reverse=True)` reverses the deduped list before returning. The PDF filenames are date-prefixed (`<YYYY-MM-DD>_MO-PII-...pdf`), so a reverse over a directory walk lands newest→oldest — same semantics as `fetch --reverse`. The reversal happens *after* dedup to keep the rest of the function's contract (input-path order preserved, dir contents sorted within each path) untouched in the default case. Useful when a Ctrl+C should leave the recent stretch already converted on a long backfill.
 
 ### Progress reporting and Ctrl+C
 

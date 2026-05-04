@@ -176,3 +176,20 @@ def test_convert_progress_reporter_zero_total_is_safe(capsys):
     """Empty PDF list: reporter must construct cleanly even with total=0."""
     with _ConvertProgressReporter(total=0, counters=_zero_counters()) as r:
         assert r.done == 0
+
+
+# --- convert --reverse parser wiring ---------------------------------------
+
+
+def test_convert_parser_reverse_flag_defaults_false():
+    from monitorul_ii.cli import _build_parser
+
+    args = _build_parser().parse_args(["convert", "pdfs/"])
+    assert args.reverse is False
+
+
+def test_convert_parser_reverse_flag_sets_true():
+    from monitorul_ii.cli import _build_parser
+
+    args = _build_parser().parse_args(["convert", "pdfs/", "--reverse"])
+    assert args.reverse is True

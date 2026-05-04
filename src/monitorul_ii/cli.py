@@ -177,6 +177,11 @@ def _build_parser() -> argparse.ArgumentParser:
         metavar="N",
         help="Parallel conversion threads (default: CPU count). Set to 1 for sequential.",
     )
+    convert.add_argument(
+        "--reverse",
+        action="store_true",
+        help="Process PDFs in reverse order (newest→oldest, since filenames are date-prefixed). A partial run leaves you with the most recent stretch.",
+    )
     _add_s3_args(convert)
     convert.set_defaults(func=cmd_convert)
 
@@ -565,7 +570,7 @@ def _convert_summary_line(counters: dict[str, int], *, prefix: str = "") -> str:
 
 
 def cmd_convert(args: argparse.Namespace) -> int:
-    pdfs = collect_pdfs(list(args.paths))
+    pdfs = collect_pdfs(list(args.paths), reverse=args.reverse)
     if not pdfs:
         print("no PDFs found", file=sys.stderr)
         return 0

@@ -28,7 +28,7 @@ There is no documented API. Reverse-engineered from the e-monitor page:
 
 - Install / sync deps: `uv sync`
 - Fetch PDFs: `uv run monitorul-ii fetch <YYYY-MM-DD> [--until YYYY-MM-DD] [--out DIR] [--part II] [--delay 0.5] [--proxy URL | --no-proxy] [--bucket NAME | --no-upload] [--db PATH | --no-db] [--reverse] [--force] [--rescrape-recent N]`
-- Convert PDFs to markdown: `uv run monitorul-ii convert <path> [<path> ...] [--force] [-j N | --workers N] [--bucket NAME | --no-upload]` — paths are files or directories; directories are globbed `*.pdf` (non-recursive). Default `-j` is `os.cpu_count()`; conversions run in a `ThreadPoolExecutor`.
+- Convert PDFs to markdown: `uv run monitorul-ii convert <path> [<path> ...] [--force] [-j N | --workers N] [--reverse] [--bucket NAME | --no-upload]` — paths are files or directories; directories are globbed `*.pdf` (non-recursive). Default `-j` is `os.cpu_count()`; conversions run in a `ThreadPoolExecutor`. `--reverse` flips the final PDF list (newest→oldest given the date-prefixed filenames) — same semantics as `fetch --reverse`.
 - Test: `uv run pytest` (suite under `tests/`, ~130 unit tests, no network or boto3 — `httpx.MockTransport` for the scraper, `tmp_path`-backed SQLite for the DB, `monkeypatch` for `convert_pdf`).
 - Lint: `uv run ruff check`
 - Format: `uv run ruff format`
