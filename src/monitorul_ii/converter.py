@@ -280,8 +280,17 @@ def convert_all(
             _emit(*_process_one(pdf, force))
         return summary
 
-    with ThreadPoolExecutor(max_workers=workers) as ex:
-        futures = {ex.submit(_process_one, pdf, force): pdf for pdf in pdfs}
+    ex = ThreadPoolExecutor(max_workers=workers)
+    futures = {ex.submit(_process_one, pdf, force): pdf for pdf in pdfs}
+    try:
         for fut in as_completed(futures):
             _emit(*fut.result())
+    except KeyboardInterrupt:
+        # Cancel queued work and let in-flight threads finish so the
+        # interpreter's atexit join doesn't race with a second Ctrl+C
+        # (which would print a traceback). In-flight PDFs take a few seconds.
+        ex.shutdown(wait=True, cancel_futures=True)
+        raise
+    else:
+        ex.shutdown(wait=True)
     return summary

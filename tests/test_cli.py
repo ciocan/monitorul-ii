@@ -6,6 +6,8 @@ from datetime import date
 import pytest
 
 from monitorul_ii.cli import (
+    _ConvertProgressReporter,
+    _convert_summary_line,
     _fmt_bytes,
     _fmt_duration,
     _parse_date,
@@ -89,3 +91,88 @@ def test_fmt_duration_truncates_fractional_seconds():
 def test_fmt_duration_handles_long_runs():
     """26-year backfills: hours field needs to keep widening past 99h."""
     assert _fmt_duration(100 * 3600 + 0 * 60 + 0) == "100:00:00"
+
+
+# --- _convert_summary_line -------------------------------------------------
+
+
+def _zero_counters() -> dict[str, int]:
+    return {
+        "converted": 0,
+        "skipped": 0,
+        "errors": 0,
+        "uploaded": 0,
+        "in_bucket": 0,
+        "upload_errors": 0,
+    }
+
+
+def test_convert_summary_line_drops_s3_when_idle():
+    c = _zero_counters() | {"converted": 5, "skipped": 2}
+    line = _convert_summary_line(c)
+    assert line == "converted=5 skipped=2 errors=0"
+    assert "s3" not in line
+
+
+def test_convert_summary_line_includes_s3_when_active():
+    c = _zero_counters() | {
+        "converted": 5,
+        "uploaded": 3,
+        "in_bucket": 2,
+    }
+    line = _convert_summary_line(c)
+    assert "converted=5" in line
+    assert "s3 uploaded=3 in-bucket=2 errors=0" in line
+
+
+def test_convert_summary_line_prefix_marks_interrupt():
+    c = _zero_counters() | {"converted": 7, "errors": 1}
+    line = _convert_summary_line(c, prefix="interrupted: ")
+    assert line.startswith("interrupted: ")
+    assert "converted=7" in line
+
+
+# --- _ConvertProgressReporter (non-tty / heartbeat path) -------------------
+#
+# `capsys` replaces sys.stderr with a capture object whose isatty() returns
+# False, so the reporter naturally takes the non-tty heartbeat branch in tests
+# below. No extra tty-faking is needed.
+
+
+def test_convert_progress_reporter_advance_no_tty(capsys):
+    counters = _zero_counters()
+    with _ConvertProgressReporter(total=10, counters=counters) as r:
+        for _ in range(3):
+            r.advance()
+        assert r.done == 3
+
+
+def test_convert_progress_reporter_print_no_tty(capsys):
+    counters = _zero_counters()
+    with _ConvertProgressReporter(total=2, counters=counters) as r:
+        r.print("hello stdout")
+        r.print("hello stderr", err=True)
+    out = capsys.readouterr()
+    assert "hello stdout" in out.out
+    assert "hello stderr" in out.err
+
+
+def test_convert_progress_reporter_heartbeat_threshold(monkeypatch, capsys):
+    """Heartbeat fires once per _CONVERT_HEARTBEAT_EVERY in non-tty mode."""
+    from monitorul_ii import cli
+
+    monkeypatch.setattr(cli, "_CONVERT_HEARTBEAT_EVERY", 5)
+    counters = _zero_counters()
+    with _ConvertProgressReporter(total=20, counters=counters) as r:
+        for _ in range(11):
+            r.advance()
+            counters["converted"] = r.done
+    err = capsys.readouterr().err
+    # Heartbeats at done=5 and done=10 (not at done=20 — that's the terminal state)
+    assert err.count("progress:") == 2
+
+
+def test_convert_progress_reporter_zero_total_is_safe(capsys):
+    """Empty PDF list: reporter must construct cleanly even with total=0."""
+    with _ConvertProgressReporter(total=0, counters=_zero_counters()) as r:
+        assert r.done == 0

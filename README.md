@@ -75,11 +75,14 @@ When the S3 vars are set, MDs mirror to the same bucket alongside the PDFs (flat
 
 ## Progress and interrupts
 
-`fetch` shows a live [`rich`](https://github.com/Textualize/rich) progress bar on stderr when stderr is a terminal — day count, percent, elapsed time, ETA, and running totals (found / downloaded with cumulative MB / failed, plus S3 uploaded / in-bucket / errors). Per-issue events (`ok`, `skip`, `s3+`, `s3=`, errors) and per-day summary lines scroll above the bar without breaking it.
+Both subcommands show a live [`rich`](https://github.com/Textualize/rich) progress bar on stderr when stderr is a terminal, and fall back to a periodic plain-text heartbeat in pipes/CI/cron.
 
-When stderr is piped (CI, cron, `tee`), the bar disables itself and a one-line `progress: ...` heartbeat is printed every 100 days with the same fields. Stdout (per-day summary lines) is unaffected by the tty check, so `monitorul-ii fetch ... > log.txt` keeps a clean machine-readable record while you watch the bar interactively.
+- `fetch` — bar tracks days completed; counters show found / downloaded with cumulative MB / failed, plus S3 uploaded / in-bucket / errors. Per-issue events (`ok`, `skip`, `s3+`, `s3=`, errors) and per-day summary lines scroll above the bar without breaking it. Heartbeat fires every 100 days in pipe mode.
+- `convert` — bar tracks PDFs completed; counters show converted / skipped / errors, plus S3 uploaded / in-bucket / errors when uploading. Per-PDF event lines scroll above the bar. Heartbeat fires every 50 PDFs in pipe mode.
 
-`Ctrl+C` prints a final `interrupted: ...` summary line with the totals so far, closes the SQLite handle cleanly, and exits **130**. No traceback. The DB-backed resume gate means the next run picks up exactly where you stopped.
+Stdout (the final summary line) is unaffected by the tty check, so `monitorul-ii ... > log.txt` keeps a clean machine-readable record while you watch the bar interactively.
+
+`Ctrl+C` prints a final `interrupted: ...` summary line with the totals so far and exits **130** — no traceback, no atexit thread-join race. For `fetch`, the DB-backed resume gate means the next run picks up exactly where you stopped. For `convert`, in-flight worker threads finish their current PDF (a few seconds) before the process exits, so partially-written output never lands on disk; queued-but-not-started PDFs are cancelled cleanly. Re-running picks up at the next missing `.md`.
 
 ## Resume / SQLite audit log
 

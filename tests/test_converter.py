@@ -369,3 +369,37 @@ def test_convert_all_parallel_workers(tmp_path: Path, monkeypatch):
     assert summary.converted == 5
     assert len(events) == 5
     assert all(e.kind == "convert" for e in events)
+
+
+def test_convert_all_keyboard_interrupt_propagates_cleanly(tmp_path: Path, monkeypatch):
+    """A KbdInt while workers are running must propagate cleanly — no traceback,
+    no atexit-time thread-join race. We simulate it by raising from inside one
+    worker and asserting it bubbles out of `convert_all` without being swallowed."""
+    pdfs = [tmp_path / f"f{i}.pdf" for i in range(8)]
+    for p in pdfs:
+        p.write_bytes(b"%PDF-1.4 fake")
+
+    def fake_convert_pdf(p, m):
+        # First worker through here triggers the simulated user-Ctrl+C; others
+        # finish their current item per shutdown(wait=True, cancel_futures=True).
+        if p.name == "f0.pdf":
+            raise KeyboardInterrupt
+        m.write_text("body\n")
+
+    monkeypatch.setattr(converter, "convert_pdf", fake_convert_pdf)
+
+    with pytest.raises(KeyboardInterrupt):
+        convert_all(pdfs, workers=4)
+
+
+def test_convert_all_keyboard_interrupt_sequential(tmp_path: Path, monkeypatch):
+    """Same contract for the workers<=1 branch (no executor)."""
+    pdf = tmp_path / "f.pdf"
+    pdf.write_bytes(b"%PDF-1.4 fake")
+
+    def boom(p, m):
+        raise KeyboardInterrupt
+
+    monkeypatch.setattr(converter, "convert_pdf", boom)
+    with pytest.raises(KeyboardInterrupt):
+        convert_all([pdf], workers=1)

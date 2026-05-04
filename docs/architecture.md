@@ -388,6 +388,36 @@ If a future feature needs per-MD state (e.g. retry budgets for conversion failur
 - **Atomic write**: body streams to `<basename>.md.part`, then `Path.replace`. A crash mid-write leaves a `.part`; the canonical path is never half-written.
 - **S3**: `head_object(<basename>.md)` before each `upload_file`. Same pattern as PDFs; only the `Content-Type` differs.
 
+### Progress reporting and Ctrl+C
+
+`_ConvertProgressReporter` mirrors `_ProgressReporter`'s shape but speaks the convert vocabulary. The CLI constructs it as a context manager around the work loop:
+
+```python
+with _ConvertProgressReporter(len(pdfs), counters) as report:
+    def on_event(p):
+        # bump counters[converted|skipped|errors] based on p.kind
+        report.print(line)         # scrolls above the bar (or print() in pipe)
+        # do upload, bump s3 counters
+        report.advance()           # ticks bar + emits heartbeats in pipe mode
+    try:
+        convert_all(pdfs, force=…, workers=…, on_event=on_event)
+    except KeyboardInterrupt:
+        report.print(_convert_summary_line(counters, prefix="interrupted: "), err=True)
+        return 130
+print(_convert_summary_line(counters))
+```
+
+Two design points worth keeping intact:
+
+1. **Counters are shared mutable state, not a return value.** `cmd_convert` owns `counters: dict[str,int]` and passes it to the reporter; `on_event` bumps it; the reporter reads it via `_desc()` on every bar redraw. This means a Ctrl+C-interrupted run can still print an accurate "interrupted: converted=N skipped=M …" line — the `summary` returned by `convert_all` is moot in that path. `_convert_summary_line(counters, prefix=…)` is the single formatter for both terminal-completion and Ctrl+C lines so they stay symmetrical.
+
+2. **`convert_all` shuts the pool down with `wait=True, cancel_futures=True` on KbdInt.** Three things would go wrong with simpler approaches:
+   - A bare `with ThreadPoolExecutor(...)` block catches the KbdInt at `__exit__`, which then calls `shutdown(wait=True)`. That looks fine until a *second* Ctrl+C lands on the join — Python's `threading._shutdown` atexit handler then hits a `t.join()` that gets interrupted, dumping a traceback (the original user-reported failure).
+   - `shutdown(wait=False)` returns immediately but leaves running threads to be joined at interpreter shutdown by the same atexit handler — same race.
+   - `shutdown(wait=True, cancel_futures=True)` is the right combination: `cancel_futures=True` drops queued work, `wait=True` blocks for in-flight threads to finish their current `convert_pdf` call (a few seconds each). After this returns, no threads remain for atexit to join. The KbdInt then propagates cleanly out to `cmd_convert`.
+
+The cost is that Ctrl+C isn't instant — you wait up to ~5–10 s for in-flight conversions to finish. The benefit is no partial `.md` writes (atomic-rename guarantees this anyway, but the wait keeps file timing aligned with the printed counters) and a clean exit message.
+
 ### Parallelism
 
 `convert_all(pdfs, workers=N)` fans out conversions through `concurrent.futures.ThreadPoolExecutor`. Threads (not processes) work because:
