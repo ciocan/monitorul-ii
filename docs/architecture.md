@@ -645,6 +645,57 @@ Strict body shapes for `plenary_stenogram` and `plenary_joint_session` replaced 
 
 Backfill-registry-dependent fields (always null in v0.1): `Speaker.person_id` (person registry), `QuestionAddressee.ministry_normalized` and `Interpellation.addressed_to_normalized` (ministry registry), `Vote.proposed_by` (bill-sponsor registry), `Vote.nominal_breakdown` (parlament.ro per-MP voting feed), `bill.subject` / `law.subject` / `parliamentary_resolution.subject` (best-effort context labels). Schema-modeled but stubbed: 6 long-tail reference variants, `topics.secondary` (LLM pass), per-topic `extraction` provenance block. Interpellation `response` and `question_text` parsing deferred. Cross-document `defers_to` / `resolves` linker for tying cross-session deferrals to their resolving final-vote document.
 
+### v0.1.x — discovery-loop coverage recovery
+
+After v0.1 shipped on the modern fixture set, a full-corpus sweep over the 5551 plenary MDs surfaced a bottom quartile near zero coverage:
+
+| Cohort | n | Mean | Median | p10 | p25 | p75 | <0.85 | <0.50 |
+|---|---|---|---|---|---|---|---|---|
+| plenary_stenogram (baseline) | 4075 | 0.689 | 0.991 | 0.001 | 0.081 | 0.999 | 1465 (36%) | 1236 (30%) |
+| plenary_joint_session (baseline) | 372 | 0.765 | 0.998 | 0.020 | 0.802 | 1.000 | 97 (26%) | — |
+
+Sampling the bottom-quartile docs revealed three dominant failure patterns rather than ten subtle ones:
+
+1. **Mojibake (~31% of outliers, 2000-2007 cohort)** — older PDFs were converted from a Romanian font that lacked Unicode diacritics. PyMuPDF preserves the legacy bytes so MDs carry `Þ/þ` for `Ț/ț`, `ª/º` for `Ș/ș`, `ã` for `ă`, `Ñ/Ð` for em-dashes/en-dashes. The extraction-side regexes (`_OPENED_AT_DIACRITICS_RE`, `_CHAIR_BLOCK_OPENING_RE`, `_SUMAR_OPENING_RE`, etc.) only matched the modern-diacritic forms, so chair detection / SUMAR detection / time parsing all failed on the same docs.
+2. **No agenda markers (~50% of outliers, all eras)** — short sessions (declarations only, response-to-interpellations only, procedural-only) have either a SUMAR with descriptive (non-numbered) entries or no SUMAR at all, AND have no `## **N. Title**` body markers. The previous code path produced empty `agenda_items: []`, so the body's speech turns went un-claimed even though the body had real content (often dozens of `## **NAME:**` speeches).
+3. **Trailing footer un-claimed** — the `**EDITOR: GUVERNUL ROMÂNIEI** „Monitorul Oficial" R.A., …` block plus the `**A B O N A M E N T E   L A   P U B L I C A Ț I I L E**` subscription rate-card runs ~500-2000 chars at the end of every doc and was never claimed as boilerplate.
+
+The fix landed in `extractors/plenary/` as four targeted relaxations + one new fallback path. No shared helpers (`speakers.py`, `references.py`, `topics.py`, `extraction/boilerplate.py`) were touched — by design, plenary-only patterns belong in plenary-only modules so version bumps don't invalidate other types' sidecars.
+
+**Diacritic-tolerant regexes (`session.py`):** Added `_SEDINTA_VARIANTS = r"(?:[ŞȘªS]edin[țtţþ]a|[Ss]edinta)"` as a module-level helper accepting the modern Unicode form, the cedilla form (Ş, Ţ — separate Unicode points), the mojibake form (ª, þ), and the diacritic-stripped form (`Sedinta`). `_OPENED_AT_RE` / `_CLOSED_AT_RE` / `_CHAIR_BLOCK_OPENING_RE` / `_ATTENDANCE_RE` / `_CLOSED_PHRASE_RE` / `_SUSPEND_*_RE` / `_ADJOURNED_RE` / `find_sumar_span`'s end-detector all reference the same character classes. Time separator widened from `[.:]` to `[.,:]` for pre-2008 `13,25` style.
+
+**Chair-block phrasing variants (`session.py`):** `_CHAIR_BLOCK_OPENING_RE` accepts three openings: modern `Lucrările au fost conduse`, 2008-era `Lucrările ședinței au fost conduse`, and 2008+ joint-session `Ședința a fost condusă`. Cedilla / mojibake variants of each. `_CHAIR_PERSON_RE` made the rank (`deputat|senator`) optional so the pre-2010 / Senate form `domnul Nicolae Văcăroiu, președintele Senatului` (no rank, role suffix) parses; without an explicit rank, the name is only treated as a chair when a chamber-bearing role suffix follows (prevents over-firing on every `domnul X` mention in the chair-narrative span). Title is inferred from role: `președintele Senatului` → `senator`; `Camerei Deputaților` → `deputat`.
+
+**SUMAR keyword variants (`session.py` + `boilerplate.py`):** `_SUMAR_OPENING_RE` accepts bare `SUMAR`, markdown-prefixed `## SUMAR` (PyMuPDF heading promotion), and pipe-prefixed `|SUMAR<br>...` (some 2007-era table cells). The plenary-boilerplate `sumar_keyword` reason claims all three forms.
+
+**Implicit single-item agenda fallback (`agenda.py`):** When SUMAR-driven enumeration produces zero entries AND body-scan finds no `## **N. Title**` markers AND the post-SUMAR span contains at least one `## **NAME:**` speech header, wrap the entire span as one implicit agenda item with `category="other"`, `confidence=0.4`, `title="Ședința"`. Activities are extracted from the wrapped span normally, so all speeches get claimed via record claims. The `_SPEECH_HEADER_RE` and the requirement that `extract_activities` returns at least one activity prevent the fallback from emitting blank items on truly empty bodies.
+
+**Body-scan agenda regex relaxation (`agenda.py`):** `_BODY_AGENDA_ITEM_RE` made the `**` bold-wrapper optional so older docs' `## N. Title` (no `**`) headers parse. The `## ` prefix stays required to keep numbered lists embedded in speeches (`vă rog: 1. care e...`) from over-firing as agenda items.
+
+**Editor footer boilerplate claim (`boilerplate.py`):** Added `plenary_stenogram.editor_footer` reason matching `\*\*\s*(?:EDITOR\s*:|A\s+B\s+O\s+N\s+A\s+M\s+E\s+N\s+T\s+E)[\s\S]*\Z` — the bold-prefixed editor masthead plus the subscription rate-card, both of which run to end-of-doc.
+
+**Measured improvement** (5551-doc full-corpus sweep, before/after):
+
+| Cohort | Metric | Before | After |
+|---|---|---|---|
+| plenary_stenogram | mean | 0.689 | **0.913** |
+| plenary_stenogram | median | 0.991 | **0.998** |
+| plenary_stenogram | p10 | 0.001 | **0.673** |
+| plenary_stenogram | p25 | 0.081 | **0.980** |
+| plenary_stenogram | <0.85 | 1465 (36%) | **565 (14%)** |
+| plenary_stenogram | <0.50 | 1236 (30%) | **307 (8%)** |
+| plenary_joint_session | mean | 0.765 | **0.956** |
+| plenary_joint_session | <0.85 | 97 (26%) | **24 (6%)** |
+| Errors (schema) | total | 11 | 13 |
+
+Spot-check on representative outliers: `2000-02-11_MO-PII-2-2000.md` 0.002 → 0.997, `2008-09-12_MO-PII-73-2008.md` 0.014 → 0.999, `2015-02-23_MO-PII-16-2015.md` 0.014 → 0.999. Modern fixtures unchanged within rounding (`2024-04-22` 0.894, `2025-11-28` 0.996, `2025-10-13` joint 0.988).
+
+The 2 additional schema errors are pre-existing — the references parser correctly extracts `Legea nr. 19/1898` (an 1898 law citation in a 2001 stenogram), but the schema's `law.year: minimum 1990` rejects it. Same root cause as the 11 baseline errors. Loosening the year minimum (or routing pre-1990 citations to `unknown`) is a v0.2 concern; the 13 remaining errors are within the success-criterion budget (≤15).
+
+Three pre-2010 fixtures added: `2000-02-11_MO-PII-2-2000.md` (Senatul, mojibake), `2005-02-11_MO-PII-2-2005.md` (Senatul, mojibake), `2008-09-12_MO-PII-73-2008.md` (Senatul, no-N body markers). Test floor 0.50 (vs 0.80 for modern fixtures) — pre-2010 layouts are intentionally lossier than post-2014.
+
+**What's NOT touched** (intentionally): the `_clip_overlaps` Pass-3 step in `activities.py` stays as a clip rather than a hard assertion (the previous hard-assertion variant produced 1462 false errors across the corpus before being relaxed); shared `extraction/boilerplate.py` (which would invalidate qr/committee/report sidecars on a bump); coverage gating (still diagnostic-only).
+
 ## Testing
 
 Suite lives in `tests/`, mirrors `src/monitorul_ii/`, and ships ~130 unit tests that run in well under a second. Run with `uv run pytest`. The deliberate choices:

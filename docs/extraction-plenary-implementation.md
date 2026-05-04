@@ -652,3 +652,63 @@ Per CLAUDE.md "Document every new feature, in the same change. Non-negotiable." 
 | `unknown` reference catches legitimate-but-unmodeled patterns and signal gets lost in the long tail | Medium | Discovery loop misses graduation signal | `hint` field explicitly aids triage; periodic JSONL aggregation surfaces frequent unknown shapes |
 | Speech / vote second-pass split produces overlapping spans on edge cases (deferral inside vote inside speech) | Low | `_assert_non_overlap` raises | Hard assertion catches loudly; case-by-case fixes |
 | Schema tightening from PendingBody to strict body causes existing sidecar invalidation cascade | Low | One-time re-extraction of 53 qr docs | Acceptable per Q11 conservative-by-design contract |
+
+## 12. v0.1.x — discovery-loop coverage recovery
+
+The v0.1 ship calibrated against the modern fixture set (post-2014). A full-corpus sweep over the 5551 plenary MDs in 2026-05-04 surfaced a bottom quartile near zero coverage (plenary_stenogram p25=0.081, mean=0.689; 30% of docs below 0.50). Bottom-quartile inspection bucketed the gaps into three dominant patterns rather than a long tail of subtle ones:
+
+1. **Mojibake (~31% of outliers, 2000-2007 cohort)** — pre-2008 PDFs were converted from a Romanian font that lacked Unicode diacritics. PyMuPDF preserves the legacy bytes so MDs carry `Þ/þ` for `Ț/ț`, `ª/º` for `Ș/ș`, `ã` for `ă`, `Ñ/Ð` for em-dashes/en-dashes. Modern-diacritic-only regexes failed to detect chair blocks, SUMAR keywords, time markers.
+2. **No agenda markers (~50% of outliers, all eras)** — short sessions (declarations, response-to-interpellations, procedural-only) and many pre-2008 docs have either a SUMAR with descriptive (non-numbered) entries OR no SUMAR, AND have no `## **N. Title**` body markers. v0.1 produced empty `agenda_items: []` and orphaned the body's speech turns.
+3. **Trailing footer un-claimed** — `**EDITOR: GUVERNUL ROMÂNIEI**` masthead + `**A B O N A M E N T E   L A   P U B L I C A Ț I I L E**` subscription rate-card runs ~500-2000 chars at end-of-doc; never claimed as boilerplate.
+
+**Fixes (all in `extractors/plenary/`):**
+
+- **Diacritic-tolerant regexes** in `session.py`: a module-level `_SEDINTA_VARIANTS` accepts modern Unicode (`Ședin[țt]a`), cedilla (`Şedin[țţ]a`), mojibake (`ªedinþa`), and stripped (`Sedinta`) forms. Time separator widened from `[.:]` to `[.,:]` for pre-2008 `13,25` style. `_OPENED_AT_*` / `_CLOSED_AT_RE` / `_ATTENDANCE_RE` / `_CHAIR_BLOCK_OPENING_RE` / `_CLOSED_PHRASE_RE` / `_SUSPEND_*_RE` / `_ADJOURNED_RE` all reference the variant character classes.
+- **Chair-block phrasing variants**: `_CHAIR_BLOCK_OPENING_RE` accepts modern `Lucrările au fost conduse`, 2008-era `Lucrările ședinței au fost conduse`, and 2008+ joint `Ședința a fost condusă`.
+- **`_CHAIR_PERSON_RE` rank-optional path**: pre-2010 / Senate docs use the `domnul Nicolae Văcăroiu, președintele Senatului` form (no rank, role suffix carries the chamber). Without an explicit rank, a chair-person is only emitted when a chamber-bearing role suffix follows — prevents over-firing on every `domnul X` mention. Title is inferred from role: `președintele Senatului` → `senator`; `Camerei Deputaților` → `deputat`.
+- **SUMAR keyword variants**: `_SUMAR_OPENING_RE` accepts bare `SUMAR`, markdown-prefixed `## SUMAR`, and pipe-prefixed `|SUMAR<br>...`. Plenary-boilerplate `sumar_keyword` reason claims all three forms.
+- **`_BODY_AGENDA_ITEM_RE` relaxation**: the `**` bold wrapper became optional so older docs' `## N. Title` (no `**`) headers parse. The `## ` prefix stays required to keep numbered lists embedded in speeches from over-firing.
+- **Implicit single-item agenda fallback (`agenda.py`)**: when SUMAR-driven enumeration produces zero entries AND body-scan finds no `## **N. Title**` markers AND the post-SUMAR span contains at least one `## **NAME:**` speech header, wrap the entire span as one implicit agenda item with `category="other"`, `title="Ședința"`, `confidence=0.4`. Activities are extracted normally so all speeches get claimed. Skipped for blank/whitespace-only spans (nothing to claim).
+- **Editor footer boilerplate (`boilerplate.py`)**: `plenary_stenogram.editor_footer` reason matches `\*\*\s*(?:EDITOR\s*:|A\s+B\s+O\s+N\s+A\s+M\s+E\s+N\s+T\s+E)[\s\S]*\Z` — the bold-prefixed editor masthead plus the subscription rate-card.
+
+**Spot-check on outliers** (all measured at write=False with current code):
+
+| Sample | Layout | Before | After |
+|---|---|---|---|
+| `2000-02-11_MO-PII-2-2000.md` | Senatul mojibake, no body N. markers | 0.002 | 0.997 |
+| `2005-02-11_MO-PII-2-2005.md` | Senatul mojibake | low | 0.995 |
+| `2008-09-12_MO-PII-73-2008.md` | Senatul, descriptive SUMAR, no body N. | 0.014 | 0.999 |
+| `2015-02-23_MO-PII-16-2015.md` | Modern interpellations-only session | 0.014 | 0.999 |
+| `2015-03-13_MO-PII-31-2015.md` | Modern declarations-only session | 0.030 | 0.999 |
+
+**Full-corpus sweep results** (5551 MDs, before/after):
+
+| Cohort | Metric | Before | After |
+|---|---|---|---|
+| plenary_stenogram | mean | 0.689 | **0.913** |
+| plenary_stenogram | p25 | 0.081 | **0.980** |
+| plenary_stenogram | <0.85 | 1465 (36%) | **565 (14%)** |
+| plenary_stenogram | <0.50 | 1236 (30%) | **307 (8%)** |
+| plenary_joint_session | mean | 0.765 | **0.956** |
+| plenary_joint_session | <0.85 | 97 (26%) | **24 (6%)** |
+
+**Three new pre-2010 fixtures** in `tests/extraction/fixtures/plenary/` exercise the mojibake + implicit-fallback paths with `LEGACY_COVERAGE_FLOOR = 0.50` (modern fixture floor stays 0.80):
+
+- `2000-02-11_MO-PII-2-2000.md` — Senatul, mojibake (`Ñ Þ ª ã`)
+- `2005-02-11_MO-PII-2-2005.md` — Senatul, mojibake
+- `2008-09-12_MO-PII-73-2008.md` — Senatul, no body `N.` markers
+
+**Versioning:** these are regex extensions only. No schema change, no new helper version key. `EXTRACTOR_VERSION` for `plenary_stenogram` and `plenary_joint_session` stays at `0.1.0` — a future point bump (`0.1.1`) belongs in the same change as the next round of pattern additions, but isn't strictly required for correctness since the fallback only fires where the previous code emitted nothing (no shape change for already-covered docs).
+
+**What's NOT touched** (intentionally):
+
+- `extraction/boilerplate.py` (shared) — bumping its version invalidates qr / committee / report sidecars too. The mojibake patterns affect plenary specifically; the `**DEZBATERI PARLAMENTARE**` and `Anul XI Ñ Nr. 2` mojibake in shared preamble is a smaller-leverage win and can land in a follow-up shared bump.
+- `_clip_overlaps` in `activities.py` — stays a clip rather than a hard assertion. The previous hard-assertion variant produced 1462 false errors across the corpus.
+- Coverage gating — still diagnostic-only. Test fixtures are the only place coverage is enforced as a floor.
+
+**v0.2-and-later candidates seen during the sweep** (not addressed in v0.1.x):
+
+- The 2000-2007 cohort has an inconsistent `**DEZBATERI PARLAMENTARE**` (bold without `#` prefix) banner that `extraction/boilerplate.py` doesn't claim. ~30 chars per doc, ~600 docs affected, low marginal coverage.
+- Pre-2008 `Anul XI Ñ Nr. 2` issue header (no parenthetical Roman numeral, mojibake separator) is also not claimed by the shared `year_issue_banner` regex.
+- Both above belong in the next shared-boilerplate bump.
+- Truly novel layouts in pre-2003 docs (multi-column rendering quirks, strange `<br>` placements inside SUMAR cells) — small cohort, not worth a discrete fix.

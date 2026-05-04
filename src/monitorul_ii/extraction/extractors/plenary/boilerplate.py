@@ -33,20 +33,22 @@ _PATTERNS: list[tuple[re.Pattern[str], str]] = [
         "plenary_stenogram.partea_header_bold_only",
     ),
     # Joint-session header line — appears just below DEZBATERI banner in
-    # joint sessions; carries chamber + session label inline.
+    # joint sessions; carries chamber + session label inline. Mojibake
+    # variants (Ţ/ţ cedilla, ª/º for Ș/ș) covered for pre-2008 docs.
     (
         re.compile(
-            r"^\*\*[ȘS]EDIN[ȚT]E\s+COMUNE\s+ALE\s+CAMEREI\s+DEPUTA[ȚT]ILOR\s+"
-            r"[ȘS]I\s+SENATULUI\*\*[^\n]*$",
+            r"^\*\*[ŞȘªS]EDIN[ȚTŢÞ]E\s+COMUNE\s+ALE\s+CAMEREI\s+DEPUTA[ȚTŢÞ]ILOR\s+"
+            r"[ŞȘªS]I\s+SENATULUI\*\*[^\n]*$",
             re.MULTILINE | re.IGNORECASE,
         ),
         "plenary_stenogram.joint_session_header",
     ),
     # "Ședința din ziua de DD luna YYYY" — bare text variant (without
     # `## **...**` wrapper); the wrapped variant is claimed in session.py.
+    # Mojibake variants: ªedinþa (pre-2008 PDF→MD encoding artefacts).
     (
         re.compile(
-            r"^Ședin[țt]a\s+din\s+ziua\s+de[^\n]+$",
+            r"^(?:[ŞȘªS]edin[țtţþ]a)\s+din\s+ziua\s+de[^\n]+$",
             re.MULTILINE,
         ),
         "plenary_stenogram.session_date_header_bare",
@@ -57,9 +59,11 @@ _PATTERNS: list[tuple[re.Pattern[str], str]] = [
         re.compile(r"^\(\s*STENOGRAMA\s*\)\s*$", re.MULTILINE),
         "plenary_stenogram.stenograma_marker_inline",
     ),
-    # SUMAR keyword line
+    # SUMAR keyword line — bare or markdown-prefixed (`SUMAR`, `## SUMAR`,
+    # `# SUMAR`). Older docs sometimes carry the `## ` prefix when PyMuPDF
+    # promotes the table title to a heading.
     (
-        re.compile(r"^SUMAR\s*$", re.MULTILINE),
+        re.compile(r"^(?:##?\s+)?SUMAR\s*$", re.MULTILINE),
         "plenary_stenogram.sumar_keyword",
     ),
     # "Doamnelor și domnilor [deputați și senatori|deputați|senatori]" —
@@ -70,6 +74,19 @@ _PATTERNS: list[tuple[re.Pattern[str], str]] = [
             re.MULTILINE,
         ),
         "plenary_stenogram.chair_address_opener",
+    ),
+    # MO trailing footer — the "EDITOR: ... Monitorul Oficial RA, ..." block
+    # plus the "ABONAMENTE LA PUBLICAȚIILE OFICIALE" subscription rate-card
+    # is universal trailing matter. Older docs (pre-2008) and short modern
+    # docs that fail to claim much body content otherwise leave this whole
+    # ~500-2000 char block as a coverage gap. Match from the `**EDITOR:` /
+    # `**A B O N A M E N T E` opener through end-of-doc.
+    (
+        re.compile(
+            r"\*\*\s*(?:EDITOR\s*:|A\s+B\s+O\s+N\s+A\s+M\s+E\s+N\s+T\s+E)"
+            r"[\s\S]*\Z",
+        ),
+        "plenary_stenogram.editor_footer",
     ),
 ]
 

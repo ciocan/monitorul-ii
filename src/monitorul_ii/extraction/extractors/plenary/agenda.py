@@ -491,9 +491,20 @@ def parse_sumar(body: str, sumar_span: tuple[int, int]) -> list[_SumarEntry]:
 
 
 # Body-side ordinal headers (when SUMAR is missing or incomplete):
-#   "## **1. Title text**"  /  "## 1. Title"  /  "1. Title text"
+#   "## **1. Title text**" — modern wrapped form
+#   "## 1. Title text"     — older docs without the bold wrapper
+# The `## ` prefix is required: it filters out numbered lists embedded in
+# speeches ("vă rog să-mi comunicați: 1. care este stadiul...").
 _BODY_AGENDA_ITEM_RE = re.compile(
-    r"^##\s+\*\*\s*(?P<ord>\d{1,3})\.\s+(?P<title>[^*\n]+)\*\*\s*$",
+    r"^##\s+(?:\*\*\s*)?(?P<ord>\d{1,3})\.\s+(?P<title>[^*\n]+?)"
+    r"(?:\s*\*\*)?\s*$",
+    re.MULTILINE,
+)
+
+# Speech-header detector — needed to decide whether an "implicit single
+# agenda item" wrap is justified (don't wrap empty/junk-only spans).
+_SPEECH_HEADER_RE = re.compile(
+    r"^##\s+\*\*\s*[^*\n]+?\s*\*\*\s*$",
     re.MULTILINE,
 )
 
@@ -564,8 +575,19 @@ def extract_agenda(
         )
         claims.extend(item_claims)
     else:
-        # Body-scan fallback
+        # Body-scan fallback (looks for `## **N. Title**` headers)
         items_out, item_claims = _build_items_from_body_scan(body, agenda_end, ctx)
+        claims.extend(item_claims)
+
+    # Implicit single-item fallback — short declaration-only / interpellation-
+    # only sessions (and many pre-2008 docs whose SUMAR is descriptive without
+    # ordinals) leave items_out empty. If the body still has speech turns,
+    # wrap the entire post-session span as one "other" agenda item so the
+    # speeches get claimed via activities.
+    if not items_out:
+        items_out, item_claims = _build_implicit_single_item(
+            body, sumar_span, agenda_end, ctx
+        )
         claims.extend(item_claims)
 
     return items_out, claims
@@ -726,6 +748,66 @@ def _partition_body_into_item_spans(
             end = agenda_end
         spans.append((start, end))
     return spans
+
+
+def _build_implicit_single_item(
+    body: str,
+    sumar_span: tuple[int, int] | None,
+    agenda_end: int,
+    ctx: "ExtractContext",
+) -> tuple[list[dict[str, Any]], list[Claim]]:
+    """Last-resort fallback when no SUMAR ordinals AND no body-scan markers
+    were detected.
+
+    Many short sessions (declarations only, response-to-interpellations only,
+    procedural-only) and most pre-2008 docs with descriptive (non-numbered)
+    SUMARs would otherwise emit `agenda_items: []` and orphan their entire
+    body of speeches. Wrap the post-session span as ONE implicit agenda item
+    of `category="other"` so the speeches are claimed via activities.
+
+    Span starts after SUMAR end (or at body start if no SUMAR) and runs to
+    agenda_end. We only wrap if the span actually contains a speech header —
+    otherwise there's no real content to claim and an empty span would just
+    bloat the sidecar.
+    """
+    offsets = ctx.line_offsets
+    content_sha = ctx.content_sha
+
+    walk_start = sumar_span[1] if sumar_span is not None else 0
+    if agenda_end <= walk_start:
+        return [], []
+
+    sub_body = body[walk_start:agenda_end]
+    if not _SPEECH_HEADER_RE.search(sub_body):
+        return [], []
+
+    item_activities = activities_mod.extract_activities(
+        body, walk_start, agenda_end, ctx
+    )
+    if not item_activities:
+        return [], []
+
+    span_chars = (walk_start, agenda_end)
+    record = {
+        "ordinal": 1,
+        "title": "Ședința",
+        "primary_references": [],
+        "category": "other",
+        "confidence_type": None,
+        "requested_by_group": None,
+        "outcome": None,
+        "reexamination_reason": None,
+        "pages_in_pdf": [],
+        "topics": make_topics(""),
+        "activities": item_activities,
+        "source_span": _make_source_span(span_chars, offsets, content_sha),
+        "extraction": {
+            "extractor": "regex@plenary@0.1.0",
+            "confidence": 0.4,
+            "source_span": _make_source_span(span_chars, offsets, content_sha),
+        },
+    }
+    return [record], [make_record_claim(span_chars, offsets)]
 
 
 def _build_items_from_body_scan(

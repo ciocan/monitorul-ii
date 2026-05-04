@@ -48,19 +48,26 @@ if TYPE_CHECKING:
 # -- Time + opened_at / closed_at -------------------------------------------
 
 
+# Time separator: `:`, `.`, or `,` — pre-2008 docs use `13,25` style; modern
+# docs use `13.25` or `13:25`. The body word `Ședin[țt]a` carries Romanian
+# diacritics in modern docs, but older PDFs sometimes ship with cedilla
+# (`Ședinţa`) or mojibake (`Ședinþa`/`ªedinþa`) — accept all three.
+_TIME_SEP = r"[.,:]"
+_SEDINTA_VARIANTS = r"(?:[ŞȘªS]edin[țtţþ]a|[Ss]edinta)"
+
 _OPENED_AT_RE = re.compile(
     r"_?\s*[Ss]edinta\s+a\s+început\s+la\s+ora\s+"
-    r"(?P<h>\d{1,2})[.:](?P<m>\d{2})",
+    rf"(?P<h>\d{{1,2}}){_TIME_SEP}(?P<m>\d{{2}})",
     re.IGNORECASE,
 )
 _OPENED_AT_DIACRITICS_RE = re.compile(
-    r"_?\s*Ședin[țt]a\s+a\s+început\s+la\s+ora\s+"
-    r"(?P<h>\d{1,2})[.:](?P<m>\d{2})",
+    rf"_?\s*{_SEDINTA_VARIANTS}\s+a\s+început\s+la\s+ora\s+"
+    rf"(?P<h>\d{{1,2}}){_TIME_SEP}(?P<m>\d{{2}})",
     re.IGNORECASE,
 )
 _CLOSED_AT_RE = re.compile(
-    r"Ședin[țt]a\s+s-a\s+încheiat\s+la\s+ora\s+"
-    r"(?P<h>\d{1,2})[.:](?P<m>\d{2})",
+    rf"{_SEDINTA_VARIANTS}\s+s-a\s+încheiat\s+la\s+ora\s+"
+    rf"(?P<h>\d{{1,2}}){_TIME_SEP}(?P<m>\d{{2}})",
     re.IGNORECASE,
 )
 
@@ -77,8 +84,18 @@ def _parse_time_match(m: re.Match[str]) -> str:
 # Find the chair-narrative paragraph block. Italic markers on each line; the
 # block typically starts with "Lucrările au fost conduse..." Multi-segment
 # blocks include multiple paragraphs separated by `_..._` boundaries.
+#
+# Variants observed across the corpus:
+#   - Modern (2015+):           "Lucrările au fost conduse de domnul …"
+#   - 2008-era:                 "Lucrările ședinței au fost conduse de …"
+#   - Some 2008+ joint docs:    "Ședința a fost condusă, în prima parte, de …"
+#   - Mojibake (pre-2008):      "Lucrãrile au fost conduse" (ã not ă),
+#                               "ªedinţa a fost condusã"
 _CHAIR_BLOCK_OPENING_RE = re.compile(
-    r"_\s*Lucr[ăa]rile\s+au\s+fost\s+conduse",
+    r"_\s*(?:"
+    r"Lucr[ăaãâ]rile\s+(?:[șsşº]edin[țtţþ]ei\s+)?au\s+fost\s+conduse"
+    r"|[ŞȘªS]edin[țtţþ]a\s+a\s+fost\s+condus[ăaã]"
+    r")",
     re.IGNORECASE,
 )
 
@@ -101,9 +118,13 @@ _SEGMENT_MARKERS = [
 
 # Regex to find each "domnul deputat NAME, role" / "doamna senator NAME, role"
 # inside a chair-narrative paragraph. Stops at common terminators (next
-# coordinating conjunction, next honorific, end of clause).
+# coordinating conjunction, next honorific, end of clause). Rank
+# (deputat/senator) is OPTIONAL — pre-2010 docs and joint sessions
+# routinely use the bare honorific form ("domnul Nicolae Văcăroiu,
+# președintele Senatului").
 _CHAIR_PERSON_RE = re.compile(
-    r"\b(?P<honorific>domnul|doamna)\s+(?P<rank>deputat|senator)\s+"
+    r"\b(?P<honorific>domnul|doamna)\s+"
+    r"(?:(?P<rank>deputat|senator)\s+)?"
     r"(?P<name>[A-ZȘȚÂÎĂ][\w\-]+(?:\s+[A-ZȘȚÂÎĂ][\w\-]+){0,4})"
     r"(?:\s*,\s*(?P<role>[^,_;]+?(?:Camerei|Senatului|Deputa[țt]ilor)[^,_;]*?))?",
     re.UNICODE,
@@ -193,18 +214,34 @@ def _parse_chair_persons(
         out: list[dict[str, Any]] = []
         seen: set[str] = set()
         for m in _CHAIR_PERSON_RE.finditer(s):
+            rank = m.group("rank")
+            role = m.group("role")
+            # Without an explicit rank, only treat the match as a chair-person
+            # when a chamber-bearing role suffix is present — otherwise plain
+            # `domnul X` mentions in the chair-narrative span over-fire.
+            if rank is None and not role:
+                continue
             name = m.group("name").strip()
             if name in seen:
                 continue
             seen.add(name)
-            role = m.group("role")
             role_clean = re.sub(r"\s+", " ", role.strip()) if role else None
             raw_segment = re.sub(r"\s+", " ", m.group(0).strip())
+            # Title: explicit rank when present; otherwise infer from role
+            # suffix (`președintele Senatului` → senator).
+            if rank is not None:
+                title = rank.lower()
+            elif role_clean and "Senatului" in role_clean:
+                title = "senator"
+            elif role_clean and ("Camerei" in role_clean or "Deputa" in role_clean):
+                title = "deputat"
+            else:
+                title = None
             out.append(
                 make_speaker(
                     raw=raw_segment,
                     name=name,
-                    title=m.group("rank").lower(),
+                    title=title,
                     role=role_clean,
                 )
             )
@@ -249,11 +286,13 @@ def _build_chair_segments(block_text: str) -> list[dict[str, Any]]:
 # "din totalul de N deputați și senatori, ... și-au înregistrat prezența M"
 # "din totalul celor N de deputați, ... până în acest moment, M"
 # "din totalul de N senatori, ... M"
+# Mojibake variants: deputaþi (þ→ț), prezenþa (þ→ț), ºi (º→ș), si-au înregistrat
 _ATTENDANCE_RE = re.compile(
     r"din\s+totalul\s+(?:celor\s+)?(?:de\s+)?(?P<total>\d+)\s+(?:de\s+)?"
-    r"(?:deputa[țt]i|senatori|deputa[țt]i\s+[șs]i\s+senatori)[^.]*?"
-    r"(?:și-au\s+înregistrat\s+prezen[țt]a|în\s+acest\s+moment[,]?\s*"
-    r"și-au\s+înregistrat\s+prezen[țt]a|prezen[țt]a)[^.\n]*?"
+    r"(?:deputa[țtţþ]i|senatori|deputa[țtţþ]i\s+[șsşº]i\s+senatori)[^.]*?"
+    r"(?:[șs]i-au\s+înregistrat\s+prezen[țtţþ]a|"
+    r"în\s+acest\s+moment[,]?\s*[șs]i-au\s+înregistrat\s+prezen[țtţþ]a|"
+    r"prezen[țtţþ]a)[^.\n]*?"
     r"(?P<registered>\d+)",
     re.IGNORECASE | re.DOTALL,
 )
@@ -303,13 +342,17 @@ def _detect_format(body: str, year: int | None) -> str | None:
 # -- Closing / outcome ------------------------------------------------------
 
 
-_CLOSED_PHRASE_RE = re.compile(r"Declar\s+închis[ăa]\s+[șs]edin[țt]a", re.IGNORECASE)
-_SUSPEND_NO_QUORUM_RE = re.compile(
-    r"[Ss]uspend\s+[șs]edin[țt]a\s+pentru\s+lipsa\s+cvorumului", re.IGNORECASE
+_CLOSED_PHRASE_RE = re.compile(
+    r"Declar\s+închis[ăaã]\s+[șsşº]edin[țtţþ]a", re.IGNORECASE
 )
-_SUSPEND_OTHER_RE = re.compile(r"[Ss]uspend\s+[șs]edin[țt]a\b", re.IGNORECASE)
+_SUSPEND_NO_QUORUM_RE = re.compile(
+    r"[Ss]uspend\s+[șsşº]edin[țtţþ]a\s+pentru\s+lipsa\s+cvorumului",
+    re.IGNORECASE,
+)
+_SUSPEND_OTHER_RE = re.compile(r"[Ss]uspend\s+[șsşº]edin[țtţþ]a\b", re.IGNORECASE)
 _ADJOURNED_RE = re.compile(
-    r"[Șș]edin[țt]a\s+continu[ăa]\s+m[âa]ine|se\s+va\s+relua\s+m[âa]ine",
+    r"[Șșª]edin[țtţþ]a\s+continu[ăaã]\s+m[âaã]ine|"
+    r"se\s+va\s+relua\s+m[âaã]ine",
     re.IGNORECASE,
 )
 
@@ -375,7 +418,13 @@ def detect_special_procedure_from_header(body: str) -> str | None:
 # -- SUMAR boundary ---------------------------------------------------------
 
 
-_SUMAR_OPENING_RE = re.compile(r"^SUMAR\s*$", re.MULTILINE)
+# SUMAR keyword variants: bare `SUMAR`, markdown-prefixed `## SUMAR` (modern
+# layouts where PyMuPDF promotes it to a heading), and pipe-prefixed
+# `|SUMAR<br>...` (some 2007-era docs render the keyword inside the table cell).
+_SUMAR_OPENING_RE = re.compile(
+    r"^(?:##?\s+)?SUMAR\s*$|^\|SUMAR(?=<br>|\|)",
+    re.MULTILINE,
+)
 
 
 def find_sumar_span(body: str) -> tuple[int, int] | None:
@@ -388,8 +437,12 @@ def find_sumar_span(body: str) -> tuple[int, int] | None:
     if m is None:
         return None
     start = m.start()
-    # End: first `_Ședința a început` italic or first `##` header after start
-    end_re = re.compile(r"_\s*Ședin[țt]a\s+a\s+început|^##\s", re.MULTILINE)
+    # End: first `_Ședința a început` italic (incl. mojibake/cedilla variants)
+    # or first `##` header after start
+    end_re = re.compile(
+        rf"_\s*{_SEDINTA_VARIANTS}\s+a\s+început|^##\s",
+        re.MULTILINE,
+    )
     end_match = end_re.search(body, m.end())
     end = end_match.start() if end_match else min(len(body), m.end() + 50000)
     return start, end
@@ -510,9 +563,10 @@ def extract_session(
             )
         )
 
-    # "Ședința din ziua de DD luna YYYY" header line
+    # "Ședința din ziua de DD luna YYYY" header line — accept cedilla &
+    # mojibake variants (`Ședinţa`, `Ședinþa`, `ªedinþa`).
     header_re = re.compile(
-        r"^##\s+\*\*Ședin[țt]a\s+din\s+ziua\s+de[^\n]+\*\*\s*$",
+        rf"^##\s+\*\*{_SEDINTA_VARIANTS}\s+din\s+ziua\s+de[^\n]+\*\*\s*$",
         re.MULTILINE,
     )
     hm = header_re.search(body)

@@ -3,15 +3,39 @@ SUMAR parser + outcome detection)."""
 
 from __future__ import annotations
 
+from datetime import date
+
+from monitorul_ii.extraction.envelope import EnvelopeMeta
 from monitorul_ii.extraction.extractors.plenary.agenda import (
+    _BODY_AGENDA_ITEM_RE,
     detect_category,
     detect_confidence_type,
     detect_outcome_from_body,
     detect_reexamination_reason,
     detect_requested_by_group,
+    extract_agenda,
     parse_sumar,
 )
 from monitorul_ii.extraction.extractors.plenary.session import find_sumar_span
+from monitorul_ii.extraction.pipeline import ExtractContext
+
+
+def _ctx(body: str, year: int = 2025) -> ExtractContext:
+    from monitorul_ii.extraction.coverage import line_offsets
+
+    meta = EnvelopeMeta(issue="1", year=year, part="II", published=date(year, 1, 1))
+    return ExtractContext(
+        body_text=body,
+        line_offsets=line_offsets(body),
+        content_sha="0123456789ab",
+        meta=meta,
+        frontmatter={
+            "issue": "1",
+            "year": year,
+            "part": "II",
+            "published": meta.published,
+        },
+    )
 
 
 # -- detect_category --------------------------------------------------------
@@ -225,3 +249,77 @@ def test_parse_sumar_skips_invalid_ordinals():
     assert 1 in ords
     # 999 is out of the 1-200 valid range
     assert 999 not in ords
+
+
+# -- _BODY_AGENDA_ITEM_RE relaxation ---------------------------------------
+#
+# Older docs (pre-2010) sometimes render agenda headers as `## N. Title`
+# without the bold wrapping. Relaxed regex accepts both.
+
+
+def test_body_agenda_item_re_bold_wrapped():
+    body = "## **3. Adoptarea proiectului de lege**\n"
+    matches = list(_BODY_AGENDA_ITEM_RE.finditer(body))
+    assert len(matches) == 1
+    assert matches[0].group("ord") == "3"
+
+
+def test_body_agenda_item_re_unwrapped():
+    """Older docs render `## 3. Title` (no `**` bold)."""
+    body = "## 3. Adoptarea proiectului de lege\n"
+    matches = list(_BODY_AGENDA_ITEM_RE.finditer(body))
+    assert len(matches) == 1
+    assert matches[0].group("ord") == "3"
+
+
+def test_body_agenda_item_re_skips_inline_numbers():
+    """Inline numbered list inside a speech (`vă rog: 1. care e...`) MUST
+    NOT match — only line-anchored `## ` prefixed headers count."""
+    body = "vă rog să-mi comunicați: 1. care este stadiul rezolvării\n"
+    matches = list(_BODY_AGENDA_ITEM_RE.finditer(body))
+    assert matches == []
+
+
+# -- implicit single-item fallback -----------------------------------------
+
+
+def test_extract_agenda_implicit_single_item_when_no_sumar_no_body_marks():
+    """A short modern session with body speech turns but NO SUMAR and NO
+    `## **N.**` agenda markers gets wrapped into one implicit item so its
+    speeches are claimed."""
+    body = (
+        "## **Domnul Florin Iordache:**\n"
+        "Bună ziua! Declar deschisă ședința consacrată declarațiilor "
+        "politice de astăzi.\n\n"
+        "## **Doamna Maria Test:**\n"
+        "Mulțumesc, domnule președinte. Doresc să ridic o problemă...\n"
+    )
+    items, claims = extract_agenda(body, len(body), _ctx(body))
+    assert len(items) == 1
+    assert items[0]["ordinal"] == 1
+    assert items[0]["category"] == "other"
+    # Activities should include both speech turns
+    assert len(items[0]["activities"]) >= 2
+
+
+def test_extract_agenda_implicit_single_item_skipped_when_sumar_provides_entries():
+    """Negative control: when SUMAR is parsed and produces entries, the
+    SUMAR-driven path runs and the implicit fallback stays dormant."""
+    body = (
+        "SUMAR\n\n"
+        "|Nr.<br>1.<br>First item title<br>2.<br>Second item title|Pagina|\n"
+        "## **Domnul X:**\nText.\n"
+    )
+    items, _ = extract_agenda(body, len(body), _ctx(body))
+    assert len(items) >= 2
+    # Item 1 still keeps its real title from SUMAR (not "Ședința")
+    assert items[0]["title"] != "Ședința"
+
+
+def test_extract_agenda_implicit_fallback_skipped_for_empty_body():
+    """If body has no speech turns post-SUMAR, the implicit fallback emits
+    nothing rather than wrapping a blank span."""
+    body = "header text only\nno speeches at all\n"
+    items, claims = extract_agenda(body, len(body), _ctx(body))
+    assert items == []
+    assert claims == []
