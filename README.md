@@ -10,7 +10,7 @@ uv sync
 
 ## Usage
 
-Three subcommands: `fetch` (download PDFs), `convert` (PDF → markdown), and `classify` (type-detect MDs into the extraction-schema buckets).
+Four subcommands: `fetch` (download PDFs), `convert` (PDF → markdown), `classify` (type-detect MDs into the extraction-schema buckets), and `extract` (MD → structured JSON sidecar).
 
 ### `fetch`
 
@@ -98,12 +98,56 @@ uv run monitorul-ii classify pdfs/ --reverse
 
 Each row carries `top_type`, `top_score`, `second_type`, `second_score`, an `ambiguous` flag, the full `all_scores` map, and the list of `matched_signals` (which detection rules fired). `--outliers` filters to docs that classified as `other` *or* flagged `ambiguous` — those are the unknown unknowns the schema-discovery loop wants to inspect. Structural co-evidence (a joint session also matches the plenary-stenogram marker; an `R`-suffix report carries the joint-session marker from where it was received) is **not** counted as ambiguity — those are enriching signals, suppressed via a small compatible-runners-up rule. On the current 2300+ doc corpus the sweep produces zero `other` and zero ambiguous results.
 
+### `extract`
+
+Step 2 of the extraction pipeline (see [`docs/extraction-schema.md`](docs/extraction-schema.md), v1.5.0). Reads converted MDs, dispatches to a per-document-type extractor, and writes a `<basename>.extraction.json` sidecar next to each MD. Document type comes from the `classify` rules; types whose extractor hasn't shipped yet are skipped with a `not-yet-implemented` reason — they don't get a stub `body=other` sidecar (so re-runs after each per-type extractor lands are clean).
+
+```sh
+# extract every MD in a directory
+uv run monitorul-ii extract pdfs/
+
+# one specific MD
+uv run monitorul-ii extract pdfs/2026-03-25_MO-PII-29-2026.md
+
+# re-extract even when the existing sidecar's schema_version + extractor_versions match
+uv run monitorul-ii extract pdfs/ --force
+
+# override the classifier on a single doc (use sparingly — only when classify is wrong)
+uv run monitorul-ii extract pdfs/oddball.md --type question_register
+
+# walk MDs newest→oldest like the other subcommands
+uv run monitorul-ii extract pdfs/ --reverse
+
+# discovery loop: print one JSONL row per doc whose claimed_pct < 0.95 with the top-3 gap previews
+uv run monitorul-ii extract pdfs/ --coverage-below 0.95
+
+# skip the S3 mirror
+uv run monitorul-ii extract pdfs/ --no-upload
+```
+
+Each sidecar is a strict JSON Schema-validated dict with three sections:
+
+- **Envelope** — `schema_version`, hierarchical `document_id` (`mo://YYYY/PART/ISSUE`), `content_sha` (sha256-truncated-12 over the body bytes), `document_type`, `metadata` projected from the YAML frontmatter, paths back to the source MD/PDF, and an `extraction` block carrying per-component `extractor_versions`.
+- **Body** — type-specific shape per the schema (`question_register` is the first to ship; the others land as their per-type extractors arrive).
+- **Coverage** — diagnostic block: `body_chars`, `claimed_chars`, `claimed_pct`, plus `gaps[]` (unclaimed spans > 20 chars with line numbers and a 200-char preview) and `claimed_by_policy[]` (boilerplate the extractor intentionally skipped, with reason). Diagnostic-only — never gates writes.
+
+`--force` overrides the version-aware idempotency gate. By default, an existing sidecar is reused if its `schema_version` and every `extractor_versions` key match the current code; mismatches re-extract automatically. This is the primary mechanism for "we bumped the speakers parser, re-extract everyone": bump `SPEAKERS_VERSION`, re-run `extract`, and only the affected docs regenerate.
+
+`--type TYPE` is the override for the rare doc that classifies wrong (e.g., a stenogram with an unusual header that confuses the `(STENOGRAMA)` detector). Don't reach for it during routine runs — it bypasses the classifier as the source of truth.
+
+`--coverage-below MARGIN` is the discovery-loop entry point. It doesn't change writes — every MD is extracted normally — but in addition prints one JSONL row per doc whose `claimed_pct < MARGIN` to stdout, with the doc's path, doc_type, claimed_pct, gap_count, and the top-3 gap previews. Same UX as `classify --outliers`. Lowering the threshold over time is how you find the next pattern the extractor needs to cover.
+
+When the S3 vars are set, sidecars mirror to the same bucket as the PDFs/MDs (flat layout, `Content-Type: application/json`). Idempotent in the same way: skip if local sidecar matches, `head_object` before each upload.
+
+Schema validation runs *pre-write*: a sidecar that doesn't validate against the canonical schema (`src/monitorul_ii/extraction_schema.json`) never lands on disk. The rejected dict is dumped to `<basename>.rejected.json` for inspection so you don't have to re-derive it from logs.
+
 ## Progress and interrupts
 
 Both subcommands show a live [`rich`](https://github.com/Textualize/rich) progress bar on stderr when stderr is a terminal, and fall back to a periodic plain-text heartbeat in pipes/CI/cron.
 
 - `fetch` — bar tracks days completed; counters show found / downloaded with cumulative MB / failed, plus S3 uploaded / in-bucket / errors. Per-issue events (`ok`, `skip`, `s3+`, `s3=`, errors) and per-day summary lines scroll above the bar without breaking it. Heartbeat fires every 100 days in pipe mode.
 - `convert` — bar tracks PDFs completed; counters show converted / skipped / errors, plus S3 uploaded / in-bucket / errors when uploading. Per-PDF event lines scroll above the bar. Heartbeat fires every 50 PDFs in pipe mode.
+- `extract` — bar tracks MDs completed; counters show extracted / skipped / errors, the rolling-mean coverage `cov μ=0.999` for the docs that actually extracted this run, and the same S3 trio. Per-MD event lines scroll above the bar (`ok` lines include the doc_type and claimed_pct). Heartbeat fires every 50 MDs in pipe mode.
 
 Stdout (the final summary line) is unaffected by the tty check, so `monitorul-ii ... > log.txt` keeps a clean machine-readable record while you watch the bar interactively.
 
@@ -170,6 +214,8 @@ Layout:
 | `src/monitorul_ii/scraper.py` | Pure functions: `fetch_index`, `parse_issues`, `download_pdf`, `scrape_day`, `_with_retry`. No CLI concerns. |
 | `src/monitorul_ii/converter.py` | Pure functions: `convert_pdf`, `convert_all`, `clean_markdown`, `enrich_meta`. Wraps `pymupdf4llm`. |
 | `src/monitorul_ii/classifier.py` | Pure functions: `classify`, `classify_file`, `parse_issue_suffix`, `collect_mds`. Type detector — step 1 of the extraction pipeline. |
+| `src/monitorul_ii/extraction/` | Subpackage. `pipeline.py` is the dispatcher (envelope build, coverage compute, schema validate, atomic write); `extractors/<type>.py` is one module per `DocumentType`; `boilerplate.py`, `coverage.py`, `envelope.py`, `references.py`, `schema.py`, `speakers.py` are shared helpers. Each helper exports its own `*_VERSION` constant; the dispatcher copies them all into each sidecar's `extractor_versions` for selective re-extraction. |
+| `src/monitorul_ii/extraction_schema.json` | Canonical JSON Schema for the sidecar shape (loaded at module import, validated pre-write). Mirrors `docs/extraction-schema.md`. |
 | `src/monitorul_ii/uploader.py` | `S3Config.from_env()` + `Uploader` (boto3, S3-compatible incl. R2). |
 | `src/monitorul_ii/db.py` | `DB` — thin SQLite wrapper over `days` + `issues` tables; owns the resume-gate logic. |
 | `src/monitorul_ii/cli.py` | argparse, exit codes, the live progress bar / heartbeat, the upload→DB write path. |

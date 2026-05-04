@@ -659,13 +659,69 @@ All 12 are additive. Item 11 is the only type-shape change — mechanical migrat
 
 The audit also confirmed that several v1.3.0 fields are well-supported across the broader 10-year window: `delivery_mode` annotations (887+ corpus hits — the v1.3.0 X3-2 promotion was timely), `chair_segments[]` (mid-session swaps remain routine), `not_voting` electronic-vote count (universal in modern tallies), `government_confidence` / `government_hour` / `oath_taking` / `mandate_validation` agenda categories all appear in the 50-doc sample exactly as v1.3.0 anticipated. One single-sample finding (the inconclusive committee vote in `2020-02-28_MO-PII-4c-2020.md` where neither `aviz favorabil` nor `aviz nefavorabil` reached majority) was flagged but not promoted to a delta; only one corpus hit, falls under existing `vote_summary.outcome: "deferred"` in practice (the committee re-runs the vote next week). Revisit if it recurs.
 
+## Schema revisions for the extract pipeline scaffolding (1.4.0 → 1.5.0)
+
+The v1.0.0 → v1.4.0 bumps were corpus-driven: each audit pass surfaced agenda categories, vote types, or committee shapes the prior version had missed. The v1.5.0 bump is **engineering-driven**: it locks the envelope additions the `extract` subcommand needs to operate, plus the diagnostic block the discovery loop reads to find the next round of corpus-driven deltas. No body shape changes — the per-type bodies from v1.4.0 are unchanged.
+
+### E5-1. Per-component `extractor_versions` block
+
+The v1.0.0 example carried three placeholder keys (`regex`, `speaker_parser`, `topic_classifier`). Real implementation has more moving parts: shared helpers (`boilerplate`, `references`, `speakers`, `coverage`) plus one key per per-type extractor (`question_register`, `plenary_stenogram`, ...). Each component's version travels with the sidecars whose body content depends on it, so a bump to (say) `references` triggers re-extraction of only the docs whose body shape contains references — not the whole corpus.
+
+**Schema shape.** `extractor_versions: { [a-z_]+: "x.y.z" | null }`, open-ended dict. Null is allowed for components not yet wired in (matches the v1.0.0 `topic_classifier: null` precedent). The schema validator accepts any subset; the extract pipeline always emits at least one key.
+
+### E5-2. New `coverage` envelope block
+
+The schema-discovery loop is **extract → measure unaccounted spans → inspect → improve extractor → re-extract**. `coverage` surfaces the unaccounted spans without forcing the developer to hand-diff sidecar content against the source MD.
+
+```json
+"coverage": {
+  "body_chars": 45230,
+  "claimed_chars": 44890,
+  "claimed_pct": 0.9925,
+  "gaps": [
+    { "chars": [12340, 12390], "lines": [421, 423], "preview": "first ~120 chars of unclaimed text…" }
+  ],
+  "claimed_by_policy": [
+    { "chars": [0, 87], "lines": [1, 4], "reason": "shared_boilerplate.partea_header" }
+  ]
+}
+```
+
+Two ways a span gets claimed:
+
+1. **Real extraction** — a record (`question`, `activity`, `vote`, ...) emits a `source_span` covering the span.
+2. **By-policy skip** — boilerplate the extractor *intentionally* ignores (the `# CAMERA DEPUTAȚILOR` heading, the `Joi, 11 iulie 2013` date line) is recorded in `coverage.claimed_by_policy[]` with a reason. This is the explicit ledger that prevents the gap report from drowning in known-noise.
+
+Anything > 20 chars that isn't claimed by either path becomes a gap. **Diagnostic-only — never gates writes.** `extract --coverage-below MARGIN` (analogous to `classify --outliers`) emits docs whose `claimed_pct < MARGIN`, the discovery-loop entry point.
+
+### E5-3. Source span coordinate system locked
+
+All `lines` and `chars` arrays are **1-indexed within the body text** (the bytes after the YAML frontmatter close). `content_sha` is sha256 of the body bytes truncated to 12 hex chars — matches the existing PDF-sha convention from the fetch pipeline. Frontmatter spans are not addressable: frontmatter content is already structured into `metadata`, so no extracted record should reference it. Locking this up front removes the ambiguity that would otherwise drift extractor-by-extractor.
+
+### E5-4. By-policy boilerplate ledger separated from body
+
+By-policy claims live in `coverage.claimed_by_policy[]`, **not** in any body shape. The per-type body definitions remain exactly as v1.4.0 specified them. This keeps coverage as a purely-envelope concern and lets boilerplate detection evolve (new patterns added, `boilerplate` version bumped) without touching any body shape — and without forcing each per-type extractor to reinvent boilerplate-emit machinery in its body output.
+
+The shared boilerplate detector (`monitorul_ii.extraction.boilerplate.claim_shared_boilerplate`) starts empty and grows from gap-report iterations; per-extractor boilerplate emitters add type-specific patterns (e.g., the question_register-only `LISTA ÎNTREBĂRILOR ADRESATE…` heading) to the same ledger.
+
+### Summary of 1.4.0 → 1.5.0 deltas
+
+| # | Delta | Why |
+|---|---|---|
+| 1 | `envelope.extractor_versions` typed as open-ended `{ [a-z_]+: "x.y.z" \| null }` dict, replacing the 3-key placeholder example | Per-component versioning enables selective re-extraction when one helper bumps |
+| 2 | New `envelope.coverage` block (`body_chars`, `claimed_chars`, `claimed_pct`, `gaps[]`, `claimed_by_policy[]`) | Diagnostic for the extract→audit→improve loop; surfaces unaccounted spans for the next extractor version to cover |
+| 3 | Source span coordinate system locked: body-only, 1-indexed lines, sha256-truncated-12 `content_sha` | Removes ambiguity that would otherwise drift extractor-by-extractor |
+| 4 | By-policy boilerplate ledger lives in `coverage.claimed_by_policy[]`, not in any body shape | Keeps body shapes clean per their per-type v1.4.0 definitions |
+
+All four are envelope-level. Body shapes from v1.4.0 are unchanged. The bump is non-breaking for any tool that reads only fields documented in v1.4.0; existing v1.4.0 sidecars (none yet on disk — `extract` is the first writer) would need a one-time mechanical upgrade to add the new envelope keys.
+
 ## Consolidated schema reference
 
 Common envelope every document carries:
 
 ```json
 {
-  "schema_version": "1.4.0",
+  "schema_version": "1.5.0",
   "document_id": "mo://2026/PII/48",
   "content_sha": "a3f9c1d2e4b8",
   "document_type": "plenary_stenogram | plenary_joint_session | committee_synthesis | report_facsimile | question_register | other",
@@ -685,8 +741,26 @@ Common envelope every document carries:
   "extraction": {
     "extractor": "hybrid@1",
     "extracted_at": "2026-05-04T08:30:00Z",
-    "extractor_versions": { "regex": "1.0.0", "speaker_parser": "0.1.0", "topic_classifier": null },
+    "extractor_versions": {                                         // 1.5.0: per-component dict, open-ended
+      "boilerplate": "0.1.0",
+      "coverage": "0.1.0",
+      "references": "0.1.0",
+      "speakers": "0.1.0",
+      "question_register": "0.1.0",
+      "topic_classifier": null
+    },
     "confidence": 0.94
+  },
+  "coverage": {                                                     // 1.5.0: added
+    "body_chars": 45230,
+    "claimed_chars": 44890,
+    "claimed_pct": 0.9925,
+    "gaps": [
+      { "chars": [12340, 12390], "lines": [421, 423], "preview": "..." }
+    ],
+    "claimed_by_policy": [
+      { "chars": [0, 87], "lines": [1, 4], "reason": "shared_boilerplate.partea_header" }
+    ]
   },
   "body": { "...one of the five shapes below..." }
 }
@@ -1061,6 +1135,8 @@ Every nullable identity field in the schema is a deliberate slot for a future re
 | `report.received_at.received_in_document` | Cross-document linker pass | After plenary stenograms are extracted; many reports are received in a joint session whose stenogram is its own document |
 
 ## Build order
+
+The list below is the *conceptual priority by corpus impact* — `plenary_stenogram` carries the bulk of queryable signal. The actual development sequence (revised 2026-05-04) inserts a **Step 1.5: extract subcommand scaffolding** (envelope construction, coverage computation, JSON Schema validation, sidecar I/O, version-aware idempotency, CLI dispatch by classifier) and inverts the per-type order to ship `question_register` first as a shakeout for the scaffolding. Rationale: question_register's body is the schema's simplest (one flat list of questions per minister-addressee), its corpus is its smallest (43 docs), and bugs in the shared scaffolding cost less to find on 43 docs than on the 1667-doc plenary_stenogram cohort. Once question_register sidecars stabilise, `plenary_stenogram` becomes the main course.
 
 1. **Type detector.** Cheap regex on issue suffix + body markers; classify all converted MDs into the six buckets (`plenary_stenogram | plenary_joint_session | committee_synthesis | report_facsimile | question_register | other`). Detect joint sessions via `ȘEDINȚE COMUNE ALE CAMEREI DEPUTAȚILOR ȘI SENATULUI` header. Detect `report_facsimile` via `R` issue suffix (`3/R/2014`) and `(RAPOARTE DE ACTIVITATE)` body marker. Detect `committee_synthesis` via `c` suffix (`13c/2013`). Detect `question_register` via `LISTA ÎNTREBĂRILOR ADRESATE` header AND absence of `(STENOGRAMA)` marker. Sanity check the distribution against expected ratios.
 2. **`plenary_stenogram` extractor.** Covers the bulk of the queryable corpus. Speaker parser with `delivery_mode` annotation, agenda enumeration with the 27-value `category` enum (1.4.0) including v1.3.0's `government_confidence` / `government_hour` / `oath_taking` / `mandate_validation` and v1.4.0's `chamber_officer` / `committee_membership` / `eu_consultation` / `questions_interpellations` / `deadline_extension` values, reference regex pack including PHCD/HP, motion types, the `b` bill prefix, the `JOIN` EU-doc series, and the v1.4.0 `bill.procedure` flag for `procedură de urgență`, vote detector with deferred-handling, `not_voting` count, the `system_check` motion-type filter, and the v1.4.0 `electronic_remote` voting method, interpellation block parser with `genre` discrimination, session shape with `chair_segments[]` for mid-session swaps, the extended `special_procedure` enum (including v1.4.0's `deschiderea_sesiunii`), and the v1.4.0 `outcome` field for premature-closure detection. Topics primary populated from agenda titles via regex.

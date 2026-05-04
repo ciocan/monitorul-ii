@@ -497,6 +497,99 @@ Most committee syntheses are detected by their `c` issue suffix (decisive, score
 
 `HEADER_WINDOW_BYTES = 10_000`. Markers always live in the front matter / first heading block; reading more burns I/O for no win. `errors='replace'` on the read so a corrupted older PDF (CP1250→Latin1 mojibake, e.g. `2014-01-21_MO-PII-3R-2014.md`) doesn't blow up the sweep — those still classify on the suffix.
 
+## Extract pipeline — `monitorul-ii extract`
+
+Step 2 of the extraction pipeline (and Step 1.5 in the revised build order — see `docs/extraction-schema.md`). Reads a converted MD, classifies it (or honours `--type`), dispatches to the per-document-type extractor, and writes a strict-validated `<basename>.extraction.json` sidecar. Schema version 1.5.0 introduces the per-component `extractor_versions` block and the diagnostic `coverage` block — both engineering-driven additions, no body-shape changes from v1.4.0.
+
+### Module split
+
+Subpackage at `src/monitorul_ii/extraction/`, deliberately kept separate from the flat-modules layout the earlier pipeline stages use because extraction has tight internal coupling (every per-type extractor calls Speaker parser, References parser, boilerplate detector, coverage computer, schema validator). The flat-codebase invariant holds at the *pipeline-stage* level: `extraction/` is one new pipeline stage, not six.
+
+| File | Role |
+|---|---|
+| `extraction/pipeline.py` | The dispatcher — `extract(md_path, *, force, override_type, write)` returning `ExtractResult`. Orchestrates classify → per-type extract → boilerplate merge → coverage → envelope build → schema validate → atomic write. Holds `SCHEMA_VERSION = "1.5.0"` and `EXTRACTOR_LABEL = "regex@1"`. |
+| `extraction/envelope.py` | `split_md(text) → (frontmatter, body)` — the single source of truth for "where does the body start." `EnvelopeMeta` + `envelope_meta_from_frontmatter`. Hand-rolled flat YAML parser (no PyYAML dep for a 5-key file). `document_id(meta) → "mo://YYYY/PART/ISSUE"`. |
+| `extraction/coverage.py` | `Claim` dataclass (`chars`, `lines`, `kind=record\|boilerplate`, `reason`). `compute_coverage(body, claims)` returns the envelope `coverage` block. Half-open char ranges, 1-indexed inclusive line ranges. Gaps below 20 chars or pure-whitespace are dropped. |
+| `extraction/boilerplate.py` | `claim_shared_boilerplate(body) → list[Claim]`. Universal MO preamble patterns: issue-banner, weekday-date, partea/dezbateri/chamber headings (H1 *and* H2 — 2012-era docs render at H2), session label, legislature paren. |
+| `extraction/speakers.py` | `parse_questioner(raw) → Speaker dict`. Splits on first comma, recognises deputat/senator titles, accepts both uppercase party acronyms (PNL, SOS România) and older lowercase descriptors (progresist). |
+| `extraction/references.py` | Stub for v0.1; the discriminated-union parser (12 Reference variants) lands when the `plenary_stenogram` extractor needs it. Ships a version constant only so the per-component `extractor_versions` block has a slot. |
+| `extraction/schema.py` | Loads `extraction_schema.json` once at import (`@lru_cache`), validates against the Draft 2020-12 metaschema. `validate(sidecar)` raises `SchemaError` with path + offending value pre-formatted (`"$.body.questions/0/topic: 'foo' is not …  [value=…]"`). |
+| `extraction/extractors/__init__.py` | `EXTRACTORS: dict[DocumentType, ExtractorFn]` registry — types absent from the dict are skipped at the dispatcher. `EXTRACTOR_VERSIONS` parallel dict, copied into each sidecar's `extractor_versions`. |
+| `extraction/extractors/question_register.py` | The first per-type extractor. `extract(ctx) → (body_dict, list[Claim])` matching `$defs/QuestionRegisterBody`. Parses addressee headers, question headers, topic, registration_number/registration_date, builds per-question Speaker via `parse_questioner`. |
+| `extraction_schema.json` | Canonical machine-readable schema (lives at `src/monitorul_ii/extraction_schema.json` so it ships with the wheel). Strict envelope + question_register body + `OtherBody`. `PendingBody` (`additionalProperties: true`) for the four types whose extractors haven't shipped — tightened as each lands. |
+
+### Why JSON Schema, not Pydantic
+
+Three reasons (Q3 from the design grilling):
+
+1. **The schema doc is already a schema.** `docs/extraction-schema.md` is byte-faithful to JSON Schema; Pydantic models would force a second source of truth in Python with the same drift risk.
+2. **Language portability.** A future Postgres ingest, TS frontend, or CI check in any language can validate against the same `.json` file. Pydantic locks validation to Python.
+3. **Dep weight.** `jsonschema` is pure-Python, ~1 MB. `pydantic` pulls a Rust core (`pydantic-core`) and tracks Python releases tightly — heavier, more migration churn for a tool whose hot path is regex.
+
+The known JSON Schema downside (cryptic error messages) is mitigated by `_format_error` in `schema.py`: every error string carries `<path>: <message>  [value=<repr>]`, which is enough to debug the violating field without re-reading the schema file by hand.
+
+### Sidecar shape and idempotency
+
+Sidecar path: `<basename>.extraction.json` next to the MD. The triple-suffix (`.extraction.json`) self-documents and avoids colliding with any other JSON sidecar. Built manually (not via `Path.with_suffix`, which rejects multi-dot suffixes).
+
+Atomicity: write to `<basename>.extraction.json.part`, rename on success. The renamed file never appears mid-write. JSON validation runs *before* writing, so a malformed dict never lands on disk; instead, the rejected dict is dumped to `<basename>.rejected.json` for inspection.
+
+**Version-aware idempotency** is the load-bearing pattern (Q2 from the grilling):
+
+```
+existing sidecar's schema_version == "1.5.0"      # current
+AND existing sidecar's extractor_versions == { boilerplate: "0.1.0", coverage: "0.1.0",
+                                                references: "0.1.0", speakers: "0.1.0",
+                                                <doc_type>: "0.1.0" }
+→ skip: "versions match"
+```
+
+Mismatch (any key, any version, including missing keys on the cached side) re-extracts. This means the schema-bump workflow is automatic: bump `SPEAKERS_VERSION` from `0.1.0` to `0.1.1`, re-run `extract pdfs/`, and only the docs whose body content depends on Speakers regenerate. The cost on a clean re-run (every doc up to date) is one open + parse per skipped sidecar — about 1 ms/doc, ~2.5 s for 2300 docs. Acceptable.
+
+`--force` overrides the gate (always re-extract).
+
+### Coverage as diagnostic, not gate
+
+`coverage.claimed_pct` measures how much of the body the extractor accounted for — either via real records (each emitting a `source_span`) or via by-policy boilerplate skips. Anything > 20 chars not in either bucket becomes a `gap` with line numbers + a 200-char preview.
+
+Coverage **never gates writes** (Q6 from the grilling). A doc with 41% coverage is a *signal* the extractor needs work; it's not an *error* in the schema-validation sense. The CLI's `--coverage-below MARGIN` flag adds a JSONL row to stdout for each doc whose `claimed_pct < MARGIN` (with the top-3 gap previews) — same UX as `classify --outliers`. The discovery loop is: lower the threshold, eyeball the gaps, add patterns to `boilerplate.py` or refine the per-type extractor, bump versions, re-run.
+
+On the 51-doc question_register cohort: p50 coverage 99.95%, p10 99.4%, worst 95.15% (a 2022 doc with a heavily-fragmented post-question signature block). Tightening the `_TOPIC_TRIM_RE` patterns and the boilerplate registry are the levers; both bump their respective versions and the affected docs auto-re-extract.
+
+### Source-span coordinate system
+
+Locked in v1.5.0 (Q7): all `lines` and `chars` arrays are 1-indexed and 0-indexed respectively, both relative to the **body text** (post-frontmatter). `content_sha` is sha256 of the body bytes truncated to 12 hex chars (matches the existing PDF-sha convention from `scraper.py`). Frontmatter spans aren't addressable — frontmatter is structured into `metadata`, so no extracted record should reference it. Defining the system once in `coverage.lines_for_range` removes the off-by-one ambiguity that would otherwise drift extractor-by-extractor.
+
+### question_register specifics
+
+The simplest body shape in the schema and the smallest cohort (43-51 docs over 13 years, depending on classify-time). Picked first to shake out scaffolding rather than for corpus impact. Layout is consistent enough that one extractor handles 2012-2026 with three regex tweaks:
+
+- **Addressee headers** at H2 with three forms: personal (`## **Domnului <Name>, <role>**`), with rank prefix (`Domnului general …`, `Doamnei prof. …` — stripped before splitting on first comma), and institutional (`## **Curții de Conturi**`, `## **Băncii Naționale a României**` — no Domnului prefix; `name=null`, the institution text goes into `ministry`). A blacklist (`_ADDRESSEE_BLACKLIST_RE`) filters out boilerplate that shares the `## **TEXT**` shape — the H2 chamber-heading variants of older docs would otherwise mis-fire as institutional addressees.
+- **Question headers** with optional `## ` prefix (modern docs use `## 1. **<Q>...**`; 2012-era docs drop the `##`). The bold inner content must contain `, deputat` or `, senator` to match — that disambiguates from numbered bold list items inside question bodies.
+- **Topic line variants** (`Obiectul întrebării:`, `Obiectul:`, `Obiect:`, `Subiectul:`, `Subiect:`, `Subiectul întrebării:`, `Întrebare privind …`) all parsed; `_TOPIC_TRIM_RE` strips a trailing salutation (`Stimat[ăe] domn|doamn`, `Domnule ministru|director|...`, `Doamnă ministr|...`) when the convert step joined the topic with the question's opening salutation.
+
+Per-question `source_span` covers `[addressee_header_start, next_question_or_eof)`. The first question after each addressee header includes the addressee header in its span; subsequent questions sharing the same addressee header start at the question header (no double-counting). The qr-specific boilerplate (`LISTA` word and the long `ÎNTREBĂRILOR ADRESATE…` paragraph) emits to `coverage.claimed_by_policy[]` with reason prefixes `question_register.lista_word` / `question_register.list_header_sentence`.
+
+### Why no DB tracking for extractions
+
+Symmetric with `convert` — sidecar's own envelope is the source of truth. Adding an `extractions` table for fast corpus queries (worst-coverage histogram, "which docs need re-run after a `references` bump") is a reasonable v0.2 — but as a *projection* rebuilt from the sidecars, never authoritative. The version-aware idempotency gate reads the existing sidecar's envelope (one open + parse), which is fast enough for 2300-doc batches.
+
+### Sequential, not parallel
+
+`cmd_extract` runs sequentially — no `ThreadPoolExecutor`. Unlike `convert` (where PyMuPDF releases the GIL during PDF parsing), extraction is regex sweeps + JSON building, all pure Python, all GIL-bound. On the question_register cohort the whole 51-doc batch extracts in ~2 s. Adding parallelism would buy nothing and complicate progress-bar plumbing.
+
+### Adding a new per-type extractor
+
+The contract is small:
+
+1. Author `src/monitorul_ii/extraction/extractors/<type>.py` with `extract(ctx) → tuple[BodyDict, list[Claim]]` and an `EXTRACTOR_VERSION = "0.1.0"` constant.
+2. Register it in `extractors/__init__.py` (`EXTRACTORS[type] = module.extract` + `EXTRACTOR_VERSIONS[type] = module.EXTRACTOR_VERSION`).
+3. Tighten the corresponding `$defs/<TypeBody>` in `extraction_schema.json` from `additionalProperties: true` to the strict shape.
+4. Bump `schema_version` in both the JSON file and `pipeline.py` if the body shape introduces new keys outside what v1.5.0 already documents.
+5. Add fixtures + golden + targeted unit tests under `tests/extraction/`.
+
+The dispatcher picks it up automatically — no changes to `cli.py`, the progress bar, the upload tier, or the version-aware idempotency gate.
+
 ## Testing
 
 Suite lives in `tests/`, mirrors `src/monitorul_ii/`, and ships ~130 unit tests that run in well under a second. Run with `uv run pytest`. The deliberate choices:

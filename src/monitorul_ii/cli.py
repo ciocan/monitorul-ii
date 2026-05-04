@@ -31,6 +31,8 @@ from monitorul_ii.converter import (  # noqa: E402
     convert_all,
 )
 from monitorul_ii.db import DB  # noqa: E402
+from monitorul_ii.extraction import extract as _extract_md  # noqa: E402
+from monitorul_ii.extraction.pipeline import EXTRACTOR_LABEL  # noqa: E402, F401
 from monitorul_ii.scraper import (  # noqa: E402
     DayResult,
     FileEvent,
@@ -231,6 +233,58 @@ def _build_parser() -> argparse.ArgumentParser:
         help="Process MDs in reverse order (newest→oldest).",
     )
     classify.set_defaults(func=cmd_classify)
+
+    extract = sub.add_parser(
+        "extract",
+        help="Extract structured JSON sidecars from converted MDs (step 2 of extraction).",
+        description=(
+            "Run the per-type extractor over one or more MD files or "
+            "directories and emit a `<basename>.extraction.json` sidecar "
+            "next to each MD. Document type is determined by the v1.5.0 "
+            "classifier; types whose extractor has not yet shipped are "
+            "skipped with a `not-yet-implemented` reason. Use `--type` to "
+            "override the classifier on a single doc."
+        ),
+    )
+    extract.add_argument(
+        "paths",
+        nargs="+",
+        type=Path,
+        help="MD files or directories containing MDs (non-recursive).",
+    )
+    extract.add_argument(
+        "--force",
+        action="store_true",
+        help="Re-extract even when an existing sidecar's schema_version + extractor_versions match the current code.",
+    )
+    extract.add_argument(
+        "--type",
+        dest="override_type",
+        default=None,
+        choices=(
+            "plenary_stenogram",
+            "plenary_joint_session",
+            "committee_synthesis",
+            "report_facsimile",
+            "question_register",
+            "other",
+        ),
+        help="Override the classifier and use this document type for every input. Use sparingly — only when classify is wrong on a specific doc.",
+    )
+    extract.add_argument(
+        "--coverage-below",
+        type=float,
+        default=None,
+        metavar="MARGIN",
+        help="Diagnostic: print one JSONL line per extracted doc whose claimed_pct < MARGIN (with top-3 gap previews) to stdout. Does not affect writes — extraction proceeds normally regardless.",
+    )
+    extract.add_argument(
+        "--reverse",
+        action="store_true",
+        help="Process MDs in reverse order (newest→oldest, since filenames are date-prefixed). A partial run leaves you with the most recent stretch.",
+    )
+    _add_s3_args(extract)
+    extract.set_defaults(func=cmd_extract)
 
     return p
 
@@ -737,6 +791,255 @@ def cmd_classify(args: argparse.Namespace) -> int:
         print(f"  emitted (outliers only): {emitted}", file=sys.stderr)
 
     return 0
+
+
+_EXTRACT_LABELS = {
+    "extract": "ok   ",
+    "skip": "skip ",
+    "error": "ERR  ",
+}
+_EXTRACT_HEARTBEAT_EVERY = 50  # MDs, for `extract` in pipes
+
+
+class _ExtractProgressReporter:
+    """Live `rich` bar for `extract` when stderr is a tty; heartbeat otherwise.
+
+    Mirrors `_ConvertProgressReporter` but speaks the extract vocabulary
+    (extracted/skipped/errors + s3 trio + a coverage-pct rolling mean for
+    the docs that actually extracted this run).
+    """
+
+    def __init__(self, total: int, counters: dict[str, int]) -> None:
+        self.total = total
+        self.counters = counters
+        self.start = time.monotonic()
+        self.done = 0
+        self._tty = sys.stderr.isatty()
+        self._progress = None
+        self._task = None
+        if self._tty and total > 0:
+            from rich.console import Console
+            from rich.progress import (
+                BarColumn,
+                MofNCompleteColumn,
+                Progress,
+                TextColumn,
+                TimeElapsedColumn,
+                TimeRemainingColumn,
+            )
+
+            self._progress = Progress(
+                BarColumn(bar_width=None),
+                TextColumn("[progress.percentage]{task.percentage:>5.1f}%"),
+                MofNCompleteColumn(),
+                TextColumn("·"),
+                TextColumn("[cyan]{task.description}"),
+                TextColumn("·"),
+                TimeElapsedColumn(),
+                TextColumn("ETA"),
+                TimeRemainingColumn(),
+                console=Console(stderr=True),
+                transient=False,
+            )
+            self._task = self._progress.add_task(self._desc(), total=total)
+
+    def _desc(self) -> str:
+        c = self.counters
+        s = f"ok={c['extracted']:,} skip={c['skipped']:,} err={c['errors']:,}"
+        if c["coverage_n"]:
+            mean = c["coverage_sum"] / c["coverage_n"]
+            s += f" · cov μ={mean:.3f}"
+        if c["uploaded"] or c["in_bucket"] or c["upload_errors"]:
+            s += (
+                f" · s3 up={c['uploaded']:,} have={c['in_bucket']:,}"
+                f" err={c['upload_errors']:,}"
+            )
+        return s
+
+    def __enter__(self) -> "_ExtractProgressReporter":
+        if self._progress is not None:
+            self._progress.start()
+        return self
+
+    def __exit__(self, *exc: object) -> None:
+        if self._progress is not None:
+            self._progress.stop()
+
+    def print(self, line: str, *, err: bool = False) -> None:
+        if self._progress is not None:
+            self._progress.console.print(line, highlight=False)
+            self._progress.update(self._task, description=self._desc())
+        else:
+            print(line, file=sys.stderr if err else sys.stdout)
+
+    def advance(self) -> None:
+        self.done += 1
+        if self._progress is not None:
+            self._progress.update(self._task, advance=1, description=self._desc())
+            return
+        if self.done % _EXTRACT_HEARTBEAT_EVERY == 0 and self.done < self.total:
+            elapsed = time.monotonic() - self.start
+            rate = self.done / elapsed if elapsed > 0 else 0.0
+            eta = (self.total - self.done) / rate if rate > 0 else 0.0
+            pct = self.done / self.total * 100 if self.total else 0.0
+            print(
+                f"progress: {self.done:,}/{self.total:,} ({pct:.1f}%) | "
+                f"{self._desc()} | "
+                f"elapsed={_fmt_duration(elapsed)} ETA={_fmt_duration(eta)}",
+                file=sys.stderr,
+            )
+
+
+def _extract_summary_line(counters: dict[str, int], *, prefix: str = "") -> str:
+    line = (
+        f"{prefix}extracted={counters['extracted']} "
+        f"skipped={counters['skipped']} errors={counters['errors']}"
+    )
+    if counters["coverage_n"]:
+        mean = counters["coverage_sum"] / counters["coverage_n"]
+        line += f" | cov mean={mean:.4f} (n={counters['coverage_n']})"
+    if counters["uploaded"] or counters["in_bucket"] or counters["upload_errors"]:
+        line += (
+            f" | s3 uploaded={counters['uploaded']} "
+            f"in-bucket={counters['in_bucket']} "
+            f"errors={counters['upload_errors']}"
+        )
+    return line
+
+
+def cmd_extract(args: argparse.Namespace) -> int:
+    mds = collect_mds(list(args.paths), reverse=args.reverse)
+    if not mds:
+        print("no MDs found", file=sys.stderr)
+        return 0
+
+    uploader = _resolve_uploader(args)
+
+    counters: dict[str, int] = {
+        "extracted": 0,
+        "skipped": 0,
+        "errors": 0,
+        "uploaded": 0,
+        "in_bucket": 0,
+        "upload_errors": 0,
+        "coverage_sum": 0.0,
+        "coverage_n": 0,
+    }
+    skip_reasons: dict[str, int] = {}
+    threshold = args.coverage_below
+
+    try:
+        with _ExtractProgressReporter(len(mds), counters) as report:
+            for md in mds:
+                try:
+                    result = _extract_md(
+                        md, force=args.force, override_type=args.override_type
+                    )
+                except KeyboardInterrupt:
+                    raise
+                except Exception as exc:
+                    counters["errors"] += 1
+                    report.print(f"  ERR   {md.name}  ({exc!r})", err=True)
+                    report.advance()
+                    continue
+
+                label = _EXTRACT_LABELS[result.status]
+                if result.status == "extract":
+                    counters["extracted"] += 1
+                    report.print(
+                        f"  {label} {result.sidecar_path.name}  "
+                        f"[{result.doc_type}, cov={result.coverage_pct:.4f}]"
+                    )
+                    if result.coverage_pct is not None:
+                        counters["coverage_sum"] += result.coverage_pct
+                        counters["coverage_n"] += 1
+                    if (
+                        threshold is not None
+                        and result.coverage_pct is not None
+                        and result.coverage_pct < threshold
+                    ):
+                        _emit_coverage_outlier(result, report)
+                elif result.status == "skip":
+                    counters["skipped"] += 1
+                    reason = result.reason or "unknown"
+                    skip_reasons[reason] = skip_reasons.get(reason, 0) + 1
+                    report.print(
+                        f"  {label} {md.name}  [{result.doc_type or '?'}, {reason}]"
+                    )
+                else:
+                    counters["errors"] += 1
+                    detail = result.reason or "unknown"
+                    if result.rejected_path:
+                        detail += f" (rejected dump: {result.rejected_path.name})"
+                    report.print(f"  {label} {md.name}  ({detail})", err=True)
+
+                if (
+                    uploader is not None
+                    and result.status == "extract"
+                    and result.sidecar_path.exists()
+                    and result.sidecar_path.stat().st_size > 0
+                ):
+                    try:
+                        up = uploader.upload_if_missing(
+                            result.sidecar_path, content_type="application/json"
+                        )
+                        if up.uploaded:
+                            counters["uploaded"] += 1
+                            report.print(f"  s3+   {result.sidecar_path.name}")
+                        else:
+                            counters["in_bucket"] += 1
+                            report.print(f"  s3=   {result.sidecar_path.name}")
+                    except Exception as exc:
+                        counters["upload_errors"] += 1
+                        report.print(
+                            f"  s3!   {result.sidecar_path.name}  ({exc})",
+                            err=True,
+                        )
+
+                report.advance()
+    except KeyboardInterrupt:
+        print(
+            _extract_summary_line(counters, prefix="\ninterrupted: "),
+            file=sys.stderr,
+        )
+        return 130
+
+    print(_extract_summary_line(counters))
+    if skip_reasons:
+        print("skip reasons:", file=sys.stderr)
+        for reason, n in sorted(skip_reasons.items(), key=lambda kv: -kv[1]):
+            print(f"  {reason}: {n}", file=sys.stderr)
+    return 1 if counters["errors"] or counters["upload_errors"] else 0
+
+
+def _emit_coverage_outlier(result: object, report: object) -> None:
+    """Print the coverage-outlier JSONL row to stdout for the discovery loop.
+
+    Reads the just-written sidecar from disk so we get the gaps + previews
+    that compute_coverage already produced, without re-deriving them here.
+    """
+    try:
+        text = result.sidecar_path.read_text(encoding="utf-8")  # type: ignore[attr-defined]
+        sidecar = json.loads(text)
+    except Exception:
+        return
+    cov = sidecar.get("coverage") or {}
+    gaps = cov.get("gaps") or []
+    row = {
+        "file": str(result.md_path),  # type: ignore[attr-defined]
+        "doc_type": sidecar.get("document_type"),
+        "claimed_pct": cov.get("claimed_pct"),
+        "gap_count": len(gaps),
+        "top_gaps": [
+            {
+                "lines": g.get("lines"),
+                "chars": g.get("chars"),
+                "preview": g.get("preview"),
+            }
+            for g in gaps[:3]
+        ],
+    }
+    print(json.dumps(row, ensure_ascii=False))
 
 
 def main(argv: list[str] | None = None) -> int:

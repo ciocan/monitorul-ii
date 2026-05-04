@@ -1,0 +1,335 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/ciocan/monitorul-ii/blob/main/src/monitorul_ii/extraction_schema.json",
+  "title": "Monitorul Oficial Partea II extraction sidecar",
+  "description": "Canonical machine-readable schema for the per-document JSON sidecars emitted by `monitorul-ii extract`. Mirrors docs/extraction-schema.md (the human-readable spec). Schema_version 1.5.0 introduces per-component extractor_versions and the coverage envelope block.",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "document_id",
+    "content_sha",
+    "document_type",
+    "metadata",
+    "raw_markdown_path",
+    "raw_pdf_path",
+    "extraction",
+    "coverage",
+    "body"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": { "const": "1.5.0" },
+    "document_id": {
+      "type": "string",
+      "pattern": "^mo://\\d{4}/[IVXM]+/[0-9A-Za-z]+$"
+    },
+    "content_sha": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{12}$"
+    },
+    "document_type": { "$ref": "#/$defs/DocumentType" },
+    "metadata": { "$ref": "#/$defs/Metadata" },
+    "raw_markdown_path": { "type": "string", "minLength": 1 },
+    "raw_pdf_path": { "type": "string", "minLength": 1 },
+    "extraction": { "$ref": "#/$defs/Extraction" },
+    "coverage": { "$ref": "#/$defs/Coverage" },
+    "body": true
+  },
+  "oneOf": [
+    {
+      "properties": {
+        "document_type": { "const": "question_register" },
+        "body": { "$ref": "#/$defs/QuestionRegisterBody" }
+      }
+    },
+    {
+      "properties": {
+        "document_type": { "const": "other" },
+        "body": { "$ref": "#/$defs/OtherBody" }
+      }
+    },
+    {
+      "properties": {
+        "document_type": { "const": "plenary_stenogram" },
+        "body": { "$ref": "#/$defs/PendingBody" }
+      }
+    },
+    {
+      "properties": {
+        "document_type": { "const": "plenary_joint_session" },
+        "body": { "$ref": "#/$defs/PendingBody" }
+      }
+    },
+    {
+      "properties": {
+        "document_type": { "const": "committee_synthesis" },
+        "body": { "$ref": "#/$defs/PendingBody" }
+      }
+    },
+    {
+      "properties": {
+        "document_type": { "const": "report_facsimile" },
+        "body": { "$ref": "#/$defs/PendingBody" }
+      }
+    }
+  ],
+  "$defs": {
+    "DocumentType": {
+      "enum": [
+        "plenary_stenogram",
+        "plenary_joint_session",
+        "committee_synthesis",
+        "report_facsimile",
+        "question_register",
+        "other"
+      ]
+    },
+    "Metadata": {
+      "type": "object",
+      "required": ["issue", "year", "part", "published"],
+      "additionalProperties": false,
+      "properties": {
+        "issue": { "type": "string", "minLength": 1 },
+        "year": { "type": "integer", "minimum": 1990, "maximum": 2100 },
+        "part": { "type": "string", "pattern": "^[IVXM]+$" },
+        "published": { "type": "string", "format": "date" },
+        "chamber": {
+          "anyOf": [
+            { "enum": ["Camera Deputaților", "Senatul", "joint"] },
+            { "type": "null" }
+          ]
+        },
+        "session": { "type": ["string", "null"] },
+        "session_type": {
+          "anyOf": [
+            { "enum": ["ordinary", "extraordinary"] },
+            { "type": "null" }
+          ]
+        },
+        "session_date": {
+          "anyOf": [{ "type": "string", "format": "date" }, { "type": "null" }]
+        },
+        "legislature": { "type": ["string", "null"] }
+      }
+    },
+    "Extraction": {
+      "type": "object",
+      "required": ["extractor", "extracted_at", "extractor_versions", "confidence"],
+      "additionalProperties": false,
+      "properties": {
+        "extractor": { "type": "string", "minLength": 1 },
+        "extracted_at": { "type": "string", "format": "date-time" },
+        "extractor_versions": {
+          "type": "object",
+          "description": "Per-component versions: one key per shared helper (boilerplate, references, speakers, coverage) plus one per per-type extractor (question_register, plenary_stenogram, ...). Bumping any key invalidates sidecars whose body depends on that component.",
+          "patternProperties": {
+            "^[a-z][a-z0-9_]*$": {
+              "anyOf": [
+                { "type": "string", "pattern": "^\\d+\\.\\d+\\.\\d+$" },
+                { "type": "null" }
+              ]
+            }
+          },
+          "additionalProperties": false,
+          "minProperties": 1
+        },
+        "confidence": { "type": "number", "minimum": 0, "maximum": 1 }
+      }
+    },
+    "Coverage": {
+      "type": "object",
+      "description": "Diagnostic block: how much of the body did the extractor account for, and what's left unclaimed? Never gates writes; surfaces what the next extractor version needs to cover.",
+      "required": ["body_chars", "claimed_chars", "claimed_pct", "gaps", "claimed_by_policy"],
+      "additionalProperties": false,
+      "properties": {
+        "body_chars": { "type": "integer", "minimum": 0 },
+        "claimed_chars": { "type": "integer", "minimum": 0 },
+        "claimed_pct": { "type": "number", "minimum": 0, "maximum": 1 },
+        "gaps": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/CoverageGap" }
+        },
+        "claimed_by_policy": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/ClaimByPolicy" }
+        }
+      }
+    },
+    "CoverageGap": {
+      "type": "object",
+      "required": ["chars", "lines", "preview"],
+      "additionalProperties": false,
+      "properties": {
+        "chars": { "$ref": "#/$defs/CharRange" },
+        "lines": { "$ref": "#/$defs/LineRange" },
+        "preview": { "type": "string" }
+      }
+    },
+    "ClaimByPolicy": {
+      "type": "object",
+      "required": ["chars", "lines", "reason"],
+      "additionalProperties": false,
+      "properties": {
+        "chars": { "$ref": "#/$defs/CharRange" },
+        "lines": { "$ref": "#/$defs/LineRange" },
+        "reason": { "type": "string", "minLength": 1 }
+      }
+    },
+    "CharRange": {
+      "type": "array",
+      "items": { "type": "integer", "minimum": 0 },
+      "minItems": 2,
+      "maxItems": 2
+    },
+    "LineRange": {
+      "type": "array",
+      "items": { "type": "integer", "minimum": 1 },
+      "minItems": 2,
+      "maxItems": 2
+    },
+    "ContentSha": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{12}$"
+    },
+    "SourceSpan": {
+      "type": "object",
+      "required": ["chars", "lines", "content_sha"],
+      "additionalProperties": false,
+      "properties": {
+        "chars": { "$ref": "#/$defs/CharRange" },
+        "lines": { "$ref": "#/$defs/LineRange" },
+        "content_sha": { "$ref": "#/$defs/ContentSha" }
+      }
+    },
+    "PerSectionExtraction": {
+      "type": "object",
+      "required": ["extractor", "confidence", "source_span"],
+      "additionalProperties": false,
+      "properties": {
+        "extractor": { "type": "string", "minLength": 1 },
+        "confidence": { "type": "number", "minimum": 0, "maximum": 1 },
+        "source_span": { "$ref": "#/$defs/SourceSpan" }
+      }
+    },
+    "Speaker": {
+      "type": "object",
+      "required": ["raw", "name", "title", "role", "party_group", "person_id"],
+      "additionalProperties": false,
+      "properties": {
+        "raw": { "type": "string", "minLength": 1 },
+        "name": { "type": ["string", "null"] },
+        "title": { "type": ["string", "null"] },
+        "role": { "type": ["string", "null"] },
+        "party_group": { "type": ["string", "null"] },
+        "person_id": { "type": ["string", "null"] }
+      }
+    },
+    "QuestionRegisterBody": {
+      "type": "object",
+      "required": ["session_label", "chamber", "questions"],
+      "additionalProperties": false,
+      "properties": {
+        "session_label": { "type": ["string", "null"] },
+        "chamber": {
+          "anyOf": [
+            { "enum": ["Camera Deputaților", "Senatul"] },
+            { "type": "null" }
+          ]
+        },
+        "questions": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/Question" }
+        }
+      }
+    },
+    "Question": {
+      "type": "object",
+      "required": [
+        "ordinal",
+        "addressee",
+        "questioner",
+        "registration_number",
+        "registration_date",
+        "topic",
+        "question_text",
+        "source_span",
+        "extraction"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "ordinal": { "type": "integer", "minimum": 1 },
+        "addressee": { "$ref": "#/$defs/QuestionAddressee" },
+        "questioner": { "$ref": "#/$defs/Speaker" },
+        "registration_number": { "type": ["string", "null"] },
+        "registration_date": {
+          "anyOf": [{ "type": "string", "format": "date" }, { "type": "null" }]
+        },
+        "topic": { "type": ["string", "null"] },
+        "question_text": { "type": ["string", "null"] },
+        "source_span": { "$ref": "#/$defs/SourceSpan" },
+        "extraction": { "$ref": "#/$defs/PerSectionExtraction" }
+      }
+    },
+    "QuestionAddressee": {
+      "type": "object",
+      "description": "Recipient of a written question. The `ministry` field holds the institution name (typically a ministry, but also intelligence services, CNSAS, ombudsman, central bank, etc.); naming kept for schema-doc continuity.",
+      "required": ["ministry", "ministry_normalized", "name", "role"],
+      "additionalProperties": false,
+      "properties": {
+        "ministry": { "type": ["string", "null"] },
+        "ministry_normalized": { "type": ["string", "null"] },
+        "name": { "type": ["string", "null"] },
+        "role": { "type": ["string", "null"] }
+      }
+    },
+    "OtherBody": {
+      "type": "object",
+      "required": ["headings", "raw_markdown_excerpt", "extraction"],
+      "additionalProperties": false,
+      "properties": {
+        "headings": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/Heading" }
+        },
+        "raw_markdown_excerpt": { "type": "string" },
+        "extraction": {
+          "type": "object",
+          "required": ["extractor", "confidence", "reason", "candidate_types"],
+          "additionalProperties": false,
+          "properties": {
+            "extractor": { "type": "string" },
+            "confidence": { "type": "number", "minimum": 0, "maximum": 1 },
+            "reason": { "type": "string" },
+            "candidate_types": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": ["type", "score"],
+                "additionalProperties": false,
+                "properties": {
+                  "type": { "$ref": "#/$defs/DocumentType" },
+                  "score": { "type": "number", "minimum": 0, "maximum": 1 }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "Heading": {
+      "type": "object",
+      "required": ["level", "text", "line"],
+      "additionalProperties": false,
+      "properties": {
+        "level": { "type": "integer", "minimum": 1, "maximum": 6 },
+        "text": { "type": "string" },
+        "line": { "type": "integer", "minimum": 1 }
+      }
+    },
+    "PendingBody": {
+      "type": "object",
+      "description": "Placeholder for body shapes whose per-type extractor has not yet landed (plenary_stenogram, plenary_joint_session, committee_synthesis, report_facsimile). Tightened to its full shape when its extractor ships. Until then, additionalProperties is true so the discriminator works without forcing a partial body shape now.",
+      "additionalProperties": true
+    }
+  }
+}
