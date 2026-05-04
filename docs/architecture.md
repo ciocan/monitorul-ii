@@ -43,7 +43,7 @@ CLI (cli.py: cmd_fetch)
         DB short-circuits the head_object when issue.status is already 'uploaded')
 
        per-day summary line printed unless the day was a pure DB-cached no-op
-       heartbeat line every 100 days with elapsed/ETA
+       progress: live `rich` bar on stderr when isatty, else heartbeat every 100 days
 ```
 
 The split is deliberate: `scraper.py` has no I/O of its own beyond httpx + the filesystem + sqlite3 (via the DB handle), and emits structured `FileEventPayload` records through `on_event`. `db.py` is a thin SQLite wrapper — schema bootstrap, named methods, no ORM, no migration framework. `cli.py` owns argv parsing, stdout/stderr formatting, exit codes, and the upload→DB write path. Tests can drive `scrape_day` directly with a captured-events callback and an in-memory DB.
@@ -203,7 +203,7 @@ The `days` row is what makes a 26-year resume cheap: weekends and empty days get
 4. The `days` row is missing.
 5. The `days` row exists but `status != 'ok'`.
 
-Otherwise return `False` and `scrape_day` reconstructs `Issue` objects from the existing `issues` rows for that day, filtered to non-terminal statuses (`pending`, `failed`). If all rows are already `downloaded`/`uploaded`, the issue list is empty and `scrape_day` is a true no-op for that day — no network, no filesystem reads, no per-day stdout line. Heartbeats every 100 days carry the progress.
+Otherwise return `False` and `scrape_day` reconstructs `Issue` objects from the existing `issues` rows for that day, filtered to non-terminal statuses (`pending`, `failed`). If all rows are already `downloaded`/`uploaded`, the issue list is empty and `scrape_day` is a true no-op for that day — no network, no filesystem reads, no per-day stdout line. The live progress bar (or 100-day heartbeat in non-tty) carries the progress.
 
 ### Status state machines
 

@@ -12,7 +12,7 @@ Python 3.12 + `uv`. CLI `monitorul-ii` with two subcommands: `fetch` (scrape PDF
 - `src/monitorul_ii/converter.py` — pure functions: `parse_filename`, `enrich_meta`, `clean_markdown`, `convert_pdf`, `convert_all`, `collect_pdfs`. Wraps `pymupdf4llm.to_markdown` and applies an MO-specific cleanup pass + YAML frontmatter prepend. No CLI concerns.
 - `src/monitorul_ii/uploader.py` — `S3Config.from_env()` + `Uploader` (boto3, S3-compatible incl. R2). `upload_if_missing(path, key=None, content_type="application/pdf")` returns `UploadResult(uploaded, etag)`.
 - `src/monitorul_ii/db.py` — `DB` wraps the SQLite audit log (`days` + `issues` tables). Owns the resume-gate logic via `should_fetch_index`. Tracks PDFs only — MD conversion state lives on the filesystem + S3 head.
-- `src/monitorul_ii/cli.py` — argparse with subparsers. `cmd_fetch` orchestrates download → upload + DB; `cmd_convert` orchestrates pdf-to-md → upload. Entry point `monitorul-ii = "monitorul_ii.cli:main"`.
+- `src/monitorul_ii/cli.py` — argparse with subparsers. `cmd_fetch` orchestrates download → upload + DB; `cmd_convert` orchestrates pdf-to-md → upload. Entry point `monitorul-ii = "monitorul_ii.cli:main"`. `_ProgressReporter` shows a live `rich` bar on stderr when `sys.stderr.isatty()`, falls back to a 100-day heartbeat in pipes/cron. Ctrl+C prints a final progress summary and exits 130 (no traceback).
 - `src/monitorul_ii/__main__.py` — also runnable via `python -m monitorul_ii`.
 
 ## How the scraper talks to the site

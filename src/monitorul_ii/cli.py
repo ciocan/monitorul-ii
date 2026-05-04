@@ -165,12 +165,12 @@ def _build_parser() -> argparse.ArgumentParser:
     return p
 
 
-def _print_day_summary(
+def _day_summary_line(
     r: DayResult, uploaded: int, in_bucket: int, upload_errors: int
-) -> None:
+) -> str | None:
     if not r.fetched_index and r.found == 0 and r.skipped == 0 and r.downloaded == 0:
-        # Pure DB-cached skip — heartbeat carries the progress, don't spam stdout.
-        return
+        # Pure DB-cached skip — progress bar carries the day count, don't spam logs.
+        return None
     line = (
         f"{r.day}: found={r.found} downloaded={r.downloaded} "
         f"skipped={r.skipped} errors={len(r.errors)}"
@@ -181,7 +181,7 @@ def _print_day_summary(
         line += (
             f" | s3 uploaded={uploaded} in-bucket={in_bucket} errors={upload_errors}"
         )
-    print(line)
+    return line
 
 
 def _fmt_duration(seconds: float) -> str:
@@ -210,6 +210,88 @@ def _progress_line(
         f"errors={counters['upload_errors']:,} | "
         f"elapsed={_fmt_duration(elapsed)} ETA={_fmt_duration(eta)}"
     )
+
+
+class _ProgressReporter:
+    """Live tty bar (rich) when stderr is a terminal, periodic heartbeat otherwise."""
+
+    def __init__(
+        self,
+        days_total: int,
+        totals: dict[str, int],
+        counters: dict[str, int],
+    ) -> None:
+        self.days_total = days_total
+        self.totals = totals
+        self.counters = counters
+        self.start = time.monotonic()
+        self.days_done = 0
+        self._tty = sys.stderr.isatty()
+        self._progress = None
+        self._task = None
+        if self._tty:
+            from rich.console import Console
+            from rich.progress import (
+                BarColumn,
+                MofNCompleteColumn,
+                Progress,
+                TextColumn,
+                TimeElapsedColumn,
+                TimeRemainingColumn,
+            )
+
+            self._progress = Progress(
+                BarColumn(bar_width=None),
+                TextColumn("[progress.percentage]{task.percentage:>5.1f}%"),
+                MofNCompleteColumn(),
+                TextColumn("·"),
+                TextColumn("[cyan]{task.description}"),
+                TextColumn("·"),
+                TimeElapsedColumn(),
+                TextColumn("ETA"),
+                TimeRemainingColumn(),
+                console=Console(stderr=True),
+                transient=False,
+            )
+            self._task = self._progress.add_task(self._desc(), total=days_total)
+
+    def _desc(self) -> str:
+        t, c = self.totals, self.counters
+        return (
+            f"found={t['found']:,} dl={t['downloaded']:,} fail={t['failed']:,}"
+            f" · s3 up={c['uploaded']:,} have={c['in_bucket']:,} err={c['upload_errors']:,}"
+        )
+
+    def __enter__(self) -> "_ProgressReporter":
+        if self._progress is not None:
+            self._progress.start()
+        return self
+
+    def __exit__(self, *exc: object) -> None:
+        if self._progress is not None:
+            self._progress.stop()
+
+    def print(self, line: str, *, err: bool = False) -> None:
+        if self._progress is not None:
+            self._progress.console.print(line, highlight=False)
+            self._progress.update(self._task, description=self._desc())
+        else:
+            print(line, file=sys.stderr if err else sys.stdout)
+
+    def advance(self) -> None:
+        self.days_done += 1
+        if self._progress is not None:
+            self._progress.update(self._task, advance=1, description=self._desc())
+            return
+        if self.days_done % _HEARTBEAT_EVERY == 0 and self.days_done < self.days_total:
+            elapsed = time.monotonic() - self.start
+            print(
+                "progress: "
+                + _progress_line(
+                    self.days_done, self.days_total, self.totals, self.counters, elapsed
+                ),
+                file=sys.stderr,
+            )
 
 
 def _resolve_uploader(args: argparse.Namespace) -> Uploader | None:
@@ -254,13 +336,17 @@ def cmd_fetch(args: argparse.Namespace) -> int:
 
     today = datetime.now(timezone.utc).date()
     counters = {"uploaded": 0, "in_bucket": 0, "upload_errors": 0}
+    days_total = (end - args.date).days + 1
+    totals = {"found": 0, "downloaded": 0, "failed": 0}
+    total_errors = 0
+    reporter = _ProgressReporter(days_total, totals, counters)
 
     def on_event(p: FileEventPayload) -> None:
         label = _FETCH_LABELS[p.kind]
         if p.kind == "error":
-            print(f"  {label} {p.path.name}  ({p.detail})", file=sys.stderr)
+            reporter.print(f"  {label} {p.path.name}  ({p.detail})", err=True)
         else:
-            print(f"  {label} {p.path.name}")
+            reporter.print(f"  {label} {p.path.name}")
 
         if uploader is None or p.kind == "error":
             return
@@ -277,10 +363,10 @@ def cmd_fetch(args: argparse.Namespace) -> int:
             result = uploader.upload_if_missing(p.path)
             if result.uploaded:
                 counters["uploaded"] += 1
-                print(f"  s3+   {p.path.name}")
+                reporter.print(f"  s3+   {p.path.name}")
             else:
                 counters["in_bucket"] += 1
-                print(f"  s3=   {p.path.name}")
+                reporter.print(f"  s3=   {p.path.name}")
             if db is not None:
                 db.record_issue_uploaded(
                     p.day,
@@ -291,16 +377,10 @@ def cmd_fetch(args: argparse.Namespace) -> int:
                 )
         except Exception as exc:
             counters["upload_errors"] += 1
-            print(f"  s3!   {p.path.name}  ({exc})", file=sys.stderr)
-
-    days_total = (end - args.date).days + 1
-    start_time = time.monotonic()
-    days_done = 0
-    totals = {"found": 0, "downloaded": 0, "failed": 0}
-    total_errors = 0
+            reporter.print(f"  s3!   {p.path.name}  ({exc})", err=True)
 
     try:
-        with _client(proxy=proxy) as client:
+        with reporter, _client(proxy=proxy) as client:
             for day in daterange(args.date, end, reverse=args.reverse):
                 day_uploaded_before = counters["uploaded"]
                 day_inbucket_before = counters["in_bucket"]
@@ -317,39 +397,28 @@ def cmd_fetch(args: argparse.Namespace) -> int:
                     force=args.force,
                     rescrape_recent_days=args.rescrape_recent,
                 )
-                _print_day_summary(
+                summary = _day_summary_line(
                     r,
                     counters["uploaded"] - day_uploaded_before,
                     counters["in_bucket"] - day_inbucket_before,
                     counters["upload_errors"] - day_uperr_before,
                 )
+                if summary is not None:
+                    reporter.print(summary)
                 total_errors += len(r.errors)
                 totals["found"] += r.found
                 totals["downloaded"] += r.downloaded
                 totals["failed"] += len(r.errors)
-                days_done += 1
-
-                if days_done % _HEARTBEAT_EVERY == 0 and days_done < days_total:
-                    print(
-                        "progress: "
-                        + _progress_line(
-                            days_done,
-                            days_total,
-                            totals,
-                            counters,
-                            time.monotonic() - start_time,
-                        ),
-                        file=sys.stderr,
-                    )
+                reporter.advance()
     except KeyboardInterrupt:
         print(
             "\ninterrupted: "
             + _progress_line(
-                days_done,
+                reporter.days_done,
                 days_total,
                 totals,
                 counters,
-                time.monotonic() - start_time,
+                time.monotonic() - reporter.start,
             ),
             file=sys.stderr,
         )
