@@ -21,6 +21,7 @@ from typing import TYPE_CHECKING
 
 from monitorul_ii.classifier import DocumentType
 from monitorul_ii.extraction.extractors import (
+    committee_synthesis,
     plenary,
     plenary_joint_session,
     question_register,
@@ -39,6 +40,7 @@ EXTRACTORS: dict[DocumentType, ExtractorFn] = {
     "question_register": question_register.extract,
     "plenary_stenogram": plenary.extract,
     "plenary_joint_session": plenary_joint_session.extract,
+    "committee_synthesis": committee_synthesis.extract,
 }
 
 
@@ -46,4 +48,5 @@ EXTRACTOR_VERSIONS: dict[DocumentType, str] = {
     "question_register": question_register.EXTRACTOR_VERSION,
     "plenary_stenogram": plenary.EXTRACTOR_VERSION,
     "plenary_joint_session": plenary_joint_session.EXTRACTOR_VERSION,
+    "committee_synthesis": committee_synthesis.EXTRACTOR_VERSION,
 }

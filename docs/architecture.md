@@ -585,7 +585,7 @@ The contract is small:
 1. Author `src/monitorul_ii/extraction/extractors/<type>.py` with `extract(ctx) → tuple[BodyDict, list[Claim]]` and an `EXTRACTOR_VERSION = "0.1.0"` constant. (For larger extractors, use a sub-subpackage `extractors/<type>/` with sibling modules per concern — see `extractors/plenary/` for the canonical example.)
 2. Register it in `extractors/__init__.py` (`EXTRACTORS[type] = module.extract` + `EXTRACTOR_VERSIONS[type] = module.EXTRACTOR_VERSION`).
 3. Tighten the corresponding `$defs/<TypeBody>` in `extraction_schema.json` from `additionalProperties: true` to the strict shape.
-4. Bump `schema_version` in both the JSON file and `pipeline.py` if the body shape introduces new keys outside what v1.6.0 already documents.
+4. Bump `schema_version` in both the JSON file and `pipeline.py` if the body shape introduces new keys outside what v1.7.0 already documents.
 5. Add fixtures + golden + targeted unit tests under `tests/extraction/`.
 
 The dispatcher picks it up automatically — no changes to `cli.py`, the progress bar, the upload tier, or the version-aware idempotency gate.
@@ -695,6 +695,124 @@ The 2 additional schema errors are pre-existing — the references parser correc
 Three pre-2010 fixtures added: `2000-02-11_MO-PII-2-2000.md` (Senatul, mojibake), `2005-02-11_MO-PII-2-2005.md` (Senatul, mojibake), `2008-09-12_MO-PII-73-2008.md` (Senatul, no-N body markers). Test floor 0.50 (vs 0.80 for modern fixtures) — pre-2010 layouts are intentionally lossier than post-2014.
 
 **What's NOT touched** (intentionally): the `_clip_overlaps` Pass-3 step in `activities.py` stays as a clip rather than a hard assertion (the previous hard-assertion variant produced 1462 false errors across the corpus before being relaxed); shared `extraction/boilerplate.py` (which would invalidate qr/committee/report sidecars on a bump); coverage gating (still diagnostic-only).
+
+## Extract pipeline — `committee_synthesis`
+
+v0.1 ships the third per-type extractor — weekly synthesis of one or more parliamentary committees' work, published as MO Partea II issues with a `c` suffix (`13c/2013`, `28c/2025`). Total cohort: 976 docs (plus the closely-related 2003-era single-committee constitutional-revision synthesis sub-genre that uses the same MD layout). Single-file extractor at `src/monitorul_ii/extraction/extractors/committee_synthesis.py` — under 600 LOC including the tested boilerplate, so a sub-subpackage like plenary's wasn't justified.
+
+### Why a partition-first design
+
+A committee_synthesis MD is essentially a sequence of independent committee blocks each opened by `## N. **Comisia X**`. The partitioner is the load-bearing claim: every line between two consecutive committee headers belongs to the preceding committee, which means:
+
+- **Coverage scales with header detection, not with field-level extraction quality.** If we can find every `## N. **Comisia ...**` header, the body is fully claimed by record spans even when half the per-committee fields are null.
+- **Best-effort field extractors don't drag coverage down.** A failed date-parse leaves `dates: []` but the block is still claimed.
+- **The discovery loop has a stable boundary.** Adding a new field-level parser (joint_with detection, roster table parsing, etc.) doesn't change the partition; it only fills in nulls inside an already-claimed block.
+
+The four header shapes the extractor accepts (with the one quirk relaxation):
+
+```
+## 1. **Comisia pentru ...**       — modern (most common)
+## **15. Comisia specială ...**    — number inside the bold (older / 2008 era)
+## **Comisia pentru ...**          — no number (rare; older single-block)
+## 1 **. Comisia pentru ...**      — bold opens between digit and period
+                                     (2004-era PDF-MD conversion quirk)
+```
+
+Inner content must start with `Comisia` (case-insensitive) so signature lines like `## **Bogdan-Iulian Huțucă**` and the PARTEA banner don't match. The trailing-footer detection (`**EDITOR: PARLAMENTUL ROMÂNIEI`) terminates the last block — any prose after it is footer boilerplate, claimed separately.
+
+### Single-committee fallback
+
+About 1% of the corpus (mainly 2002-2004 docs reporting one committee's multi-session work) opens with `SINTEZA LUCRĂRILOR COMISIEI` (singular) and uses session-date `## N. **Ședința din ziua de ...**` headers instead of committee `## N. **Comisia ...**` headers. The partitioner finds zero matches there. A three-anchor fallback recovers them:
+
+1. **SUMAR's first row** — `^\s*1\.\s*Comisia <name>...PAGE-RANGE` lifts the canonical name from the table of contents.
+2. **SINTEZA singular heading** — `\bSINTEZA LUCRĂRILOR COMISIEI <descriptor>**` strips the descriptor genitive and prepends `Comisia` for nominative recovery.
+3. **Prose-opening sweep** — `^\s*Comisi[ai] pentru ... s-au întrunit | și-a desfășurat` catches docs that open with prose directly (no SUMAR), e.g. December 2004 joint sub-committee outputs.
+
+When any anchor fires, the entire body (up to the trailing footer) gets claimed as one committee record. Coverage on these docs jumped from 0.0% → 0.95+ on the discovery sweep.
+
+### Date / time / format / purpose detectors
+
+`_parse_dates` uses a trigger-then-window strategy: find `Comisia ... și-a desfășurat lucrările în [zilele/ziua/perioada] de`, then scan the next 200 chars (with markdown emphasis stripped) for a Romanian month name + 4-digit year. Day numbers between the trigger and the month/year become the committee's `dates[]`. Strip-emphasis is the trick that handles the multi-bold split (`**12, 13, 14** și **15 ianuarie 2015**`) uniformly with the single-bold variant. Cedilla forms (`şi-a desfăşurat`) and the older `desfășurat activitatea` variant are both accepted via a single trigger regex.
+
+`_parse_time_windows` matches `HH[.:,]MM\s*[-–—]\s*HH[.:,]MM` and filters unrealistic hour/minute combos so article references like `art. 99.99` don't get classified as times. Modern docs use `15.00`; older docs use `13,25`; my regex accepts all three separators.
+
+`_parse_format` returns `mixed` / `online` / null. The `mixed` regex catches the "atât la sediul Camerei Deputaților ... cât și prin mijloacele electronice" pandemic-era phrase plus the modern shorter `cu prezență fizică și online`. `online` is rare (post-2020 only); pre-2020 docs return null because there's no positive-evidence marker, and consumers default to in_person from the date.
+
+`_parse_purpose` returns one of the 4 enum values or null. `documentare_consultare` fires on the `– documentare și consultare` suffix that 2021+ docs append to agenda items they will *discuss* but not vote on. `audiere_candidați` fires on the `Audierea ... candidat pentru ocuparea funcției` form. `aprobare_raport` is rare; most non-marker blocks are dezbatere_decizie which we leave null.
+
+### Signature extraction with diacritic tolerance
+
+`PREȘEDINTE,` and `SECRETAR,` followed by `**Name**` are the universal signature anchors. Multiple regex patterns handle the four observed layouts:
+
+- Inline: `PREȘEDINTE, **Name**`
+- H2-prefixed name: `PREȘEDINTE,\n## **Name**`
+- Plain bold name: `PREȘEDINTE,\n**Name**`
+- Heading-position SECRETAR (PDF-MD oddity): `## SECRETAR, **Name**`
+
+The diacritic class `[ȘŞS�]` accepts modern Unicode (`Ș`), cedilla (`Ş`), stripped (`S`), and U+FFFD mojibake (`�`) so 2008-era docs with broken UTF-8 still extract signatures. Combined with the four pattern shapes, signature recovery reaches 70-95% across all eras (2008/2018/2022/2025 spot-checks).
+
+### Agenda items + outcome parsing
+
+`_split_agenda` finds numbered items (`^\s*\d+\.\s+...`) inside each committee block. Ordinals are filtered to 1..200 to reject article references like `art. 1.234` that look like agenda items. Restart sequences (committee A's day 1 has items 1-4, day 2 restarts at 1) are accepted; the ordinal filter just catches genuine garbage.
+
+Per-item field extraction runs on the title text only — the small expected anchor — to avoid over-matching cites in dezbateri commentary. `parse_primary_references` is reused for bill/law/OUG cite detection. Implausible years (e.g. `Pl-x 527/2917`, an OCR typo) are filtered locally — schema's `[1990, 2100]` range is the source of truth, but we drop offenders before they reach the validator so a single typo doesn't fail the whole sidecar.
+
+`_detect_committee_role` and `_detect_output_type` map title hooks to enum values. Order matters: `raport preliminar` must beat `raport`, `raport comun suplimentar` must beat `raport comun`. Stem-based regexes handle Romanian inflections (`adoptarea`, `aprobate`, `respinsă` all match their respective outcome verbs).
+
+`_extract_outcome_text` finds the first paragraph after the agenda title that starts with an outcome-lead phrase (`În urma`, `Supusă la vot`, `Proiectul de lege a fost ...`, `Membrii comisiei au hotărât`). Capped at 600 chars to avoid sidecar bloat from multi-paragraph dezbateri narratives. `_parse_vote_summary` then mines this text for outcome / majority / numeric counts (`6 voturi împotrivă și două abțineri` parses correctly via the integer-or-Romanian-numeral handler).
+
+### Coverage targets and measurement
+
+Per Q9 (inherited from plenary): **discovery margin 0.85** (CLI default for `--coverage-below`), **test fixture floor 0.80** (suite asserts ≥0.80 per fixture), **mean target 0.90 documented (ungated)**.
+
+Four hand-picked fixtures span the corpus eras:
+
+| Fixture | Layout | Coverage |
+|---|---|---|
+| `2008-02-05_MO-PII-1c-2008.md` | Pre-pandemic narrative agenda + numbered roster, occasional `�` mojibake on PRE�EDINTE | 0.9997 |
+| `2018-01-05_MO-PII-1c-2018.md` | 20-committee modern narrative-agenda baseline | 0.9998 |
+| `2022-01-04_MO-PII-1c-2022.md` | Pandemic-era 17-committee, mixed format markers, `audiere candidat` purpose | 0.9997 |
+| `2025-08-12_MO-PII-28c-2025.md` | Heavily tabular agenda + roster, 20 committees | 0.9998 |
+
+Discovery-loop sweep over all 976 c-suffix MDs (2000-2026):
+
+| Metric | Value |
+|---|---|
+| Extracted | 976 / 976 (no errors, no classify mismatches) |
+| Mean | 0.9972 |
+| Median | 0.9997 |
+| p10 | 0.9965 |
+| p25 | 0.9985 |
+| Min | 0.886 |
+| Below 0.85 | 0 |
+
+Mean is well above the target 0.90; median above the target 0.95; the absolute minimum (0.886) clears the test fixture floor 0.80. This is more headroom than plenary v0.1.x had after recovery — partition-first design is structurally easier than per-speech extraction.
+
+### Helper graduations at v0.1
+
+| Helper | Pre-v0.1 | committee_synthesis ship | Why |
+|---|---|---|---|
+| `boilerplate` | 0.1.0 | 0.1.0 | Committee-specific boilerplate stayed in the per-type module, not hoisted |
+| `coverage` | 0.1.0 | 0.1.0 | No changes needed |
+| `references` | 0.2.0 | 0.2.0 | Implausible-year filter at the callsite — won't bump references; v0.2 will tighten the year regex |
+| `speakers` | 0.2.0 | 0.2.0 | Reuses `make_speaker`; signature parser is committee-local |
+| `topics` | 0.1.0 | 0.1.0 | Not yet wired (committees have a single fixed set of topical areas; v0.2 may use the canonical list) |
+| `committee_synthesis` | (new key) | **0.1.0** | First per-type ship |
+
+The flat helper-version contract triggers re-extraction of qr + plenary sidecars on first committee_synthesis run because the cached `extractor_versions` dict on those sidecars now lacks the `committee_synthesis` key (and the comparison is exact-match per Q11 conservative-by-design contract). Acceptable cost.
+
+### Schema deltas at v1.7.0
+
+Strict body shape for `committee_synthesis` replaced the v1.6.0 `PendingBody` placeholder. New `$defs`: `CommitteeSynthesisBody`, `CommitteePeriod`, `Committee`, `CommitteeMeeting`, `TimeWindow`, `JointCommittee`, `RosterEntry`, `CommitteeAgendaItem`, `CommitteeVoteSummary`. `report_facsimile` continues as `PendingBody` until its extractor lands.
+
+### What's deferred to v0.2+
+
+Best-effort fields that v0.1 frequently emits as null/[] and v0.2 may tighten:
+
+- `roster[]` — modern tabular and pandemic-era prose roster parsing. Currently emits `[]` for all blocks; the fields are reserved in the schema. The structural challenge is that the roster format varies wildly (tabular `|Name|Prezent fizic|`, narrative `au fost prezenți: A, B, C`, per-day `La lucrările din DD au fost prezenți: 1. NAME, group, role.`) and proper extraction needs three sub-parsers with format detection.
+- `joint_with[]` — `în comun cu Comisia X[, Y, Z] din [Camera Deputaților|Senat]` detection. Currently `[]`. Multi-committee comma-list parsing is straightforward but bumps against ambiguous Romanian conjunction syntax (`X, Y și Z`); deferred for grilling.
+- `committee.kind` for `special_joint` / `inquiry_joint` — the joint-Camera+Senat permanent committees (Statutul Deputaților și Senatorilor, etc.). Currently classified as `permanent`; the joint-prefix regex is conservative.
+- Tabular agenda parsing (2025+) — when the agenda is rendered as a table (`|Nr.|PL-x|Title|Scopul|Rezoluție|`), the numbered-narrative regex misses the rows entirely. Coverage stays high because the partition still claims the table, but `agenda_items` is empty for those committees on those docs (~10-15% of 2025 cohort).
 
 ## Testing
 

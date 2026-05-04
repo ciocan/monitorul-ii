@@ -14,7 +14,7 @@ def _now_iso() -> str:
 
 def _minimal_question_register_sidecar() -> dict:
     return {
-        "schema_version": "1.6.0",
+        "schema_version": "1.7.0",
         "document_id": "mo://2026/II/29",
         "content_sha": "0123456789ab",
         "document_type": "question_register",
@@ -72,7 +72,7 @@ def test_validate_rejects_unknown_top_level_key():
 
 def test_validate_rejects_wrong_schema_version():
     sc = _minimal_question_register_sidecar()
-    sc["schema_version"] = "1.5.0"
+    sc["schema_version"] = "1.6.0"
     with pytest.raises(SchemaError):
         validate(sc)
 
@@ -101,11 +101,11 @@ def test_validate_rejects_invalid_chamber_enum():
 def test_validate_accepts_pending_body_for_unimplemented_types():
     """`PendingBody` is permissive — extractors not yet shipped won't break
     validation if they ever start writing sidecars (they currently don't,
-    per the dispatcher's skip-with-reason contract). v1.6.0 tightened plenary
-    body shapes; the remaining PendingBody types are committee_synthesis and
-    report_facsimile."""
+    per the dispatcher's skip-with-reason contract). v1.7.0 tightened
+    committee_synthesis; report_facsimile is the only remaining PendingBody
+    type."""
     sc = _minimal_question_register_sidecar()
-    sc["document_type"] = "committee_synthesis"
+    sc["document_type"] = "report_facsimile"
     sc["body"] = {"placeholder": True}
     validate(sc)
 

@@ -112,14 +112,14 @@ def test_envelope_top_level_shape(md_name: str, isolated_md) -> None:
 
 
 def test_dispatch_skips_unimplemented_types(isolated_md, monkeypatch) -> None:
-    """A doc that classifies as a still-unimplemented type (committee_synthesis,
-    report_facsimile) must skip with reason — not produce a stub `body=other`
-    sidecar. v1.6.0 ships plenary_stenogram + plenary_joint_session, so the
-    remaining unimplemented types are committee_synthesis and report_facsimile.
+    """A doc that classifies as a still-unimplemented type (currently only
+    `report_facsimile`) must skip with reason — not produce a stub
+    `body=other` sidecar. v1.7.0 ships committee_synthesis, leaving
+    report_facsimile as the only remaining unimplemented type.
     """
     md_path = isolated_md("qr_2026-03-25_29.md")
     # Force the classifier off-track via override_type to a still-pending type
-    result = extract(md_path, override_type="committee_synthesis", write=False)
+    result = extract(md_path, override_type="report_facsimile", write=False)
     assert result.status == "skip"
     assert "no extractor" in (result.reason or "")
     assert result.sidecar is None

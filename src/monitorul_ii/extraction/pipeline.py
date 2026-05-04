@@ -56,7 +56,7 @@ from monitorul_ii.extraction.schema import SchemaError, validate
 from monitorul_ii.extraction.speakers import SPEAKERS_VERSION
 from monitorul_ii.extraction.topics import TOPICS_VERSION
 
-SCHEMA_VERSION = "1.6.0"
+SCHEMA_VERSION = "1.7.0"
 EXTRACTOR_LABEL = "regex@1"
 
 
@@ -185,8 +185,9 @@ def _pdf_path_for(md_path: Path) -> Path:
 def _aggregate_confidence(body_dict: dict[str, Any]) -> float:
     """Mean of per-section confidences, or 1.0 when nothing extracted.
 
-    Scans every body shape's record arrays: question_register's `questions`,
-    plenary's `agenda_items` (+ nested `activities[]`) and `interpellations`.
+    Scans every body shape's record arrays: qr's `questions`, plenary's
+    `agenda_items` (+ nested `activities[]`) + `interpellations`,
+    committee_synthesis's `committees[].meetings[].agenda[]`.
     """
     scores: list[float] = []
 
@@ -204,6 +205,11 @@ def _aggregate_confidence(body_dict: dict[str, Any]) -> float:
             _maybe_score(act)
     for interp in body_dict.get("interpellations", []) or []:
         _maybe_score(interp)
+    for committee in body_dict.get("committees", []) or []:
+        _maybe_score(committee)
+        for meeting in committee.get("meetings", []) or []:
+            for ag in meeting.get("agenda", []) or []:
+                _maybe_score(ag)
 
     if not scores:
         return 1.0
