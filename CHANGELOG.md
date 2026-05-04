@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.5.0](https://github.com/ciocan/monitorul-ii/compare/monitorul-ii-v0.4.0...monitorul-ii-v0.5.0) (2026-05-04)
+
+
+### Features
+
+* add PDF conversion to Markdown ([d3295b6](https://github.com/ciocan/monitorul-ii/commit/d3295b6165e50b606a2e62de2dab7c8ecbc272fe))
+
 ## [0.4.0](https://github.com/ciocan/monitorul-ii/compare/monitorul-ii-v0.3.0...monitorul-ii-v0.4.0) (2026-05-03)
 
 
