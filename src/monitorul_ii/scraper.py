@@ -50,6 +50,7 @@ class FileEventPayload:
     day: date
     path: Path
     detail: str | None = None
+    size_bytes: int | None = None
 
 
 ProgressFn = Callable[[FileEventPayload], None]
@@ -317,7 +318,13 @@ def scrape_day(
                 )
             if on_event:
                 on_event(
-                    FileEventPayload(kind="download", issue=issue, day=day, path=target)
+                    FileEventPayload(
+                        kind="download",
+                        issue=issue,
+                        day=day,
+                        path=target,
+                        size_bytes=size,
+                    )
                 )
         except (httpx.HTTPError, RuntimeError) as exc:
             msg = f"{issue.url}: {exc}"

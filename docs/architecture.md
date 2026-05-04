@@ -388,6 +388,18 @@ If a future feature needs per-MD state (e.g. retry budgets for conversion failur
 - **Atomic write**: body streams to `<basename>.md.part`, then `Path.replace`. A crash mid-write leaves a `.part`; the canonical path is never half-written.
 - **S3**: `head_object(<basename>.md)` before each `upload_file`. Same pattern as PDFs; only the `Content-Type` differs.
 
+### Parallelism
+
+`convert_all(pdfs, workers=N)` fans out conversions through `concurrent.futures.ThreadPoolExecutor`. Threads (not processes) work because:
+
+1. `PyMuPDF.Document` and the markdown writer release the GIL during the heavy parsing stage. Threading is enough for genuine CPU parallelism.
+2. The worker function `_process_one(pdf, force)` is a pure value→value mapping (returns `(kind, pdf, md, detail)`). It never touches the event callback, the summary counters, or the uploader — the calling thread does, after `as_completed` yields the result. This keeps the S3 upload path single-threaded without locks and preserves the existing `on_event` contract for library users.
+3. `as_completed` (rather than `executor.map`) is intentional: events arrive in finish-order, so a slow PDF doesn't stall progress reporting on faster ones. The cost is that lines aren't in input order — acceptable given each line carries the full filename.
+
+The CLI default is `--workers / -j os.cpu_count()`. Empirically, throughput plateaus around `-j 8` even on a 20-core box because `pymupdf-layout` uses an onnxruntime layout model that auto-fans across cores internally — outer thread workers then compete with inner ORT threads for the same physical cores. Past `-j 8` you get diminishing returns; below `-j 4` you're leaving cores idle. The user can tune per machine.
+
+A `ProcessPoolExecutor` would push past the ORT-vs-thread contention by giving each process its own ORT thread pool, but pickle/IPC overhead and process startup eat the win for short ranges. If a future workload regularly converts thousands of PDFs in one shot, swap the executor — the worker is already pickle-clean.
+
 ## Rate-limiting
 
 `scrape_day` sleeps `delay` seconds (default 0.5) **between successful downloads**, not before the first one and not when a file is skipped. This keeps re-runs over already-downloaded ranges fast while staying polite for fresh fetches.

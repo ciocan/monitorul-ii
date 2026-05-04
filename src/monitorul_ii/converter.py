@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import re
 from collections.abc import Callable
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from dataclasses import dataclass, field
 from datetime import date
 from pathlib import Path
@@ -230,33 +231,57 @@ class ConvertSummary:
     errors: list[str] = field(default_factory=list)
 
 
+def _process_one(pdf: Path, force: bool) -> tuple[ConvertEvent, Path, Path, str | None]:
+    """Worker body — pure function safe to run in a thread pool.
+
+    Returns (kind, pdf_path, md_path, detail). Never raises; errors are wrapped.
+    """
+    md = pdf.with_suffix(".md")
+    if not force and md.exists() and md.stat().st_size > 0:
+        return ("skip", pdf, md, None)
+    try:
+        convert_pdf(pdf, md)
+        return ("convert", pdf, md, None)
+    except Exception as exc:
+        return ("error", pdf, md, f"{pdf}: {exc}")
+
+
 def convert_all(
     pdfs: list[Path],
     *,
     force: bool = False,
+    workers: int = 1,
     on_event: ProgressFn | None = None,
 ) -> ConvertSummary:
-    """Convert every PDF in `pdfs`. Skips MDs that already exist unless `force=True`."""
+    """Convert every PDF in `pdfs`. Skips MDs that already exist unless `force=True`.
+
+    With `workers > 1`, conversions run in a `ThreadPoolExecutor` — PyMuPDF
+    releases the GIL during PDF parsing so threads parallelize on multi-core
+    machines. `on_event` fires in the calling thread as workers finish (input
+    order is *not* preserved when workers > 1); this keeps S3-upload side
+    effects in the caller's thread without locks.
+    """
     summary = ConvertSummary()
-    for pdf in pdfs:
-        md = pdf.with_suffix(".md")
-        if not force and md.exists() and md.stat().st_size > 0:
+
+    def _emit(kind: ConvertEvent, pdf: Path, md: Path, detail: str | None) -> None:
+        if kind == "skip":
             summary.skipped += 1
-            if on_event:
-                on_event(ConvertEventPayload(kind="skip", pdf_path=pdf, md_path=md))
-            continue
-        try:
-            convert_pdf(pdf, md)
+        elif kind == "convert":
             summary.converted += 1
-            if on_event:
-                on_event(ConvertEventPayload(kind="convert", pdf_path=pdf, md_path=md))
-        except Exception as exc:
-            msg = f"{pdf}: {exc}"
-            summary.errors.append(msg)
-            if on_event:
-                on_event(
-                    ConvertEventPayload(
-                        kind="error", pdf_path=pdf, md_path=md, detail=msg
-                    )
-                )
+        else:
+            summary.errors.append(detail or str(pdf))
+        if on_event:
+            on_event(
+                ConvertEventPayload(kind=kind, pdf_path=pdf, md_path=md, detail=detail)
+            )
+
+    if workers <= 1 or len(pdfs) <= 1:
+        for pdf in pdfs:
+            _emit(*_process_one(pdf, force))
+        return summary
+
+    with ThreadPoolExecutor(max_workers=workers) as ex:
+        futures = {ex.submit(_process_one, pdf, force): pdf for pdf in pdfs}
+        for fut in as_completed(futures):
+            _emit(*fut.result())
     return summary

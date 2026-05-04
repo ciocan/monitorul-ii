@@ -35,9 +35,15 @@ uv run monitorul-ii fetch 2026-04-29 --no-upload
 
 # re-fetch every day's index regardless of DB cache (paranoid mode)
 uv run monitorul-ii fetch 2026-04-01 --until 2026-04-30 --force
+
+# pace requests — seconds between successful PDF downloads (default 0.5,
+# never applied before the first download or on skips)
+uv run monitorul-ii fetch 2026-04-29 --delay 1.0
 ```
 
-PDFs land in `<out>/<YYYY-MM-DD>_MO-P<part>-<num>-<year>.pdf`. The date is baked into the filename so everything sorts chronologically. Re-runs skip files already on disk.
+PDFs land in `<out>/<YYYY-MM-DD>_MO-P<part>-<num>-<year>.pdf`. The date is baked into the filename so everything sorts chronologically. Re-runs skip files already on disk; in-flight downloads write to a sibling `.part` file and are renamed atomically only after the body fully streams, so an interrupt or crash never leaves a truncated PDF that future runs would mistake for complete.
+
+Each per-request fetch retries up to 3 times with `1s → 2s → 4s` backoff for transient failures (5xx, 429, transport errors). 4xx-not-429, content-type mismatches, and parse errors fail fast with no retry. After exhaustion the issue is marked `failed` in the DB and auto-retried on the next run.
 
 ### `convert`
 
@@ -56,11 +62,22 @@ uv run monitorul-ii convert pdfs/ --force
 
 # skip the S3 mirror
 uv run monitorul-ii convert pdfs/ --no-upload
+
+# control conversion parallelism — default is CPU count; set 1 for strictly sequential
+uv run monitorul-ii convert pdfs/ -j 4
 ```
 
 Each `<basename>.pdf` produces `<basename>.md` next to it. The MD opens with a YAML frontmatter block (issue, year, part, published, plus best-effort `chamber`, `session`, `session_date`, `legislature` parsed from the first page), followed by the cleaned body text. Per-page running headers, page numbers, and image placeholders are stripped; soft line breaks are re-flowed; hyphenated word breaks are joined.
 
 When the S3 vars are set, MDs mirror to the same bucket alongside the PDFs (flat layout, `Content-Type: text/markdown`). Idempotent in the same way as `fetch`: skip if the local `.md` exists, `head_object` before each upload.
+
+## Progress and interrupts
+
+`fetch` shows a live [`rich`](https://github.com/Textualize/rich) progress bar on stderr when stderr is a terminal — day count, percent, elapsed time, ETA, and running totals (found / downloaded with cumulative MB / failed, plus S3 uploaded / in-bucket / errors). Per-issue events (`ok`, `skip`, `s3+`, `s3=`, errors) and per-day summary lines scroll above the bar without breaking it.
+
+When stderr is piped (CI, cron, `tee`), the bar disables itself and a one-line `progress: ...` heartbeat is printed every 100 days with the same fields. Stdout (per-day summary lines) is unaffected by the tty check, so `monitorul-ii fetch ... > log.txt` keeps a clean machine-readable record while you watch the bar interactively.
+
+`Ctrl+C` prints a final `interrupted: ...` summary line with the totals so far, closes the SQLite handle cleanly, and exits **130**. No traceback. The DB-backed resume gate means the next run picks up exactly where you stopped.
 
 ## Resume / SQLite audit log
 
@@ -113,3 +130,52 @@ The site exposes one undocumented AJAX endpoint that returns the day's index:
 - Following any of those `.html` URLs returns the PDF binary directly (`Content-Type: application/pdf`).
 
 Issue numbers can have suffixes (`358Bis`, `12c`). Empty days (weekends, holidays) return zero issues for Partea II.
+
+## Development
+
+Layout:
+
+| File | Role |
+|---|---|
+| `src/monitorul_ii/scraper.py` | Pure functions: `fetch_index`, `parse_issues`, `download_pdf`, `scrape_day`, `_with_retry`. No CLI concerns. |
+| `src/monitorul_ii/converter.py` | Pure functions: `convert_pdf`, `convert_all`, `clean_markdown`, `enrich_meta`. Wraps `pymupdf4llm`. |
+| `src/monitorul_ii/uploader.py` | `S3Config.from_env()` + `Uploader` (boto3, S3-compatible incl. R2). |
+| `src/monitorul_ii/db.py` | `DB` — thin SQLite wrapper over `days` + `issues` tables; owns the resume-gate logic. |
+| `src/monitorul_ii/cli.py` | argparse, exit codes, the live progress bar / heartbeat, the upload→DB write path. |
+
+`docs/architecture.md` is the deep dive — the site contract, link parser, retry policy, schema, resume contract, and the markdown-cleanup pipeline.
+
+### Setup
+
+```sh
+uv sync                          # creates .venv and installs all deps
+cp .env.example .env             # fill in PROXY_URL and S3_* vars as needed
+```
+
+The CLI is the entry point in `pyproject.toml`. You can also invoke it as a module:
+
+```sh
+uv run python -m monitorul_ii fetch 2026-04-29
+```
+
+### Lint and format
+
+```sh
+uv run ruff check                # lint (--fix to auto-fix)
+uv run ruff format               # format
+```
+
+No committed `ruff` config — defaults apply. Run both before committing.
+
+### `uv` on snap quirk
+
+`uv` installed via snap buffers stdout when there is no tty, so `uv run <cmd>` may appear silent in non-interactive shells (including hooks and scripts). Pipe through `cat` (e.g. `uv run monitorul-ii --help | cat`) or invoke the venv binary directly (`.venv/bin/monitorul-ii ...`) when you need to see output.
+
+### Releases
+
+Automated via [release-please](https://github.com/googleapis/release-please), triggered on every push to `main` (`.github/workflows/release-please.yml`). The workflow opens a release PR that bumps the version and updates the changelog; merging it tags and publishes.
+
+- Commits **must** follow [Conventional Commits](https://www.conventionalcommits.org/) (`feat:`, `fix:`, `chore:`, `docs:`, …) for release-please to pick them up. Anything outside that grammar is ignored — no version bump, no changelog entry.
+- Pre-1.0: `feat:` bumps the minor; `fix:` bumps the patch.
+- Tags include the component name (`monitorul-ii-vX.Y.Z`).
+- The version source of truth is `.release-please-manifest.json`, **not** `pyproject.toml` — keep them in sync if you ever bump by hand.

@@ -28,7 +28,7 @@ There is no documented API. Reverse-engineered from the e-monitor page:
 
 - Install / sync deps: `uv sync`
 - Fetch PDFs: `uv run monitorul-ii fetch <YYYY-MM-DD> [--until YYYY-MM-DD] [--out DIR] [--part II] [--delay 0.5] [--proxy URL | --no-proxy] [--bucket NAME | --no-upload] [--db PATH | --no-db] [--reverse] [--force] [--rescrape-recent N]`
-- Convert PDFs to markdown: `uv run monitorul-ii convert <path> [<path> ...] [--force] [--bucket NAME | --no-upload]` — paths are files or directories; directories are globbed `*.pdf` (non-recursive).
+- Convert PDFs to markdown: `uv run monitorul-ii convert <path> [<path> ...] [--force] [-j N | --workers N] [--bucket NAME | --no-upload]` — paths are files or directories; directories are globbed `*.pdf` (non-recursive). Default `-j` is `os.cpu_count()`; conversions run in a `ThreadPoolExecutor`.
 - Lint: `uv run ruff check`
 - Format: `uv run ruff format`
 
@@ -43,6 +43,8 @@ Per-request retries: 3 attempts with backoff `1s → 2s → 4s` for transient er
 PDFs land directly in `<out>/<YYYY-MM-DD>_MO-P<part>-<num>-<year>.pdf` (no per-day subdirectory — the date is in the filename so everything sorts chronologically in one folder). Re-runs skip files already on disk; partial downloads write to a `.part` file and are renamed atomically on success. Sha256 + size land in the DB during streaming download (or lazily during the existing-file skip path).
 
 `convert` produces `<basename>.md` next to each `<basename>.pdf` via `pymupdf4llm.to_markdown` plus an MO-specific cleanup pass (strips per-page `MONITORUL OFICIAL...` running headers, image placeholders, standalone page numbers; joins hyphenated word breaks; collapses extra blank lines) and a YAML frontmatter prepend (`issue`, `year`, `part`, `published` from the filename; best-effort `chamber`, `session`, `session_date`, `legislature` parsed from the first ~5 KB of body — graceful fallback if any field can't be detected). Idempotent: skip when `.md` exists & non-empty; `--force` re-converts. MDs mirror to S3 with `Content-Type: text/markdown` (same bucket, flat key). The DB is *not* extended for MD state — filesystem + `head_object` cover idempotency.
+
+Conversion is parallelized via `ThreadPoolExecutor(-j N)`. PyMuPDF releases the GIL during PDF parsing so threads scale on multi-core. `pymupdf-layout` uses an ML model via onnxruntime which already auto-threads internally, so per-CLI throughput plateaus around `-j 8` even on a 20-core box (sequential 14 s/PDF → 8 s/PDF at `-j 8`). Events fire in completion order (not input order); the `on_event` callback runs in the calling thread, which keeps S3 uploads serialized without locks.
 
 (A `.ruff_cache` is present; no committed config, so ruff defaults apply.)
 

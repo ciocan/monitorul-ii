@@ -159,6 +159,14 @@ def _build_parser() -> argparse.ArgumentParser:
         action="store_true",
         help="Re-convert PDFs that already have a non-empty .md alongside.",
     )
+    convert.add_argument(
+        "-j",
+        "--workers",
+        type=int,
+        default=os.cpu_count() or 1,
+        metavar="N",
+        help="Parallel conversion threads (default: CPU count). Set to 1 for sequential.",
+    )
     _add_s3_args(convert)
     convert.set_defaults(func=cmd_convert)
 
@@ -191,6 +199,12 @@ def _fmt_duration(seconds: float) -> str:
     return f"{h:02d}:{m:02d}:{s:02d}"
 
 
+def _fmt_bytes(b: int) -> str:
+    if b >= 1_000_000_000:
+        return f"{b / 1_000_000_000:.2f} GB"
+    return f"{b / 1_000_000:.1f} MB"
+
+
 def _progress_line(
     days_done: int,
     days_total: int,
@@ -204,6 +218,7 @@ def _progress_line(
     return (
         f"{days_done:,}/{days_total:,} ({pct:.1f}%) | "
         f"found={totals['found']:,} downloaded={totals['downloaded']:,} "
+        f"({_fmt_bytes(counters['download_bytes'])}) "
         f"failed={totals['failed']:,} | "
         f"s3 uploaded={counters['uploaded']:,} "
         f"in-bucket={counters['in_bucket']:,} "
@@ -258,7 +273,8 @@ class _ProgressReporter:
     def _desc(self) -> str:
         t, c = self.totals, self.counters
         return (
-            f"found={t['found']:,} dl={t['downloaded']:,} fail={t['failed']:,}"
+            f"found={t['found']:,} dl={t['downloaded']:,} ({_fmt_bytes(c['download_bytes'])})"
+            f" fail={t['failed']:,}"
             f" · s3 up={c['uploaded']:,} have={c['in_bucket']:,} err={c['upload_errors']:,}"
         )
 
@@ -335,7 +351,12 @@ def cmd_fetch(args: argparse.Namespace) -> int:
         print(f"db: {args.db}", file=sys.stderr)
 
     today = datetime.now(timezone.utc).date()
-    counters = {"uploaded": 0, "in_bucket": 0, "upload_errors": 0}
+    counters = {
+        "uploaded": 0,
+        "in_bucket": 0,
+        "upload_errors": 0,
+        "download_bytes": 0,
+    }
     days_total = (end - args.date).days + 1
     totals = {"found": 0, "downloaded": 0, "failed": 0}
     total_errors = 0
@@ -347,6 +368,9 @@ def cmd_fetch(args: argparse.Namespace) -> int:
             reporter.print(f"  {label} {p.path.name}  ({p.detail})", err=True)
         else:
             reporter.print(f"  {label} {p.path.name}")
+
+        if p.kind == "download" and p.size_bytes:
+            counters["download_bytes"] += p.size_bytes
 
         if uploader is None or p.kind == "error":
             return
@@ -464,7 +488,9 @@ def cmd_convert(args: argparse.Namespace) -> int:
             print(f"  s3!   {p.md_path.name}  ({exc})", file=sys.stderr)
 
     try:
-        summary = convert_all(pdfs, force=args.force, on_event=on_event)
+        summary = convert_all(
+            pdfs, force=args.force, workers=args.workers, on_event=on_event
+        )
     except KeyboardInterrupt:
         print("\ninterrupted", file=sys.stderr)
         return 130
