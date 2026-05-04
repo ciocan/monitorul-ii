@@ -79,6 +79,16 @@ def _is_transient(exc: BaseException) -> bool:
     return isinstance(exc, httpx.HTTPError)
 
 
+def _is_permanent(exc: BaseException) -> bool:
+    """A failure that re-running can't fix: 4xx-not-429 (URL doesn't exist on the
+    server) or content-type mismatch (server returns HTML instead of a PDF).
+    These are recorded as `status='gone'`, not `'failed'`."""
+    if isinstance(exc, httpx.HTTPStatusError):
+        sc = exc.response.status_code
+        return 400 <= sc < 500 and sc != 429
+    return isinstance(exc, RuntimeError)
+
+
 def _with_retry(
     fn: Callable[[], _T],
     *,
@@ -188,10 +198,12 @@ class DayResult:
 
 
 def _issues_from_db(db: DB, day: date, part: str) -> list[Issue]:
-    """For an 'ok' day we don't re-fetch, reconstruct Issues for non-terminal rows."""
+    """For an 'ok' day we don't re-fetch, reconstruct Issues for non-terminal rows.
+    `gone` is terminal — the server has confirmed the resource isn't a PDF, retrying
+    would just re-walk the same dead URL. Use `--retry-gone` to override."""
     out: list[Issue] = []
     for row in db.issues_for_day(day, part):
-        if row["status"] in ("downloaded", "uploaded"):
+        if row["status"] in ("downloaded", "uploaded", "gone"):
             continue
         out.append(
             Issue(
@@ -329,8 +341,14 @@ def scrape_day(
         except (httpx.HTTPError, RuntimeError) as exc:
             msg = f"{issue.url}: {exc}"
             result.errors.append(msg)
+            permanent = _is_permanent(exc)
             if db is not None:
-                db.record_issue_failed(day, issue.part, issue.number, issue.year, msg)
+                if permanent:
+                    db.record_issue_gone(day, issue.part, issue.number, issue.year, msg)
+                else:
+                    db.record_issue_failed(
+                        day, issue.part, issue.number, issue.year, msg
+                    )
             if on_event:
                 on_event(
                     FileEventPayload(

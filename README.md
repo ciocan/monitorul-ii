@@ -43,7 +43,7 @@ uv run monitorul-ii fetch 2026-04-29 --delay 1.0
 
 PDFs land in `<out>/<YYYY-MM-DD>_MO-P<part>-<num>-<year>.pdf`. The date is baked into the filename so everything sorts chronologically. Re-runs skip files already on disk; in-flight downloads write to a sibling `.part` file and are renamed atomically only after the body fully streams, so an interrupt or crash never leaves a truncated PDF that future runs would mistake for complete.
 
-Each per-request fetch retries up to 3 times with `1s → 2s → 4s` backoff for transient failures (5xx, 429, transport errors). 4xx-not-429, content-type mismatches, and parse errors fail fast with no retry. After exhaustion the issue is marked `failed` in the DB and auto-retried on the next run.
+Each per-request fetch retries up to 3 times with `1s → 2s → 4s` backoff for transient failures (5xx, 429, transport errors). 4xx-not-429, content-type mismatches, and parse errors fail fast with no retry. Failures are then classified: transient ones go to `status='failed'` and are auto-retried on the next run; permanent ones (server returns HTML instead of a PDF, or 4xx-not-429) go to `status='gone'` and are treated as terminal — re-running won't pound the same dead URLs forever. Pass `--retry-gone` to a future `fetch` run to reset every `gone` row back to `pending` if the source site restores missing documents.
 
 ### `convert`
 

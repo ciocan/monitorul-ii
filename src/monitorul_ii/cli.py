@@ -148,6 +148,11 @@ def _build_parser() -> argparse.ArgumentParser:
         metavar="N",
         help="Re-fetch the last N days regardless of DB status (default: 0). Today is always re-fetched.",
     )
+    fetch.add_argument(
+        "--retry-gone",
+        action="store_true",
+        help="Reset every issue currently marked 'gone' (permanent failure: server returned non-PDF or 4xx) back to 'pending' before walking the range. Use after the source site has presumably restored missing documents.",
+    )
     fetch.set_defaults(func=cmd_fetch)
 
     convert = sub.add_parser(
@@ -449,6 +454,11 @@ def cmd_fetch(args: argparse.Namespace) -> int:
     if not args.no_db:
         db = DB(args.db)
         print(f"db: {args.db}", file=sys.stderr)
+        if args.retry_gone:
+            n = db.reset_gone()
+            print(f"reset {n} 'gone' issue(s) → 'pending'", file=sys.stderr)
+    elif args.retry_gone:
+        print("--retry-gone has no effect with --no-db", file=sys.stderr)
 
     today = datetime.now(timezone.utc).date()
     counters = {

@@ -27,7 +27,7 @@ There is no documented API. Reverse-engineered from the e-monitor page:
 ## Commands
 
 - Install / sync deps: `uv sync`
-- Fetch PDFs: `uv run monitorul-ii fetch <YYYY-MM-DD> [--until YYYY-MM-DD] [--out DIR] [--part II] [--delay 0.5] [--proxy URL | --no-proxy] [--bucket NAME | --no-upload] [--db PATH | --no-db] [--reverse] [--force] [--rescrape-recent N]`
+- Fetch PDFs: `uv run monitorul-ii fetch <YYYY-MM-DD> [--until YYYY-MM-DD] [--out DIR] [--part II] [--delay 0.5] [--proxy URL | --no-proxy] [--bucket NAME | --no-upload] [--db PATH | --no-db] [--reverse] [--force] [--rescrape-recent N] [--retry-gone]`
 - Convert PDFs to markdown: `uv run monitorul-ii convert <path> [<path> ...] [--force] [-j N | --workers N] [--reverse] [--bucket NAME | --no-upload]` — paths are files or directories; directories are globbed `*.pdf` (non-recursive). Default `-j` is `os.cpu_count()`; conversions run in a `ThreadPoolExecutor`. `--reverse` flips the final PDF list (newest→oldest given the date-prefixed filenames) — same semantics as `fetch --reverse`.
 - Test: `uv run pytest` (suite under `tests/`, ~130 unit tests, no network or boto3 — `httpx.MockTransport` for the scraper, `tmp_path`-backed SQLite for the DB, `monkeypatch` for `convert_pdf`).
 - Lint: `uv run ruff check`
@@ -39,7 +39,7 @@ When the full set of `S3_ENDPOINT` / `S3_ACCESS_KEY_ID` / `S3_SECRET_ACCESS_KEY`
 
 A SQLite audit log at `data/monitorul.db` (override `--db PATH`, disable `--no-db`) gates whether each day's index POST happens. `days.status='ok'` past days short-circuit the index fetch on resume — including weekends and empty days that have zero Partea II issues. The filesystem and bucket still gate per-PDF skip; the DB doesn't pretend to know whether a file actually exists. `--reverse` walks newest→oldest. `--force` ignores the DB skip; `--rescrape-recent N` re-fetches the last N days regardless of status (today is always re-fetched). See `docs/architecture.md` for the schema and resume contract.
 
-Per-request retries: 3 attempts with backoff `1s → 2s → 4s` for transient errors (5xx, 429, transport). 4xx-not-429 / parse / content-type errors raise immediately. After exhaustion the row goes `status='failed'` and is auto-retried on the next run. No `failed_permanent` distinction; `attempts` is informational.
+Per-request retries: 3 attempts with backoff `1s → 2s → 4s` for transient errors (5xx, 429, transport). 4xx-not-429 / parse / content-type errors raise immediately. Failures are then classified at the call site: **transient → `status='failed'`** (auto-retried on the next run); **permanent → `status='gone'`** (terminal — content-type mismatch or 4xx-not-429, which mean the server doesn't have the resource as a PDF; not auto-retried, treated like `downloaded`/`uploaded` by the resume gate). `--retry-gone` resets every `gone` row back to `pending` for one-off recovery if the source site restores missing documents. `attempts` is informational.
 
 PDFs land directly in `<out>/<YYYY-MM-DD>_MO-P<part>-<num>-<year>.pdf` (no per-day subdirectory — the date is in the filename so everything sorts chronologically in one folder). Re-runs skip files already on disk; partial downloads write to a `.part` file and are renamed atomically on success. Sha256 + size land in the DB during streaming download (or lazily during the existing-file skip path).
 

@@ -132,12 +132,14 @@ Edge cases the regex must handle:
 - **Retry**: anything for which `_is_transient(exc)` is true — `httpx.HTTPStatusError` with status `>=500` or `429`, plus the rest of the `httpx.HTTPError` family (transport, timeout, remote-protocol, etc.).
 - **Don't retry**: 4xx other than 429 (a real "this URL is wrong"), parse errors (zero-issue HTML — handled by returning an empty list, never raises), and content-type mismatches (`RuntimeError` raised by `download_pdf`).
 
-After 3 attempts the last exception bubbles. `scrape_day` catches it and:
+After 3 attempts (or zero, for non-transient errors) the last exception bubbles. `scrape_day` catches it and classifies via `_is_permanent(exc)`:
 
-- For an index-fetch failure, writes `days.status='failed', last_error=…` and returns a `DayResult` with `found=0, errors=[…]`.
-- For a per-PDF failure, writes `issues.status='failed'`, increments `attempts`, sets `last_error`, and proceeds to the next issue. The day's index fetch is unaffected.
+- **Permanent** = `httpx.HTTPStatusError` with status `4xx` and not `429`, or `RuntimeError` (the content-type guard in `download_pdf`). The server is telling us this URL doesn't resolve to a PDF, full stop. Recorded as `issues.status='gone'`.
+- **Transient (post-retry exhaustion)** = anything else. Recorded as `issues.status='failed'`.
 
-Re-running the command auto-retries every `failed` row (no `failed_permanent` distinction). If a row genuinely never works (e.g. a permanent 404 on a parsed link), it stays `failed` forever and gets re-attempted each run; the user notices via `last_error` and can SQL-quarantine if it gets noisy.
+For an index-fetch failure, the day row goes `days.status='failed', last_error=…` regardless of classification (a future run will re-walk that day and discover whatever issues it can).
+
+Re-running the command auto-retries `failed` issues but skips `gone` ones — `_issues_from_db` treats `gone` as terminal alongside `downloaded`/`uploaded`. This means a 26-year backfill against a site with a handful of withdrawn documents settles into a stable state: each subsequent run walks zero dead URLs. `--retry-gone` calls `db.reset_gone()` to flip every `gone` row back to `pending` if you want to verify the site has restored them. SQL-quarantine is still available for one-off cases (`UPDATE issues SET status='gone' WHERE …`).
 
 ## Idempotency
 
@@ -203,7 +205,7 @@ The `days` row is what makes a 26-year resume cheap: weekends and empty days get
 4. The `days` row is missing.
 5. The `days` row exists but `status != 'ok'`.
 
-Otherwise return `False` and `scrape_day` reconstructs `Issue` objects from the existing `issues` rows for that day, filtered to non-terminal statuses (`pending`, `failed`). If all rows are already `downloaded`/`uploaded`, the issue list is empty and `scrape_day` is a true no-op for that day — no network, no filesystem reads, no per-day stdout line. The live progress bar (or 100-day heartbeat in non-tty) carries the progress.
+Otherwise return `False` and `scrape_day` reconstructs `Issue` objects from the existing `issues` rows for that day, filtered to non-terminal statuses (`pending`, `failed`). If all rows are already `downloaded`/`uploaded`/`gone`, the issue list is empty and `scrape_day` is a true no-op for that day — no network, no filesystem reads, no per-day stdout line. The live progress bar (or 100-day heartbeat in non-tty) carries the progress.
 
 ### Status state machines
 
@@ -243,8 +245,7 @@ The DB connection is held open for the duration of the run. `DB.close()` runs in
 ### What is *not* in the DB
 
 - **Per-run / provenance rows.** The `attempted_at` timestamps are enough to reconstruct when each day was crawled.
-- **A `failed_permanent` status.** All failures are equally retryable; if you don't want to retry a row, SQL it.
-- **An `attempts` cap that auto-quarantines after N tries.** `attempts` is informational only.
+- **An `attempts` cap that auto-quarantines after N tries.** `attempts` is informational only — terminal classification is shape-of-error based (`status='gone'` on permanent failures), not count-based.
 - **Migrations framework.** The `_DDL` block uses `CREATE TABLE IF NOT EXISTS` and `CREATE INDEX IF NOT EXISTS`. If the schema ever needs to evolve, add an `ALTER TABLE` ladder keyed off `PRAGMA user_version`.
 
 ## Progress events
@@ -479,5 +480,5 @@ The site has no `robots.txt` (the path returns a generic challenge page) and no 
 - **No HTML parser dependency.** Regex is sufficient given the fragment shape; revisit if the site ever returns a richer payload.
 - **No async / concurrency.** Sequential through the proxy — politeness against the site, simpler SQLite write path, no `--workers` flag. The DB makes resumes free, so wall-time isn't critical. Switch to `httpx.AsyncClient` only if we ever need to fan out across many days at once.
 - **No mocking framework.** Tests are pytest + monkeypatch + `httpx.MockTransport`. We deliberately avoid `unittest.mock` / `pytest-mock`; the I/O boundaries are narrow enough that stubs are a few lines each and it keeps the dev dep list tiny.
-- **No `failed_permanent` status / `attempts` cap.** All failures are auto-retried on the next run. If a row never works, you'll see it in `last_error` and can SQL-quarantine.
+- **No `attempts` cap.** Terminal classification is shape-of-error based (transient vs. permanent), not count-based. Permanent failures land in `status='gone'` directly; transient ones cycle through `failed` and auto-retry forever, which is fine because cyclic failures are visible in `last_error` and rare in practice.
 - **No alembic / migrations framework.** Single `CREATE TABLE IF NOT EXISTS` block runs at startup; future schema changes pin an `ALTER TABLE` ladder to `PRAGMA user_version`.

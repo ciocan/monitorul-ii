@@ -220,6 +220,35 @@ class DB:
             (error, day.isoformat(), part, number, year),
         )
 
+    def record_issue_gone(
+        self,
+        day: date,
+        part: str,
+        number: str,
+        year: int,
+        error: str,
+    ) -> None:
+        """Permanent failure — server says this isn't a PDF (content-type mismatch
+        or 4xx-not-429). Terminal status; not auto-retried on resume."""
+        self.conn.execute(
+            """
+            UPDATE issues
+            SET status='gone',
+                attempts=attempts+1,
+                last_error=?
+            WHERE date=? AND part=? AND number=? AND year=?
+            """,
+            (error, day.isoformat(), part, number, year),
+        )
+
+    def reset_gone(self) -> int:
+        """Move every 'gone' issue back to 'pending' so a future run re-attempts it.
+        Returns the number of rows touched."""
+        cur = self.conn.execute(
+            "UPDATE issues SET status='pending', last_error=NULL WHERE status='gone'"
+        )
+        return cur.rowcount
+
     # ---- read helpers ----
 
     def issue_status(self, day: date, part: str, number: str, year: int) -> str | None:
