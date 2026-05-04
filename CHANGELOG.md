@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.7.0](https://github.com/ciocan/monitorul-ii/compare/monitorul-ii-v0.6.1...monitorul-ii-v0.7.0) (2026-05-04)
+
+
+### Features
+
+* implement comprehensive testing framework and documentation ([b6ee07e](https://github.com/ciocan/monitorul-ii/commit/b6ee07ecb340bfb6e2cba614eb90f49648594be8))
+
 ## [0.6.1](https://github.com/ciocan/monitorul-ii/compare/monitorul-ii-v0.6.0...monitorul-ii-v0.6.1) (2026-05-04)
 
 
