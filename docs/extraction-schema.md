@@ -592,13 +592,80 @@ All 14 are additive. Item 11 is the only type-shape change — the migration is 
 
 The audit also confirmed that several v1.2.0 fields are well-supported in this period: `b` bill prefix (multiple 2022/2023 hits), `not_voting` vote count (every modern electronic-voting tally), `subsidiarity_check` / `delegation_membership` / `parliamentary_declaration` / `seat_vacancy` / `party_membership_change` agenda categories all appear in the sample exactly as v1.2.0 anticipated. One single-sample finding (presidential authorization requests under article 92/93 — `2025-10-13_MO-PII-117-2025.md` items 14 & 19) was flagged but not promoted to a delta; revisit if it recurs in further audits.
 
+## Schema revisions from second 10-year audit (n=50, 2016-05 → 2026-05)
+
+After 1.3.0 stabilised, we ran a fourth audit pass: **50 random documents from the most recent 10 years**. The corpus has gaps before 2018, so the sample landed mostly in 2018-2026 with a heavier tilt towards Senate ordinary-session stenograms and committee syntheses than the v1.3.0 pass. The audit surfaced a band of agenda-categories the prior passes had missed — chamber-internal officer elections, committee membership reorganisation, the EU Protocol-1 consultation procedure (a sibling of v1.2.0's Protocol-2 `subsidiarity_check`), question-and-interpellation block items, and the constitutional-deadline-extension procedure — plus three structural gaps: pandemic-era remote electronic voting (a distinct `voting_method`), session-level outcome (sessions that close prematurely for lack of quorum), and joint-committee report output (the most common committee output not yet enumerated).
+
+Bumping `schema_version` to **1.4.0** (additive only; one previously-singular committee field gets pluralised in line with the v1.1.0 pattern). Findings recorded in the same `P4-N` / `C4-N` / `X4-N` format.
+
+### Findings — plenary stenograms
+
+**P4-1. Chamber-internal officer elections / dismissals are a recurring agenda category absent from v1.3.0.** Sample `2022-02-09_MO-PII-9-2022.md` items 5, 9, 10, 11: `Alegerea membrilor Biroului permanent al Senatului (4 vicepreședinți, 4 secretari și 4 chestori)`, `Revocarea secretarului general al Senatului`, `Numirea secretarului general al Senatului`, `Numirea unui secretar general adjunct al Senatului`. 43+ corpus hits. v1.3.0 routes these to `appointment` — but `appointment` is documented as "to extra-parliamentary bodies (CSM, CNI, CCR, etc.)", which conflates two categorically different events: external constitutional appointments and chamber-internal staffing. Conflation breaks the natural query "show me when the Senate Bureau changed".
+**Add `agenda_items[].category: "chamber_officer"`** for chamber-internal positions (Biroul Permanent, vicepreședinți, secretari, chestori, secretar general, secretar general adjunct). `appointment` retains the external-bodies semantics; `delegation_membership` retains the international-assemblies semantics; `chamber_officer` slots between them for the third pattern.
+
+**P4-2. Internal committee membership reorganisation is a high-volume agenda category.** Sample `2018-07-17_MO-PII-118-2018.md` item 3 ("Aprobarea unor modificări în componența nominală a comisiilor permanente ale Senatului"), `2025-03-18_MO-PII-27-2025.md` item 1 ("Aprobarea unor modificări în componența numerică a Comisiei pentru cercetarea abuzurilor ... și a unor modificări în componența nominală a unor comisii permanente"). 75+ corpus hits. These differ from `chamber_officer` (which is about chamber-wide officers) and from `appointment` / `delegation_membership` (external bodies / international assemblies); they're the routine reshuffling of who sits on which standing committee.
+**Add `agenda_items[].category: "committee_membership"`**. Distinct from `chamber_officer` because the position is *committee membership*, not chamber-wide officership; queryable separately ("when did the Health Committee composition last change?") for the future person-registry's mandate-window tracking.
+
+**P4-3. The EU Protocol-1 consultation procedure is structurally distinct from v1.2.0's `subsidiarity_check` (Protocol 2).** Sample `2019-11-05_MO-PII-124-2019.md` item 3 ("Dezbaterea și adoptarea proiectelor de hotărâre privind consultarea parlamentelor naționale conform Protocolului nr. 1 din Tratatul de la Lisabona"), `2024-12-19_MO-PII-141-2024.md` items 22-23 ("Proiectul de hotărâre privind adoptarea opiniei referitoare la Comunicarea Comisiei ... — COM(2024) 91"). 70+ direct corpus hits for "Protocolului nr. 1"; 253+ for the "adoptarea opiniei" pattern. Protocol 1 governs *information-and-consultation* on EU Commission communications, distinct from Protocol 2's *subsidiarity-and-proportionality check* on legislative proposals. Same session frequently hosts both as separate agenda items (2019-11-05 has Protocol 1 at item 3 and Protocol 2 at item 5). Forcing both into `subsidiarity_check` collapses a constitutionally relevant distinction.
+**Add `agenda_items[].category: "eu_consultation"`**. Carries `Reference.eu_doc[]` references like `subsidiarity_check`; the discriminator is the constitutional procedure invoked.
+
+**P4-4. Senate sessions routinely list "Întrebări, interpelări" as a top-level agenda block.** Sample `2021-10-18_MO-PII-147-2021.md` item 1 (`Întrebări, interpelări`), item 2 (`Declarații politice`). 110+ corpus hits. The interpellation contents already extract into the v1.0.0 sibling `interpellations[]` array — but the *agenda-level* wrapper has no representation. v1.1.0's `political_declarations` covers the analogous block-of-MP-declarations pattern; the question/interpellation block is structurally parallel and should sit alongside it in the category enum, with its child interpellation records continuing to live in the `interpellations[]` sibling.
+**Add `agenda_items[].category: "questions_interpellations"`**. Behaves like `political_declarations`: the agenda item is a wrapper; the substance lives in a sibling block. Keeps the agenda-ordinal/source-span machinery aligned with the rest of the schema while preserving the existing `interpellations[]` shape.
+
+**P4-5. Constitutional-deadline extension to "particularly complex" laws is a recurring procedural action.** Sample `2020-12-07_MO-PII-128-2020.md` item 6 (`Aprobarea solicitării Comisiei juridice ... cu privire la încadrarea în categoria legilor de complexitate deosebită și, în consecință, prelungirea termenului constituțional de dezbatere și vot final de la 45 la 60 de zile`). 47+ corpus hits. Romanian parliamentary procedure imposes a default 45-day deliberation window after which `tacit_adoption` kicks in; for "complex" legislation the chamber can vote to extend to 60 days. v1.3.0 would force this under generic `procedural`, but the action is constitutionally consequential — it defers the tacit-adoption clock — and is queryable signal ("which bills had their deadline extended?").
+**Add `agenda_items[].category: "deadline_extension"`**. Carries the bill `Reference[]` whose deadline is being extended (often a list).
+
+**P4-6. The opening of an ordinary/extraordinary session within a legislature is a recurring `special_procedure`.** Sample `2022-02-09_MO-PII-9-2022.md` item 1 (`Deschiderea sesiunii ordinare a Senatului`). 17+ corpus hits. The v1.3.0 enum has `deschiderea_legislaturii` for the once-per-legislature inaugural session; ordinary/extraordinary sessions open twice a year and are procedurally distinct (no Validation Commission, no senior-president presider, but specific protocol elements like the chamber's national-anthem opening). Neither `deschiderea_legislaturii` nor v1.2.0's `sedinta_solemna` / `declaratie_solemna` covers this case cleanly.
+**Extend `session.special_procedure`** to add `"deschiderea_sesiunii"`. Final enum value list: `buget_de_stat | declaratie_solemna | mesaj_prezidential | sedinta_solemna | deschiderea_legislaturii | deschiderea_sesiunii | null`.
+
+**P4-7. Sessions that close prematurely for lack of quorum need a session-level outcome field.** Sample `2020-02-26_MO-PII-17-2020.md` is a joint session that opened at 16:05, found 188 of 465 parliamentarians present, and closed at 16:09 with a one-line "lipsă de cvorum" reason. The `session.quorum_met: bool` field captures the boolean fact, but consumers querying "which sessions failed to reach quorum" must walk the body to detect the absence of any agenda items — fragile. 12+ direct corpus hits for the suspended-no-quorum pattern (39+ if counting all "lipsă de cvorum" mentions including mid-session quorum losses).
+**Add `session.outcome: "completed | suspended_no_quorum | suspended_other | adjourned"`** field. Default `completed` for typical sessions. `suspended_no_quorum` for session aborted at the start; `suspended_other` for adjournments due to other procedural blockers; `adjourned` for sessions deliberately ended early. Distinct from agenda-item `outcome`: the former is per-debate, this is per-session.
+
+**P4-8. "Vot electronic la distanță" is a sixth voting method, distinct from in-room electronic voting.** Sample `2020-12-24_MO-PII-129-2020.md` item 17 (`adoptat prin vot electronic la distanță` repeated for 5+ bills in a final-vote batch); `2021-12-24_MO-PII-190-2021.md` and similar throughout 2020-2022. 53+ corpus files. Pandemic-era hybrid voting introduced *remote* electronic voting (deputies vote from outside the chamber via the parliamentary app) — distinct accountability proxy from in-room electronic voting (deputy is physically present at the desk). v1.3.0's `voting_method: "electronic"` conflates both. The existing v1.3.0 `telephone_roll_call` value precedented adding pandemic-era voting methods as distinct enum values.
+**Extend `vote.voting_method`** to add `"electronic_remote"`. Final enum: `electronic | electronic_remote | show_of_hands | secret_ballot | nominal | telephone_roll_call | by_acclamation`.
+
+**P4-9. Bills carry a procedure annotation: ordinary vs urgency procedure.** Sample `2024-06-17_MO-PII-18c-2024.md` items repeatedly carry "; procedură de urgență" in the agenda title (`PL-x 192/2024, procedură de urgență, fond comun cu Comisia pentru buget, finanțe și bănci`); the same pattern shows in plenary across the corpus. 1156+ corpus hits — overwhelming. Different from `bill.category` (ordinară/organică/constituțională, which encodes legislative-type) — `procedură de urgență` is a *procedural status* affecting deliberation timeline (shortened windows, expedited committee review). Querying "all urgency-procedure bills" is a real research need; the field is currently unrepresented.
+**Add `Reference.bill.procedure: "ordinary | urgency" | null`**. Defaults to null when not stated; populated regex-deterministically from the `procedură de urgență` annotation.
+
+### Findings — committee syntheses
+
+**C4-1. `raport_comun` (joint report) is the most common committee output not in v1.3.0's enum.** Sample `2024-06-17_MO-PII-18c-2024.md` line 147 (tabular column: `Raport comun cu Comisia pentru muncă și protecție socială`); occurrences span 2013 → 2026. 1022+ corpus mentions of `raport comun`; 336+ in committee tabular form. v1.3.0 has `raport`, `raport_preliminar`, `raport_suplimentar`, `aviz`, `studiu`, `proiect_de_opinie`, `amânare` — none of which capture the joint-authorship pattern that `committee_role: "fond_comun"` (v1.1.0 C-6) naturally produces. The `co_committees[]` slot (v1.1.0 C-5) already carries the co-authoring committee list; what's missing is the output-type discriminator that says "this is a *joint* report, not a *solo* report".
+**Extend `agenda[].output_type`** to add `"raport_comun"` and `"raport_comun_suplimentar"`. Final enum: `raport | raport_preliminar | raport_suplimentar | raport_comun | raport_comun_suplimentar | aviz | studiu | proiect_de_opinie | amânare`. Naturally pairs with `committee_role: "fond_comun"` and a populated `co_committees[]`.
+
+**C4-2. Preliminary-report addressee is plural, not singular.** Sample `2024-06-17_MO-PII-18c-2024.md` tabular rows: `Aviz pentru Comisia pentru politică economică, reformă și privatizare și Comisia pentru buget, finanțe și bănci`; `Raport preliminar pentru Comisia X și Comisia Y`. 10+ corpus files with the multi-addressee pattern; per agenda item it's frequent. v1.1.0's `for_committee: string | null` is too narrow — preliminary reports and avize regularly target multiple downstream committees at once.
+**Promote `agenda[].for_committee` → `for_committees: string[]`**. Mechanical migration: wrap each existing string in a 1-element array. Same pluralisation pattern as v1.1.0's `co_committee` → `co_committees` and v1.3.0's `joint_with[]` shape change.
+
+**C4-3. Confirmation hearings for executive nominees are a recurring meeting purpose.** Sample `2021-06-24_MO-PII-22c-2021.md` lines 160-172: a five-committee joint hearing of candidates for the Competition Council presidency / vice-presidency, where each committee votes `aviz favorabil/nefavorabil` on the candidacy. 84+ corpus hits for the audition pattern. v1.1.0's `meeting.purpose: "documentare_consultare | dezbatere_decizie | aprobare_raport | null"` doesn't have a value for the audition genre; rolling it under `dezbatere_decizie` loses the queryable signal "which committees vetted nominee X".
+**Extend `meeting.purpose`** to add `"audiere_candidați"`. Final enum: `documentare_consultare | dezbatere_decizie | aprobare_raport | audiere_candidați | null`. Output-type for the agenda items remains `aviz` (the committee produces an aviz on the candidacy); `purpose` records what the meeting was *for*. The candidate identity itself surfaces through the `Speaker` shape inside `guests[]` — no new field needed there.
+
+### Summary of 1.3.0 → 1.4.0 deltas
+
+| # | Delta | Why |
+|---|---|---|
+| 1 | `agenda_items[].category` gains `chamber_officer` | Bureau Permanent / Secretary General / Quaestor elections; was conflated with `appointment` |
+| 2 | `agenda_items[].category` gains `committee_membership` | High-volume internal committee membership reorg; needed for mandate-window tracking |
+| 3 | `agenda_items[].category` gains `eu_consultation` | EU Protocol-1 consultation, structurally distinct from Protocol-2 `subsidiarity_check` |
+| 4 | `agenda_items[].category` gains `questions_interpellations` | Senate top-level agenda block wrapping the existing `interpellations[]` sibling array |
+| 5 | `agenda_items[].category` gains `deadline_extension` | 45→60 day deliberation extension defers tacit-adoption clock; queryable signal |
+| 6 | `session.special_procedure` gains `deschiderea_sesiunii` | Twice-yearly ordinary/extraordinary session opening, distinct from `deschiderea_legislaturii` |
+| 7 | New `session.outcome` field | Captures sessions that close prematurely (no quorum, adjourned); 12+ corpus hits |
+| 8 | `vote.voting_method` gains `electronic_remote` | Pandemic-era remote voting; distinct accountability proxy from in-room `electronic` |
+| 9 | New `Reference.bill.procedure` field | `procedură de urgență` annotation; 1156+ corpus hits, currently unrepresented |
+| 10 | Committee `agenda[].output_type` gains `raport_comun` and `raport_comun_suplimentar` | Most common committee output not in v1.3.0 enum; 1022+ corpus mentions |
+| 11 | Committee `agenda[].for_committee` → `for_committees: string[]` | Multi-committee preliminary report addressees |
+| 12 | Committee `meeting.purpose` gains `audiere_candidați` | Confirmation hearings for executive nominees; 84+ corpus hits |
+
+All 12 are additive. Item 11 is the only type-shape change — mechanical migration (wrap each existing `for_committee` string in a 1-element array, same pattern as v1.1.0's `co_committee` and v1.3.0's `joint_with[]`). Combined `agenda_items[].category` enum after v1.4.0 reaches 27 values; combined `session.special_procedure` reaches 6 values; combined committee `output_type` reaches 9 values. The discriminator pattern continues to scale.
+
+The audit also confirmed that several v1.3.0 fields are well-supported across the broader 10-year window: `delivery_mode` annotations (887+ corpus hits — the v1.3.0 X3-2 promotion was timely), `chair_segments[]` (mid-session swaps remain routine), `not_voting` electronic-vote count (universal in modern tallies), `government_confidence` / `government_hour` / `oath_taking` / `mandate_validation` agenda categories all appear in the 50-doc sample exactly as v1.3.0 anticipated. One single-sample finding (the inconclusive committee vote in `2020-02-28_MO-PII-4c-2020.md` where neither `aviz favorabil` nor `aviz nefavorabil` reached majority) was flagged but not promoted to a delta; only one corpus hit, falls under existing `vote_summary.outcome: "deferred"` in practice (the committee re-runs the vote next week). Revisit if it recurs.
+
 ## Consolidated schema reference
 
 Common envelope every document carries:
 
 ```json
 {
-  "schema_version": "1.3.0",
+  "schema_version": "1.4.0",
   "document_id": "mo://2026/PII/48",
   "content_sha": "a3f9c1d2e4b8",
   "document_type": "plenary_stenogram | plenary_joint_session | committee_synthesis | report_facsimile | question_register | other",
@@ -639,10 +706,11 @@ Reusable shapes:
 }
 
 // Reference (discriminated union — type-specific shape per discriminator)
-// type = bill
+// type = bill (1.4.0: procedure field added)
 { "type": "bill", "prefix": "PL-x | Pl-x | L | b", "number": "257", "year": 2019,
   "secondary_year": null, "chamber_of_origin": "camera",
-  "category": "ordinară", "raw": "PL-x 257/2019", "char_offsets": [120, 134] }
+  "category": "ordinară", "procedure": "ordinary | urgency | null",
+  "raw": "PL-x 257/2019", "char_offsets": [120, 134] }
 
 // type = law
 { "type": "law", "number": "295", "year": 2004,
@@ -712,14 +780,15 @@ Reusable shapes:
     "opened_at": "16:01",
     "closed_at": null,
     "format": "in_person | online | mixed",
-    "special_procedure": "buget_de_stat | declaratie_solemna | mesaj_prezidential | sedinta_solemna | deschiderea_legislaturii | null"  // 1.3.0: enum extended
+    "outcome": "completed | suspended_no_quorum | suspended_other | adjourned",  // 1.4.0: added
+    "special_procedure": "buget_de_stat | declaratie_solemna | mesaj_prezidential | sedinta_solemna | deschiderea_legislaturii | deschiderea_sesiunii | null"  // 1.4.0: enum extended
   },
   "agenda_items": [
     {
       "ordinal": 4,
       "title": "...",
       "primary_references": [Reference, "..."],
-      "category": "bill_debate | political_declarations | commemorative | final_vote_batch | procedural | tacit_adoption | appointment | motion | committee_report_presentation | legislative_transmission | withdrawal | notification | regulation_amendment | party_membership_change | subsidiarity_check | foreign_address | seat_vacancy | parliamentary_declaration | delegation_membership | government_confidence | government_hour | oath_taking | mandate_validation",  // 1.3.0: 4 added
+      "category": "bill_debate | political_declarations | commemorative | final_vote_batch | procedural | tacit_adoption | appointment | motion | committee_report_presentation | legislative_transmission | withdrawal | notification | regulation_amendment | party_membership_change | subsidiarity_check | foreign_address | seat_vacancy | parliamentary_declaration | delegation_membership | government_confidence | government_hour | oath_taking | mandate_validation | chamber_officer | committee_membership | eu_consultation | questions_interpellations | deadline_extension",  // 1.4.0: 5 added
       "confidence_type": "investitură | cenzură | angajare_răspundere | demitere | null",   // 1.3.0: when category=government_confidence
       "requested_by_group": null,                              // 1.3.0: when category=government_hour
       "outcome": "adoptat | respins | adoptat_tacit | retrimis | retras | votul_final_deferred | vot_amânat | informare | tăcere_legislativă",
@@ -747,7 +816,7 @@ Reusable shapes:
           "type": "vote",
           "motion_text": "...",
           "motion_type": "procedural | amendment | final | item_adoption | agenda_approval | urgency_procedure | report_approval | system_check",  // 1.3.0: system_check added
-          "voting_method": "electronic | show_of_hands | secret_ballot | nominal | telephone_roll_call | by_acclamation",  // 1.3.0: telephone_roll_call added
+          "voting_method": "electronic | electronic_remote | show_of_hands | secret_ballot | nominal | telephone_roll_call | by_acclamation",  // 1.4.0: electronic_remote added
           "timing": "live | deferred",
           "counts": { "for": 123, "against": 6, "abstain": 2, "not_voting": 13, "total_voting": 131 },
           "outcome": "approved | rejected | tied | deferred | no_quorum",
@@ -810,7 +879,7 @@ Reusable shapes:
           ],
           "presider": Speaker,
           "format": "in_person | online | mixed",          // 1.1.0: added
-          "purpose": "documentare_consultare | dezbatere_decizie | aprobare_raport | null",  // 1.1.0: added
+          "purpose": "documentare_consultare | dezbatere_decizie | aprobare_raport | audiere_candidați | null",  // 1.4.0: audiere_candidați added
           "time_windows": [{ "start": "08:30", "end": "12:00" },
                            { "start": "13:00", "end": "18:00" }],  // 1.1.0: was started_at
           "roster": [                                      // 1.1.0: replaces attendees+absentees+substitutions
@@ -829,8 +898,8 @@ Reusable shapes:
               "co_committees": ["Comisia pentru industrii și servicii",
                                 "Comisia juridică, de disciplină și imunități"],  // 1.1.0: pluralized
               "committee_role": "fond | aviz | fond_comun",   // 1.1.0: added
-              "output_type": "raport | raport_preliminar | raport_suplimentar | aviz | studiu | proiect_de_opinie | amânare",  // 1.3.0: studiu, proiect_de_opinie added
-              "for_committee": "Comisia pentru muncă și protecție socială",  // 1.1.0: when output_type=raport_preliminar
+              "output_type": "raport | raport_preliminar | raport_suplimentar | raport_comun | raport_comun_suplimentar | aviz | studiu | proiect_de_opinie | amânare",  // 1.4.0: raport_comun, raport_comun_suplimentar added
+              "for_committees": ["Comisia pentru muncă și protecție socială"],  // 1.4.0: pluralised — populated when output_type ∈ {raport_preliminar, aviz}
               "outcome_text": "...",
               "vote_summary": {
                 "outcome": "approved | rejected | deferred",
@@ -875,7 +944,8 @@ Same shape as `plenary_stenogram` with two differences:
     "opened_at": "21:06",
     "closed_at": null,
     "format": "in_person | online | mixed",
-    "special_procedure": "buget_de_stat | declaratie_solemna | mesaj_prezidential | null"
+    "outcome": "completed | suspended_no_quorum | suspended_other | adjourned",  // 1.4.0: added
+    "special_procedure": "buget_de_stat | declaratie_solemna | mesaj_prezidential | sedinta_solemna | deschiderea_legislaturii | deschiderea_sesiunii | null"  // 1.4.0: aligned with plenary enum
   },
   "agenda_items": [
     {
@@ -993,9 +1063,9 @@ Every nullable identity field in the schema is a deliberate slot for a future re
 ## Build order
 
 1. **Type detector.** Cheap regex on issue suffix + body markers; classify all converted MDs into the six buckets (`plenary_stenogram | plenary_joint_session | committee_synthesis | report_facsimile | question_register | other`). Detect joint sessions via `ȘEDINȚE COMUNE ALE CAMEREI DEPUTAȚILOR ȘI SENATULUI` header. Detect `report_facsimile` via `R` issue suffix (`3/R/2014`) and `(RAPOARTE DE ACTIVITATE)` body marker. Detect `committee_synthesis` via `c` suffix (`13c/2013`). Detect `question_register` via `LISTA ÎNTREBĂRILOR ADRESATE` header AND absence of `(STENOGRAMA)` marker. Sanity check the distribution against expected ratios.
-2. **`plenary_stenogram` extractor.** Covers the bulk of the queryable corpus. Speaker parser with `delivery_mode` annotation, agenda enumeration with the 22-value `category` enum (1.3.0) including the new `government_confidence` / `government_hour` / `oath_taking` / `mandate_validation` values, reference regex pack including PHCD/HP, motion types, the `b` bill prefix, and the `JOIN` EU-doc series, vote detector with deferred-handling, `not_voting` count, and the `system_check` motion-type filter, interpellation block parser with `genre` discrimination, session shape with `chair_segments[]` for mid-session swaps and the extended `special_procedure` enum. Topics primary populated from agenda titles via regex.
+2. **`plenary_stenogram` extractor.** Covers the bulk of the queryable corpus. Speaker parser with `delivery_mode` annotation, agenda enumeration with the 27-value `category` enum (1.4.0) including v1.3.0's `government_confidence` / `government_hour` / `oath_taking` / `mandate_validation` and v1.4.0's `chamber_officer` / `committee_membership` / `eu_consultation` / `questions_interpellations` / `deadline_extension` values, reference regex pack including PHCD/HP, motion types, the `b` bill prefix, the `JOIN` EU-doc series, and the v1.4.0 `bill.procedure` flag for `procedură de urgență`, vote detector with deferred-handling, `not_voting` count, the `system_check` motion-type filter, and the v1.4.0 `electronic_remote` voting method, interpellation block parser with `genre` discrimination, session shape with `chair_segments[]` for mid-session swaps, the extended `special_procedure` enum (including v1.4.0's `deschiderea_sesiunii`), and the v1.4.0 `outcome` field for premature-closure detection. Topics primary populated from agenda titles via regex.
 3. **`plenary_joint_session` extractor.** Reuses most of the plenary extractor; key additions are dual-chair detection, `chambers_present[]` population, and parallel-reference parsing in agenda titles (e.g., `L146/2026; PL-x 184/2026`).
-4. **`committee_synthesis` extractor.** Meeting-as-atom with `dates[]` and `time_windows[]`, unified `roster[]` with `mode` and `intra_committee_role` per member, `committee_role` and `output_type` per agenda entry (with v1.3.0's `studiu` and `proiect_de_opinie` outputs), `committee.kind` discriminator for special / inquiry committees, structured `joint_with[]` with chamber discriminator, narrative vote summaries. Must handle both narrative and tabular sub-formats.
+4. **`committee_synthesis` extractor.** Meeting-as-atom with `dates[]` and `time_windows[]`, unified `roster[]` with `mode` and `intra_committee_role` per member, `committee_role` and `output_type` per agenda entry (with v1.3.0's `studiu` / `proiect_de_opinie` and v1.4.0's `raport_comun` / `raport_comun_suplimentar` outputs), `for_committees[]` for multi-recipient preliminary reports (v1.4.0 pluralisation), `committee.kind` discriminator for special / inquiry committees, structured `joint_with[]` with chamber discriminator, narrative vote summaries, and v1.4.0's `meeting.purpose: "audiere_candidați"` for confirmation hearings. Must handle both narrative and tabular sub-formats.
 5. **`report_facsimile` extractor.** Minimal — extract issuing body from header, reporting period from title (regex on `anul YYYY`), heading outline from markdown H1/H2. Body remains in the sidecar markdown. Issuing body normalization deferred to the institutional bodies registry.
 6. **`question_register` extractor.** Flat catalogue parser — group questions by minister-addressee header, capture per-question registration number, date, questioner, topic. `ministry_normalized` deferred to the ministries registry alongside `interpellation.addressed_to_normalized`.
 7. **`other` fallback.** Write the audit-trail JSON for everything that doesn't match. Confirm zero documents fail to classify.
