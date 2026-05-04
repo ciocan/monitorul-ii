@@ -2,7 +2,14 @@
 
 Boundary detection by chair's canonical transition phrase. Block ends at EOF.
 Per-interpellation parser extracts questioner / addressed_to / topic /
-interpellation_number / response_deferred.
+interpellation_number / response_deferred / question_text.
+
+`question_text` (v0.2.0): the policy-substance body of the interpellation,
+extracted from the questioner's turn by stripping opening pleasantries,
+topic-naming lead-ins, trailing signatures/closures, and capping at
+section-break markers (e.g., when the same speaker continues into a
+political declaration in the same turn). Returns null when the recovered
+body is too short to be meaningful.
 """
 
 from __future__ import annotations
@@ -25,27 +32,71 @@ if TYPE_CHECKING:
     from monitorul_ii.extraction.pipeline import ExtractContext
 
 
+INTERPELLATIONS_VERSION = "0.2.0"
+INTERPELLATIONS_LABEL = f"regex@plenary_interpellations@{INTERPELLATIONS_VERSION}"
+
+
 # -- Transition phrases (block boundary detector) ---------------------------
+#
+# Survey of 5551 production MDs (2026-05) showed only 1 doc matched the
+# v0.1 pattern set. v0.2 widens coverage with the chair-declares-the-block
+# phrases observed across 2009-2025: "Declar deschisă sesiunea/ședința de
+# întrebări/interpelări" (most common modern form), "Începem sesiunea de
+# întrebări și interpelări" (2009-2017), "Urmează prezentarea/sesiunea de
+# interpelări" (2009-era), "Răspunsuri la interpelări." (terse).
+#
+# Patterns are intentionally chair-declarative — they fire on the chair
+# OPENING the session, not on incidental mentions of interpelări in
+# regular speech. Anchored line-or-substring as appropriate.
 
 
 _TRANSITION_PHRASES: list[re.Pattern[str]] = [
+    # "trecem la primirea răspunsurilor la interpelări"
     re.compile(
         r"trecem\s+la\s+primirea\s+r[ăa]spunsurilor\s+la\s+interpel[ăa]ri",
         re.IGNORECASE,
     ),
+    # "Începem sesiunea/ora de întrebări/interpelări..." (chair opens)
     re.compile(
-        r"începem\s+ora\s+(?:întreb[ăa]rilor\s+)?(?:[șs]i\s+)?interpel[ăa]rilor",
+        r"începem\s+(?:sesiunea|ora)\s+(?:de\s+)?(?:întreb[ăa]r(?:i|ilor)?\s+)?"
+        r"(?:[șs]i\s+)?interpel[ăa]r(?:i|ilor)?",
         re.IGNORECASE,
     ),
+    # "(vom) intra(m) în ora întrebărilor/interpelărilor"
     re.compile(
         r"(?:vom\s+)?intr[ăa]m?\s+în\s+ora\s+(?:întreb[ăa]rilor|interpel[ăa]rilor)",
         re.IGNORECASE,
     ),
+    # "trecem la prezentarea interpelărilor noi"
     re.compile(r"trecem\s+la\s+prezentarea\s+interpel[ăa]rilor\s+noi", re.IGNORECASE),
+    # "Declar deschisă sesiunea/ședința [consacrată/de] ... interpelări/întrebări"
+    # (chair's canonical opener; 136 hits across the corpus)
     re.compile(
-        r"^\s*R[ăa]spunsuri\s+la\s+interpel[ăa]ri\s*[:.]?\s*$",
+        r"declar\s+deschis[ăa]\s+(?:[șs]edin[țt]a|sesiunea)\s+"
+        r"(?:consacrat[ăa]\s+|de\s+|pentru\s+)?[^\n]{0,80}"
+        r"(?:interpel[ăa]r|întreb[ăa]r)",
+        re.IGNORECASE,
+    ),
+    # "Urmează prezentarea/sesiunea ... de interpelări/întrebări"
+    re.compile(
+        r"urmeaz[ăa]\s+(?:prezentarea|sesiunea)\s+"
+        r"(?:pe\s+scurt\s+)?(?:de\s+|a\s+)?[^\n]{0,80}"
+        r"interpel[ăa]r",
+        re.IGNORECASE,
+    ),
+    # "Deschidem ședința consacrată răspunsurilor orale ..."
+    re.compile(
+        r"deschidem\s+[șs]edin[țt]a\s+consacrat[ăa]\s+r[ăa]spunsurilor",
+        re.IGNORECASE,
+    ),
+    # "Răspunsuri la interpelări." — chair-anchored line. Allows trailing
+    # courtesy phrases ("ale domnilor deputați...") but not table cells
+    # (excluded by negative-lookbehind for `|`, common in SUMAR rows).
+    re.compile(
+        r"(?<![|])^\s*R[ăa]spunsuri\s+la\s+interpel[ăa]ri[ie]?[^\n|]{0,160}\s*$",
         re.IGNORECASE | re.MULTILINE,
     ),
+    # "## **Întrebări orale ...**" header
     re.compile(r"^##?\s+\*\*?\s*Întreb[ăa]ri\s+orale", re.IGNORECASE | re.MULTILINE),
 ]
 
@@ -95,6 +146,139 @@ _INTERPELLATION_NUMBER_RE = re.compile(
 _RESPONSE_DEFERRED_RE = re.compile(
     r"\(\s*în\s+scris\s*\)|răspuns(?:ul)?\s+în\s+scris", re.IGNORECASE
 )
+
+
+# -- question_text extraction (v0.2.0) --------------------------------------
+
+
+# Lines that are pure pleasantries or salutations — drop from the start of
+# question_text. Anchored line-only (full match) so substantive sentences
+# that *contain* these phrases are preserved.
+_PLEASANTRY_LINE_RE = re.compile(
+    r"^\s*(?:"
+    r"(?:v[ăa]\s+)?mul[țt]umesc(?:[\s,!.][^\n]*)?|"
+    r"bun[ăa]\s+(?:diminea[țt]a|seara|ziua)(?:[\s,!.][^\n]*)?|"
+    r"doamn[ăa]\s+pre[șs]edint[eă][^\n]*|"
+    r"domnule\s+pre[șs]edint[eă][^\n]*|"
+    r"stima[țt]i\s+colegi[^\n]*|"
+    r"stimate\s+colege[^\n]*|"
+    r"stima[țt]i\s+(?:domni\s+(?:senatori|deputa[țt]i)|senatori|deputa[țt]i)[^\n]*|"
+    r"dragi\s+români[^\n]*|"
+    r"doamnelor\s+[șs]i\s+domnilor[^\n]*"
+    r")\s*$",
+    re.IGNORECASE,
+)
+
+# Topic-naming preamble lines — the formal "I shall now read out..." opening
+# that names the addressed minister + subject. Also covers the older
+# "Interpelarea este adresată..." / "Interpelarea se adresează..." form.
+# Drop these from the start because the topic + addressee are captured
+# separately as their own fields.
+_TOPIC_PREAMBLE_RE = re.compile(
+    r"^\s*(?:"
+    r"voi\s+(?:da\s+curs|prezenta|citi)[^.\n]*"
+    r"(?:întreb[ăa]rii|interpel[ăa]rii|întreb[ăa]ri|interpel[ăa]ri)[^\n]*|"
+    r"interpelarea\s+(?:este\s+adresat[ăa]|se\s+adreseaz[ăa])[^\n]*|"
+    r"întrebarea\s+(?:este\s+adresat[ăa]|se\s+adreseaz[ăa])[^\n]*|"
+    r"obiectul\s+interpel[ăa]rii\s*[:.]?\s*[^\n]*|"
+    r"obiectul\s+întreb[ăa]rii\s*[:.]?\s*[^\n]*|"
+    r"adresez(?:[ăa])?\s+(?:aceast[ăa]\s+)?(?:întrebare|interpelare)[^\n]*"
+    r")\s*$",
+    re.IGNORECASE,
+)
+
+# Closing patterns — cap question_text at the start of the earliest match.
+# These signal the speaker is wrapping up (request for written response,
+# courtesy close, signature). Anchored loosely so the trailing text
+# ("Solicit răspuns în scris, în termen de 15 zile...") is excluded too.
+_CLOSING_PATTERNS: list[re.Pattern[str]] = [
+    re.compile(r"\bSolicit\s+r[ăa]spuns\b", re.IGNORECASE),
+    re.compile(r"\bA[șs]tept(?:[ăa]m)?\s+r[ăa]spuns(?:ul)?\b", re.IGNORECASE),
+    re.compile(r"\bDoresc\s+un\s+r[ăa]spuns\b", re.IGNORECASE),
+    re.compile(r"^\s*Cu\s+stim[ăa]\s*[,.]", re.IGNORECASE | re.MULTILINE),
+    re.compile(r"^\s*Cu\s+respect\s*[,.]", re.IGNORECASE | re.MULTILINE),
+]
+
+# Section-break patterns — same speaker continues into a different topic
+# (typically a political declaration after the interpellation). Cap
+# question_text at the start of the earliest match.
+_SECTION_BREAK_PATTERNS: list[re.Pattern[str]] = [
+    re.compile(
+        r"\bvoi\s+(?:citi|prezenta|continua\s+cu)\s+(?:[șs]i\s+)?"
+        r"declara[țt]ia\s+politic[ăa]\b",
+        re.IGNORECASE,
+    ),
+    re.compile(
+        r"\bdeclara[țt]ia\s+politic[ăa]\s+(?:cu\s+titlul|cu\s+tema|"
+        r"pe\s+care\s+(?:vreau|doresc))\b",
+        re.IGNORECASE,
+    ),
+    re.compile(
+        r"\b(?:trec(?:em)?|voi\s+trece)\s+(?:acum\s+)?la\s+"
+        r"(?:a\s+doua|cea\s+de-a\s+doua|cealalt[ăa])\s+"
+        r"(?:întrebare|interpelare)\b",
+        re.IGNORECASE,
+    ),
+    re.compile(r"\bvoi\s+citi\s+[șs]i\s+declara[țt]ia\b", re.IGNORECASE),
+]
+
+
+_MIN_QUESTION_TEXT_CHARS = 40
+
+
+def _extract_question_text(turn_body: str) -> str | None:
+    """Return the policy-substance text of an interpellation turn, or None.
+
+    `turn_body` is the post-header content (everything after the
+    `## **NAME:**` line). Strategy:
+      1. Cap at the earliest section-break (next political declaration,
+         next interpellation in same turn).
+      2. Cap at the earliest closing pattern ("Solicit răspuns", "Cu stimă,"...).
+      3. Drop leading pleasantry / topic-preamble lines.
+      4. Trim and reject if shorter than `_MIN_QUESTION_TEXT_CHARS`
+         (very short residue = boilerplate stripped, no real content).
+
+    Paragraph breaks inside the body are preserved (collapsed to single
+    blank lines). Returns None when no meaningful body remains.
+    """
+    text = turn_body
+
+    cap = len(text)
+    for pat in _SECTION_BREAK_PATTERNS:
+        m = pat.search(text)
+        if m and m.start() < cap:
+            cap = m.start()
+    for pat in _CLOSING_PATTERNS:
+        m = pat.search(text, 0, cap)
+        if m and m.start() < cap:
+            cap = m.start()
+    text = text[:cap]
+
+    lines = text.splitlines()
+    while lines:
+        line = lines[0].strip()
+        if not line:
+            lines.pop(0)
+            continue
+        if (
+            _PLEASANTRY_LINE_RE.match(line)
+            or _TOPIC_PREAMBLE_RE.match(line)
+            or line.startswith("#")
+            or line.startswith("_")
+        ):
+            lines.pop(0)
+            continue
+        break
+
+    while lines and not lines[-1].strip():
+        lines.pop()
+
+    cleaned = "\n".join(lines).strip()
+    cleaned = re.sub(r"\n{3,}", "\n\n", cleaned)
+
+    if len(cleaned) < _MIN_QUESTION_TEXT_CHARS:
+        return None
+    return cleaned
 
 
 def _parse_interpellation(
@@ -147,6 +331,11 @@ def _parse_interpellation(
             topic = line[:300]
             break
 
+    # question_text — body content of the questioner's turn (post-header),
+    # with pleasantries / topic-preamble / closing / section-breaks removed.
+    turn_body = "\n".join(body_lines)
+    question_text = _extract_question_text(turn_body)
+
     # response: null in v0.1 (response detection is downstream work)
     response = None
 
@@ -157,7 +346,7 @@ def _parse_interpellation(
         "addressed_to_normalized": None,
         "interpellation_number": interpellation_number,
         "topic": topic,
-        "question_text": None,
+        "question_text": question_text,
         "response": response,
         "response_deferred": response_deferred,
     }
@@ -217,9 +406,10 @@ def extract_interpellations(
         record_dict["source_span"] = _make_source_span(
             (global_start, global_end), offsets, content_sha
         )
+        confidence = 0.85 if record_dict.get("question_text") else 0.7
         record_dict["extraction"] = {
-            "extractor": "regex@plenary@0.1.0",
-            "confidence": 0.7,
+            "extractor": INTERPELLATIONS_LABEL,
+            "confidence": confidence,
             "source_span": _make_source_span(
                 (global_start, global_end), offsets, content_sha
             ),
@@ -241,4 +431,9 @@ def _make_source_span(
     }
 
 
-__all__ = ["find_interpellation_block", "extract_interpellations"]
+__all__ = [
+    "INTERPELLATIONS_VERSION",
+    "INTERPELLATIONS_LABEL",
+    "find_interpellation_block",
+    "extract_interpellations",
+]
