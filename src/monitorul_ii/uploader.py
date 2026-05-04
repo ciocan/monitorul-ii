@@ -81,7 +81,12 @@ class Uploader:
     def exists(self, key: str) -> bool:
         return self._head(key) is not None
 
-    def upload_if_missing(self, path: Path, key: str | None = None) -> UploadResult:
+    def upload_if_missing(
+        self,
+        path: Path,
+        key: str | None = None,
+        content_type: str = "application/pdf",
+    ) -> UploadResult:
         """Upload `path` to S3 unless an object with `key` already exists.
 
         Returns UploadResult(uploaded, etag). `etag` is populated in both branches:
@@ -96,7 +101,7 @@ class Uploader:
             str(path),
             self.config.bucket,
             object_key,
-            ExtraArgs={"ContentType": "application/pdf"},
+            ExtraArgs={"ContentType": content_type},
         )
         head = self._s3.head_object(Bucket=self.config.bucket, Key=object_key)
         return UploadResult(uploaded=True, etag=_etag(head))

@@ -10,6 +10,12 @@ from pathlib import Path
 
 from dotenv import load_dotenv
 
+from monitorul_ii.converter import (
+    ConvertEvent,
+    ConvertEventPayload,
+    collect_pdfs,
+    convert_all,
+)
 from monitorul_ii.db import DB
 from monitorul_ii.scraper import (
     DayResult,
@@ -21,9 +27,14 @@ from monitorul_ii.scraper import (
 )
 from monitorul_ii.uploader import S3Config, Uploader
 
-_LABELS: dict[FileEvent, str] = {
+_FETCH_LABELS: dict[FileEvent, str] = {
     "skip": "skip ",
     "download": "ok   ",
+    "error": "ERR  ",
+}
+_CONVERT_LABELS: dict[ConvertEvent, str] = {
+    "skip": "skip ",
+    "convert": "ok   ",
     "error": "ERR  ",
 }
 
@@ -39,45 +50,7 @@ def _parse_date(s: str) -> date:
         ) from e
 
 
-def _build_parser() -> argparse.ArgumentParser:
-    p = argparse.ArgumentParser(
-        prog="monitorul-ii",
-        description="Download Monitorul Oficial Partea a II-a PDFs for a date or date range.",
-    )
-    p.add_argument("date", type=_parse_date, help="Date (YYYY-MM-DD)")
-    p.add_argument(
-        "--until",
-        type=_parse_date,
-        default=None,
-        help="End of date range (inclusive). If omitted, only `date` is fetched.",
-    )
-    p.add_argument(
-        "--out",
-        type=Path,
-        default=Path("pdfs"),
-        help="Output directory (default: ./pdfs). PDFs land directly here; the date is in the filename.",
-    )
-    p.add_argument(
-        "--part",
-        default="II",
-        help="Roman-numeral Partea to fetch (default: II).",
-    )
-    p.add_argument(
-        "--delay",
-        type=float,
-        default=0.5,
-        help="Seconds to wait between PDF downloads (default: 0.5).",
-    )
-    p.add_argument(
-        "--proxy",
-        default=None,
-        help="Proxy URL (e.g. http://user:pass@host:port). Overrides PROXY_URL from env.",
-    )
-    p.add_argument(
-        "--no-proxy",
-        action="store_true",
-        help="Bypass any proxy configured via PROXY_URL or --proxy.",
-    )
+def _add_s3_args(p: argparse.ArgumentParser) -> None:
     p.add_argument(
         "--no-upload",
         action="store_true",
@@ -88,34 +61,107 @@ def _build_parser() -> argparse.ArgumentParser:
         default=None,
         help="Override S3_BUCKET from env.",
     )
-    p.add_argument(
+
+
+def _build_parser() -> argparse.ArgumentParser:
+    p = argparse.ArgumentParser(
+        prog="monitorul-ii",
+        description="Scrape Monitorul Oficial PDFs and convert them to markdown.",
+    )
+    sub = p.add_subparsers(dest="command", required=True)
+
+    fetch = sub.add_parser(
+        "fetch",
+        help="Download PDFs for a date or date range.",
+        description="Download Monitorul Oficial Partea a II-a PDFs for a date or date range.",
+    )
+    fetch.add_argument("date", type=_parse_date, help="Date (YYYY-MM-DD)")
+    fetch.add_argument(
+        "--until",
+        type=_parse_date,
+        default=None,
+        help="End of date range (inclusive). If omitted, only `date` is fetched.",
+    )
+    fetch.add_argument(
+        "--out",
+        type=Path,
+        default=Path("pdfs"),
+        help="Output directory (default: ./pdfs). PDFs land directly here; the date is in the filename.",
+    )
+    fetch.add_argument(
+        "--part",
+        default="II",
+        help="Roman-numeral Partea to fetch (default: II).",
+    )
+    fetch.add_argument(
+        "--delay",
+        type=float,
+        default=0.5,
+        help="Seconds to wait between PDF downloads (default: 0.5).",
+    )
+    fetch.add_argument(
+        "--proxy",
+        default=None,
+        help="Proxy URL (e.g. http://user:pass@host:port). Overrides PROXY_URL from env.",
+    )
+    fetch.add_argument(
+        "--no-proxy",
+        action="store_true",
+        help="Bypass any proxy configured via PROXY_URL or --proxy.",
+    )
+    _add_s3_args(fetch)
+    fetch.add_argument(
         "--db",
         type=Path,
         default=Path("data/monitorul.db"),
         help="SQLite path for the audit log + resume gate (default: data/monitorul.db).",
     )
-    p.add_argument(
+    fetch.add_argument(
         "--no-db",
         action="store_true",
         help="Disable the SQLite audit log entirely. Re-runs lose 'empty day' memory.",
     )
-    p.add_argument(
+    fetch.add_argument(
         "--reverse",
         action="store_true",
         help="Walk the date range newest→oldest. A partial run leaves you with the most recent stretch.",
     )
-    p.add_argument(
+    fetch.add_argument(
         "--force",
         action="store_true",
         help="Re-fetch every day's index regardless of DB status.",
     )
-    p.add_argument(
+    fetch.add_argument(
         "--rescrape-recent",
         type=int,
         default=0,
         metavar="N",
         help="Re-fetch the last N days regardless of DB status (default: 0). Today is always re-fetched.",
     )
+    fetch.set_defaults(func=cmd_fetch)
+
+    convert = sub.add_parser(
+        "convert",
+        help="Convert downloaded PDFs to markdown.",
+        description=(
+            "Convert one or more local PDFs to markdown next to the source "
+            "(e.g. pdfs/<basename>.md). Optionally mirrors to the same S3 bucket."
+        ),
+    )
+    convert.add_argument(
+        "paths",
+        nargs="+",
+        type=Path,
+        help="PDF files or directories containing PDFs (non-recursive).",
+    )
+    convert.add_argument(
+        "--force",
+        action="store_true",
+        help="Re-convert PDFs that already have a non-empty .md alongside.",
+    )
+    _add_s3_args(convert)
+    convert.set_defaults(func=cmd_convert)
+
     return p
 
 
@@ -166,9 +212,7 @@ def _resolve_uploader(args: argparse.Namespace) -> Uploader | None:
     return up
 
 
-def main(argv: list[str] | None = None) -> int:
-    load_dotenv()
-    args = _build_parser().parse_args(argv)
+def cmd_fetch(args: argparse.Namespace) -> int:
     end = args.until or args.date
     if end < args.date:
         print("error: --until must be >= date", file=sys.stderr)
@@ -191,7 +235,7 @@ def main(argv: list[str] | None = None) -> int:
     counters = {"uploaded": 0, "in_bucket": 0, "upload_errors": 0}
 
     def on_event(p: FileEventPayload) -> None:
-        label = _LABELS[p.kind]
+        label = _FETCH_LABELS[p.kind]
         if p.kind == "error":
             print(f"  {label} {p.path.name}  ({p.detail})", file=sys.stderr)
         else:
@@ -285,6 +329,59 @@ def main(argv: list[str] | None = None) -> int:
 
     total_errors += counters["upload_errors"]
     return 1 if total_errors else 0
+
+
+def cmd_convert(args: argparse.Namespace) -> int:
+    pdfs = collect_pdfs(list(args.paths))
+    if not pdfs:
+        print("no PDFs found", file=sys.stderr)
+        return 0
+
+    uploader = _resolve_uploader(args)
+    counters = {"uploaded": 0, "in_bucket": 0, "upload_errors": 0}
+
+    def on_event(p: ConvertEventPayload) -> None:
+        label = _CONVERT_LABELS[p.kind]
+        if p.kind == "error":
+            print(f"  {label} {p.md_path.name}  ({p.detail})", file=sys.stderr)
+        else:
+            print(f"  {label} {p.md_path.name}")
+
+        if uploader is None or p.kind == "error":
+            return
+        if not (p.md_path.exists() and p.md_path.stat().st_size > 0):
+            return
+        try:
+            result = uploader.upload_if_missing(p.md_path, content_type="text/markdown")
+            if result.uploaded:
+                counters["uploaded"] += 1
+                print(f"  s3+   {p.md_path.name}")
+            else:
+                counters["in_bucket"] += 1
+                print(f"  s3=   {p.md_path.name}")
+        except Exception as exc:
+            counters["upload_errors"] += 1
+            print(f"  s3!   {p.md_path.name}  ({exc})", file=sys.stderr)
+
+    summary = convert_all(pdfs, force=args.force, on_event=on_event)
+    line = (
+        f"converted={summary.converted} skipped={summary.skipped} "
+        f"errors={len(summary.errors)}"
+    )
+    if counters["uploaded"] or counters["in_bucket"] or counters["upload_errors"]:
+        line += (
+            f" | s3 uploaded={counters['uploaded']} "
+            f"in-bucket={counters['in_bucket']} "
+            f"errors={counters['upload_errors']}"
+        )
+    print(line)
+    return 1 if summary.errors or counters["upload_errors"] else 0
+
+
+def main(argv: list[str] | None = None) -> int:
+    load_dotenv()
+    args = _build_parser().parse_args(argv)
+    return args.func(args)
 
 
 def _redact_proxy(url: str) -> str:

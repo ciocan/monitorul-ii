@@ -1,11 +1,15 @@
 # Architecture
 
-Deep dives. CLAUDE.md has the scannable summary; this file is the reference for changes that touch the scrape mechanism, the parser, or the on-disk layout.
+Deep dives. CLAUDE.md has the scannable summary; this file is the reference for changes that touch the scrape mechanism, the parser, the markdown converter, or the on-disk layout.
 
 ## End-to-end flow
 
+`cli.py` exposes two subcommands. `fetch` is the scraper described below; `convert` is documented in [PDF → markdown conversion](#pdf--markdown-conversion). Both load `.env` and share the same S3 plumbing (`--no-upload`, `--bucket`).
+
+### `fetch`
+
 ```
-CLI (cli.py)
+CLI (cli.py: cmd_fetch)
   ├─ load .env (python-dotenv)
   ├─ parse argv (date, --until, --out, --part, --delay, --proxy/--no-proxy,
   │              --bucket/--no-upload, --db/--no-db, --reverse, --force,
@@ -274,13 +278,13 @@ When `S3_ENDPOINT`, `S3_ACCESS_KEY_ID`, `S3_SECRET_ACCESS_KEY`, and `S3_BUCKET` 
 
 ### Idempotency
 
-`Uploader.upload_if_missing(path, key=None)`:
+`Uploader.upload_if_missing(path, key=None, content_type="application/pdf")`:
 
-1. `head_object(Bucket, Key)` → if 200, return `False` (no upload, file already there).
-2. On `404` / `NoSuchKey` / `NotFound`, `upload_file(...)` with `ContentType=application/pdf` and return `True`.
+1. `head_object(Bucket, Key)` → if 200, return `UploadResult(uploaded=False, etag=…)` (no upload, file already there).
+2. On `404` / `NoSuchKey` / `NotFound`, `upload_file(...)` with the requested `ContentType` and return `UploadResult(uploaded=True, etag=…)`.
 3. Other errors propagate.
 
-The default `key` is `path.name`, mirroring the local flat layout (e.g. `2026-04-29_MO-PII-47-2026.pdf`). The date prefix gives chronological order in any S3 listing tool, so we don't bother with year/month prefixes.
+The default `key` is `path.name`, mirroring the local flat layout (e.g. `2026-04-29_MO-PII-47-2026.pdf`). The date prefix gives chronological order in any S3 listing tool, so we don't bother with year/month prefixes. `cmd_fetch` uses the default `application/pdf`; `cmd_convert` passes `text/markdown`. Both formats live side-by-side in the same bucket — the `Content-Type` distinguishes them and a suffix filter separates them in listings.
 
 The `head_object`-per-file policy is one extra HTTP RTT per PDF on re-runs. For ranges in the hundreds it's fine; if we ever scrape years at a time, switch to a one-shot `ListObjectsV2` to build an in-memory key set up front.
 
@@ -294,6 +298,95 @@ CLI startup calls `uploader.validate()` which does `head_bucket`. If the bucket 
 - `region_name`: R2 ignores this but boto3 requires a value — we default to `auto` (matches Cloudflare's docs).
 - `signature_version="s3v4"` is set explicitly because some boto3 defaults can fall back to v2 in odd configurations; v4 is the only thing R2 accepts.
 - No `ChecksumAlgorithm` or `ServerSideEncryption` extras — R2 is happy with the bare upload.
+
+## PDF → markdown conversion
+
+`monitorul-ii convert <paths>...` walks each path (file or directory), runs every `*.pdf` through `pymupdf4llm.to_markdown` plus an MO-specific cleanup pass, prepends a YAML frontmatter block, and writes `<basename>.md` next to the source. Idempotent: skip if the `.md` exists & non-empty; `--force` re-converts. When the S3 vars are set, MDs mirror to the same bucket (flat key, `Content-Type: text/markdown`).
+
+```
+CLI (cli.py: cmd_convert)
+  ├─ load .env (python-dotenv)
+  ├─ parse argv (paths..., --force, --bucket/--no-upload)
+  ├─ resolve uploader: same fail-fast head_bucket as `fetch`
+  ├─ collect_pdfs(paths)        # files + non-recursive *.pdf in dirs, dedup'd
+  └─ for each pdf:
+       ├─ if md exists & non-empty (and not --force) → emit "skip"
+       └─ else convert_pdf(pdf, md):
+            ├─ pymupdf4llm.to_markdown(pdf)
+            ├─ clean_markdown(raw)        # noise stripping (see below)
+            ├─ parse_filename(name)       # base IssueMeta from path
+            ├─ enrich_meta(body, base)    # best-effort first-page parse
+            └─ write frontmatter + body atomically (.part → .md)
+       (CLI's on_event closure: after "convert"/"skip",
+        uploader.upload_if_missing(md_path, content_type="text/markdown"))
+```
+
+### Module split
+
+`converter.py` knows nothing about argv, S3, or the audit DB. The CLI wires `convert_all → on_event → uploader.upload_if_missing` together, mirroring how `fetch` wires `scrape_day → on_event → uploader`. A library user can call `convert_pdf(pdf, md)` directly with no S3 or CLI baggage.
+
+### Engine choice — `pymupdf4llm`
+
+PyMuPDF's MD helper is fast (~100 ms for a 12-page A4 PDF), deterministic, and free. Two alternatives were considered and rejected:
+
+- **`marker`** (ML-based layout analyzer) — better SUMAR/table fidelity, but pulls in PyTorch + ~2 GB of model weights for a tool whose `fetch` half completes in <1 s per PDF. Hold for if/when extraction quality demands it.
+- **LLM (Claude API)** — highest quality on unusual layouts, but pays per-page for content `pymupdf4llm` already extracts correctly. Better budget on the *extraction* step downstream than the *conversion* step.
+
+The default is upgradable: swapping engines is a `convert_pdf` body change; the CLI surface and on-disk layout don't move.
+
+### Cleanup pass
+
+`clean_markdown(md)` runs four regex sweeps over the raw `pymupdf4llm` output. Each is intentionally narrow:
+
+| Pattern | Removes / rewrites |
+|---|---|
+| `_PICTURE_RE` | `**==> picture [WxH] intentionally omitted <==**` placeholder lines (MO PDFs include seal/logo images that are pure noise in markdown). |
+| `_RUNNING_HEADER_RE` | `MONITORUL OFICIAL AL ROMÂNIEI...` running header that appears once per page, including in-body. |
+| `_PAGE_NUMBER_RE` | Lines containing only a 1–3 digit number (the per-page page number). |
+| `_HYPHEN_BREAK_RE` | `<word>-\n<word>` → joined word (line-break hyphenation). |
+| `_TRAILING_WS_RE` | Trailing spaces on lines (cosmetic, keeps diffs clean). |
+| `_BLANK_LINES_RE` | 3+ consecutive newlines → 2 (single blank line). |
+
+What the cleanup does **not** touch:
+
+- The SUMAR (table of contents) is emitted by `pymupdf4llm` as a one-row two-column markdown table with `<br>`-separated cells. It's ugly but extractable; rewriting it into a numbered list would be Tier 3 work and is fragile across the Senate/Camera/`c`-suffix layout variants.
+- Letter-spaced headings like `**PA R T E A  A  I I - A**` are preserved verbatim. The PDF source uses tracking on those characters; collapsing the spaces is heuristic-prone (you'd risk eating real spaces in adjacent prose), and the "PARTEA A II-a" identity is already in the filename + frontmatter.
+- Old-encoding glyph drift (`Þ` for `Ț`, `Ã` for `Ă` in pre-2002 PDFs from CP1250→Latin-1 mistranslation) is **not** remapped. The chamber regex is widened to match the corrupted form (`[ȚTÞ]`) where it matters; the body text stays as-emitted.
+
+### Frontmatter
+
+`parse_filename(name)` extracts four always-present fields from the standard `<YYYY-MM-DD>_MO-P<part>-<num>-<year>.pdf` shape:
+
+```yaml
+issue: "47"
+year: 2026
+part: "II"
+published: 2026-04-29
+```
+
+`enrich_meta(body, base)` then runs four narrow regexes over the first ~5 KB of the cleaned body to add:
+
+- `chamber` — matches `SENATUL` / `SENATULUI` / `CAMERA DEPUTAȚILOR` / `CAMEREI DEPUTAȚILOR` (genitive forms appear in `c`-suffixed commission summaries) plus the `Þ` encoding-corrupted variant. Normalized to `"Senatul"` or `"Camera Deputaților"`.
+- `session` — captures `SESIUNEA ...` up to either `(Legislatura ...` or end-of-line.
+- `session_date` — parses `Ședința din ziua de <day> <ro_month> <year>` with a Romanian month-name lookup.
+- `legislature` — captures the Roman numeral from `Legislatura a <X>-a`.
+
+The enrichment is best-effort: any of the four fields is omitted (frontmatter just doesn't include the key) if its regex doesn't match. If `enrich_meta` itself raises, the converter falls back to the filename-only fields and still emits the body. This matches `fetch`'s "errors don't abort the run" stance — `c`-suffixed commission summaries, for example, never have a `session_date` because the document is structured around `Perioada` instead, and that's fine.
+
+### Why no DB tracking for MDs
+
+`fetch` uses the audit DB for two things `convert` doesn't need:
+
+1. **"Did we already index this calendar day?"** — `convert` operates on local PDF files, not calendar days. There's no equivalent to "empty days are still 'ok'" for conversion.
+2. **`head_object` cost amortization** — the DB's `issues.status='uploaded'` short-circuits `head_object` on the PDF mirror path. For MDs the same optimization could be added, but the call cost is one extra RTT per file on re-runs and the volume is small. Skip until it bites.
+
+If a future feature needs per-MD state (e.g. retry budgets for conversion failures, separate `markdown_status` lifecycle), add columns to the existing `issues` table rather than a new one — every MD has a 1:1 relationship to a row already there.
+
+### Idempotency layers
+
+- **Filesystem**: `<basename>.md` exists and `size > 0` → skip. Same shape as PDF skip.
+- **Atomic write**: body streams to `<basename>.md.part`, then `Path.replace`. A crash mid-write leaves a `.part`; the canonical path is never half-written.
+- **S3**: `head_object(<basename>.md)` before each `upload_file`. Same pattern as PDFs; only the `Content-Type` differs.
 
 ## Rate-limiting
 

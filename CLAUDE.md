@@ -4,14 +4,15 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project status
 
-Python 3.12 + `uv`. Single CLI (`monitorul-ii`) that scrapes Monitorul Oficial PDFs by date. Hatchling-backed package at `src/monitorul_ii/`.
+Python 3.12 + `uv`. CLI `monitorul-ii` with two subcommands: `fetch` (scrape PDFs by date) and `convert` (PDF → markdown with extraction-friendly YAML frontmatter). Hatchling-backed package at `src/monitorul_ii/`.
 
 ## Layout
 
 - `src/monitorul_ii/scraper.py` — pure functions: `fetch_index`, `parse_issues`, `download_pdf`, `scrape_day`, plus `_with_retry`. Sha256 + size are computed in the streaming download. No CLI concerns.
-- `src/monitorul_ii/uploader.py` — `S3Config.from_env()` + `Uploader` (boto3, S3-compatible incl. R2). `upload_if_missing` returns `UploadResult(uploaded, etag)`.
-- `src/monitorul_ii/db.py` — `DB` wraps the SQLite audit log (`days` + `issues` tables). Owns the resume-gate logic via `should_fetch_index`.
-- `src/monitorul_ii/cli.py` — argparse wrapper exposing `monitorul-ii` (entry point in `pyproject.toml`); orchestrates download → upload per file, threads the DB through `scrape_day`, prints heartbeat every 100 days for long ranges.
+- `src/monitorul_ii/converter.py` — pure functions: `parse_filename`, `enrich_meta`, `clean_markdown`, `convert_pdf`, `convert_all`, `collect_pdfs`. Wraps `pymupdf4llm.to_markdown` and applies an MO-specific cleanup pass + YAML frontmatter prepend. No CLI concerns.
+- `src/monitorul_ii/uploader.py` — `S3Config.from_env()` + `Uploader` (boto3, S3-compatible incl. R2). `upload_if_missing(path, key=None, content_type="application/pdf")` returns `UploadResult(uploaded, etag)`.
+- `src/monitorul_ii/db.py` — `DB` wraps the SQLite audit log (`days` + `issues` tables). Owns the resume-gate logic via `should_fetch_index`. Tracks PDFs only — MD conversion state lives on the filesystem + S3 head.
+- `src/monitorul_ii/cli.py` — argparse with subparsers. `cmd_fetch` orchestrates download → upload + DB; `cmd_convert` orchestrates pdf-to-md → upload. Entry point `monitorul-ii = "monitorul_ii.cli:main"`.
 - `src/monitorul_ii/__main__.py` — also runnable via `python -m monitorul_ii`.
 
 ## How the scraper talks to the site
@@ -26,7 +27,8 @@ There is no documented API. Reverse-engineered from the e-monitor page:
 ## Commands
 
 - Install / sync deps: `uv sync`
-- Run the CLI: `uv run monitorul-ii <YYYY-MM-DD> [--until YYYY-MM-DD] [--out DIR] [--part II] [--delay 0.5] [--proxy URL | --no-proxy] [--bucket NAME | --no-upload] [--db PATH | --no-db] [--reverse] [--force] [--rescrape-recent N]`
+- Fetch PDFs: `uv run monitorul-ii fetch <YYYY-MM-DD> [--until YYYY-MM-DD] [--out DIR] [--part II] [--delay 0.5] [--proxy URL | --no-proxy] [--bucket NAME | --no-upload] [--db PATH | --no-db] [--reverse] [--force] [--rescrape-recent N]`
+- Convert PDFs to markdown: `uv run monitorul-ii convert <path> [<path> ...] [--force] [--bucket NAME | --no-upload]` — paths are files or directories; directories are globbed `*.pdf` (non-recursive).
 - Lint: `uv run ruff check`
 - Format: `uv run ruff format`
 
@@ -39,6 +41,8 @@ A SQLite audit log at `data/monitorul.db` (override `--db PATH`, disable `--no-d
 Per-request retries: 3 attempts with backoff `1s → 2s → 4s` for transient errors (5xx, 429, transport). 4xx-not-429 / parse / content-type errors raise immediately. After exhaustion the row goes `status='failed'` and is auto-retried on the next run. No `failed_permanent` distinction; `attempts` is informational.
 
 PDFs land directly in `<out>/<YYYY-MM-DD>_MO-P<part>-<num>-<year>.pdf` (no per-day subdirectory — the date is in the filename so everything sorts chronologically in one folder). Re-runs skip files already on disk; partial downloads write to a `.part` file and are renamed atomically on success. Sha256 + size land in the DB during streaming download (or lazily during the existing-file skip path).
+
+`convert` produces `<basename>.md` next to each `<basename>.pdf` via `pymupdf4llm.to_markdown` plus an MO-specific cleanup pass (strips per-page `MONITORUL OFICIAL...` running headers, image placeholders, standalone page numbers; joins hyphenated word breaks; collapses extra blank lines) and a YAML frontmatter prepend (`issue`, `year`, `part`, `published` from the filename; best-effort `chamber`, `session`, `session_date`, `legislature` parsed from the first ~5 KB of body — graceful fallback if any field can't be detected). Idempotent: skip when `.md` exists & non-empty; `--force` re-converts. MDs mirror to S3 with `Content-Type: text/markdown` (same bucket, flat key). The DB is *not* extended for MD state — filesystem + `head_object` cover idempotency.
 
 (A `.ruff_cache` is present; no committed config, so ruff defaults apply.)
 

@@ -1,6 +1,6 @@
 # monitorul-ii
 
-Scrape [Monitorul Oficial al României](https://monitoruloficial.ro/e-monitor/) Partea a II-a (and other parts) and save the PDFs locally for a given date or date range.
+Scrape [Monitorul Oficial al României](https://monitoruloficial.ro/e-monitor/) Partea a II-a (and other parts), save the PDFs locally, and convert them to extraction-friendly markdown.
 
 ## Install
 
@@ -10,30 +10,57 @@ uv sync
 
 ## Usage
 
+Two subcommands: `fetch` (download PDFs) and `convert` (PDF → markdown).
+
+### `fetch`
+
 ```sh
 # single day
-uv run monitorul-ii 2026-04-29
+uv run monitorul-ii fetch 2026-04-29
 
 # date range, custom output dir
-uv run monitorul-ii 2026-04-01 --until 2026-04-30 --out ./pdfs
+uv run monitorul-ii fetch 2026-04-01 --until 2026-04-30 --out ./pdfs
 
 # multi-year backfill, newest→oldest so a partial run leaves you with the recent stretch
-uv run monitorul-ii 2000-01-01 --until 2026-05-04 --reverse
+uv run monitorul-ii fetch 2000-01-01 --until 2026-05-04 --reverse
 
 # different Partea (default is II)
-uv run monitorul-ii 2026-04-29 --part IV
+uv run monitorul-ii fetch 2026-04-29 --part IV
 
 # bypass the proxy
-uv run monitorul-ii 2026-04-29 --no-proxy
+uv run monitorul-ii fetch 2026-04-29 --no-proxy
 
 # bypass the S3 mirror even when env vars are set
-uv run monitorul-ii 2026-04-29 --no-upload
+uv run monitorul-ii fetch 2026-04-29 --no-upload
 
 # re-fetch every day's index regardless of DB cache (paranoid mode)
-uv run monitorul-ii 2026-04-01 --until 2026-04-30 --force
+uv run monitorul-ii fetch 2026-04-01 --until 2026-04-30 --force
 ```
 
 PDFs land in `<out>/<YYYY-MM-DD>_MO-P<part>-<num>-<year>.pdf`. The date is baked into the filename so everything sorts chronologically. Re-runs skip files already on disk.
+
+### `convert`
+
+```sh
+# convert every PDF in a directory (skips files that already have a .md sibling)
+uv run monitorul-ii convert pdfs/
+
+# one or more specific files
+uv run monitorul-ii convert pdfs/2026-04-29_MO-PII-47-2026.pdf
+
+# shell globs work — the date is in the filename
+uv run monitorul-ii convert pdfs/2026-04*.pdf
+
+# re-convert files that already have a .md
+uv run monitorul-ii convert pdfs/ --force
+
+# skip the S3 mirror
+uv run monitorul-ii convert pdfs/ --no-upload
+```
+
+Each `<basename>.pdf` produces `<basename>.md` next to it. The MD opens with a YAML frontmatter block (issue, year, part, published, plus best-effort `chamber`, `session`, `session_date`, `legislature` parsed from the first page), followed by the cleaned body text. Per-page running headers, page numbers, and image placeholders are stripped; soft line breaks are re-flowed; hyphenated word breaks are joined.
+
+When the S3 vars are set, MDs mirror to the same bucket alongside the PDFs (flat layout, `Content-Type: text/markdown`). Idempotent in the same way as `fetch`: skip if the local `.md` exists, `head_object` before each upload.
 
 ## Resume / SQLite audit log
 
