@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.8.0](https://github.com/ciocan/monitorul-ii/compare/monitorul-ii-v0.7.0...monitorul-ii-v0.8.0) (2026-05-04)
+
+
+### Features
+
+* enhance conversion process with improved progress reporting and interrupt handling ([db8b247](https://github.com/ciocan/monitorul-ii/commit/db8b247c824b62b80c40c46f4f92a712b5d58071))
+
 ## [0.7.0](https://github.com/ciocan/monitorul-ii/compare/monitorul-ii-v0.6.1...monitorul-ii-v0.7.0) (2026-05-04)
 
 
