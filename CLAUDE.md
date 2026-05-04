@@ -29,6 +29,7 @@ There is no documented API. Reverse-engineered from the e-monitor page:
 - Install / sync deps: `uv sync`
 - Fetch PDFs: `uv run monitorul-ii fetch <YYYY-MM-DD> [--until YYYY-MM-DD] [--out DIR] [--part II] [--delay 0.5] [--proxy URL | --no-proxy] [--bucket NAME | --no-upload] [--db PATH | --no-db] [--reverse] [--force] [--rescrape-recent N]`
 - Convert PDFs to markdown: `uv run monitorul-ii convert <path> [<path> ...] [--force] [-j N | --workers N] [--bucket NAME | --no-upload]` — paths are files or directories; directories are globbed `*.pdf` (non-recursive). Default `-j` is `os.cpu_count()`; conversions run in a `ThreadPoolExecutor`.
+- Test: `uv run pytest` (suite under `tests/`, ~130 unit tests, no network or boto3 — `httpx.MockTransport` for the scraper, `tmp_path`-backed SQLite for the DB, `monkeypatch` for `convert_pdf`).
 - Lint: `uv run ruff check`
 - Format: `uv run ruff format`
 
@@ -50,6 +51,16 @@ Conversion is parallelized via `ThreadPoolExecutor(-j N)`. PyMuPDF releases the 
 
 **After each code change, run `uv run ruff format` and `uv run ruff check --fix` before reporting the task complete.**
 
+**Tests are mandatory for every new feature, in the same change. Non-negotiable.** A "feature" here means any new function, CLI flag, regex, parser branch, DB column, state-transition, or behavior change. The bar is:
+
+- **New pure function** → at least one happy-path test plus one rejection / edge case (empty input, malformed input, boundary).
+- **New CLI flag** → one test that exercises the flag's effect (parser-level via `_build_parser` or behavior-level via the helper it toggles). Don't test argparse itself; test the branch it switches on.
+- **New regex / parser branch** → one positive sample, one negative sample, and one for any quirk you encoded (e.g. legacy glyph mapping, suffix tolerance).
+- **New DB state transition** → one test that drives the transition and asserts the row, plus one for the idempotency / re-entry case if the transition is callable twice.
+- **New scraper / converter behavior** → drive `scrape_day` or `convert_all` end-to-end with `httpx.MockTransport` / `monkeypatch.setattr(converter, "convert_pdf", ...)` so the orchestration layer is covered, not just the leaf function.
+
+Tests live in `tests/` mirroring `src/monitorul_ii/` (`test_<module>.py`). `tests/conftest.py` exposes a `db` fixture (`DB(tmp_path/"audit.db")`). **Do not** add tests that touch the network, real S3, or real PDFs — every external boundary has a stub already; use it. **Run `uv run pytest` before reporting the task complete; the suite must be green.**
+
 **If a code change breaks tests, fix the tests in the same change — don't leave a red suite.** When tests fail because the production code's contract changed (renamed paths, refactored APIs, removed helpers), update the tests to match the new contract; don't revert the code or skip the tests. Only treat a test failure as a real bug to fix in production code when the test is asserting still-intended behavior.
 
 **Document every new feature, in the same change. Non-negotiable.** A feature is shipped only when *all three* docs reflect it:
@@ -62,7 +73,11 @@ Conversion is parallelized via `ThreadPoolExecutor(-j N)`. PyMuPDF releases the 
 
 **Keep CLAUDE.md scannable** — push detailed mechanics into `docs/architecture.md` and link from here. CLAUDE.md is the index; architecture.md is the manual.
 
-**Self-check before reporting the task complete:** for each new flag, run `grep -n '<flag-name>' README.md CLAUDE.md docs/architecture.md` and confirm hits in all three. If not, write the missing doc *now*, not "as a follow-up".
+**Self-check before reporting the task complete:**
+
+1. `uv run pytest` is green and exercises the new code path (don't trust pre-existing coverage).
+2. `uv run ruff format` and `uv run ruff check --fix` clean.
+3. For each new flag, `grep -n '<flag-name>' README.md CLAUDE.md docs/architecture.md` shows hits in all three. If any miss, write the missing doc *now*, not "as a follow-up".
 
 ## uv-on-snap quirk
 

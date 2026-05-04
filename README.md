@@ -169,6 +169,22 @@ uv run ruff format               # format
 
 No committed `ruff` config — defaults apply. Run both before committing.
 
+### Tests
+
+```sh
+uv run pytest
+```
+
+Tests live in `tests/` and mirror `src/monitorul_ii/` (`test_<module>.py`). The suite is fast (~0.4 s) and offline: the scraper is driven through `httpx.MockTransport`, `convert_pdf` is monkeypatched away from `pymupdf4llm`, the SQLite audit log runs in `tmp_path`, and S3 calls are unit-tested via `S3Config.from_env` only — no real bucket touched.
+
+New features must ship with tests. The contract is:
+
+- New pure function → happy-path + rejection / edge case.
+- New CLI flag → one test exercising the branch it toggles.
+- New regex / parser branch → one positive, one negative, one quirk sample.
+- New DB state transition → drive the transition and assert the row, plus an idempotency test if the transition is re-entrant.
+- New scraper / converter behavior → drive `scrape_day` / `convert_all` end-to-end, not just the leaf.
+
 ### `uv` on snap quirk
 
 `uv` installed via snap buffers stdout when there is no tty, so `uv run <cmd>` may appear silent in non-interactive shells (including hooks and scripts). Pipe through `cat` (e.g. `uv run monitorul-ii --help | cat`) or invoke the venv binary directly (`.venv/bin/monitorul-ii ...`) when you need to see output.

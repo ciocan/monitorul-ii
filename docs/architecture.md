@@ -416,6 +416,24 @@ A `ProcessPoolExecutor` would push further by giving each process its own ORT po
 
 Not currently. `pymupdf-layout` runs two ORT inference sessions per PDF: the main `session` honors the default provider list (would use CUDA if `onnxruntime-gpu` were installed), but the `feature_extractor` is **hardcoded** to `providers=['CPUExecutionProvider']` in `pymupdf/layout/onnx/BoxRFDGNN.py:221`. So even installing `onnxruntime-gpu` (~3 GB, plus a CUDA 12.x runtime) would only accelerate one of the two inference calls. With layout-model work already reduced to ~3 s/PDF on an 8-thread CPU pool, the marginal GPU win on the bigger of the two sessions wouldn't justify the install weight or the GPU-as-hard-dep on this tool. Revisit if `pymupdf-layout` ever exposes an execution-providers knob.
 
+## Testing
+
+Suite lives in `tests/`, mirrors `src/monitorul_ii/`, and ships ~130 unit tests that run in well under a second. Run with `uv run pytest`. The deliberate choices:
+
+**Stubs at the I/O boundary, not below it.** Three boundaries, three stubs:
+
+- `scraper.py` → `httpx.MockTransport`. `scrape_day` is exercised end-to-end with a fake transport that serves an index fragment for `get_mo.php` and `application/pdf` bytes for everything else. This gives us coverage of `fetch_index → parse_issues → download_pdf → DB upserts` without touching the network. The transport handler can also raise to simulate transient failures and test the `_with_retry` ladder.
+- `converter.py` → `monkeypatch.setattr(converter, "convert_pdf", ...)`. `pymupdf4llm.to_markdown` is slow to import (loads onnxruntime) and slower to run. Tests for `convert_all`'s skip / force / parallel / error paths replace the leaf, exercise the orchestration, and assert events.
+- `db.py` → `tmp_path`-backed SQLite. WAL mode survives the in-process tests just fine; no in-memory `:memory:` URI needed. The `db` fixture in `tests/conftest.py` wraps `DB(tmp_path / "audit.db")` in a context manager.
+
+**No mocking library.** No `unittest.mock`, no `pytest-mock`, no fakes. `monkeypatch` for attribute swapping, `httpx.MockTransport` for HTTP, `tmp_path` for the filesystem. Two reasons: (1) the boundaries are narrow enough that hand-written stubs are clearer than `Mock(spec=...)` ceremony; (2) it keeps the dev dependency surface to pytest + ruff.
+
+**Frozen `today`.** `scrape_day` and `should_fetch_index` both accept an explicit `today: date` parameter so tests don't have to monkeypatch `datetime.now`. `cli.py` is the only caller that passes `today=datetime.now(...).date()`.
+
+**No real S3.** `boto3.client` is never instantiated by the suite — only `S3Config.from_env` (env-var permutations) and `_etag` (string handling) are tested. The `Uploader` class itself is thin enough that its surface is the boto3 calls; mocking those gains us nothing testing-wise. Live S3 round-trips, if ever needed, belong in a separate marker-gated integration suite.
+
+**The contract for new features.** Every new feature ships with tests in the same change. The bar is laid out in `CLAUDE.md` ("Tests are mandatory…"); enforce it in code review.
+
 ## Rate-limiting
 
 `scrape_day` sleeps `delay` seconds (default 0.5) **between successful downloads**, not before the first one and not when a file is skipped. This keeps re-runs over already-downloaded ranges fast while staying polite for fresh fetches.
@@ -426,6 +444,6 @@ The site has no `robots.txt` (the path returns a generic challenge page) and no 
 
 - **No HTML parser dependency.** Regex is sufficient given the fragment shape; revisit if the site ever returns a richer payload.
 - **No async / concurrency.** Sequential through the proxy — politeness against the site, simpler SQLite write path, no `--workers` flag. The DB makes resumes free, so wall-time isn't critical. Switch to `httpx.AsyncClient` only if we ever need to fan out across many days at once.
-- **No tests.** The codebase has none today. `scrape_day(db=None)` keeps the pre-DB contract intact for any future test harness.
+- **No mocking framework.** Tests are pytest + monkeypatch + `httpx.MockTransport`. We deliberately avoid `unittest.mock` / `pytest-mock`; the I/O boundaries are narrow enough that stubs are a few lines each and it keeps the dev dep list tiny.
 - **No `failed_permanent` status / `attempts` cap.** All failures are auto-retried on the next run. If a row never works, you'll see it in `last_error` and can SQL-quarantine.
 - **No alembic / migrations framework.** Single `CREATE TABLE IF NOT EXISTS` block runs at startup; future schema changes pin an `ALTER TABLE` ladder to `PRAGMA user_version`.
