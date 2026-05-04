@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.11.0](https://github.com/ciocan/monitorul-ii/compare/monitorul-ii-v0.10.3...monitorul-ii-v0.11.0) (2026-05-04)
+
+
+### Features
+
+* **classifier:** add document classification functionality ([90d661d](https://github.com/ciocan/monitorul-ii/commit/90d661db04a7c85e20e1c7bcad9432e8f29a602e))
+
+
+### Documentation
+
+* update extraction schema to version 1.4.0 following second 10-year audit ([c2e6922](https://github.com/ciocan/monitorul-ii/commit/c2e692296554b13e517e4177a24c6ca051c0738d))
+
 ## [0.10.3](https://github.com/ciocan/monitorul-ii/compare/monitorul-ii-v0.10.2...monitorul-ii-v0.10.3) (2026-05-04)
 
 
