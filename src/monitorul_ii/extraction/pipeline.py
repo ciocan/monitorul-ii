@@ -56,7 +56,7 @@ from monitorul_ii.extraction.schema import SchemaError, validate
 from monitorul_ii.extraction.speakers import SPEAKERS_VERSION
 from monitorul_ii.extraction.topics import TOPICS_VERSION
 
-SCHEMA_VERSION = "1.8.0"
+SCHEMA_VERSION = "1.9.0"
 EXTRACTOR_LABEL = "regex@1"
 
 

@@ -18,7 +18,7 @@
   ],
   "additionalProperties": false,
   "properties": {
-    "schema_version": { "const": "1.8.0" },
+    "schema_version": { "const": "1.9.0" },
     "document_id": {
       "type": "string",
       "pattern": "^mo://\\d{4}/[IVXM]+/[0-9A-Za-z]+$"
@@ -669,7 +669,7 @@
       }
     },
     "Reference": {
-      "description": "Discriminated union of reference shapes. Universal fields on every variant: type, raw, char_offsets. v1.6.0 ships 6 strict variants (bill, law, oug, og, chamber_resolution, parliamentary_resolution) plus an `unknown` catch-all for spans that look reference-shaped but don't classify into the strict types. Variants 7-12 from the schema doc (motion, court_decision, constitution, regulation, eu_doc, treaty) graduate as the discovery loop surfaces query needs.",
+      "description": "Discriminated union of reference shapes. Universal fields on every variant: type, raw, char_offsets. v1.9.0 graduates the long-tail variants (motion, court_decision, constitution, regulation, eu_doc, treaty) from `unknown` to strict shapes. Strict variants now total 12; `unknown` remains as a catch-all for cite-shaped spans that don't classify into any strict type.",
       "oneOf": [
         { "$ref": "#/$defs/BillReference" },
         { "$ref": "#/$defs/LawReference" },
@@ -677,6 +677,12 @@
         { "$ref": "#/$defs/OgReference" },
         { "$ref": "#/$defs/ChamberResolutionReference" },
         { "$ref": "#/$defs/ParliamentaryResolutionReference" },
+        { "$ref": "#/$defs/MotionReference" },
+        { "$ref": "#/$defs/CourtDecisionReference" },
+        { "$ref": "#/$defs/ConstitutionReference" },
+        { "$ref": "#/$defs/RegulationReference" },
+        { "$ref": "#/$defs/EuDocReference" },
+        { "$ref": "#/$defs/TreatyReference" },
         { "$ref": "#/$defs/UnknownReference" }
       ]
     },
@@ -770,6 +776,121 @@
         "number": { "type": "string", "minLength": 1 },
         "year": { "type": "integer", "minimum": 1990, "maximum": 2100 },
         "subject": { "type": ["string", "null"] }
+      }
+    },
+    "MotionReference": {
+      "type": "object",
+      "description": "Parliamentary motion — `Moțiunea simplă` (simple political motion) or `Moțiunea de cenzură` (no-confidence vote). v1.9.0+. The chamber-of-origin enum mirrors the bill cite: `camera`, `senat`, or null when the motion is joint or unspecified.",
+      "required": ["type", "raw", "char_offsets", "motion_kind"],
+      "additionalProperties": false,
+      "properties": {
+        "type": { "const": "motion" },
+        "raw": { "type": "string", "minLength": 1 },
+        "char_offsets": { "$ref": "#/$defs/CharRange" },
+        "motion_kind": { "enum": ["simple", "censure"] },
+        "number": { "type": ["string", "null"] },
+        "year": {
+          "anyOf": [
+            { "type": "integer", "minimum": 1990, "maximum": 2100 },
+            { "type": "null" }
+          ]
+        },
+        "title": { "type": ["string", "null"] },
+        "chamber_of_origin": {
+          "anyOf": [{ "enum": ["camera", "senat"] }, { "type": "null" }]
+        }
+      }
+    },
+    "CourtDecisionReference": {
+      "type": "object",
+      "description": "Constitutional Court decision — `Decizia CCR nr. N/Y` or `Decizia Curții Constituționale nr. N/Y`. Court enum is single-valued (CCR) for v1.9.0; future versions may add ICCJ / Curtea de Apel.",
+      "required": ["type", "raw", "char_offsets", "court", "number", "year"],
+      "additionalProperties": false,
+      "properties": {
+        "type": { "const": "court_decision" },
+        "raw": { "type": "string", "minLength": 1 },
+        "char_offsets": { "$ref": "#/$defs/CharRange" },
+        "court": { "enum": ["CCR"] },
+        "number": { "type": "string", "minLength": 1 },
+        "year": { "type": "integer", "minimum": 1990, "maximum": 2100 }
+      }
+    },
+    "ConstitutionReference": {
+      "type": "object",
+      "description": "Romanian Constitution citation — `art. N (alin. M) (lit. X) din Constituție` / `Constituția României, art. N`. The `article` field carries the full article path as cited (`N`, `N alin. (M)`, `N alin. (M) lit. (X)`); structured parsing of paragraph/letter is deferred.",
+      "required": ["type", "raw", "char_offsets", "article"],
+      "additionalProperties": false,
+      "properties": {
+        "type": { "const": "constitution" },
+        "raw": { "type": "string", "minLength": 1 },
+        "char_offsets": { "$ref": "#/$defs/CharRange" },
+        "article": { "type": "string", "minLength": 1 }
+      }
+    },
+    "RegulationReference": {
+      "type": "object",
+      "description": "Parliamentary internal regulation citation — `art. N din Regulamentul Camerei Deputaților` / `Regulamentul Senatului art. N` / `Regulamentul activităților comune ... art. N`. Chamber discriminator: `camera`, `senat`, `joint` (joint Camera+Senat regulation), or null when ambiguous.",
+      "required": ["type", "raw", "char_offsets", "chamber", "article"],
+      "additionalProperties": false,
+      "properties": {
+        "type": { "const": "regulation" },
+        "raw": { "type": "string", "minLength": 1 },
+        "char_offsets": { "$ref": "#/$defs/CharRange" },
+        "chamber": {
+          "anyOf": [
+            { "enum": ["camera", "senat", "joint"] },
+            { "type": "null" }
+          ]
+        },
+        "article": { "type": ["string", "null"] }
+      }
+    },
+    "EuDocReference": {
+      "type": "object",
+      "description": "EU document citation — Commission/Council/Parliament document codes. Patterns: `COM(2024)123 final`, `JOIN(2024)45`, `Regulamentul (UE) 2024/123`, `Directiva 2024/45/UE`, `SWD(2024)78`. The `code_kind` discriminator names the document family; `number` and `year` are extracted when present.",
+      "required": ["type", "raw", "char_offsets", "code_kind"],
+      "additionalProperties": false,
+      "properties": {
+        "type": { "const": "eu_doc" },
+        "raw": { "type": "string", "minLength": 1 },
+        "char_offsets": { "$ref": "#/$defs/CharRange" },
+        "code_kind": {
+          "enum": [
+            "COM",
+            "JOIN",
+            "JOCE",
+            "SWD",
+            "regulation",
+            "directive",
+            "decision",
+            "treaty"
+          ]
+        },
+        "number": { "type": ["string", "null"] },
+        "year": {
+          "anyOf": [
+            { "type": "integer", "minimum": 1950, "maximum": 2100 },
+            { "type": "null" }
+          ]
+        }
+      }
+    },
+    "TreatyReference": {
+      "type": "object",
+      "description": "International treaty / convention citation — `Tratatul de la Lisabona`, `Convenția de la Geneva privind ...`, `Carta Națiunilor Unite`. The `name` field carries the canonical title as cited; `year` is the signing year when present in the citation.",
+      "required": ["type", "raw", "char_offsets", "name"],
+      "additionalProperties": false,
+      "properties": {
+        "type": { "const": "treaty" },
+        "raw": { "type": "string", "minLength": 1 },
+        "char_offsets": { "$ref": "#/$defs/CharRange" },
+        "name": { "type": "string", "minLength": 1 },
+        "year": {
+          "anyOf": [
+            { "type": "integer", "minimum": 1900, "maximum": 2100 },
+            { "type": "null" }
+          ]
+        }
       }
     },
     "UnknownReference": {

@@ -585,7 +585,7 @@ The contract is small:
 1. Author `src/monitorul_ii/extraction/extractors/<type>.py` with `extract(ctx) → tuple[BodyDict, list[Claim]]` and an `EXTRACTOR_VERSION = "0.1.0"` constant. (For larger extractors, use a sub-subpackage `extractors/<type>/` with sibling modules per concern — see `extractors/plenary/` for the canonical example.)
 2. Register it in `extractors/__init__.py` (`EXTRACTORS[type] = module.extract` + `EXTRACTOR_VERSIONS[type] = module.EXTRACTOR_VERSION`).
 3. Tighten the corresponding `$defs/<TypeBody>` in `extraction_schema.json` from `additionalProperties: true` to the strict shape.
-4. Bump `schema_version` in both the JSON file and `pipeline.py` if the body shape introduces new keys outside what v1.8.0 already documents.
+4. Bump `schema_version` in both the JSON file and `pipeline.py` if the body shape introduces new keys outside what v1.9.0 already documents.
 5. Add fixtures + golden + targeted unit tests under `tests/extraction/`.
 
 The dispatcher picks it up automatically — no changes to `cli.py`, the progress bar, the upload tier, or the version-aware idempotency gate.
@@ -647,7 +647,7 @@ Smoke on 15 recent 2025-12 plenary samples: 12 of 15 extracted (other 3 classifi
 |---|---|---|---|
 | `boilerplate` | 0.1.0 | 0.1.0 | Plenary boilerplate stayed in `extractors/plenary/`, not hoisted |
 | `coverage` | 0.1.0 | 0.1.0 | No changes needed |
-| `references` | 0.1.0 (stub) | **0.2.0** | 6 strict variants (bill, law, oug, og, chamber_resolution, parliamentary_resolution) + `unknown` catch-all. 6 long-tail variants (motion, court_decision, constitution, regulation, eu_doc, treaty) deferred to v0.2+ |
+| `references` | 0.1.0 (stub) | **0.4.0** | 12 strict variants + `unknown` catch-all (emitter now active). v0.2.0 shipped 6 (bill, law, oug, og, chamber_resolution, parliamentary_resolution). v0.3.0 graduated the long-tail set: `motion`, `court_decision`, `constitution`, `regulation`, `eu_doc`, `treaty` — recovered 34,397 new strict refs. v0.4.0 enables `unknown` emission in `parse_mentioned_references` so cite-shaped spans that don't classify into a strict variant surface (with hint enum `law-ish` / `court-ish` / `eu-doc-ish` / `other`) — 125,822 unknowns surfaced on the 5551-doc corpus. Future graduation candidates noted in references.py docstring: `code` variant (~10K Codul X hits), broaden `treaty` for Acordul/Protocolul/Carta (~3K), cross-reference linker for bare `art. N` (~96K). Schema 1.9.0 adds 6 new $defs |
 | `speakers` | 0.1.0 | **0.2.0** | Adds shared primitives (HONORIFIC_RE, PARLIAMENTARY_TITLE_RE, extract_delivery_mode, parse_honorific_speaker) — used by plenary's per-form parsers; qr's `parse_questioner` is unchanged |
 | `topics` | (new key) | **0.1.0** | 15 canonical primary topics aligned with parliamentary committees; title-scoped detection only; secondary topics deferred to v0.2 LLM pass |
 | `plenary_stenogram` | (new key) | **0.1.0** | First per-type ship |

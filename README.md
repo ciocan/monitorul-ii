@@ -100,7 +100,7 @@ Each row carries `top_type`, `top_score`, `second_type`, `second_score`, an `amb
 
 ### `extract`
 
-Step 2 of the extraction pipeline (see [`docs/extraction-schema.md`](docs/extraction-schema.md), v1.8.0). Reads converted MDs, dispatches to a per-document-type extractor, and writes a `<basename>.extraction.json` sidecar next to each MD. Document type comes from the `classify` rules. v0.1 ships extractors for all six document types — **`question_register`**, **`plenary_stenogram`**, **`plenary_joint_session`**, **`committee_synthesis`**, and **`report_facsimile`** (the `other` bucket gets the fallback minimal body shape from the schema). Every typed document in the corpus now produces a strict-validated sidecar.
+Step 2 of the extraction pipeline (see [`docs/extraction-schema.md`](docs/extraction-schema.md), v1.9.0). Reads converted MDs, dispatches to a per-document-type extractor, and writes a `<basename>.extraction.json` sidecar next to each MD. Document type comes from the `classify` rules. v0.1 ships extractors for all six document types — **`question_register`**, **`plenary_stenogram`**, **`plenary_joint_session`**, **`committee_synthesis`**, and **`report_facsimile`** (the `other` bucket gets the fallback minimal body shape from the schema). Every typed document in the corpus now produces a strict-validated sidecar.
 
 ```sh
 # extract every MD in a directory
