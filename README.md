@@ -100,7 +100,7 @@ Each row carries `top_type`, `top_score`, `second_type`, `second_score`, an `amb
 
 ### `extract`
 
-Step 2 of the extraction pipeline (see [`docs/extraction-schema.md`](docs/extraction-schema.md), v1.10.0). Reads converted MDs, dispatches to a per-document-type extractor, and writes a `<basename>.extraction.json` sidecar next to each MD. Document type comes from the `classify` rules. v0.1 ships extractors for all six document types — **`question_register`**, **`plenary_stenogram`**, **`plenary_joint_session`**, **`committee_synthesis`**, and **`report_facsimile`** (the `other` bucket gets the fallback minimal body shape from the schema). Every typed document in the corpus now produces a strict-validated sidecar.
+Step 2 of the extraction pipeline (see [`docs/extraction-schema.md`](docs/extraction-schema.md), v1.11.0). Reads converted MDs, dispatches to a per-document-type extractor, and writes a `<basename>.extraction.json` sidecar next to each MD. Document type comes from the `classify` rules. v0.1 ships extractors for all six document types — **`question_register`**, **`plenary_stenogram`**, **`plenary_joint_session`**, **`committee_synthesis`**, and **`report_facsimile`** (the `other` bucket gets the fallback minimal body shape from the schema). Every typed document in the corpus now produces a strict-validated sidecar.
 
 ```sh
 # extract every MD in a directory
@@ -143,24 +143,36 @@ Schema validation runs *pre-write*: a sidecar that doesn't validate against the 
 
 ### `link`
 
-Cross-document linker — fills `report_facsimile` sidecars' `received_at.received_in_document` back-pointer with the matching joint-session (or single-chamber) stenogram's `document_id`. Run it after `extract`: extract writes report sidecars with `received_in_document: null`; link walks all sidecars, builds an index of receiving sessions by `metadata.session_date`, and fills the back-pointers cross-document.
+Cross-document linker — runs **two passes** by default: (1) **report→session**, fills each `report_facsimile` sidecar's `received_at.received_in_document` back-pointer with the matching joint-session (or single-chamber) stenogram's `document_id`; (2) **vote-pair** (linker v0.2.0+), pairs deferred votes (`outcome=deferred`) in stenogram N with their resolving votes in a later stenogram M, writing `defers_to` (forward link) on the deferring vote and `resolves[]` (back-link, list of origin document_ids) on the resolver. Run it after `extract`: extract writes report sidecars with `received_in_document: null` and plenary votes with `defers_to: null` / `resolves: []`; link walks all sidecars and fills both fields cross-document.
 
 ```sh
-# link every sidecar in a directory
+# link every sidecar in a directory (both passes)
 uv run monitorul-ii link pdfs/
 
 # preview without writing anything
 uv run monitorul-ii link pdfs/ --dry-run
 
-# re-link sidecars whose received_in_document is already populated
-# (useful after a stenogram cohort re-extract)
+# re-link sidecars whose targets are already populated
+# (useful after a cohort re-extract — applies to both passes)
 uv run monitorul-ii link pdfs/ --force
+
+# run only the report→session pass
+uv run monitorul-ii link pdfs/ --report-only
+
+# run only the vote-pair pass
+uv run monitorul-ii link pdfs/ --vote-only
 
 # skip the S3 mirror (otherwise modified sidecars re-upload)
 uv run monitorul-ii link pdfs/ --no-upload
 ```
 
-Why a separate subcommand and not part of `extract`? Linking needs the global picture (scan all sidecars to build the session index), while extract is single-pass per-MD. Keeping them separate preserves extract's "single source of truth for body content" contract and lets each pass run independently.
+Why a separate subcommand and not part of `extract`? Linking needs the global picture (scan all sidecars to build the session + vote indexes), while extract is single-pass per-MD. Keeping them separate preserves extract's "single source of truth for body content" contract and lets each pass run independently.
+
+**Pass 1 — report→session** indexes plenary sidecars by `metadata.session_date` (joint sessions beat single-chamber on the same date) and matches each report's `received_at.session_date`.
+
+**Pass 2 — vote-pair** derives a match key per vote from the parent agenda item's `primary_references[]`: a `bill` cite (`f"bill:{number}/{year}"`) wins; failing that, a motion title hash for motion-class votes carrying a quoted title ≥12 chars. Other ref types (`law`, `oug`, `og`, `parliamentary_resolution`, `chamber_resolution`) are intentionally excluded — they collide unrelated bills sharing the same underlying cite (e.g., `law:47/1992` for every CCR-referral procedural note); see the linker module docstring for the false-positive analysis. Matching is window-bounded (`DEFERRAL_WINDOW_DAYS=60`) and earliest-resolver-wins. Multi-deferral chains: when A defers to B and B itself defers to C, the chain reverses on the back-link — `C.resolves = [A, B]`.
+
+`--report-only` and `--vote-only` are mutually exclusive selectors for a single pass; the default is to run both.
 
 `--force` re-links populated entries — by default already-linked sidecars are skipped with reason. `--dry-run` prints what would be linked without modifying any files.
 
@@ -168,7 +180,7 @@ Pre-write schema validation runs on every linked sidecar — an invalid post-lin
 
 When S3 env vars are set, modified sidecars re-upload (overwriting the bucket copy) so the bucket stays in sync with the local files. `--no-upload` disables the mirror.
 
-The linker is idempotent and fast (~1ms per doc — pure dict lookup): re-extracting a sidecar (extractor version bump → re-extract) clobbers `received_in_document`, but a quick `monitorul-ii link` recovers.
+The linker is idempotent and fast (~1ms per doc — pure dict lookup): re-extracting a sidecar (extractor version bump → re-extract) clobbers linker-written fields, but a quick `monitorul-ii link` recovers.
 
 ## Progress and interrupts
 

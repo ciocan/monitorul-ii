@@ -585,7 +585,7 @@ The contract is small:
 1. Author `src/monitorul_ii/extraction/extractors/<type>.py` with `extract(ctx) → tuple[BodyDict, list[Claim]]` and an `EXTRACTOR_VERSION = "0.1.0"` constant. (For larger extractors, use a sub-subpackage `extractors/<type>/` with sibling modules per concern — see `extractors/plenary/` for the canonical example.)
 2. Register it in `extractors/__init__.py` (`EXTRACTORS[type] = module.extract` + `EXTRACTOR_VERSIONS[type] = module.EXTRACTOR_VERSION`).
 3. Tighten the corresponding `$defs/<TypeBody>` in `extraction_schema.json` from `additionalProperties: true` to the strict shape.
-4. Bump `schema_version` in both the JSON file and `pipeline.py` if the body shape introduces new keys outside what v1.10.0 already documents.
+4. Bump `schema_version` in both the JSON file and `pipeline.py` if the body shape introduces new keys outside what v1.11.0 already documents.
 5. Add fixtures + golden + targeted unit tests under `tests/extraction/`.
 
 The dispatcher picks it up automatically — no changes to `cli.py`, the progress bar, the upload tier, or the version-aware idempotency gate.
@@ -929,42 +929,94 @@ The schema bump and `references.py` v0.5.0 cascade through the version-aware ide
 
 ## Cross-document linker
 
-A separate post-extract pass that fills back-pointer fields no per-type extractor can populate at single-doc time. v0.1 ships exactly one slot: `report_facsimile.body.report.received_at.received_in_document` — the `mo://YYYY/PART/ISSUE` document_id of the joint-session (or single-chamber) stenogram that received the report.
+A separate post-extract pass that fills back-pointer fields no per-type extractor can populate at single-doc time. The linker ships **two passes** as of v0.2.0:
 
-Code: `src/monitorul_ii/extraction/linker.py`. CLI surface: `monitorul-ii link <paths>`.
+1. **report→session** (v0.1.0+) — fills `report_facsimile.body.report.received_at.received_in_document` with the `mo://YYYY/PART/ISSUE` document_id of the joint-session (or single-chamber) stenogram that received the report.
+2. **vote-pair** (v0.2.0+) — pairs a deferred vote (`outcome=deferred`) in stenogram N with its resolving vote in a later stenogram M. Forward link: `vote.defers_to = "<doc_id of M>"` on the deferring vote. Back-link: `vote.resolves = ["<doc_id of N>", ...]` on the resolver (a vote can resolve multiple prior deferrals when the chair batches several into one final-vote round).
+
+Code: `src/monitorul_ii/extraction/linker.py`. CLI surface: `monitorul-ii link <paths> [--force] [--dry-run] [--report-only | --vote-only]`.
 
 ### Why a separate subcommand instead of inline-in-extract
 
-Extract is single-pass per-MD. Linking needs the global picture: build an index of all stenogram sidecars, then look up each report's `received_at.session_date`. Forcing extract to know about other sidecars at extract-time would break two contracts: (a) per-MD parallelism becomes harder (each worker would need to read the full sidecar set), and (b) the dispatcher's "single source of truth for body content" guarantee gets muddied. Splitting into `extract` (writes body content from MD) + `link` (writes cross-doc back-pointers) keeps each pass small and re-runnable.
+Extract is single-pass per-MD. Linking needs the global picture: build an index of all stenogram sidecars, then resolve cross-doc references. Forcing extract to know about other sidecars at extract-time would break two contracts: (a) per-MD parallelism becomes harder (each worker would need to read the full sidecar set), and (b) the dispatcher's "single source of truth for body content" guarantee gets muddied. Splitting into `extract` (writes body content from MD) + `link` (writes cross-doc back-pointers) keeps each pass small and re-runnable.
 
 The natural workflow is **extract first, then link**:
 
 ```
-$ uv run monitorul-ii extract pdfs/        # writes all sidecars; received_in_document=null
-$ uv run monitorul-ii link pdfs/           # fills back-pointers cross-document
+$ uv run monitorul-ii extract pdfs/        # writes all sidecars; *.defers_to=null, *.received_in_document=null
+$ uv run monitorul-ii link pdfs/           # both passes
 ```
 
-### Indexing strategy
+### Pass 1 — report→session: indexing strategy
 
 `build_session_index(sidecars)` walks the input list once, reading each sidecar's `document_type` + `metadata.session_date` (with `metadata.published` fallback). Two document types act as receiving sessions: `plenary_joint_session` (priority 0, the dominant case — every R-suffix doc observed in the corpus is received in joint session) and `plenary_stenogram` (priority 1, single-chamber receptions for completeness, since the schema's `received_at.session_kind` enum allows `camera` / `senat`). When both share a date, joint wins.
 
-The index is a flat `dict[date_str, document_id]`. Date collision within the same priority falls back to first-seen — defensible for 2013-2025 corpus; if multi-session days become a query problem, v0.2 can promote the value to a `dict[date, list[document_id]]` and let the caller pick.
-
-### Linking + idempotency
+The index is a flat `dict[date_str, document_id]`. Date collision within the same priority falls back to first-seen — defensible for 2013-2025 corpus; if multi-session days become a query problem, a future bump can promote the value to a `dict[date, list[document_id]]` and let the caller pick.
 
 `link_report(path, *, session_index, force, write)` reads a single report_facsimile sidecar, looks up its `received_at.session_date` in the index, writes the matched document_id into `received_in_document`. Pre-write schema validation; atomic write via `.part` rename. Self-link prevention is a defensive guard (the index excludes report_facsimile, but if the corpus ever changes shape, we don't write a self-pointer).
 
-Idempotent by default: already-linked sidecars yield `status="skip"`, `reason="already linked"`. `--force` re-links populated entries — useful after a stenogram cohort re-extract that may have rewritten `document_id` for some receiving sessions. (In practice that doesn't happen since `document_id` is a deterministic projection of `metadata`, but the contract preserves the option.)
-
 `link_all(sidecars, *, force, write)` is the iterator entry point: two-pass over the input list (build index, then yield one `LinkResult` per report). Non-report sidecars are silently filtered.
+
+### Pass 2 — vote-pair: matching algorithm (v0.2.0)
+
+The hard problem is "did vote X in doc N resolve in vote Y of doc M?". The matching key is derived per-vote from the parent agenda item:
+
+1. **Bill cite** — first entry in `agenda_items[].primary_references[]` of `type=bill`. Format: `f"bill:{number}/{year}"`. PL-x / L is the canonical bill identifier in Romanian parliamentary procedure: the same legislative initiative carries the same cite from first reading through final vote, so two docs discussing the same bill always share the same PL-x.
+2. **Motion title hash** — for motion-class votes (parent agenda has a `motion` ref in primary_references[]) WITH a quoted title at least 12 chars long, use `f"motion:{motion_kind}:{title-hash}"`. Bare `Moțiunea simplă` without a quoted title is too generic and stays unlinked.
+
+There is intentionally **no fallback to other ref types or agenda-title hashes**. Three iterations of v0.2.0 progressively tightened the keyspace based on 5,551-doc smoke spot-checks:
+
+1. **Iteration 1** — included an agenda-title-hash fallback. 2,007 / 3,886 distinct keys were title-hashes; spot-check found 9/10 pairs were false positives across generic procedural items (`Ședința`, `Aprobarea ordinii de zi`, `Informare cu privire la inițiativele legislative`) whose titles repeat verbatim every session. **1,181 pairs written, mostly noise.**
+2. **Iteration 2** — dropped the title-hash fallback, kept law / oug / og / parliamentary_resolution / chamber_resolution cites alongside bills. Spot-check found 6/10 pairs from `law:47/1992` (Constitutional Court procedural law, cited every time the Senate considers a CCR referral) collided unrelated weekly procedural notes; `law:286/2009` (Criminal Code) and `law:95/2006` (Health Code) collided independent amendment debates that happened to share the underlying law cite. **191 pairs written, still ~60% noise.**
+3. **Iteration 3 (shipped)** — restricted to `bill` and `motion(quoted-title)` keys only. Bill cites are unique per legislative initiative; law / oug / etc. are inherently shared across multiple unrelated bills. The bill key also includes the prefix (`bill:PL-x:N/Y` vs `bill:L:N/Y`) because PL-x (Camera-originated) and L (Senate-originated) share number-spaces only by coincidence — a flat `bill:N/Y` key would cross-collide them. **The linker's job is to be precise, not aggressive — votes that don't carry a `bill` ref stay unlinked.** False matches in the back-link sets would silently corrupt downstream queries on "what resolved this deferral", which is the whole point of the linker.
+
+**Production smoke (5,551 docs, v0.2.0)**: 12,257 votes indexed across 2,089 distinct bill keys (2,087 bill + 2 motion). 1,692 deferred votes, 15 forward links written, 12 back-link sites (one of which receives multiple origins), 11 multi-deferral chains. 24 plenary sidecars touched, 0 schema errors. Coverage held p50=0.998, mean=0.932; the 12 pre-existing agenda errors stayed unchanged.
+
+The coverage gap on procedural-item cross-doc deferrals (e.g., re-tabled CCR-referral notes, deferred ordinea-de-zi approvals) is acceptable because such cross-doc deferrals are rare and a downstream consumer can re-query by document_date proximity if the use case ever needs them.
+
+### Known issues — read before iterating
+
+A 10-pair spot-check on the v0.2.0 production smoke surfaced several caveats. Future updates to the linker (or to its callers) should treat these as starting points:
+
+1. **Agenda-extractor misattribution surfaces as false-positive pairs (~40% of spot-check).** The deferring agenda's title sometimes doesn't match the bill cite that landed in its `primary_references[]`: e.g., an agenda titled `Declarații politice` carrying a `bill:L:124/2010` ref, or an `Informare privind distribuirea unor documente la casetele deputaților` carrying a `bill:PL-x:103/2010` ref. The bill mention got absorbed from a neighbouring agenda item when the agenda boundary detection in `extractors/plenary/agenda.py` misfired. The linker correctly pairs by key — the false positive is upstream. **Hardening priority**: tighten `agenda.py`'s primary-references attribution (e.g., constrain bill-cite collection to the agenda item's own title + a tight prefix of its body span) before adding any keying complexity to the linker. Until then, downstream consumers querying `defers_to` / `resolves` should treat the values as "candidate" links, not "verified".
+
+2. **Multi-chain ratio is unexpectedly high (11 of 15 forward links, ~73%).** Most cross-doc deferrals point at *another* deferred vote rather than directly at a resolver. Either chains genuinely run 3–4 levels deep before resolving, or there's a subset of bills that get punted indefinitely and the resolver never lands within the 60-day window. Worth instrumenting per-chain depth (max chain length, mean chain length, chains-truncated-by-window count) in a follow-up smoke. If many chains exceed 60 days, consider widening the window OR explicitly marking "truncated chain — no resolver found in window" so consumers can distinguish "still pending" from "no resolver".
+
+3. **Same-agenda multiple-amendment votes inflate the forward-link count.** When one agenda item has multiple deferred amendment votes (`act#24` and `act#38` both deferring), each gets its own forward link, even though they collectively represent one cross-doc relation. The headline count overstates distinct cross-doc bill relations. A future bump can de-dupe forward links per `(deferring_doc_id, agenda_index)` to surface a separate "distinct cross-doc bill relations" metric.
+
+4. **Idempotency was unit-tested but not corpus-smoked.** `test_link_vote_idempotent_skips_when_already_linked` covers the synthetic case; the production smoke script clears prior linker output before each iteration to measure from scratch. A future regression run should explicitly invoke `monitorul-ii link` twice in a row on the corpus and assert that the second pass yields all-skip with `pairs_written=0` / `backlinks_written=0`.
+
+5. **Spot-check seed is fixed (`random.seed(42)`).** Iterations sample the same 10 pairs each run — good for diff comparison across linker tweaks, blind to other parts of the distribution. A future audit should re-sample with a fresh seed and confirm the precision rate holds.
+
+6. **Linker only walks successfully-extracted plenary sidecars.** The 12 pre-existing extractor schema-validation errors leave their MDs without `*.extraction.json` files at all, so the linker silently skips them. A buggy linker that wrote to those (now-absent) sidecars would not show up in the smoke's "0 errors" line. The current code can't actually do this (it reads sidecars before writing), but the audit gap is worth noting if anyone ever generalises the linker to non-sidecar outputs.
+
+7. **Pair count is at the low end of "dozens to hundreds".** 15 forward links is technically dozens but small. The bill-only key correctly trades coverage for precision; if a future use case needs higher recall on cross-doc relations (e.g., committee-report-to-final-vote chains, motion-to-resolution chains), add a *separate* keying strategy for that specific relation rather than re-loosening the bill-only key — looser keys silently corrupted the back-link sets in v0.2.0 iterations 1 and 2.
+
+**Window** — a deferred vote in doc N at session date D only matches candidate resolvers in docs M with `D < session_date(M) ≤ D + 60 days` (`DEFERRAL_WINDOW_DAYS=60`). Most parliamentary deferrals resolve within 1–2 weeks; beyond 60 days the same key is more likely a different debate cycle (re-introduced bills after a recess, recurring committee reports).
+
+**Earliest-resolver-wins** — `build_vote_index` groups votes by match key and sorts each group by `session_date` ascending. For a given deferred vote at index `i`, the immediate next entry within the window is the forward link target (whether it's another deferral or a resolver). The chain terminates at the first non-deferred vote.
+
+**Multi-deferral chain** — when A defers to B and B defers to C and C resolves: the forward links are `A→B, B→C`; the back-link on C is `[A, B]` (chain reversal — every prior deferral that ultimately landed on C). `_build_pairs` walks each chain to its terminal non-deferred vote and accumulates origin doc_ids on the resolver's back-link entry.
+
+**Same-day collisions** — within a single session date, votes are sorted by `document_id` to keep the iteration deterministic, but same-day cross-doc deferrals shouldn't happen (each session has at most one stenogram per chamber, and joint > single-chamber priority is enforced upstream by document classification). If they do occur, the linear scan still terminates correctly because the next-day entry takes precedence.
+
+`link_vote(path, *, forward_links, back_links, force, write)` writes the pair onto one stenogram sidecar. Pre-write schema validation; atomic write. Idempotent: skips when the forward/back link is already populated; `force=True` overwrites stale entries (useful after a stenogram cohort re-extract that may have rewritten doc_ids for some receivers — though `document_id` is deterministic in practice).
+
+`link_all_votes(sidecars, *, force, write)` is the iterator entry point: three-pass over the input list (build index → derive pairs → write to touched sidecars). Sidecars with no vote-pair updates are skipped silently (no result yielded).
+
+### Schema impact (v1.11.0)
+
+`VoteActivity.defers_to` (`["string", "null"]`) and `VoteActivity.resolves` (`anyOf [array of string, null]`) added to the strict body shape. Both are required-with-default — the extractor emits `defers_to: null` and `resolves: []` at extract time so the schema validates without linker output present. The linker mutates these fields in place. `additionalProperties: false` on `VoteActivity` means the schema bump was unavoidable — the user-facing v0.2.0 narrative ("just thread the linker into the existing slots") doesn't fit the actual schema state, so v1.11.0 records the additive expansion.
+
+`DeferralActivity.defers_to` (a separate string|null on a separate `deferral` activity type, present since v1.0.0) is unchanged. That slot remains for in-doc batched-vote pointers (chair says "Aceasta rămâne pentru votul final" — the deferral activity points at the final-vote item within the same agenda); the v0.2.0 linker does NOT touch it.
 
 ### Versioning contract
 
-`LINKER_VERSION = "0.1.0"` lives in `linker.py` but is **not** propagated into the sidecar's `extraction.extractor_versions` dict. The version-keying contract there uses exact-match (`_versions_current` returns False on any key mismatch); adding linker as a key would force extractor re-runs whenever the linker bumped. Instead, linker output lives entirely inside body content. Tradeoff: re-extracting a sidecar (extractor version bump → re-extract per the cache-invalidation contract) clobbers `received_in_document`. Recovery: `monitorul-ii link` is fast (~1ms per doc — pure dict lookup) and re-runnable.
+`LINKER_VERSION = "0.2.0"` lives in `linker.py` but is **not** propagated into the sidecar's `extraction.extractor_versions` dict. The version-keying contract there uses exact-match (`_versions_current` returns False on any key mismatch); adding linker as a key would force extractor re-runs whenever the linker bumped. Instead, linker output lives entirely inside body content. Tradeoff: re-extracting a sidecar (extractor version bump → re-extract per the cache-invalidation contract) clobbers `received_in_document` / `defers_to` / `resolves`. Recovery: `monitorul-ii link` is fast (~1ms per doc for the report pass; the vote pass is bounded by index construction which is O(N) over the corpus) and re-runnable. Adding `defers_to: null` and `resolves: []` to every vote at extract time means the schema validates without linker output and no re-extract is needed when the linker writes pairs.
 
 ### CLI surface
 
-`monitorul-ii link <paths> [--force] [--dry-run] [--bucket NAME | --no-upload]`. Path arguments are files or directories (non-recursive glob for `*.extraction.json`). Output is one line per processed report sidecar to stdout — `ok    <name>  -> mo://YYYY/PART/N` for linked, `skip  <name>  (reason)` for skipped, `ERROR <name>  (reason)` for validation failures. Trailing summary on stdout (`linked=N skipped=M errors=K | s3 ...`). Skip-reasons histogram on stderr when any skips occurred.
+`monitorul-ii link <paths> [--force] [--dry-run] [--report-only | --vote-only] [--bucket NAME | --no-upload]`. Path arguments are files or directories (non-recursive glob for `*.extraction.json`). Default runs both passes; `--report-only` and `--vote-only` are mutually exclusive selectors for a single pass. Output is one line per processed sidecar to stdout — `ok    <name>  -> mo://YYYY/PART/N` for report-pass linked, `ok    <name>  forward=N back=M` for vote-pass linked, `skip  <name>  (reason)` for skipped, `ERROR <name>  (reason)` for validation failures. Trailing summary on stdout (`linked=N skipped=M errors=K | s3 ...`). Skip-reasons histogram on stderr when any skips occurred.
 
 S3 mirror runs after each successful link when env vars are set: re-uploads the modified sidecar with `Content-Type: application/json`, overwriting the bucket copy. `--dry-run` skips both writes and uploads — useful for sanity-checking before a corpus-wide run.
 

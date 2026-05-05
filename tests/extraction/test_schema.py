@@ -14,7 +14,7 @@ def _now_iso() -> str:
 
 def _minimal_question_register_sidecar() -> dict:
     return {
-        "schema_version": "1.10.0",
+        "schema_version": "1.11.0",
         "document_id": "mo://2026/II/29",
         "content_sha": "0123456789ab",
         "document_type": "question_register",
@@ -72,7 +72,7 @@ def test_validate_rejects_unknown_top_level_key():
 
 def test_validate_rejects_wrong_schema_version():
     sc = _minimal_question_register_sidecar()
-    sc["schema_version"] = "1.8.0"
+    sc["schema_version"] = "1.9.0"
     with pytest.raises(SchemaError):
         validate(sc)
 
@@ -100,7 +100,7 @@ def test_validate_rejects_invalid_chamber_enum():
 
 def test_pending_body_def_remains_permissive():
     """`PendingBody` is kept as a `$def` placeholder for future types that
-    may need staged graduation. As of v1.10.0 the discriminator references
+    may need staged graduation. As of v1.11.0 the discriminator references
     it for no document_type — but the $def itself stays permissive
     (`additionalProperties: true`) so it's drop-in-ready when needed.
     """

@@ -462,6 +462,10 @@ def detect_votes(
             "quorum_announced": None,
             "proposed_by": None,
             "nominal_breakdown": None,
+            # Cross-document linker slots (populated by linker.py v0.2.0+;
+            # always null/[] at extract time).
+            "defers_to": None,
+            "resolves": [],
         }
         out.append(
             (

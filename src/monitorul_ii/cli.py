@@ -288,12 +288,21 @@ def _build_parser() -> argparse.ArgumentParser:
 
     link = sub.add_parser(
         "link",
-        help="Cross-document linker: fill report_facsimile back-links to receiving stenogram sidecars.",
+        help="Cross-document linker: report→session back-links + vote-pair deferral chains.",
         description=(
-            "Walk `*.extraction.json` sidecars under one or more paths, "
-            "build an index of joint-session + single-chamber stenogram "
-            "sidecars by session date, and fill each report_facsimile's "
-            "`received_at.received_in_document` with the matching document_id. "
+            "Walk `*.extraction.json` sidecars under one or more paths and run "
+            "two cross-document linker passes:\n"
+            "  (1) report→session — fills each report_facsimile's "
+            "`received_at.received_in_document` with the document_id of the "
+            "joint-session (or single-chamber) stenogram that received it.\n"
+            "  (2) vote-pair — pairs deferred votes (outcome=deferred) in "
+            "stenogram N with their resolving votes in a later stenogram M, "
+            "writing `defers_to` (forward) on the deferring vote and `resolves` "
+            "(back-link) on the resolver. 60-day window; earliest-resolver-wins. "
+            "Match key derived from agenda primary_references (bill / law / "
+            "oug / og / parliamentary_resolution / chamber_resolution cite), "
+            "or motion title, or agenda title hash.\n"
+            "Default runs both passes; --report-only / --vote-only restricts. "
             "Pre-write schema validation; atomic write via .part rename. "
             "Idempotent — already-linked entries are skipped unless --force."
         ),
@@ -307,12 +316,32 @@ def _build_parser() -> argparse.ArgumentParser:
     link.add_argument(
         "--force",
         action="store_true",
-        help="Re-link sidecars whose `received_in_document` is already populated.",
+        help=(
+            "Re-link sidecars whose targets are already populated. Applies to "
+            "both passes."
+        ),
     )
     link.add_argument(
         "--dry-run",
         action="store_true",
         help="Print what would be linked without modifying any files.",
+    )
+    pass_group = link.add_mutually_exclusive_group()
+    pass_group.add_argument(
+        "--report-only",
+        action="store_true",
+        help=(
+            "Run only the report→session pass; skip the vote-pair pass. "
+            "Mutually exclusive with --vote-only."
+        ),
+    )
+    pass_group.add_argument(
+        "--vote-only",
+        action="store_true",
+        help=(
+            "Run only the vote-pair pass; skip the report→session pass. "
+            "Mutually exclusive with --report-only."
+        ),
     )
     _add_s3_args(link)
     link.set_defaults(func=cmd_link)
@@ -1102,21 +1131,185 @@ def _collect_sidecars(paths: list[Path]) -> list[Path]:
     return out
 
 
-def cmd_link(args: argparse.Namespace) -> int:
+def _run_report_pass(
+    sidecars: list[Path],
+    *,
+    force: bool,
+    write: bool,
+    uploader: object | None,
+    counters: dict[str, int],
+    skip_reasons: dict[str, int],
+) -> None:
+    """Pass (1): link each report_facsimile to its receiving stenogram."""
     from monitorul_ii.extraction.linker import build_session_index, link_report
 
+    session_index = build_session_index(sidecars)
+    print(
+        f"[report-pass] indexed {len(session_index)} receiving sessions "
+        f"across {len(sidecars)} sidecars",
+        file=sys.stderr,
+    )
+
+    for path in sidecars:
+        try:
+            with path.open(encoding="utf-8") as f:
+                head = json.load(f)
+        except (OSError, json.JSONDecodeError):
+            continue
+        if head.get("document_type") != "report_facsimile":
+            continue
+        try:
+            result = link_report(
+                path,
+                session_index=session_index,
+                force=force,
+                write=write,
+            )
+        except KeyboardInterrupt:
+            raise
+        except Exception as exc:
+            counters["errors"] += 1
+            print(f"  ERROR {path.name}  ({exc!r})", file=sys.stderr)
+            continue
+
+        label = _LINK_LABELS[result.status]
+        line = f"  {label} {path.name}"
+        if result.status == "linked":
+            counters["linked"] += 1
+            line += f"  -> {result.target_document_id}"
+        elif result.status == "skip":
+            counters["skipped"] += 1
+            reason = result.reason or "unknown"
+            skip_reasons[reason] = skip_reasons.get(reason, 0) + 1
+            line += f"  ({reason})"
+        else:
+            counters["errors"] += 1
+            line += f"  ({result.reason or 'unknown'})"
+        print(line, flush=True)
+        if result.status == "error":
+            print(line, file=sys.stderr, flush=True)
+
+        if (
+            uploader is not None
+            and result.status == "linked"
+            and write
+            and path.exists()
+        ):
+            try:
+                up = uploader.upload_if_missing(  # type: ignore[attr-defined]
+                    path, content_type="application/json"
+                )
+                if up.uploaded:
+                    counters["uploaded"] += 1
+                    print(f"  s3+   {path.name}")
+                else:
+                    counters["in_bucket"] += 1
+                    print(f"  s3=   {path.name}")
+            except Exception as exc:
+                counters["upload_errors"] += 1
+                print(f"  s3!   {path.name}  ({exc})", file=sys.stderr)
+
+
+def _run_vote_pass(
+    sidecars: list[Path],
+    *,
+    force: bool,
+    write: bool,
+    uploader: object | None,
+    counters: dict[str, int],
+    skip_reasons: dict[str, int],
+) -> None:
+    """Pass (2): pair deferred votes with their resolvers in later docs."""
+    from monitorul_ii.extraction.linker import (
+        build_vote_index,
+        link_vote,
+    )
+    from monitorul_ii.extraction.linker import (
+        _build_pairs as _linker_build_pairs,  # noqa: PLC2701
+    )
+
+    vote_index = build_vote_index(sidecars)
+    forward_links, back_links = _linker_build_pairs(vote_index)
+    print(
+        f"[vote-pass] {len(forward_links)} forward + "
+        f"{len(back_links)} back-link sites across "
+        f"{sum(len(v) for v in vote_index.values())} indexed votes",
+        file=sys.stderr,
+    )
+
+    # Set of paths that actually need an update — avoids re-parsing every
+    # plenary sidecar when only a few got updates.
+    touched: set[Path] = set()
+    for key in forward_links.keys() | back_links.keys():
+        for entries in vote_index.values():
+            for e in entries:
+                if (e.document_id, e.agenda_index, e.activity_index) == key:
+                    touched.add(e.sidecar_path)
+                    break
+
+    for path in sidecars:
+        if path not in touched:
+            continue
+        try:
+            result = link_vote(
+                path,
+                forward_links=forward_links,
+                back_links=back_links,
+                force=force,
+                write=write,
+            )
+        except KeyboardInterrupt:
+            raise
+        except Exception as exc:
+            counters["errors"] += 1
+            print(f"  ERROR {path.name}  ({exc!r})", file=sys.stderr)
+            continue
+
+        label = _LINK_LABELS[result.status]
+        line = f"  {label} {path.name}"
+        if result.status == "linked":
+            counters["linked"] += 1
+            line += f"  forward={result.pairs_written} back={result.backlinks_written}"
+        elif result.status == "skip":
+            counters["skipped"] += 1
+            reason = result.reason or "unknown"
+            skip_reasons[reason] = skip_reasons.get(reason, 0) + 1
+            line += f"  ({reason})"
+        else:
+            counters["errors"] += 1
+            line += f"  ({result.reason or 'unknown'})"
+        print(line, flush=True)
+        if result.status == "error":
+            print(line, file=sys.stderr, flush=True)
+
+        if (
+            uploader is not None
+            and result.status == "linked"
+            and write
+            and path.exists()
+        ):
+            try:
+                up = uploader.upload_if_missing(  # type: ignore[attr-defined]
+                    path, content_type="application/json"
+                )
+                if up.uploaded:
+                    counters["uploaded"] += 1
+                    print(f"  s3+   {path.name}")
+                else:
+                    counters["in_bucket"] += 1
+                    print(f"  s3=   {path.name}")
+            except Exception as exc:
+                counters["upload_errors"] += 1
+                print(f"  s3!   {path.name}  ({exc})", file=sys.stderr)
+
+
+def cmd_link(args: argparse.Namespace) -> int:
     sidecars = _collect_sidecars(list(args.paths))
     if not sidecars:
         print("no .extraction.json files found", file=sys.stderr)
         return 0
 
     uploader = _resolve_uploader(args) if not args.dry_run else None
-
-    session_index = build_session_index(sidecars)
-    print(
-        f"indexed {len(session_index)} receiving sessions across {len(sidecars)} sidecars",
-        file=sys.stderr,
-    )
 
     counters: dict[str, int] = {
         "linked": 0,
@@ -1128,72 +1321,28 @@ def cmd_link(args: argparse.Namespace) -> int:
     }
     skip_reasons: dict[str, int] = {}
 
+    run_report = not getattr(args, "vote_only", False)
+    run_vote = not getattr(args, "report_only", False)
+
     try:
-        for path in sidecars:
-            # Filter early: cheap read of document_type alone would still
-            # require a JSON parse, so just delegate — link_report's first
-            # action is the type check and yields a fast skip for non-rf.
-            try:
-                with path.open(encoding="utf-8") as f:
-                    head = json.load(f)
-            except (OSError, json.JSONDecodeError):
-                continue
-            if head.get("document_type") != "report_facsimile":
-                continue
-            try:
-                result = link_report(
-                    path,
-                    session_index=session_index,
-                    force=args.force,
-                    write=not args.dry_run,
-                )
-            except KeyboardInterrupt:
-                raise
-            except Exception as exc:
-                counters["errors"] += 1
-                print(f"  ERROR {path.name}  ({exc!r})", file=sys.stderr)
-                continue
-
-            label = _LINK_LABELS[result.status]
-            line = f"  {label} {path.name}"
-            if result.status == "linked":
-                counters["linked"] += 1
-                line += f"  -> {result.target_document_id}"
-            elif result.status == "skip":
-                counters["skipped"] += 1
-                reason = result.reason or "unknown"
-                skip_reasons[reason] = skip_reasons.get(reason, 0) + 1
-                line += f"  ({reason})"
-            else:
-                counters["errors"] += 1
-                line += f"  ({result.reason or 'unknown'})"
-            # All per-sidecar output goes to stdout with flush — keeps the
-            # stream in order even when stderr (used for the trailing
-            # summary/skip-reasons block) is unbuffered. Errors also go to
-            # stderr for greppability.
-            print(line, flush=True)
-            if result.status == "error":
-                print(line, file=sys.stderr, flush=True)
-
-            if (
-                uploader is not None
-                and result.status == "linked"
-                and not args.dry_run
-                and path.exists()
-            ):
-                try:
-                    up = uploader.upload_if_missing(
-                        path, content_type="application/json"
-                    )
-                    if up.uploaded:
-                        counters["uploaded"] += 1
-                        print(f"  s3+   {path.name}")
-                    else:
-                        counters["in_bucket"] += 1
-                        print(f"  s3=   {path.name}")
-                except Exception as exc:
-                    counters["upload_errors"] += 1
-                    print(f"  s3!   {path.name}  ({exc})", file=sys.stderr)
+        if run_report:
+            _run_report_pass(
+                sidecars,
+                force=args.force,
+                write=not args.dry_run,
+                uploader=uploader,
+                counters=counters,
+                skip_reasons=skip_reasons,
+            )
+        if run_vote:
+            _run_vote_pass(
+                sidecars,
+                force=args.force,
+                write=not args.dry_run,
+                uploader=uploader,
+                counters=counters,
+                skip_reasons=skip_reasons,
+            )
     except KeyboardInterrupt:
         print(
             f"\ninterrupted: linked={counters['linked']} "
@@ -1213,9 +1362,6 @@ def cmd_link(args: argparse.Namespace) -> int:
             f"in-bucket={counters['in_bucket']} "
             f"errors={counters['upload_errors']}"
         )
-    # Flush so the headline summary lands before the stderr skip-reasons
-    # footer (uv-on-snap buffers stdout in non-tty contexts; without
-    # flush, stderr lines appear ahead of the buffered stdout summary).
     print(summary, flush=True)
     if skip_reasons:
         print("skip reasons:", file=sys.stderr)

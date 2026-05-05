@@ -1,4 +1,4 @@
-"""Tests for the cross-document linker.
+"""Tests for the cross-document linker (v0.2.0 — both passes).
 
 Synthetic sidecars (built in-test, no fixture MDs needed) cover:
   - Index construction (joint vs single-chamber priority, date sources)
@@ -6,6 +6,9 @@ Synthetic sidecars (built in-test, no fixture MDs needed) cover:
   - Skip paths (already-linked, no session_date, no match, wrong type)
   - Force re-link
   - Schema validation guard
+  - Vote-pair pass: pair detection, multi-deferral chain, no-resolver,
+    force re-link, idempotent skip, window-out-of-range rejection,
+    multi-resolver back-link merge
   - End-to-end on real fixtures (extract a report_facsimile + a joint
     plenary, then link)
 """
@@ -16,10 +19,17 @@ import json
 from pathlib import Path
 
 from monitorul_ii.extraction.linker import (
+    DEFERRAL_WINDOW_DAYS,
     LINKER_VERSION,
     build_session_index,
+    build_vote_index,
     link_all,
+    link_all_votes,
     link_report,
+    link_vote,
+)
+from monitorul_ii.extraction.linker import (
+    _build_pairs as build_pairs,
 )
 
 
@@ -31,7 +41,7 @@ def _minimal_envelope(
 ) -> dict:
     """Build a minimal sidecar envelope shared across types."""
     return {
-        "schema_version": "1.10.0",
+        "schema_version": "1.11.0",
         "document_id": doc_id,
         "content_sha": "0123456789ab",
         "document_type": doc_type,
@@ -512,3 +522,658 @@ def test_end_to_end_link_with_synthetic_match(tmp_path: Path):
         after["body"]["report"]["received_at"]["received_in_document"]
         == "mo://2013/II/100"
     )
+
+
+# -- vote-pair pass (v0.2.0) ----------------------------------------------
+
+
+def _vote_activity(
+    *, outcome: str, motion_type: str = "final", chars: tuple[int, int] = (0, 100)
+) -> dict:
+    return {
+        "type": "vote",
+        "motion_text": "Supun votului final.",
+        "motion_type": motion_type,
+        "voting_method": "electronic",
+        "timing": "deferred" if outcome == "deferred" else "live",
+        "counts": {
+            "for": None if outcome == "deferred" else 200,
+            "against": None if outcome == "deferred" else 10,
+            "abstain": None if outcome == "deferred" else 5,
+            "not_voting": None,
+            "total_voting": None if outcome == "deferred" else 215,
+        },
+        "outcome": outcome,
+        "quorum_announced": None,
+        "proposed_by": None,
+        "nominal_breakdown": None,
+        "defers_to": None,
+        "resolves": [],
+        "source_span": {
+            "chars": list(chars),
+            "lines": [1, 2],
+            "content_sha": "0123456789ab",
+        },
+        "extraction": {
+            "extractor": "regex@1",
+            "confidence": 0.9,
+            "source_span": {
+                "chars": list(chars),
+                "lines": [1, 2],
+                "content_sha": "0123456789ab",
+            },
+        },
+    }
+
+
+def _agenda_with_vote(
+    *,
+    ordinal: int,
+    title: str,
+    bill_ref: dict | None = None,
+    vote: dict,
+) -> dict:
+    refs = [bill_ref] if bill_ref else []
+    return {
+        "ordinal": ordinal,
+        "title": title,
+        "primary_references": refs,
+        "category": "bill_debate",
+        "confidence_type": None,
+        "requested_by_group": None,
+        "outcome": None,
+        "reexamination_reason": None,
+        "pages_in_pdf": [],
+        "topics": {"primary": [], "secondary": []},
+        "activities": [vote],
+        "source_span": {
+            "chars": [0, 200],
+            "lines": [1, 5],
+            "content_sha": "0123456789ab",
+        },
+        "extraction": {
+            "extractor": "regex@1",
+            "confidence": 0.9,
+            "source_span": {
+                "chars": [0, 200],
+                "lines": [1, 5],
+                "content_sha": "0123456789ab",
+            },
+        },
+    }
+
+
+def _bill_ref(prefix: str = "PL-x", number: str = "100", year: int = 2025) -> dict:
+    return {
+        "type": "bill",
+        "raw": f"{prefix} {number}/{year}",
+        "char_offsets": [0, len(f"{prefix} {number}/{year}")],
+        "prefix": prefix,
+        "number": number,
+        "year": year,
+        "secondary_year": None,
+        "chamber_of_origin": "camera",
+        "procedure": None,
+        "subject": None,
+    }
+
+
+def _stenogram_with_votes(
+    *,
+    doc_id: str,
+    session_date: str,
+    agenda_items: list[dict],
+) -> dict:
+    sc = _stenogram_sidecar(
+        doc_id=doc_id, published=session_date, session_date=session_date
+    )
+    sc["body"]["agenda_items"] = agenda_items
+    return sc
+
+
+# -- match key ---------------------------------------------------------
+
+
+def test_build_vote_index_keys_by_bill_cite(tmp_path: Path):
+    bill = _bill_ref(number="100", year=2025)
+    vote = _vote_activity(outcome="deferred")
+    sc = _stenogram_with_votes(
+        doc_id="mo://2025/II/1",
+        session_date="2025-04-01",
+        agenda_items=[
+            _agenda_with_vote(
+                ordinal=1, title="Adoptare PL-x 100/2025", bill_ref=bill, vote=vote
+            )
+        ],
+    )
+    p = _write(tmp_path, "sten1.extraction.json", sc)
+    idx = build_vote_index([p])
+    # Key includes the bill prefix so PL-x and L can't cross-collide.
+    assert "bill:PL-x:100/2025" in idx
+    assert len(idx["bill:PL-x:100/2025"]) == 1
+    assert idx["bill:PL-x:100/2025"][0].outcome == "deferred"
+
+
+def test_build_vote_index_separates_camera_from_senate_bills(tmp_path: Path):
+    """PL-x N/Y and L N/Y are different bills; their keys must differ."""
+    pl = _bill_ref(prefix="PL-x", number="500", year=2025)
+    l_ref = _bill_ref(prefix="L", number="500", year=2025)
+    sc_pl = _stenogram_with_votes(
+        doc_id="mo://2025/II/PL",
+        session_date="2025-04-01",
+        agenda_items=[
+            _agenda_with_vote(
+                ordinal=1,
+                title="x",
+                bill_ref=pl,
+                vote=_vote_activity(outcome="deferred"),
+            )
+        ],
+    )
+    sc_l = _stenogram_with_votes(
+        doc_id="mo://2025/II/L",
+        session_date="2025-04-15",
+        agenda_items=[
+            _agenda_with_vote(
+                ordinal=1,
+                title="y",
+                bill_ref=l_ref,
+                vote=_vote_activity(outcome="approved"),
+            )
+        ],
+    )
+    p_pl = _write(tmp_path, "pl.extraction.json", sc_pl)
+    p_l = _write(tmp_path, "l.extraction.json", sc_l)
+    idx = build_vote_index([p_pl, p_l])
+    assert set(idx.keys()) == {"bill:PL-x:500/2025", "bill:L:500/2025"}
+
+
+def test_build_vote_index_skips_when_no_stable_cite(tmp_path: Path):
+    """No primary_references → vote is unmatchable, dropped from index.
+
+    Generic procedural agenda titles (`Diverse`, `Aprobarea ordinii de
+    zi`, `Ședința`) repeat every session, so the title-hash fallback
+    would produce thousands of false-positive cross-doc pairs. v0.2.0
+    drops the fallback and accepts the coverage gap.
+    """
+    vote = _vote_activity(outcome="approved")
+    sc = _stenogram_with_votes(
+        doc_id="mo://2025/II/2",
+        session_date="2025-04-02",
+        agenda_items=[
+            _agenda_with_vote(ordinal=1, title="Diverse", bill_ref=None, vote=vote)
+        ],
+    )
+    p = _write(tmp_path, "sten2.extraction.json", sc)
+    idx = build_vote_index([p])
+    assert idx == {}
+
+
+def test_build_vote_index_skips_non_plenary(tmp_path: Path):
+    rp = _write(
+        tmp_path,
+        "report.extraction.json",
+        _report_sidecar(
+            doc_id="mo://2014/II/1R",
+            published="2014-01-20",
+            session_date="2013-12-04",
+        ),
+    )
+    idx = build_vote_index([rp])
+    assert idx == {}
+
+
+def test_build_vote_index_sorts_by_session_date(tmp_path: Path):
+    bill = _bill_ref(number="200", year=2025)
+    a = _stenogram_with_votes(
+        doc_id="mo://2025/II/A",
+        session_date="2025-05-15",
+        agenda_items=[
+            _agenda_with_vote(
+                ordinal=1,
+                title="x",
+                bill_ref=bill,
+                vote=_vote_activity(outcome="deferred"),
+            )
+        ],
+    )
+    b = _stenogram_with_votes(
+        doc_id="mo://2025/II/B",
+        session_date="2025-04-01",
+        agenda_items=[
+            _agenda_with_vote(
+                ordinal=1,
+                title="x",
+                bill_ref=bill,
+                vote=_vote_activity(outcome="deferred"),
+            )
+        ],
+    )
+    pa = _write(tmp_path, "sten_a.extraction.json", a)
+    pb = _write(tmp_path, "sten_b.extraction.json", b)
+    idx = build_vote_index([pa, pb])
+    entries = idx["bill:PL-x:200/2025"]
+    assert [e.document_id for e in entries] == ["mo://2025/II/B", "mo://2025/II/A"]
+
+
+# -- pair detection ---------------------------------------------------------
+
+
+def test_pair_detection_simple_two_doc_pair(tmp_path: Path):
+    """Doc N defers, doc M (within 60 days) resolves."""
+    bill = _bill_ref(number="300", year=2025)
+    deferring = _stenogram_with_votes(
+        doc_id="mo://2025/II/N",
+        session_date="2025-04-01",
+        agenda_items=[
+            _agenda_with_vote(
+                ordinal=1,
+                title="x",
+                bill_ref=bill,
+                vote=_vote_activity(outcome="deferred"),
+            )
+        ],
+    )
+    resolving = _stenogram_with_votes(
+        doc_id="mo://2025/II/M",
+        session_date="2025-04-15",
+        agenda_items=[
+            _agenda_with_vote(
+                ordinal=1,
+                title="x",
+                bill_ref=bill,
+                vote=_vote_activity(outcome="approved"),
+            )
+        ],
+    )
+    pn = _write(tmp_path, "n.extraction.json", deferring)
+    pm = _write(tmp_path, "m.extraction.json", resolving)
+    idx = build_vote_index([pn, pm])
+    forward, back = build_pairs(idx)
+    assert forward[("mo://2025/II/N", 0, 0)] == "mo://2025/II/M"
+    assert back[("mo://2025/II/M", 0, 0)] == ["mo://2025/II/N"]
+
+
+def test_pair_detection_outside_window_rejects(tmp_path: Path):
+    """Resolver is > 60 days out — no pair."""
+    bill = _bill_ref(number="400", year=2025)
+    deferring = _stenogram_with_votes(
+        doc_id="mo://2025/II/N",
+        session_date="2025-01-01",
+        agenda_items=[
+            _agenda_with_vote(
+                ordinal=1,
+                title="x",
+                bill_ref=bill,
+                vote=_vote_activity(outcome="deferred"),
+            )
+        ],
+    )
+    far = _stenogram_with_votes(
+        doc_id="mo://2025/II/Z",
+        session_date="2025-06-01",  # 151 days after — beyond 60-day window
+        agenda_items=[
+            _agenda_with_vote(
+                ordinal=1,
+                title="x",
+                bill_ref=bill,
+                vote=_vote_activity(outcome="approved"),
+            )
+        ],
+    )
+    pn = _write(tmp_path, "n.extraction.json", deferring)
+    pz = _write(tmp_path, "z.extraction.json", far)
+    idx = build_vote_index([pn, pz])
+    forward, back = build_pairs(idx)
+    assert forward == {}
+    assert back == {}
+
+
+def test_pair_detection_no_resolver_at_all(tmp_path: Path):
+    """Only deferred votes — no forward link possible."""
+    bill = _bill_ref(number="500", year=2025)
+    a = _stenogram_with_votes(
+        doc_id="mo://2025/II/A",
+        session_date="2025-04-01",
+        agenda_items=[
+            _agenda_with_vote(
+                ordinal=1,
+                title="x",
+                bill_ref=bill,
+                vote=_vote_activity(outcome="deferred"),
+            )
+        ],
+    )
+    pa = _write(tmp_path, "a.extraction.json", a)
+    idx = build_vote_index([pa])
+    forward, back = build_pairs(idx)
+    assert forward == {}
+    assert back == {}
+
+
+def test_multi_deferral_chain(tmp_path: Path):
+    """A→B→C: A defers to B, B defers to C, C resolves. C.resolves = [A, B]."""
+    bill = _bill_ref(number="600", year=2025)
+    a = _stenogram_with_votes(
+        doc_id="mo://2025/II/A",
+        session_date="2025-04-01",
+        agenda_items=[
+            _agenda_with_vote(
+                ordinal=1,
+                title="x",
+                bill_ref=bill,
+                vote=_vote_activity(outcome="deferred"),
+            )
+        ],
+    )
+    b = _stenogram_with_votes(
+        doc_id="mo://2025/II/B",
+        session_date="2025-04-15",
+        agenda_items=[
+            _agenda_with_vote(
+                ordinal=1,
+                title="x",
+                bill_ref=bill,
+                vote=_vote_activity(outcome="deferred"),
+            )
+        ],
+    )
+    c = _stenogram_with_votes(
+        doc_id="mo://2025/II/C",
+        session_date="2025-05-01",
+        agenda_items=[
+            _agenda_with_vote(
+                ordinal=1,
+                title="x",
+                bill_ref=bill,
+                vote=_vote_activity(outcome="approved"),
+            )
+        ],
+    )
+    pa = _write(tmp_path, "a.extraction.json", a)
+    pb = _write(tmp_path, "b.extraction.json", b)
+    pc = _write(tmp_path, "c.extraction.json", c)
+    idx = build_vote_index([pa, pb, pc])
+    forward, back = build_pairs(idx)
+    assert forward[("mo://2025/II/A", 0, 0)] == "mo://2025/II/B"
+    assert forward[("mo://2025/II/B", 0, 0)] == "mo://2025/II/C"
+    # C resolves both A and B (chain reversal)
+    assert back[("mo://2025/II/C", 0, 0)] == ["mo://2025/II/A", "mo://2025/II/B"]
+
+
+def test_multi_resolvers_into_single_back_link(tmp_path: Path):
+    """Two prior deferrals on the same key both resolve in the same later doc.
+
+    Both sources back-link to the same resolver via the resolves[] list.
+    """
+    bill = _bill_ref(number="700", year=2025)
+    a = _stenogram_with_votes(
+        doc_id="mo://2025/II/A",
+        session_date="2025-04-01",
+        agenda_items=[
+            _agenda_with_vote(
+                ordinal=1,
+                title="x",
+                bill_ref=bill,
+                vote=_vote_activity(outcome="deferred"),
+            )
+        ],
+    )
+    b = _stenogram_with_votes(
+        doc_id="mo://2025/II/B",
+        session_date="2025-04-08",
+        agenda_items=[
+            _agenda_with_vote(
+                ordinal=1,
+                title="x",
+                bill_ref=bill,
+                vote=_vote_activity(outcome="deferred"),
+            )
+        ],
+    )
+    c = _stenogram_with_votes(
+        doc_id="mo://2025/II/C",
+        session_date="2025-04-15",
+        agenda_items=[
+            _agenda_with_vote(
+                ordinal=1,
+                title="x",
+                bill_ref=bill,
+                vote=_vote_activity(outcome="approved"),
+            )
+        ],
+    )
+    pa = _write(tmp_path, "a.extraction.json", a)
+    pb = _write(tmp_path, "b.extraction.json", b)
+    pc = _write(tmp_path, "c.extraction.json", c)
+    idx = build_vote_index([pa, pb, pc])
+    forward, back = build_pairs(idx)
+    # A→B (immediate next), B→C (immediate next)
+    assert forward[("mo://2025/II/A", 0, 0)] == "mo://2025/II/B"
+    assert forward[("mo://2025/II/B", 0, 0)] == "mo://2025/II/C"
+    # C resolves both A and B
+    assert back[("mo://2025/II/C", 0, 0)] == ["mo://2025/II/A", "mo://2025/II/B"]
+
+
+# -- link_vote write semantics ---------------------------------------------
+
+
+def test_link_vote_writes_forward_link(tmp_path: Path):
+    bill = _bill_ref(number="800", year=2025)
+    a = _stenogram_with_votes(
+        doc_id="mo://2025/II/A",
+        session_date="2025-04-01",
+        agenda_items=[
+            _agenda_with_vote(
+                ordinal=1,
+                title="x",
+                bill_ref=bill,
+                vote=_vote_activity(outcome="deferred"),
+            )
+        ],
+    )
+    pa = _write(tmp_path, "a.extraction.json", a)
+    forward = {("mo://2025/II/A", 0, 0): "mo://2025/II/B"}
+    back: dict = {}
+    result = link_vote(pa, forward_links=forward, back_links=back)
+    assert result.status == "linked"
+    assert result.pairs_written == 1
+    after = json.loads(pa.read_text(encoding="utf-8"))
+    assert (
+        after["body"]["agenda_items"][0]["activities"][0]["defers_to"]
+        == "mo://2025/II/B"
+    )
+
+
+def test_link_vote_writes_back_link_on_resolver(tmp_path: Path):
+    bill = _bill_ref(number="900", year=2025)
+    c = _stenogram_with_votes(
+        doc_id="mo://2025/II/C",
+        session_date="2025-04-15",
+        agenda_items=[
+            _agenda_with_vote(
+                ordinal=1,
+                title="x",
+                bill_ref=bill,
+                vote=_vote_activity(outcome="approved"),
+            )
+        ],
+    )
+    pc = _write(tmp_path, "c.extraction.json", c)
+    forward: dict = {}
+    back = {("mo://2025/II/C", 0, 0): ["mo://2025/II/A", "mo://2025/II/B"]}
+    result = link_vote(pc, forward_links=forward, back_links=back)
+    assert result.status == "linked"
+    assert result.backlinks_written == 1
+    after = json.loads(pc.read_text(encoding="utf-8"))
+    assert after["body"]["agenda_items"][0]["activities"][0]["resolves"] == [
+        "mo://2025/II/A",
+        "mo://2025/II/B",
+    ]
+
+
+def test_link_vote_idempotent_skips_when_already_linked(tmp_path: Path):
+    """Run link twice — second pass should skip with no further updates."""
+    bill = _bill_ref(number="1000", year=2025)
+    deferring = _stenogram_with_votes(
+        doc_id="mo://2025/II/N",
+        session_date="2025-04-01",
+        agenda_items=[
+            _agenda_with_vote(
+                ordinal=1,
+                title="x",
+                bill_ref=bill,
+                vote=_vote_activity(outcome="deferred"),
+            )
+        ],
+    )
+    resolving = _stenogram_with_votes(
+        doc_id="mo://2025/II/M",
+        session_date="2025-04-15",
+        agenda_items=[
+            _agenda_with_vote(
+                ordinal=1,
+                title="x",
+                bill_ref=bill,
+                vote=_vote_activity(outcome="approved"),
+            )
+        ],
+    )
+    pn = _write(tmp_path, "n.extraction.json", deferring)
+    pm = _write(tmp_path, "m.extraction.json", resolving)
+    # First pass: writes the pair
+    results1 = list(link_all_votes([pn, pm]))
+    assert all(r.status == "linked" for r in results1)
+    # Second pass: every vote is already linked → all skip
+    results2 = list(link_all_votes([pn, pm]))
+    assert all(r.status == "skip" for r in results2)
+
+
+def test_link_vote_force_relinks_populated_entries(tmp_path: Path):
+    """force=True overwrites existing defers_to + resolves[]."""
+    bill = _bill_ref(number="1100", year=2025)
+    deferring = _stenogram_with_votes(
+        doc_id="mo://2025/II/N",
+        session_date="2025-04-01",
+        agenda_items=[
+            _agenda_with_vote(
+                ordinal=1,
+                title="x",
+                bill_ref=bill,
+                vote=_vote_activity(outcome="deferred"),
+            )
+        ],
+    )
+    # Stale forward link
+    deferring["body"]["agenda_items"][0]["activities"][0]["defers_to"] = (
+        "mo://2025/II/STALE"
+    )
+    pn = _write(tmp_path, "n.extraction.json", deferring)
+    forward = {("mo://2025/II/N", 0, 0): "mo://2025/II/M"}
+    back: dict = {}
+    # Without force: stale stays
+    r1 = link_vote(pn, forward_links=forward, back_links=back, force=False)
+    assert r1.status == "skip"
+    after_no_force = json.loads(pn.read_text(encoding="utf-8"))
+    assert (
+        after_no_force["body"]["agenda_items"][0]["activities"][0]["defers_to"]
+        == "mo://2025/II/STALE"
+    )
+    # With force: rewrites
+    r2 = link_vote(pn, forward_links=forward, back_links=back, force=True)
+    assert r2.status == "linked"
+    after_force = json.loads(pn.read_text(encoding="utf-8"))
+    assert (
+        after_force["body"]["agenda_items"][0]["activities"][0]["defers_to"]
+        == "mo://2025/II/M"
+    )
+
+
+def test_link_vote_dry_run_preserves_disk(tmp_path: Path):
+    bill = _bill_ref(number="1200", year=2025)
+    deferring = _stenogram_with_votes(
+        doc_id="mo://2025/II/N",
+        session_date="2025-04-01",
+        agenda_items=[
+            _agenda_with_vote(
+                ordinal=1,
+                title="x",
+                bill_ref=bill,
+                vote=_vote_activity(outcome="deferred"),
+            )
+        ],
+    )
+    pn = _write(tmp_path, "n.extraction.json", deferring)
+    before = pn.read_text(encoding="utf-8")
+    forward = {("mo://2025/II/N", 0, 0): "mo://2025/II/M"}
+    result = link_vote(pn, forward_links=forward, back_links={}, write=False)
+    assert result.status == "linked"
+    assert result.pairs_written == 1
+    assert pn.read_text(encoding="utf-8") == before
+
+
+def test_link_vote_skips_non_plenary(tmp_path: Path):
+    rp = _write(
+        tmp_path,
+        "report.extraction.json",
+        _report_sidecar(
+            doc_id="mo://2014/II/1R",
+            published="2014-01-20",
+            session_date="2013-12-04",
+        ),
+    )
+    result = link_vote(rp, forward_links={}, back_links={})
+    assert result.status == "skip"
+    assert "not a plenary sidecar" in (result.reason or "")
+
+
+def test_window_constant_is_60_days():
+    """Sanity: the window constant matches the documented 60-day rule."""
+    assert DEFERRAL_WINDOW_DAYS == 60
+
+
+def test_link_all_votes_end_to_end_writes_pairs(tmp_path: Path):
+    """End-to-end across the iterator entry point."""
+    bill = _bill_ref(number="1300", year=2025)
+    deferring = _stenogram_with_votes(
+        doc_id="mo://2025/II/D",
+        session_date="2025-04-01",
+        agenda_items=[
+            _agenda_with_vote(
+                ordinal=1,
+                title="x",
+                bill_ref=bill,
+                vote=_vote_activity(outcome="deferred"),
+            )
+        ],
+    )
+    resolving = _stenogram_with_votes(
+        doc_id="mo://2025/II/R",
+        session_date="2025-04-20",
+        agenda_items=[
+            _agenda_with_vote(
+                ordinal=1,
+                title="x",
+                bill_ref=bill,
+                vote=_vote_activity(outcome="approved"),
+            )
+        ],
+    )
+    pd = _write(tmp_path, "d.extraction.json", deferring)
+    pr = _write(tmp_path, "r.extraction.json", resolving)
+    results = list(link_all_votes([pd, pr]))
+    assert len(results) == 2
+    assert all(r.status == "linked" for r in results)
+    after_d = json.loads(pd.read_text(encoding="utf-8"))
+    after_r = json.loads(pr.read_text(encoding="utf-8"))
+    assert (
+        after_d["body"]["agenda_items"][0]["activities"][0]["defers_to"]
+        == "mo://2025/II/R"
+    )
+    assert after_r["body"]["agenda_items"][0]["activities"][0]["resolves"] == [
+        "mo://2025/II/D"
+    ]
+
+
+def test_linker_version_bumped_to_0_2_0():
+    assert LINKER_VERSION == "0.2.0"

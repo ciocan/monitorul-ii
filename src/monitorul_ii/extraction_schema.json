@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://github.com/ciocan/monitorul-ii/blob/main/src/monitorul_ii/extraction_schema.json",
   "title": "Monitorul Oficial Partea II extraction sidecar",
-  "description": "Canonical machine-readable schema for the per-document JSON sidecars emitted by `monitorul-ii extract`. Mirrors docs/extraction-schema.md (the human-readable spec). Schema_version 1.10.0 graduates the `code` reference variant out of the unknown catch-all (Romanian named codes — Codul muncii / fiscal / penal / civil / silvic / administrativ / de procedură penală / de procedură civilă / vamal / aerian / rutier / comercial / familiei / navigației / consumului / insolvenței), broadens the `treaty` variant to absorb Acordul/Protocolul/wider Carta forms, and populates best-effort `subject` fields on bill / law / parliamentary_resolution. v1.8.0 graduated report_facsimile from PendingBody to a strict body shape; v1.9.0 graduated 6 long-tail reference variants (motion / court_decision / constitution / regulation / eu_doc / treaty); v1.10.0 finishes Tier-1 reference graduations. All six document types continue to have strict body shapes; PendingBody is kept as a $def placeholder for future types.",
+  "description": "Canonical machine-readable schema for the per-document JSON sidecars emitted by `monitorul-ii extract`. Mirrors docs/extraction-schema.md (the human-readable spec). Schema_version 1.11.0 adds VoteActivity.defers_to (forward-link, string|null) and VoteActivity.resolves (back-link, array of strings|null) — populated by the cross-document linker (v0.2.0+) for cross-session vote deferrals; always null at extract time. v1.10.0 graduated the `code` reference variant out of the unknown catch-all, broadened `treaty` to absorb Acordul/Protocolul/wider Carta forms, and populated best-effort `subject` fields on bill / law / parliamentary_resolution. v1.8.0 graduated report_facsimile from PendingBody to a strict body shape; v1.9.0 graduated 6 long-tail reference variants. All six document types continue to have strict body shapes; PendingBody is kept as a $def placeholder for future types.",
   "type": "object",
   "required": [
     "schema_version",
@@ -18,7 +18,7 @@
   ],
   "additionalProperties": false,
   "properties": {
-    "schema_version": { "const": "1.10.0" },
+    "schema_version": { "const": "1.11.0" },
     "document_id": {
       "type": "string",
       "pattern": "^mo://\\d{4}/[IVXM]+/[0-9A-Za-z]+$"
@@ -1226,6 +1226,8 @@
         "quorum_announced",
         "proposed_by",
         "nominal_breakdown",
+        "defers_to",
+        "resolves",
         "source_span",
         "extraction"
       ],
@@ -1286,6 +1288,17 @@
                 }
               }
             },
+            { "type": "null" }
+          ]
+        },
+        "defers_to": {
+          "description": "Document_id of the future stenogram whose final vote resolves this deferred vote. Populated by the cross-document linker pass (linker v0.2.0+); always null at extract time.",
+          "type": ["string", "null"]
+        },
+        "resolves": {
+          "description": "Document_ids of prior deferred votes that this vote resolves. Populated by the cross-document linker pass on resolving votes (typically motion_type=final / item_adoption / report_approval). Empty list when the vote does not resolve any prior deferral; null is allowed for legacy sidecars but new extractor versions emit `[]`.",
+          "anyOf": [
+            { "type": "array", "items": { "type": "string", "minLength": 1 } },
             { "type": "null" }
           ]
         },
