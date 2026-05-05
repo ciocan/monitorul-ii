@@ -72,7 +72,7 @@ from monitorul_ii.extraction.speakers import make_speaker
 if TYPE_CHECKING:
     from monitorul_ii.extraction.pipeline import ExtractContext
 
-EXTRACTOR_VERSION = "0.1.0"
+EXTRACTOR_VERSION = "0.2.0"
 EXTRACTOR_LABEL = f"regex@committee_synthesis@{EXTRACTOR_VERSION}"
 
 
@@ -464,27 +464,47 @@ def _parse_signatures(
 # -- Committee kind classifier ---------------------------------------------
 
 
+_JOINT_NAME_MARKERS_RE = re.compile(
+    r"\bcomun[ăaã]?\b"
+    r"|\bdeputa[țţţt]ilor\s+[șşs][iî]\s+senatului\b"
+    r"|\bdeputa[țţţt]ilor\s+si\s+senatului\b",
+    re.IGNORECASE,
+)
+_SPECIAL_NAME_RE = re.compile(
+    r"\bspecial(?:[ăaã]|„)",
+    re.IGNORECASE,
+)
+_INQUIRY_NAME_RE = re.compile(
+    r"\banchet[ăaã]\b",
+    re.IGNORECASE,
+)
+
+
 def _classify_kind(name: str) -> str:
     """Map the committee name to the schema's `kind` enum.
 
     `Comisia specială` / `Comisia de anchetă` are the explicit non-standard
     forms; everything else is `permanent`. Joint-with-Senate is detected
-    via the `permanentă comună` / `permanentă a Camerei Deputaților și
-    Senatului` sub-strings.
+    via the `comună` modifier or the `Camerei Deputaților și Senatului`
+    co-anchor.
+
+    v0.2.0 extends the joint detection to graduate the **joint permanent**
+    cohort — ~10-30 docs in the corpus carry `Comisia permanentă comună a
+    Camerei Deputaților și Senatului ...` (UNESCO, securitate națională,
+    Statutul deputaților) which were previously classified as plain
+    `permanent`. They now resolve to `special_joint`, treating the joint
+    variant of permanent as "permanent + special parliamentary status".
     """
     n = name.lower()
-    is_joint = (
-        "permanent[ăa]\\s+comun[ăa]" in n
-        or "permanent[ăa]\\s+a\\s+camerei" in n
-        or "permanentă comună" in n
-        or "permanenta comuna" in n
-        or "deputaților și senatului" in n
-        or "deputatilor si senatului" in n
-    )
-    if "specială" in n or "speciala" in n or "special„" in n or "specialã" in n:
-        return "special_joint" if is_joint else "special"
-    if "anchetă" in n or "ancheta" in n:
+    is_joint = bool(_JOINT_NAME_MARKERS_RE.search(n))
+    is_special = bool(_SPECIAL_NAME_RE.search(n))
+    is_inquiry = bool(_INQUIRY_NAME_RE.search(n))
+    if is_inquiry:
         return "inquiry_joint" if is_joint else "inquiry"
+    if is_special:
+        return "special_joint" if is_joint else "special"
+    if is_joint:
+        return "special_joint"
     return "permanent"
 
 
@@ -763,33 +783,238 @@ def _build_agenda(
     ctx: "ExtractContext",
 ) -> list[dict[str, Any]]:
     items = _split_agenda(block)
+    if items:
+        out: list[dict[str, Any]] = []
+        for i, (ordinal, local_off, title) in enumerate(items):
+            next_off = items[i + 1][1] if i + 1 < len(items) else len(block)
+            # Reference parsing on the title only (not the entire body) — avoids
+            # over-matching bill cites in dezbateri commentary.
+            refs = parse_primary_references(title)
+            # Filter implausibly-yeared cites — OCR typos like `PL-x 527/2917`
+            # appear in 2003/2018/2021/2022 docs and the schema's [1990, 2100]
+            # range correctly rejects them. Dropping at this layer keeps the
+            # references parser uncontaminated; the cite is preserved in
+            # `outcome_text` if present in the surrounding paragraph.
+            refs = [r for r in refs if 1990 <= int(r.get("year") or 0) <= 2100]
+            # Re-route char_offsets onto the global-body coordinate system. The
+            # title we parsed is a substring of the full block; we don't track
+            # title-vs-block offsets here, so reset to [0,0] when refs are found
+            # to keep the offsets schema-compliant. The text is preserved in
+            # `raw`, which is what matters for downstream queries.
+            title_offset_global = block_start_global + local_off
+            for r in refs:
+                r["char_offsets"] = [title_offset_global, title_offset_global]
+            body_after_title = block[local_off + len(title) : next_off]
+            outcome_text = _extract_outcome_text(body_after_title)
+            committee_role = _detect_committee_role(title)
+            output_type = _detect_output_type(title) or _detect_output_type(
+                outcome_text or ""
+            )
+            item_global_start = block_start_global + local_off
+            item_global_end = block_start_global + next_off
+            record = {
+                "ordinal": ordinal,
+                "title": title,
+                "primary_references": refs,
+                "co_committees": [],
+                "committee_role": committee_role,
+                "output_type": output_type,
+                "for_committees": [],
+                "outcome_text": outcome_text,
+                "vote_summary": _parse_vote_summary(outcome_text),
+                "source_span": ctx.make_source_span(
+                    (item_global_start, item_global_end)
+                ),
+                "extraction": {
+                    "extractor": EXTRACTOR_LABEL,
+                    "confidence": 0.0,
+                    "source_span": ctx.make_source_span(
+                        (item_global_start, item_global_end)
+                    ),
+                },
+            }
+            record["extraction"]["confidence"] = round(_agenda_confidence(record), 4)
+            out.append(record)
+        return out
+    # Numbered-narrative parsing found nothing — fall back to tabular if a
+    # `|Nr.|...|PL-x|...|` table is present (2024+ format). Coverage was
+    # already held by the partition claim, but agenda_items[] would be
+    # empty for ~10-15% of post-2024 docs without this branch.
+    return _build_tabular_agenda(block, block_start_global, ctx)
+
+
+# Tabular agenda header: a row containing both `Nr` and (`PL-x` or
+# `Titlu` adjacent to `Rezolu[țt]ie` / `Scopul`). The 2025 corpus splits
+# the column header across the same row in all observed variants — each
+# is anchored by the literal `Nr` token + a PL-x / Titlu / Scopul tag.
+_TABULAR_AGENDA_HEADER_RE = re.compile(
+    r"^\|\s*(?:[^|\n]*?\bNr[\.<]|Nr\.<br)[^\n]*?"
+    r"(?:PL-?x|P\s*L-?x|Titlu|Scopul|Rezolu[țţt]ie)[^\n]*\|",
+    re.IGNORECASE | re.MULTILINE,
+)
+_TABULAR_AGENDA_ORDINAL_RE = re.compile(r"^(\d+)\.?$")
+_TABULAR_AGENDA_PLX_RE = re.compile(
+    r"\b(?:PL-?x|Pl-?x)\b",
+    re.IGNORECASE,
+)
+# Outcome-cell signature: "În urma" / "În formă" / "Aprobat"-style verbs
+# anchored at the start of the cell (post-<br> stripped).
+_TABULAR_OUTCOME_LEAD_RE = re.compile(
+    r"^(?:[ÎIi]n\s+urma|[ÎIi]n\s+formă|deputa[țţt]ii\s+prezen[țţt]i|cu\s+majoritate"
+    r"|cu\s+unanimitate|Supus[ăa]\s+la\s+vot|Aprobat|Respin[gs])",
+    re.IGNORECASE,
+)
+# Role-cell signature: tabular Scopul cells use one of the canonical
+# committee-role tokens at the start (Raport / Aviz / Studiu / etc.).
+_TABULAR_ROLE_LEAD_RE = re.compile(
+    r"^(?:Raport|Aviz|Studiu|Proiect\s+de\s+opinie|Am[âa]nare)\b",
+    re.IGNORECASE,
+)
+
+
+def _strip_table_cell(cell: str) -> str:
+    """Strip <br> markers and collapse whitespace for tabular cell text."""
+    s = _HEADER_BR_RE.sub(" ", cell)
+    s = re.sub(r"\s+", " ", s).strip()
+    return s
+
+
+def _split_tabular_data_row(line: str) -> list[str] | None:
+    """Return the trimmed/<br>-collapsed cells of a markdown data row, or None
+    if the line is not a data row (header, separator, blank).
+    """
+    if not line.startswith("|") or _is_separator_row(line):
+        return None
+    raw = _split_table_row(line)
+    if not raw:
+        return None
+    cells = [_strip_table_cell(c) for c in raw]
+    # Drop pure-empty rows
+    if not any(c for c in cells):
+        return None
+    return cells
+
+
+def _build_tabular_agenda(
+    block: str,
+    block_start_global: int,
+    ctx: "ExtractContext",
+) -> list[dict[str, Any]]:
+    """Parse `|Nr.|PL-x|Titlu|Scopul|Rezoluție|`-style agendas (2024+).
+
+    Walk the block line-by-line. After each tabular agenda header, scan
+    subsequent rows; treat any row whose first non-empty cell is `\\d+\\.?`
+    as an item. Within each item, identify cells by content fingerprint:
+
+      - First numeric cell  → ordinal
+      - Cell with `PL-x` token → primary_references
+      - Cell starting with `Raport`/`Aviz`/`Studiu` → committee_role / output_type
+      - Cell starting with `În urma...` / outcome verb → outcome_text
+      - Longest remaining cell → title
+
+    Robust to column re-orderings and variable inter-cell empty padding —
+    the 2025 corpus uses 5 to 14 cells per row depending on PDF→MD pagination.
+    """
+    items: list[tuple[int, int, dict[str, str]]] = []
+    in_table = False
+    pending_row_offset = 0
+    line_offset = 0
+    for line in block.splitlines(keepends=True):
+        line_no_nl = line.rstrip("\n")
+        if _TABULAR_AGENDA_HEADER_RE.match(line_no_nl):
+            in_table = True
+            line_offset += len(line)
+            continue
+        if not in_table:
+            line_offset += len(line)
+            continue
+        if _is_separator_row(line_no_nl):
+            line_offset += len(line)
+            continue
+        if not line_no_nl.startswith("|"):
+            # Blank or non-table line: closes the table only when we hit a
+            # second consecutive non-table line. Single-line gaps (markdown
+            # quirks) keep us inside.
+            if not line_no_nl.strip():
+                # blank line → closes
+                in_table = False
+            line_offset += len(line)
+            continue
+        cells = _split_tabular_data_row(line_no_nl)
+        if cells is None:
+            line_offset += len(line)
+            continue
+        # Try to find the ordinal among the first 3 non-empty cells.
+        ordinal: int | None = None
+        for c in cells[:4]:
+            if not c:
+                continue
+            mm = _TABULAR_AGENDA_ORDINAL_RE.match(c)
+            if mm:
+                try:
+                    ordinal = int(mm.group(1))
+                except ValueError:
+                    ordinal = None
+                break
+            # First non-empty non-numeric cell — not an item row, abort.
+            ordinal = None
+            break
+        if ordinal is None or not (1 <= ordinal <= 200):
+            line_offset += len(line)
+            continue
+        # Collect role / outcome / refs / title from remaining cells
+        info: dict[str, str] = {
+            "title": "",
+            "role_text": "",
+            "outcome_text": "",
+            "ref_text": "",
+        }
+        for c in cells:
+            if not c:
+                continue
+            if c == cells[0] and _TABULAR_AGENDA_ORDINAL_RE.match(c):
+                continue
+            if not info["ref_text"] and _TABULAR_AGENDA_PLX_RE.search(c):
+                info["ref_text"] = c
+                continue
+            if not info["role_text"] and _TABULAR_ROLE_LEAD_RE.match(c):
+                info["role_text"] = c
+                continue
+            if not info["outcome_text"] and _TABULAR_OUTCOME_LEAD_RE.match(c):
+                info["outcome_text"] = c
+                continue
+            # Otherwise candidate title — keep the longest.
+            if len(c) > len(info["title"]):
+                info["title"] = c
+        if not info["title"] and not info["ref_text"]:
+            line_offset += len(line)
+            continue
+        pending_row_offset = line_offset
+        items.append((ordinal, pending_row_offset, info))
+        line_offset += len(line)
     if not items:
         return []
     out: list[dict[str, Any]] = []
-    for i, (ordinal, local_off, title) in enumerate(items):
+    for i, (ordinal, local_off, info) in enumerate(items):
         next_off = items[i + 1][1] if i + 1 < len(items) else len(block)
-        # Reference parsing on the title only (not the entire body) — avoids
-        # over-matching bill cites in dezbateri commentary.
-        refs = parse_primary_references(title)
-        # Filter implausibly-yeared cites — OCR typos like `PL-x 527/2917`
-        # appear in 2003/2018/2021/2022 docs and the schema's [1990, 2100]
-        # range correctly rejects them. Dropping at this layer keeps the
-        # references parser uncontaminated; the cite is preserved in
-        # `outcome_text` if present in the surrounding paragraph.
+        refs = parse_primary_references(info.get("ref_text") or info.get("title") or "")
         refs = [r for r in refs if 1990 <= int(r.get("year") or 0) <= 2100]
-        # Re-route char_offsets onto the global-body coordinate system. The
-        # title we parsed is a substring of the full block; we don't track
-        # title-vs-block offsets here, so reset to [0,0] when refs are found
-        # to keep the offsets schema-compliant. The text is preserved in
-        # `raw`, which is what matters for downstream queries.
         title_offset_global = block_start_global + local_off
         for r in refs:
             r["char_offsets"] = [title_offset_global, title_offset_global]
-        body_after_title = block[local_off + len(title) : next_off]
-        outcome_text = _extract_outcome_text(body_after_title)
-        committee_role = _detect_committee_role(title)
-        output_type = _detect_output_type(title) or _detect_output_type(
-            outcome_text or ""
+        title = info["title"] or info["ref_text"] or f"item {ordinal}"
+        title = _strip_title_trailing_dot(title)
+        outcome_text = info.get("outcome_text") or None
+        if outcome_text and len(outcome_text) > 600:
+            outcome_text = outcome_text[:599] + "…"
+        role_text = info.get("role_text") or ""
+        committee_role = _detect_committee_role(role_text) or _detect_committee_role(
+            title
+        )
+        output_type = (
+            _detect_output_type(role_text)
+            or _detect_output_type(title)
+            or _detect_output_type(outcome_text or "")
         )
         item_global_start = block_start_global + local_off
         item_global_end = block_start_global + next_off
@@ -831,6 +1056,672 @@ def _agenda_confidence(item: dict[str, Any]) -> float:
     if item["vote_summary"]:
         score += 0.05
     return min(0.95, score)
+
+
+# -- Roster parsers (v0.2.0) -----------------------------------------------
+
+
+# Three observed roster formats — see docs/architecture.md § committee_synthesis
+# § Roster format detection (v0.2):
+#
+#   1. **Tabular** (2024+): a markdown table whose first column carries
+#      member names and a sibling column carries `Prezent fizic` / `Prezent
+#      online` / `Absent` annotations. Often two parallel name/status pairs
+#      per row (left and right halves). Header row contains `Numele și
+#      prenumele` and `Prezența`.
+#   2. **Narrative** (2018-): a single paragraph beginning `au fost
+#      prezenți: NAME, NAME ...` followed (optionally) by `Domnii deputați
+#      ... au fost prezenți on-line` / `Au absentat ... NAMES`. Names are
+#      comma-separated, last item joined with `și`.
+#   3. **Per-day** (2008-, niche): numbered list `1. NAME, Grupul
+#      parlamentar al X[, ROLE].` after a `- au fost prezenți:` trigger.
+#      Restart sequences accepted; ordinal filter 1..200 (same as agenda).
+#
+# Format detection is conservative — when no shape is recognised, the
+# parser returns []. Empty rosters are honest (the schema supports them).
+
+_ROSTER_TABULAR_HEADER_RE = re.compile(
+    r"\bNumele\s+(?:[șş][ii])\s+prenumele\b",
+    re.IGNORECASE,
+)
+# Status fingerprints accepted in tabular cells. The 2022/2024+ corpus uses
+# `Prezent[ă] fizic`, `Prezent[ă] online`, `Prezent[ă] la sediul CD` (synonym
+# for physical), `Absent[ă]`, and `Înlocuitor[...]` markers. Adding the
+# `la sediul` synonym is what unlocks the 2022 hybrid-form rosters.
+_ROSTER_TABULAR_STATUS_RE = re.compile(
+    r"\b(?:Prezen[țţt][ăa]?\s+(?:fizic[ăa]?|online|la\s+sediul)"
+    r"|Absen[țţt][ăa]?(?:\s+motivat[ăa]?)?"
+    r"|[ÎIi]nlocuitor(?:\s+online|\s+fizic)?)\b",
+    re.IGNORECASE,
+)
+_ROSTER_NARRATIVE_TRIGGER_RE = re.compile(
+    r"\b(?:au\s+fost\s+prezen[țţt]i|au\s+fost\s+prezente"
+    r"|i?-?au\s+înregistrat\s+prezen[țţt]a"
+    r"|au\s+fost\s+prezen[țţt]i\s+urm[ăa]torii\s+deputa[țţt]i"
+    r"|Membrii\s+prezen[țţt]i\s+la\s+lucr[ăa]ri)\b",
+    re.IGNORECASE,
+)
+# 2008-era per-day form is gated by a numbered list of names with a Grupul
+# parlamentar tag attached — the latter is the discriminator versus the
+# narrative form (which uses inline comma-separated names with no group).
+_ROSTER_PER_DAY_PROBE_RE = re.compile(
+    r"^\s*\d+\.\s+[^\n,]+,\s*Grupul\s+parlamentar\s+al\b",
+    re.MULTILINE | re.IGNORECASE,
+)
+
+
+def _detect_roster_format(block: str) -> str | None:
+    """Return one of `tabular` / `narrative` / `per_day`, or None.
+
+    Detection is conservative: tabular wins when the table-shape fingerprint
+    is present (header + status cell); per_day wins when numbered lines
+    with `Grupul parlamentar` are present; narrative is the fallback when
+    a `au fost prezenți` trigger is present without the table or per-day
+    fingerprint.
+    """
+    has_pipe = "\n|" in block or block.startswith("|")
+    if (
+        has_pipe
+        and _ROSTER_TABULAR_HEADER_RE.search(block)
+        and _ROSTER_TABULAR_STATUS_RE.search(block)
+    ):
+        return "tabular"
+    if _ROSTER_PER_DAY_PROBE_RE.search(block):
+        return "per_day"
+    if _ROSTER_NARRATIVE_TRIGGER_RE.search(block):
+        return "narrative"
+    return None
+
+
+# Status-to-mode mapping for tabular cells. Cell text is normalised
+# (whitespace collapsed) before lookup; Romanian feminine forms map to the
+# same enum as masculine. `Prezent[ă] la sediul` is the 2022-corpus synonym
+# for `physical` (literally "present at HQ").
+_TABULAR_STATUS_PATTERNS: list[tuple[re.Pattern[str], str]] = [
+    (re.compile(r"^[ÎIi]nlocuit", re.IGNORECASE), "substituted"),
+    (re.compile(r"^Prezen[țţt][ăa]?\s+fizic", re.IGNORECASE), "physical"),
+    (re.compile(r"^Prezen[țţt][ăa]?\s+la\s+sediul", re.IGNORECASE), "physical"),
+    (re.compile(r"^Prezen[țţt][ăa]?\s+online", re.IGNORECASE), "online"),
+    (re.compile(r"^Absen[țţt][ăa]?", re.IGNORECASE), "absent"),
+]
+# Tabular-cell name-cleaner: strip trailing `– președinte` / `– vicepreședinte`
+# / `– secretar` / `– membru` and capture the role. The 2022 corpus uses
+# this in-cell suffix form for committee leadership annotations.
+_TABULAR_NAME_ROLE_RE = re.compile(
+    r"^(?P<name>.+?)\s*[–-]\s*"
+    r"(?P<role>pre[șs]edinte|vicepre[șs]edinte|secretar|membru)\b",
+    re.IGNORECASE,
+)
+
+# Tabular row name shape: `Surname Given-Name` with diacritics + hyphens +
+# spaces. We only require the first character to be uppercase + at least
+# one lowercase letter to keep table-junk lines out (e.g. `MONITORUL OFICIAL
+# AL ROMÂNIEI`, `---`, `Pagina`).
+_NAME_CELL_RE = re.compile(
+    r"^[A-ZȘȚĂÂÎŞŢ][A-ZȘȚĂÂÎŞŢa-zșțăâîşţăáàäéèëíìïóòöúùüçÉÈÀ-ſ\-–—\.\s]+$"
+)
+_TABULAR_HEADER_TOKENS_RE = re.compile(
+    r"\b(?:Numele|Prezen[țţt][ăa]?|Absen[țţt][ăa]?|Pagina|MONITORUL|OFICIAL"
+    r"|Nr\.\s*crt\.|PL-x|Titlu|Scopul|Rezolu[țţt]ie|Ordine"
+    r"|Neafiliat[ăa]?|Grupul\s+parlamentar|UDMR|PSD|PNL|USR|AUR|POT|UNESCO"
+    r"|min(?:o|ó)rit[ăa]ti?|na[țţ]ionale)\b",
+    re.IGNORECASE,
+)
+_HEADER_BR_RE = re.compile(r"<br\s*/?>", re.IGNORECASE)
+
+
+def _split_table_row(line: str) -> list[str]:
+    """Split a markdown-table row into trimmed cells (excluding the leading/trailing pipe)."""
+    if not line.startswith("|"):
+        return []
+    raw = line.rstrip()
+    if raw.endswith("|"):
+        raw = raw[:-1]
+    parts = raw.split("|")
+    if parts and parts[0] == "":
+        parts = parts[1:]
+    return [c.strip() for c in parts]
+
+
+def _is_separator_row(line: str) -> bool:
+    return bool(re.match(r"^\|\s*[-:|\s]+\s*$", line.strip()))
+
+
+def _classify_status_cell(cell: str) -> str | None:
+    if not cell:
+        return None
+    for pat, mode in _TABULAR_STATUS_PATTERNS:
+        if pat.search(cell):
+            return mode
+    return None
+
+
+def _looks_like_person_name(cell: str) -> bool:
+    if not cell:
+        return False
+    if _TABULAR_HEADER_TOKENS_RE.search(cell):
+        return False
+    if not _NAME_CELL_RE.match(cell):
+        return False
+    # Real Romanian member names always have at least 2 capitalised
+    # tokens (surname + given name) — single-token cells are usually
+    # party-group labels (`Neafiliată`, `UDMR`) or stray header noise.
+    tokens = cell.split()
+    if len(tokens) < 2:
+        return False
+    return True
+
+
+def _parse_substitute_speaker(cell: str) -> dict[str, Any] | None:
+    """`Înlocuitor online: NAME` / `Înlocuit de NAME` → Speaker dict or None."""
+    m = re.search(
+        r"[ÎIi]nlocuit(?:or|[ăa])?(?:\s+(?:online|fizic|par[țţt]ial))?"
+        r"(?:\s*[:,]\s*|\s+(?:de|prin)\s+)(?P<name>[^|\n]+)",
+        cell,
+        re.IGNORECASE,
+    )
+    if not m:
+        return None
+    name = _norm_name(m.group("name"))
+    if not name:
+        return None
+    return make_speaker(raw=name, name=name)
+
+
+def _split_tabular_name_and_role(cell: str) -> tuple[str, str | None]:
+    """Strip `– președinte` / `– vicepreședinte` / `– secretar` / `– membru`
+    suffix from a name-cell and return (clean_name, role).
+    """
+    m = _TABULAR_NAME_ROLE_RE.match(cell)
+    if not m:
+        return cell, None
+    name = _norm_name(m.group("name"))
+    role = m.group("role").lower().replace("ş", "ș")
+    return name, role
+
+
+def _parse_roster_tabular(block: str) -> list[dict[str, Any]]:
+    """Parse roster from markdown-table rows.
+
+    Each table row may carry one or two (name, status) pairs separated by
+    empty cells. We scan adjacent cell pairs greedily: a `physical` /
+    `online` / `absent` / `substituted` status cell pairs with the nearest
+    preceding name-shaped cell on the same row. Name cells with a `– role`
+    suffix are split into clean-name + role; the role populates
+    `intra_committee_role`.
+    """
+    out: list[dict[str, Any]] = []
+    seen: set[str] = set()
+    for line in block.splitlines():
+        if not line.startswith("|") or _is_separator_row(line):
+            continue
+        cells = _split_table_row(line)
+        if not cells:
+            continue
+        # Pair-walk: for each status cell, find its name partner among the
+        # preceding cells on the same row.
+        last_name_cell: tuple[int, str] | None = None
+        for idx, cell in enumerate(cells):
+            mode = _classify_status_cell(cell)
+            if mode is None:
+                if _looks_like_person_name(cell):
+                    last_name_cell = (idx, cell)
+                continue
+            if last_name_cell is None:
+                continue
+            _, name_text = last_name_cell
+            clean_name, role = _split_tabular_name_and_role(name_text)
+            name = _norm_name(clean_name)
+            if not name or name.lower() in seen:
+                last_name_cell = None
+                continue
+            substitute = (
+                _parse_substitute_speaker(cell) if mode == "substituted" else None
+            )
+            entry = {
+                "speaker": make_speaker(raw=name, name=name),
+                "mode": mode,
+                "intra_committee_role": role,
+                "substituted_by": substitute,
+            }
+            out.append(entry)
+            seen.add(name.lower())
+            last_name_cell = None
+    return out
+
+
+# Narrative roster pattern set. The trigger captures the segment that
+# follows; the segment is then walked for `Domnii deputați ... on-line` /
+# `... au absentat` annotations to enrich modes.
+# Trigger forms observed in the corpus (all match the same `<list>` shape):
+#   - `au fost prezenți următorii deputați:`
+#   - `au fost prezenți: ...`
+#   - `au fost prezenți N deputați[, și anume]:` (count-and-list, 2018-)
+#   - `Și-au înregistrat prezența la lucrări următorii deputați:`
+#   - `și-au înregistrat prezența N deputați[, și anume]:`
+#   - `Membrii prezenți la lucrări:` (rare, formal)
+# A flexible `[^:]{0,80}?:` tail absorbs the optional `N deputați, și anume`
+# noise between the trigger and the colon — bounded so we don't accidentally
+# swallow the next paragraph if a doc lacks a colon.
+_NARRATIVE_PRESENT_RE = re.compile(
+    r"\b(?:"
+    r"au\s+fost\s+prezen[țţt]i\s+urm[ăa]torii\s+deputa[țţt]i"
+    r"|au\s+fost\s+prezen[țţt]i"
+    r"|[șşs]i-au\s+înregistrat\s+prezen[țţt]a\s+(?:la\s+lucr[ăa]ri\s+)?(?:urm[ăa]torii\s+deputa[țţt]i)?"
+    r"|Membrii\s+prezen[țţt]i\s+la\s+lucr[ăa]ri"
+    r")"
+    r"(?:[^:.]{0,120}?)?\s*[:,]\s*(?P<list>[^.]+)",
+    re.IGNORECASE,
+)
+_NARRATIVE_ONLINE_RE = re.compile(
+    r"(?:Domnii\s+deputa[țţt]i|Domnul\s+deputat|Doamnele\s+deputat|Doamna\s+deputat)\s+"
+    r"(?P<list>[^.]+?)\s+au?\s+fost\s+prezen[țţt]i\s+(?:on-?line|online)",
+    re.IGNORECASE,
+)
+_NARRATIVE_ABSENT_RE = re.compile(
+    r"(?:Au\s+absentat\s+motivat|au\s+absentat\s+motivat|au\s+absentat)\s*[:,]?\s*"
+    r"(?P<list>[^.]+)",
+    re.IGNORECASE,
+)
+# Substitution side-comment: `Cătălina Ciofu – înlocuită de domnul deputat NAME` —
+# captures (subject, substitute) pairs. Subject must look like a proper
+# personal name (≥2 capitalised tokens) so we don't catch trailing
+# `parlamentar al PNL)` fragments from earlier mid-sentence party-group
+# parentheticals.
+_NARRATIVE_SUBSTITUTE_RE = re.compile(
+    r"(?P<subject>[A-ZȘȚĂÂÎŞŢ][\w\-]+(?:\s+[A-ZȘȚĂÂÎŞŢ][\w\-]+)+)\s*[–-]\s*"
+    r"[ÎIi]nlocuit(?:[ăa])?(?:\s+par[țţt]ial)?\s+de\s+"
+    r"(?:domnul|doamna)?\s*deputat[ăa]?\s+"
+    r"(?P<sub>[A-ZȘȚĂÂÎŞŢ][\w\-]+(?:\s+[A-ZȘȚĂÂÎŞŢ][\w\-]+)+)",
+    re.IGNORECASE,
+)
+_NAMES_SPLIT_RE = re.compile(r",\s*|\s+[șşs][ii]\s+", re.IGNORECASE)
+# Strip per-name suffix tags that the narrative shape sometimes appends:
+# `– președinte`, `– vicepreședinte`, `– secretar`, `(online)`, etc.
+_NAME_SUFFIX_STRIP_RE = re.compile(
+    r"\s*[–-]\s*(?:pre[șs]edinte|vicepre[șs]edinte|secretar|membru|membri)\b[^,\n]*"
+    r"|\s*\([^)]*\)",
+    re.IGNORECASE,
+)
+_NAME_ROLE_RE = re.compile(
+    r"\s*[–-]\s*(?P<role>pre[șs]edinte|vicepre[șs]edinte|secretar|membru)\b",
+    re.IGNORECASE,
+)
+
+
+def _looks_like_narrative_name(token: str) -> bool:
+    t = token.strip()
+    if not t:
+        return False
+    if any(ch.isdigit() for ch in t):
+        return False
+    if len(t) < 3 or len(t) > 100:
+        return False
+    # First non-whitespace character must be uppercase or a Unicode
+    # capital with diacritic; this filters trailing prepositional fragments.
+    return t[0].isupper()
+
+
+def _split_narrative_names(segment: str) -> list[tuple[str, str | None]]:
+    """Split a `A, B, C și D – president` segment into [(name, role|None), ...]."""
+    out: list[tuple[str, str | None]] = []
+    for chunk in _NAMES_SPLIT_RE.split(segment):
+        c = chunk.strip()
+        if not c:
+            continue
+        # Capture role suffix before stripping
+        role: str | None = None
+        m = _NAME_ROLE_RE.search(c)
+        if m:
+            r = m.group("role").lower().replace("ş", "ș")
+            role = r
+        c = _NAME_SUFFIX_STRIP_RE.sub("", c).strip(" ,.;–-")
+        if not _looks_like_narrative_name(c):
+            continue
+        out.append((c, role))
+    return out
+
+
+def _parse_roster_narrative(block: str) -> list[dict[str, Any]]:
+    """Parse narrative roster from prose.
+
+    Two complementary captures: present-list (`au fost prezenți: A, B, C`)
+    and absent-list (`au absentat motivat: D, E`). Within the present-list,
+    a follow-on `Domnii deputați ... on-line` clause flips matching names
+    from `physical` to `online`. Substitution side-comments produce
+    `substituted` entries with a `substituted_by` Speaker.
+    """
+    by_name: dict[str, dict[str, Any]] = {}
+    order: list[str] = []
+
+    def _add(
+        name: str, mode: str, role: str | None, substitute: dict[str, Any] | None
+    ) -> None:
+        if name in by_name:
+            entry = by_name[name]
+            if mode == "substituted" or entry["mode"] == "physical":
+                entry["mode"] = mode
+            if substitute is not None:
+                entry["substituted_by"] = substitute
+            if role and entry["intra_committee_role"] is None:
+                entry["intra_committee_role"] = role
+            return
+        order.append(name)
+        by_name[name] = {
+            "speaker": make_speaker(raw=name, name=name),
+            "mode": mode,
+            "intra_committee_role": role,
+            "substituted_by": substitute,
+        }
+
+    # Present (default mode physical)
+    for m in _NARRATIVE_PRESENT_RE.finditer(block):
+        for name, role in _split_narrative_names(m.group("list")):
+            _add(name, "physical", role, None)
+    # Override with online subset
+    for m in _NARRATIVE_ONLINE_RE.finditer(block):
+        for name, role in _split_narrative_names(m.group("list")):
+            if name in by_name:
+                by_name[name]["mode"] = "online"
+            else:
+                _add(name, "online", role, None)
+    # Substitution side-comments — flip subject to substituted, attach
+    # substitute Speaker.
+    for m in _NARRATIVE_SUBSTITUTE_RE.finditer(block):
+        subject = _norm_name(m.group("subject"))
+        sub_name = _norm_name(m.group("sub"))
+        if not subject or not sub_name:
+            continue
+        substitute = make_speaker(raw=sub_name, name=sub_name)
+        if subject in by_name:
+            by_name[subject]["mode"] = "substituted"
+            by_name[subject]["substituted_by"] = substitute
+        else:
+            _add(subject, "substituted", None, substitute)
+    # Absent
+    for m in _NARRATIVE_ABSENT_RE.finditer(block):
+        for name, role in _split_narrative_names(m.group("list")):
+            if name in by_name:
+                # Don't overwrite a more-specific mode (online/substituted)
+                if by_name[name]["mode"] == "physical":
+                    by_name[name]["mode"] = "absent"
+            else:
+                _add(name, "absent", role, None)
+    return [by_name[n] for n in order]
+
+
+# Per-day numbered list parser. Two observed shapes:
+#   2008-form:  `N. NAME, Grupul parlamentar al X[, ROLE].`
+#               (group with dots: `P.N.L.`, `P.D.-L.`, `P.S.D.`)
+#   2021-form:  `N. NAME [– ROLE], Grupul parlamentar al X – prezent[ă].`
+# Both shapes are captured by a single regex: optional ` – ROLE` after the
+# name, then `, Grupul parlamentar al X`, then an optional trailing `,
+# ROLE` (2008-form). At most one role anchor fires per line; whichever
+# matches first wins.
+# Match the line in two phases: header (ordinal + name + optional role_pre +
+# `, Grupul parlamentar al `) anchors the row, then the rest of the line
+# is captured into `tail` for downstream group/role_post extraction. This
+# avoids the non-greedy/lookahead pitfalls when the group string contains
+# dots (`P.N.L.`).
+_PER_DAY_LINE_RE = re.compile(
+    r"^\s*(?P<ord>\d+)\.\s+"
+    r"(?P<name>[^,\n–-]+?)"
+    r"(?:\s*[–-]\s*(?P<role_pre>pre[șşs]edinte|vicepre[șşs]edinte|secretar|membru))?"
+    r"\s*,\s*"
+    r"Grupul\s+parlamentar\s+al\s+(?P<tail>[^\n]+)$",
+    re.MULTILINE | re.IGNORECASE,
+)
+_PER_DAY_TAIL_ROLE_RE = re.compile(
+    r"\b(?P<role>pre[șşs]edinte|vicepre[șşs]edinte|secretar|membru)\b",
+    re.IGNORECASE,
+)
+_PER_DAY_TAIL_GROUP_RE = re.compile(
+    r"^(?P<group>[A-Z][A-Za-z\.\-]*(?:\s+[A-Z][A-Za-z\.\-]*)*)",
+)
+
+
+def _parse_roster_per_day(block: str) -> list[dict[str, Any]]:
+    """Parse roster from numbered `N. NAME[, ROLE] , Grupul parlamentar al X[, ROLE]`
+    lines. Tail is split into group + role separately so dot-bearing
+    abbreviations (`P.N.L.`, `P.D.-L.`) parse cleanly.
+
+    Joins with the same-block per-day trigger; restart sequences and
+    multi-day re-listings collapse into the first occurrence per name.
+    """
+    out: list[dict[str, Any]] = []
+    seen: set[str] = set()
+    for m in _PER_DAY_LINE_RE.finditer(block):
+        try:
+            ordinal = int(m.group("ord"))
+        except (TypeError, ValueError):
+            continue
+        if not (1 <= ordinal <= 200):
+            continue
+        name = _norm_name(m.group("name"))
+        if not name or name in seen:
+            continue
+        tail = m.group("tail") or ""
+        # Group: leading capital-prefixed token sequence at the start of the
+        # tail. `P.N.L.`, `P.D.-L.`, `UDMR`, `minorităților naționale` all
+        # match. Stops at a `,` / ` – ` / `.` that follows whitespace.
+        group: str | None = None
+        gm = _PER_DAY_TAIL_GROUP_RE.match(tail.strip())
+        if gm:
+            group = gm.group("group").rstrip(" .,")
+        # Role: take the FIRST role keyword anywhere in the tail OR the
+        # role_pre captured before the group (whichever populates first).
+        role_raw: str | None = None
+        if m.group("role_pre"):
+            role_raw = m.group("role_pre").lower().replace("ş", "ș")
+        else:
+            rm = _PER_DAY_TAIL_ROLE_RE.search(tail)
+            if rm:
+                role_raw = rm.group("role").lower().replace("ş", "ș")
+        out.append(
+            {
+                "speaker": make_speaker(raw=name, name=name, party_group=group or None),
+                "mode": "physical",
+                "intra_committee_role": role_raw,
+                "substituted_by": None,
+            }
+        )
+        seen.add(name)
+    return out
+
+
+def _parse_roster(block: str) -> list[dict[str, Any]]:
+    """Run all three sub-parsers and merge the results.
+
+    Hybrid blocks (e.g. 2024+ docs that have a tabular roster for one day
+    and a narrative roster for another, or 2008-era docs that interleave
+    per-day numbered lists with narrative summaries) need all three
+    sub-parsers' outputs combined. Each sub-parser is internally
+    self-gated by its own trigger pattern — running on a block without
+    its trigger returns [] safely.
+
+    Merging strategy: name-keyed dedup with priority `tabular > per_day >
+    narrative`. The first sub-parser that emits a name wins (richer mode
+    + role information from explicit roster forms is preferred over
+    inferred narrative-prose data). Empty rosters return [] honestly.
+    """
+    by_name: dict[str, dict[str, Any]] = {}
+    order: list[str] = []
+    for entries in (
+        _parse_roster_tabular(block),
+        _parse_roster_per_day(block),
+        _parse_roster_narrative(block),
+    ):
+        for entry in entries:
+            name = entry["speaker"].get("name") or entry["speaker"].get("raw") or ""
+            key = name.lower()
+            if not key:
+                continue
+            if key in by_name:
+                # Enrich existing entry: pick up substituted_by / role if
+                # the new entry has them and the existing doesn't.
+                exist = by_name[key]
+                if exist["substituted_by"] is None and entry["substituted_by"]:
+                    exist["substituted_by"] = entry["substituted_by"]
+                if exist["intra_committee_role"] is None and entry.get(
+                    "intra_committee_role"
+                ):
+                    exist["intra_committee_role"] = entry["intra_committee_role"]
+                continue
+            order.append(key)
+            by_name[key] = entry
+    return [by_name[k] for k in order]
+
+
+# -- Joint-with parser (v0.2.0) --------------------------------------------
+
+
+# Discriminator: each comma-separated chunk that names a joint committee
+# must literally start with `Comisia` / `Comisiei` / `Comisiilor` AND its
+# second token must be a known committee-name connector (`pentru`,
+# `juridică`, `de`, `economică`, `permanentă`, `comună`, `specială`,
+# `pentru…`, etc.) — not an article like `a` or a verb. This
+# disambiguates Romanian conjunction:
+#   "Comisia X, Comisia Y și Comisia Z"     → 3 committees
+#   "Comisia pentru X, Y și Z"              → 1 committee (subject list)
+#   "Comisia X, comisia a deliberat"        → 1 committee (verb tail)
+_JOINT_HEADER_RE = re.compile(
+    r"\b[îi]n\s+(?:[șş]edin[țţt][ăa]\s+)?comun[ăa]?\s+cu\s+"
+    r"(?P<list>Comisi(?:a|ile|ilor|ei)\b[^.\n;:]+)",
+    re.IGNORECASE,
+)
+# Bill-review false-positive filter: `raport/aviz/sesizare/fond/studiu
+# (în) comun cu Comisia X` is a joint *bill review*, not a joint *meeting*.
+# Schema's `joint_with[]` lives on `CommitteeMeeting` and means joint
+# meeting only — these forms must be rejected. We scan the ~30-char
+# window preceding the `în [ședință] comună cu` trigger; if we see one of
+# the bill-review nouns, we drop the match.
+_JOINT_BILL_REVIEW_PREFIX_RE = re.compile(
+    r"\b(?:raport(?:\s+comun)?|aviz(?:\s+comun)?|sesizar[eo]|sesizat[ăa]|fond"
+    r"|studiu|raportor)\b",
+    re.IGNORECASE,
+)
+# Splitting on `Comisi(a|ile|ilor|ei)` starts — NOT on commas — handles the
+# 2022-era multi-clause names like `Comisia juridică, de disciplină și
+# imunități a Camerei Deputaților, Comisia ...` where each committee
+# carries internal commas inside its own descriptive clause.
+_JOINT_COMISIA_START_RE = re.compile(
+    r"\bComisi(?:a|ile|ilor|ei)\b",
+    re.IGNORECASE,
+)
+# A real committee name's second token is one of these connectors. The
+# corpus inventory: `pentru` (overwhelmingly common), `juridic[ăa]`,
+# `economic[ăa]`, `de`, `permanent[ăa]`, `comun[ăa]`, `special[ăa]`,
+# `parlamentar[ăa]`, plus a few proper-noun openers (`Națională`,
+# `Centrală`). Stops verb-phrase imposters like `Comisia a deliberat`.
+_JOINT_CONNECTOR_TOKEN_RE = re.compile(
+    r"^Comisi(?:a|ile|ilor|ei)\s+"
+    r"(?:pentru|juridic[ăa]|economic[ăa]|de|permanent[ăa]|comun[ăa]"
+    r"|special[ăa]|parlamentar[ăa]|na[țţ]ional[ăa]|central[ăa]|anchet[ăa])\b",
+    re.IGNORECASE,
+)
+# Per-chunk chamber tail: `a Camerei Deputaților` (genitive) /
+# `din Camera Deputaților` (nominative) / `din cadrul Camerei Deputaților`
+# (the older formal locative) / `a Senatului` / `din Senat[ul]` /
+# `din cadrul Senatului`.
+# Detected per chunk because multi-chamber clauses (Camera+Senat
+# side-by-side) lose info if we collapse to one chamber at the clause
+# level. The `Camer[ae]i?` class accepts both `Camera` and `Camerei`.
+_JOINT_CHAMBER_RE = re.compile(
+    r"\b(?:din(?:\s+cadrul)?|a)\s+(?P<chamber>(?:Camer[ae]i?\s+Deputa[țţt]ilor|Senat(?:ul|ului)?))\b",
+    re.IGNORECASE,
+)
+# Trim trailing chamber/verb noise off the captured name.
+_JOINT_NAME_TRIM_RE = re.compile(
+    r"\s+(?:din(?:\s+cadrul)?|a)\s+(?:Camer[ae]i?\s+Deputa[țţt]ilor|Senat(?:ul|ului)?).*$"
+    r"|\s+(?:a\s+desf[ăa][șş]urat|s-a\s+desf[ăa][șş]urat|a\s+avut\s+loc).*$"
+    r"|,\s+a\s+desf[ăa][șş]urat.*$"
+    r"|,\s+a\s+deliberat.*$",
+    re.IGNORECASE,
+)
+
+
+def _parse_joint_with(block: str) -> list[dict[str, Any]]:
+    """Detect `în comun cu Comisia X[, Comisia Y[, Comisia Z]]` clauses.
+
+    Each chunk must literally start with `Comisia` / `Comisiei` /
+    `Comisiilor` to count — this is the conjunction-disambiguation
+    contract. `chamber` is best-effort: `din Camera Deputaților` /
+    `din Senat[ul]` / null when the clause carries no explicit chamber.
+    Subject-list ambiguity (`Comisia pentru X, Y și Z` — one committee
+    with a 3-item subject) is resolved by the literal-chunk-prefix check;
+    the trailing chunks aren't `Comisia`-prefixed so they're discarded.
+    """
+    out: list[dict[str, Any]] = []
+    seen: set[tuple[str, str | None]] = set()
+    for m in _JOINT_HEADER_RE.finditer(block):
+        # Reject bill-review false-positives: when the trigger is preceded
+        # within 30 chars by `raport/aviz/sesizare/fond/studiu`, this is a
+        # joint *bill review* annotation in an agenda item — not a joint
+        # *meeting*. The schema slot is meeting-level, so drop it.
+        prefix_window = block[max(0, m.start() - 30) : m.start()]
+        if _JOINT_BILL_REVIEW_PREFIX_RE.search(prefix_window):
+            continue
+        list_text = m.group("list").strip()
+        # Find every `Comisia/Comisiei/Comisiilor` start in the list. Each
+        # one opens a new chunk; chunks span [start_i, start_{i+1}) and
+        # may contain internal commas (`Comisia juridică, de disciplină și
+        # imunități a Camerei Deputaților`) without splitting them.
+        starts = [sm.start() for sm in _JOINT_COMISIA_START_RE.finditer(list_text)]
+        if not starts:
+            continue
+        # Trailing-chamber inheritance: when a list has a single chamber
+        # tail at the end (`Comisia X, Comisia Y și Comisia Z din Senat`),
+        # all chunks inherit that chamber. We compute the inherited chamber
+        # from the last chunk and apply it to chunks that don't carry an
+        # explicit chamber of their own.
+        chunks_data: list[tuple[str, str | None]] = []
+        for i, start in enumerate(starts):
+            end = starts[i + 1] if i + 1 < len(starts) else len(list_text)
+            chunk = list_text[start:end].strip()
+            # Strip leading/trailing punctuation glue ("și ", ", ").
+            chunk = re.sub(r"^[,;\s]+|[,;\s]+$", "", chunk)
+            chunk = re.sub(r"\s+[șşs][ii]\s*$", "", chunk, flags=re.IGNORECASE)
+            if not chunk:
+                continue
+            # Connector check — verb-phrase imposters like `Comisia a
+            # deliberat` are filtered here (`a` is not in the connector
+            # vocabulary).
+            if not _JOINT_CONNECTOR_TOKEN_RE.match(chunk):
+                continue
+            cm = _JOINT_CHAMBER_RE.search(chunk)
+            chamber: str | None = None
+            if cm:
+                ch = cm.group("chamber").lower()
+                if "camer" in ch:
+                    chamber = "camera"
+                elif "senat" in ch:
+                    chamber = "senat"
+            chunks_data.append((chunk, chamber))
+        # Trailing-chamber inheritance: if the LAST chunk has a chamber and
+        # at least one earlier chunk has no chamber, propagate the last
+        # chunk's chamber back to chunks that lack one. This handles
+        # `Comisia X, Comisia Y și Comisia Z din Senat` (all senat) without
+        # over-applying when explicit per-chunk chambers exist
+        # (`Comisia X din Camera Deputaților, Comisia Y din Senat`).
+        if chunks_data:
+            last_chamber = chunks_data[-1][1]
+            explicit_chambers = {ch for _, ch in chunks_data if ch is not None}
+            if last_chamber is not None and len(explicit_chambers) == 1:
+                chunks_data = [
+                    (c, ch if ch is not None else last_chamber) for c, ch in chunks_data
+                ]
+        for chunk, chamber in chunks_data:
+            # Trim trailing chamber + verb noise off the captured name.
+            name = _JOINT_NAME_TRIM_RE.sub("", chunk).strip(" .,;")
+            if not name:
+                continue
+            name = _norm_name(name)
+            key = (name.lower(), chamber)
+            if key in seen:
+                continue
+            seen.add(key)
+            out.append({"name": name, "chamber": chamber})
+    return out
 
 
 # -- Boilerplate (committee-specific) --------------------------------------
@@ -964,14 +1855,16 @@ def _build_committee(
     fmt = _parse_format(block)
     purpose = _parse_purpose(block)
     agenda = _build_agenda(block, block_start, ctx)
+    roster = _parse_roster(block)
+    joint_with = _parse_joint_with(block)
     meeting_span = ctx.make_source_span((block_start, block_end))
     meeting = {
         "dates": dates,
         "time_windows": time_windows,
         "format": fmt,
         "purpose": purpose,
-        "joint_with": [],
-        "roster": [],
+        "joint_with": joint_with,
+        "roster": roster,
         "agenda": agenda,
         "source_span": meeting_span,
         "extraction": {

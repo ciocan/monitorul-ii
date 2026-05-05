@@ -282,6 +282,63 @@ def test_classify_kind_handles_mojibake_special():
     assert cs._classify_kind("Comisia special„ pentru …") == "special"
 
 
+# v0.2.0: joint Camera+Senat permanent committees → `special_joint` --------
+
+
+def test_classify_kind_special_joint_permanent_comuna():
+    """`Comisia permanentă comună a Camerei Deputaților și Senatului ...`
+    classifies as `special_joint` (joint variant of permanent — UNESCO,
+    securitate națională, etc.)."""
+    name = (
+        "Comisia permanentă comună a Camerei Deputaților și Senatului pentru "
+        "relația cu UNESCO"
+    )
+    assert cs._classify_kind(name) == "special_joint"
+
+
+def test_classify_kind_special_joint_via_camera_senat_co_anchor():
+    """`Comisia permanentă a Camerei Deputaților și Senatului privind
+    Statutul deputaților ...` carries the joint anchor without the
+    `comună` modifier; should still classify as `special_joint`."""
+    name = (
+        "Comisia permanentă a Camerei Deputaților și Senatului privind "
+        "Statutul deputaților și al senatorilor"
+    )
+    assert cs._classify_kind(name) == "special_joint"
+
+
+def test_classify_kind_special_joint_for_specially_marked_joint():
+    """`Comisia specială comună ...` collapses to `special_joint`
+    (special + joint markers both fire)."""
+    name = (
+        "Comisia specială comună a Camerei Deputaților și Senatului pentru "
+        "combaterea traficului de persoane"
+    )
+    assert cs._classify_kind(name) == "special_joint"
+
+
+def test_classify_kind_inquiry_joint_for_joint_inquiry():
+    """`Comisia comună de anchetă a Camerei Deputaților și Senatului ...`
+    fires `inquiry` + `joint` → `inquiry_joint`."""
+    name = "Comisia comună de anchetă a Camerei Deputaților și Senatului"
+    assert cs._classify_kind(name) == "inquiry_joint"
+
+
+def test_classify_kind_keeps_plain_permanent_for_single_chamber():
+    """`Comisia pentru muncă și protecție socială` carries no joint
+    anchor and stays `permanent`."""
+    assert cs._classify_kind("Comisia pentru muncă și protecție socială") == "permanent"
+
+
+def test_classify_kind_keeps_special_for_single_chamber_special():
+    """Single-chamber `Comisia specială ...` (no joint markers) stays
+    `special`, not `special_joint`."""
+    name = "Comisia specială a Camerei Deputaților pentru automatizare"
+    # `Camerei Deputaților` alone (without `și Senatului`) is not the
+    # joint anchor — single-chamber special commission.
+    assert cs._classify_kind(name) == "special"
+
+
 # -- committee name normalisation ------------------------------------------
 
 
@@ -461,3 +518,334 @@ def test_extractor_version_format():
 
 def test_extractor_label_format():
     assert re.match(r"^regex@committee_synthesis@\d+\.\d+\.\d+$", cs.EXTRACTOR_LABEL)
+
+
+# -- roster format detection (v0.2.0) --------------------------------------
+
+
+def test_detect_roster_format_tabular():
+    block = (
+        "## 1. **Comisia X**\n\n"
+        "|Numele și prenumele||Prezența fizică|\n"
+        "|---|---|---|\n"
+        "|Popescu Ion|||Prezent fizic|\n"
+        "|Ionescu Mara|||Prezent online|\n"
+    )
+    assert cs._detect_roster_format(block) == "tabular"
+
+
+def test_detect_roster_format_per_day():
+    block = (
+        "## 1. **Comisia Y**\n\n"
+        "- La lucrările comisiei din data de 28 ianuarie 2008\n"
+        "- au fost prezenți:\n"
+        "1. Mircea Ciopraga, Grupul parlamentar al P.N.L., vicepreședinte.\n"
+        "2. Aurelia Vasile, Grupul parlamentar al P.S.D., secretar.\n"
+    )
+    assert cs._detect_roster_format(block) == "per_day"
+
+
+def test_detect_roster_format_narrative():
+    block = (
+        "Comisia ... și-a desfășurat lucrările.\n\n"
+        "La lucrări au fost prezenți următorii deputați: Ana Popescu, Ion Ionescu și "
+        "Maria Stoica.\n"
+    )
+    assert cs._detect_roster_format(block) == "narrative"
+
+
+def test_detect_roster_format_returns_none_when_no_signals():
+    block = "Just some prose that has no roster information."
+    assert cs._detect_roster_format(block) is None
+
+
+# -- tabular roster parser -------------------------------------------------
+
+
+def test_parse_roster_tabular_simple_two_column_table():
+    block = (
+        "|Numele și prenumele|Prezența fizică|\n"
+        "|---|---|\n"
+        "|Popescu Ion|Prezent fizic|\n"
+        "|Ionescu Mara|Prezent online|\n"
+        "|Stoica Vasile|Absent|\n"
+    )
+    roster = cs._parse_roster_tabular(block)
+    assert len(roster) == 3
+    by_name = {r["speaker"]["name"]: r for r in roster}
+    assert by_name["Popescu Ion"]["mode"] == "physical"
+    assert by_name["Ionescu Mara"]["mode"] == "online"
+    assert by_name["Stoica Vasile"]["mode"] == "absent"
+
+
+def test_parse_roster_tabular_two_pairs_per_row():
+    """The 2025 corpus shape: `|NAME1|||STATUS1|NAME2||STATUS2|` — two
+    parallel name/status pairs per row, separated by empty cells."""
+    block = (
+        "|Numele și prenumele|||Prezența|Numele și prenumele||Prezența|\n"
+        "|---|---|---|---|---|---|---|\n"
+        "|Popescu Ion|||Prezent fizic|Stoica Vasile||Prezent online|\n"
+    )
+    roster = cs._parse_roster_tabular(block)
+    names = {r["speaker"]["name"] for r in roster}
+    assert "Popescu Ion" in names
+    assert "Stoica Vasile" in names
+    by_name = {r["speaker"]["name"]: r["mode"] for r in roster}
+    assert by_name["Popescu Ion"] == "physical"
+    assert by_name["Stoica Vasile"] == "online"
+
+
+def test_parse_roster_tabular_filters_party_group_labels():
+    """Single-token cells like `Neafiliată` / `UDMR` must NOT pair with
+    a status cell as if they were a person name."""
+    block = (
+        "|Numele și prenumele|Grupul|Prezența|\n"
+        "|---|---|---|\n"
+        "|Popescu Ion|UDMR|Prezent fizic|\n"
+        "|Stoica Vasile|Neafiliată|Absent|\n"
+    )
+    roster = cs._parse_roster_tabular(block)
+    names = {r["speaker"]["name"] for r in roster}
+    assert "Popescu Ion" in names
+    assert "Stoica Vasile" in names
+    assert "UDMR" not in names
+    assert "Neafiliată" not in names
+
+
+def test_parse_roster_tabular_empty_input_returns_empty():
+    assert cs._parse_roster_tabular("no table here") == []
+
+
+# -- narrative roster parser ----------------------------------------------
+
+
+def test_parse_roster_narrative_basic_present_list():
+    block = (
+        "La lucrările comisiei au fost prezenți următorii deputați: Ana Popescu, "
+        "Ion Ionescu și Maria Stoica.\n"
+    )
+    roster = cs._parse_roster_narrative(block)
+    names = [r["speaker"]["name"] for r in roster]
+    assert names == ["Ana Popescu", "Ion Ionescu", "Maria Stoica"]
+    assert all(r["mode"] == "physical" for r in roster)
+
+
+def test_parse_roster_narrative_with_online_subset():
+    """`Domnii deputați A, B au fost prezenți on-line` flips A and B from
+    the default `physical` to `online`."""
+    block = (
+        "La lucrări au fost prezenți: Ana Popescu, Ion Ionescu, Maria Stoica și "
+        "Vlad Munteanu.\n"
+        "Domnii deputați Ion Ionescu și Vlad Munteanu au fost prezenți on-line.\n"
+    )
+    roster = cs._parse_roster_narrative(block)
+    by_name = {r["speaker"]["name"]: r["mode"] for r in roster}
+    assert by_name["Ana Popescu"] == "physical"
+    assert by_name["Ion Ionescu"] == "online"
+    assert by_name["Maria Stoica"] == "physical"
+    assert by_name["Vlad Munteanu"] == "online"
+
+
+def test_parse_roster_narrative_with_absent_clause():
+    block = (
+        "La lucrări au fost prezenți: Ana Popescu și Ion Ionescu.\n"
+        "Au absentat motivat: Maria Stoica și Vlad Munteanu.\n"
+    )
+    roster = cs._parse_roster_narrative(block)
+    by_name = {r["speaker"]["name"]: r["mode"] for r in roster}
+    assert by_name["Ana Popescu"] == "physical"
+    assert by_name["Maria Stoica"] == "absent"
+    assert by_name["Vlad Munteanu"] == "absent"
+
+
+def test_parse_roster_narrative_captures_role_suffix():
+    """`Natalia Intotero – președinte` → role=`președinte` and the role
+    suffix is stripped from the canonical name."""
+    block = (
+        "La lucrări au fost prezenți: Natalia Intotero – președinte, Aurel Nechita "
+        "– vicepreședinte, Cristian Țepeluș – secretar.\n"
+    )
+    roster = cs._parse_roster_narrative(block)
+    by_name = {r["speaker"]["name"]: r for r in roster}
+    assert by_name["Natalia Intotero"]["intra_committee_role"] == "președinte"
+    assert by_name["Aurel Nechita"]["intra_committee_role"] == "vicepreședinte"
+    assert by_name["Cristian Țepeluș"]["intra_committee_role"] == "secretar"
+
+
+def test_parse_roster_narrative_substitution_marks_subject_substituted():
+    """`Cătălina Ciofu – înlocuită de domnul deputat Jaro Norbert Marșalic`
+    flips `Cătălina Ciofu` to mode=`substituted` and attaches the
+    substitute Speaker."""
+    block = (
+        "La lucrări au fost prezenți: Cătălina Ciofu – înlocuită de domnul deputat "
+        "Jaro Norbert Marșalic, Brian Cristian și Romulus-Marius Damian.\n"
+    )
+    roster = cs._parse_roster_narrative(block)
+    by_name = {r["speaker"]["name"]: r for r in roster}
+    assert by_name["Cătălina Ciofu"]["mode"] == "substituted"
+    assert (
+        by_name["Cătălina Ciofu"]["substituted_by"]["name"] == "Jaro Norbert Marșalic"
+    )
+
+
+# -- per-day numbered roster parser ---------------------------------------
+
+
+def test_parse_roster_per_day_2008_form_with_role_after_group():
+    """2008-era: `N. NAME, Grupul parlamentar al X, ROLE.`"""
+    block = (
+        "1. Mircea Ciopraga, Grupul parlamentar al P.N.L., vicepreședinte.\n"
+        "2. Aurelia Vasile, Grupul parlamentar al P.S.D., secretar.\n"
+        "3. Ioan Bivolaru, Grupul parlamentar al P.S.D.\n"
+    )
+    roster = cs._parse_roster_per_day(block)
+    assert len(roster) == 3
+    by_name = {r["speaker"]["name"]: r for r in roster}
+    assert by_name["Mircea Ciopraga"]["intra_committee_role"] == "vicepreședinte"
+    assert by_name["Aurelia Vasile"]["intra_committee_role"] == "secretar"
+    assert by_name["Ioan Bivolaru"]["intra_committee_role"] is None
+    # Party group preserved in Speaker
+    assert by_name["Mircea Ciopraga"]["speaker"]["party_group"] is not None
+
+
+def test_parse_roster_per_day_2021_form_with_role_before_group():
+    """2021-era: `N. NAME – ROLE, Grupul parlamentar al X – prezent[ă].`"""
+    block = (
+        "1. Bende Sándor – președinte, Grupul parlamentar al UDMR – prezent.\n"
+        "2. Ioan Mang – vicepreședinte, Grupul parlamentar al PSD – prezent.\n"
+    )
+    roster = cs._parse_roster_per_day(block)
+    by_name = {r["speaker"]["name"]: r for r in roster}
+    assert by_name["Bende Sándor"]["intra_committee_role"] == "președinte"
+    assert by_name["Ioan Mang"]["intra_committee_role"] == "vicepreședinte"
+
+
+def test_parse_roster_per_day_skips_high_ordinals():
+    """Schema caps ordinals at 200 — drop anything above that."""
+    block = (
+        "1. Ana Popescu, Grupul parlamentar al PNL.\n"
+        "201. Spurious Match, Grupul parlamentar al PSD.\n"
+    )
+    roster = cs._parse_roster_per_day(block)
+    names = {r["speaker"]["name"] for r in roster}
+    assert "Ana Popescu" in names
+    assert "Spurious Match" not in names
+
+
+# -- joint_with parser ----------------------------------------------------
+
+
+def test_parse_joint_with_single_committee():
+    block = "Comisia A, în comun cu Comisia pentru industrii și servicii din Camera Deputaților, a desfășurat ședința."
+    out = cs._parse_joint_with(block)
+    assert len(out) == 1
+    assert out[0]["name"].lower().startswith("comisia pentru industrii")
+    assert out[0]["chamber"] == "camera"
+
+
+def test_parse_joint_with_multiple_committees():
+    """`în comun cu Comisia X, Comisia Y și Comisia Z din Senat` → three
+    items, all chamber=senat."""
+    block = (
+        "Comisia X, în comun cu Comisia juridică, Comisia pentru sănătate "
+        "și Comisia pentru afaceri europene din Senat, a desfășurat ședința."
+    )
+    out = cs._parse_joint_with(block)
+    names = [c["name"] for c in out]
+    assert any("juridic" in n.lower() for n in names)
+    assert any("sănătate" in n.lower() for n in names)
+    assert any("afaceri europene" in n.lower() for n in names)
+    assert len(out) >= 3
+    assert all(c["chamber"] == "senat" for c in out)
+
+
+def test_parse_joint_with_disambiguates_subject_list():
+    """`Comisia pentru muncă, sănătate și educație` is ONE committee with a
+    3-item subject list — only chunks that literally start with `Comisia`
+    count as items. So `în comun cu Comisia pentru X, Y și Z` collapses
+    to a single committee."""
+    block = (
+        "În comun cu Comisia pentru muncă, sănătate și educație, comisia a deliberat."
+    )
+    out = cs._parse_joint_with(block)
+    # Either we capture exactly the first chunk (`Comisia pentru muncă`)
+    # OR we fail to capture trailing comma-chunks because they don't start
+    # with `Comisia`. Either way, only ONE committee is emitted.
+    assert len(out) == 1
+
+
+def test_parse_joint_with_no_marker_returns_empty():
+    block = "Comisia X a desfășurat ședința separat. Niciun comun cu altă comisie."
+    out = cs._parse_joint_with(block)
+    assert out == []
+
+
+def test_parse_joint_with_no_chamber_when_unspecified():
+    """`în comun cu Comisia X` (no chamber tail) → chamber=None."""
+    block = "Comisia A, în comun cu Comisia juridică, a deliberat."
+    out = cs._parse_joint_with(block)
+    assert len(out) == 1
+    assert out[0]["chamber"] is None
+
+
+# -- tabular agenda parser ------------------------------------------------
+
+
+def test_build_tabular_agenda_basic_3_row_table(monkeypatch):
+    """Three rows with PL-x cite + Scopul + Rezoluție columns. Each row
+    becomes one CommitteeAgendaItem with primary_references + outcome
+    populated."""
+
+    class _MockCtx:
+        def make_source_span(self, span):
+            return {"chars": list(span), "lines": [1, 1], "content_sha": "00" * 6}
+
+    block = (
+        "|Nr.|PL-x|Titlu|Scopul|Rezoluție|\n"
+        "|---|---|---|---|---|\n"
+        "|1.|PL-x 188/2022|Proiect de lege pentru aprobarea OUG nr. 20/2022|Raport|În urma examinării, deputații au hotărât adoptarea proiectului.|\n"
+        "|2.|PL-x 434/2022|Proiect de lege pentru modificarea art. 3 din Legea 15/1994|Raport|În urma examinării, deputații au hotărât respingerea proiectului.|\n"
+        "|3.|PL-x 263/2024|Proiect de lege privind Codul fiscal|Raport|În urma examinării, deputații au hotărât adoptarea cu unanimitate de voturi.|\n"
+    )
+    items = cs._build_tabular_agenda(block, 0, _MockCtx())
+    assert len(items) == 3
+    assert items[0]["ordinal"] == 1
+    assert items[2]["ordinal"] == 3
+    # Each row has at least one bill primary_reference
+    for it in items:
+        bill_refs = [r for r in it["primary_references"] if r["type"] == "bill"]
+        assert bill_refs, f"item {it['ordinal']} missing bill ref"
+    # Outcome text recovered for each row
+    assert items[0]["outcome_text"] is not None
+    assert "În urma" in items[0]["outcome_text"]
+
+
+def test_build_tabular_agenda_mixed_rows_some_without_plx():
+    """Rows without a PL-x cite still emit an item — title-only fallback."""
+
+    class _MockCtx:
+        def make_source_span(self, span):
+            return {"chars": list(span), "lines": [1, 1], "content_sha": "00" * 6}
+
+    block = (
+        "|Nr.|PL-x|Titlu|Rezoluție|\n"
+        "|---|---|---|---|\n"
+        "|1.|PL-x 100/2024|Proiect de lege A|Raport|\n"
+        "|2.|Diverse|||\n"
+    )
+    items = cs._build_tabular_agenda(block, 0, _MockCtx())
+    # First row populates fully; second row has no PL-x but ordinal+title get
+    # captured.
+    assert items
+    assert items[0]["ordinal"] == 1
+    bill_refs = [r for r in items[0]["primary_references"] if r["type"] == "bill"]
+    assert bill_refs
+
+
+def test_build_tabular_agenda_returns_empty_when_no_table():
+    class _MockCtx:
+        def make_source_span(self, span):
+            return {"chars": list(span), "lines": [1, 1], "content_sha": "00" * 6}
+
+    block = "Just narrative text with no agenda table."
+    assert cs._build_tabular_agenda(block, 0, _MockCtx()) == []

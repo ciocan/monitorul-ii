@@ -217,3 +217,106 @@ def test_committee_synthesis_fixture_period_present(tmp_path: Path):
         period = r.sidecar["body"]["period"]
         assert period["start"] is not None, f"{name}: period.start is null"
         assert period["end"] is not None, f"{name}: period.end is null"
+
+
+# v0.2.0 fixture-level assertions ------------------------------------------
+
+
+def test_2025_28c_unesco_committee_classifies_as_special_joint(tmp_path: Path):
+    """The 20th committee in 2025/28c is `Comisia permanentă comună a
+    Camerei Deputaților și Senatului pentru relația cu UNESCO` — this is
+    the canonical joint-permanent committee that v0.2.0 graduates from
+    `permanent` to `special_joint`."""
+    md_path = _isolated("2025-08-12_MO-PII-28c-2025.md", tmp_path)
+    r = extract(md_path, write=False)
+    body = r.sidecar["body"]
+    matches = [
+        c
+        for c in body["committees"]
+        if "UNESCO" in c["name"] or "unesco" in c["name"].lower()
+    ]
+    assert matches, "no UNESCO committee found"
+    for c in matches:
+        assert c["kind"] == "special_joint", (
+            f"{c['name']!r}: expected special_joint, got {c['kind']!r}"
+        )
+
+
+def test_2025_28c_tabular_roster_populates(tmp_path: Path):
+    """2025 fixture: the first committee (`buget, finanțe și bănci`) has
+    a tabular roster — v0.2.0's tabular parser populates a non-empty
+    roster[]."""
+    md_path = _isolated("2025-08-12_MO-PII-28c-2025.md", tmp_path)
+    r = extract(md_path, write=False)
+    body = r.sidecar["body"]
+    first = body["committees"][0]
+    roster = first["meetings"][0]["roster"]
+    assert len(roster) >= 10, f"expected ≥10 roster entries, got {len(roster)}"
+    # Spot-check: chair should be in the roster (Huțucă Bogdan-Iulian)
+    names = {r["speaker"]["name"] for r in roster}
+    assert any("Huțucă" in n for n in names)
+    # All entries have the schema-required keys
+    for entry in roster:
+        assert set(entry.keys()) == {
+            "speaker",
+            "mode",
+            "intra_committee_role",
+            "substituted_by",
+        }
+        assert entry["mode"] in {"physical", "online", "absent", "substituted"}
+
+
+def test_2025_28c_tabular_agenda_populates(tmp_path: Path):
+    """The first committee in 2025/28c has a tabular agenda (`|Nr.|PL-x|...`)
+    that v0.1's narrative-only parser missed. v0.2.0 should recover it."""
+    md_path = _isolated("2025-08-12_MO-PII-28c-2025.md", tmp_path)
+    r = extract(md_path, write=False)
+    body = r.sidecar["body"]
+    first = body["committees"][0]
+    agenda = first["meetings"][0]["agenda"]
+    assert len(agenda) >= 3, f"expected ≥3 agenda items, got {len(agenda)}"
+
+
+def test_2018_1c_narrative_roster_populates(tmp_path: Path):
+    """2018 fixture: at least 3 committees should have a populated narrative
+    roster (the `au fost prezenți: A, B, C` form)."""
+    md_path = _isolated("2018-01-05_MO-PII-1c-2018.md", tmp_path)
+    r = extract(md_path, write=False)
+    body = r.sidecar["body"]
+    populated = sum(1 for c in body["committees"] if c["meetings"][0]["roster"])
+    assert populated >= 3, (
+        f"expected ≥3 committees with populated narrative rosters, got {populated}"
+    )
+
+
+def test_2008_1c_per_day_roster_with_party_groups(tmp_path: Path):
+    """2008 fixture: the per-day numbered roster form populates with
+    party_group on the speaker (`Grupul parlamentar al P.N.L.`)."""
+    md_path = _isolated("2008-02-05_MO-PII-1c-2008.md", tmp_path)
+    r = extract(md_path, write=False)
+    body = r.sidecar["body"]
+    # First committee (industrii și servicii) has a per-day roster
+    first = body["committees"][0]
+    roster = first["meetings"][0]["roster"]
+    assert len(roster) >= 5, f"expected ≥5 roster entries, got {len(roster)}"
+    # At least one entry has a non-null party_group
+    with_group = [e for e in roster if e["speaker"]["party_group"]]
+    assert with_group, "no roster entry carries party_group"
+
+
+def test_2022_1c_joint_with_populates(tmp_path: Path):
+    """2022 fixture: at least one committee carries a populated
+    `joint_with[]` — the v0.2.0 parser detects `în comun cu Comisia X`
+    clauses."""
+    md_path = _isolated("2022-01-04_MO-PII-1c-2022.md", tmp_path)
+    r = extract(md_path, write=False)
+    body = r.sidecar["body"]
+    populated = sum(1 for c in body["committees"] if c["meetings"][0]["joint_with"])
+    assert populated >= 1, (
+        f"expected ≥1 committee with populated joint_with, got {populated}"
+    )
+
+
+def test_extractor_version_is_v02(tmp_path: Path):
+    """v0.2.0 graduation."""
+    assert EXTRACTOR_VERSION == "0.2.0"

@@ -787,10 +787,10 @@ Four hand-picked fixtures span the corpus eras:
 
 | Fixture | Layout | Coverage |
 |---|---|---|
-| `2008-02-05_MO-PII-1c-2008.md` | Pre-pandemic narrative agenda + numbered roster, occasional `�` mojibake on PRE�EDINTE | 0.9997 |
-| `2018-01-05_MO-PII-1c-2018.md` | 20-committee modern narrative-agenda baseline | 0.9998 |
-| `2022-01-04_MO-PII-1c-2022.md` | Pandemic-era 17-committee, mixed format markers, `audiere candidat` purpose | 0.9997 |
-| `2025-08-12_MO-PII-28c-2025.md` | Heavily tabular agenda + roster, 20 committees | 0.9998 |
+| `2008-02-05_MO-PII-1c-2008.md` | Pre-pandemic narrative agenda + per-day numbered roster (`P.N.L.`/`P.S.D.` party-group abbreviations), occasional `�` mojibake on PRE�EDINTE; `Comisia permanentă a Camerei Deputaților și Senatului privind Statutul deputaților` triggers v0.2.0 `special_joint` graduation | 0.9997 |
+| `2018-01-05_MO-PII-1c-2018.md` | 20-committee modern narrative-agenda + narrative roster baseline (`au fost prezenți: A, B, C` / `au absentat: D, E`) | 0.9998 |
+| `2022-01-04_MO-PII-1c-2022.md` | Pandemic-era 17-committee, mixed format markers, `audiere candidat` purpose, hybrid roster (per-day with role-before-group, narrative with substitution side-comments), `în comun cu Comisia X din Senat` joint clauses | 0.9997 |
+| `2025-08-12_MO-PII-28c-2025.md` | Heavily tabular agenda + tabular roster (two-pairs-per-row `|NAME|||STATUS|NAME||STATUS|`), 20 committees; UNESCO permanent joint committee triggers v0.2.0 `special_joint` graduation | 0.9998 |
 
 Discovery-loop sweep over all 976 c-suffix MDs (2000-2026):
 
@@ -815,22 +815,74 @@ Mean is well above the target 0.90; median above the target 0.95; the absolute m
 | `references` | 0.2.0 | 0.2.0 | Implausible-year filter at the callsite — won't bump references; v0.2 will tighten the year regex |
 | `speakers` | 0.2.0 | 0.2.0 | Reuses `make_speaker`; signature parser is committee-local |
 | `topics` | 0.1.0 | 0.1.0 | Not yet wired (committees have a single fixed set of topical areas; v0.2 may use the canonical list) |
-| `committee_synthesis` | (new key) | **0.1.0** | First per-type ship |
+| `committee_synthesis` | 0.1.0 | **0.2.0** | Roster + joint_with + tabular agenda + special_joint kind shipped (Tier 3) |
 
-The flat helper-version contract triggers re-extraction of qr + plenary sidecars on first committee_synthesis run because the cached `extractor_versions` dict on those sidecars now lacks the `committee_synthesis` key (and the comparison is exact-match per Q11 conservative-by-design contract). Acceptable cost.
+The flat helper-version contract triggers re-extraction of every c-suffix sidecar on first v0.2.0 run because the cached `committee_synthesis` version no longer matches. Acceptable cost.
 
 ### Schema deltas at v1.7.0
 
 Strict body shape for `committee_synthesis` replaced the v1.6.0 `PendingBody` placeholder. New `$defs`: `CommitteeSynthesisBody`, `CommitteePeriod`, `Committee`, `CommitteeMeeting`, `TimeWindow`, `JointCommittee`, `RosterEntry`, `CommitteeAgendaItem`, `CommitteeVoteSummary`. `report_facsimile` continues as `PendingBody` until its extractor lands.
 
-### What's deferred to v0.2+
+v0.2.0 fills these `$defs` without a schema bump — every field shape was already reserved.
 
-Best-effort fields that v0.1 frequently emits as null/[] and v0.2 may tighten:
+### What v0.2.0 ships (Tier 3 graduation)
 
-- `roster[]` — modern tabular and pandemic-era prose roster parsing. Currently emits `[]` for all blocks; the fields are reserved in the schema. The structural challenge is that the roster format varies wildly (tabular `|Name|Prezent fizic|`, narrative `au fost prezenți: A, B, C`, per-day `La lucrările din DD au fost prezenți: 1. NAME, group, role.`) and proper extraction needs three sub-parsers with format detection.
-- `joint_with[]` — `în comun cu Comisia X[, Y, Z] din [Camera Deputaților|Senat]` detection. Currently `[]`. Multi-committee comma-list parsing is straightforward but bumps against ambiguous Romanian conjunction syntax (`X, Y și Z`); deferred for grilling.
-- `committee.kind` for `special_joint` / `inquiry_joint` — the joint-Camera+Senat permanent committees (Statutul Deputaților și Senatorilor, etc.). Currently classified as `permanent`; the joint-prefix regex is conservative.
-- Tabular agenda parsing (2025+) — when the agenda is rendered as a table (`|Nr.|PL-x|Title|Scopul|Rezoluție|`), the numbered-narrative regex misses the rows entirely. Coverage stays high because the partition still claims the table, but `agenda_items` is empty for those committees on those docs (~10-15% of 2025 cohort).
+Four fields that v0.1 emitted as null / `[]` are now populated:
+
+#### Roster — three format detectors
+
+`_detect_roster_format(block)` returns one of `tabular | narrative | per_day | None`, then dispatches to a sub-parser. Detection is conservative — when no shape is recognised, the parser emits `[]` (an honest answer the schema accepts).
+
+- **Tabular** (2022/2024-): markdown tables with `Numele și prenumele` header + status cells. Status fingerprints accepted: `Prezent[ă] fizic` / `Prezent[ă] online` / `Prezent[ă] la sediul ...` (2022 synonym for `physical`) / `Absent[ă]` / `Înlocuitor[...]`. The 2025 corpus interleaves two parallel name/status pairs per row (`|NAME1|||STATUS1|NAME2||STATUS2|`); the parser walks each row's cells and pairs each status cell with the nearest preceding name-shaped cell. The 2022 corpus uses an in-cell role suffix (`Oana-Silvia Țoiu – președinte`) — the parser strips this and lifts the role into `intra_committee_role`. Single-token cells like `Neafiliată` / `UDMR` / `PNL` are explicitly filtered (party-group labels look like names but aren't).
+- **Narrative** (2018-): four trigger forms accepted: `au fost prezenți: A, B, C`, `au fost prezenți următorii deputați:`, `au fost prezenți N deputați[, și anume]:` (count-and-list, 2018+), `Și-au înregistrat prezența la lucrări următorii deputați:` (modern formal). A follow-on `Domnii deputați A, C au fost prezenți on-line` clause flips matching names from the default `physical` to `online`. `Au absentat motivat: E, F` adds absent entries. Substitution side-comments `NAME – înlocuit[ă] de domnul/doamna deputat NAME` flip the subject to `substituted` and attach the substitute Speaker. Role suffixes `– președinte` / `– vicepreședinte` / `– secretar` are captured into `intra_committee_role`.
+- **Per-day** (2008+, niche): numbered list `1. NAME[, ROLE], Grupul parlamentar al X[, ROLE].` after a `- au fost prezenți:` trigger. Two-phase parsing (header regex + tail regex) handles dot-bearing party-group abbreviations (`P.N.L.`, `P.D.-L.`, `P.S.D.`) which would otherwise tangle a single-pass regex. Both 2008-form (role after group) and 2021-form (role before group, with ` – prezent` tail) are accepted.
+
+`_parse_roster` runs all three sub-parsers and merges by name (case-insensitive). Each sub-parser is internally self-gated by its own trigger pattern, so running on a block without its trigger returns [] safely; this lets hybrid blocks (a 2022 doc with a tabular roster for one day plus a narrative summary for another) recover entries from both forms.
+
+Production smoke (976 c-suffix docs): **908 (93%) docs populate roster[], 123,695 total entries** (physical 111,298 / online 1,692 / absent 10,029 / substituted 676).
+
+#### `joint_with[]` — multi-committee parser
+
+`_parse_joint_with(block)` matches `\b[îi]n (?:[șş]edin[țţt][ăa] )?comun[ăa]? cu Comisia ...` and emits `[{name, chamber}]` per joint partner. The chunk extraction splits the captured list **by `Comisia/Comisiei/Comisiilor` starts** (NOT by commas), so multi-clause names like `Comisia juridică, de disciplină și imunități a Camerei Deputaților` stay intact instead of fragmenting at internal commas. Each chunk must have a known committee-name connector as its second token (`pentru` / `juridică` / `de` / `permanentă` / `comună` / `specială` / `parlamentară` / `națională` / `centrală` / `anchetă`) — this rejects verb-phrase imposters (`Comisia a deliberat`) and orphan list tail-fragments. Resolves Romanian conjunction ambiguity:
+
+- `în comun cu Comisia juridică, Comisia pentru sănătate și Comisia pentru afaceri europene` → 3 committees ✓
+- `în comun cu Comisia pentru muncă, sănătate și educație` → 1 committee (subject-list `sănătate, educație` chunks don't carry the `Comisia` literal prefix) ✓
+- `în comun cu Comisia juridică, comisia a deliberat` → 1 committee (verb-phrase `comisia a deliberat` filtered by the connector check) ✓
+
+**Bill-review false-positive filter**: when the `în comun cu` trigger is preceded within 30 chars by `raport / aviz / sesizare / fond / studiu / raportor`, the match is dropped. These forms (`raport comun cu`, `sesizare în comun cu`, `fond comun cu`) annotate joint *bill review* on an agenda item, not joint *meetings* — and the schema's `joint_with[]` lives on `CommitteeMeeting` so they don't belong here.
+
+`chamber` is per-chunk: `din Camera Deputaților` / `a Camerei Deputaților` / `din cadrul Camerei Deputaților` → `camera`; `din Senat[ul]` / `a Senatului` / `din cadrul Senatului` → `senat`; else null. Trailing-chamber inheritance: when a list has a single chamber tail at the end (`Comisia X, Comisia Y și Comisia Z din Senat`), all chunks inherit that chamber; explicit per-chunk chambers (`Comisia X din Camera Deputaților, Comisia Y din Senat`) override.
+
+Production smoke: **298 (31%) docs populate joint_with[], 891 total entries** (post-bill-review-FP-filter; was 1,359 pre-filter, 50% of which were joint-bill-review false positives).
+
+#### `committee.kind = special_joint | inquiry_joint`
+
+`_classify_kind` extends the v0.1 enum to graduate joint Camera+Senat permanent committees from `permanent` to `special_joint`. The joint marker fires on `\bcomun[ăaã]\b` (the `comună` modifier in `Comisia permanentă comună a Camerei...`) OR `Camerei Deputaților și Senatului` (the co-anchor used by some pre-2010 names that omit the explicit `comună`). The cohort: ~10-30 docs per year referencing the UNESCO permanent joint committee, the Statutul Deputaților și Senatorilor permanent joint committee, the securitate națională permanent joint committee, plus the Comisia comună de revizuire a Constituției (1993).
+
+Production smoke: **262 committee blocks classified as `special_joint`** (was 0 under v0.1), **0 inquiry_joint** (no joint inquiry committees observed in the corpus).
+
+#### Tabular agenda fallback
+
+`_build_tabular_agenda(block, ...)` runs only when `_split_agenda` returns 0 numbered items. It walks the block line-by-line; after a header row matching `|Nr|...|PL-x|...` (or any of the `Titlu` / `Scopul` / `Rezoluție` co-anchors), subsequent table rows are parsed by content fingerprint:
+
+- First numeric cell → `ordinal`
+- Cell containing a `PL-x` / `Pl-x` token → `primary_references[]` (via `parse_primary_references`)
+- Cell starting with `Raport` / `Aviz` / `Studiu` / `Proiect de opinie` / `Amânare` → role/output_type
+- Cell starting with `În urma...` / `Aprobat` / `Respin[gs]` / `cu majoritate / unanimitate de voturi` → `outcome_text`
+- Longest remaining cell → `title`
+
+This is robust to column re-orderings and variable inter-cell empty padding (the 2025 corpus uses 5–14 cells per row depending on PDF→MD pagination quirks). Production smoke on 2024+ cohort (85 docs): **88% of committees now have populated `agenda_items`** (was ~75% under v0.1's narrative-only parser).
+
+### Coverage and corpus stability
+
+v0.2.0 production smoke on all 976 c-suffix docs: **0 errors**, **mean coverage 0.9972** (v0.1: 0.9972), **median 0.9997** (v0.1: 0.9997), **p25 0.9985** (v0.1: 0.9985), **min 0.886** (v0.1: 0.886), **0 docs below 0.85**. Coverage is structurally invariant — the new parsers fill in fields *inside* the partition's already-claimed record spans, so adding them doesn't move the coverage needle. The fixture floor (0.80) is unchanged; per-fixture coverage is identical to v0.1.
+
+### What's still deferred to v0.3+
+
+- **Per-day meeting splits** — v0.1/0.2 emit one `meetings[]` entry per committee block even when the synthesis covers 4 days. v0.3 may split when per-day rosters genuinely diverge.
+- **Tabular roster intra_committee_role** — the tabular roster form doesn't natively encode roles (only the per-day numbered form does); inferring roles from chair signature + committee role tables is a v0.3 goal.
+- **Roster ⇄ chair cross-link** — when a roster entry name matches the committee's `chair` Speaker, the entry's `intra_committee_role` should auto-fill to `președinte`. v0.3.
+- **Joint chamber discrimination per chunk** — currently the `chamber` field is detected once at the clause level (`din Camera Deputaților` / `din Senat[ul]`) and applied to every joint partner. The corpus has occasional mixed-chamber clauses (`Comisia X din Camera Deputaților, Comisia Y din Senat`) where this loses information. Acceptable for v0.2 — the population is small.
 
 ## Extract pipeline — `report_facsimile`
 
