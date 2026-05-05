@@ -22,7 +22,7 @@ from monitorul_ii.extraction.extractors.plenary import (
 if TYPE_CHECKING:
     from monitorul_ii.extraction.pipeline import ExtractContext
 
-EXTRACTOR_VERSION = "0.2.5"
+EXTRACTOR_VERSION = "0.2.7"
 EXTRACTOR_LABEL = f"regex@plenary_stenogram@{EXTRACTOR_VERSION}"
 
 

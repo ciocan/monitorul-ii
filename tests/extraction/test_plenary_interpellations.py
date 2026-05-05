@@ -8,6 +8,7 @@ from monitorul_ii.extraction.envelope import EnvelopeMeta
 from monitorul_ii.extraction.extractors.plenary.interpellations import (
     INTERPELLATIONS_LABEL,
     INTERPELLATIONS_VERSION,
+    _extract_addressed_to,
     _extract_question_text,
     extract_interpellations,
     find_interpellation_block,
@@ -331,8 +332,8 @@ def test_question_text_null_when_only_preamble():
 
 
 def test_interpellations_version_is_v0_2():
-    assert INTERPELLATIONS_VERSION == "0.2.2"
-    assert "0.2.2" in INTERPELLATIONS_LABEL
+    assert INTERPELLATIONS_VERSION == "0.2.3"
+    assert "0.2.3" in INTERPELLATIONS_LABEL
 
 
 # -- precision fixes (v0.2.1+) -------------------------------------------
@@ -765,3 +766,217 @@ def test_response_pairs_to_immediately_preceding_questioner():
     assert interps[0].get("response") is None
     assert interps[1].get("response") is not None
     assert "a doua întrebare" in interps[1]["response"]["text"]
+
+
+# -- addressed_to extraction (v0.2.3) ------------------------------------
+
+
+def test_addressed_to_ministerului_genitive():
+    """`Ministerului X` (genitive) → `Ministerul X` (canonical)."""
+    src = (
+        "Prima interpelare se adresează Ministerului Sănătății, "
+        "domnului ministru Ion Bazac.\n"
+    )
+    assert _extract_addressed_to(src) == "Ministerul Sănătății"
+
+
+def test_addressed_to_ministerul_nominative_multi_word():
+    """`Ministerul X Y Z` (full multi-word ministry name)."""
+    src = (
+        "Interpelarea este adresată domnului ministru Valentin Popa, "
+        "Ministerul Educației Naționale.\n"
+    )
+    assert _extract_addressed_to(src) == "Ministerul Educației Naționale"
+
+
+def test_addressed_to_ministrul_role_form_transformed():
+    """`ministrul X` (role form, lowercase) → transformed to `Ministerul X`.
+
+    Regression for the v0.2.2 bug: this exact form previously produced
+    a single-letter capture (`'D'`, `'C'`, etc.) because the regex used
+    a non-greedy quantifier without a trailing anchor.
+    """
+    src = (
+        "Întrebarea este adresată domnului Daniel David, "
+        "ministrul educației.\nObiectul...\n"
+    )
+    assert _extract_addressed_to(src) == "Ministerul Educației"
+
+
+def test_addressed_to_ministrul_role_form_long_name():
+    """Multi-word genitive role form: `ministrul educației naționale și
+    cercetării științifice` → `Ministerul Educației Naționale și
+    cercetării științifice` (registry's diacritic + prefix tier matches)."""
+    src = (
+        "Interpelarea de astăzi este adresată domnului Sorin Cîmpeanu, "
+        "ministrul educației naționale și cercetării științifice.\n"
+    )
+    out = _extract_addressed_to(src)
+    assert out is not None
+    assert out.startswith("Ministerul Educației")
+    # The full tail is preserved so the registry's prefix tier can match
+    assert "cercetării științifice" in out
+
+
+def test_addressed_to_ministru_al_connector():
+    """`ministru al X` → `Ministerul X` (the `al` connector is consumed,
+    not included in the captured tail)."""
+    src = (
+        "Voi da curs interpelării adresate ministrului culturii, "
+        "domnului Demeter András.\n"
+    )
+    assert _extract_addressed_to(src) == "Ministerul Culturii"
+
+
+def test_addressed_to_de_finanțe_form():
+    """`ministrul de finanțe` → `Ministerul de finanțe` (the `de` is
+    PART of the addressee, not a connector — registry has `Ministerul de
+    Finanțe` as an alias and case-insensitive tier matches)."""
+    src = "Întrebarea este adresată domnului ministru de finanțe.\n"
+    out = _extract_addressed_to(src)
+    assert out is not None
+    assert out.lower().startswith("ministerul de finanțe")
+
+
+def test_addressed_to_person_fallback_no_ministry_named():
+    """When neither `Ministerul X` nor `ministrul X` is present, fall back
+    to the bare person form."""
+    src = "Întrebarea mea este adresată domnului ministru MariusConstantin Budăi.\n"
+    assert _extract_addressed_to(src) == "MariusConstantin Budăi"
+
+
+def test_addressed_to_secretar_general_person_form():
+    """Non-minister addressee (secretary general) → bare person name."""
+    src = (
+        "Întrebarea mea este adresată doamnei "
+        "Daniela Nicoleta Andreescu, secretar general al Guvernului.\n"
+    )
+    out = _extract_addressed_to(src)
+    assert out is not None
+    assert out.startswith("Daniela Nicoleta Andreescu")
+
+
+def test_addressed_to_no_marker_returns_none():
+    """No address-verb anchor → no match (None)."""
+    src = (
+        "Mulțumesc, domnule președinte. Vă voi citi câteva pasaje "
+        "din declarația politică de astăzi.\n"
+    )
+    assert _extract_addressed_to(src) is None
+
+
+def test_addressed_to_incidental_ministry_mention_not_captured():
+    """A `Ministerul X` mention in body prose without a preceding address
+    verb is NOT captured (anchor prevents over-firing)."""
+    src = (
+        "Mulțumesc, domnule senator. Răspunsul Ministerului Sănătății "
+        "trebuie să-l primească tot Parlamentul.\n"
+    )
+    assert _extract_addressed_to(src) is None
+
+
+def test_addressed_to_no_single_letter_regression():
+    """Regression guard for the v0.2.2 bug: input that previously produced
+    a 1-char capture (`'C'`) must now produce the full ministry name.
+    """
+    src = (
+        "Mulțumesc, domnule președinte.\n\n"
+        "Interpelarea mea este adresată domnului Cseke Attila Zoltán, "
+        "ministrul sănătății.\n\nObiectul interpelării: Situația dramatică...\n"
+    )
+    out = _extract_addressed_to(src)
+    assert out == "Ministerul Sănătății"
+    assert out is not None and len(out) > 4  # explicit no-1-char guard
+
+
+def test_addressed_to_cedilla_form_captured():
+    """Pre-2010 cedilla form (`Sãnãtãtii` mojibake / `Sănătăţii` cedilla)
+    is captured. The downstream registry diacritic tier folds the cedilla
+    or mojibake spellings to the modern key."""
+    src = "Interpelarea este adresatã domnului ministru X, Ministerul Sãnãtãtii.\n"
+    out = _extract_addressed_to(src)
+    assert out == "Ministerul Sãnãtãtii"
+
+
+def test_addressed_to_intrebarii_anchor():
+    """`întrebării` (genitive of `întrebare`) anchors the addressee."""
+    src = (
+        "Voi da curs citirii întrebării adresate ministrului justiției, "
+        "domnului Cătălin Predoiu.\n"
+    )
+    assert _extract_addressed_to(src) == "Ministerul Justiției"
+
+
+def test_addressed_to_returns_none_for_empty_body():
+    assert _extract_addressed_to("") is None
+    assert _extract_addressed_to("\n\n") is None
+
+
+def test_addressed_to_search_bounded_to_head():
+    """A `Ministerul X` mention beyond the 800-char head limit is NOT
+    captured even when the head has an address verb. The bare person
+    form within the head wins instead."""
+    head = "Întrebarea este adresată domnului Alexandru Test.\n\n"
+    filler = "x" * 1000  # pushes the next ministry mention past the limit
+    tail = "\n\nMinisterul Educației este responsabil.\n"
+    src = head + filler + tail
+    # Pattern 1 misses (no Ministerul in head). Pattern 2 misses (no
+    # `ministru X` in head). Pattern 3 catches the bare person name.
+    out = _extract_addressed_to(src)
+    assert out == "Alexandru Test"  # bare person, NOT "Ministerul Educației"
+
+
+def test_addressed_to_end_to_end_in_extracted_interpellation():
+    """End-to-end: corrected addressed_to surfaces on the emitted record."""
+    body = (
+        "Trecem la primirea răspunsurilor la interpelări.\n"
+        "## **Domnul Senator A:**\n\n"
+        "Mulțumesc, domnule președinte de ședință.\n\n"
+        "Întrebarea este adresată domnului Daniel David, "
+        "ministrul educației.\n\n"
+        "Obiectul: „Subiect de test”.\n\n"
+        "Stimate domnule ministru, această întrebare conține destulă "
+        "substanță pentru a fi recuperată.\n"
+    )
+    span = find_interpellation_block(body)
+    interps, _ = extract_interpellations(body, span, _ctx(body))
+    assert len(interps) == 1
+    assert interps[0]["addressed_to"] == "Ministerul Educației"
+
+
+def test_addressed_to_prime_minister_form():
+    """`prim-ministru al României` form returns the canonical
+    `Prim-ministrul` so the registry's prime_minister id matches."""
+    src = "Interpelarea este adresată domnului Emil Boc, prim-ministru al României.\n"
+    assert _extract_addressed_to(src) == "Prim-ministrul"
+
+
+def test_addressed_to_prime_minister_guvernului_form():
+    """`prim-ministru al Guvernului României` form."""
+    src = (
+        "Interpelarea mea este adresată domnului Victor Ponta, "
+        "prim-ministru al Guvernului României.\n"
+    )
+    assert _extract_addressed_to(src) == "Prim-ministrul"
+
+
+def test_addressed_to_viceprim_ministru_form():
+    """`viceprim-ministru` (Deputy PM) — same canonical PM form."""
+    src = (
+        "Interpelarea se adresează doamnei Sevil Shhaideh, "
+        "viceprim-ministru al Guvernului României.\n"
+    )
+    assert _extract_addressed_to(src) == "Prim-ministrul"
+
+
+def test_addressed_to_prim_ministru_does_not_misfire_as_ministerul_al():
+    """Regression guard: pre-fix the role-form regex matched `ministru`
+    inside `prim-ministru` and produced nonsensical `Ministerul Al
+    României` captures (the `al` connector got included in the addressee).
+    """
+    src = "Interpelarea este adresată domnului Emil Boc, prim-ministru al României.\n"
+    out = _extract_addressed_to(src)
+    # Must NOT be the buggy `Ministerul Al ...` capture
+    assert out is not None
+    assert "Al României" not in out
+    assert "Al Guvernului" not in out

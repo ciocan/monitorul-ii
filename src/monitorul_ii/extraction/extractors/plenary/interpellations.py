@@ -10,6 +10,19 @@ topic-naming lead-ins, trailing signatures/closures, and capping at
 section-break markers (e.g., when the same speaker continues into a
 political declaration in the same turn). Returns null when the recovered
 body is too short to be meaningful.
+
+`addressed_to` (v0.2.3): rewritten to capture the full addressee phrase
+instead of single-letter noise. The previous v0.2.2 regex used non-greedy
+quantifiers without a trailing anchor, so `(?P<role>[^.,\\n]+?)` collapsed
+to 1 character and emitted values like `'D'` / `'m'` / `'C'` for ~76% of
+non-null hits (1383/1953 production sweep). v0.2.3 uses three patterns
+in priority order: (1) `Ministerul[ui]? X` near an address verb, (2)
+`ministrul[ui|l]? X` role-form (lowercase initial) which is transformed
+to `Ministerul X` for downstream registry normalization, (3) bare
+`(doamnei|domnului|doamna|domnul) NAME` person fallback. Search bounded
+to the first ~800 chars of the questioner's turn body so incidental
+ministry mentions deeper in the question content don't fire as the
+addressee.
 """
 
 from __future__ import annotations
@@ -32,7 +45,7 @@ if TYPE_CHECKING:
     from monitorul_ii.extraction.pipeline import ExtractContext
 
 
-INTERPELLATIONS_VERSION = "0.2.2"
+INTERPELLATIONS_VERSION = "0.2.3"
 INTERPELLATIONS_LABEL = f"regex@plenary_interpellations@{INTERPELLATIONS_VERSION}"
 
 
@@ -182,14 +195,147 @@ _INTERPELARE_HINTS = re.compile(r"interpel[ăa]r", re.IGNORECASE)
 _INTREBARE_HINTS = re.compile(r"întreb[ăa]r", re.IGNORECASE)
 
 
-# Addressed_to detection — first sentence of questioner block
-_ADDRESSED_TO_RE = re.compile(
-    r"adresat[ăa]?\s+(?:doamnei|domnului)\s+(?P<role>[^.,\n]+?)|"
-    r"adresez(?:[ăa])?\s+(?:aceast[ăa]\s+)?(?:întrebare|interpelare)\s+"
-    r"(?:doamnei|domnului)\s+(?P<role2>[^.,\n]+?)|"
-    r"Ministerului\s+(?P<ministry>[^.,\n]+)",
-    re.IGNORECASE,
+# -- addressed_to detection (v0.2.3) ----------------------------------------
+#
+# Three patterns tried in priority order against the head of the
+# questioner's turn body. The pre-v0.2.3 single regex used non-greedy
+# `(?P<role>[^.,\n]+?)` captures with no trailing anchor, so they
+# collapsed to a single character — emitting `'D'` / `'m'` / `'C'` for
+# 76% of non-null hits. v0.2.3 uses greedy captures bounded by sentence
+# punctuation (`,.;\n`), and prefers ministry-bearing forms over bare
+# person captures so `addressed_to` is normalisable downstream by the
+# ministries registry.
+#
+# Search is bounded to the first 800 chars of the post-header turn body
+# (`_ADDRESSED_TO_HEAD_LIMIT`). Without this bound, incidental mentions
+# of `Ministerul X` deep in the question content (sentence prose like
+# `Ministerul Educației a anunțat...`) get captured as the addressee.
+
+_ADDRESSED_TO_HEAD_LIMIT = 800
+
+# Romanian alphabet char classes — accept modern (ă, â, î, ș, ț), cedilla
+# (ş, ţ), and mojibake artefacts (ã, þ, ª) seen in pre-2010 OCR'd PDFs.
+# The downstream registry's diacritic-stripping tier folds all of these
+# into the same key, so capturing them is enough; we don't need to
+# normalise here.
+_ROM_LOWER = r"a-zșțăîâşţãþ"
+_ROM_UPPER = r"A-ZȘȚĂÎÂŞŢÃ"
+
+# Address-verb anchor — required before the addressee. Without an
+# anchor, ANY `ministru` / `Ministerul` mention in the head would fire,
+# including incidental references in the questioner's framing prose.
+# The lazy `[^\n]{0,200}?` allows up to ~200 chars of text between the
+# verb and the addressee phrase (e.g. `adresată domnului NAME, ministrul X`
+# has ~30 chars of `domnului NAME, ` between verb and `ministrul`).
+# Verb stems also accept `ã` for mojibake-form `ă`.
+_ADDRESS_VERBS = (
+    r"adresat[ăaã]?|adresez(?:[ăaã])?|adreseaz[ăã]|"
+    r"c[ăa]tre|interpel[ăaã]rii|întreb[ăaã]rii"
 )
+_VERB_CONTEXT = rf"(?i:\b(?:{_ADDRESS_VERBS})\b)[^\n]{{0,200}}?"
+
+
+# 1. `Ministerul[ui]? X` — institutional name (preferred). Both genitive
+#    (`Ministerului`) and nominative (`Ministerul`) accepted. Greedy
+#    capture up to the next sentence-ish boundary (`,.;\n`). The
+#    captured X is the ministry's distinguishing tail (e.g. `Sănătății`).
+_ADDRESSED_TO_MINISTRY_RE = re.compile(
+    rf"{_VERB_CONTEXT}\bMinisterul(?:ui)?\s+(?P<addressee>[{_ROM_UPPER}][^.,;\n]*)"
+)
+
+# 2. `(vice)?prim-ministru[l|lui]?` — Prime Minister / Deputy PM role.
+#    The corpus carries `prim-ministru al României` / `prim-ministru al
+#    Guvernului României` / `viceprim-ministru` forms; emit the canonical
+#    `Prim-ministrul` so the ministries registry's `prime_minister` id
+#    matches via case/diacritic tier. Match consumes any trailing role
+#    qualifiers (`al României`, `al Guvernului României`) but doesn't
+#    capture them — addressee is fixed.
+_ADDRESSED_TO_PM_RE = re.compile(
+    rf"{_VERB_CONTEXT}\b(?:[Vv]ice-?)?[Pp]rim-?ministru(?:l|lui)?\b"
+)
+
+# 3. `ministrul[ui|l]? X` — role form (lowercase initial). Optional
+#    `al/a/ale` connector consumed before the addressee (`ministru al
+#    culturii` → addressee = `culturii`). The captured X is in genitive
+#    (`educației`, `sănătății`, `apelor și pădurilor`) — exactly the
+#    distinguishing tail of `Ministerul X`. Downstream `_extract_addressed_to`
+#    transforms `ministrul X` → `Ministerul X` for registry normalisation
+#    (the registry has `Ministerul Educației` aliased, not `ministrul
+#    educației`).
+#
+#    The leading `(?<![-{_ROM_LOWER}{_ROM_UPPER}])` lookbehind rejects
+#    `prim-ministru` / `viceprim-ministru` / `Primul-ministru` matches
+#    that would otherwise fire here and produce nonsensical
+#    `Ministerul Al României` captures (where the `al` connector is
+#    consumed and the rest of the prepositional phrase is captured as
+#    the ministry name). The PM form is handled by pattern 2 above.
+_ADDRESSED_TO_MINISTRU_RE = re.compile(
+    rf"{_VERB_CONTEXT}(?<![-{_ROM_LOWER}{_ROM_UPPER}])ministru(?:lui|l)?\s+"
+    r"(?:(?:al|a|ale)\s+)?"
+    rf"(?P<addressee>(?:de\s+)?[{_ROM_LOWER}][^.,;\n]*)"
+)
+
+# 4. Person form: `(doamnei|domnului|doamna|domnul) [ministru[lui|l]] NAME`.
+#    Captures only the person name (no useful ministry hint when the
+#    role isn't named explicitly). Returns the bare name as a fallback
+#    so consumers can still see the addressee was a specific person, even
+#    though the registry won't normalise it.
+_ADDRESSED_TO_PERSON_RE = re.compile(
+    rf"{_VERB_CONTEXT}(?:doamnei|domnului|doamna|domnul)\s+"
+    r"(?:ministru(?:lui|l)?\s+)?"
+    rf"(?P<addressee>[{_ROM_UPPER}][^.,;\n]*)"
+)
+
+
+def _extract_addressed_to(turn_body: str) -> str | None:
+    """Return the addressed party for an interpellation, or None.
+
+    Searches the head of `turn_body` (first ~800 chars) for an addressee
+    using four patterns in priority order:
+
+      1. `Ministerul[ui]? X` — clean ministry name.
+      2. `(vice)?prim-ministru[l|lui]?` — Prime Minister / Deputy PM
+         role, returned as `Prim-ministrul` (the registry's
+         `prime_minister` canonical alias).
+      3. `ministrul[ui|l]? X` — role form, transformed to `Ministerul X`
+         so the value normalises against the ministries registry (which
+         enumerates institutional aliases, not role-form aliases).
+      4. `(doamnei|domnului|doamna|domnul) NAME` — bare person fallback.
+
+    Each capture is greedy up to `,.;\\n` so single-letter misfires
+    from non-greedy quantifiers (the v0.2.2 bug) cannot occur. Returns
+    None when no address-verb anchor + addressee combination matches.
+    """
+    head = turn_body[:_ADDRESSED_TO_HEAD_LIMIT]
+
+    m = _ADDRESSED_TO_MINISTRY_RE.search(head)
+    if m:
+        x = m.group("addressee").strip().rstrip(".,;: ")
+        if x:
+            return f"Ministerul {x}"
+
+    if _ADDRESSED_TO_PM_RE.search(head):
+        return "Prim-ministrul"
+
+    m = _ADDRESSED_TO_MINISTRU_RE.search(head)
+    if m:
+        x = m.group("addressee").strip().rstrip(".,;: ")
+        if x:
+            # Capitalise first letter so the produced string looks like
+            # the canonical `Ministerul X` form. The registry's case
+            # tier handles minor case differences anyway, but a clean
+            # title-case start helps ad-hoc consumers reading the field.
+            x = x[0].upper() + x[1:]
+            return f"Ministerul {x}"
+
+    m = _ADDRESSED_TO_PERSON_RE.search(head)
+    if m:
+        x = m.group("addressee").strip().rstrip(".,;: ")
+        if x:
+            return x
+
+    return None
+
 
 # Interpellation number — same regex as qr's
 _INTERPELLATION_NUMBER_RE = re.compile(
@@ -639,17 +785,10 @@ def _parse_interpellation(
     ):
         genre = "întrebare"
 
-    # addressed_to
-    addressed_to: str | None = None
-    am = _ADDRESSED_TO_RE.search(questioner_text)
-    if am:
-        addressed_to = am.group("role") or am.group("role2") or am.group("ministry")
-        if addressed_to:
-            addressed_to = addressed_to.strip()
-            if not addressed_to.lower().startswith("ministerul") and am.group(
-                "ministry"
-            ):
-                addressed_to = f"Ministerul {addressed_to}"
+    # addressed_to — search the post-header turn body, bounded to the head
+    # so incidental ministry mentions in the question content don't leak in.
+    body_only = "\n".join(questioner_text.splitlines()[1:])
+    addressed_to = _extract_addressed_to(body_only)
 
     # interpellation_number — last match wins (matching qr pattern)
     nm_matches = list(_INTERPELLATION_NUMBER_RE.finditer(questioner_text))
