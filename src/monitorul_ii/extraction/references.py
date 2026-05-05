@@ -1,9 +1,15 @@
-"""Reference parser: 12 strict variants + `unknown` catch-all.
+"""Reference parser: 13 strict variants + `unknown` catch-all.
 
-v0.4.0 enables the `unknown` emitter in `parse_mentioned_references` so
-cite-shaped spans that don't classify into a strict variant surface in
-the body's `references_mentioned[]` array. v0.3.0 had the variants but
-left `unknown` empty.
+v0.5.0 graduates the `code` variant out of the `unknown` catch-all
+(Romanian named codes — Codul muncii / fiscal / penal / ...), broadens
+the `treaty` variant to absorb Acordul/Protocolul/wider Carta forms,
+and populates best-effort `subject` fields on bill / law /
+parliamentary_resolution from the surrounding sentence (privind X /
+pentru aprobarea X / referitoare la X / cu privire la X / asupra X).
+v0.4.0 enabled the `unknown` emitter in `parse_mentioned_references`
+so cite-shaped spans that don't classify into a strict variant surface
+in the body's `references_mentioned[]` array. v0.3.0 had the long-tail
+variants but left `unknown` empty.
 
 Strict variants:
 
@@ -18,7 +24,8 @@ Strict variants:
   - `constitution`             — `art. N (alin. M) din Constituție`      (v0.3.0)
   - `regulation`               — Regulamentul Camerei/Senatului art. N   (v0.3.0)
   - `eu_doc`                   — COM(YYYY)NNN / JOIN / Regulamentul (UE) (v0.3.0)
-  - `treaty`                   — Tratatul/Convenția de la X              (v0.3.0)
+  - `treaty`                   — Tratatul/Convenția/Acordul/Protocolul    (v0.3.0/v0.5.0)
+  - `code`                     — Codul muncii / penal / fiscal / ...     (v0.5.0)
   - `unknown`                  — catch-all for spans that look reference-
                                  shaped but don't classify; carries `hint`
 
@@ -37,29 +44,18 @@ Two parser entry points:
 
 # Future graduation candidates (TODO — discovery-loop output)
 
-A v0.3.0 cite-shape probe over a 1001-doc sample surfaced ~69K unclassified
-cite-shaped spans (≈69 per doc). The breakdown points to three follow-on
-graduations:
+The dominant remaining unclassified bucket on the 5551-doc production
+corpus is bare `art. N` cross-references (~96K hits). It is NOT a regex
+graduation candidate: bare `art. N (alin. M) (lit. X)` cites refer to
+articles of the law/bill currently being debated, so resolving them
+requires a cross-document join, not a stricter pattern.
 
-1. **`code` variant** (~2,100 hits — clean candidate). Romanian named
-   codes: Codul muncii / penal / fiscal / civil / silvic / vamal /
-   comercial / administrativ / aerian / rutier / navigației. Each has
-   a stable canonical name; one regex with an enum field would graduate
-   them out of `unknown`.
-
-2. **Broaden `treaty`** (~550 hits — easy fold). The current `treaty`
-   variant only catches `Tratatul / Convenția / Carta`. Same shape applies
-   to `Acordul de la X`, `Protocolul de la X`, `Protocolul adițional X`,
-   plus broader `Carta` forms (Carta socială europeană, Carta europeană
-   a autonomiei locale). Add new alternations to the existing patterns.
-
-3. **Cross-reference linker for `art. N`** (~62K hits — context-dependent,
-   NOT a regex variant). Bare `art. N (alin. M) (lit. X)` references
-   point to articles of the law/bill currently being debated. Resolving
-   them requires linking to the agenda item's `primary_references[]` —
-   a separate cross-reference pass that mutates `unknown` refs in the
-   body into typed pointers (`{type: "law_article_ref", parent_law_id,
-   article}`). This is a body-level join, not a regex graduation.
+**Cross-reference linker for `art. N`** — a future body-level pass would
+walk each agenda item, take the item's `primary_references[]`, and
+rewrite each `unknown.hint=law-ish` whose raw is `art. N` (with no
+trailing law name) into a typed pointer (`{type: "law_article_ref",
+parent_law_id, article}`). This is a body-level join, not a regex
+variant graduation.
 """
 
 from __future__ import annotations
@@ -67,7 +63,7 @@ from __future__ import annotations
 import re
 from typing import Any
 
-REFERENCES_VERSION = "0.4.0"
+REFERENCES_VERSION = "0.5.0"
 
 
 # -- bill: Pl-x / PL-x / L prefixes ------------------------------------------
@@ -298,26 +294,118 @@ _EU_DECISION_RE = re.compile(
 )
 
 
-# -- treaty: international treaties / conventions (v0.3.0) -------------------
+# -- treaty: international treaties / conventions (v0.3.0; broadened v0.5.0) -
 
 
 # `Tratatul de la Lisabona` / `Tratatul de la Maastricht` / `Tratatul ...`
 # `Convenția de la Geneva` / `Convenția europeană a drepturilor omului`
-# `Carta Națiunilor Unite` / `Carta drepturilor fundamentale a UE`
+# v0.5.0 broadens to also absorb `Acordul (de la|dintre|privind|asupra) X`,
+# `Protocolul (de la|adițional|opțional|nr. N) X`, and a wider Carta enum
+# (Carta Națiunilor Unite, Carta drepturilor fundamentale, Carta socială
+# europeană, Carta europeană a autonomiei locale, Carta albă, Carta olimpică,
+# Carta de la X, ...). All forms share the same lookahead boundary so name
+# capture terminates cleanly on punctuation or a continuation conjunction.
+_TREATY_BOUNDARY_LA = (
+    r"(?=[.,;:\n]|\s+(?:din|privind|pentru|este|a\s+fost|adoptat[ăa]?|"
+    r"semnat[ăa]?|ratificat[ăa]?|asupra|[șs]i\s+|sau\s+|iar\s+|plus\s+))"
+)
 _TREATY_TRATATUL_RE = re.compile(
     r"\bTratat(?:ul|ului)\s+(?:de\s+la\s+)?(?P<name>[A-ZȘȚĂÎÂ][^.,;:\n]{2,120}?)"
-    r"(?=[.,;:\n]|\s+(?:din|privind|pentru|este|a\s+fost|adoptat))",
+    + _TREATY_BOUNDARY_LA,
 )
 _TREATY_CONVENTIA_RE = re.compile(
     r"\bConven[țt]i(?:a|ei)\s+(?:de\s+la\s+|european[ăa]\s+|interna[țt]ional[ăa]\s+)?"
-    r"(?P<name>[A-ZȘȚĂÎÂ][^.,;:\n]{2,120}?)"
-    r"(?=[.,;:\n]|\s+(?:din|privind|pentru|este|a\s+fost|asupra))",
+    r"(?P<name>[A-ZȘȚĂÎÂ][^.,;:\n]{2,120}?)" + _TREATY_BOUNDARY_LA,
+)
+_TREATY_ACORDUL_RE = re.compile(
+    r"\bAcord(?:ul|ului)\s+(?:de\s+la\s+|dintre\s+|privind\s+|asupra\s+)"
+    r"(?P<name>[A-ZȘȚĂÎÂa-z][^.,;:\n]{2,120}?)" + _TREATY_BOUNDARY_LA,
+)
+_TREATY_PROTOCOLUL_RE = re.compile(
+    r"\bProtocol(?:ul|ului)\s+(?:de\s+la\s+|adi[țt]ional\s+|op[țt]ional\s+|"
+    r"nr\.?\s*\d+(?:\.\d+)*\s+)"
+    r"(?P<name>[A-ZȘȚĂÎÂa-z][^.,;:\n]{2,120}?)" + _TREATY_BOUNDARY_LA,
 )
 _TREATY_CARTA_RE = re.compile(
-    r"\bCarta\s+(?P<name>(?:Națiunilor\s+Unite|drepturilor\s+fundamentale[^.,;:\n]{0,60}|"
-    r"social[ăa]\s+european[ăa]|olimpic[ăa]))",
+    r"\bCart(?:a|ei)\s+"
+    r"(?P<name>(?:Na[țt]iunilor\s+Unite|"
+    r"drepturilor\s+fundamentale(?:\s+a\s+(?:Uniunii\s+Europene|UE))?|"
+    r"social[ăa]\s+european[ăa](?:\s+revizuit[ăa])?|"
+    r"european[ăa]\s+a\s+autonomiei\s+locale|"
+    r"european[ăa]\s+a\s+limbilor[^.,;:\n]{0,80}|"
+    r"olimpic[ăa]|"
+    r"alb[ăa](?:\s+a\s+[A-ZȘȚĂÎÂa-z][^.,;:\n]{2,80})?|"
+    r"de\s+la\s+[A-ZȘȚĂÎÂ][^.,;:\n]{2,80}))",
     re.IGNORECASE,
 )
+
+
+# -- code: Romanian named codes (v0.5.0) -------------------------------------
+
+
+# Canonical code names mapped to the schema enum value. Keys are the regex-
+# captured tail (lowercased, diacritic-tolerant), values are the schema
+# `code_kind` enum entries (ASCII-folded — diacritics stripped to keep the
+# enum stable across Unicode/cedilla/mojibake forms).
+_CODE_KIND_MAP = {
+    "muncii": "muncii",
+    "fiscal": "fiscal",
+    "civil": "civil",
+    "penal": "penal",
+    "de procedura civila": "procedura_civila",
+    "de procedura penala": "procedura_penala",
+    "administrativ": "administrativ",
+    "silvic": "silvic",
+    "aerian": "aerian",
+    "rutier": "rutier",
+    "vamal": "vamal",
+    "comercial": "comercial",
+    "familiei": "familiei",
+    "navigatiei": "navigatiei",
+    "consumului": "consumului",
+    "insolventei": "insolventei",
+}
+
+
+# Forward form: `Codul X` / `Codului X` (genitive) / `Codul X art. N`.
+# Order alternations longest-first so `Codul de procedură penală` wins over
+# `Codul ... penal`.
+_CODE_TAIL = (
+    r"de\s+procedur[ăa]\s+(?:civil[ăa]|penal[ăa])|"
+    r"muncii|fiscal|civil|penal|administrativ|silvic|aerian|rutier|"
+    r"vamal|comercial|familiei|naviga[țt]iei|consumului|insolven[țt]ei"
+)
+_CODE_FORWARD_RE = re.compile(
+    r"\bCodul(?:ui)?\s+(?P<tail>" + _CODE_TAIL + r")"
+    r"(?:\s+art\.?\s+(?P<article>\d+(?:\s+alin\.?\s*\(\d+(?:\^\d+)?\))?"
+    r"(?:\s+(?:lit\.|litera)\s*[a-zA-Z]\)?)?))?",
+    re.IGNORECASE,
+)
+# Reverse form: `art. N din Codul X` — anchor the article on the named code,
+# not the bare `art. N` (which the unknown emitter handles as cross-ref).
+_CODE_REVERSE_RE = re.compile(
+    r"\bart\.?\s+(?P<article>\d+(?:\s+alin\.?\s*\(\d+(?:\^\d+)?\))?"
+    r"(?:\s+(?:lit\.|litera)\s*[a-zA-Z]\)?)?)"
+    r"\s+din\s+Codul(?:ui)?\s+(?P<tail>" + _CODE_TAIL + r")",
+    re.IGNORECASE,
+)
+
+
+def _code_kind(tail_raw: str) -> str | None:
+    """Map a regex-captured tail (e.g. `de procedură penală`) to its enum."""
+    s = tail_raw.lower()
+    # Diacritic fold for the lookup key
+    s = (
+        s.replace("ț", "t")
+        .replace("ţ", "t")
+        .replace("ă", "a")
+        .replace("â", "a")
+        .replace("î", "i")
+        .replace("ș", "s")
+        .replace("ş", "s")
+    )
+    s = re.sub(r"\s+", " ", s).strip()
+    return _CODE_KIND_MAP.get(s)
 
 
 # -- bill.procedure detector (v1.4.0 schema) ---------------------------------
@@ -326,6 +414,89 @@ _TREATY_CARTA_RE = re.compile(
 _PROCEDURE_URGENCY_RE = re.compile(
     r"în\s+procedur[ăa]\s+de\s+urgen[țt][ăa]", re.IGNORECASE
 )
+
+
+# -- subject extraction for bill / law / parliamentary_resolution (v0.5.0) --
+#
+# Best-effort: pull the subject phrase from the surrounding sentence using
+# four canonical Romanian connector phrases. Works on a ±200 char window
+# around the cite; trims at the next punctuation; null when no match.
+# The schema slots already exist (bill.subject / law.subject /
+# parliamentary_resolution.subject); v0.5.0 finally populates them.
+
+
+_SUBJECT_WINDOW_CHARS = 200
+_SUBJECT_MAX_LEN = 200
+
+# Connector → capture group. Order is broadest-first within each group; the
+# captured tail terminates on punctuation (. , ; : \n) or a continuation
+# conjunction we know starts a new clause (`și`, `iar`, `dar`, etc.).
+_SUBJECT_BOUNDARY = r"[.,;:\n]|\s+(?:[șs]i\s+|iar\s+|dar\s+|sau\s+|precum)|\Z"
+_SUBJECT_PATTERNS: tuple[re.Pattern[str], ...] = (
+    re.compile(
+        r"\b(?:pentru\s+aprobarea|pentru\s+modificarea|pentru\s+completarea)\s+"
+        r"(?P<subject>[^.,;:\n]{3,200}?)(?=" + _SUBJECT_BOUNDARY + ")",
+        re.IGNORECASE,
+    ),
+    re.compile(
+        r"\bcu\s+privire\s+la\s+(?P<subject>[^.,;:\n]{3,200}?)(?="
+        + _SUBJECT_BOUNDARY
+        + ")",
+        re.IGNORECASE,
+    ),
+    re.compile(
+        r"\breferitoare\s+la\s+(?P<subject>[^.,;:\n]{3,200}?)(?="
+        + _SUBJECT_BOUNDARY
+        + ")",
+        re.IGNORECASE,
+    ),
+    re.compile(
+        r"\basupra\s+(?P<subject>[^.,;:\n]{3,200}?)(?=" + _SUBJECT_BOUNDARY + ")",
+        re.IGNORECASE,
+    ),
+    re.compile(
+        r"\bprivind\s+(?P<subject>[^.,;:\n]{3,200}?)(?=" + _SUBJECT_BOUNDARY + ")",
+        re.IGNORECASE,
+    ),
+)
+
+
+def _extract_subject(text: str, ref_start: int, ref_end: int) -> str | None:
+    """Best-effort subject pull from a ±200 char window around the cite.
+
+    Returns the first connector match's captured tail, trimmed of leading/
+    trailing whitespace + punctuation, capped at `_SUBJECT_MAX_LEN`. Only
+    looks AFTER the cite (the typical Romanian-statute idiom is
+    `Legea nr. N/Y privind X` / `Legii nr. N/Y pentru aprobarea X` —
+    the subject follows the cite, not precedes it). Returns None when no
+    pattern matches in the window.
+    """
+    if not text:
+        return None
+    win_start = ref_end
+    win_end = min(len(text), ref_end + _SUBJECT_WINDOW_CHARS)
+    window = text[win_start:win_end]
+    if not window:
+        return None
+    best_offset: int | None = None
+    best_subject: str | None = None
+    for pat in _SUBJECT_PATTERNS:
+        m = pat.search(window)
+        if not m:
+            continue
+        # Prefer the earliest connector — the closest descriptor wins
+        if best_offset is None or m.start() < best_offset:
+            best_offset = m.start()
+            captured = m.group("subject")
+            best_subject = captured
+    if best_subject is None:
+        return None
+    cleaned = best_subject.strip().strip(".,;:—-–")
+    if not cleaned:
+        return None
+    if len(cleaned) > _SUBJECT_MAX_LEN:
+        cleaned = cleaned[:_SUBJECT_MAX_LEN].rstrip().rstrip(".,;:—-–")
+    return cleaned or None
 
 
 # -- unknown emission (v0.4.0) ----------------------------------------------
@@ -343,18 +514,7 @@ _PROCEDURE_URGENCY_RE = re.compile(
 
 
 _UNKNOWN_EMIT_PATTERNS: list[tuple[re.Pattern[str], str]] = [
-    # Romanian named codes — "law-ish" hint; clean candidate for graduation
-    # to a `code` variant (see module docstring "Future graduation candidates").
-    (
-        re.compile(
-            r"\bCodul\s+(?:muncii|fiscal|civil|penal|"
-            r"de\s+procedur[ăa]\s+(?:civil[ăa]|penal[ăa])|"
-            r"administrativ|silvic|aerian|rutier|vamal|comercial|"
-            r"familiei|navigației|consumului|insolven[țt]ei)",
-            re.IGNORECASE,
-        ),
-        "law-ish",
-    ),
+    # Romanian named codes graduated to the strict `code` variant in v0.5.0.
     # `HG nr. N/Y` / `Hotărârea Guvernului nr. N/Y` — Government decision
     # (separate from PHCD/PHS chamber resolutions).
     (
@@ -390,26 +550,7 @@ _UNKNOWN_EMIT_PATTERNS: list[tuple[re.Pattern[str], str]] = [
         ),
         "court-ish",
     ),
-    # `Acordul de la X` / `Acordului de la X` (genitive) / `Acordul privind X`
-    # — treaty-shaped, not yet a strict `treaty` variant member. Schema hint
-    # is `other` (no `treaty-ish` enum value in v1.9.0).
-    (
-        re.compile(
-            r"\bAcord(?:ul|ului)\s+(?:de\s+la\s+|dintre\s+|privind\s+)"
-            r"[A-ZȘȚĂÎÂa-z][^.,;:\n]{2,80}",
-            re.IGNORECASE,
-        ),
-        "other",
-    ),
-    # `Protocolul ...` / `Protocolului ...` — treaty-shaped, same status.
-    (
-        re.compile(
-            r"\bProtocol(?:ul|ului)\s+(?:de\s+la\s+|adi[țt]ional\s+|"
-            r"op[țt]ional\s+|nr\.?\s*\d+\s+)[A-ZȘȚĂÎÂa-z][^.,;:\n]{2,80}",
-            re.IGNORECASE,
-        ),
-        "other",
-    ),
+    # Acordul / Protocolul forms graduated to the strict `treaty` variant in v0.5.0.
     # Bare `art. N (alin. M) (lit. X)` — the dominant "unknown" bucket
     # (~62K hits in the 1001-doc probe). Context-dependent: refers to
     # articles of the law/bill currently under debate. The cross-reference
@@ -481,6 +622,7 @@ def _make_bill(
     raw: str,
     char_offsets: list[int],
     procedure: str | None = None,
+    subject: str | None = None,
 ) -> dict[str, Any]:
     canonical_prefix = "PL-x" if prefix.upper().startswith("PL") else "L"
     return {
@@ -493,11 +635,17 @@ def _make_bill(
         "secondary_year": secondary_year,
         "chamber_of_origin": _bill_chamber(canonical_prefix),
         "procedure": procedure,
+        "subject": subject,
     }
 
 
 def _make_law(
-    *, number: str, year: int, raw: str, char_offsets: list[int]
+    *,
+    number: str,
+    year: int,
+    raw: str,
+    char_offsets: list[int],
+    subject: str | None = None,
 ) -> dict[str, Any]:
     return {
         "type": "law",
@@ -505,7 +653,7 @@ def _make_law(
         "char_offsets": char_offsets,
         "number": number,
         "year": year,
-        "subject": None,
+        "subject": subject,
     }
 
 
@@ -550,7 +698,12 @@ def _make_chamber_res(
 
 
 def _make_parliamentary_res(
-    *, number: str, year: int, raw: str, char_offsets: list[int]
+    *,
+    number: str,
+    year: int,
+    raw: str,
+    char_offsets: list[int],
+    subject: str | None = None,
 ) -> dict[str, Any]:
     return {
         "type": "parliamentary_resolution",
@@ -558,7 +711,7 @@ def _make_parliamentary_res(
         "char_offsets": char_offsets,
         "number": number,
         "year": year,
-        "subject": None,
+        "subject": subject,
     }
 
 
@@ -667,6 +820,22 @@ def _make_treaty(
     }
 
 
+def _make_code(
+    *,
+    code_kind: str,
+    article: str | None,
+    raw: str,
+    char_offsets: list[int],
+) -> dict[str, Any]:
+    return {
+        "type": "code",
+        "raw": raw,
+        "char_offsets": char_offsets,
+        "code_kind": code_kind,
+        "article": article,
+    }
+
+
 # -- top-level extractors ----------------------------------------------------
 
 
@@ -683,6 +852,7 @@ def _extract_bill_refs(text: str, base_offset: int) -> list[dict[str, Any]]:
         procedure = (
             "procedură de urgență" if _PROCEDURE_URGENCY_RE.search(tail) else None
         )
+        subject = _extract_subject(text, m.start(), m.end())
         refs.append(
             _make_bill(
                 prefix=prefix,
@@ -692,6 +862,7 @@ def _extract_bill_refs(text: str, base_offset: int) -> list[dict[str, Any]]:
                 raw=raw,
                 char_offsets=[base_offset + m.start(), base_offset + m.end()],
                 procedure=procedure,
+                subject=subject,
             )
         )
     return refs
@@ -717,12 +888,14 @@ def _extract_parliamentary_res_refs(
 ) -> list[dict[str, Any]]:
     refs: list[dict[str, Any]] = []
     for m in _PARLIAMENTARY_RES_RE.finditer(text):
+        subject = _extract_subject(text, m.start(), m.end())
         refs.append(
             _make_parliamentary_res(
                 number=m.group("number"),
                 year=int(m.group("year")),
                 raw=m.group(0),
                 char_offsets=[base_offset + m.start(), base_offset + m.end()],
+                subject=subject,
             )
         )
     return refs
@@ -731,12 +904,14 @@ def _extract_parliamentary_res_refs(
 def _extract_law_refs(text: str, base_offset: int) -> list[dict[str, Any]]:
     refs: list[dict[str, Any]] = []
     for m in _LAW_RE.finditer(text):
+        subject = _extract_subject(text, m.start(), m.end())
         refs.append(
             _make_law(
                 number=m.group("number"),
                 year=int(m.group("year")),
                 raw=m.group(0),
                 char_offsets=[base_offset + m.start(), base_offset + m.end()],
+                subject=subject,
             )
         )
     return refs
@@ -914,7 +1089,13 @@ def _extract_eu_doc_refs(text: str, base_offset: int) -> list[dict[str, Any]]:
 def _extract_treaty_refs(text: str, base_offset: int) -> list[dict[str, Any]]:
     refs: list[dict[str, Any]] = []
     seen: set[tuple[int, int]] = set()
-    for pat in (_TREATY_TRATATUL_RE, _TREATY_CONVENTIA_RE, _TREATY_CARTA_RE):
+    for pat in (
+        _TREATY_TRATATUL_RE,
+        _TREATY_CONVENTIA_RE,
+        _TREATY_ACORDUL_RE,
+        _TREATY_PROTOCOLUL_RE,
+        _TREATY_CARTA_RE,
+    ):
         for m in pat.finditer(text):
             key = (m.start(), m.end())
             if key in seen:
@@ -927,6 +1108,31 @@ def _extract_treaty_refs(text: str, base_offset: int) -> list[dict[str, Any]]:
                 _make_treaty(
                     name=name_raw,
                     year=None,
+                    raw=m.group(0),
+                    char_offsets=[base_offset + m.start(), base_offset + m.end()],
+                )
+            )
+    return refs
+
+
+def _extract_code_refs(text: str, base_offset: int) -> list[dict[str, Any]]:
+    refs: list[dict[str, Any]] = []
+    seen: set[tuple[int, int]] = set()
+    for pat in (_CODE_FORWARD_RE, _CODE_REVERSE_RE):
+        for m in pat.finditer(text):
+            key = (m.start(), m.end())
+            if key in seen:
+                continue
+            seen.add(key)
+            tail = m.group("tail")
+            kind = _code_kind(tail) if tail else None
+            if not kind:
+                continue
+            article = m.group("article") if "article" in m.groupdict() else None
+            refs.append(
+                _make_code(
+                    code_kind=kind,
+                    article=article.strip() if article else None,
                     raw=m.group(0),
                     char_offsets=[base_offset + m.start(), base_offset + m.end()],
                 )
@@ -966,6 +1172,8 @@ def parse_primary_references(text: str, base_offset: int = 0) -> list[dict[str, 
     regulations = _extract_regulation_refs(text, 0)
     eu_docs = _extract_eu_doc_refs(text, 0)
     treaties = _extract_treaty_refs(text, 0)
+    # v0.5.0 — Romanian named codes graduated from unknown.law-ish
+    codes = _extract_code_refs(text, 0)
 
     all_refs = (
         bills
@@ -980,6 +1188,7 @@ def parse_primary_references(text: str, base_offset: int = 0) -> list[dict[str, 
         + regulations
         + eu_docs
         + treaties
+        + codes
     )
     # Drop overlapping refs — keep the longer match (typically the strict
     # variant beats a generic). Sort by start ascending, end descending so

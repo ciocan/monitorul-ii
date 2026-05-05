@@ -403,12 +403,119 @@ def test_treaty_conventia_de_la_form():
 
 
 def test_treaty_carta_form():
-    """`Carta Națiunilor Unite` form may or may not match — call-only sanity
-    check that the parser doesn't crash on the input."""
+    """`Carta Națiunilor Unite` form — broadened in v0.5.0 to also match
+    the genitive (`Cartei`) and additional Carta members."""
     text = "Conform Cartei Națiunilor Unite, statele membre..."
     refs = parse_primary_references(text)
-    # No assertion on count — the Carta form is best-effort in v0.3.0
-    assert isinstance(refs, list)
+    tr = [r for r in refs if r["type"] == "treaty"]
+    assert any("Națiunilor Unite" in t["name"] for t in tr)
+
+
+# -- v0.5.0 treaty broadening: Acordul / Protocolul / wider Carta -----------
+
+
+def test_treaty_acordul_de_la_form():
+    text = "Conform Acordului de la Schengen, statele semnatare..."
+    refs = parse_primary_references(text)
+    tr = [r for r in refs if r["type"] == "treaty"]
+    assert len(tr) == 1
+    assert "Schengen" in tr[0]["name"]
+
+
+def test_treaty_acordul_dintre_form():
+    text = "Acordul dintre România și Republica Moldova privind ..."
+    refs = parse_primary_references(text)
+    tr = [r for r in refs if r["type"] == "treaty"]
+    assert len(tr) == 1
+
+
+def test_treaty_acordul_privind_form():
+    text = "Acordul privind exportul de cereale a fost semnat ieri."
+    refs = parse_primary_references(text)
+    tr = [r for r in refs if r["type"] == "treaty"]
+    assert len(tr) == 1
+
+
+def test_treaty_acordul_genitive_form():
+    """Genitive `Acordului de la X` matches alongside nominative `Acordul de la X`."""
+    text = "Aplicarea Acordului de la Paris privind clima..."
+    refs = parse_primary_references(text)
+    tr = [r for r in refs if r["type"] == "treaty"]
+    assert len(tr) == 1
+    assert "Paris" in tr[0]["name"]
+
+
+def test_treaty_protocolul_de_la_form():
+    text = "Protocolul de la Montreal privind ozonul stratosferic..."
+    refs = parse_primary_references(text)
+    tr = [r for r in refs if r["type"] == "treaty"]
+    assert len(tr) == 1
+    assert "Montreal" in tr[0]["name"]
+
+
+def test_treaty_protocolul_aditional_form():
+    text = "Protocolul adițional la Convenția europeană din 1981..."
+    refs = parse_primary_references(text)
+    tr = [r for r in refs if r["type"] == "treaty"]
+    # `Protocolul adițional la Convenția...` should yield at least one treaty
+    # (Protocolul + Convenția, deduped where overlapping)
+    assert len(tr) >= 1
+
+
+def test_treaty_protocolul_optional_form():
+    text = "Protocolul opțional la CEDAW privind copiii..."
+    refs = parse_primary_references(text)
+    tr = [r for r in refs if r["type"] == "treaty"]
+    assert len(tr) == 1
+
+
+def test_treaty_protocolul_nr_form():
+    """`Protocolul nr. 12 la Convenția ...` form."""
+    text = "Protocolul nr. 12 la Convenția europeană a drepturilor omului..."
+    refs = parse_primary_references(text)
+    tr = [r for r in refs if r["type"] == "treaty"]
+    assert len(tr) >= 1
+
+
+def test_treaty_protocolul_genitive_form():
+    text = "Aplicarea Protocolului de la Kyoto a fost amânată."
+    refs = parse_primary_references(text)
+    tr = [r for r in refs if r["type"] == "treaty"]
+    assert len(tr) == 1
+    assert "Kyoto" in tr[0]["name"]
+
+
+def test_treaty_carta_drepturilor_fundamentale():
+    text = "Conform Cartei drepturilor fundamentale a Uniunii Europene..."
+    refs = parse_primary_references(text)
+    tr = [r for r in refs if r["type"] == "treaty"]
+    assert any("drepturilor fundamentale" in t["name"] for t in tr)
+
+
+def test_treaty_carta_sociala_europeana():
+    text = "Carta socială europeană revizuită a fost ratificată în 1999."
+    refs = parse_primary_references(text)
+    tr = [r for r in refs if r["type"] == "treaty"]
+    assert any("social" in t["name"].lower() for t in tr)
+
+
+def test_treaty_carta_europeana_autonomiei_locale():
+    text = "Carta europeană a autonomiei locale stabilește principii ..."
+    refs = parse_primary_references(text)
+    tr = [r for r in refs if r["type"] == "treaty"]
+    assert any("autonomiei locale" in t["name"] for t in tr)
+
+
+def test_treaty_acordul_universal_fields():
+    text = "Acordul de la Helsinki și Protocolul de la Tokyo, plus Tratatul de la Roma."
+    refs = parse_primary_references(text)
+    tr = [r for r in refs if r["type"] == "treaty"]
+    assert len(tr) == 3
+    for r in tr:
+        assert r["raw"]
+        assert isinstance(r["char_offsets"], list)
+        assert r["char_offsets"][0] < r["char_offsets"][1]
+        assert r["name"]
 
 
 def test_eu_doc_not_confused_with_court_decision():
@@ -435,15 +542,273 @@ def test_v03_wave2_carry_universal_fields():
         assert r["char_offsets"][0] < r["char_offsets"][1]
 
 
-# -- v0.4.0 unknown emission ---------------------------------------------
+# -- v0.5.0 subject extraction -----------------------------------------------
 
 
-def test_unknown_emit_codul_penal():
-    refs = parse_mentioned_references("Codul penal, art. 297 — abuz în serviciu.")
+def test_subject_law_with_privind():
+    refs = parse_primary_references(
+        "Legea nr. 96/2006 privind Statutul deputaților și al senatorilor."
+    )
+    law = [r for r in refs if r["type"] == "law"][0]
+    assert law["subject"] is not None
+    assert "Statutul" in law["subject"]
+
+
+def test_subject_law_with_pentru_aprobarea():
+    refs = parse_primary_references(
+        "Legea nr. 100/2020 pentru aprobarea OUG 50/2019 cu privire la pensii."
+    )
+    law = [r for r in refs if r["type"] == "law"][0]
+    assert law["subject"] is not None
+    # Could match either `pentru aprobarea ...` (closer) or `cu privire la ...`
+    assert any(s in law["subject"] for s in ("OUG", "pensii", "aprobarea"))
+
+
+def test_subject_law_with_referitoare_la():
+    refs = parse_primary_references(
+        "Legea nr. 50/2018 referitoare la urbanism a fost respinsă."
+    )
+    law = [r for r in refs if r["type"] == "law"][0]
+    assert law["subject"] is not None
+    assert "urbanism" in law["subject"]
+
+
+def test_subject_law_with_cu_privire_la():
+    refs = parse_primary_references(
+        "Legea nr. 7/2024 cu privire la cadastru și publicitate imobiliară."
+    )
+    law = [r for r in refs if r["type"] == "law"][0]
+    assert law["subject"] is not None
+    assert "cadastru" in law["subject"]
+
+
+def test_subject_law_with_asupra():
+    refs = parse_primary_references(
+        "Discutăm Legea nr. 200/2010 asupra recunoașterii diplomelor universitare."
+    )
+    law = [r for r in refs if r["type"] == "law"][0]
+    assert law["subject"] is not None
+    assert "recunoașterii" in law["subject"]
+
+
+def test_subject_bill_with_privind():
+    refs = parse_primary_references(
+        "PL-x 314/2025 privind măsurile de fiscalizare a comerțului electronic."
+    )
+    bill = [r for r in refs if r["type"] == "bill"][0]
+    assert bill["subject"] is not None
+    assert "fiscalizare" in bill["subject"]
+
+
+def test_subject_parliamentary_res_with_privind():
+    refs = parse_primary_references(
+        "Hotărârea Parlamentului României nr. 5/2025 privind componența "
+        "comisiei mixte de buget."
+    )
+    pr = [r for r in refs if r["type"] == "parliamentary_resolution"][0]
+    assert pr["subject"] is not None
+    assert "componența" in pr["subject"]
+
+
+def test_subject_terminates_at_sentence_boundary():
+    """Subject capture stops at the next punctuation."""
+    refs = parse_primary_references(
+        "Legea nr. 96/2006 privind Statutul deputaților. Apoi aplicarea ei..."
+    )
+    law = [r for r in refs if r["type"] == "law"][0]
+    assert law["subject"] is not None
+    assert "Statutul deputaților" in law["subject"]
+    assert "Apoi" not in law["subject"]
+
+
+def test_subject_max_length_enforced():
+    """Long subjects are capped at 200 chars; rstripped of trailing punctuation."""
+    long_tail = " " + "x" * 250
+    refs = parse_primary_references(f"Legea nr. 1/2020 privind{long_tail}")
+    law = [r for r in refs if r["type"] == "law"][0]
+    assert law["subject"] is not None
+    assert len(law["subject"]) <= 200
+
+
+def test_subject_null_when_no_connector():
+    refs = parse_primary_references("Legea nr. 50/2018 a fost contestată.")
+    law = [r for r in refs if r["type"] == "law"][0]
+    # No connector phrase → subject stays null
+    assert law["subject"] is None
+
+
+def test_subject_null_when_no_window():
+    """Cite at end of text → no window, subject stays null."""
+    refs = parse_primary_references("Legea nr. 50/2018")
+    law = [r for r in refs if r["type"] == "law"][0]
+    assert law["subject"] is None
+
+
+def test_subject_picks_earliest_connector():
+    """When multiple connectors fire in the window, take the closest one."""
+    refs = parse_primary_references(
+        "Legea nr. 96/2006 privind Statutul deputaților, "
+        "iar referitoare la senatori prevede..."
+    )
+    law = [r for r in refs if r["type"] == "law"][0]
+    assert law["subject"] is not None
+    # `privind` is the closer connector — `Statutul ...` should win
+    assert "Statutul" in law["subject"]
+
+
+def test_subject_does_not_apply_to_oug_og():
+    """Subject is only on bill / law / parliamentary_resolution. OUG / OG
+    have no subject field — schema must not gain spurious fields."""
+    refs = parse_primary_references(
+        "OUG nr. 50/2024 privind măsurile fiscale; OG 30/2020 privind taxe."
+    )
+    oug = [r for r in refs if r["type"] == "oug"][0]
+    og = [r for r in refs if r["type"] == "og"][0]
+    assert "subject" not in oug
+    assert "subject" not in og
+
+
+# -- v0.5.0 code variant ----------------------------------------------------
+
+
+def test_code_codul_muncii_basic():
+    refs = parse_primary_references("Conform Codului muncii, art. 5 alin. (1)...")
+    cd = [r for r in refs if r["type"] == "code"]
+    assert len(cd) == 1
+    assert cd[0]["code_kind"] == "muncii"
+
+
+def test_code_codul_penal_genitive():
+    """Genitive form `Codului penal` matches the strict `code` variant."""
+    refs = parse_primary_references("Aplicarea Codului penal a fost contestată.")
+    cd = [r for r in refs if r["type"] == "code"]
+    assert len(cd) == 1
+    assert cd[0]["code_kind"] == "penal"
+
+
+def test_code_codul_fiscal_with_inline_article():
+    """`Codul fiscal art. N` form combines kind + article in one match."""
+    refs = parse_primary_references("Codul fiscal art. 297 alin. (4) prevede...")
+    cd = [r for r in refs if r["type"] == "code"]
+    assert len(cd) == 1
+    assert cd[0]["code_kind"] == "fiscal"
+    assert cd[0]["article"] is not None
+    assert "297" in cd[0]["article"]
+
+
+def test_code_codul_de_procedura_civila():
+    """Multi-word tail `de procedură civilă` resolves to enum
+    `procedura_civila`."""
+    refs = parse_primary_references("Conform Codului de procedură civilă, ...")
+    cd = [r for r in refs if r["type"] == "code"]
+    assert len(cd) == 1
+    assert cd[0]["code_kind"] == "procedura_civila"
+
+
+def test_code_codul_de_procedura_penala_wins_over_codul_penal():
+    """`Codul de procedură penală` matches as procedura_penala — NOT as
+    a `Codul ... penal` substring."""
+    refs = parse_primary_references("Aplicăm Codul de procedură penală în acest caz.")
+    cd = [r for r in refs if r["type"] == "code"]
+    assert len(cd) == 1
+    assert cd[0]["code_kind"] == "procedura_penala"
+
+
+def test_code_codul_silvic():
+    refs = parse_primary_references("Codul silvic reglementează exploatarea pădurilor.")
+    cd = [r for r in refs if r["type"] == "code"]
+    assert len(cd) == 1
+    assert cd[0]["code_kind"] == "silvic"
+
+
+def test_code_codul_administrativ():
+    refs = parse_primary_references("Codul administrativ, art. 50.")
+    cd = [r for r in refs if r["type"] == "code"]
+    assert len(cd) == 1
+    assert cd[0]["code_kind"] == "administrativ"
+
+
+def test_code_codul_civil():
+    refs = parse_primary_references("Conform Codului civil...")
+    cd = [r for r in refs if r["type"] == "code"]
+    assert len(cd) == 1
+    assert cd[0]["code_kind"] == "civil"
+
+
+def test_code_codul_vamal():
+    refs = parse_primary_references("Codul vamal a fost modificat în 2024.")
+    cd = [r for r in refs if r["type"] == "code"]
+    assert len(cd) == 1
+    assert cd[0]["code_kind"] == "vamal"
+
+
+def test_code_reverse_form_art_n_din_codul():
+    """`art. N din Codul X` reverse form — captures both article + kind."""
+    refs = parse_primary_references("Aplicăm art. 297 din Codul fiscal.")
+    cd = [r for r in refs if r["type"] == "code"]
+    assert len(cd) == 1
+    assert cd[0]["code_kind"] == "fiscal"
+    assert cd[0]["article"] == "297"
+
+
+def test_code_reverse_form_with_alin():
+    """Reverse form preserves alin. qualifier in article."""
+    refs = parse_primary_references("Conform art. 12 alin. (3) din Codul muncii.")
+    cd = [r for r in refs if r["type"] == "code"]
+    assert len(cd) == 1
+    assert cd[0]["code_kind"] == "muncii"
+    assert "12" in cd[0]["article"]
+    assert "alin" in cd[0]["article"]
+
+
+def test_code_no_match_returns_empty():
+    """Random `Cod` mentions don't match (e.g. `Codul rutier moldovenesc`
+    is borderline; `Codul cocoșului` definitely shouldn't fire)."""
+    refs = parse_primary_references("Codul cocoșului din Vechiul Testament.")
+    cd = [r for r in refs if r["type"] == "code"]
+    assert len(cd) == 0
+
+
+def test_code_NOT_emitted_as_unknown():
+    """Codul X spans must NOT also surface as unknown (graduated)."""
+    refs = parse_mentioned_references(
+        "Codul muncii și Codul fiscal au fost modificate."
+    )
     unknowns = [r for r in refs if r["type"] == "unknown"]
-    cp = [r for r in unknowns if "penal" in r["raw"].lower()]
-    assert len(cp) >= 1
-    assert cp[0]["hint"] == "law-ish"
+    codul_unknowns = [u for u in unknowns if "Codul" in u["raw"]]
+    assert codul_unknowns == []
+
+
+def test_code_universal_fields():
+    text = "Codul muncii art. 5; art. 297 din Codul fiscal."
+    refs = parse_primary_references(text)
+    cd = [r for r in refs if r["type"] == "code"]
+    assert len(cd) == 2
+    for r in cd:
+        assert r["raw"]
+        assert isinstance(r["char_offsets"], list)
+        assert r["char_offsets"][0] < r["char_offsets"][1]
+        assert r["code_kind"] in {
+            "muncii",
+            "fiscal",
+            "civil",
+            "penal",
+            "procedura_civila",
+            "procedura_penala",
+            "administrativ",
+            "silvic",
+            "aerian",
+            "rutier",
+            "vamal",
+            "comercial",
+            "familiei",
+            "navigatiei",
+            "consumului",
+            "insolventei",
+        }
+
+
+# -- v0.4.0 unknown emission ---------------------------------------------
 
 
 def test_unknown_emit_hg_form():
@@ -472,14 +837,21 @@ def test_unknown_emit_iccj():
     assert iccj[0]["hint"] == "court-ish"
 
 
-def test_unknown_emit_acordul_protocolul():
-    """Treaty-shaped Acordul/Protocolul → unknown.hint=other."""
+def test_acordul_protocolul_graduated_NOT_unknown():
+    """Acordul/Protocolul graduated to strict `treaty` in v0.5.0 — must
+    NOT also surface as `unknown.hint=other`."""
     refs = parse_mentioned_references(
         "Conform Acordului de la Schengen și Protocolului de la Montreal..."
     )
     unknowns = [r for r in refs if r["type"] == "unknown"]
-    assert any("Acordul" in r["raw"] for r in unknowns)
-    assert any("Protocolul" in r["raw"] for r in unknowns)
+    treaty_unknowns = [
+        u for u in unknowns if "Acord" in u["raw"] or "Protocol" in u["raw"]
+    ]
+    assert treaty_unknowns == []
+    treaties = [r for r in refs if r["type"] == "treaty"]
+    raws = " ".join(t["raw"] for t in treaties)
+    assert "Acordul" in raws
+    assert "Protocolul" in raws
 
 
 def test_unknown_emit_bare_art_n():
@@ -515,7 +887,9 @@ def test_unknown_NOT_emitted_for_regulation_form():
 
 def test_unknown_universal_fields():
     """Unknown emissions carry type/raw/char_offsets/hint."""
-    refs = parse_mentioned_references("Codul muncii art. 5 + HG nr. 100/2020.")
+    refs = parse_mentioned_references(
+        "HG nr. 100/2020 + Decret-lege nr. 31/1990 + Acordul de la Schengen."
+    )
     unknowns = [r for r in refs if r["type"] == "unknown"]
     assert len(unknowns) >= 2
     for u in unknowns:

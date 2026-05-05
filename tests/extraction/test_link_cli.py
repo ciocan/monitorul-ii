@@ -62,7 +62,7 @@ def test_cmd_link_walks_directory_and_links(tmp_path, capsys):
 
     def _envelope(doc_id, doc_type, session_date):
         return {
-            "schema_version": "1.9.0",
+            "schema_version": "1.10.0",
             "document_id": doc_id,
             "content_sha": "0123456789ab",
             "document_type": doc_type,

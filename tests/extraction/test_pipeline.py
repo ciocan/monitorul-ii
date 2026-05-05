@@ -114,7 +114,7 @@ def test_envelope_top_level_shape(md_name: str, isolated_md) -> None:
 def test_dispatch_skips_unimplemented_types(isolated_md, monkeypatch) -> None:
     """The skip-with-reason contract for unimplemented types: when a doc
     classifies as a type without an extractor registered, it must skip with
-    reason — not produce a stub `body=other` sidecar. v1.8.0 ships extractors
+    reason — not produce a stub `body=other` sidecar. v1.10.0 ships extractors
     for all 6 types; we monkeypatch EXTRACTORS to drop one and verify the
     contract still holds for any future type that ships before its
     extractor.

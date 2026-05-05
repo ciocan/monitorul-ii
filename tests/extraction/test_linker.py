@@ -31,7 +31,7 @@ def _minimal_envelope(
 ) -> dict:
     """Build a minimal sidecar envelope shared across types."""
     return {
-        "schema_version": "1.9.0",
+        "schema_version": "1.10.0",
         "document_id": doc_id,
         "content_sha": "0123456789ab",
         "document_type": doc_type,

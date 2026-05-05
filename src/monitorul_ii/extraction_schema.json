@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://github.com/ciocan/monitorul-ii/blob/main/src/monitorul_ii/extraction_schema.json",
   "title": "Monitorul Oficial Partea II extraction sidecar",
-  "description": "Canonical machine-readable schema for the per-document JSON sidecars emitted by `monitorul-ii extract`. Mirrors docs/extraction-schema.md (the human-readable spec). Schema_version 1.8.0 graduates report_facsimile from PendingBody to a strict body shape (report metadata + headings outline + raw_markdown_excerpt). All six document types now have strict body shapes; PendingBody is no longer referenced by the discriminator (kept as a $def placeholder for future types).",
+  "description": "Canonical machine-readable schema for the per-document JSON sidecars emitted by `monitorul-ii extract`. Mirrors docs/extraction-schema.md (the human-readable spec). Schema_version 1.10.0 graduates the `code` reference variant out of the unknown catch-all (Romanian named codes — Codul muncii / fiscal / penal / civil / silvic / administrativ / de procedură penală / de procedură civilă / vamal / aerian / rutier / comercial / familiei / navigației / consumului / insolvenței), broadens the `treaty` variant to absorb Acordul/Protocolul/wider Carta forms, and populates best-effort `subject` fields on bill / law / parliamentary_resolution. v1.8.0 graduated report_facsimile from PendingBody to a strict body shape; v1.9.0 graduated 6 long-tail reference variants (motion / court_decision / constitution / regulation / eu_doc / treaty); v1.10.0 finishes Tier-1 reference graduations. All six document types continue to have strict body shapes; PendingBody is kept as a $def placeholder for future types.",
   "type": "object",
   "required": [
     "schema_version",
@@ -18,7 +18,7 @@
   ],
   "additionalProperties": false,
   "properties": {
-    "schema_version": { "const": "1.9.0" },
+    "schema_version": { "const": "1.10.0" },
     "document_id": {
       "type": "string",
       "pattern": "^mo://\\d{4}/[IVXM]+/[0-9A-Za-z]+$"
@@ -669,7 +669,7 @@
       }
     },
     "Reference": {
-      "description": "Discriminated union of reference shapes. Universal fields on every variant: type, raw, char_offsets. v1.9.0 graduates the long-tail variants (motion, court_decision, constitution, regulation, eu_doc, treaty) from `unknown` to strict shapes. Strict variants now total 12; `unknown` remains as a catch-all for cite-shaped spans that don't classify into any strict type.",
+      "description": "Discriminated union of reference shapes. Universal fields on every variant: type, raw, char_offsets. v1.9.0 graduated 6 long-tail variants (motion, court_decision, constitution, regulation, eu_doc, treaty) from `unknown` to strict shapes; v1.10.0 graduates the `code` variant (Romanian named codes — Codul muncii / penal / fiscal / ...). Strict variants now total 13; `unknown` remains as a catch-all for cite-shaped spans that don't classify into any strict type.",
       "oneOf": [
         { "$ref": "#/$defs/BillReference" },
         { "$ref": "#/$defs/LawReference" },
@@ -683,6 +683,7 @@
         { "$ref": "#/$defs/RegulationReference" },
         { "$ref": "#/$defs/EuDocReference" },
         { "$ref": "#/$defs/TreatyReference" },
+        { "$ref": "#/$defs/CodeReference" },
         { "$ref": "#/$defs/UnknownReference" }
       ]
     },
@@ -706,7 +707,8 @@
         "chamber_of_origin": {
           "anyOf": [{ "enum": ["camera", "senat"] }, { "type": "null" }]
         },
-        "procedure": { "type": ["string", "null"] }
+        "procedure": { "type": ["string", "null"] },
+        "subject": { "type": ["string", "null"] }
       }
     },
     "LawReference": {
@@ -893,9 +895,41 @@
         }
       }
     },
+    "CodeReference": {
+      "type": "object",
+      "description": "Romanian named code citation — `Codul muncii`, `Codul penal`, `Codul fiscal`, `Codul de procedură penală`, etc. v1.10.0+. Includes genitive forms (`Codului muncii`) and combinations with `art. N` (`Codul fiscal art. 5` or `art. 5 din Codul fiscal`). The `code_kind` enum names the canonical code; the optional `article` field captures the article number when the cite includes one.",
+      "required": ["type", "raw", "char_offsets", "code_kind"],
+      "additionalProperties": false,
+      "properties": {
+        "type": { "const": "code" },
+        "raw": { "type": "string", "minLength": 1 },
+        "char_offsets": { "$ref": "#/$defs/CharRange" },
+        "code_kind": {
+          "enum": [
+            "muncii",
+            "fiscal",
+            "civil",
+            "penal",
+            "procedura_civila",
+            "procedura_penala",
+            "administrativ",
+            "silvic",
+            "aerian",
+            "rutier",
+            "vamal",
+            "comercial",
+            "familiei",
+            "navigatiei",
+            "consumului",
+            "insolventei"
+          ]
+        },
+        "article": { "type": ["string", "null"] }
+      }
+    },
     "UnknownReference": {
       "type": "object",
-      "description": "Catch-all for spans that look reference-shaped but don't classify into the 6 strict variants. The `hint` field carries a coarse classifier output (law-ish, court-ish, eu-doc-ish, other) that future extractor versions use to graduate variants.",
+      "description": "Catch-all for spans that look reference-shaped but don't classify into any strict variant. The `hint` field carries a coarse classifier output (law-ish, court-ish, eu-doc-ish, other) that future extractor versions use to graduate variants.",
       "required": ["type", "raw", "char_offsets", "hint"],
       "additionalProperties": false,
       "properties": {
