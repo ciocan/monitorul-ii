@@ -346,6 +346,62 @@ def _build_parser() -> argparse.ArgumentParser:
     _add_s3_args(link)
     link.set_defaults(func=cmd_link)
 
+    backfill = sub.add_parser(
+        "backfill",
+        help="Registry-driven backfills: populate *_normalized slots from curated registries.",
+        description=(
+            "Walk `*.extraction.json` sidecars and join curated registries "
+            "into the schema's *_normalized slots. Each --kind targets one "
+            "registry/field pair. Pre-write schema validation; atomic write "
+            "via .part rename; idempotent (already-filled entries skip "
+            "unless --force).\n"
+            "  --kind=issuing_body — fills "
+            "report_facsimile.body.report.issuing_body_normalized from the "
+            "institutional bodies registry.\n"
+            "  --kind=all — runs every shipped pass."
+        ),
+    )
+    backfill.add_argument(
+        "paths",
+        nargs="+",
+        type=Path,
+        help="Sidecar JSON files or directories (non-recursive).",
+    )
+    backfill.add_argument(
+        "--kind",
+        choices=("issuing_body", "ministry", "proposed_by", "all"),
+        default="all",
+        help=(
+            "Which backfill pass to run (default: all). `issuing_body` "
+            "fills `report_facsimile.body.report.issuing_body_normalized`; "
+            "`ministry` fills "
+            "`question_register.body.questions[].addressee.ministry_normalized` "
+            "and "
+            "`plenary_*.body.interpellations[].addressed_to_normalized` "
+            "from the ministries registry (with institutional-body "
+            "fallback); `proposed_by` fills "
+            "`plenary_*.body.agenda_items[].activities[].proposed_by` "
+            "(Guvern) on votes whose parent agenda carries an OUG/OG cite "
+            "or title pattern. `all` runs every shipped pass; "
+            "forward-compatible with future registries."
+        ),
+    )
+    backfill.add_argument(
+        "--force",
+        action="store_true",
+        help=(
+            "Overwrite existing *_normalized values when the registry "
+            "yields a different canonical id."
+        ),
+    )
+    backfill.add_argument(
+        "--dry-run",
+        action="store_true",
+        help="Print what would change without writing to disk or S3.",
+    )
+    _add_s3_args(backfill)
+    backfill.set_defaults(func=cmd_backfill)
+
     return p
 
 
@@ -1363,6 +1419,314 @@ def cmd_link(args: argparse.Namespace) -> int:
             f"errors={counters['upload_errors']}"
         )
     print(summary, flush=True)
+    if skip_reasons:
+        print("skip reasons:", file=sys.stderr)
+        for reason, n in sorted(skip_reasons.items(), key=lambda kv: -kv[1]):
+            print(f"  {reason}: {n}", file=sys.stderr)
+    return 1 if counters["errors"] or counters["upload_errors"] else 0
+
+
+_BACKFILL_LABELS = {
+    "filled": "ok   ",
+    "skip": "skip ",
+    "error": "ERROR",
+}
+
+
+def _run_issuing_body_backfill(
+    sidecars: list[Path],
+    *,
+    force: bool,
+    write: bool,
+    uploader: object | None,
+    counters: dict[str, int],
+    skip_reasons: dict[str, int],
+    matched_via_counts: dict[str, int],
+) -> None:
+    """Pass: report_facsimile.issuing_body → issuing_body_normalized."""
+    from monitorul_ii.extraction.backfills import backfill_all_issuing_bodies
+
+    n_reports = sum(1 for p in sidecars if _read_doctype(p) == "report_facsimile")
+    print(
+        f"[issuing_body] running over {n_reports} report_facsimile sidecars "
+        f"(of {len(sidecars)} total)",
+        file=sys.stderr,
+    )
+
+    for result in backfill_all_issuing_bodies(sidecars, force=force, write=write):
+        label = _BACKFILL_LABELS[result.status]
+        line = f"  {label} {result.sidecar_path.name}"
+        if result.status == "filled":
+            counters["filled"] += 1
+            matched_via_counts[result.matched_via or "unknown"] = (
+                matched_via_counts.get(result.matched_via or "unknown", 0) + 1
+            )
+            line += (
+                f"  -> {result.canonical_id}  [{result.matched_via}]"
+                f"  (raw={result.raw_value!r})"
+            )
+        elif result.status == "skip":
+            counters["skipped"] += 1
+            reason = result.reason or "unknown"
+            skip_reasons[reason] = skip_reasons.get(reason, 0) + 1
+            line += f"  ({reason})"
+            if result.raw_value and reason == "no registry match":
+                line += f"  raw={result.raw_value!r}"
+        else:
+            counters["errors"] += 1
+            line += f"  ({result.reason or 'unknown'})"
+        print(line, flush=True)
+        if result.status == "error":
+            print(line, file=sys.stderr, flush=True)
+
+        if (
+            uploader is not None
+            and result.status == "filled"
+            and write
+            and result.sidecar_path.exists()
+        ):
+            try:
+                up = uploader.upload_if_missing(  # type: ignore[attr-defined]
+                    result.sidecar_path, content_type="application/json"
+                )
+                if up.uploaded:
+                    counters["uploaded"] += 1
+                    print(f"  s3+   {result.sidecar_path.name}")
+                else:
+                    counters["in_bucket"] += 1
+                    print(f"  s3=   {result.sidecar_path.name}")
+            except Exception as exc:
+                counters["upload_errors"] += 1
+                print(
+                    f"  s3!   {result.sidecar_path.name}  ({exc})",
+                    file=sys.stderr,
+                )
+
+
+def _read_doctype(path: Path) -> str | None:
+    """Cheap document_type peek for the per-pass progress header."""
+    try:
+        with path.open(encoding="utf-8") as f:
+            head = json.load(f)
+        return head.get("document_type")
+    except (OSError, json.JSONDecodeError):
+        return None
+
+
+def _run_ministry_backfill(
+    sidecars: list[Path],
+    *,
+    force: bool,
+    write: bool,
+    uploader: object | None,
+    counters: dict[str, int],
+    skip_reasons: dict[str, int],
+    matched_via_counts: dict[str, int],
+) -> None:
+    """Pass: qr/plenary addressee → ministry/addressed_to normalized."""
+    from monitorul_ii.extraction.backfills import backfill_all_ministries
+
+    n_relevant = sum(
+        1
+        for p in sidecars
+        if _read_doctype(p)
+        in ("question_register", "plenary_stenogram", "plenary_joint_session")
+    )
+    print(
+        f"[ministry] running over {n_relevant} ministry-bearing sidecars "
+        f"(of {len(sidecars)} total)",
+        file=sys.stderr,
+    )
+
+    for result in backfill_all_ministries(sidecars, force=force, write=write):
+        label = _BACKFILL_LABELS[result.status]
+        line = f"  {label} {result.sidecar_path.name}"
+        if result.status == "filled":
+            counters["filled"] += 1
+            matched_via_counts[result.matched_via or "unknown"] = (
+                matched_via_counts.get(result.matched_via or "unknown", 0) + 1
+            )
+            line += f"  [{result.reason}]"
+            if result.canonical_id and result.matched_via:
+                line += f"  first={result.canonical_id} via={result.matched_via}"
+        elif result.status == "skip":
+            counters["skipped"] += 1
+            reason = result.reason or "unknown"
+            skip_reasons[reason] = skip_reasons.get(reason, 0) + 1
+            line += f"  ({reason})"
+        else:
+            counters["errors"] += 1
+            line += f"  ({result.reason or 'unknown'})"
+        print(line, flush=True)
+        if result.status == "error":
+            print(line, file=sys.stderr, flush=True)
+
+        if (
+            uploader is not None
+            and result.status == "filled"
+            and write
+            and result.sidecar_path.exists()
+        ):
+            try:
+                up = uploader.upload_if_missing(  # type: ignore[attr-defined]
+                    result.sidecar_path, content_type="application/json"
+                )
+                if up.uploaded:
+                    counters["uploaded"] += 1
+                    print(f"  s3+   {result.sidecar_path.name}")
+                else:
+                    counters["in_bucket"] += 1
+                    print(f"  s3=   {result.sidecar_path.name}")
+            except Exception as exc:
+                counters["upload_errors"] += 1
+                print(
+                    f"  s3!   {result.sidecar_path.name}  ({exc})",
+                    file=sys.stderr,
+                )
+
+
+def _run_proposed_by_backfill(
+    sidecars: list[Path],
+    *,
+    force: bool,
+    write: bool,
+    uploader: object | None,
+    counters: dict[str, int],
+    skip_reasons: dict[str, int],
+) -> None:
+    """Pass: plenary votes → proposed_by=Guvern (when OUG/OG-derived)."""
+    from monitorul_ii.extraction.backfills import backfill_all_proposed_by
+
+    n_relevant = sum(
+        1
+        for p in sidecars
+        if _read_doctype(p) in ("plenary_stenogram", "plenary_joint_session")
+    )
+    print(
+        f"[proposed_by] running over {n_relevant} plenary sidecars "
+        f"(of {len(sidecars)} total)",
+        file=sys.stderr,
+    )
+
+    for result in backfill_all_proposed_by(sidecars, force=force, write=write):
+        label = _BACKFILL_LABELS[result.status]
+        line = f"  {label} {result.sidecar_path.name}"
+        if result.status == "filled":
+            counters["filled"] += 1
+            line += f"  [{result.reason}]"
+        elif result.status == "skip":
+            counters["skipped"] += 1
+            reason = result.reason or "unknown"
+            skip_reasons[reason] = skip_reasons.get(reason, 0) + 1
+            line += f"  ({reason})"
+        else:
+            counters["errors"] += 1
+            line += f"  ({result.reason or 'unknown'})"
+        print(line, flush=True)
+        if result.status == "error":
+            print(line, file=sys.stderr, flush=True)
+
+        if (
+            uploader is not None
+            and result.status == "filled"
+            and write
+            and result.sidecar_path.exists()
+        ):
+            try:
+                up = uploader.upload_if_missing(  # type: ignore[attr-defined]
+                    result.sidecar_path, content_type="application/json"
+                )
+                if up.uploaded:
+                    counters["uploaded"] += 1
+                    print(f"  s3+   {result.sidecar_path.name}")
+                else:
+                    counters["in_bucket"] += 1
+                    print(f"  s3=   {result.sidecar_path.name}")
+            except Exception as exc:
+                counters["upload_errors"] += 1
+                print(
+                    f"  s3!   {result.sidecar_path.name}  ({exc})",
+                    file=sys.stderr,
+                )
+
+
+def cmd_backfill(args: argparse.Namespace) -> int:
+    sidecars = _collect_sidecars(list(args.paths))
+    if not sidecars:
+        print("no .extraction.json files found", file=sys.stderr)
+        return 0
+
+    uploader = _resolve_uploader(args) if not args.dry_run else None
+
+    counters: dict[str, int] = {
+        "filled": 0,
+        "skipped": 0,
+        "errors": 0,
+        "uploaded": 0,
+        "in_bucket": 0,
+        "upload_errors": 0,
+    }
+    skip_reasons: dict[str, int] = {}
+    matched_via_counts: dict[str, int] = {}
+
+    run_issuing_body = args.kind in ("issuing_body", "all")
+    run_ministry = args.kind in ("ministry", "all")
+    run_proposed_by = args.kind in ("proposed_by", "all")
+
+    try:
+        if run_issuing_body:
+            _run_issuing_body_backfill(
+                sidecars,
+                force=args.force,
+                write=not args.dry_run,
+                uploader=uploader,
+                counters=counters,
+                skip_reasons=skip_reasons,
+                matched_via_counts=matched_via_counts,
+            )
+        if run_ministry:
+            _run_ministry_backfill(
+                sidecars,
+                force=args.force,
+                write=not args.dry_run,
+                uploader=uploader,
+                counters=counters,
+                skip_reasons=skip_reasons,
+                matched_via_counts=matched_via_counts,
+            )
+        if run_proposed_by:
+            _run_proposed_by_backfill(
+                sidecars,
+                force=args.force,
+                write=not args.dry_run,
+                uploader=uploader,
+                counters=counters,
+                skip_reasons=skip_reasons,
+            )
+    except KeyboardInterrupt:
+        print(
+            f"\ninterrupted: filled={counters['filled']} "
+            f"skipped={counters['skipped']} errors={counters['errors']}",
+            file=sys.stderr,
+        )
+        return 130
+
+    summary = (
+        f"filled={counters['filled']} "
+        f"skipped={counters['skipped']} "
+        f"errors={counters['errors']}"
+    )
+    if counters["uploaded"] or counters["in_bucket"] or counters["upload_errors"]:
+        summary += (
+            f" | s3 uploaded={counters['uploaded']} "
+            f"in-bucket={counters['in_bucket']} "
+            f"errors={counters['upload_errors']}"
+        )
+    print(summary, flush=True)
+    if matched_via_counts:
+        print("matched_via:", file=sys.stderr)
+        for via, n in sorted(matched_via_counts.items(), key=lambda kv: -kv[1]):
+            print(f"  {via}: {n}", file=sys.stderr)
     if skip_reasons:
         print("skip reasons:", file=sys.stderr)
         for reason, n in sorted(skip_reasons.items(), key=lambda kv: -kv[1]):

@@ -1072,6 +1072,88 @@ A 10-pair spot-check on the v0.2.0 production smoke surfaced several caveats. Fu
 
 S3 mirror runs after each successful link when env vars are set: re-uploads the modified sidecar with `Content-Type: application/json`, overwriting the bucket copy. `--dry-run` skips both writes and uploads — useful for sanity-checking before a corpus-wide run.
 
+## Registry-driven backfills (v0.1.0)
+
+The fourth pipeline stage. Where `extract` produces typed records and `link` resolves cross-document references, **`backfill`** joins curated registries (small lookup tables maintained in tree at `src/monitorul_ii/registries/`) against the schema's `*_normalized` slots. The schema reserves these slots for canonical-id values that turn raw text into a key the downstream consumer can index by — the body that "Consiliului Suprem de Apărare a Țării" refers to in 2010 and "CSAT" refers to in 2024 are the same constitutional body, and querying by `issuing_body_normalized = 'csat'` recovers both.
+
+### Architecture (sister to the linker)
+
+`monitorul_ii.registries.<name>.json` is the data; `monitorul_ii.registries.__init__` exposes a `normalize_<kind>(raw) -> (id, matched_via)` function per registry; `monitorul_ii.extraction.backfills.<kind>_*` is the per-pass writer; `cli.py:cmd_backfill` is the orchestrator. Same atomic write + pre-write schema validation contract as the linker — backfills can never corrupt a sidecar; on schema failure the pre-write dict is rejected and the on-disk file is untouched.
+
+There is intentionally **no fuzzy / Levenshtein tier**. Multiple bodies share long prefixes (`Agenția Națională ...`, `Consiliul Național ...`, `Autoritatea Națională ...`); a fuzzy tier would silently merge them. Each match returns the resolving tier as `matched_via` so corpus telemetry surfaces which tiers fired and an audit can sort matches by suspiciousness (prefix < token_set < diacritic < case < exact).
+
+Each registry validates its entry shape at first load (id + canonical_name required; aliases optional list) and asserts uniqueness on `id`. `INSTITUTIONAL_BODIES_REGISTRY_VERSION` (and future siblings) are exposed as module-level constants for telemetry and surfaced in CLI output where it matters.
+
+### Versioning contract
+
+Backfill versions are NOT propagated into `extraction.extractor_versions`. Same Q11 conservative-by-design contract as the linker: an exact-match version key would force a full extractor re-run every time a registry file's `version` bumped. Backfill output lives entirely inside body content (`*_normalized` named fields), so the regression on a registry version bump is "the corpus has stale canonical ids until you re-run backfill" — a fast, idempotent operation. Re-extracting a sidecar (e.g., extractor v0.2.x → v0.2.y) clobbers all `*_normalized` fields back to their extractor defaults (typically null); re-running `monitorul-ii backfill` after re-extract is the recovery path.
+
+The matcher tries tiers in order:
+1. **exact** — input equals canonical_name OR an alias (case-sensitive).
+2. **case** — case-insensitive equality after `.casefold()`.
+3. **diacritic** — case + diacritic-stripped equality. Stripping uses `unicodedata.normalize('NFKD')` and filters combining marks; a cedilla map collapses pre-2010 `ţ`/`ş` into modern comma `ț`/`ș`; mojibake replacement chars `�` are stripped (without recovery — the underlying letter is gone, so the test in `tests/test_registries.py::test_normalize_replacement_chars_do_not_crash_or_misclassify` documents that mojibake'd inputs fall through to `(None, None)` rather than guessing).
+4. **token_set** — orderless intersection of tokenised+folded form. Catches reorderings and minor inflections in long institutional names without admitting prefix collisions.
+5. **prefix** (ministries only) — last-resort, longest-prefix match: cleaned input STARTS WITH a registered alias AND the next char is whitespace (or end-of-string). Recovers from the plenary extractor bleeding sentence prose into `addressed_to` (e.g. `Ministerul Justiției a fost să modifice legislația...`); without it, ~150 plenary records that carry a real ministry name plus a sentence continuation would stay unmatched. The token-boundary guard prevents partial-word collisions; the longest-first ordering guarantees `Ministerul Apărării Naționale` wins over the shorter `Ministerul Apărării` when both are registered. Disabled on the institutional registry (it isn't needed there and would be more dangerous because institutional names overlap less cleanly than ministry name variants).
+
+### Pass 4.1 — institutional bodies → `report.issuing_body_normalized`
+
+`src/monitorul_ii/registries/institutional_bodies.json` curates 30 entries covering the constitutional / autonomous bodies that file annual activity reports under R-suffix MOs:
+
+CSAT, SRI, SIE, STS, SPP, BNR, ICR, Avocatul Poporului, Consiliul Legislativ, SRTv, SRR, ANCOM, ANRE, ANRM, ANCPI, Curtea de Conturi, Curtea Constituțională, ANI, ASF, ANSPDCP, CSM, ONPCSB, AGERPRES, ANAD, AEP, ICCJ, CCIR, CNA, CNSAS, CNCD.
+
+For each: `id` (snake_case), `canonical_name` (full Romanian nominative), and `aliases[]` (acronym + Romanian genitive declension + common variants — `Consiliul ↔ Consiliului`, `Curtea ↔ Curții`, etc.). The genitive forms matter because Romanian text often refers to institutions in genitive case (`Raportul Consiliului Suprem ...`), and the `report_facsimile` extractor surfaces whatever case the source text used.
+
+Production smoke on the 52 R-suffix corpus (2014-2024 cohort): **34/34 (100%)** of sidecars whose extractor recovered a non-null `issuing_body` resolved to a registry id. All matches resolved at the `exact` tier — the diacritic / token-set tiers were defensive cover for variant raws that didn't appear in this corpus. The remaining 18 sidecars stay null because the upstream `report_facsimile` extractor produced no `issuing_body` raw value (mostly 2016-era image-only PDFs that arrive as mojibake'd OCR — see `pdfs/2016-05-23_MO-PII-4R-2016` and friends). Those are an extractor recovery problem, not a registry gap; widening the registry won't help.
+
+Idempotent re-runs: 34 fills on the first run, 0 fills + 52 skips on the second (34 "already filled with same canonical id" + 18 "no issuing_body raw value"). Atomic write contract verified — no `.part` artefacts left on disk.
+
+### CLI
+
+`monitorul-ii backfill <paths> [--kind=issuing_body|all] [--force] [--dry-run] [--bucket NAME | --no-upload]`. Same path-resolution semantics as `link` (files or non-recursive directories of `*.extraction.json`). `--kind=all` runs every shipped pass — currently equivalent to `--kind=issuing_body` but forward-compatible with future ministry / sponsor / person passes. Unknown choices are rejected at argparse level. Output is one line per processed sidecar to stdout (`ok <name> -> <id> [matched_via] (raw=...)`, `skip <name> (reason)`, `ERROR <name>`). Trailing summary `filled=N skipped=M errors=K`; `matched_via` distribution + skip-reasons histogram on stderr.
+
+### Pass 4.2 — ministries → `ministry_normalized` / `addressed_to_normalized`
+
+`src/monitorul_ii/registries/ministries.json` curates 30 entries — one id per "ministry concept" (broad portfolio area: `health`, `education`, `transport`, `environment`, `finance`, `foreign_affairs`, `economy`, `justice`, `defense`, `internal_affairs`, etc.) plus the prime minister's office, two government secretariats, and four delegated portfolios. Aliases include every historical name observed in the corpus (e.g. `health`'s aliases include `Ministerul Sănătății Publice` from the 2007-2009 cabinets, plus the genitive form `Ministerului Sănătății`) and the Romanian genitive declension of the canonical form.
+
+Time-window data (`active_from` / `active_to`) is intentionally NOT modelled in v0.1 — historical names collapse into the current ministry's id. This trades the ability to disambiguate "what was Ministerul Educației called in 2008?" for a much simpler registry. If a downstream consumer needs a time-window join, they can recover it from the MO publication date and the alias-matching record (the `active_from` / `active_to` infrastructure is forward-compatible — a future bump can add the field without a schema change).
+
+The pass walks two slot families:
+- `question_register.body.questions[].addressee.ministry_normalized` — written when the question's `addressee.ministry` raw resolves.
+- `plenary_*.body.interpellations[].addressed_to_normalized` — written when the interpellation's `addressed_to` raw resolves.
+
+Both join through `normalize_addressee`, which tries the ministry registry first and falls back to the institutional registry on miss (the schema's docstring explicitly lists intelligence services / CNSAS / ombudsman / central bank as valid addressees, and queries like "Curtea de Conturi" must resolve through the institutional fallback).
+
+Production sweep on the full corpus:
+- **qr addressees: 92.7% match rate** — 1851/1997 non-null raws resolve. matched_via histogram: `exact: 1828, prefix: 23`.
+- **plenary interpellation addressees: 85.6% on meaningful raws** — 488/570 raws longer than 4 chars resolve. The total raw count is 1953, but ~1500 of those are single-letter values (`m`, `p`, `S`, ...) produced by an upstream extractor bug that pulls the first letter of a longer phrase; those are NOT registry gaps and are excluded from the meaningful denominator. matched_via: `exact: 338, prefix: 147, token_set: 2, case: 1`.
+
+The `prefix` tier is load-bearing for plenary recovery (147 hits, ~30% of all plenary fills). It catches the extractor's habit of bleeding sentence prose into `addressed_to` (e.g. `Ministerul Justiției a fost să modifice legislația…` — where the first 22 chars are the ministry and the rest is sentence continuation). The token-boundary guard prevents matches like `Ministerul nostru` (no registered alias is bare `Ministerul`) from spuriously resolving.
+
+Idempotent re-runs verified on the full corpus: third run yields `filled=0, errors=0, skipped=4510` (4185 of those are "no records" sidecars — committee_synthesis / report_facsimile / other types where the pass is a no-op).
+
+### Pass 4.4 — `proposed_by` (Guvern attribution from OUG/OG signals)
+
+Signal-driven, not registry-driven. There's no curated table of bill sponsors — the Tier 4 prompt scoped that registry at ~10K bills with per-bill metadata that's not present in the stenogram corpus. Instead, the pass attributes votes to the Government when the parent agenda's evidence makes that attribution unambiguous:
+
+- The agenda's `primary_references[]` carries an `oug` (Government Emergency Ordinance) or `og` (Government Ordinance) ref — these are by definition government-issued, and any vote on a bill approving one inherits that proposer.
+- The agenda title matches an OUG/OG cite pattern: `Ordonanța (de urgență)? a Guvernului`, `O.U.G.`, `O.G.` — covers cases where the ref-extractor missed the cite but the title still mentions it.
+
+When either signal fires, the vote's `proposed_by` is populated with a canonical `Speaker` dict: `{raw: "Guvernul României", name: "Guvernul", role: "Guvern", title: null, party_group: null, person_id: null}`. The Speaker shape is forward-compatible with the future person registry — `person_id` stays null because the Government isn't a single named person.
+
+The pass is intentionally precision-first. The Tier 4 prompt's 60% coverage target isn't reachable from agenda-title / ref-list signals alone on this corpus; per-bill metadata stripped from the stenogram by the time it reaches `extract` (the agenda title rarely contains "Inițiator: deputatul X"; the proposer info is recorded on parlament.ro per-bill but not in the MO publication). Production smoke on the full 5551-doc corpus: **14.2% of plenary votes (7018/49556) attributed to Guvern**; 692 of 4446 plenary sidecars touched. Idempotent re-runs verified — second pass yields `filled=0, skipped=4446, errors=0`.
+
+The remaining 85% of votes (PL-x / L bills proposed by parliamentary groups, individual MPs, committees) need a parlament.ro per-bill metadata scrape to populate `proposed_by`. That work is deferred to a future tier — see § Future graduation candidates.
+
+### Future passes (deferred from v0.1.0)
+
+- **4.3 — Person registry → `Speaker.person_id`**: ~3000+ MPs across legislatures. **Blocked on data acquisition** — needs cdep.ro / senat.ro MP lists or a curated CSV; documented in § Future graduation candidates.
+
+## Future graduation candidates
+
+- **Tier 4.3 — Speaker person registry**. Schema slot `Speaker.person_id` stays null until an MP-list data source is wired in (cdep.ro / senat.ro JSON dumps or a curated CSV from a partner). The normalizer needs to handle Romanian name-order variation (family-first vs first-first), middle-initial drift, and diacritic variants. Smoke target ≥70% would leave the long tail (government officials, secretars de stat) unmatched by design — they're not MPs and won't appear in an MP registry.
+
+- **Tier 4.4 long tail — bill-sponsor backfill from parlament.ro**. The shipped `proposed_by` pass attributes only the 14.2% of votes that carry an OUG/OG signal. The remaining 85% (PL-x / L bills proposed by parliamentary groups, individual MPs, or committees) need per-bill metadata scraped from `cdep.ro/pls?d=...&cam=...` and Senate equivalents. Path: regex first (cheap, in-corpus), then scrape only for unmatched bill cites; cache scraped responses under `data/scrapes/parlament_ro/<bill_id>.json` so re-runs hit disk; rate-limit ≥1s between requests; identify with `User-Agent: monitorul-ii backfill (contact@...)`. The schema's `Vote.proposed_by` is a `Speaker` dict — for non-Government proposers the populated form would be `{raw: "deputatul X (PNL)", name: "X", role: "deputat", party_group: "PNL", ...}`. Backfill version key would be a separate `BILL_SPONSOR_BACKFILL_VERSION`; the OUG/OG pass and the parlament.ro pass would coexist (Government attribution from the in-corpus signal, sponsor attribution from the scrape, both writing to the same slot — last-write-wins because the Speaker dicts collide unambiguously).
+
 ## Testing
 
 Suite lives in `tests/`, mirrors `src/monitorul_ii/`, and ships ~130 unit tests that run in well under a second. Run with `uv run pytest`. The deliberate choices:

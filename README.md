@@ -182,6 +182,39 @@ When S3 env vars are set, modified sidecars re-upload (overwriting the bucket co
 
 The linker is idempotent and fast (~1ms per doc — pure dict lookup): re-extracting a sidecar (extractor version bump → re-extract) clobbers linker-written fields, but a quick `monitorul-ii link` recovers.
 
+### `backfill`
+
+Registry-driven backfill — fills the schema's `*_normalized` slots by joining curated registries against the raw values that `extract` already pulled. Same architectural shape as `link`: read sidecars, look up each raw value in an in-memory registry index, write the canonical id back atomically with pre-write schema validation. Each `--kind` targets one registry/field pair.
+
+```sh
+# run every shipped backfill pass over a directory
+uv run monitorul-ii backfill pdfs/
+
+# only the institutional-bodies pass (report_facsimile.issuing_body_normalized)
+uv run monitorul-ii backfill pdfs/ --kind=issuing_body
+
+# preview without writing anything to disk or S3
+uv run monitorul-ii backfill pdfs/ --dry-run
+
+# overwrite existing *_normalized values when the registry now resolves a different id
+uv run monitorul-ii backfill pdfs/ --force
+
+# skip the S3 mirror (otherwise modified sidecars re-upload)
+uv run monitorul-ii backfill pdfs/ --no-upload
+```
+
+`--kind` selects which pass to run; choices are `issuing_body` (fills `report_facsimile.body.report.issuing_body_normalized` from the institutional-bodies registry), `ministry` (fills `question_register.body.questions[].addressee.ministry_normalized` and `plenary_*.body.interpellations[].addressed_to_normalized` from the ministries registry, with institutional-body fallback for non-ministry addressees like `Curtea de Conturi`), `proposed_by` (fills `plenary_*.body.agenda_items[].activities[].proposed_by` with the canonical `Guvern` Speaker on votes whose parent agenda carries an OUG/OG cite — Government Ordinances are by definition government-proposed), and `all` (default — runs every shipped pass; forward-compatible with the future person registry). Unknown choices are rejected by argparse — `--kind=person` exits with usage info until the person registry ships. `--force` overwrites `*_normalized` values that disagree with the registry's current canonical id; without `--force`, conflicts skip with reason. `--dry-run` reports planned changes (one line per sidecar showing the raw value, the canonical id, and the matched-via tier) and exits without writing.
+
+**Institutional-bodies registry** (30 entries: CSAT, SRI, SIE, STS, BNR, ICR, Avocatul Poporului, Consiliul Legislativ, SRTv, SRR, ANCOM, ANRE, Curtea de Conturi, Curtea Constituțională, ANI, ASF, ANSPDCP, CSM, ONPCSB, AGERPRES, ANAD, AEP, ICCJ, CCIR, CNA, CNSAS, CNCD, ANRM, ANCPI, SPP). Production smoke on the 52 R-suffix corpus: 34/34 (100%) of sidecars whose extractor recovered a non-null `issuing_body` resolve to a canonical id; the remaining 18 are upstream gaps (extractor produced null `issuing_body`) and stay unmatched.
+
+**Ministries registry** (30 entries — one id per "ministry concept" with historical names + Romanian genitive declensions as aliases: prime_minister, health, culture, education, research, transport, environment, finance, foreign_affairs, economy, energy, regional_dev, youth_sport, communications, labor, justice, eu_funds, tourism, family, internal_affairs, defense, romanians_abroad, agriculture, sme, infrastructure_projects, delegated_water, delegated_budget, delegated_higher_education, secretariat_general, secretariat_revolutionaries). Production smoke: qr questions resolve at **92.7%** (1851/1997 non-null raws); plenary interpellations at **85.6%** of meaningful raws (488/570 raws longer than 4 chars — the corpus contains ~1500 single-letter extractor-noise values that no registry can resolve, so they're excluded from the meaningful denominator).
+
+**proposed_by pass** is signal-driven, not registry-driven: there's no curated table of bill sponsors (the Tier 4 prompt scoped that to ~10K bills, requiring per-bill metadata that lives on parlament.ro). Instead, the pass attributes votes to the Government when the parent agenda carries an `oug` / `og` reference OR the title matches an OUG/OG cite pattern (`OUG nr. X/Y`, `Ordonanței Guvernului nr. X/Y`, `O.U.G.`, `O.G.`). Government Ordinances are by definition government-issued, and any vote on a bill approving one inherits that proposer. Production smoke: 14.2% of plenary votes (7018/49556) attributed to Guvern; 692 of 4446 plenary sidecars touched. The remaining 85% are PL-x / L bills proposed by parliamentary groups / individual MPs / committees — that long tail requires a parlament.ro per-bill scrape and is deferred (see `docs/architecture.md` § Future graduation candidates).
+
+Match strategy is exact → case-insensitive → diacritic-stripped (cedilla `ţ`/`ş` collapses to comma `ț`/`ș`; mojibake replacement chars `�` strip out) → token-set → **prefix** (ministries only — last-resort longest-prefix match, where the cleaned input starts with a registered alias at a whitespace boundary; recovers from the plenary extractor's habit of bleeding sentence prose into `addressed_to`, without admitting fuzzy matches). No fuzzy / Levenshtein tier (precision over recall — the registry must NEVER misclassify a body).
+
+Backfill versions are NOT part of `extractor_versions` — re-extracting a sidecar clobbers backfill-written fields. Re-running `backfill` after `extract` recovers them; backfill is fast (in-memory dict lookup per record).
+
 ## Progress and interrupts
 
 Both subcommands show a live [`rich`](https://github.com/Textualize/rich) progress bar on stderr when stderr is a terminal, and fall back to a periodic plain-text heartbeat in pipes/CI/cron.
