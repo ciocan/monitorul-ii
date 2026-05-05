@@ -915,3 +915,140 @@ def test_unknown_refs_in_source_order():
     refs = parse_mentioned_references(text)
     starts = [r["char_offsets"][0] for r in refs]
     assert starts == sorted(starts)
+
+
+# -- v0.6.0 out-of-range year demotion --------------------------------------
+
+
+def test_bill_oor_future_year_demoted_to_unknown():
+    """`Pl-x 100/2918` — OCR-garbage year > schema max → unknown.law-ish."""
+    refs = parse_primary_references("Proiectul Pl-x 100/2918 a fost depus.")
+    types = {r["type"] for r in refs}
+    assert "bill" not in types
+    unknowns = [r for r in refs if r["type"] == "unknown"]
+    assert len(unknowns) == 1
+    assert unknowns[0]["hint"] == "law-ish"
+    assert unknowns[0]["raw"] == "Pl-x 100/2918"
+
+
+def test_bill_in_range_year_stays_strict():
+    """Same regex with a plausible year keeps the strict variant."""
+    refs = parse_primary_references("Proiectul Pl-x 100/2024 a fost depus.")
+    bills = [r for r in refs if r["type"] == "bill"]
+    assert len(bills) == 1
+    assert bills[0]["year"] == 2024
+
+
+def test_law_pre_1900_demoted_to_unknown():
+    """`Legea nr. 19/1898` — pre-schema-min historical citation."""
+    refs = parse_primary_references("S-a invocat Legea nr. 19/1898.")
+    laws = [r for r in refs if r["type"] == "law"]
+    assert laws == []
+    unknowns = [r for r in refs if r["type"] == "unknown"]
+    assert len(unknowns) == 1
+    assert unknowns[0]["hint"] == "law-ish"
+    assert "1898" in unknowns[0]["raw"]
+
+
+def test_law_ocr_garbage_year_demoted():
+    """`Legea nr. 1/3003` — clearly OCR-garbage year."""
+    refs = parse_primary_references("Conform Legea nr. 1/3003 ...")
+    assert [r for r in refs if r["type"] == "law"] == []
+    unknowns = [r for r in refs if r["type"] == "unknown"]
+    assert len(unknowns) == 1
+    assert unknowns[0]["hint"] == "law-ish"
+
+
+def test_oug_pre_1990_demoted_to_unknown():
+    """OUG didn't exist pre-1990; `OUG nr. 100/1985` is misclassification."""
+    refs = parse_primary_references("S-a aplicat OUG nr. 100/1985.")
+    assert [r for r in refs if r["type"] == "oug"] == []
+    unknowns = [r for r in refs if r["type"] == "unknown"]
+    assert len(unknowns) == 1
+    assert unknowns[0]["hint"] == "law-ish"
+
+
+def test_og_pre_1990_demoted_to_unknown():
+    """`Ordonanța nr. 51/1988` — OG didn't exist pre-1990."""
+    refs = parse_primary_references("Aplicăm Ordonanța nr. 51/1988 ...")
+    assert [r for r in refs if r["type"] == "og"] == []
+    unknowns = [r for r in refs if r["type"] == "unknown"]
+    assert len(unknowns) == 1
+    assert unknowns[0]["hint"] == "law-ish"
+
+
+def test_chamber_resolution_oor_year_demoted():
+    """`PHCD nr. 1/2206` — future year → unknown."""
+    refs = parse_primary_references("Conform PHCD nr. 1/2206 ...")
+    assert [r for r in refs if r["type"] == "chamber_resolution"] == []
+    unknowns = [r for r in refs if r["type"] == "unknown"]
+    assert len(unknowns) == 1
+    assert unknowns[0]["hint"] == "law-ish"
+
+
+def test_parliamentary_resolution_oor_year_demoted():
+    """Joint Camera+Senat resolution with OCR-garbage year → unknown."""
+    refs = parse_primary_references("Hotărârea Parlamentului României nr. 5/2918 ...")
+    assert [r for r in refs if r["type"] == "parliamentary_resolution"] == []
+    unknowns = [r for r in refs if r["type"] == "unknown"]
+    assert len(unknowns) == 1
+    assert unknowns[0]["hint"] == "law-ish"
+
+
+def test_court_decision_oor_year_demoted_court_ish():
+    """`Decizia CCR nr. 100/3003` → unknown.court-ish (note the hint)."""
+    refs = parse_primary_references("Decizia CCR nr. 100/3003 a stabilit ...")
+    assert [r for r in refs if r["type"] == "court_decision"] == []
+    unknowns = [r for r in refs if r["type"] == "unknown"]
+    assert len(unknowns) == 1
+    assert unknowns[0]["hint"] == "court-ish"
+
+
+def test_motion_oor_year_kept_with_null_year():
+    """Motion year is optional — OOR year nullifies, strict variant kept."""
+    refs = parse_primary_references('Moțiunea simplă nr. 5/2918 privind „Buget".')
+    motions = [r for r in refs if r["type"] == "motion"]
+    assert len(motions) == 1
+    assert motions[0]["year"] is None
+    assert motions[0]["motion_kind"] == "simple"
+
+
+def test_eu_doc_oor_year_kept_with_null_year():
+    """EU doc year is optional — OOR year nullifies, strict variant kept."""
+    refs = parse_primary_references("Conform COM(2918)123 final ...")
+    eu = [r for r in refs if r["type"] == "eu_doc"]
+    assert len(eu) == 1
+    assert eu[0]["year"] is None
+    assert eu[0]["code_kind"] == "COM"
+
+
+def test_law_year_at_minimum_boundary_kept():
+    """Year exactly at the schema minimum (1900 for law) is allowed."""
+    refs = parse_primary_references("Legea nr. 1/1900 ...")
+    laws = [r for r in refs if r["type"] == "law"]
+    assert len(laws) == 1
+    assert laws[0]["year"] == 1900
+
+
+def test_bill_year_at_maximum_boundary_kept():
+    """Year exactly at the schema maximum (2100 for bill) is allowed."""
+    refs = parse_primary_references("PL-x 1/2100 ...")
+    bills = [r for r in refs if r["type"] == "bill"]
+    assert len(bills) == 1
+    assert bills[0]["year"] == 2100
+
+
+def test_demoted_refs_preserved_in_mentioned_pass():
+    """Demoted unknowns from strict-extractors must still appear in the
+    `parse_mentioned_references` output (not double-emitted, not lost)."""
+    refs = parse_mentioned_references(
+        "Conform Legea nr. 19/1898 și Pl-x 100/2918, decizia CCR nr. 1/3003."
+    )
+    unknowns = [r for r in refs if r["type"] == "unknown"]
+    raws = [u["raw"] for u in unknowns]
+    assert any("1898" in r for r in raws)
+    assert any("2918" in r for r in raws)
+    assert any("3003" in r for r in raws)
+    # No double-emission: each cite appears once
+    seen_offsets = [tuple(r["char_offsets"]) for r in refs]
+    assert len(seen_offsets) == len(set(seen_offsets))

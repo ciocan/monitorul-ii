@@ -203,3 +203,17 @@ def test_atomic_write_no_part_files(isolated_md) -> None:
 def test_overall_extract_reexports_extract_fn() -> None:
     # `from monitorul_ii.extraction import extract` reaches the same callable
     assert extract is extract_fn
+
+
+def test_successful_extract_cleans_up_stale_rejected_json(isolated_md) -> None:
+    """A successful sidecar write supersedes any prior `.rejected.json` —
+    the dispatcher should remove the stale file so future probes see only
+    current failures (added v0.6.0 alongside the OOR-year demotion guard).
+    """
+    md_path = isolated_md("qr_2026-03-25_29.md")
+    rejected = md_path.parent / f"{md_path.stem}.rejected.json"
+    rejected.write_text('{"stale": "leftover from a prior failure"}', encoding="utf-8")
+    assert rejected.exists()
+    r = extract(md_path, force=True, write=True)
+    assert r.status == "extract"
+    assert not rejected.exists(), "stale rejected.json should be removed on success"

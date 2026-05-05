@@ -349,6 +349,11 @@ def extract(
             sidecar_path,
             json.dumps(sidecar, indent=2, ensure_ascii=False, default=str),
         )
+        # A successful write supersedes any previous rejection: drop the
+        # stale rejected.json so future probes see only current failures.
+        rejected_path = _rejected_path_for(md_path)
+        if rejected_path.exists():
+            rejected_path.unlink()
 
     return ExtractResult(
         md_path=md_path,

@@ -1,5 +1,14 @@
 """Reference parser: 13 strict variants + `unknown` catch-all.
 
+v0.6.0 demotes strict-variant matches whose parsed `year` falls outside
+the schema's `[minimum, maximum]` bounds for that variant to
+`UnknownReference` (with `hint="law-ish"` / `"court-ish"`). This catches
+both real-world OCR garbage (e.g. `Legea nr. 1/3003`, `Pl-x 100/2918`)
+and pre-1990 cites of post-1990 instruments (e.g. `Ordonanța nr. 51/1988`
+— OG only exists post-1990). The cite is preserved verbatim in `raw`;
+only the structural number/year pair is dropped. Optional-year variants
+(motion, eu_doc) keep the strict variant and just nullify `year` instead.
+
 v0.5.0 graduates the `code` variant out of the `unknown` catch-all
 (Romanian named codes — Codul muncii / fiscal / penal / ...), broadens
 the `treaty` variant to absorb Acordul/Protocolul/wider Carta forms,
@@ -63,7 +72,40 @@ from __future__ import annotations
 import re
 from typing import Any
 
-REFERENCES_VERSION = "0.5.0"
+REFERENCES_VERSION = "0.6.0"
+
+
+# -- year-bounds guard (v0.6.0) ---------------------------------------------
+
+
+# Mirror the schema's `year` minimum/maximum per reference variant. Strict
+# variants whose parsed year falls outside these bounds are demoted to
+# `UnknownReference` with `hint="law-ish"` / `"court-ish"` (see the module
+# docstring). Optional-year variants (motion, eu_doc) just nullify `year`.
+# Keep this in sync with `extraction_schema.json` `$defs/<Type>Reference/
+# properties/year/(anyOf/0/)?{minimum,maximum}`.
+_VALID_YEAR_BOUNDS: dict[str, tuple[int, int]] = {
+    "bill": (1990, 2100),
+    "law": (1900, 2100),
+    "oug": (1990, 2100),
+    "og": (1990, 2100),
+    "chamber_resolution": (1990, 2100),
+    "parliamentary_resolution": (1990, 2100),
+    "motion": (1990, 2100),
+    "court_decision": (1990, 2100),
+    "eu_doc": (1950, 2100),
+}
+
+
+def _year_in_bounds(ref_type: str, year: int | None) -> bool:
+    """Year is None (optional-year variant) or falls within the schema range."""
+    if year is None:
+        return True
+    bounds = _VALID_YEAR_BOUNDS.get(ref_type)
+    if bounds is None:
+        return True
+    lo, hi = bounds
+    return lo <= year <= hi
 
 
 # -- bill: Pl-x / PL-x / L prefixes ------------------------------------------
@@ -847,6 +889,10 @@ def _extract_bill_refs(text: str, base_offset: int) -> list[dict[str, Any]]:
         year = int(m.group("year"))
         secondary = int(m.group("secondary")) if m.group("secondary") else None
         raw = m.group(0)
+        offsets = [base_offset + m.start(), base_offset + m.end()]
+        if not _year_in_bounds("bill", year):
+            refs.append(_make_unknown(raw=raw, char_offsets=offsets, hint="law-ish"))
+            continue
         # detect procedure flag in trailing window (next 80 chars)
         tail = text[m.end() : m.end() + 80]
         procedure = (
@@ -860,7 +906,7 @@ def _extract_bill_refs(text: str, base_offset: int) -> list[dict[str, Any]]:
                 year=year,
                 secondary_year=secondary,
                 raw=raw,
-                char_offsets=[base_offset + m.start(), base_offset + m.end()],
+                char_offsets=offsets,
                 procedure=procedure,
                 subject=subject,
             )
@@ -871,13 +917,20 @@ def _extract_bill_refs(text: str, base_offset: int) -> list[dict[str, Any]]:
 def _extract_chamber_res_refs(text: str, base_offset: int) -> list[dict[str, Any]]:
     refs: list[dict[str, Any]] = []
     for m in _CHAMBER_RES_RE.finditer(text):
+        year = int(m.group("year"))
+        offsets = [base_offset + m.start(), base_offset + m.end()]
+        if not _year_in_bounds("chamber_resolution", year):
+            refs.append(
+                _make_unknown(raw=m.group(0), char_offsets=offsets, hint="law-ish")
+            )
+            continue
         refs.append(
             _make_chamber_res(
                 prefix=m.group("prefix"),
                 number=m.group("number"),
-                year=int(m.group("year")),
+                year=year,
                 raw=m.group(0),
-                char_offsets=[base_offset + m.start(), base_offset + m.end()],
+                char_offsets=offsets,
             )
         )
     return refs
@@ -888,13 +941,20 @@ def _extract_parliamentary_res_refs(
 ) -> list[dict[str, Any]]:
     refs: list[dict[str, Any]] = []
     for m in _PARLIAMENTARY_RES_RE.finditer(text):
+        year = int(m.group("year"))
+        offsets = [base_offset + m.start(), base_offset + m.end()]
+        if not _year_in_bounds("parliamentary_resolution", year):
+            refs.append(
+                _make_unknown(raw=m.group(0), char_offsets=offsets, hint="law-ish")
+            )
+            continue
         subject = _extract_subject(text, m.start(), m.end())
         refs.append(
             _make_parliamentary_res(
                 number=m.group("number"),
-                year=int(m.group("year")),
+                year=year,
                 raw=m.group(0),
-                char_offsets=[base_offset + m.start(), base_offset + m.end()],
+                char_offsets=offsets,
                 subject=subject,
             )
         )
@@ -904,13 +964,20 @@ def _extract_parliamentary_res_refs(
 def _extract_law_refs(text: str, base_offset: int) -> list[dict[str, Any]]:
     refs: list[dict[str, Any]] = []
     for m in _LAW_RE.finditer(text):
+        year = int(m.group("year"))
+        offsets = [base_offset + m.start(), base_offset + m.end()]
+        if not _year_in_bounds("law", year):
+            refs.append(
+                _make_unknown(raw=m.group(0), char_offsets=offsets, hint="law-ish")
+            )
+            continue
         subject = _extract_subject(text, m.start(), m.end())
         refs.append(
             _make_law(
                 number=m.group("number"),
-                year=int(m.group("year")),
+                year=year,
                 raw=m.group(0),
-                char_offsets=[base_offset + m.start(), base_offset + m.end()],
+                char_offsets=offsets,
                 subject=subject,
             )
         )
@@ -926,12 +993,19 @@ def _extract_oug_refs(text: str, base_offset: int) -> list[dict[str, Any]]:
             if key in seen_offsets:
                 continue
             seen_offsets.add(key)
+            year = int(m.group("year"))
+            offsets = [base_offset + m.start(), base_offset + m.end()]
+            if not _year_in_bounds("oug", year):
+                refs.append(
+                    _make_unknown(raw=m.group(0), char_offsets=offsets, hint="law-ish")
+                )
+                continue
             refs.append(
                 _make_oug(
                     number=m.group("number"),
-                    year=int(m.group("year")),
+                    year=year,
                     raw=m.group(0),
-                    char_offsets=[base_offset + m.start(), base_offset + m.end()],
+                    char_offsets=offsets,
                 )
             )
     return refs
@@ -951,12 +1025,19 @@ def _extract_og_refs(
             if any(not (m.end() <= s or m.start() >= e) for s, e in oug_spans):
                 continue  # overlap with OUG — skip
             seen_offsets.add(key)
+            year = int(m.group("year"))
+            offsets = [base_offset + m.start(), base_offset + m.end()]
+            if not _year_in_bounds("og", year):
+                refs.append(
+                    _make_unknown(raw=m.group(0), char_offsets=offsets, hint="law-ish")
+                )
+                continue
             refs.append(
                 _make_og(
                     number=m.group("number"),
-                    year=int(m.group("year")),
+                    year=year,
                     raw=m.group(0),
-                    char_offsets=[base_offset + m.start(), base_offset + m.end()],
+                    char_offsets=offsets,
                 )
             )
     return refs
@@ -975,6 +1056,9 @@ def _extract_motion_refs(text: str, base_offset: int) -> list[dict[str, Any]]:
             number = m.group("number") if "number" in m.groupdict() else None
             year_s = m.group("year") if "year" in m.groupdict() else None
             year = int(year_s) if year_s else None
+            # Year is optional on motion — drop OOR years instead of demoting
+            if not _year_in_bounds("motion", year):
+                year = None
             title = m.group("title") if "title" in m.groupdict() else None
             refs.append(
                 _make_motion(
@@ -998,12 +1082,21 @@ def _extract_court_decision_refs(text: str, base_offset: int) -> list[dict[str, 
             if key in seen:
                 continue
             seen.add(key)
+            year = int(m.group("year"))
+            offsets = [base_offset + m.start(), base_offset + m.end()]
+            if not _year_in_bounds("court_decision", year):
+                refs.append(
+                    _make_unknown(
+                        raw=m.group(0), char_offsets=offsets, hint="court-ish"
+                    )
+                )
+                continue
             refs.append(
                 _make_court_decision(
                     number=m.group("number"),
-                    year=int(m.group("year")),
+                    year=year,
                     raw=m.group(0),
-                    char_offsets=[base_offset + m.start(), base_offset + m.end()],
+                    char_offsets=offsets,
                 )
             )
     return refs
@@ -1065,11 +1158,15 @@ def _extract_eu_doc_refs(text: str, base_offset: int) -> list[dict[str, Any]]:
         seen.add(key)
         year_s = m.group("year") if "year" in m.groupdict() else None
         number = m.group("number") if "number" in m.groupdict() else None
+        year = int(year_s) if year_s else None
+        # Year is optional on eu_doc — drop OOR years instead of demoting
+        if not _year_in_bounds("eu_doc", year):
+            year = None
         refs.append(
             _make_eu_doc(
                 code_kind=kind,
                 number=number,
-                year=int(year_s) if year_s else None,
+                year=year,
                 raw=m.group(0),
                 char_offsets=[base_offset + m.start(), base_offset + m.end()],
             )
