@@ -26,7 +26,7 @@ if TYPE_CHECKING:
     from monitorul_ii.extraction.pipeline import ExtractContext
 
 
-EXTRACTOR_VERSION = "0.2.0"
+EXTRACTOR_VERSION = "0.2.2"
 EXTRACTOR_LABEL = f"regex@plenary_joint_session@{EXTRACTOR_VERSION}"
 
 
@@ -58,8 +58,11 @@ def extract(ctx: "ExtractContext") -> tuple[dict[str, Any], list[Claim]]:
     session_dict["chambers_present"] = detect_chambers_present(body)
     agenda_items, agenda_claims = agenda.extract_agenda(body, agenda_end, ctx)
     if interp_block is not None:
+        from monitorul_ii.extraction.extractors.plenary import _collect_chair_names
+
+        chair_names = _collect_chair_names(session_dict)
         interp_list, interp_claims = interpellations.extract_interpellations(
-            body, interp_block, ctx
+            body, interp_block, ctx, chair_names=chair_names
         )
     else:
         interp_list, interp_claims = [], []
