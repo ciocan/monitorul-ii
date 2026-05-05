@@ -897,18 +897,34 @@ This shapes the coverage strategy: a single record claim spans the entire `(RAPO
 
 ### Title harvesting + issuing-body discrimination
 
-Title hunt order: SUMAR row first (cleanest single-line form), `## **RAPORT ...**` body heading second. The SUMAR-row regex captures four observed surface forms via one alternation:
+Title hunt order: SUMAR row first (cleanest single-line form), `## **RAPORT ...**` body heading second.
+
+**v0.2.0 surface-form expansion.** v0.1.0 covered four SUMAR-row tail forms (`(în|pe) anul YYYY`); v0.2.0 extends the year-tail anchor to a five-cohort alternation that covers every observed surface across the 52-doc corpus:
 
 ```
-Raportul X privind activitatea desfășurată în anul YYYY    (CSAT — preposition before X)
-Raport privind activitatea desfășurată de X în anul YYYY   (SRI/SIE)
-Raport asupra activității desfășurate de X în anul YYYY    (Consiliul Legislativ, ANCOM)
-Raport de activitate al X pe anul YYYY                     (SRTv/SRR, ANRE)
+Raportul X privind activitatea desfășurată în anul YYYY     (CSAT — preposition before X)
+Raport privind activitatea desfășurată de X în anul YYYY    (SRI/SIE)
+Raport asupra activității desfășurate de X în anul YYYY     (Consiliul Legislativ)
+Raport de activitate al X (pe|în|pentru) anul YYYY          (SRTv/SRR, ANRE, ANCOM-pentru, ASF-pentru)
+Raportul X (privind|asupra) <topic> ... din [DD] month YYYY (AEP election-day form)
+Raportul privind activitatea X în anul YYYY                 (AEP — no `desfășurată de`)
 ```
 
-`_extract_issuing_body` then discriminates: each form has a unique preposition pattern (`Raportul X privind`, `... desfășurată de X`, `... activității desfășurate de X`, `Raport de activitate al X`), and a 4-pattern walk picks the matching one. Each pattern stops at `în anul`/`pe anul` / `privind` to keep the body label tight (no trailing year).
+The `pentru anul YYYY` extension graduates 5 ANCOM docs + 2 ASF docs + 1 SRTv doc that v0.1 missed because their SUMAR rows used the alternative connector. The `din [DD] month YYYY` form covers AEP election reports whose SUMAR ties the report to a specific election day rather than a calendar year — 3 docs across 2014. The `Raportul privind activitatea X` (no `desfășurată de`) and the broadened `Raportul X (privind|asupra) <topic>` patterns (was `Raportul X privind activitatea desfășurată` in v0.1) handle 6 AEP docs.
 
-Reporting period is straightforward: `în anul YYYY` / `pe anul YYYY` → Jan 1 – Dec 31 of YYYY. Multi-year `în perioada YYYY-YYYY` widens both endpoints (rare; only a couple of CSAT bi-annuals in the cohort).
+**`<br>` linebreak residue.** MD-converted multi-line SUMAR table cells often render the row body with `<br>` between the institution name and the year-tail (e.g. `Raportul de activitate al ANRE<br>pe anul 2013` for ANRE 13R/14R-2016). Pre-v0.2 the title regex matched but `_extract_issuing_body`'s `\s+pe anul` lookahead failed against `<br>pe anul`. v0.2 strips `<br>` in `_clean_title` (so the canonical title is reader-friendly) and again in `_extract_issuing_body` (defensive — handles fallback titles too).
+
+**5-pattern issuing-body walk** (priority-ordered):
+
+1. `Raport(ul) privind activitatea desfășurată de X` — SRI/SIE form.
+2. `Raport(ul) privind activitatea X` *without* `desfășurată` — AEP form (negative-lookahead `(?!desf...)` guards pattern 1).
+3. `Raport(ul) asupra activității desfășurate de X` — Consiliul Legislativ.
+4. `Raport(ul) de activitate al X (pe|în|pentru) anul YYYY` — SRTv/SRR/ANCOM/ANRE/ANAD/ASF.
+5. `Raportul X (privind|asupra) <topic>` — CSAT, plus AEP election-report variants whose topic is `alegerile`/`referendumul`/`organizarea`/`determinarea`. Non-greedy body capture stops at the first `privind` / `asupra`.
+
+Each pattern stops at the year-tail or topic preposition to keep the body label tight.
+
+Reporting period: `în anul YYYY` / `pe anul YYYY` / `pentru anul YYYY` → Jan 1 – Dec 31 of YYYY. Multi-year `în perioada YYYY-YYYY` widens both endpoints (rare; only a couple of CSAT bi-annuals in the cohort). **v0.2.1 date-form fallback**: when the title carries `din [DD] month YYYY` instead of an annual form (AEP election-day reports — `din 9 decembrie 2012`, `din iunie 2012`, `din 29 iulie 2012`), the year inside the date becomes the reporting year. Title-scoped because body-internal dates are too noisy to treat as reporting-year anchors.
 
 ### Reception session
 
@@ -918,12 +934,17 @@ Every R-suffix doc in the corpus is received in joint session — Parliament rec
 
 Per Q9: **discovery margin 0.85**, **test fixture floor 0.80**, **mean target 0.90 documented (ungated)**.
 
-Four hand-picked fixtures span the cohort eras:
+Nine hand-picked fixtures span the cohort eras and (v0.2.0) the recovered surface forms:
 
 | Fixture | Layout | Coverage |
 |---|---|---|
 | `2014-01-20_MO-PII-1R-2014.md` | CSAT 2010, image-only PDF (page-residue body) | 0.970 |
 | `2014-04-24_MO-PII-13R-2014.md` | SRI 2007, modern body with H2 chapter headings | 0.999 |
+| `2014-06-16_MO-PII-19R-2014.md` | AEP local-elections 2012; SUMAR `din iunie 2012` + `Raportul X asupra <topic>` (v0.2) | 0.97+ |
+| `2014-06-17_MO-PII-21R-2014.md` | AEP referendum 2012; SUMAR `din 29 iulie 2012` + `Raportul X privind <topic>` (v0.2) | 0.97+ |
+| `2016-05-23_MO-PII-4R-2016.md` | ANCOM 2010; SUMAR `pentru anul 2010` (v0.2) | 0.97+ |
+| `2016-05-30_MO-PII-13R-2016.md` | ANRE 2013; title body with `<br>pe anul 2013` residue (v0.2) | 0.97+ |
+| `2016-07-27_MO-PII-19R-2016.md` | AEP 2013; `Raportul privind activitatea X` no-`desfășurată` form (v0.2) | 0.97+ |
 | `2017-10-24_MO-PII-1R-2017.md` | Consiliul Legislativ 2010, mid-cohort | 0.999 |
 | `2024-04-09_MO-PII-1R-2024.md` | ANCOM 2019, modern Camera-published, 100+ headings | 0.9998 |
 
@@ -1179,9 +1200,9 @@ CSAT, SRI, SIE, STS, SPP, BNR, ICR, Avocatul Poporului, Consiliul Legislativ, SR
 
 For each: `id` (snake_case), `canonical_name` (full Romanian nominative), and `aliases[]` (acronym + Romanian genitive declension + common variants — `Consiliul ↔ Consiliului`, `Curtea ↔ Curții`, etc.). The genitive forms matter because Romanian text often refers to institutions in genitive case (`Raportul Consiliului Suprem ...`), and the `report_facsimile` extractor surfaces whatever case the source text used.
 
-Production smoke on the 52 R-suffix corpus (2014-2024 cohort): **34/34 (100%)** of sidecars whose extractor recovered a non-null `issuing_body` resolved to a registry id. All matches resolved at the `exact` tier — the diacritic / token-set tiers were defensive cover for variant raws that didn't appear in this corpus. The remaining 18 sidecars stay null because the upstream `report_facsimile` extractor produced no `issuing_body` raw value (mostly 2016-era image-only PDFs that arrive as mojibake'd OCR — see `pdfs/2016-05-23_MO-PII-4R-2016` and friends). Those are an extractor recovery problem, not a registry gap; widening the registry won't help.
+Production smoke on the 52 R-suffix corpus (2014-2024 cohort): **52/52 (100%)** of sidecars resolve to a registry id (was 34/52 = 65.4% in v0.1.0; the 18-doc gap was an extractor recovery problem, closed by `report_facsimile.py` v0.2.0's surface-form expansion + v0.2.1's reporting-period date-form fallback). All 52 resolutions land at the `exact` tier — the diacritic / token-set / prefix tiers stay defensive cover for variant raws that don't appear in this corpus. The 18 newly-recovered sidecars distribute across 5 ANCOM `pentru anul`, 4 ANRE (incl. 2 with `<br>` linebreak residue), 2 ASF, 1 SRTv `pentru anul`, and 6 AEP across the new pattern-2 (`Raportul privind activitatea X`) and broadened pattern-5 (`Raportul X (privind|asupra) <topic>` covering the AEP election-day forms `din 9 decembrie 2012`, `din iunie 2012`, `din 29 iulie 2012`). The 3 AEP-2014 election-day docs additionally gained reporting_period values via v0.2.1's date-form fallback.
 
-Idempotent re-runs: 34 fills on the first run, 0 fills + 52 skips on the second (34 "already filled with same canonical id" + 18 "no issuing_body raw value"). Atomic write contract verified — no `.part` artefacts left on disk.
+Idempotent re-runs: 52 fills on the first run after the v0.2.x extractor bump, 0 fills + 52 skips on the second (all 52 "already filled with same canonical id"). Atomic write contract verified — no `.part` artefacts left on disk.
 
 ### CLI
 

@@ -41,14 +41,42 @@ Recurring layout::
                                                          used GUVERNUL, not PARLAMENTUL)
 
 Title harvesting tries the SUMAR row first (the cleanest single-line
-form), falls back to the body's first `## **RAPORT ...**` heading. Issuing
-body is parsed from the title via four canonical patterns (`Raportul <X>
-privind`, `Raportul privind activitatea desfășurată de <X>`, `Raport
-asupra activității desfășurate de <X>`, `Raport de activitate al <X>`).
-Reporting period is `în anul YYYY` / `pe anul YYYY` → annual range.
-Reception session date comes from the `Ședința din ziua de DD month YYYY`
-line; session_kind defaults to `joint` when the joint header is present
-(every R-suffix doc observed in the corpus is received in joint session).
+form), falls back to the body's first `## **RAPORT ...**` heading. The
+SUMAR row regex anchors on a year-tail cohort that covers every observed
+surface: `în anul YYYY` / `pe anul YYYY` / `pentru anul YYYY` (annual)
+and `din [DD] month YYYY` (AEP election-day form — these tie the report
+to a specific election rather than a calendar year, e.g. `din 9 decembrie
+2012`). `_clean_title` strips `<br>` linebreak residue from multi-line
+SUMAR table cells so the canonical title and downstream regexes never
+trip on HTML markup.
+
+Issuing body is parsed from the title via five canonical patterns
+applied in priority order:
+
+  1. `Raport(ul) privind activitatea desfășurată de <X>` (SRI/SIE).
+  2. `Raport(ul) privind activitatea <X>` *without* `desfășurată` (AEP
+     pattern; negative lookahead guards against pattern 1).
+  3. `Raport(ul) asupra activității desfășurate de <X>` (Consiliul
+     Legislativ).
+  4. `Raport(ul) de activitate al <X> (pe|în|pentru) anul YYYY`
+     (SRTv/SRR, ANCOM, ANRE, ANAD, ASF — `pentru anul` covers the
+     ANCOM/ASF/SRTv long tail).
+  5. `Raportul <X> (privind|asupra) <topic>` — CSAT form, plus AEP
+     election-report variants whose topic is `alegerile`,
+     `referendumul`, `organizarea`, etc. Non-greedy body stops at the
+     first `privind` / `asupra`.
+
+Reporting period is `în anul YYYY` / `pe anul YYYY` / `pentru anul YYYY`
+→ annual range. v0.2.1 adds a title-scoped fallback for AEP election-
+day reports whose title lacks the annual form: `din [DD] month YYYY`
+recovers the year from the date itself. Body fallback stays scoped to
+`(in|pe|pentru) anul YYYY` only — body-internal dates are too noisy to
+treat as reporting-year anchors.
+
+Reception session date comes from the `Ședința din ziua de DD month
+YYYY` line; session_kind defaults to `joint` when the joint header is
+present (every R-suffix doc observed in the corpus is received in joint
+session).
 """
 
 from __future__ import annotations
@@ -65,7 +93,7 @@ from monitorul_ii.extraction.coverage import (
 if TYPE_CHECKING:
     from monitorul_ii.extraction.pipeline import ExtractContext
 
-EXTRACTOR_VERSION = "0.1.0"
+EXTRACTOR_VERSION = "0.2.1"
 EXTRACTOR_LABEL = f"regex@report_facsimile@{EXTRACTOR_VERSION}"
 
 
@@ -93,24 +121,29 @@ EXCERPT_CHARS = 500
 # -- Title detection -------------------------------------------------------
 
 
-# SUMAR row form 1 (modern, observed across all eras): the report title sits
-# in a single line that starts with `Raport`/`Raportul` and ends in either a
-# page-range (`N–M`), a series of dots, or a `|Pagina|` table cell. Three
-# observed surface forms:
+# SUMAR row tail anchors. The report title in the SUMAR ends in one of three
+# date-shape cohorts; the regex anchors on these to bound the title body.
 #
-#   `Raportul Consiliului Suprem de Apărare a Țării privind activitatea
-#    desfășurată în anul 2010` (CSAT — preposition `Raportul X privind`)
-#   `Raport privind activitatea desfășurată de Serviciul Român de
-#    Informații în anul 2007` (SRI/SIE — preposition `Raport privind ... de X`)
-#   `Raport de activitate al Societății Române de Televiziune pe anul 2013`
-#    (SRTv/SRR — preposition `Raport de activitate al X`)
-#   `Raport asupra activității desfășurate de Consiliul Legislativ în anul
-#    2010` (Consiliul Legislativ, ANCOM — preposition `Raport asupra ... de X`)
+#   * Annual: `în anul YYYY` / `pe anul YYYY` / `pentru anul YYYY` —
+#     covers CSAT, SRI/SIE, SRTv/SRR, ANCOM (`pentru anul`), ANRE,
+#     Consiliul Legislativ, ANAD, AEP-recent (`în anul YYYY`).
+#   * Date-form: `din DD month YYYY` / `din month YYYY` — covers
+#     AEP election reports where the SUMAR ties the report to a
+#     specific election day instead of a calendar year.
 #
-# Single regex captures all four; `_extract_issuing_body` discriminates
-# below.
+_MONTH_ALT = "|".join(_ROMANIAN_MONTHS.keys())
+_TITLE_TAIL_PATTERN = (
+    r"(?:"
+    r"(?:[îiî]n|pe|pentru)\s+anul\s+\d{4}"
+    r"|"
+    rf"din\s+(?:\d{{1,2}}\s+)?(?:{_MONTH_ALT})\s+\d{{4}}"
+    r")"
+)
+# SUMAR row: `Raport(ul)? <body> <tail>`. `[^\n.|]+?` excludes `|` so a
+# row's leading table pipe doesn't get sucked into the title body, and `.`
+# so a page-dots run terminates the body cleanly.
 _SUMAR_TITLE_LINE_RE = re.compile(
-    r"^[^\n]*?(?P<title>Raport(?:ul)?\s+[^\n.|]+?(?:[îiî]n\s+anul|pe\s+anul)\s+\d{4})",
+    r"^[^\n]*?(?P<title>Raport(?:ul)?\s+[^\n.|]+?" + _TITLE_TAIL_PATTERN + r")",
     re.MULTILINE | re.IGNORECASE,
 )
 # Fallback: a `## **RAPORT ...**` heading inside the report body (modern docs
@@ -122,7 +155,12 @@ _BODY_TITLE_HEADING_RE = re.compile(
 
 
 def _clean_title(t: str) -> str:
-    """Trim trailing dots / page-range hints / leading-trailing whitespace."""
+    """Trim `<br>` linebreak residue, trailing dots / page-range hints, and
+    surrounding whitespace. `<br>` is HTML markup that survives MD conversion
+    of multi-line SUMAR table cells; a clean canonical title shouldn't leak
+    it, and downstream regexes match `\\s+` boundaries that `<br>` would
+    otherwise break."""
+    t = t.replace("<br>", " ")
     t = re.sub(r"\.{3,}.*$", "", t)
     t = re.sub(r"\s{2,}", " ", t)
     return t.strip(" .\t\n")
@@ -146,31 +184,49 @@ def _extract_title(body: str) -> str | None:
 
 
 # Discriminate by preposition pattern. Each captures the institutional name
-# noun phrase. Stop at `în anul`/`pe anul` / `privind` to keep the body
-# label tight (no trailing period/year).
+# noun phrase. Stop at the year-tail (`în|pe|pentru anul YYYY`) to keep the
+# body label tight (no trailing period/year). The annual-tail group is
+# repeated literally (not via `_TITLE_TAIL_PATTERN`) so `din MONTH YYYY`
+# isn't a valid issuing-body terminator — election-day cites belong to the
+# `Raportul X privind/asupra` pattern that ends at the topic preposition.
+_ISSUER_TAIL = r"(?=\s+(?:[îiî]n|pe|pentru)\s+anul\b)"
+
 _ISSUER_PATTERNS: list[re.Pattern[str]] = [
     # `Raport privind activitatea desfășurată de <X> în anul YYYY`
+    # (SRI/SIE form — body sits after `de`).
     re.compile(
         r"\bRaport(?:ul)?\s+privind\s+activitatea\s+desf[ăa][șş]urat[ăa]\s+de\s+"
-        r"(?P<body>[^\n]+?)(?=\s+(?:[îiî]n\s+anul|pe\s+anul)\b)",
+        r"(?P<body>[^\n]+?)" + _ISSUER_TAIL,
+        re.IGNORECASE,
+    ),
+    # `Raport(ul) privind activitatea <X> în|pentru anul YYYY` — AEP form
+    # without the `desfășurată de` connector. Negative lookahead guards
+    # against re-matching the pattern above.
+    re.compile(
+        r"\bRaport(?:ul)?\s+privind\s+activitatea\s+(?!desf[ăa][șş]urat)"
+        r"(?P<body>[^\n]+?)" + _ISSUER_TAIL,
         re.IGNORECASE,
     ),
     # `Raport asupra activității desfășurate de <X> în anul YYYY`
     re.compile(
         r"\bRaport(?:ul)?\s+asupra\s+activit[ăa][țţt]ii\s+desf[ăa][șş]urat[eaă]\s+de\s+"
-        r"(?P<body>[^\n]+?)(?=\s+(?:[îiî]n\s+anul|pe\s+anul)\b)",
+        r"(?P<body>[^\n]+?)" + _ISSUER_TAIL,
         re.IGNORECASE,
     ),
-    # `Raport de activitate al <X> pe anul YYYY` / `Raportul de activitate al <X>`
+    # `Raport de activitate al <X> (pe|în|pentru) anul YYYY` — SRTv/SRR,
+    # ANCOM (`pentru anul`), ANRE, ANAD, ASF (`pentru anul`).
     re.compile(
         r"\bRaport(?:ul)?\s+de\s+activitate\s+al\s+"
-        r"(?P<body>[^\n]+?)(?=\s+(?:[îiî]n\s+anul|pe\s+anul)\b)",
+        r"(?P<body>[^\n]+?)" + _ISSUER_TAIL,
         re.IGNORECASE,
     ),
-    # `Raportul <X> privind activitatea ... în anul YYYY`
-    # (CSAT form — the body sits between `Raportul` and `privind`)
+    # `Raportul <X> (privind|asupra) <topic>` — CSAT form, plus AEP election-
+    # report variants whose topic is `alegerile` / `referendumul` /
+    # `organizarea` instead of `activitatea desfășurată`. Non-greedy body
+    # capture stops at the first `privind` / `asupra`, so a topic carrying
+    # its own `privind` further along doesn't bleed into the body.
     re.compile(
-        r"\bRaportul\s+(?P<body>[^\n]+?)\s+privind\s+activitatea\s+desf[ăa][șş]urat[ăa]",
+        r"\bRaportul\s+(?P<body>[^\n]+?)\s+(?:privind|asupra)\b",
         re.IGNORECASE,
     ),
 ]
@@ -179,6 +235,9 @@ _ISSUER_PATTERNS: list[re.Pattern[str]] = [
 def _extract_issuing_body(title: str | None) -> str | None:
     if not title:
         return None
+    # `<br>` survives MD conversion of multi-line SUMAR rows; strip it so
+    # the `\s+`-anchored tail patterns match `<br>pe anul` cleanly.
+    title = title.replace("<br>", " ")
     for pat in _ISSUER_PATTERNS:
         m = pat.search(title)
         if m:
@@ -189,15 +248,23 @@ def _extract_issuing_body(title: str | None) -> str | None:
 # -- Reporting period ------------------------------------------------------
 
 
-# `în anul YYYY` / `pe anul YYYY`. Multi-year (`în perioada YYYY-YYYY`)
-# observed only on a handful of CSAT bi-annual reports — same regex picks
-# up the start year and we widen the end via the dual-year pattern.
+# `în anul YYYY` / `pe anul YYYY` / `pentru anul YYYY`. Multi-year
+# (`în perioada YYYY-YYYY`) observed only on a handful of CSAT bi-annual
+# reports — same regex picks up the start year and we widen the end via
+# the dual-year pattern.
 _REPORTING_YEAR_RE = re.compile(
-    r"\b(?:[îiî]n\s+anul|pe\s+anul)\s+(?P<year>\d{4})\b",
+    r"\b(?:[îiî]n|pe|pentru)\s+anul\s+(?P<year>\d{4})\b",
     re.IGNORECASE,
 )
 _REPORTING_PERIOD_RE = re.compile(
     r"\b[îiî]n\s+perioada\s+(?P<y1>\d{4})\s*[-–—]\s*(?P<y2>\d{4})\b",
+    re.IGNORECASE,
+)
+# AEP election-day form: `din [DD] month YYYY` (e.g. `din 9 decembrie 2012`,
+# `din iunie 2012`). The election year is the reporting year. Title-only —
+# applying to the body would over-fire on every body-internal date mention.
+_REPORTING_DATE_FALLBACK_RE = re.compile(
+    rf"\bdin\s+(?:\d{{1,2}}\s+)?(?:{_MONTH_ALT})\s+(?P<year>\d{{4}})\b",
     re.IGNORECASE,
 )
 
@@ -206,7 +273,11 @@ def _extract_reporting_period(title: str | None, body: str) -> dict[str, str | N
     """Annual reports → Jan 1 – Dec 31 of the reported year.
 
     Searches the title first (anchored), falls back to the body's first
-    occurrence. Returns `{start: null, end: null}` when no year is found.
+    occurrence. For AEP election-day reports whose title carries
+    `din [DD] month YYYY` instead of `(in|pe|pentru) anul YYYY`, the date
+    fallback recovers the year from the date itself; this fallback is
+    title-scoped because body-internal dates are too noisy.
+    Returns `{start: null, end: null}` when no year is found.
     """
     candidates = [title or "", body[:2000]]
     for text in candidates:
@@ -218,6 +289,15 @@ def _extract_reporting_period(title: str | None, body: str) -> dict[str, str | N
                 "end": f"{y2:04d}-12-31",
             }
         m = _REPORTING_YEAR_RE.search(text)
+        if m:
+            y = int(m.group("year"))
+            return {
+                "start": f"{y:04d}-01-01",
+                "end": f"{y:04d}-12-31",
+            }
+    # Title-only date-form fallback (AEP election-day reports).
+    if title:
+        m = _REPORTING_DATE_FALLBACK_RE.search(title)
         if m:
             y = int(m.group("year"))
             return {

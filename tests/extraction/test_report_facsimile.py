@@ -55,6 +55,66 @@ def test_extract_title_returns_none_on_unrelated_prose():
     assert rf._extract_title(body) is None
 
 
+def test_extract_title_pentru_anul_form():
+    """v0.2.0: ANCOM/ASF/SRTv SUMAR rows end in `pentru anul YYYY`."""
+    body = (
+        "Pagina Raportul de activitate al Autorității Naționale pentru "
+        "Administrare și Reglementare în Comunicații pentru anul 2014 ..... 2–94\n"
+    )
+    title = rf._extract_title(body)
+    assert title == (
+        "Raportul de activitate al Autorității Naționale pentru "
+        "Administrare și Reglementare în Comunicații pentru anul 2014"
+    )
+
+
+def test_extract_title_din_month_year_form():
+    """v0.2.0: AEP election-day SUMAR rows end in `din DD month YYYY` /
+    `din month YYYY`."""
+    body = (
+        "|Raportul Autorității Electorale Permanente privind referendumul "
+        "național<br>din 29 iulie 2012 ..............|Pagina|\n"
+    )
+    title = rf._extract_title(body)
+    assert title == (
+        "Raportul Autorității Electorale Permanente privind referendumul "
+        "național din 29 iulie 2012"
+    )
+
+
+def test_extract_title_din_month_year_form_no_day():
+    """v0.2.0: month-only date form (`din iunie 2012`)."""
+    body = (
+        "Raportul Autorității Electorale Permanente asupra organizării și "
+        "desfășurării alegerilor pentru autoritățile administrației publice "
+        "locale din iunie 2012 ........... 2–204\n"
+    )
+    title = rf._extract_title(body)
+    assert title is not None
+    assert title.endswith("din iunie 2012")
+    assert "Autorității Electorale Permanente" in title
+
+
+def test_extract_title_strips_br_residue():
+    """v0.2.0: `<br>` from MD-converted multi-line SUMAR cells gets stripped
+    so the canonical title is reader-friendly and the issuing-body regex
+    isn't broken by the HTML tag at the year-tail boundary."""
+    body = (
+        "|Raportul de activitate al Autorității Naționale de Reglementare în "
+        "Domeniul Energiei<br>pe anul 2013...............|Pagina|\n"
+    )
+    title = rf._extract_title(body)
+    assert title is not None
+    assert "<br>" not in title
+
+
+def test_extract_title_din_form_negative_no_year():
+    """v0.2.0: `din MONTH` without a 4-digit year doesn't anchor the
+    title-end. Avoids false positives on body prose like `din martie`."""
+    body = "Raportul X din martie .....\n"
+    assert rf._extract_title(body) is None
+
+
 # -- issuing body --------------------------------------------------------
 
 
@@ -97,6 +157,94 @@ def test_extract_issuing_body_handles_anre_long_form():
     assert "Domeniul Energiei" in body
 
 
+def test_extract_issuing_body_ancom_pentru_anul_form():
+    """v0.2.0: pattern 4 with `pentru anul` extension covers ANCOM/ASF/SRTv."""
+    title = (
+        "Raportul de activitate al Autorității Naționale pentru "
+        "Administrare și Reglementare în Comunicații pentru anul 2014"
+    )
+    body = rf._extract_issuing_body(title)
+    assert body == (
+        "Autorității Naționale pentru Administrare și Reglementare în Comunicații"
+    )
+
+
+def test_extract_issuing_body_asf_pentru_anul_form():
+    title = "Raportul de activitate al Autorității de Supraveghere Financiară pentru anul 2013"
+    assert rf._extract_issuing_body(title) == "Autorității de Supraveghere Financiară"
+
+
+def test_extract_issuing_body_aep_privind_activitatea_form():
+    """v0.2.0: AEP titles use `Raportul privind activitatea X în anul Y`
+    *without* `desfășurată de` — pattern 2 (new) handles this."""
+    title = (
+        "Raportul privind activitatea Autorității Electorale Permanente în anul 2014"
+    )
+    assert rf._extract_issuing_body(title) == "Autorității Electorale Permanente"
+
+
+def test_extract_issuing_body_aep_election_form():
+    """v0.2.0: pattern 5 broadened from `Raportul X privind activitatea
+    desfășurată` to `Raportul X (privind|asupra) <topic>`. Covers AEP
+    election-day reports whose topic is `alegerile` / `referendumul`."""
+    title = (
+        "Raportul Autorității Electorale Permanente privind alegerile pentru "
+        "Președintele României din anul 2014"
+    )
+    assert rf._extract_issuing_body(title) == "Autorității Electorale Permanente"
+
+
+def test_extract_issuing_body_aep_referendumul_form():
+    title = (
+        "Raportul Autorității Electorale Permanente privind referendumul "
+        "național din 29 iulie 2012"
+    )
+    assert rf._extract_issuing_body(title) == "Autorității Electorale Permanente"
+
+
+def test_extract_issuing_body_aep_asupra_form():
+    """v0.2.0: pattern 5 also handles `Raportul X asupra <topic>`."""
+    title = (
+        "Raportul Autorității Electorale Permanente asupra organizării și "
+        "desfășurării alegerilor pentru autoritățile administrației publice "
+        "locale din iunie 2012"
+    )
+    assert rf._extract_issuing_body(title) == "Autorității Electorale Permanente"
+
+
+def test_extract_issuing_body_anre_long_form_with_br_residue():
+    """v0.2.0: `<br>` between body and tail used to break pattern 4's
+    `\\s+pe\\s+anul` lookahead — `_extract_issuing_body` now strips it."""
+    title = (
+        "Raportul de activitate al Autorității Naționale de Reglementare "
+        "în Domeniul Energiei<br>pe anul 2013"
+    )
+    body = rf._extract_issuing_body(title)
+    assert body == "Autorității Naționale de Reglementare în Domeniul Energiei"
+
+
+def test_extract_issuing_body_anre_privind_determinarea_form():
+    """v0.2.0: pattern 5 also covers ANRE topic-form titles (`Raportul X
+    privind determinarea ...`)."""
+    title = (
+        "Raportul Autorității Naționale de Reglementare în Domeniul Energiei "
+        "privind determinarea prețurilor și tarifelor reglementate pentru anul 2013"
+    )
+    body = rf._extract_issuing_body(title)
+    assert body == "Autorității Naționale de Reglementare în Domeniul Energiei"
+
+
+def test_extract_issuing_body_aep_privind_activitatea_does_not_collide_with_sri_pattern():
+    """Pattern 2's negative lookahead (`(?!desfășurat)`) ensures it doesn't
+    swallow titles that are properly handled by pattern 1 (SRI form)."""
+    title = (
+        "Raport privind activitatea desfășurată de Serviciul Român de "
+        "Informații în anul 2007"
+    )
+    # Pattern 1 should still match — body is SRI, not the verb phrase.
+    assert rf._extract_issuing_body(title) == "Serviciul Român de Informații"
+
+
 def test_extract_issuing_body_returns_none_when_title_is_none():
     assert rf._extract_issuing_body(None) is None
 
@@ -118,6 +266,57 @@ def test_extract_reporting_period_pe_anul_form():
     title = "Raportul de activitate al X pe anul 2013"
     p = rf._extract_reporting_period(title, "")
     assert p == {"start": "2013-01-01", "end": "2013-12-31"}
+
+
+def test_extract_reporting_period_pentru_anul_form():
+    """v0.2.0: ANCOM/ASF/SRTv use `pentru anul YYYY`."""
+    title = "Raportul de activitate al X pentru anul 2014"
+    p = rf._extract_reporting_period(title, "")
+    assert p == {"start": "2014-01-01", "end": "2014-12-31"}
+
+
+def test_extract_reporting_period_din_dd_month_year_fallback():
+    """v0.2.1: AEP election-day form `din DD month YYYY` carries the
+    reporting year inside the date. Title-scoped fallback after the
+    annual-form regexes."""
+    title = (
+        "Raportul Autorității Electorale Permanente privind referendumul "
+        "național din 29 iulie 2012"
+    )
+    p = rf._extract_reporting_period(title, "")
+    assert p == {"start": "2012-01-01", "end": "2012-12-31"}
+
+
+def test_extract_reporting_period_din_month_year_fallback():
+    """v0.2.1: month-only date form (`din iunie 2012`) — same election-day
+    cohort, just no day component."""
+    title = (
+        "Raportul Autorității Electorale Permanente asupra organizării și "
+        "desfășurării alegerilor pentru autoritățile administrației publice "
+        "locale din iunie 2012"
+    )
+    p = rf._extract_reporting_period(title, "")
+    assert p == {"start": "2012-01-01", "end": "2012-12-31"}
+
+
+def test_extract_reporting_period_annual_form_wins_over_date_fallback():
+    """When both forms are present, the annual `(in|pe|pentru) anul YYYY`
+    wins over the `din ... YYYY` fallback (annual is the canonical
+    reporting period; date fallback exists only for AEP-style titles
+    that lack the annual form)."""
+    title = (
+        "Raport de activitate al X pe anul 2013, pentru perioada din 1 ianuarie 2013"
+    )
+    p = rf._extract_reporting_period(title, "")
+    assert p == {"start": "2013-01-01", "end": "2013-12-31"}
+
+
+def test_extract_reporting_period_date_fallback_does_not_fire_on_body():
+    """v0.2.1: the date fallback is title-scoped — body-internal dates
+    must not trigger it (avoids false positives on unrelated body text)."""
+    body = "Some body text with `din 5 mai 2020` mentioned in passing.\n"
+    p = rf._extract_reporting_period(None, body)
+    assert p == {"start": None, "end": None}
 
 
 def test_extract_reporting_period_multi_year_form():
