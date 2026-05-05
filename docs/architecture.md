@@ -980,14 +980,15 @@ The schema bump and `references.py` v0.5.0 cascade through the version-aware ide
 - **`issuing_body_normalized`** — currently null. The institutional-bodies registry (CSAT, SRI, SIE, BNR, ICR, Avocatul Poporului, Consiliul Legislativ, SRTv, SRR, ANCOM, ANRE, Curtea de Conturi, etc. — small enum, ~20 entries) is the canonical normalisation source. Once that registry exists, a one-script backfill on every report sidecar populates the slot.
 - **Institution-specific outline detection.** The current heading extractor pulls every `## **...**` heading minus a skip-list. CSAT reports use `CAPITOLUL I/II/...` outlining; SRI uses `OBIECTIVELE PRIORITARE`; ANCOM uses numbered `N.M.K.L` decimal sections. v0.2 could add per-issuer outline parsers that classify each heading as `chapter` / `section` / `appendix` etc. — but the discovery loop hasn't surfaced a query that needs it yet.
 
-## Cross-document linker
+## Cross-reference linkers
 
-A separate post-extract pass that fills back-pointer fields no per-type extractor can populate at single-doc time. The linker ships **two passes** as of v0.2.0:
+A separate post-extract stage that fills back-pointer / anchor-pointer fields no per-type extractor can populate at single-doc time. Three passes ship as of v0.2.0 of `linker.py` + v0.1.0 of `cross_reference_linker.py`:
 
-1. **report→session** (v0.1.0+) — fills `report_facsimile.body.report.received_at.received_in_document` with the `mo://YYYY/PART/ISSUE` document_id of the joint-session (or single-chamber) stenogram that received the report.
-2. **vote-pair** (v0.2.0+) — pairs a deferred vote (`outcome=deferred`) in stenogram N with its resolving vote in a later stenogram M. Forward link: `vote.defers_to = "<doc_id of M>"` on the deferring vote. Back-link: `vote.resolves = ["<doc_id of N>", ...]` on the resolver (a vote can resolve multiple prior deferrals when the chair batches several into one final-vote round).
+1. **report→session** (cross-doc, linker.py v0.1.0+) — fills `report_facsimile.body.report.received_at.received_in_document` with the `mo://YYYY/PART/ISSUE` document_id of the joint-session (or single-chamber) stenogram that received the report.
+2. **vote-pair** (cross-doc, linker.py v0.2.0+) — pairs a deferred vote (`outcome=deferred`) in stenogram N with its resolving vote in a later stenogram M. Forward link: `vote.defers_to = "<doc_id of M>"` on the deferring vote. Back-link: `vote.resolves = ["<doc_id of N>", ...]` on the resolver (a vote can resolve multiple prior deferrals when the chair batches several into one final-vote round).
+3. **xref / cross-reference** (intra-doc, cross_reference_linker.py v0.1.0+) — resolves bare `art. N` unknown references in plenary sidecars to the most-recent preceding non-unknown reference IN THE SAME REFERENCE LIST. Anchor pointer: `unknown.resolved_to.char_offsets = <anchor's char_offsets in the same list>`.
 
-Code: `src/monitorul_ii/extraction/linker.py`. CLI surface: `monitorul-ii link <paths> [--force] [--dry-run] [--report-only | --vote-only]`.
+Code: `src/monitorul_ii/extraction/linker.py` (passes 1+2) and `src/monitorul_ii/extraction/cross_reference_linker.py` (pass 3). CLI surface: `monitorul-ii link <paths> [--force] [--dry-run] [--report-only | --vote-only | --xref-only]`.
 
 ### Why a separate subcommand instead of inline-in-extract
 
@@ -1071,9 +1072,79 @@ The v0.2.0 production smoke surfaced several caveats. Item 1 below was the domin
 
 `LINKER_VERSION = "0.2.0"` lives in `linker.py` but is **not** propagated into the sidecar's `extraction.extractor_versions` dict. The version-keying contract there uses exact-match (`_versions_current` returns False on any key mismatch); adding linker as a key would force extractor re-runs whenever the linker bumped. Instead, linker output lives entirely inside body content. Tradeoff: re-extracting a sidecar (extractor version bump → re-extract per the cache-invalidation contract) clobbers `received_in_document` / `defers_to` / `resolves`. Recovery: `monitorul-ii link` is fast (~1ms per doc for the report pass; the vote pass is bounded by index construction which is O(N) over the corpus) and re-runnable. Adding `defers_to: null` and `resolves: []` to every vote at extract time means the schema validates without linker output and no re-extract is needed when the linker writes pairs.
 
+### Pass 3 — cross-reference / xref linker (v0.1.0)
+
+The third pass is intra-document, sister to passes 1+2 in shape (atomic write, pre-write schema validation, idempotency, schema-version bump on write) but joining anchor-to-unknown over a single reference list rather than across documents.
+
+#### Why it exists
+
+`references.py` v0.4.0+ emits `UnknownReference` entries with `hint="law-ish"` for cite-shaped spans that don't classify into a strict variant. The dominant unclassified bucket on the 5,551-doc production corpus is bare `art. N` cross-references — phrases like `"art. 25 alin. (3)"` or `"articolul 14"` — that lack an issuer (no `Legea`, no `Codul`, no `OUG` next to them). On their own these are useless; in context they refer to articles of a law/code/bill cited elsewhere in the same parent (same agenda title or same speech body). The xref pass walks every plenary sidecar, finds every art-N unknown, locates its anchor, and writes a pointer.
+
+#### Design call: same-list scoping (load-bearing)
+
+Each reference list (`agenda_items[].primary_references` / `agenda_items[].activities[].references_mentioned`) is its own coordinate system. The references parsers in `references.py` (`parse_primary_references`, `parse_mentioned_references`) are called by the per-type extractors WITHOUT a `base_offset` argument — that's the contract — so their output offsets index into the LOCAL parent string (an agenda title, a speech text), NOT the body-global text.
+
+This made the first two design iterations of the linker fail: they tried sentence/paragraph/activity-span scoping using body-global offsets read from the sidecar, then computed between-text against the MD body. The anchor's stored offset of, say, `[78, 95]` was a position in the agenda title (where the law cite is), not in the body — so the linker compared nonsensical body slices and emitted thousands of garbage resolutions. Spot-check precision was ~20%.
+
+The fix is to scope anchor lookup to the SAME LIST as the unknown. By construction, every ref in a given `primary_references` array shares the same coordinate system (the agenda title's text), and every ref in a given `references_mentioned` array shares the speech text's coordinates. Comparison is well-defined without touching the MD body.
+
+The cost is recall: cross-list cases (an unknown art-N in a speech whose owning bill cite lives in the parent agenda's `primary_references[]`, NOT in the same speech's `references_mentioned[]`) stay unresolved. That's the dominant remaining unresolved bucket on the corpus (estimated >50% of the 81.5% unresolved fraction). A v0.2 future-work candidate is to walk each agenda_item, build a per-agenda anchor pool from its `primary_references[]` PLUS any speech-emitted bill cites, and resolve speech-level art-N unknowns into that pool. That's a structural join, not a regex change.
+
+#### Anchor priority
+
+Within a list, when multiple eligible non-unknown anchors precede the unknown:
+
+1. **Most-recent-preceding wins** — the anchor with the largest `end` offset that's ≤ unknown's `start` offset.
+2. **Tie-break at equal end offsets** — `code` > `law` > `bill` > `oug` > `og` > `regulation` > `constitution` > `chamber_resolution` > `parliamentary_resolution` > `treaty` > `court_decision` > `eu_doc` > `motion`. Codes (Codul muncii, Codul fiscal) are conventionally cited once and then referenced repeatedly via bare `art. N`; named laws follow the same pattern but get re-cited inline more often. Ties are rare — most refs end at distinct offsets.
+
+#### Output shape
+
+The unknown keeps its existing `type=unknown` shape and gains a `resolved_to: { char_offsets: [start, end] }` pointer at the anchor. Reasons against graduating the unknown into a fully-typed reference (e.g. promoting `art. N` near `Legea 95/2006` into a typed law-with-articles ref):
+
+- The article number isn't on the original strict variant's schema, so graduation would require its own schema extension (article list on every variant).
+- A stale or wrong link shouldn't corrupt the strict-variant pool — keeping unknowns as unknowns preserves the "uncommitted" semantics that downstream consumers can read.
+- Same-list scoping means downstream consumers can recover the typed anchor cheaply: `unknown.resolved_to.char_offsets` → linear scan over the SAME `primary_references` / `references_mentioned` list for the ref with matching offsets.
+
+The pointer's coordinates are LOCAL to the parent string, NOT body-global. Downstream consumers must look up the anchor inside the same list as the unknown.
+
+#### Schema impact (v1.12.0)
+
+`UnknownReference.resolved_to: anyOf [RefOffset, null]` added (additive). New `RefOffset` $def is a minimal pointer: `{ char_offsets: CharRange }`, no other fields. The xref linker bumps the sidecar's `schema_version` to 1.12.0 on every successful write — the new `resolved_to` field requires it, and bumping forward is safe because 1.12.0 is fully backwards-compatible with 1.11.0 (no fields removed, no required fields added). Existing 1.11.0 sidecars on disk are upgraded as the linker walks them; sidecars not touched by the linker stay at 1.11.0 until something else writes (typically the next `extract --force` after an extractor version bump).
+
+`VoteActivity.defers_to` (`["string", "null"]`) and `VoteActivity.resolves` (`anyOf [array of string, null]`) are preserved from v1.11.0 — populated by the cross-doc linker, untouched by the xref pass.
+
+#### Idempotency + force semantics
+
+Same skip-on-populated rule as the cross-doc linker: a re-run with `force=False` skips every unknown that already carries a `resolved_to` value. `--force` does two things: (a) overwrite an existing `resolved_to` when the linker now finds a different anchor, AND (b) CLEAR a stale `resolved_to` when the new run finds NO anchor under the current rules. Without (b), a tightening of the linker rules (the v0.1.0 ship-day path was: tighten boundary detection, then tighten scope) leaves stale links alone and the only way to clean them is a manual sidecar rewrite. With (b), `--force` is the canonical "re-resolve under current scope" command.
+
+#### Production sweep (5,551-doc corpus, v0.1.0)
+
+| Metric                             | Value           |
+|-----------------------------------|-----------------|
+| Sidecars touched (linked + cleared) | 3,629 / 5,551 (65.4%)  |
+| art-N unknowns total               | 110,453         |
+| Resolved (resolved_to populated)   | 20,433 (18.5%)  |
+| Unresolved (no same-list anchor)   | 90,020 (81.5%)  |
+| Errors                             | 0               |
+| Spot-check precision (random 20)   | ~85% (17/20)    |
+| Idempotency on second run          | resolved=0      |
+
+The 81.5% unresolved fraction is dominated by cross-list cases — speech-level art-N unknowns whose owning bill cite lives in the parent agenda's `primary_references[]`, not in the same speech's `references_mentioned`. Resolving those needs the agenda-aggregation join sketched above (v0.2 future work). The remainder is true no-anchor cases — SUMAR-area citations whose law cite never appeared in the same parent string.
+
+#### Known caveats
+
+1. **No cross-list resolution (v0.2 future).** Most semantic art-N references span agenda title → speech text or speech → speech across activities. v0.1's same-list-only is the precision floor; recall improves with agenda-aggregation.
+2. **No anchor-relevance check.** Within a list, the linker picks the closest preceding anchor without checking whether the speaker is actually citing it. A multi-topic speech with multiple law cites will sometimes mis-anchor (~15% spot-check error rate is concentrated here).
+3. **No forward-reference handling.** `art. 14 al legii care va fi adoptată` is common in committee debates — the law cite appears AFTER the article reference. The linker requires preceding anchors and stays null on these.
+4. **Local-not-global offsets.** The `resolved_to.char_offsets` is in the SAME coordinate system as the unknown's offsets — the parent string, not the body. Downstream consumers must look up the anchor inside the SAME `primary_references` / `references_mentioned` list as the unknown. This is a feature for query simplicity (no body-side bookkeeping) and a footgun for naive "join unknown.resolved_to to body[start:end]".
+
+#### Versioning contract
+
+`XREF_LINKER_VERSION = "0.1.0"` lives in `cross_reference_linker.py` but is NOT propagated into the sidecar's `extraction.extractor_versions` dict — same Q11 conservative-by-design contract as the cross-doc linker. Re-extracting a sidecar clobbers `resolved_to`; re-running `monitorul-ii link --xref-only` recovers (the linker is fast — single walk per sidecar, no MD body access).
+
 ### CLI surface
 
-`monitorul-ii link <paths> [--force] [--dry-run] [--report-only | --vote-only] [--bucket NAME | --no-upload]`. Path arguments are files or directories (non-recursive glob for `*.extraction.json`). Default runs both passes; `--report-only` and `--vote-only` are mutually exclusive selectors for a single pass. Output is one line per processed sidecar to stdout — `ok    <name>  -> mo://YYYY/PART/N` for report-pass linked, `ok    <name>  forward=N back=M` for vote-pass linked, `skip  <name>  (reason)` for skipped, `ERROR <name>  (reason)` for validation failures. Trailing summary on stdout (`linked=N skipped=M errors=K | s3 ...`). Skip-reasons histogram on stderr when any skips occurred.
+`monitorul-ii link <paths> [--force] [--dry-run] [--report-only | --vote-only | --xref-only] [--bucket NAME | --no-upload]`. Path arguments are files or directories (non-recursive glob for `*.extraction.json`). Default runs all three passes; `--report-only`, `--vote-only`, and `--xref-only` are mutually exclusive selectors for a single pass. Output is one line per processed sidecar to stdout — `ok    <name>  -> mo://YYYY/PART/N` for report-pass linked, `ok    <name>  forward=N back=M` for vote-pass linked, `ok    <name>  resolved=N unresolved=M already=K` for xref-pass linked, `skip  <name>  (reason)` for skipped, `ERROR <name>  (reason)` for validation failures. Trailing summary on stdout (`linked=N skipped=M errors=K | s3 ...`); the xref pass also prints a final `[xref-pass] resolved=X unresolved=Y (Z% resolution rate)` line on stderr. Skip-reasons histogram on stderr when any skips occurred.
 
 S3 mirror runs after each successful link when env vars are set: re-uploads the modified sidecar with `Content-Type: application/json`, overwriting the bucket copy. `--dry-run` skips both writes and uploads — useful for sanity-checking before a corpus-wide run.
 

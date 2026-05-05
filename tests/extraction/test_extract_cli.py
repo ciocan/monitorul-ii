@@ -113,7 +113,7 @@ def test_cmd_extract_writes_sidecar_for_qr_md(tmp_path, monkeypatch):
     assert sidecar.exists()
     sc = json.loads(sidecar.read_text(encoding="utf-8"))
     assert sc["document_type"] == "question_register"
-    assert sc["schema_version"] == "1.11.0"
+    assert sc["schema_version"] == "1.12.0"
     assert sc["coverage"]["claimed_pct"] >= 0.95
 
 

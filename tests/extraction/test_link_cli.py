@@ -42,6 +42,7 @@ def test_link_report_only_flag():
     args = p.parse_args(["link", "x", "--report-only"])
     assert args.report_only is True
     assert args.vote_only is False
+    assert args.xref_only is False
 
 
 def test_link_vote_only_flag():
@@ -49,14 +50,27 @@ def test_link_vote_only_flag():
     args = p.parse_args(["link", "x", "--vote-only"])
     assert args.vote_only is True
     assert args.report_only is False
+    assert args.xref_only is False
 
 
-def test_link_report_only_and_vote_only_mutually_exclusive():
+def test_link_xref_only_flag():
+    p = _build_parser()
+    args = p.parse_args(["link", "x", "--xref-only"])
+    assert args.xref_only is True
+    assert args.report_only is False
+    assert args.vote_only is False
+
+
+def test_link_pass_selectors_mutually_exclusive():
     p = _build_parser()
     import pytest
 
     with pytest.raises(SystemExit):
         p.parse_args(["link", "x", "--report-only", "--vote-only"])
+    with pytest.raises(SystemExit):
+        p.parse_args(["link", "x", "--report-only", "--xref-only"])
+    with pytest.raises(SystemExit):
+        p.parse_args(["link", "x", "--vote-only", "--xref-only"])
 
 
 def test_cmd_link_no_sidecars_returns_zero(tmp_path, capsys):
@@ -71,6 +85,7 @@ def test_cmd_link_no_sidecars_returns_zero(tmp_path, capsys):
     args.dry_run = False
     args.report_only = False
     args.vote_only = False
+    args.xref_only = False
     args.no_upload = True
     args.bucket = None
     rc = cmd_link(args)
@@ -86,7 +101,7 @@ def test_cmd_link_walks_directory_and_links(tmp_path, capsys):
 
     def _envelope(doc_id, doc_type, session_date):
         return {
-            "schema_version": "1.11.0",
+            "schema_version": "1.12.0",
             "document_id": doc_id,
             "content_sha": "0123456789ab",
             "document_type": doc_type,
@@ -168,6 +183,7 @@ def test_cmd_link_walks_directory_and_links(tmp_path, capsys):
     args.dry_run = False
     args.report_only = False
     args.vote_only = False
+    args.xref_only = False
     args.no_upload = True
     args.bucket = None
     rc = cmd_link(args)
@@ -267,7 +283,7 @@ def test_cmd_link_vote_only_pass_pairs_deferred_with_resolver(tmp_path, capsys):
 
     def _stenogram(doc_id: str, session_date: str, outcome: str) -> dict:
         return {
-            "schema_version": "1.11.0",
+            "schema_version": "1.12.0",
             "document_id": doc_id,
             "content_sha": "0123456789ab",
             "document_type": "plenary_stenogram",
@@ -331,6 +347,7 @@ def test_cmd_link_vote_only_pass_pairs_deferred_with_resolver(tmp_path, capsys):
     args.dry_run = False
     args.report_only = False
     args.vote_only = True
+    args.xref_only = False
     args.no_upload = True
     args.bucket = None
     rc = cmd_link(args)
@@ -347,3 +364,134 @@ def test_cmd_link_vote_only_pass_pairs_deferred_with_resolver(tmp_path, capsys):
     ]
     out = capsys.readouterr().out
     assert "linked=2" in out
+
+
+def test_cmd_link_xref_only_pass_resolves_art_n(tmp_path, capsys):
+    """End-to-end CLI: drop a stenogram sidecar carrying a Legea anchor +
+    an art-N unknown in the same agenda item's primary_references; run
+    `link --xref-only`; verify the unknown's resolved_to landed."""
+
+    body = "Conform Legea nr. 47/1992, art. 25 este aplicabil aici."
+    md = tmp_path / "x.md"
+    md.write_text(
+        '---\nissue: "1"\nyear: 2025\npart: "II"\npublished: 2025-04-01\n---\n' + body,
+        encoding="utf-8",
+    )
+    law_start = body.index("Legea")
+    law_end = body.index(",")
+    art_start = body.index("art. 25")
+    art_end = art_start + len("art. 25")
+    primary_refs = [
+        {
+            "type": "law",
+            "raw": "Legea nr. 47/1992",
+            "char_offsets": [law_start, law_end],
+            "number": "47",
+            "year": 1992,
+            "subject": None,
+        },
+        {
+            "type": "unknown",
+            "raw": "art. 25",
+            "char_offsets": [art_start, art_end],
+            "hint": "law-ish",
+        },
+    ]
+    agenda_item = {
+        "ordinal": 1,
+        "title": "Test agenda",
+        "primary_references": primary_refs,
+        "category": "bill_debate",
+        "confidence_type": None,
+        "requested_by_group": None,
+        "outcome": None,
+        "reexamination_reason": None,
+        "pages_in_pdf": [],
+        "topics": {"primary": [], "secondary": []},
+        "activities": [],
+        "source_span": {
+            "chars": [0, len(body)],
+            "lines": [1, 5],
+            "content_sha": "0123456789ab",
+        },
+        "extraction": {
+            "extractor": "regex@1",
+            "confidence": 0.9,
+            "source_span": {
+                "chars": [0, len(body)],
+                "lines": [1, 5],
+                "content_sha": "0123456789ab",
+            },
+        },
+    }
+    sc = {
+        "schema_version": "1.12.0",
+        "document_id": "mo://2025/II/X",
+        "content_sha": "0123456789ab",
+        "document_type": "plenary_stenogram",
+        "metadata": {
+            "issue": "X",
+            "year": 2025,
+            "part": "II",
+            "published": "2025-04-01",
+            "chamber": "Camera Deputaților",
+            "session": None,
+            "session_type": None,
+            "session_date": "2025-04-01",
+            "legislature": None,
+        },
+        "raw_markdown_path": str(md),
+        "raw_pdf_path": "x.pdf",
+        "extraction": {
+            "extractor": "regex@1",
+            "extracted_at": "2026-05-04T12:00:00Z",
+            "extractor_versions": {"boilerplate": "0.1.0"},
+            "confidence": 0.9,
+        },
+        "coverage": {
+            "body_chars": len(body),
+            "claimed_chars": len(body),
+            "claimed_pct": 1.0,
+            "gaps": [],
+            "claimed_by_policy": [],
+        },
+        "body": {
+            "session": {
+                "chair": [],
+                "chair_segments": [],
+                "secretaries": [],
+                "attendance": {"registered": None, "total_seats": None},
+                "quorum_met": None,
+                "opened_at": None,
+                "closed_at": None,
+                "format": None,
+                "outcome": None,
+                "special_procedure": None,
+            },
+            "agenda_items": [agenda_item],
+            "interpellations": [],
+        },
+    }
+    sp = tmp_path / "x.extraction.json"
+    sp.write_text(json.dumps(sc), encoding="utf-8")
+
+    class A:
+        pass
+
+    args = A()
+    args.paths = [tmp_path]
+    args.force = False
+    args.dry_run = False
+    args.report_only = False
+    args.vote_only = False
+    args.xref_only = True
+    args.no_upload = True
+    args.bucket = None
+    rc = cmd_link(args)
+    assert rc == 0
+
+    after = json.loads(sp.read_text(encoding="utf-8"))
+    unknown_ref = after["body"]["agenda_items"][0]["primary_references"][1]
+    assert unknown_ref["resolved_to"] == {"char_offsets": [law_start, law_end]}
+    out = capsys.readouterr().out
+    assert "linked=1" in out

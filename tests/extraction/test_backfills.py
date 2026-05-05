@@ -32,7 +32,7 @@ def _report_sidecar(
     issuing_body_normalized: str | None = None,
 ) -> dict:
     return {
-        "schema_version": "1.11.0",
+        "schema_version": "1.12.0",
         "document_id": doc_id,
         "content_sha": "0123456789ab",
         "document_type": "report_facsimile",
@@ -129,7 +129,7 @@ def _qr_sidecar(
             }
         )
     return {
-        "schema_version": "1.11.0",
+        "schema_version": "1.12.0",
         "document_id": doc_id,
         "content_sha": "0123456789ab",
         "document_type": "question_register",
@@ -207,7 +207,7 @@ def _plenary_with_interpellations_sidecar(
             }
         )
     return {
-        "schema_version": "1.11.0",
+        "schema_version": "1.12.0",
         "document_id": doc_id,
         "content_sha": "0123456789ab",
         "document_type": "plenary_stenogram",
@@ -341,7 +341,7 @@ def _plenary_with_agenda_sidecar(
     agenda_items: list[dict],
 ) -> dict:
     return {
-        "schema_version": "1.11.0",
+        "schema_version": "1.12.0",
         "document_id": doc_id,
         "content_sha": "0123456789ab",
         "document_type": "plenary_stenogram",
@@ -393,7 +393,7 @@ def _plenary_with_agenda_sidecar(
 def _stenogram_sidecar(*, doc_id: str) -> dict:
     """A non-report sidecar — backfill should ignore these."""
     return {
-        "schema_version": "1.11.0",
+        "schema_version": "1.12.0",
         "document_id": doc_id,
         "content_sha": "0123456789ab",
         "document_type": "plenary_stenogram",

@@ -288,21 +288,27 @@ def _build_parser() -> argparse.ArgumentParser:
 
     link = sub.add_parser(
         "link",
-        help="Cross-document linker: report→session back-links + vote-pair deferral chains.",
+        help="Cross-document + cross-reference linker: report→session, vote-pair, art-N xref.",
         description=(
             "Walk `*.extraction.json` sidecars under one or more paths and run "
-            "two cross-document linker passes:\n"
-            "  (1) report→session — fills each report_facsimile's "
+            "three linker passes:\n"
+            "  (1) report→session (cross-doc) — fills each report_facsimile's "
             "`received_at.received_in_document` with the document_id of the "
             "joint-session (or single-chamber) stenogram that received it.\n"
-            "  (2) vote-pair — pairs deferred votes (outcome=deferred) in "
-            "stenogram N with their resolving votes in a later stenogram M, "
-            "writing `defers_to` (forward) on the deferring vote and `resolves` "
-            "(back-link) on the resolver. 60-day window; earliest-resolver-wins. "
-            "Match key derived from agenda primary_references (bill / law / "
-            "oug / og / parliamentary_resolution / chamber_resolution cite), "
-            "or motion title, or agenda title hash.\n"
-            "Default runs both passes; --report-only / --vote-only restricts. "
+            "  (2) vote-pair (cross-doc) — pairs deferred votes "
+            "(outcome=deferred) in stenogram N with their resolving votes in "
+            "a later stenogram M, writing `defers_to` (forward) on the "
+            "deferring vote and `resolves` (back-link) on the resolver. "
+            "60-day window; earliest-resolver-wins. Match key derived from "
+            "agenda primary_references bill cite (or motion title hash for "
+            "motion-class votes).\n"
+            "  (3) cross-reference / xref (intra-doc) — resolves bare `art. N` "
+            "unknown references in plenary + question_register sidecars to "
+            "their owning law/code/bill anchor in the same paragraph (with "
+            "fall-through to same-activity-span). Writes "
+            "`unknown.resolved_to.char_offsets` pointing at the anchor.\n"
+            "Default runs all three passes; --report-only / --vote-only / "
+            "--xref-only restrict to a single pass. "
             "Pre-write schema validation; atomic write via .part rename. "
             "Idempotent — already-linked entries are skipped unless --force."
         ),
@@ -318,7 +324,7 @@ def _build_parser() -> argparse.ArgumentParser:
         action="store_true",
         help=(
             "Re-link sidecars whose targets are already populated. Applies to "
-            "both passes."
+            "all selected passes."
         ),
     )
     link.add_argument(
@@ -331,16 +337,25 @@ def _build_parser() -> argparse.ArgumentParser:
         "--report-only",
         action="store_true",
         help=(
-            "Run only the report→session pass; skip the vote-pair pass. "
-            "Mutually exclusive with --vote-only."
+            "Run only the report→session pass; skip the vote-pair and "
+            "xref passes. Mutually exclusive with --vote-only / --xref-only."
         ),
     )
     pass_group.add_argument(
         "--vote-only",
         action="store_true",
         help=(
-            "Run only the vote-pair pass; skip the report→session pass. "
-            "Mutually exclusive with --report-only."
+            "Run only the vote-pair pass; skip the report→session and "
+            "xref passes. Mutually exclusive with --report-only / --xref-only."
+        ),
+    )
+    pass_group.add_argument(
+        "--xref-only",
+        action="store_true",
+        help=(
+            "Run only the cross-reference (art-N) pass; skip the report→"
+            "session and vote-pair passes. Mutually exclusive with "
+            "--report-only / --vote-only."
         ),
     )
     _add_s3_args(link)
@@ -1359,6 +1374,91 @@ def _run_vote_pass(
                 print(f"  s3!   {path.name}  ({exc})", file=sys.stderr)
 
 
+def _run_xref_pass(
+    sidecars: list[Path],
+    *,
+    force: bool,
+    write: bool,
+    uploader: object | None,
+    counters: dict[str, int],
+    skip_reasons: dict[str, int],
+) -> None:
+    """Pass (3): resolve bare `art. N` unknowns to their owning anchor."""
+    from monitorul_ii.extraction.cross_reference_linker import link_xrefs
+
+    eligible = [p for p in sidecars if p.name.endswith(".extraction.json")]
+    print(
+        f"[xref-pass] running over {len(eligible)} sidecars "
+        f"(plenary + question_register only)",
+        file=sys.stderr,
+    )
+
+    total_resolved = 0
+    total_unresolved = 0
+    for path in eligible:
+        try:
+            result = link_xrefs(path, force=force, write=write)
+        except KeyboardInterrupt:
+            raise
+        except Exception as exc:
+            counters["errors"] += 1
+            print(f"  ERROR {path.name}  ({exc!r})", file=sys.stderr)
+            continue
+
+        label = _LINK_LABELS[result.status]
+        line = f"  {label} {path.name}"
+        if result.status == "linked":
+            counters["linked"] += 1
+            total_resolved += result.resolved
+            total_unresolved += result.unresolved
+            line += (
+                f"  resolved={result.resolved} "
+                f"unresolved={result.unresolved} "
+                f"already={result.skipped_already}"
+            )
+        elif result.status == "skip":
+            counters["skipped"] += 1
+            reason = result.reason or "unknown"
+            skip_reasons[reason] = skip_reasons.get(reason, 0) + 1
+            line += f"  ({reason})"
+            total_unresolved += result.unresolved
+        else:
+            counters["errors"] += 1
+            line += f"  ({result.reason or 'unknown'})"
+        print(line, flush=True)
+        if result.status == "error":
+            print(line, file=sys.stderr, flush=True)
+
+        if (
+            uploader is not None
+            and result.status == "linked"
+            and write
+            and path.exists()
+        ):
+            try:
+                up = uploader.upload_if_missing(  # type: ignore[attr-defined]
+                    path, content_type="application/json"
+                )
+                if up.uploaded:
+                    counters["uploaded"] += 1
+                    print(f"  s3+   {path.name}")
+                else:
+                    counters["in_bucket"] += 1
+                    print(f"  s3=   {path.name}")
+            except Exception as exc:
+                counters["upload_errors"] += 1
+                print(f"  s3!   {path.name}  ({exc})", file=sys.stderr)
+
+    grand_total = total_resolved + total_unresolved
+    if grand_total:
+        pct = total_resolved / grand_total * 100
+        print(
+            f"[xref-pass] resolved={total_resolved} unresolved={total_unresolved} "
+            f"({pct:.1f}% resolution rate)",
+            file=sys.stderr,
+        )
+
+
 def cmd_link(args: argparse.Namespace) -> int:
     sidecars = _collect_sidecars(list(args.paths))
     if not sidecars:
@@ -1377,8 +1477,13 @@ def cmd_link(args: argparse.Namespace) -> int:
     }
     skip_reasons: dict[str, int] = {}
 
-    run_report = not getattr(args, "vote_only", False)
-    run_vote = not getattr(args, "report_only", False)
+    report_only = getattr(args, "report_only", False)
+    vote_only = getattr(args, "vote_only", False)
+    xref_only = getattr(args, "xref_only", False)
+    any_only = report_only or vote_only or xref_only
+    run_report = report_only or not any_only
+    run_vote = vote_only or not any_only
+    run_xref = xref_only or not any_only
 
     try:
         if run_report:
@@ -1392,6 +1497,15 @@ def cmd_link(args: argparse.Namespace) -> int:
             )
         if run_vote:
             _run_vote_pass(
+                sidecars,
+                force=args.force,
+                write=not args.dry_run,
+                uploader=uploader,
+                counters=counters,
+                skip_reasons=skip_reasons,
+            )
+        if run_xref:
+            _run_xref_pass(
                 sidecars,
                 force=args.force,
                 write=not args.dry_run,

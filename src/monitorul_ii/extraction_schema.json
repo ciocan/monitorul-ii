@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://github.com/ciocan/monitorul-ii/blob/main/src/monitorul_ii/extraction_schema.json",
   "title": "Monitorul Oficial Partea II extraction sidecar",
-  "description": "Canonical machine-readable schema for the per-document JSON sidecars emitted by `monitorul-ii extract`. Mirrors docs/extraction-schema.md (the human-readable spec). Schema_version 1.11.0 adds VoteActivity.defers_to (forward-link, string|null) and VoteActivity.resolves (back-link, array of strings|null) — populated by the cross-document linker (v0.2.0+) for cross-session vote deferrals; always null at extract time. v1.10.0 graduated the `code` reference variant out of the unknown catch-all, broadened `treaty` to absorb Acordul/Protocolul/wider Carta forms, and populated best-effort `subject` fields on bill / law / parliamentary_resolution. v1.8.0 graduated report_facsimile from PendingBody to a strict body shape; v1.9.0 graduated 6 long-tail reference variants. All six document types continue to have strict body shapes; PendingBody is kept as a $def placeholder for future types.",
+  "description": "Canonical machine-readable schema for the per-document JSON sidecars emitted by `monitorul-ii extract`. Mirrors docs/extraction-schema.md (the human-readable spec). Schema_version 1.12.0 adds UnknownReference.resolved_to (object | null) — a pointer at another reference's char_offsets in the same document body, populated by the cross-reference linker (xref_linker v0.1.0+) for bare `art. N` cite resolution; always null at extract time. v1.11.0 added VoteActivity.defers_to + VoteActivity.resolves — populated by the cross-document linker (linker v0.2.0+) for cross-session vote deferrals; always null at extract time. v1.10.0 graduated the `code` reference variant out of the unknown catch-all, broadened `treaty` to absorb Acordul/Protocolul/wider Carta forms, and populated best-effort `subject` fields on bill / law / parliamentary_resolution. v1.8.0 graduated report_facsimile from PendingBody to a strict body shape; v1.9.0 graduated 6 long-tail reference variants. All six document types continue to have strict body shapes; PendingBody is kept as a $def placeholder for future types.",
   "type": "object",
   "required": [
     "schema_version",
@@ -18,7 +18,7 @@
   ],
   "additionalProperties": false,
   "properties": {
-    "schema_version": { "const": "1.11.0" },
+    "schema_version": { "const": "1.12.0" },
     "document_id": {
       "type": "string",
       "pattern": "^mo://\\d{4}/[IVXM]+/[0-9A-Za-z]+$"
@@ -180,6 +180,15 @@
       "items": { "type": "integer", "minimum": 0 },
       "minItems": 2,
       "maxItems": 2
+    },
+    "RefOffset": {
+      "type": "object",
+      "description": "Minimal pointer at another reference inside the same document body. Carries only the anchor's char_offsets so downstream consumers can locate the anchor in the body text and join transitively. Used by the cross-reference linker (xref_linker) to resolve bare `art. N` cites to their owning law/code/bill anchor.",
+      "required": ["char_offsets"],
+      "additionalProperties": false,
+      "properties": {
+        "char_offsets": { "$ref": "#/$defs/CharRange" }
+      }
     },
     "LineRange": {
       "type": "array",
@@ -929,7 +938,7 @@
     },
     "UnknownReference": {
       "type": "object",
-      "description": "Catch-all for spans that look reference-shaped but don't classify into any strict variant. The `hint` field carries a coarse classifier output (law-ish, court-ish, eu-doc-ish, other) that future extractor versions use to graduate variants.",
+      "description": "Catch-all for spans that look reference-shaped but don't classify into any strict variant. The `hint` field carries a coarse classifier output (law-ish, court-ish, eu-doc-ish, other) that future extractor versions use to graduate variants. The `resolved_to` field (additive, schema 1.12.0) is populated by the cross-reference linker for bare `art. N` cites whose owning law/code/bill anchor lives elsewhere in the same document body; always null at extract time, populated by `monitorul-ii link --xref-only`.",
       "required": ["type", "raw", "char_offsets", "hint"],
       "additionalProperties": false,
       "properties": {
@@ -941,6 +950,9 @@
             { "enum": ["law-ish", "court-ish", "eu-doc-ish", "other"] },
             { "type": "null" }
           ]
+        },
+        "resolved_to": {
+          "anyOf": [{ "$ref": "#/$defs/RefOffset" }, { "type": "null" }]
         }
       }
     },

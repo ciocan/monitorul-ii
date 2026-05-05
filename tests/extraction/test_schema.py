@@ -14,7 +14,7 @@ def _now_iso() -> str:
 
 def _minimal_question_register_sidecar() -> dict:
     return {
-        "schema_version": "1.11.0",
+        "schema_version": "1.12.0",
         "document_id": "mo://2026/II/29",
         "content_sha": "0123456789ab",
         "document_type": "question_register",
@@ -96,6 +96,91 @@ def test_validate_rejects_invalid_chamber_enum():
     sc["body"]["chamber"] = "Both"  # not in ["Camera Deputaților", "Senatul", null]
     with pytest.raises(SchemaError):
         validate(sc)
+
+
+def test_unknown_reference_defines_resolved_to_field():
+    """Schema 1.12.0 adds the additive `resolved_to` field on UnknownReference,
+    populated by the cross-reference linker (xref_linker). The field's
+    value is either a RefOffset object pointing at another reference's
+    char_offsets, or null. Default null at extract time."""
+    sd = schema_dict()
+    unknown = sd["$defs"]["UnknownReference"]
+    assert "resolved_to" in unknown["properties"]
+    options = unknown["properties"]["resolved_to"]["anyOf"]
+    has_ref = any(o.get("$ref") == "#/$defs/RefOffset" for o in options)
+    has_null = any(o.get("type") == "null" for o in options)
+    assert has_ref and has_null
+
+
+def test_ref_offset_def_shape():
+    """RefOffset is a minimal pointer: required `char_offsets` only."""
+    sd = schema_dict()
+    ref_offset = sd["$defs"]["RefOffset"]
+    assert ref_offset["type"] == "object"
+    assert ref_offset["additionalProperties"] is False
+    assert ref_offset["required"] == ["char_offsets"]
+    assert ref_offset["properties"]["char_offsets"]["$ref"] == "#/$defs/CharRange"
+
+
+def test_unknown_reference_accepts_valid_resolved_to_pointer():
+    """A populated resolved_to with the canonical RefOffset shape must
+    validate cleanly against the UnknownReference $def."""
+    from jsonschema import Draft202012Validator
+
+    schema = schema_dict()
+    v = Draft202012Validator(
+        {**schema["$defs"]["UnknownReference"], "$defs": schema["$defs"]}
+    )
+    good = {
+        "type": "unknown",
+        "raw": "art. 25",
+        "char_offsets": [0, 7],
+        "hint": "law-ish",
+        "resolved_to": {"char_offsets": [42, 60]},
+    }
+    assert list(v.iter_errors(good)) == []
+    # Null is also acceptable
+    null_form = {**good, "resolved_to": None}
+    assert list(v.iter_errors(null_form)) == []
+    # Field omitted entirely is acceptable (not required) — backwards-
+    # compatible with pre-1.12.0 sidecars
+    omitted = {k: v for k, v in good.items() if k != "resolved_to"}
+    assert list(v.iter_errors(omitted)) == []
+
+
+def test_unknown_reference_rejects_bad_resolved_to_shape():
+    """A non-RefOffset-shape resolved_to (string, missing char_offsets,
+    extra props) must fail validation against the UnknownReference $def."""
+    from jsonschema import Draft202012Validator
+
+    schema = schema_dict()
+    v = Draft202012Validator(
+        {**schema["$defs"]["UnknownReference"], "$defs": schema["$defs"]}
+    )
+    bad_string = {
+        "type": "unknown",
+        "raw": "art. 25",
+        "char_offsets": [0, 7],
+        "hint": "law-ish",
+        "resolved_to": "not-an-object",
+    }
+    assert list(v.iter_errors(bad_string))
+    bad_missing = {
+        "type": "unknown",
+        "raw": "art. 25",
+        "char_offsets": [0, 7],
+        "hint": "law-ish",
+        "resolved_to": {},  # missing char_offsets
+    }
+    assert list(v.iter_errors(bad_missing))
+    bad_extra = {
+        "type": "unknown",
+        "raw": "art. 25",
+        "char_offsets": [0, 7],
+        "hint": "law-ish",
+        "resolved_to": {"char_offsets": [0, 7], "bogus": True},
+    }
+    assert list(v.iter_errors(bad_extra))
 
 
 def test_pending_body_def_remains_permissive():

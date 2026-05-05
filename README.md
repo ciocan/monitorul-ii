@@ -100,7 +100,7 @@ Each row carries `top_type`, `top_score`, `second_type`, `second_score`, an `amb
 
 ### `extract`
 
-Step 2 of the extraction pipeline (see [`docs/extraction-schema.md`](docs/extraction-schema.md), v1.11.0). Reads converted MDs, dispatches to a per-document-type extractor, and writes a `<basename>.extraction.json` sidecar next to each MD. Document type comes from the `classify` rules. v0.1 ships extractors for all six document types — **`question_register`**, **`plenary_stenogram`**, **`plenary_joint_session`**, **`committee_synthesis`**, and **`report_facsimile`** (the `other` bucket gets the fallback minimal body shape from the schema). Every typed document in the corpus now produces a strict-validated sidecar.
+Step 2 of the extraction pipeline (see [`docs/extraction-schema.md`](docs/extraction-schema.md), v1.12.0). Reads converted MDs, dispatches to a per-document-type extractor, and writes a `<basename>.extraction.json` sidecar next to each MD. Document type comes from the `classify` rules. v0.1 ships extractors for all six document types — **`question_register`**, **`plenary_stenogram`**, **`plenary_joint_session`**, **`committee_synthesis`**, and **`report_facsimile`** (the `other` bucket gets the fallback minimal body shape from the schema). Every typed document in the corpus now produces a strict-validated sidecar.
 
 ```sh
 # extract every MD in a directory
@@ -143,17 +143,17 @@ Schema validation runs *pre-write*: a sidecar that doesn't validate against the 
 
 ### `link`
 
-Cross-document linker — runs **two passes** by default: (1) **report→session**, fills each `report_facsimile` sidecar's `received_at.received_in_document` back-pointer with the matching joint-session (or single-chamber) stenogram's `document_id`; (2) **vote-pair** (linker v0.2.0+), pairs deferred votes (`outcome=deferred`) in stenogram N with their resolving votes in a later stenogram M, writing `defers_to` (forward link) on the deferring vote and `resolves[]` (back-link, list of origin document_ids) on the resolver. Run it after `extract`: extract writes report sidecars with `received_in_document: null` and plenary votes with `defers_to: null` / `resolves: []`; link walks all sidecars and fills both fields cross-document.
+Linker — runs **three passes** by default: (1) **report→session** (cross-doc), fills each `report_facsimile` sidecar's `received_at.received_in_document` back-pointer with the matching joint-session (or single-chamber) stenogram's `document_id`; (2) **vote-pair** (cross-doc, linker v0.2.0+), pairs deferred votes (`outcome=deferred`) in stenogram N with their resolving votes in a later stenogram M, writing `defers_to` (forward link) on the deferring vote and `resolves[]` (back-link, list of origin document_ids) on the resolver; (3) **xref / cross-reference** (intra-doc, xref_linker v0.1.0+), resolves bare `art. N` unknown references in plenary sidecars to the most-recent preceding non-unknown anchor IN THE SAME REFERENCE LIST (`primary_references[]` / `references_mentioned[]`), writing `unknown.resolved_to.char_offsets`. Run it after `extract`: extract writes report sidecars with `received_in_document: null`, plenary votes with `defers_to: null` / `resolves: []`, and unknown references with no `resolved_to` field; link walks all sidecars and fills the slots.
 
 ```sh
-# link every sidecar in a directory (both passes)
+# link every sidecar in a directory (all three passes)
 uv run monitorul-ii link pdfs/
 
 # preview without writing anything
 uv run monitorul-ii link pdfs/ --dry-run
 
 # re-link sidecars whose targets are already populated
-# (useful after a cohort re-extract — applies to both passes)
+# (useful after a cohort re-extract; applies to all selected passes)
 uv run monitorul-ii link pdfs/ --force
 
 # run only the report→session pass
@@ -162,25 +162,30 @@ uv run monitorul-ii link pdfs/ --report-only
 # run only the vote-pair pass
 uv run monitorul-ii link pdfs/ --vote-only
 
+# run only the cross-reference (art-N) pass
+uv run monitorul-ii link pdfs/ --xref-only
+
 # skip the S3 mirror (otherwise modified sidecars re-upload)
 uv run monitorul-ii link pdfs/ --no-upload
 ```
 
-Why a separate subcommand and not part of `extract`? Linking needs the global picture (scan all sidecars to build the session + vote indexes), while extract is single-pass per-MD. Keeping them separate preserves extract's "single source of truth for body content" contract and lets each pass run independently.
+Why a separate subcommand and not part of `extract`? The cross-doc passes need the global picture (scan all sidecars to build the session + vote indexes), while extract is single-pass per-MD. The xref pass is per-sidecar but lives next to its sister passes for ergonomic reasons (one CLI to remember; one re-run after extract; same atomic-write + idempotency contract). Keeping them separate from extract preserves extract's "single source of truth for body content" contract and lets each pass run independently.
 
 **Pass 1 — report→session** indexes plenary sidecars by `metadata.session_date` (joint sessions beat single-chamber on the same date) and matches each report's `received_at.session_date`.
 
 **Pass 2 — vote-pair** derives a match key per vote from the parent agenda item's `primary_references[]`: a `bill` cite (`f"bill:{number}/{year}"`) wins; failing that, a motion title hash for motion-class votes carrying a quoted title ≥12 chars. Other ref types (`law`, `oug`, `og`, `parliamentary_resolution`, `chamber_resolution`) are intentionally excluded — they collide unrelated bills sharing the same underlying cite (e.g., `law:47/1992` for every CCR-referral procedural note); see the linker module docstring for the false-positive analysis. Matching is window-bounded (`DEFERRAL_WINDOW_DAYS=60`) and earliest-resolver-wins. Multi-deferral chains: when A defers to B and B itself defers to C, the chain reverses on the back-link — `C.resolves = [A, B]`.
 
-`--report-only` and `--vote-only` are mutually exclusive selectors for a single pass; the default is to run both.
+**Pass 3 — xref / cross-reference** walks every plenary sidecar's reference lists and, for each `unknown` reference whose `raw` matches `art. N` / `Art. N` / `articolul N`, picks the most-recent-preceding non-unknown reference from THE SAME LIST as the anchor and writes its `char_offsets` into the unknown's `resolved_to` field. Same-list scoping is a hard constraint: references parsers (`parse_primary_references` / `parse_mentioned_references`) emit offsets LOCAL to their parent string (agenda title or speech text), so cross-list comparison would compare nonsensical coordinate systems. Tie-break at equal end offsets prefers `code` > `law` > `bill` > the rest. Cross-list resolution (e.g., agenda-level bill cite anchoring article references in child speeches) is deferred to a future v0.2 of the xref linker — that needs an agenda-aggregation index, not just same-list scope. Production sweep on the 5,551-doc corpus: 18.5% of art-N unknowns (20,433 / 110,453) gain a `resolved_to` value; 81.5% stay null (cross-list cases out of scope for v0.1, plus genuine no-anchor cases like SUMAR-area citations whose owning law cite never appeared in the same list). Spot-check on 20 random resolved entries: ~85% precision (17/20). The xref pass also bumps the sidecar's `schema_version` to 1.12.0 on each successful write — the new schema's additive `resolved_to` field requires it, and bumping forward is safe (1.12.0 is fully backwards-compatible with 1.11.0).
 
-`--force` re-links populated entries — by default already-linked sidecars are skipped with reason. `--dry-run` prints what would be linked without modifying any files.
+`--report-only`, `--vote-only`, and `--xref-only` are mutually exclusive selectors for a single pass; the default is to run all three.
+
+`--force` re-links populated entries — by default already-linked sidecars are skipped with reason. The xref pass goes one step further under `--force`: it also CLEARS stale `resolved_to` values when the new run finds no anchor under the current rules, making `--force` the canonical "re-resolve under current scope" command. `--dry-run` prints what would be linked without modifying any files.
 
 Pre-write schema validation runs on every linked sidecar — an invalid post-link shape is rejected and the file is NOT touched. Atomic write via `.part` rename, same contract as `extract`.
 
 When S3 env vars are set, modified sidecars re-upload (overwriting the bucket copy) so the bucket stays in sync with the local files. `--no-upload` disables the mirror.
 
-The linker is idempotent and fast (~1ms per doc — pure dict lookup): re-extracting a sidecar (extractor version bump → re-extract) clobbers linker-written fields, but a quick `monitorul-ii link` recovers.
+All three passes are idempotent: re-extracting a sidecar (extractor version bump → re-extract) clobbers linker-written fields, but a quick `monitorul-ii link` recovers. The cross-doc passes are fast (~1ms per doc — pure dict lookup); the xref pass is also fast (single walk per sidecar, no MD body access). On the 5,551-doc corpus, a second run yields zero new resolutions — idempotency is corpus-verified for the xref pass.
 
 ### `backfill`
 

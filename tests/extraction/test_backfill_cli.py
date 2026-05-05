@@ -15,7 +15,7 @@ from monitorul_ii.cli import _build_parser, cmd_backfill
 
 def _report_sidecar(doc_id: str, issuing_body: str | None) -> dict:
     return {
-        "schema_version": "1.11.0",
+        "schema_version": "1.12.0",
         "document_id": doc_id,
         "content_sha": "0123456789ab",
         "document_type": "report_facsimile",
