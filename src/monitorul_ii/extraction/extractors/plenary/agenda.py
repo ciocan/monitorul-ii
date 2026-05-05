@@ -11,6 +11,72 @@ with body-scan fallback. Sub-field detectors run conditionally:
 that scans the agenda item's body span for the vote-result line.
 
 Per-item activities are populated by `activities.extract_activities`.
+
+# Title contamination & primary-references attribution (v0.2.5)
+
+The SUMAR parser extracts a per-item title from `_SUMAR_ITEM_RE`, which
+captures from one ordinal marker to the next. When PyMuPDF's rendering
+breaks the table boundary (e.g., the SUMAR is split across a markdown
+table block AND plain-text continuation, or `<br>` separators are
+inconsistent), the regex over-captures and the resulting `rest` for one
+ordinal swallows content from later ordinals. Because `parse_primary_
+references` runs over the captured title, those LATER bills get
+attributed to the EARLIER agenda item — a misattribution that the
+cross-document linker then turns into false-positive `defers_to /
+resolves` pairs (~40% spot-check FP rate at LINKER_VERSION=0.2.0).
+
+Span design call: **option (a) — title only, with the title cleaned**.
+We considered three options:
+
+  (a) title-only: `parse_primary_references(title)` runs over a clean
+      single-item title; precision-first; risk = miss bills that are
+      not in the SUMAR title but appear in body prose.
+  (b) title + first N chars of body until next speaker header: catches
+      the rare case where a bill cite is in body but not title; but the
+      body window itself is contaminated when SUMAR over-extends, so
+      this trade-off is illusory until the title is cleaned.
+  (c) full source_span (status quo, broken): the entire agenda body
+      span; over-extends the SUMAR when boundary detection misfires.
+
+Option (a) is correct iff the title is uncontaminated. Option (b) only
+adds value AFTER (a) is fixed. We pick (a) and fix the title at its
+source — `_clip_contamination_tail`. A 5,539-doc probe shows 100% of
+bill cites in `primary_references[]` already appear literally inside
+their item's title (i.e., `parse_primary_references` is reading the
+title, not body prose), so (a) is the empirically-attested span; (b)
+is a future option once the title is reliable.
+
+Orphaned cites: when the contamination clip drops content, the bills
+that were attached to the dropped tail are NOT re-attributed to a
+neighbouring agenda item — they're dropped silently (option i,
+precision-first). They will reappear in the correct neighbour's
+title when its own SUMAR entry is parsed cleanly, OR in body
+`references_mentioned[]` via `parse_mentioned_references`. Option
+(ii) re-attribution would require boundary detection of the same
+quality we're trying to fix, so it just shifts the bug.
+
+Cleaning detector tiers (`_clip_contamination_tail`):
+
+  Tier 1 — page-list + next-ordinal + capital. Matches the SUMAR-row
+    boundary `... <pages> <next-ord>. <Capital>...`. The page-list is
+    `\\d+(-?\\d+)?(;\\d+(-?\\d+)?)*`. This is the dominant pattern
+    (~1820 hits on 5,539-doc corpus).
+  Tier 2 — `--- ---` artifact. After `_clean_sumar_title` strips `|`,
+    a markdown table separator `|---|---|` becomes ` --- --- `; this
+    is a strong end-of-table marker (~439 hits).
+  Tier 3 — markdown bullet ordinal `\\s+- <ord>. <Capital>` (~11
+    hits). Some 2010-era SUMARs render plain-text continuation as a
+    bullet list outside the table.
+
+Earliest-cut-wins. Pages of the THIS item (the page-list right before
+the next-ordinal in tier 1) are preserved by clipping AT the start of
+the next-ordinal digits, then the existing trailing-pages extractor
+picks them up.
+
+The `_SUMAR_ITEM_RE` regex itself is unchanged — its lookahead
+conservatively only stops at `<br>`-prefixed boundaries (in-table) and
+`|Pagina|` exact closer; tightening it risks breaking layouts we
+already cover. The post-clean clip is the safety net.
 """
 
 from __future__ import annotations
@@ -414,19 +480,87 @@ def _parse_pages_chunk(s: str) -> list[int]:
     return sorted(out)
 
 
+# -- Contamination-tail detection (v0.2.5) ----------------------------------
+#
+# When the SUMAR parser over-captures across an item boundary (because the
+# table broke or PyMuPDF lost a `<br>` separator), the cleaned title's tail
+# contains content from later items. We detect the boundary marker and
+# clip. Three detector tiers — see module docstring for the design call.
+
+
+# Tier 1: page-list (one or more digit-groups, optionally with dash-ranges
+# and `;`/`,` separators) + whitespace + next-ordinal + period + whitespace
+# + Capital letter. The page-list anchor prevents false positives in
+# legitimate inline content (e.g., `art. 47 alin. (2)` has no page-list
+# preceding `47.` — and `47 alin.` doesn't have `\d{1,3}.` followed by a
+# capital, so no match either way). We require a leading whitespace
+# anchor so we don't accidentally match number-only prefixes embedded in
+# longer numeric tokens (years, bill numbers).
+_CONTAM_PAGE_ORD_RE = re.compile(
+    r"(?:^|\s)\d{1,4}(?:[–\-]\d{1,4})?"
+    r"(?:\s*[;,]\s*\d{1,4}(?:[–\-]\d{1,4})?)*"
+    r"\s+(?P<next_ord>\d{1,3})\.\s+(?=[A-ZȘȚÂÎĂ])"
+)
+
+# Tier 2: `--- ---` table-separator artifact. After `_clean_sumar_title`
+# strips `|`, a markdown `|---|---|` row becomes ` --- --- `. This is
+# the strongest end-of-table signal — its only legitimate occurrence is
+# that exact transition.
+_CONTAM_TABLE_SEP_RE = re.compile(r"\s+-{2,}(?:\s+-{2,})+\s+")
+
+# Tier 3: markdown bullet ordinal `\s+- <ord>. <Capital>`. Some 2010-era
+# SUMARs render plain-text continuation as a bullet list outside the
+# table.
+_CONTAM_BULLET_ORD_RE = re.compile(r"\s+-\s+(?P<next_ord>\d{1,3})\.\s+(?=[A-ZȘȚÂÎĂ])")
+
+
+def _clip_contamination_tail(s: str) -> str:
+    """Trim a cleaned SUMAR rest at the first detected contamination boundary.
+
+    Returns the input unchanged when no boundary is detected (legitimate
+    long titles — e.g., `Notă pentru exercitarea ... – Lege ... – Lege ...`
+    listing several bills inline — won't match any tier and stay intact).
+
+    For Tier 1 the cut sits at the start of the `next_ord` digits (the
+    page-list of THIS item is preserved so the trailing-pages extractor
+    in `_clean_sumar_title` can pick it up).
+    """
+    cuts: list[int] = []
+    m1 = _CONTAM_PAGE_ORD_RE.search(s)
+    if m1 is not None:
+        cuts.append(m1.start("next_ord"))
+    m2 = _CONTAM_TABLE_SEP_RE.search(s)
+    if m2 is not None:
+        cuts.append(m2.start())
+    m3 = _CONTAM_BULLET_ORD_RE.search(s)
+    if m3 is not None:
+        cuts.append(m3.start())
+    if not cuts:
+        return s
+    cut = min(cuts)
+    if cut <= 0:
+        return s
+    return s[:cut].rstrip()
+
+
 def _clean_sumar_title(rest: str) -> tuple[str, list[int]]:
-    """Strip dot-leaders, `<br>`, table separators; pull pages out of tail."""
+    """Strip dot-leaders, `<br>`, table separators; clip contamination tail;
+    pull pages out of the trim's tail.
+
+    See module docstring for the contamination-tail design call.
+    """
     cleaned = re.sub(r"\.{3,}", "", rest)
     cleaned = cleaned.replace("<br>", " ")
     cleaned = cleaned.replace("|", " ")
     cleaned = re.sub(r"\s{2,}", " ", cleaned).strip()
+    cleaned = _clip_contamination_tail(cleaned)
     pages: list[int] = []
-    # Trailing page-range chunk inside `|...|`
+    # Trailing page-range chunk inside `|...|` (raw `rest`, pre-cleaning)
     page_match = re.search(r"\|\s*(?P<pages>[\d–\-;,\s]+)\s*\|?\s*$", rest)
     if page_match:
         pages = _parse_pages_chunk(page_match.group("pages"))
     if not pages:
-        # Trailing "...100" or "...18-19; 23" pattern
+        # Trailing "...100" or "...18-19; 23" pattern in the (clipped) cleaned
         trail_m = re.search(
             r"(?P<pages>\b\d{1,4}(?:[–\-]\d{1,4})?(?:\s*;\s*\d{1,4})*\b)\s*$",
             cleaned,

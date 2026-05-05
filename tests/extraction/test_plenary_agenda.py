@@ -8,6 +8,8 @@ from datetime import date
 from monitorul_ii.extraction.envelope import EnvelopeMeta
 from monitorul_ii.extraction.extractors.plenary.agenda import (
     _BODY_AGENDA_ITEM_RE,
+    _clean_sumar_title,
+    _clip_contamination_tail,
     detect_category,
     detect_confidence_type,
     detect_outcome_from_body,
@@ -323,3 +325,164 @@ def test_extract_agenda_implicit_fallback_skipped_for_empty_body():
     items, claims = extract_agenda(body, len(body), _ctx(body))
     assert items == []
     assert claims == []
+
+
+# -- _clip_contamination_tail (v0.2.5) --------------------------------------
+#
+# Clips a cleaned SUMAR `rest` at the first detected next-item boundary —
+# guards against the SUMAR over-capture that produced ~40% linker FPs.
+
+
+def test_clip_contamination_tier1_page_plus_next_ordinal():
+    """Tier 1: page-list followed by next ordinal + capital. The most common
+    contamination shape — `... 15 4. Aprobarea ...` clips at `4.`."""
+    s = "Aprobarea ordinii de zi și a programului de lucru 15 4. Aprobarea unei modificări"
+    out = _clip_contamination_tail(s)
+    assert out == "Aprobarea ordinii de zi și a programului de lucru 15"
+
+
+def test_clip_contamination_tier1_page_range():
+    """Page-range form `30–31 3. Numirea ...` is also clipped (en-dash)."""
+    s = "Aprobarea ordinii de zi 30–31 3. Numirea domnului Constantin"
+    out = _clip_contamination_tail(s)
+    assert out == "Aprobarea ordinii de zi 30–31"
+
+
+def test_clip_contamination_tier1_multipage_list():
+    """Multi-page list `4–5; 27; 38 3. Notă ...` clips at `3. N`."""
+    s = "Declarații politice prezentate 4–5; 27; 38 3. Notă pentru exercitarea"
+    out = _clip_contamination_tail(s)
+    assert out.startswith("Declarații politice prezentate 4–5; 27; 38")
+    assert "3. Notă" not in out
+
+
+def test_clip_contamination_tier2_table_separator_artifact():
+    """Tier 2: `--- ---` artifact (from `|---|---|` after `|` is stripped to
+    space) signals the end of the SUMAR table cell."""
+    s = "Item title here --- --- next-table-content with bills"
+    out = _clip_contamination_tail(s)
+    assert out == "Item title here"
+
+
+def test_clip_contamination_tier3_bullet_ordinal():
+    """Tier 3: markdown bullet ordinal `\\s+- N. C` (some 2010-era SUMARs)."""
+    s = "Approved declarations - 4. Domnul senator anunță demisia"
+    out = _clip_contamination_tail(s)
+    assert out == "Approved declarations"
+
+
+def test_clip_contamination_clean_title_unchanged():
+    """Negative: a clean short title with no boundary stays as-is."""
+    s = "Aprobarea ordinii de zi și a programului de lucru"
+    assert _clip_contamination_tail(s) == s
+
+
+def test_clip_contamination_legitimate_long_title_unchanged():
+    """Negative: a legitimate single-bill title with the bill cite at the
+    end (no page+ord pattern, no artifact) stays untouched.
+    """
+    s = (
+        "Dezbaterea Proiectului de lege privind aprobarea Ordonanței de "
+        "urgență a Guvernului nr. 142/2007 privind indemnizația acordată "
+        "membrilor din România în Parlamentul European (L947/2007)"
+    )
+    assert _clip_contamination_tail(s) == s
+
+
+def test_clip_contamination_inline_article_reference_unchanged():
+    """Negative: titles citing constitutional/regulation articles like
+    `art. 17 alin. (2) și (3) din Legea nr. 47/1992` must NOT be clipped —
+    `art. 17 alin.` lacks the `\\d{1,3}\\.\\s+[A-Z]` pattern (lowercase
+    `alin`), and `47/1992` has no period after `47`. This is the regex's
+    safety guarantee against legitimate inline numbering.
+    """
+    s = (
+        "Notă pentru exercitarea de către senatori a dreptului de sesizare "
+        "a Curții Constituționale conform prevederilor art. 17 alin. (2) "
+        "și (3) din Legea nr. 47/1992 privind organizarea și funcționarea"
+    )
+    assert _clip_contamination_tail(s) == s
+
+
+def test_clip_contamination_legitimate_bill_cite_with_year_unchanged():
+    """Negative: a bill cite with year `(L947/2007)` doesn't trigger clip
+    even though it has digits — no `\\d. <Capital>` pattern after."""
+    s = "Dezbaterea (L947/2007) – continuare a procesului legislativ"
+    assert _clip_contamination_tail(s) == s
+
+
+def test_clip_contamination_earliest_cut_wins():
+    """When multiple tiers match, the earliest cut position wins (avoids
+    clipping further than necessary)."""
+    s = (
+        "Item title 4–5 2. Next item content --- --- continuation with "
+        "more text 7. Another"
+    )
+    out = _clip_contamination_tail(s)
+    # The page+ord match `4–5 2.` is the earliest boundary
+    assert out == "Item title 4–5"
+
+
+def test_clean_sumar_title_clips_and_preserves_pages():
+    """End-to-end: `_clean_sumar_title` clips contamination AND extracts the
+    item's trailing pages (which sit just before the next ordinal in the
+    captured rest)."""
+    rest = (
+        "Aprobarea ordinii de zi și a programului de lucru 15 "
+        "4. Aprobarea unei modificări 27"
+    )
+    cleaned, pages = _clean_sumar_title(rest)
+    # The clipped title keeps the page `15` for THIS item; the trailing-pages
+    # extractor pulls it out and trims it from the cleaned string.
+    assert cleaned == "Aprobarea ordinii de zi și a programului de lucru"
+    assert pages == [15]
+
+
+def test_extract_agenda_does_not_misattribute_bills_to_procedural_item():
+    """Regression guard for the linker FP root cause: a SUMAR over-capture
+    that glues a procedural item (`Aprobarea ordinii de zi`) to a later
+    bill_debate item (with an `L99/2010` cite) MUST NOT bleed the bill
+    cite into the procedural item's `primary_references[]`.
+    """
+    body = (
+        "SUMAR\n\n"
+        "|Nr.<br>1.<br>Aprobarea ordinii de zi și a programului de lucru "
+        "15 4. Dezbaterea Proiectului de lege pentru modificarea Legii "
+        "nr. 188/1999 privind Statutul funcționarilor publici (L99/2010)|"
+        "Pagina<br>15|\n"
+        "|---|---|\n"
+        "## **Domnul X:**\nText.\n"
+    )
+    items, _ = extract_agenda(body, len(body), _ctx(body))
+    assert items, "expected at least one agenda item"
+    # The first item should NOT carry the L99/2010 bill cite — its title
+    # ends at `15` (page) and the L99/2010 belongs to the next ordinal that
+    # the over-capturing regex glued in.
+    bills = [
+        r for r in (items[0].get("primary_references") or []) if r["type"] == "bill"
+    ]
+    assert bills == [], (
+        f"procedural agenda item should have no bill refs after clip, got: {bills}"
+    )
+    # And the title should have been clipped at the contamination boundary
+    assert items[0]["title"] == "Aprobarea ordinii de zi și a programului de lucru"
+
+
+def test_extract_agenda_keeps_legitimate_inline_bill_cite():
+    """Positive: when the bill cite is genuinely part of the title's first
+    item (no contamination boundary present), it stays in
+    `primary_references[]`."""
+    body = (
+        "SUMAR\n\n"
+        "|Nr.<br>1.<br>Dezbaterea Proiectului de lege pentru aprobarea "
+        "Ordonanței de urgență a Guvernului nr. 19/2008 (L172/2008)|"
+        "Pagina<br>3|\n"
+        "|---|---|\n"
+        "## **Domnul X:**\nText.\n"
+    )
+    items, _ = extract_agenda(body, len(body), _ctx(body))
+    bills = [
+        r for r in (items[0].get("primary_references") or []) if r["type"] == "bill"
+    ]
+    raws = {b.get("raw") for b in bills}
+    assert "L172/2008" in raws
