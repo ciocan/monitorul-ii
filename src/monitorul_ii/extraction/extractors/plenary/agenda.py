@@ -505,8 +505,10 @@ _CONTAM_PAGE_ORD_RE = re.compile(
 # Tier 2: `--- ---` table-separator artifact. After `_clean_sumar_title`
 # strips `|`, a markdown `|---|---|` row becomes ` --- --- `. This is
 # the strongest end-of-table signal — its only legitimate occurrence is
-# that exact transition.
-_CONTAM_TABLE_SEP_RE = re.compile(r"\s+-{2,}(?:\s+-{2,})+\s+")
+# that exact transition. Trailing `\s+|$` so the artifact still clips when
+# `.strip()` has already removed the trailing whitespace (older 2000-era
+# SUMAR rows whose entire row is captured into the title).
+_CONTAM_TABLE_SEP_RE = re.compile(r"\s+-{2,}(?:\s+-{2,})+(?:\s+|$)")
 
 # Tier 3: markdown bullet ordinal `\s+- <ord>. <Capital>`. Some 2010-era
 # SUMARs render plain-text continuation as a bullet list outside the

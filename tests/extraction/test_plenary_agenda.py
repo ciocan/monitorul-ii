@@ -364,6 +364,17 @@ def test_clip_contamination_tier2_table_separator_artifact():
     assert out == "Item title here"
 
 
+def test_clip_contamination_tier2_table_separator_at_end_of_string():
+    """Tier 2 must also clip when the artifact sits at the very end of the
+    string (no trailing whitespace) — happens after `_clean_sumar_title` has
+    already `.strip()`-ed the cleaned form. 2000-era SUMAR rows whose entire
+    contaminated tail collapses to a `... 18 --- ---` ending fell through the
+    pre-fix regex because it required `\\s+` after the last dash group."""
+    s = "Aprobarea ordinii de zi 14-18 februarie 2000 Pagina 4-5 5 5 18 --- ---"
+    out = _clip_contamination_tail(s)
+    assert out == "Aprobarea ordinii de zi 14-18 februarie 2000 Pagina 4-5 5 5 18"
+
+
 def test_clip_contamination_tier3_bullet_ordinal():
     """Tier 3: markdown bullet ordinal `\\s+- N. C` (some 2010-era SUMARs)."""
     s = "Approved declarations - 4. Domnul senator anunță demisia"
