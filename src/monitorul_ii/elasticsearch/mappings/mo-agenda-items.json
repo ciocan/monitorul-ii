@@ -1,0 +1,57 @@
+{
+  "index_patterns": ["mo-agenda-items-*"],
+  "composed_of": ["mo-analyzers", "mo-common-fields"],
+  "template": {
+    "mappings": {
+      "properties": {
+        "chamber":              { "type": "keyword" },
+        "session_date":         { "type": "date" },
+        "legislature":          { "type": "keyword" },
+        "ordinal":              { "type": "short" },
+        "category":             { "type": "keyword" },
+        "title": {
+          "type": "text",
+          "analyzer": "romanian",
+          "fields": {
+            "keyword": { "type": "keyword", "ignore_above": 512 }
+          }
+        },
+        "outcome":              { "type": "keyword" },
+        "confidence_type":      { "type": "keyword" },
+        "requested_by_group":   { "type": "keyword" },
+        "reexamination_reason": { "type": "keyword" },
+        "topics_primary":       { "type": "keyword" },
+        "refs": {
+          "properties": {
+            "types":            { "type": "keyword" },
+            "bills":            { "type": "keyword" },
+            "laws":             { "type": "keyword" },
+            "codes":            { "type": "keyword" },
+            "raw":              { "type": "keyword" }
+          }
+        },
+        "speaker_person_ids":   { "type": "keyword" },
+        "vote_summary": {
+          "properties": {
+            "total_votes":      { "type": "integer" },
+            "outcomes":         { "type": "keyword" }
+          }
+        },
+        "enrichments": {
+          "properties": {
+            "summary":          { "type": "text", "analyzer": "romanian" },
+            "topics":           { "type": "keyword" },
+            "embedding": {
+              "type": "dense_vector",
+              "dims": 1024,
+              "index": true,
+              "similarity": "cosine"
+            }
+          }
+        },
+        "slug":                 { "type": "keyword" },
+        "url_path":             { "type": "keyword" }
+      }
+    }
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "index_patterns": ["mo-questions-*"],
+  "composed_of": ["mo-analyzers", "mo-common-fields"],
+  "template": {
+    "mappings": {
+      "properties": {
+        "chamber":              { "type": "keyword" },
+        "regnum":               { "type": "keyword" },
+        "regdate":              { "type": "date" },
+        "questioner": {
+          "properties": {
+            "person_id":        { "type": "keyword" },
+            "name":             { "type": "keyword" },
+            "party_group_at_time": { "type": "keyword" }
+          }
+        },
+        "addressee": {
+          "properties": {
+            "raw":              { "type": "keyword" },
+            "ministry_normalized":      { "type": "keyword" },
+            "institutional_normalized": { "type": "keyword" }
+          }
+        },
+        "topic": {
+          "type": "text",
+          "analyzer": "romanian",
+          "fields": {
+            "keyword": { "type": "keyword", "ignore_above": 512 }
+          }
+        },
+        "text":                 { "type": "text", "analyzer": "romanian" },
+        "delivery_mode":        { "type": "keyword" },
+        "enrichments": {
+          "properties": {
+            "topics":           { "type": "keyword" },
+            "embedding": {
+              "type": "dense_vector",
+              "dims": 1024,
+              "index": true,
+              "similarity": "cosine"
+            }
+          }
+        },
+        "url_path":             { "type": "keyword" }
+      }
+    }
+  }
+}

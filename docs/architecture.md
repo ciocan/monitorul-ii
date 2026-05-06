@@ -1389,6 +1389,84 @@ Of the 4,414 stubs, **521 (11.8%)** carry visibly polluted canonical names — m
 
 - **4.4 long tail — bill-sponsor backfill from parlament.ro**: see § Future graduation candidates.
 
+## Elasticsearch projection layer
+
+ES is *not* the system of record — sidecars on disk + S3 are SOT. The ES layer is a derived, denormalized projection rebuildable overnight from sidecars. Full design (Q1–Q9 with rejected alternatives) lives in [`docs/elasticsearch-indexing.md`](elasticsearch-indexing.md); this section covers the operational mechanics of `monitorul-ii es-init` (Phase 4a — provisioning) and links into the design doc for everything else.
+
+### Module split (Phase 4a)
+
+- `src/monitorul_ii/elasticsearch/config.py` — `ESConfig.from_env()`. Mirrors `S3Config.from_env()`'s shape: returns None if either of the two required vars (`ES_URL`, `ES_API_KEY`) is missing or empty so callers can decide whether ES is optional. `ES_VERIFY_CERTS` is opt-out (`1/0/true/false/yes/no/on/off`, default `True`); a non-boolean value raises rather than silently flipping cert verification on a typo.
+- `src/monitorul_ii/elasticsearch/client.py` — `build_client(config)` constructs an `Elasticsearch` 8.x client. Kept as its own module so test fixtures can import it without pulling in the bootstrap helpers.
+- `src/monitorul_ii/elasticsearch/bootstrap.py` — `bootstrap(es)` runs all four steps in order; the per-step helpers are exposed for finer control during a major-trigger blue-green rebuild. `smoke_roundtrip(es)` indexes one minimal document into `mo-documents-write` (`_id="mo://test/PII/0"`, `refresh="wait_for"`) and reads it back via the read alias.
+- `src/monitorul_ii/elasticsearch/mappings/` — JSON files are the source of truth for v1 field shapes. One file per grain (`mo-<grain>.json` — nine files) plus `_analyzers.json` and `_common_fields.json` for the two component templates. Hand-edits here are the canonical way to amend mappings; the bootstrap loads them via `importlib.resources` at run time.
+
+### Component template structure
+
+Two component templates compose into every grain's index template:
+
+- **`mo-analyzers`** — installs the custom `romanian_folded` (standard tokenizer + lowercase + asciifolding; pairs with ES's built-in `romanian` analyzer for diacritic-insensitive keyword matching) and `romanian_exact` (standard tokenizer + lowercase only; preserves diacritics for phrase queries that must match accurately). Required by every grain because every grain has at least one text field.
+- **`mo-common-fields`** — installs the seven keystone fields (`record_id`, `document_id`, `content_fingerprint`, `content_sha_source`, `indexed_at`, `extractor_versions`, `enrichment_versions`, `schema_version`). Composed by every grain except `mo-persons` — persons is registry-derived, not sidecar-derived, so `document_id` etc. don't apply; persons uses `id` directly per Q1.
+
+Component templates are cluster-level resources (`PUT _component_template/<name>`), so renaming them breaks every existing index template that composes them — the constants `COMPONENT_ANALYZERS = "mo-analyzers"` and `COMPONENT_COMMON_FIELDS = "mo-common-fields"` are baked in.
+
+### Index template + index naming
+
+Each grain ships one index template named `<grain>-template` matching `<grain>-*` (so any concrete index whose name starts with the grain name picks up the template). Concrete indices are created at bootstrap time with the blue-green naming `<grain>-<YYYYMMDD>-v1`, with the `<YYYYMMDD>` derived from `_generation_suffix(now=None)` (defaults to today UTC). The `-v1` suffix is the schema generation marker; future major-trigger rebuilds (mapping changes, dense_vector dim bumps, schema breaking changes per Q6) bump it to `-v2` etc. — pass `--generation-suffix 20260615-v2` to script the new generation explicitly.
+
+Two aliases ride on the create-index request so they appear atomically:
+
+- **`<grain>`** — read alias used by Next.js's `lib/search.ts` and the LLM-agent layer.
+- **`<grain>-write`** — write alias used by the indexer (and the smoke test). Carries `is_write_index: true` so multi-generation catch-up writes during blue-green rollover are unambiguous.
+
+When the read alias already points at a live generation, the bootstrap leaves it alone — that's how routine "everything already exists" runs and major-trigger blue-green rebuilds share the same codepath. To force a new generation alongside an existing one, pass an explicit `--generation-suffix`; the bootstrap will create the new index but leave the alias pointing at the old one until the indexer's eventual `update_aliases` swap.
+
+### API key roles
+
+Two keys are minted with narrowly-scoped role descriptors per Q9:
+
+- **`monitorul_reader`** — `cluster: []`, `indices.privileges: [read, view_index_metadata]` on `mo-*`. No scripting (so a leaked reader can't run runtime field expressions), no scroll API (avoids open-context resource exhaustion), no `_sql`, no cluster info. This is the key Next.js's server-side rendering uses.
+- **`monitorul_indexer`** — `cluster: [monitor]`, `indices.privileges: [read, write, create, create_index, manage, view_index_metadata]` on `mo-*`. The `manage` privilege is required so the indexer can refresh / update aliases during blue-green swaps. Cluster admin stays denied — the indexer never reaches outside its own index family.
+
+Both descriptors restrict to `mo-*` so a leaked key cannot touch unrelated indices on a multi-tenant cluster. The encoded API-key value is **only** returned at creation time and is printed to stdout exactly once by `cmd_es_init`. Capture it before the terminal scrolls; ES will not return it again. The bootstrap helper uses `security.get_api_key(name=..., owner=False)` and treats any non-invalidated match as already-provisioned, so re-runs after the keys are stored elsewhere are no-ops. Invalidated keys are treated as absent — the deliberate-invalidate-and-reprovision flow works without manual cleanup.
+
+### Idempotency
+
+Every step in `bootstrap()` exists-checks before writing:
+
+| Step | Check | API |
+|---|---|---|
+| Component template | `cluster.exists_component_template(name=...)` | returns bool |
+| Index template | `indices.exists_index_template(name=...)` | returns bool |
+| Index + aliases | `indices.get_alias(name=<grain>)` raising `NotFoundError` ⇒ create | NotFoundError = 404 |
+| API key | `security.get_api_key(name=...)` returning at least one non-invalidated entry | filters `invalidated: True` |
+
+The corpus-smoke for idempotency (run bootstrap twice against a stub client; second run does zero `put_*`/`create_*` calls) lives in `tests/elasticsearch/test_bootstrap.py::test_bootstrap_second_run_is_a_noop`.
+
+### CLI surface
+
+`monitorul-ii es-init [--dry-run] [--generation-suffix SUFFIX] [--skip-smoke]`. The defaults run a full live bootstrap end-to-end (templates → indices → API keys → smoke). The flags:
+
+- `--dry-run` short-circuits before any ES client construction — it never reads `ES_URL` / `ES_API_KEY` / `ES_VERIFY_CERTS`. Useful for CI sanity checks where you want to verify the plan compiles without committing secrets.
+- `--generation-suffix` overrides today's `YYYYMMDD-v1` suffix. Pass an explicit value to script a major-trigger blue-green rebuild (e.g. `20260615-v2`).
+- `--skip-smoke` skips the post-bootstrap index/get round-trip on `mo-documents`. Use when you don't want the smoke document (`_id="mo://test/PII/0"`) lingering in the index.
+
+Output: one line per entity created (`+ component_template  mo-analyzers`) or skipped (`= component_template  mo-analyzers`); a single block at the end with the encoded API-key values for any keys minted this run; final smoke-status line. Exit codes: `0` clean, `1` smoke failure OR API-key creation failure (the latter is non-blocking — templates + indices still install and the smoke still runs; the rc=1 surfaces the warning so the operator notices), `2` config error (missing env vars on a live run).
+
+The CLI calls each bootstrap helper individually (`create_component_templates`, `create_index_templates`, `create_indices`, `create_api_keys`, `smoke_roundtrip`) rather than the composed `bootstrap()` so an API-key failure doesn't abort the smoke. ES refuses `creating derived api keys requires an explicit role descriptor that is empty (has no privileges)` when the bootstrap key is itself a derived API key — a real failure mode against any cluster where the operator's working credentials aren't a primary user. Templates + indices are the load-bearing wiring that the indexer needs; if they're in place and the smoke passes, the cluster is usable for Phase 4b. The API-key warning instructs the operator to re-run with a primary credential to mint the role-scoped keys.
+
+### What `es-init` does NOT do
+
+- It does **not** populate any ES doc bodies — that's the indexer's job (Phase 4b).
+- It does **not** create the `monitorul_query_log` audit index; that lands with the search layer (Phase 4c / Phase 5).
+- It does **not** install ingest pipelines. Per the design doc Q6, all normalization (slug minting, mojibake repair, refs flattening) happens in the Python indexer, never in ES — ingest pipelines duplicate logic and are debug-hostile.
+- It does **not** change index settings (`refresh_interval`, `number_of_shards`, `number_of_replicas`) from ES defaults. Per Q6 those are tuned in the indexer (`refresh_interval: 30s` routine, `-1` during blue-green rebuild). Defaults are fine for the bootstrap smoke.
+
+### Future phases (not in this layer yet)
+
+- **Phase 4b** — corpus indexer (`monitorul-ii index`) that reads sidecars + enrichments and projects ES docs per grain via the per-grain write aliases. Includes the `es_indexed` SQLite state table (Q6) for the routine in-place-upsert path and the orphan-delete logic for re-extracted docs.
+- **Phase 4c** — `monitorul-ii sitemap` that emits per-grain time-partitioned sitemaps to S3 (Q7), with `<lastmod>` driven by ES doc `indexed_at`.
+- **Phase 5** — Next.js `lib/search.ts` query layer + JSON-LD + Wikidata sameAs links (Q7, Q9).
+
 ## Future graduation candidates
 
 - **Tier 4.3 long tail — `persons.json` stub enrichment**. The v0.1.0 registry covers ~99% of corpus speakers via 9,065 Wikidata-verified entries + 4,414 corpus-derived stubs (`tools/add_unresolved_speakers.py`). The stubs need follow-on work: (a) **Wikidata enrichment** — re-run `enrich_persons_wikidata.py --apply` against the registry to attach QIDs / birth dates to stubs whose canonical name happens to match a Wikidata entity (the bulk import didn't catch them because they fell outside the politician-keyword filter); (b) **mandate population** — when cdep.ro recovers (or via a manual data dump), join `merge_cdep_into_persons.py` output against the stub set to populate `mandates[]`; (c) **stub consolidation** — 521 of 4,414 stubs (11.8%) carry visibly polluted canonical names (numbered-list prefixes, roster role suffixes, substitution side-comments, vocative honorifics, MO subscription-footer text) that fragment a single politician across multiple registry rows; an operator should walk `inspect_speaker.py` output and merge polluted stubs into their canonical Wikidata equivalent. The senat.ro stub also still needs replacing once that upstream stabilises.

@@ -1,0 +1,47 @@
+{
+  "index_patterns": ["mo-persons-*"],
+  "composed_of": ["mo-analyzers"],
+  "template": {
+    "mappings": {
+      "properties": {
+        "id":                   { "type": "keyword" },
+        "canonical_name": {
+          "type": "text",
+          "analyzer": "romanian",
+          "fields": {
+            "keyword": { "type": "keyword" },
+            "folded":  { "type": "text", "analyzer": "romanian_folded" }
+          }
+        },
+        "diacritic_form":       { "type": "keyword" },
+        "aliases":              { "type": "keyword" },
+        "wikidata_qid":         { "type": "keyword" },
+        "birth_date":           { "type": "date" },
+        "mandates": {
+          "type": "nested",
+          "properties": {
+            "role":             { "type": "keyword" },
+            "chamber":          { "type": "keyword" },
+            "legislature":      { "type": "keyword" },
+            "from":             { "type": "date" },
+            "to":               { "type": "date" },
+            "party":            { "type": "keyword" }
+          }
+        },
+        "homonym_disambiguation": { "type": "keyword" },
+        "slug":                 { "type": "keyword" },
+        "url_path":             { "type": "keyword" },
+        "stats": {
+          "properties": {
+            "speech_count":         { "type": "integer" },
+            "first_speech_date":    { "type": "date" },
+            "last_speech_date":     { "type": "date" },
+            "interpellation_count": { "type": "integer" },
+            "question_count":       { "type": "integer" }
+          }
+        },
+        "indexed_at":           { "type": "date" }
+      }
+    }
+  }
+}

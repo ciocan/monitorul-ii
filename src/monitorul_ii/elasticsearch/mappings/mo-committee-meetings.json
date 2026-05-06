@@ -1,0 +1,63 @@
+{
+  "index_patterns": ["mo-committee-meetings-*"],
+  "composed_of": ["mo-analyzers", "mo-common-fields"],
+  "template": {
+    "mappings": {
+      "properties": {
+        "committee_id":         { "type": "keyword" },
+        "committee_name": {
+          "type": "text",
+          "analyzer": "romanian",
+          "fields": {
+            "keyword": { "type": "keyword", "ignore_above": 512 }
+          }
+        },
+        "committee_kind":       { "type": "keyword" },
+        "joint_with":           { "type": "keyword" },
+        "meeting_date":         { "type": "date" },
+        "format":               { "type": "keyword" },
+        "purpose":              { "type": "text", "analyzer": "romanian" },
+        "agenda_items": {
+          "type": "nested",
+          "properties": {
+            "ordinal":          { "type": "short" },
+            "title":            { "type": "text", "analyzer": "romanian" },
+            "role":             { "type": "keyword" },
+            "outcome":          { "type": "keyword" },
+            "outcome_text":     { "type": "text", "analyzer": "romanian" },
+            "primary_references": { "type": "keyword" }
+          }
+        },
+        "roster": {
+          "type": "nested",
+          "properties": {
+            "person_id":        { "type": "keyword" },
+            "name":             { "type": "keyword" },
+            "status":           { "type": "keyword" },
+            "role":             { "type": "keyword" },
+            "party_group_at_time": { "type": "keyword" }
+          }
+        },
+        "signatures": {
+          "properties": {
+            "president_person_id": { "type": "keyword" },
+            "secretary_person_id": { "type": "keyword" }
+          }
+        },
+        "enrichments": {
+          "properties": {
+            "summary":          { "type": "text", "analyzer": "romanian" },
+            "topics":           { "type": "keyword" },
+            "embedding": {
+              "type": "dense_vector",
+              "dims": 1024,
+              "index": true,
+              "similarity": "cosine"
+            }
+          }
+        },
+        "url_path":             { "type": "keyword" }
+      }
+    }
+  }
+}

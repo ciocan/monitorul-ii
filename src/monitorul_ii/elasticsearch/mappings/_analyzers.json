@@ -1,0 +1,16 @@
+{
+  "settings": {
+    "analysis": {
+      "analyzer": {
+        "romanian_folded": {
+          "tokenizer": "standard",
+          "filter": ["lowercase", "asciifolding"]
+        },
+        "romanian_exact": {
+          "tokenizer": "standard",
+          "filter": ["lowercase"]
+        }
+      }
+    }
+  }
+}

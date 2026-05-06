@@ -1,0 +1,52 @@
+{
+  "index_patterns": ["mo-reports-*"],
+  "composed_of": ["mo-analyzers", "mo-common-fields"],
+  "template": {
+    "mappings": {
+      "properties": {
+        "issuing_body":            { "type": "keyword" },
+        "issuing_body_normalized": { "type": "keyword" },
+        "title": {
+          "type": "text",
+          "analyzer": "romanian",
+          "fields": {
+            "keyword": { "type": "keyword", "ignore_above": 512 }
+          }
+        },
+        "reporting_period": {
+          "properties": {
+            "from":             { "type": "date" },
+            "to":               { "type": "date" }
+          }
+        },
+        "received_at": {
+          "properties": {
+            "session_date":     { "type": "date" },
+            "session_kind":     { "type": "keyword" },
+            "received_in_document": { "type": "keyword" }
+          }
+        },
+        "headings": {
+          "type": "nested",
+          "properties": {
+            "level":            { "type": "byte" },
+            "text":             { "type": "text", "analyzer": "romanian" }
+          }
+        },
+        "enrichments": {
+          "properties": {
+            "summary":          { "type": "text", "analyzer": "romanian" },
+            "topics":           { "type": "keyword" },
+            "embedding": {
+              "type": "dense_vector",
+              "dims": 1024,
+              "index": true,
+              "similarity": "cosine"
+            }
+          }
+        },
+        "url_path":             { "type": "keyword" }
+      }
+    }
+  }
+}

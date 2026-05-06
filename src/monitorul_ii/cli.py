@@ -31,6 +31,9 @@ from monitorul_ii.converter import (  # noqa: E402
     convert_all,
 )
 from monitorul_ii.db import DB  # noqa: E402
+from monitorul_ii.elasticsearch import ESConfig  # noqa: E402
+from monitorul_ii.elasticsearch import bootstrap as es_bootstrap  # noqa: E402
+from monitorul_ii.elasticsearch.client import build_client as _build_es_client  # noqa: E402
 from monitorul_ii.extraction import extract as _extract_md  # noqa: E402
 from monitorul_ii.extraction.pipeline import EXTRACTOR_LABEL  # noqa: E402, F401
 from monitorul_ii.scraper import (  # noqa: E402
@@ -458,6 +461,58 @@ def _build_parser() -> argparse.ArgumentParser:
     )
     _add_s3_args(backfill)
     backfill.set_defaults(func=cmd_backfill)
+
+    es_init = sub.add_parser(
+        "es-init",
+        help="Provision Elasticsearch templates, indices, aliases, and API keys.",
+        description=(
+            "Bootstrap the v1 Elasticsearch surface for the monitorul.ai "
+            "projection layer: install the `mo-analyzers` and "
+            "`mo-common-fields` component templates, the nine per-grain "
+            "index templates (mo-documents, mo-agenda-items, mo-speeches, "
+            "mo-votes, mo-interpellations, mo-questions, mo-committee-meetings, "
+            "mo-reports, mo-persons), one concrete index per grain with "
+            "blue-green naming `<grain>-<YYYYMMDD>-v1` plus a read alias "
+            "(`<grain>`) and write alias (`<grain>-write`), and the two "
+            "API keys (`monitorul_reader`, `monitorul_indexer`). "
+            "Idempotent — already-present entities are left untouched. "
+            "Run a smoke index/get round-trip on `mo-documents` at the end "
+            "to confirm the wiring.\n"
+            "Reads `ES_URL`, `ES_API_KEY`, and `ES_VERIFY_CERTS` from the "
+            "environment (or `.env` via python-dotenv). Pass `--dry-run` "
+            "to print what would be created without contacting ES."
+        ),
+    )
+    es_init.add_argument(
+        "--dry-run",
+        action="store_true",
+        help=(
+            "Print the templates, indices, aliases, and API keys that "
+            "would be created without contacting Elasticsearch. Useful "
+            "for CI sanity checks."
+        ),
+    )
+    es_init.add_argument(
+        "--generation-suffix",
+        default=None,
+        metavar="SUFFIX",
+        help=(
+            "Override the generation suffix (default: today's "
+            "`YYYYMMDD-v1`). Pass an explicit value when scripting a "
+            "blue-green major-trigger rebuild (e.g. `20260615-v2`)."
+        ),
+    )
+    es_init.add_argument(
+        "--skip-smoke",
+        action="store_true",
+        help=(
+            "Skip the post-bootstrap index/get round-trip on "
+            "`mo-documents`. Only useful when you want to validate the "
+            "templates + aliases shape without leaving a smoke document "
+            "behind."
+        ),
+    )
+    es_init.set_defaults(func=cmd_es_init)
 
     return p
 
@@ -2224,6 +2279,112 @@ def cmd_backfill(args: argparse.Namespace) -> int:
         for reason, n in sorted(skip_reasons.items(), key=lambda kv: -kv[1]):
             print(f"  {reason}: {n}", file=sys.stderr)
     return 1 if counters["errors"] or counters["upload_errors"] else 0
+
+
+def _print_es_init_dry_run(suffix: str) -> None:
+    """Render the same plan the live bootstrap would execute.
+
+    The plan is *deterministic* given the suffix — no ES call needed —
+    so the dry-run never has to authenticate against the cluster.
+    """
+    print("dry-run: would create the following Elasticsearch entities:")
+    print("  component_templates:")
+    print(f"    - {es_bootstrap.COMPONENT_ANALYZERS}")
+    print(f"    - {es_bootstrap.COMPONENT_COMMON_FIELDS}")
+    print("  index_templates:")
+    for grain in es_bootstrap.GRAINS:
+        print(f"    - {grain}-template")
+    print("  indices (with read+write aliases):")
+    for grain in es_bootstrap.GRAINS:
+        index_name = f"{grain}-{suffix}"
+        print(f"    - {index_name}  (aliases: {grain}, {grain}-write)")
+    print("  api_keys:")
+    print(f"    - {es_bootstrap.API_KEY_READER}  (read on mo-*)")
+    print(f"    - {es_bootstrap.API_KEY_INDEXER}  (read+write on mo-*)")
+
+
+def cmd_es_init(args: argparse.Namespace) -> int:
+    suffix = args.generation_suffix or es_bootstrap._generation_suffix()
+    if args.dry_run:
+        _print_es_init_dry_run(suffix)
+        return 0
+
+    cfg = ESConfig.from_env()
+    if cfg is None:
+        print(
+            "es-init: missing ES_URL or ES_API_KEY in environment "
+            "(set both, or pass --dry-run for a no-cluster preview)",
+            file=sys.stderr,
+        )
+        return 2
+
+    es = _build_es_client(cfg)
+    print(f"es: {cfg.url} (verify_certs={cfg.verify_certs})")
+
+    # Decompose the bootstrap so an API-key failure (e.g. derived
+    # bootstrap keys, which ES refuses to use as a creator for keys
+    # carrying explicit role descriptors) doesn't block the smoke
+    # round-trip — templates + indices are the load-bearing wiring,
+    # API-keys are operational extras.
+    for entity in es_bootstrap.create_component_templates(es):
+        marker = "+" if entity.created else "="
+        print(f"  {marker} component_template  {entity.name}")
+    for entity in es_bootstrap.create_index_templates(es):
+        marker = "+" if entity.created else "="
+        print(f"  {marker} index_template      {entity.name}")
+    for entity in es_bootstrap.create_indices(es, generation_suffix=suffix):
+        marker = "+" if entity.created else "="
+        detail = f"  ({entity.detail})" if entity.detail else ""
+        print(f"  {marker} index               {entity.name}{detail}")
+
+    api_key_error: Exception | None = None
+    api_keys: dict[str, dict[str, str]] = {}
+    try:
+        api_keys = es_bootstrap.create_api_keys(es)
+    except Exception as exc:  # noqa: BLE001 — bubble to the user
+        api_key_error = exc
+
+    if api_key_error is not None:
+        print("")
+        print(
+            "  ! api_keys           NOT minted — "
+            f"{type(api_key_error).__name__}: {api_key_error}",
+            file=sys.stderr,
+        )
+        print(
+            "    (the bootstrap ES_API_KEY may itself be a derived API key. "
+            "Re-run es-init with a primary credential — username/password "
+            "or a non-derived API key — to mint the role-scoped keys.)",
+            file=sys.stderr,
+        )
+    elif api_keys:
+        print("")
+        print("api keys (SAVE THESE — ES will not return the encoded value again):")
+        for name, key in api_keys.items():
+            print(f"  {name}:")
+            print(f"    id:      {key['id']}")
+            print(f"    encoded: {key['encoded']}")
+    else:
+        print("  = api_keys           (already provisioned; values not retrievable)")
+
+    if args.skip_smoke:
+        print("smoke: skipped (--skip-smoke)")
+        return 1 if api_key_error is not None else 0
+
+    test_id = "mo://test/PII/0"
+    try:
+        ok = es_bootstrap.smoke_roundtrip(es)
+    except Exception as exc:  # noqa: BLE001 — bubble specific cause
+        print(f"smoke: indexed {test_id} → ERROR: {exc}", file=sys.stderr)
+        return 1
+    status = "ok" if ok else "MISMATCH"
+    print(f"smoke: indexed {test_id} → retrieved → match: {status}")
+    if not ok:
+        return 1
+    # Templates + indices + smoke all green — the load-bearing wiring is
+    # confirmed. A failed api-key step still warrants a non-zero exit so
+    # the operator notices, but the cluster is usable for the indexer.
+    return 1 if api_key_error is not None else 0
 
 
 def main(argv: list[str] | None = None) -> int:

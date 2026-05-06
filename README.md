@@ -10,7 +10,7 @@ uv sync
 
 ## Usage
 
-Four subcommands: `fetch` (download PDFs), `convert` (PDF → markdown), `classify` (type-detect MDs into the extraction-schema buckets), and `extract` (MD → structured JSON sidecar).
+Six core subcommands: `fetch` (download PDFs), `convert` (PDF → markdown), `classify` (type-detect MDs into the extraction-schema buckets), `extract` (MD → structured JSON sidecar), `link` (cross-doc + intra-doc linker), `backfill` (registry-driven `*_normalized` slots and `Speaker.person_id`). Plus `es-init` to provision the Elasticsearch projection layer (templates, indices, aliases, API keys).
 
 ### `fetch`
 
@@ -243,6 +243,37 @@ Match strategy on the institutional / ministry registries is exact → case-inse
 
 Backfill versions are NOT part of `extractor_versions` — re-extracting a sidecar clobbers backfill-written fields. Re-running `backfill` after `extract` recovers them; backfill is fast (in-memory dict lookup per record).
 
+### `es-init`
+
+Provision the Elasticsearch projection layer that powers `monitorul.ai`. Idempotent — re-running detects existing entities and no-ops. See [`docs/elasticsearch-indexing.md`](docs/elasticsearch-indexing.md) for the full design (Q1–Q9), and [`docs/elasticsearch-indexing-prompts.md`](docs/elasticsearch-indexing-prompts.md) for the per-phase rollout.
+
+```sh
+# print the plan without contacting ES (no env vars needed)
+uv run monitorul-ii es-init --dry-run
+
+# live bootstrap against the cluster pointed at by ES_URL / ES_API_KEY
+uv run monitorul-ii es-init
+
+# script a major-trigger blue-green rebuild with an explicit generation
+uv run monitorul-ii es-init --generation-suffix 20260615-v2
+
+# bootstrap without leaving the smoke-test document in mo-documents
+uv run monitorul-ii es-init --skip-smoke
+```
+
+The bootstrap installs four sets of entities:
+
+1. **Component templates** — `mo-analyzers` (the custom `romanian_folded` + `romanian_exact` analyzers; pairs with ES's built-in `romanian` analyzer for diacritic-insensitive and exact-phrase queries respectively) and `mo-common-fields` (the `record_id` / `document_id` / `content_fingerprint` / `indexed_at` / `extractor_versions` / `enrichment_versions` / `schema_version` keystone fields shared by every grain except `mo-persons`).
+2. **Index templates** — one per grain, composing the component templates above and adding the grain-specific properties from the v1 mappings under `src/monitorul_ii/elasticsearch/mappings/`. Nine grains: `mo-documents`, `mo-agenda-items`, `mo-speeches`, `mo-votes`, `mo-interpellations`, `mo-questions`, `mo-committee-meetings`, `mo-reports`, `mo-persons`.
+3. **Indices** — one concrete index per grain with blue-green naming `<grain>-<YYYYMMDD>-v1`. Two aliases ride on the `create` request so they appear atomically: a read alias `<grain>` (used by Next.js + the LLM-agent layer) and a write alias `<grain>-write` (used by the indexer; carries `is_write_index: true` so multi-generation catch-up writes are unambiguous). When the read alias already points at a live index, the bootstrap leaves it alone — that's how the major-trigger lifecycle (Q6) and the routine "the indices already exist" path stay in one codepath.
+4. **API keys** — `monitorul_reader` (read-only on `mo-*`, no scripting / scroll / SQL / cluster info — used by Next.js's `lib/search.ts`) and `monitorul_indexer` (read+write+create+manage on `mo-*` + cluster `monitor` — used by the indexer + bootstrap). The encoded key value is **only** returned at creation time and is printed once to stdout — capture it before the terminal scrolls. ES will not return it again; if you lose it, invalidate the key and re-bootstrap (the helper detects invalidated keys as absent and mints fresh).
+
+`--dry-run` short-circuits before any client construction — it doesn't read `ES_URL` / `ES_API_KEY`, so it's safe for CI sanity checks.
+
+The bootstrap finishes with a smoke index/get round-trip on `mo-documents` (`_id="mo://test/PII/0"`, `refresh="wait_for"`) so a successful exit means end-to-end wiring works. `--skip-smoke` opts out — useful when you want to validate the templates + aliases shape without leaving the smoke document behind.
+
+API-key creation is **non-blocking**: when ES refuses to mint role-scoped keys (e.g. the bootstrap `ES_API_KEY` is itself a derived API key, which ES locks out from creating keys with explicit privileges), the bootstrap surfaces the failure as a warning and proceeds to the smoke round-trip. Templates + indices are the load-bearing wiring; the smoke confirms they work. The exit code is non-zero (`1`) so the operator notices, and the warning instructs them to re-run with a primary credential (a username/password or a non-derived API key) to mint the `monitorul_reader` / `monitorul_indexer` keys.
+
 ## Progress and interrupts
 
 All long-running subcommands show a live [`rich`](https://github.com/Textualize/rich) progress bar on stderr when stderr is a terminal, and fall back to a periodic plain-text heartbeat in pipes/CI/cron.
@@ -299,6 +330,22 @@ S3_BUCKET=monitorul-ii
 
 Object keys mirror the local filename (flat layout). Upload is idempotent (`HEAD` first, `PUT` only when missing), so re-runs are cheap. `--bucket NAME` overrides `S3_BUCKET`; `--no-upload` disables the mirror entirely. Startup runs a `head_bucket` check and aborts with exit 2 if the bucket is unreachable or credentials are wrong.
 
+## Elasticsearch
+
+`monitorul-ii es-init` provisions the v1 Elasticsearch surface for the `monitorul.ai` projection layer. Set the following env vars (also accepted via `.env` like the proxy + S3 vars):
+
+```
+ES_URL=https://es.example.com:9200
+ES_API_KEY=<encoded-bootstrap-api-key>
+ES_VERIFY_CERTS=1
+```
+
+- `ES_URL` and `ES_API_KEY` are required for any live ES operation. `--dry-run` skips both, so it's safe to use in CI without secrets.
+- `ES_API_KEY` is the **bootstrap** key — it needs cluster admin and `manage` on `mo-*` to install templates, create indices, and mint the per-role keys. After `es-init` runs, you'll have two purpose-scoped keys (`monitorul_reader`, `monitorul_indexer`) printed to stdout; switch downstream consumers to those.
+- `ES_VERIFY_CERTS` defaults to `1` (true). Accepted values: `1/0`, `true/false`, `yes/no`, `on/off`. Empty / unset keeps the secure default. Set to `0` only for self-signed dev clusters; production must always verify.
+
+The Elasticsearch projection layer is **not** the system of record — sidecars on disk + S3 are SOT, and ES is rebuildable overnight from them. See [`docs/elasticsearch-indexing.md`](docs/elasticsearch-indexing.md) for the full design rationale (Q1–Q9, including rejected alternatives), and [`docs/architecture.md`](docs/architecture.md) for the operational mechanics of the bootstrap.
+
 ## How it works
 
 The site exposes one undocumented AJAX endpoint that returns the day's index:
@@ -319,6 +366,7 @@ Layout:
 | `src/monitorul_ii/classifier.py` | Pure functions: `classify`, `classify_file`, `parse_issue_suffix`, `collect_mds`. Type detector — step 1 of the extraction pipeline. |
 | `src/monitorul_ii/extraction/` | Subpackage. `pipeline.py` is the dispatcher (envelope build, coverage compute, schema validate, atomic write); `extractors/<type>.py` is one module per `DocumentType` (plus `extractors/plenary/` sub-subpackage with `agenda.py / activities.py / votes.py / interpellations.py / session.py / boilerplate.py`); `boilerplate.py`, `coverage.py`, `envelope.py`, `references.py`, `schema.py`, `speakers.py`, `topics.py` are shared helpers. Each helper exports its own `*_VERSION` constant; the dispatcher copies them all into each sidecar's `extractor_versions` for selective re-extraction. |
 | `src/monitorul_ii/extraction_schema.json` | Canonical JSON Schema for the sidecar shape (loaded at module import, validated pre-write). Mirrors `docs/extraction-schema.md`. |
+| `src/monitorul_ii/elasticsearch/` | Subpackage. `config.py` is `ESConfig.from_env()`; `client.py` builds an `Elasticsearch` 8.x client from the config; `bootstrap.py` provisions component templates, index templates, indices, aliases, and API keys (idempotent); `mappings/` holds one JSON per grain (the source of truth for v1 field shapes). See `docs/elasticsearch-indexing.md` for the design rationale. |
 | `src/monitorul_ii/uploader.py` | `S3Config.from_env()` + `Uploader` (boto3, S3-compatible incl. R2). |
 | `src/monitorul_ii/db.py` | `DB` — thin SQLite wrapper over `days` + `issues` tables; owns the resume-gate logic. |
 | `src/monitorul_ii/cli.py` | argparse, exit codes, the live progress bar / heartbeat, the upload→DB write path. |

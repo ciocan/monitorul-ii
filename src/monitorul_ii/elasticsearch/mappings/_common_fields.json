@@ -1,0 +1,14 @@
+{
+  "mappings": {
+    "properties": {
+      "record_id":             { "type": "keyword" },
+      "document_id":           { "type": "keyword" },
+      "content_fingerprint":   { "type": "keyword" },
+      "content_sha_source":    { "type": "keyword" },
+      "indexed_at":            { "type": "date" },
+      "extractor_versions":    { "type": "object", "dynamic": true },
+      "enrichment_versions":   { "type": "object", "dynamic": true },
+      "schema_version":        { "type": "keyword" }
+    }
+  }
+}

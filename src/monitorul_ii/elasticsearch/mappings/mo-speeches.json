@@ -1,0 +1,97 @@
+{
+  "index_patterns": ["mo-speeches-*"],
+  "composed_of": ["mo-analyzers", "mo-common-fields"],
+  "template": {
+    "mappings": {
+      "properties": {
+        "chamber":              { "type": "keyword" },
+        "session_date":         { "type": "date" },
+        "session_type":         { "type": "keyword" },
+        "legislature":          { "type": "keyword" },
+        "year":                 { "type": "short" },
+        "mo_issue":             { "type": "keyword" },
+        "agenda_ordinal":       { "type": "short" },
+        "agenda_title": {
+          "type": "text",
+          "analyzer": "romanian",
+          "fields": {
+            "keyword": { "type": "keyword", "ignore_above": 512 }
+          }
+        },
+        "agenda_category":      { "type": "keyword" },
+        "agenda_outcome":       { "type": "keyword" },
+        "speaker": {
+          "properties": {
+            "person_id":        { "type": "keyword" },
+            "name_raw":         { "type": "keyword" },
+            "name_search": {
+              "type": "text",
+              "analyzer": "romanian",
+              "fields": {
+                "keyword": { "type": "keyword" },
+                "folded":  { "type": "text", "analyzer": "romanian_folded" }
+              }
+            },
+            "title":            { "type": "keyword" },
+            "role":             { "type": "keyword" },
+            "party_group_at_time": { "type": "keyword" },
+            "delivery_mode":    { "type": "keyword" }
+          }
+        },
+        "text": {
+          "type": "text",
+          "analyzer": "romanian",
+          "fields": {
+            "exact": { "type": "text", "analyzer": "romanian_exact" }
+          }
+        },
+        "text_length":          { "type": "integer" },
+        "is_substantive":       { "type": "boolean" },
+        "position_in_agenda":   { "type": "integer" },
+        "refs": {
+          "properties": {
+            "types":            { "type": "keyword" },
+            "bills":            { "type": "keyword" },
+            "laws":             { "type": "keyword" },
+            "codes":            { "type": "keyword" },
+            "ougs":             { "type": "keyword" },
+            "ogs":              { "type": "keyword" },
+            "raw":              { "type": "keyword" }
+          }
+        },
+        "enrichments": {
+          "properties": {
+            "topics":           { "type": "keyword" },
+            "summary":          { "type": "text", "analyzer": "romanian" },
+            "embedding": {
+              "type": "dense_vector",
+              "dims": 1024,
+              "index": true,
+              "similarity": "cosine"
+            },
+            "embedding_text_fingerprint": { "type": "keyword" },
+            "discourse": {
+              "properties": {
+                "frameworks":   { "type": "keyword" },
+                "populism_hawkins": {
+                  "properties": {
+                    "score":    { "type": "byte" },
+                    "evidence": {
+                      "type": "nested",
+                      "properties": {
+                        "lines":         { "type": "integer_range" },
+                        "quote_excerpt": { "type": "text", "analyzer": "romanian" }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "slug":                 { "type": "keyword" },
+        "url_path":             { "type": "keyword" }
+      }
+    }
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "index_patterns": ["mo-votes-*"],
+  "composed_of": ["mo-analyzers", "mo-common-fields"],
+  "template": {
+    "mappings": {
+      "properties": {
+        "chamber":              { "type": "keyword" },
+        "session_date":         { "type": "date" },
+        "legislature":          { "type": "keyword" },
+        "agenda_ordinal":       { "type": "short" },
+        "agenda_title": {
+          "type": "text",
+          "analyzer": "romanian",
+          "fields": {
+            "keyword": { "type": "keyword", "ignore_above": 512 }
+          }
+        },
+        "agenda_category":      { "type": "keyword" },
+        "motion_type":          { "type": "keyword" },
+        "voting_method":        { "type": "keyword" },
+        "outcome":              { "type": "keyword" },
+        "counts": {
+          "properties": {
+            "for":              { "type": "integer" },
+            "for_unanimous":    { "type": "boolean" },
+            "against":          { "type": "integer" },
+            "abstain":          { "type": "integer" },
+            "not_voting":       { "type": "integer" },
+            "total":            { "type": "integer" }
+          }
+        },
+        "quorum_met":           { "type": "boolean" },
+        "deferred":             { "type": "boolean" },
+        "defers_to":            { "type": "keyword" },
+        "resolves":             { "type": "keyword" },
+        "refs": {
+          "properties": {
+            "types":            { "type": "keyword" },
+            "bills":            { "type": "keyword" },
+            "laws":             { "type": "keyword" }
+          }
+        },
+        "proposed_by": {
+          "properties": {
+            "person_id":        { "type": "keyword" },
+            "name":             { "type": "keyword" },
+            "is_government":    { "type": "boolean" }
+          }
+        },
+        "url_path":             { "type": "keyword" }
+      }
+    }
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "index_patterns": ["mo-documents-*"],
+  "composed_of": ["mo-analyzers", "mo-common-fields"],
+  "template": {
+    "mappings": {
+      "properties": {
+        "chamber":              { "type": "keyword" },
+        "part":                 { "type": "keyword" },
+        "issue":                { "type": "keyword" },
+        "year":                 { "type": "short" },
+        "published":            { "type": "date" },
+        "session_date":         { "type": "date" },
+        "session_type":         { "type": "keyword" },
+        "legislature":          { "type": "keyword" },
+        "document_type":        { "type": "keyword" },
+        "title": {
+          "type": "text",
+          "analyzer": "romanian",
+          "fields": {
+            "keyword": { "type": "keyword", "ignore_above": 512 }
+          }
+        },
+        "summary":              { "type": "text", "analyzer": "romanian" },
+        "agenda_count":         { "type": "integer" },
+        "speech_count":         { "type": "integer" },
+        "vote_count":           { "type": "integer" },
+        "interpellation_count": { "type": "integer" },
+        "question_count":       { "type": "integer" },
+        "committee_count":      { "type": "integer" },
+        "report_count":         { "type": "integer" },
+        "coverage": {
+          "properties": {
+            "claimed_pct":      { "type": "float" },
+            "body_chars":       { "type": "integer" }
+          }
+        },
+        "s3_url_pdf":           { "type": "keyword" },
+        "s3_url_md":            { "type": "keyword" },
+        "s3_url_sidecar":       { "type": "keyword" },
+        "slug":                 { "type": "keyword" },
+        "url_path":             { "type": "keyword" }
+      }
+    }
+  }
+}

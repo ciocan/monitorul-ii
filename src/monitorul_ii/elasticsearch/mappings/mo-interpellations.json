@@ -1,0 +1,59 @@
+{
+  "index_patterns": ["mo-interpellations-*"],
+  "composed_of": ["mo-analyzers", "mo-common-fields"],
+  "template": {
+    "mappings": {
+      "properties": {
+        "chamber":              { "type": "keyword" },
+        "session_date":         { "type": "date" },
+        "legislature":          { "type": "keyword" },
+        "interpellation_number": { "type": "keyword" },
+        "questioner": {
+          "properties": {
+            "person_id":        { "type": "keyword" },
+            "name":             { "type": "keyword" },
+            "party_group_at_time": { "type": "keyword" }
+          }
+        },
+        "addressed_to":            { "type": "keyword" },
+        "addressed_to_normalized": { "type": "keyword" },
+        "topic": {
+          "type": "text",
+          "analyzer": "romanian",
+          "fields": {
+            "keyword": { "type": "keyword", "ignore_above": 512 }
+          }
+        },
+        "question_text":           { "type": "text", "analyzer": "romanian" },
+        "response": {
+          "properties": {
+            "speaker": {
+              "properties": {
+                "person_id":    { "type": "keyword" },
+                "name":         { "type": "keyword" }
+              }
+            },
+            "text":             { "type": "text", "analyzer": "romanian" }
+          }
+        },
+        "response_deferred":    { "type": "boolean" },
+        "genre":                { "type": "keyword" },
+        "delivery_mode":        { "type": "keyword" },
+        "enrichments": {
+          "properties": {
+            "topics":           { "type": "keyword" },
+            "summary":          { "type": "text", "analyzer": "romanian" },
+            "embedding": {
+              "type": "dense_vector",
+              "dims": 1024,
+              "index": true,
+              "similarity": "cosine"
+            }
+          }
+        },
+        "slug":                 { "type": "keyword" },
+        "url_path":             { "type": "keyword" }
+      }
+    }
+  }
+}
