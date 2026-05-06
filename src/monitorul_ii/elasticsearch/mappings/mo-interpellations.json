@@ -8,6 +8,7 @@
         "session_date":         { "type": "date" },
         "legislature":          { "type": "keyword" },
         "interpellation_number": { "type": "keyword" },
+        "position_in_document":  { "type": "integer" },
         "questioner": {
           "properties": {
             "person_id":        { "type": "keyword" },

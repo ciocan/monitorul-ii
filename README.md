@@ -360,6 +360,17 @@ Flags:
 - `--params JSON` — JSON object whose keys map to the query function's keyword arguments. Positional args (`document_id`, `record_id`, `person_slug`, `committee_id`, `q`, `date`) may also be passed via this dict — the CLI promotes them to positional as needed. Default: `{}` (no parameters). Examples: `'{"q":"educație","page_size":5}'`, `'{"record_id":"mo://2018/II/168#agenda-1"}'`.
 - `--explain` — print the request body (index + body, JSON-formatted) on stderr before running each ES call, in addition to the result. Useful for debugging the filter / agg shape against the ES query DSL docs. Wraps both `es.search` and `es.get`.
 
+The 11 named queries:
+
+- `search_speeches` — multi_match over speech text + agenda titles + speaker names; `is_substantive: true` default. Filters: `q`, `speaker_person_id`, `chamber`, `document_id`, `date_from`/`to`, `ref_bills`, `topics`.
+- `list_document_children` — multi-index search over every per-doc child grain (agenda-items, speeches, votes, interpellations, questions, committee-meetings) for one `document_id`, sorted by `position_in_document` ASC with `record_id` lex tie-breaker. **Drives the `/mo/<id>` full-document playback page**: returns interleaved hits in true source order across all grains, so the renderer dispatches per-grain via each hit's `index` field. Default `page_size=500` covers every observed doc; paging is available for outliers.
+- `get_document` / `get_agenda_item` / `get_speech` / `get_report` — single lookup by canonical `record_id`; 404 returns `null`.
+- `list_documents_by_date` — all MOs whose `session_date` matches a given day, sorted by `published` DESC.
+- `person_page` — composite `/politicieni/<slug>` payload: person record + 20 most-recent substantive speeches + query-time stats agg (chambers / years / party-group histogram).
+- `search_persons` — `multi_match` with `operator: and` over `canonical_name` (text + folded) + `aliases`; multi-token names disambiguate to the right person.
+- `list_committee_meetings` — meetings for one committee_id, sorted by `meeting_date` DESC.
+- `agg_speeches_by_party_year` — terms agg on `speaker.party_group_at_time` × `year`, with `cardinality(speaker.person_id)` for distinct speakers; the discourse-substrate health check.
+
 The query layer enforces a few server-side guardrails by design (Q9): page sizes are clamped to `MAX_PAGE_SIZE = 50`; `search_speeches` defaults to `is_substantive: true` (chair-procedure turns hidden from public search; flip with `"is_substantive": false` for the admin / discourse-research view); `agg_speeches_by_party_year` always filters to `is_substantive: true`. These are not client-side suggestions — they're correctness properties enforced in `queries.py`. If the webapp or LLM agent needs a wider surface, add a function rather than relaxing the guardrails.
 
 `rank_fusion="bm25-only"` is the v1 default for `search_speeches`. The parameter exists in the function signature so callers can flip to `"rrf"` once P3 embeddings ship; until then the param is a documented no-op (the function silently runs BM25 even when `"rrf"` is passed).

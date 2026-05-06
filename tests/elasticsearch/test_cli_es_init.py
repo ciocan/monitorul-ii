@@ -294,3 +294,54 @@ def test_cmd_es_init_api_key_failure_with_skip_smoke_returns_1(es_env, capsys):
     assert rc == 1
     err = capsys.readouterr().err
     assert "NOT minted" in err
+
+
+# --- --update-mappings ----------------------------------------------------
+
+
+def test_parser_accepts_update_mappings_flag():
+    p = cli._build_parser()
+    args = p.parse_args(["es-init", "--update-mappings"])
+    assert args.update_mappings is True
+
+
+def test_cmd_es_init_update_mappings_short_circuits(es_env, capsys):
+    """`--update-mappings` skips the bootstrap dance — only
+    `update_live_mappings` runs, and the smoke / api-key paths stay
+    cold.
+    """
+    from monitorul_ii.elasticsearch.bootstrap import CreatedEntity
+
+    p = cli._build_parser()
+    args = p.parse_args(["es-init", "--update-mappings"])
+
+    fake_results = [
+        CreatedEntity(
+            name=f"{g}-20260506-v1",
+            kind="mapping",
+            created=True,
+            detail=f"alias {g} → {g}-20260506-v1; additive put_mapping applied",
+        )
+        for g in ("mo-documents", "mo-speeches")
+    ]
+    with (
+        patch("monitorul_ii.cli._build_es_client", return_value=MagicMock()),
+        patch(
+            "monitorul_ii.cli.es_bootstrap.update_live_mappings",
+            return_value=fake_results,
+        ) as upd,
+        patch("monitorul_ii.cli.es_bootstrap.create_component_templates") as cct,
+        patch(
+            "monitorul_ii.cli.es_bootstrap.smoke_roundtrip", return_value=True
+        ) as smoke,
+    ):
+        rc = cli.cmd_es_init(args)
+
+    assert rc == 0
+    upd.assert_called_once()
+    # Bootstrap helpers and smoke should not run when --update-mappings is set.
+    cct.assert_not_called()
+    smoke.assert_not_called()
+    out = capsys.readouterr().out
+    assert "mapping" in out
+    assert "mo-speeches-20260506-v1" in out

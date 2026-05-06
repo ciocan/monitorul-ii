@@ -15,6 +15,7 @@
         "committee_kind":       { "type": "keyword" },
         "joint_with":           { "type": "keyword" },
         "meeting_date":         { "type": "date" },
+        "position_in_document": { "type": "integer" },
         "format":               { "type": "keyword" },
         "purpose":              { "type": "text", "analyzer": "romanian" },
         "agenda_items": {

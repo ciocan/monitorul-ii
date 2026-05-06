@@ -482,6 +482,7 @@ def test_named_queries_table_covers_all_public_functions():
     # `--name` switch.
     expected = {
         "search_speeches",
+        "list_document_children",
         "get_document",
         "list_documents_by_date",
         "get_agenda_item",
@@ -503,3 +504,153 @@ def test_named_queries_table_covers_all_public_functions():
 )
 def test_named_queries_match_module_attribute(name: str):
     assert queries.NAMED_QUERIES[name] is getattr(queries, name)
+
+
+# ----------------------------------------------------------------------
+# search_speeches: document_id filter
+# ----------------------------------------------------------------------
+
+
+def test_search_speeches_document_id_filter():
+    """Per-doc filter — drives the document detail page when callers
+    want speech-only playback (vs the multi-grain list_document_children).
+    """
+    es = FakeES({queries.INDEX_SPEECHES: _hits_payload([])})
+    queries.search_speeches(es, document_id="mo://2018/II/168")
+    filters = es.search_calls[0]["body"]["query"]["bool"]["filter"]
+    assert {"term": {"document_id": "mo://2018/II/168"}} in filters
+
+
+# ----------------------------------------------------------------------
+# list_document_children
+# ----------------------------------------------------------------------
+
+
+def test_list_document_children_default_grains_and_sort():
+    """Default fetches every per-doc child grain, sorted by
+    `position_in_document` ASC with `record_id` lex tie-breaker.
+    """
+    es = FakeES()
+    queries.list_document_children(es, "mo://2018/II/168")
+    call = es.search_calls[0]
+    # Multi-index target: comma-separated read aliases.
+    assert "mo-speeches" in call["index"]
+    assert "mo-agenda-items" in call["index"]
+    assert "mo-interpellations" in call["index"]
+    assert "mo-votes" in call["index"]
+    assert "mo-questions" in call["index"]
+    assert "mo-committee-meetings" in call["index"]
+    body = call["body"]
+    assert body["query"]["bool"]["filter"] == [
+        {"term": {"document_id": "mo://2018/II/168"}}
+    ]
+    assert body["sort"][0] == {
+        "position_in_document": {"order": "asc", "missing": "_last"}
+    }
+    assert body["sort"][1] == {"record_id": "asc"}
+
+
+def test_list_document_children_grain_subset():
+    """Restrict to a single grain — speech-only playback."""
+    es = FakeES()
+    queries.list_document_children(es, "mo://2018/II/168", grains=("mo-speeches",))
+    assert es.search_calls[0]["index"] == "mo-speeches"
+
+
+def test_list_document_children_unknown_grain_raises():
+    es = FakeES()
+    with pytest.raises(ValueError) as exc:
+        queries.list_document_children(es, "mo://2018/II/168", grains=("mo-bogus",))
+    assert "mo-bogus" in str(exc.value)
+
+
+def test_list_document_children_empty_document_id():
+    es = FakeES()
+    result = queries.list_document_children(es, "")
+    assert result.total == 0
+    assert result.hits == []
+    # Short-circuit before contacting ES.
+    assert es.search_calls == []
+
+
+def test_list_document_children_propagates_index_on_hits():
+    """Multi-index hits expose `_index`; the layer normalises the
+    physical index name (`mo-speeches-20260506-v1`) back to the logical
+    grain name (`mo-speeches`).
+    """
+    es = FakeES(
+        {
+            "mo-agenda-items,mo-speeches,mo-votes,mo-interpellations,mo-questions,mo-committee-meetings": {
+                "hits": {
+                    "total": {"value": 2, "relation": "eq"},
+                    "hits": [
+                        {
+                            "_index": "mo-speeches-20260506-v1",
+                            "_id": "mo://2018/II/168#agenda-1#act-1",
+                            "_source": {"position_in_document": 1234},
+                        },
+                        {
+                            "_index": "mo-interpellations-20260506-v1",
+                            "_id": "mo://2018/II/168#interp-1",
+                            "_source": {"position_in_document": 5678},
+                        },
+                    ],
+                }
+            }
+        }
+    )
+    result = queries.list_document_children(es, "mo://2018/II/168")
+    assert len(result.hits) == 2
+    assert result.hits[0].index == "mo-speeches"
+    assert result.hits[1].index == "mo-interpellations"
+
+
+def test_list_document_children_clamps_oversized_page_size():
+    es = FakeES()
+    queries.list_document_children(es, "mo://2018/II/168", page_size=10_000)
+    body = es.search_calls[0]["body"]
+    assert body["size"] == queries.PLAYBACK_PAGE_SIZE
+
+
+def test_list_document_children_page_offset():
+    es = FakeES()
+    queries.list_document_children(es, "mo://2018/II/168", page=2, page_size=100)
+    body = es.search_calls[0]["body"]
+    assert body["from"] == 100
+    assert body["size"] == 100
+
+
+def test_normalize_index_strips_generation_suffix():
+    assert queries._normalize_index("mo-speeches-20260506-v1") == "mo-speeches"
+    assert queries._normalize_index("mo-speeches") == "mo-speeches"
+    assert queries._normalize_index("unknown-index") == "unknown-index"
+    assert queries._normalize_index(None) is None
+    # Don't false-match on the longer "mo-committee-meetings" against
+    # "mo-committee" or similar.
+    assert (
+        queries._normalize_index("mo-committee-meetings-20260506-v1")
+        == "mo-committee-meetings"
+    )
+
+
+def test_search_hit_carries_index_field():
+    """Single-grain queries also populate `index` (consistency)."""
+    es = FakeES(
+        {
+            queries.INDEX_DOCUMENTS: {
+                "hits": {
+                    "total": {"value": 1, "relation": "eq"},
+                    "hits": [
+                        {
+                            "_index": "mo-documents-20260506-v1",
+                            "_id": "mo://2018/II/168",
+                            "_score": 1.0,
+                            "_source": {"document_id": "mo://2018/II/168"},
+                        }
+                    ],
+                }
+            }
+        }
+    )
+    result = queries.list_documents_by_date(es, "2018-11-13")
+    assert result.hits[0].index == "mo-documents"

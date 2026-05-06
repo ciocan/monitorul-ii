@@ -84,12 +84,16 @@ class SearchHit:
 
     `score` is the BM25 relevance score (or RRF score once embeddings
     ship); `id` is the ES `_id` (= our canonical `record_id`); `source`
-    is the unwrapped `_source` payload.
+    is the unwrapped `_source` payload. `index` carries the per-hit
+    `_index` value (`mo-speeches` etc.) so multi-index playback queries
+    (`list_document_children`) can dispatch the renderer per grain
+    without re-derived heuristics on the record_id pattern.
     """
 
     id: str
     score: float | None
     source: dict[str, Any]
+    index: str | None = None
 
 
 @dataclass
@@ -162,12 +166,44 @@ def _hits_total(response: dict[str, Any]) -> int:
     return 0
 
 
+_KNOWN_GRAINS: tuple[str, ...] = (
+    INDEX_DOCUMENTS,
+    INDEX_AGENDA_ITEMS,
+    INDEX_SPEECHES,
+    INDEX_VOTES,
+    INDEX_INTERPELLATIONS,
+    INDEX_QUESTIONS,
+    INDEX_COMMITTEE_MEETINGS,
+    INDEX_REPORTS,
+    INDEX_PERSONS,
+)
+
+
+def _normalize_index(physical: str | None) -> str | None:
+    """ES returns the underlying physical index name (`mo-speeches-
+    20260506-v1`) on each hit, not the read alias. Map back to the
+    logical grain name (`mo-speeches`) so callers can dispatch on a
+    stable identifier across blue-green generation cuts.
+
+    Falls through unchanged when no known grain prefix matches —
+    forward-compat for indices added outside this module's
+    knowledge.
+    """
+    if not physical:
+        return physical
+    for grain in _KNOWN_GRAINS:
+        if physical == grain or physical.startswith(grain + "-"):
+            return grain
+    return physical
+
+
 def _to_hits(response: dict[str, Any]) -> list[SearchHit]:
     return [
         SearchHit(
             id=h["_id"],
             score=h.get("_score"),
             source=h.get("_source", {}),
+            index=_normalize_index(h.get("_index")),
         )
         for h in response.get("hits", {}).get("hits", [])
     ]
@@ -209,6 +245,7 @@ def search_speeches(
     q: str | None = None,
     speaker_person_id: str | None = None,
     chamber: str | None = None,
+    document_id: str | None = None,
     date_from: str | None = None,
     date_to: str | None = None,
     ref_bills: list[str] | None = None,
@@ -258,6 +295,8 @@ def search_speeches(
         filters.append({"term": {"speaker.person_id": speaker_person_id}})
     if chamber:
         filters.append({"term": {"chamber": chamber}})
+    if document_id:
+        filters.append({"term": {"document_id": document_id}})
     if ref_bills:
         filters.append({"terms": {"refs.bills": ref_bills}})
     if topics:
@@ -294,6 +333,116 @@ def search_speeches(
     _ = rank_fusion
 
     response = es.search(index=INDEX_SPEECHES, body=body)
+    return SearchResult(
+        total=_hits_total(response),
+        page=page,
+        page_size=page_size,
+        hits=_to_hits(response),
+    )
+
+
+# ---------- 1b. list_document_children ----------
+
+
+# Default grain set when callers don't restrict — every per-doc child
+# grain that carries a `position_in_document` field. `mo-documents` is
+# the parent (no position); `mo-persons` is registry-driven (no doc
+# affiliation); `mo-reports` has one record per R-suffix MO so source
+# order isn't meaningful (`get_report` is the right helper there).
+_PLAYBACK_GRAINS: tuple[str, ...] = (
+    INDEX_AGENDA_ITEMS,
+    INDEX_SPEECHES,
+    INDEX_VOTES,
+    INDEX_INTERPELLATIONS,
+    INDEX_QUESTIONS,
+    INDEX_COMMITTEE_MEETINGS,
+)
+
+# Cap for the multi-grain playback fetch. Plenary MOs run at most ~250
+# child records (worst observed: 170 interpellations + ~80 speeches in
+# `mo://2022/II/75`); 500 covers every doc with single-page headroom.
+# Above that, callers should explicitly page via the `page` parameter.
+PLAYBACK_PAGE_SIZE = 500
+
+
+def list_document_children(
+    es: Elasticsearch,
+    document_id: str,
+    *,
+    grains: tuple[str, ...] | list[str] | None = None,
+    page: int = 1,
+    page_size: int = PLAYBACK_PAGE_SIZE,
+) -> SearchResult:
+    """Fetch every child record of one MO document, ordered by source
+    position — the substrate for the `/mo/<id>` "full document
+    playback" page.
+
+    Returns a single `SearchResult` whose hits interleave grains
+    (agenda items, speeches, votes, interpellations, questions,
+    committee meetings) sorted by `position_in_document` ASC. Each
+    hit's `_index` field tells the caller which grain it came from
+    so the renderer can dispatch on type.
+
+    Why a single multi-index query rather than per-grain calls + a
+    client-side merge:
+
+    1. **One ES round-trip.** The webapp's document page renders in
+       the time of one bulk request, not 6 sequential ones.
+    2. **Sort is server-side.** ES interleaves by `position_in_document`
+       across indices for free; client-side merge would require
+       carrying every grain's full result and re-sorting in Python.
+    3. **Stable across mapping bumps.** When a future grain is added,
+       extending `_PLAYBACK_GRAINS` is a one-line change; per-grain
+       call sites would each need updating.
+
+    `grains` restricts the fetch to a subset (e.g. `("mo-speeches",)`
+    for speech-only playback). Default is every per-doc child grain.
+    `page_size` defaults to 500 (covers every observed doc in one
+    fetch); paging via `page` is available for outliers.
+
+    Source-order sort key is `position_in_document` (the
+    `source_span.chars[0]` denormalised by the indexer in v0.2.0+).
+    Records without the field — e.g. ones written before the v0.2.0
+    reindex — get sorted to the end via the `missing: "_last"` sort
+    qualifier; the webapp can detect this by comparing returned IDs
+    against the parent document's announced counts.
+    """
+    if not document_id:
+        return SearchResult(total=0, page=page, page_size=page_size, hits=[])
+    if page_size < 1:
+        page_size = 1
+    if page_size > PLAYBACK_PAGE_SIZE:
+        page_size = PLAYBACK_PAGE_SIZE
+
+    selected: tuple[str, ...]
+    if grains:
+        unknown = tuple(g for g in grains if g not in _PLAYBACK_GRAINS)
+        if unknown:
+            raise ValueError(
+                f"unknown playback grain(s): {unknown}. choose from {_PLAYBACK_GRAINS}"
+            )
+        selected = tuple(grains)
+    else:
+        selected = _PLAYBACK_GRAINS
+
+    body: dict[str, Any] = {
+        "from": _from(page, page_size),
+        "size": page_size,
+        "query": {
+            "bool": {
+                "filter": [{"term": {"document_id": document_id}}],
+            }
+        },
+        "sort": [
+            {"position_in_document": {"order": "asc", "missing": "_last"}},
+            # Tie-breaker: when two records share a span start (rare —
+            # only when an extractor emits zero-width sub-records), use
+            # record_id lex as a stable secondary key.
+            {"record_id": "asc"},
+        ],
+        "track_total_hits": True,
+    }
+    response = es.search(index=",".join(selected), body=body)
     return SearchResult(
         total=_hits_total(response),
         page=page,
@@ -621,6 +770,7 @@ def agg_speeches_by_party_year(
 # expose `es.search` directly.
 NAMED_QUERIES: dict[str, Any] = {
     "search_speeches": search_speeches,
+    "list_document_children": list_document_children,
     "get_document": get_document,
     "list_documents_by_date": list_documents_by_date,
     "get_agenda_item": get_agenda_item,
@@ -651,6 +801,7 @@ __all__ = [
     "SearchResult",
     "PersonPage",
     "search_speeches",
+    "list_document_children",
     "get_document",
     "list_documents_by_date",
     "get_agenda_item",

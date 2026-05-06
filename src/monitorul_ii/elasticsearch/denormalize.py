@@ -149,6 +149,33 @@ def _short_id(record_id: str) -> str:
     return record_id.split("/")[-1]
 
 
+def _position_in_document(record: dict[str, Any]) -> int | None:
+    """Pull `source_span.chars[0]` — the 0-indexed half-open char
+    offset into the body — as the canonical source-order key.
+
+    This is the load-bearing sort field for the per-document playback
+    page (`/mo/<id>` rendering speeches + votes + interpellations + …
+    in the order they appear in the original MO). Every sidecar record
+    carries a `source_span.chars` block; an agenda item's span starts
+    BEFORE its child activities, so a unified `ORDER BY
+    position_in_document ASC` across grains correctly interleaves
+    headers, activities, and trailing interpellations.
+
+    Returns None when source_span is missing (defensive — callers
+    treat None as "unknown position; sort to end").
+    """
+    span = record.get("source_span")
+    if not isinstance(span, dict):
+        return None
+    chars = span.get("chars")
+    if not isinstance(chars, list) or not chars:
+        return None
+    try:
+        return int(chars[0])
+    except (TypeError, ValueError):
+        return None
+
+
 def _slug_url_path(grain: str, slug: str | None, *, fallback_id: str) -> str | None:
     """Compose the public URL path per the Q1 grain → URL-shape table.
 
@@ -509,6 +536,7 @@ def to_agenda_items_docs(
                     "session_date": parent["session_date"],
                     "legislature": parent["legislature"],
                     "ordinal": _coerce_int(ai.get("ordinal")),
+                    "position_in_document": _position_in_document(ai),
                     "category": ai.get("category"),
                     "title": ai.get("title"),
                     "outcome": ai.get("outcome"),
@@ -644,6 +672,7 @@ def to_speeches_docs(
                         "text_length": text_length,
                         "is_substantive": text_length >= SUBSTANTIVE_TEXT_LENGTH,
                         "position_in_agenda": position,
+                        "position_in_document": _position_in_document(act),
                         "refs": refs,
                         "enrichments": speech_enrich,
                         "slug": act.get("slug"),
@@ -745,6 +774,7 @@ def to_votes_docs(
                         "session_date": parent["session_date"],
                         "legislature": parent["legislature"],
                         "agenda_ordinal": agenda_ordinal,
+                        "position_in_document": _position_in_document(act),
                         "agenda_title": agenda_title,
                         "agenda_category": agenda_category,
                         "motion_type": act.get("motion_type"),
@@ -849,6 +879,7 @@ def to_interpellations_docs(
                     "session_date": parent["session_date"],
                     "legislature": parent["legislature"],
                     "interpellation_number": itx.get("interpellation_number"),
+                    "position_in_document": _position_in_document(itx),
                     "questioner": _questioner_fields(questioner),
                     "addressed_to": itx.get("addressed_to"),
                     "addressed_to_normalized": itx.get("addressed_to_normalized"),
@@ -945,6 +976,7 @@ def to_questions_docs(
                     "chamber": chamber,
                     "regnum": regnum,
                     "regdate": _safe_date(regdate),
+                    "position_in_document": _position_in_document(q),
                     "questioner": _questioner_fields(questioner),
                     "addressee": {
                         "raw": addressee.get("ministry") or addressee.get("name"),
@@ -1055,6 +1087,7 @@ def to_committee_meetings_docs(
                         "committee_kind": committee_kind,
                         "joint_with": joint_value,
                         "meeting_date": meeting_date,
+                        "position_in_document": _position_in_document(meeting),
                         "format": meeting.get("format"),
                         "purpose": meeting.get("purpose"),
                         "agenda_items": agenda,

@@ -8,6 +8,7 @@
         "session_date":         { "type": "date" },
         "legislature":          { "type": "keyword" },
         "agenda_ordinal":       { "type": "short" },
+        "position_in_document": { "type": "integer" },
         "agenda_title": {
           "type": "text",
           "analyzer": "romanian",

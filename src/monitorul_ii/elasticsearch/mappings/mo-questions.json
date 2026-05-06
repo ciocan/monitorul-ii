@@ -7,6 +7,7 @@
         "chamber":              { "type": "keyword" },
         "regnum":               { "type": "keyword" },
         "regdate":              { "type": "date" },
+        "position_in_document": { "type": "integer" },
         "questioner": {
           "properties": {
             "person_id":        { "type": "keyword" },

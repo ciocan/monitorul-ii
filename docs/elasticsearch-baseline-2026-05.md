@@ -1,8 +1,8 @@
-# Elasticsearch baseline — 2026-05 (post P4c — query layer + production rebuild)
+# Elasticsearch baseline — 2026-05 (post P4c — query layer + production rebuild + source-order playback)
 
-Snapshot of the v1 ES projection layer after the P4c phase of `docs/elasticsearch-indexing-prompts.md` lands. This is the canonical "known clean" diff target for any future agent reasoning about the live index shape, query latencies, and the gaps the webapp (P5) needs to plan around.
+Snapshot of the v1 ES projection layer after the P4c phase of `docs/elasticsearch-indexing-prompts.md` lands, **plus the v0.2.0 follow-up** that added `position_in_document` and `list_document_children` to support the `/mo/<id>` full-document playback page. This is the canonical "known clean" diff target for any future agent reasoning about the live index shape, query latencies, and the gaps the webapp (P5) needs to plan around.
 
-The snapshot was taken on **2026-05-06** against the corpus at `pdfs/` (**5,552** typed sidecars, all at `schema_version: 1.13.0` — the identity-block backfill from P2 is complete) and the `mo-*` indices freshly cut by `monitorul-ii es-init` + populated by `monitorul-ii index --rebuild`.
+The snapshot was taken on **2026-05-06** against the corpus at `pdfs/` (**5,552** typed sidecars, all at `schema_version: 1.13.0` — the identity-block backfill from P2 is complete) and the `mo-*` indices freshly cut by `monitorul-ii es-init` + populated by `monitorul-ii index --rebuild` + later updated via `monitorul-ii es-init --update-mappings` + `monitorul-ii index --force` for the `position_in_document` field landing.
 
 The two pieces this baseline is "post":
 
@@ -87,6 +87,17 @@ All 10 reference queries from `src/monitorul_ii/elasticsearch/queries.py` were e
 |10 | `agg_speeches_by_party_year`| `--params '{"year":2018,"size":5}'`                                                                     | `total=24,591  aggs.by_party=[(unknown):24591 → by_year:[2018:24591], speakers:547]` | 0.62 s | Verified: 24,591 substantive 2018 speeches across 547 distinct speakers; **all bucketed under `"(unknown)"`** because `speaker.party_group_at_time` is unpopulated. Tracked as gap #6 below |
 
 A green smoke run (all 10 queries return non-empty within wall-time budget) is the "ready for P5" gate, **and was satisfied on 2026-05-06.** ES round-trip residual after cold-start subtraction is well within the design doc's <300 ms p95 target for every query.
+
+### `list_document_children` (v0.2.0 follow-up)
+
+The 11th query — added after the original P4c smoke surfaced that "render this MO in source order" had no answer in the typed layer. Backed by a new denormalised `position_in_document: integer` field on every per-doc child grain (`mo-agenda-items`, `mo-speeches`, `mo-votes`, `mo-interpellations`, `mo-questions`, `mo-committee-meetings`), sourced from `record.source_span.chars[0]`.
+
+| Query                       | Representative call                                                              | Observed result                                                | Notes |
+|-----------------------------|----------------------------------------------------------------------------------|----------------------------------------------------------------|-------|
+| `list_document_children`    | `--params '{"document_id":"mo://2018/II/178","page_size":15}'`                  | `total=119  hits=15`; agenda items first (pos=6788), then activities of agenda-1 in source order (act-1@7008 → vote-1@7692 → act-5@7864), then interpellations starting at pos=19271 with `interp-40` correctly between `interp-seq-2` and `interp-seq-5` because byte-offset 21207 sits there | Multi-index search (6 indices); each hit's `index` field carries the normalised grain name; `PLAYBACK_PAGE_SIZE = 500` cap covers every observed doc |
+| `list_document_children`    | worst-case: `--params '{"document_id":"mo://2022/II/75","page_size":500}'`      | `total=183  hits=183`; 100% have populated `position_in_document`; full set in monotonic non-decreasing source order; grain breakdown 12 agenda-items + 170 interpellations + 1 speech | Worst-observed plenary doc per p99/max stats from pre-fix smoke |
+
+**Field rollout**: the live indices got the new `position_in_document` field via `monitorul-ii es-init --update-mappings` in seconds (additive `put_mapping` per grain), followed by a 7m08s force-reindex of the full corpus (`monitorul-ii index pdfs/ --force -j 16`) to backfill the field on every doc. Zero errors, all 5,552 docs reindexed. **INDEXER_VERSION bumped to 0.2.0** to reflect the projection-shape change.
 
 ## Spot-checks
 

@@ -207,6 +207,75 @@ def create_indices(
     return out
 
 
+def update_live_mappings(es: Elasticsearch) -> list[CreatedEntity]:
+    """Apply additive mapping changes from the on-disk JSONs to the
+    live index that each `<grain>` read alias resolves to.
+
+    ES `put_mapping` is **additive only** — adding a new field
+    (`position_in_document: integer`, etc.) is safe and idempotent;
+    changing a field's type errors out. That makes this the right
+    operator surface for "new field landed in `mappings/<grain>.json`,
+    push it to the live cluster without a full bootstrap rerun".
+
+    For each grain:
+      1. Resolve the read alias to its live concrete index. Skip
+         when no alias exists (es-init hasn't run yet).
+      2. Load `mappings/<grain>.json`'s `template.mappings.properties`
+         (or top-level `mappings.properties` for the persons grain).
+      3. Call `indices.put_mapping(index=<live>, properties=<...>)`.
+
+    Component templates (`mo-analyzers`, `mo-common-fields`) are NOT
+    updated here — they're cluster-scoped templates that affect new
+    indices, not existing ones; that's a different operator action.
+
+    Returns one CreatedEntity per grain with `kind="mapping"` and
+    `created=True` when the put_mapping call ran. ES doesn't tell us
+    whether the additive PUT actually changed anything, so `created`
+    is interpreted as "we sent the request" rather than "ES wrote
+    new properties". Re-running is safe.
+    """
+    out: list[CreatedEntity] = []
+    for grain in GRAINS:
+        live = _resolve_existing_alias_target(es, grain)
+        if live is None:
+            out.append(
+                CreatedEntity(
+                    name=grain,
+                    kind="mapping",
+                    created=False,
+                    detail="no live alias — run es-init first",
+                )
+            )
+            continue
+        raw = _load_mapping(f"{grain}.json")
+        # Index templates wrap mappings under `template.mappings`;
+        # the persons mapping uses `template.mappings` too. Both
+        # converge to `properties` at the leaf.
+        template = raw.get("template") or {}
+        mapping_block = template.get("mappings") or raw.get("mappings") or {}
+        properties = mapping_block.get("properties")
+        if not properties:
+            out.append(
+                CreatedEntity(
+                    name=grain,
+                    kind="mapping",
+                    created=False,
+                    detail="mapping JSON has no properties block",
+                )
+            )
+            continue
+        es.indices.put_mapping(index=live, properties=properties)
+        out.append(
+            CreatedEntity(
+                name=live,
+                kind="mapping",
+                created=True,
+                detail=f"alias {grain} → {live}; additive put_mapping applied",
+            )
+        )
+    return out
+
+
 def _reader_role_descriptor() -> dict[str, Any]:
     """`monitorul_reader`: read-only on `mo-*` indices.
 

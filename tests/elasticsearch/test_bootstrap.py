@@ -316,3 +316,70 @@ def test_role_descriptors_are_mo_scoped(name):
     else:
         descriptor = bootstrap._indexer_role_descriptor()
     assert descriptor["indices"][0]["names"] == ["mo-*"]
+
+
+# --- update_live_mappings -------------------------------------------------
+
+
+def test_update_live_mappings_calls_put_mapping_for_each_grain():
+    """When every alias resolves to a live index, each grain's mapping
+    JSON gets pushed via additive `put_mapping`.
+    """
+    es = _stub_client()
+    es.indices.get_alias.side_effect = lambda name: {
+        f"{name}-20260506-v1": {"aliases": {name: {}}}
+    }
+
+    out = bootstrap.update_live_mappings(es)
+
+    assert len(out) == len(bootstrap.GRAINS)
+    assert all(e.created for e in out)
+    assert all(e.kind == "mapping" for e in out)
+    assert es.indices.put_mapping.call_count == len(bootstrap.GRAINS)
+    for call in es.indices.put_mapping.call_args_list:
+        kwargs = call.kwargs
+        assert kwargs["index"].endswith("-20260506-v1")
+        assert "properties" in kwargs
+        assert isinstance(kwargs["properties"], dict)
+
+
+def test_update_live_mappings_skips_missing_aliases():
+    """No alias → es-init hasn't been run for that grain → skip cleanly."""
+    es = _stub_client()
+    es.indices.get_alias.side_effect = es_exceptions.NotFoundError(
+        "missing", meta=MagicMock(), body={}
+    )
+
+    out = bootstrap.update_live_mappings(es)
+
+    assert len(out) == len(bootstrap.GRAINS)
+    assert all(not e.created for e in out)
+    es.indices.put_mapping.assert_not_called()
+
+
+def test_update_live_mappings_includes_position_in_document():
+    """Smoke: the additive field landed in this run is in the put_mapping
+    body for every grain that should carry it (per the P4c follow-up).
+    """
+    es = _stub_client()
+    es.indices.get_alias.side_effect = lambda name: {
+        f"{name}-20260506-v1": {"aliases": {name: {}}}
+    }
+
+    bootstrap.update_live_mappings(es)
+
+    grains_with_pid = {
+        "mo-agenda-items",
+        "mo-speeches",
+        "mo-votes",
+        "mo-interpellations",
+        "mo-questions",
+        "mo-committee-meetings",
+    }
+    for call in es.indices.put_mapping.call_args_list:
+        kwargs = call.kwargs
+        index_prefix = kwargs["index"].rsplit("-", 2)[0]
+        if index_prefix in grains_with_pid:
+            assert "position_in_document" in kwargs["properties"], (
+                f"{index_prefix} mapping missing position_in_document field"
+            )

@@ -667,3 +667,89 @@ def test_speeches_carry_enrichments_when_present():
     long = by_id["mo://2018/II/168#agenda-1#act-1"]
     assert "justitie" in (long["enrichments"].get("topics") or [])
     assert long["enrichment_versions"]["topics"] == "0.1"
+
+
+# ----------------------------------------------------------------------
+# position_in_document — source-order key for the playback page (P4c+)
+# ----------------------------------------------------------------------
+
+
+def test_position_in_document_helper():
+    """Defensive: missing or malformed source_span returns None."""
+    assert denormalize._position_in_document({"source_span": {"chars": [42, 99]}}) == 42
+    assert denormalize._position_in_document({"source_span": {"chars": [0, 1]}}) == 0
+    # No source_span at all
+    assert denormalize._position_in_document({}) is None
+    # source_span not a dict
+    assert denormalize._position_in_document({"source_span": "bogus"}) is None
+    # Empty chars list
+    assert denormalize._position_in_document({"source_span": {"chars": []}}) is None
+    # Non-numeric chars
+    assert (
+        denormalize._position_in_document({"source_span": {"chars": ["a", "b"]}})
+        is None
+    )
+
+
+def test_position_in_document_emitted_on_speeches():
+    sidecar = _plenary_sidecar()
+    docs = denormalize.to_speeches_docs(sidecar)
+    by_id = {d["_id"]: d["_source"] for d in docs}
+    # act-1 source_span.chars = [3048, 3897]
+    assert by_id["mo://2018/II/168#agenda-1#act-1"]["position_in_document"] == 3048
+    # act-2 source_span.chars = [4226, 4240]
+    assert by_id["mo://2018/II/168#agenda-1#act-2"]["position_in_document"] == 4226
+
+
+def test_position_in_document_emitted_on_votes():
+    sidecar = _plenary_sidecar()
+    docs = denormalize.to_votes_docs(sidecar)
+    # vote-1 source_span.chars = [4112, 4226]
+    assert docs[0]["_source"]["position_in_document"] == 4112
+
+
+def test_position_in_document_emitted_on_agenda_items():
+    sidecar = _plenary_sidecar()
+    docs = denormalize.to_agenda_items_docs(sidecar)
+    # agenda-1 source_span.chars = [0, 4240]
+    assert docs[0]["_source"]["position_in_document"] == 0
+
+
+def test_position_in_document_orders_correctly():
+    """The whole point of position_in_document: a unified ascending sort
+    across speeches + votes + agenda items lays out the document in
+    source order. agenda items first (they wrap their children), then
+    activities in source order.
+    """
+    sidecar = _plenary_sidecar()
+    speeches = denormalize.to_speeches_docs(sidecar)
+    votes = denormalize.to_votes_docs(sidecar)
+    agenda = denormalize.to_agenda_items_docs(sidecar)
+    rows = [
+        (d["_source"]["position_in_document"], d["_id"])
+        for d in (*agenda, *speeches, *votes)
+    ]
+    rows.sort()
+    ordered_ids = [r[1] for r in rows]
+    # agenda-1 wraps everything (chars[0]=0), then act-1 (3048),
+    # then vote-1 (4112), then act-2 (4226).
+    assert ordered_ids == [
+        "mo://2018/II/168#agenda-1",
+        "mo://2018/II/168#agenda-1#act-1",
+        "mo://2018/II/168#agenda-1#vote-1",
+        "mo://2018/II/168#agenda-1#act-2",
+    ]
+
+
+def test_position_in_document_none_when_source_span_missing():
+    """Defensive: a sidecar lacking source_span (legacy / not-yet-
+    backfilled) emits None, never errors.
+    """
+    sidecar = _plenary_sidecar()
+    # Strip source_span from an activity
+    sidecar["body"]["agenda_items"][0]["activities"][0].pop("source_span", None)
+    docs = denormalize.to_speeches_docs(sidecar)
+    by_id = {d["_id"]: d["_source"] for d in docs}
+    assert by_id["mo://2018/II/168#agenda-1#act-1"]["position_in_document"] is None
+    # Other speeches still get their position
+    assert by_id["mo://2018/II/168#agenda-1#act-2"]["position_in_document"] == 4226

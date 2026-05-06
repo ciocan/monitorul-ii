@@ -512,6 +512,23 @@ def _build_parser() -> argparse.ArgumentParser:
             "behind."
         ),
     )
+    es_init.add_argument(
+        "--update-mappings",
+        action="store_true",
+        help=(
+            "Apply additive mapping changes from the on-disk "
+            "`mappings/<grain>.json` JSONs to the live indices that "
+            "each `<grain>` read alias resolves to. Use this after "
+            "adding a new field to a mapping JSON (e.g. "
+            "`position_in_document`) to push the diff without "
+            "minting a new generation. ES `put_mapping` is additive "
+            "only — adding fields is safe and idempotent; changing "
+            "field types would error out. Skips the rest of the "
+            "bootstrap (templates, indices, API keys, smoke). "
+            "Pair with `monitorul-ii index pdfs/ --force` to "
+            "backfill the new field on every existing doc."
+        ),
+    )
     es_init.set_defaults(func=cmd_es_init)
 
     index_cmd = sub.add_parser(
@@ -2533,6 +2550,17 @@ def cmd_es_init(args: argparse.Namespace) -> int:
     es = _build_es_client(cfg)
     print(f"es: {cfg.url} (verify_certs={cfg.verify_certs})")
 
+    if args.update_mappings:
+        # `--update-mappings` is operationally a different action than the
+        # bootstrap dance — additive PUT _mapping against existing live
+        # indices, no template changes, no API keys, no smoke. Short-
+        # circuit before the rest of the bootstrap dance.
+        for entity in es_bootstrap.update_live_mappings(es):
+            marker = "+" if entity.created else "-"
+            detail = f"  ({entity.detail})" if entity.detail else ""
+            print(f"  {marker} mapping             {entity.name}{detail}")
+        return 0
+
     # Decompose the bootstrap so an API-key failure (e.g. derived
     # bootstrap keys, which ES refuses to use as a creator for keys
     # carrying explicit role descriptors) doesn't block the smoke
@@ -2907,6 +2935,7 @@ def cmd_index(args: argparse.Namespace) -> int:
 # for a kwarg and surfaces as a misleading TypeError.
 _QUERY_POSITIONALS: dict[str, tuple[str, ...]] = {
     "search_speeches": (),
+    "list_document_children": ("document_id",),
     "get_document": ("document_id",),
     "list_documents_by_date": ("date",),
     "get_agenda_item": ("record_id",),

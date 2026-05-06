@@ -55,7 +55,7 @@ from monitorul_ii.elasticsearch.enrichments import (
     load_enrichments,
 )
 
-INDEXER_VERSION = "0.1.0"
+INDEXER_VERSION = "0.2.0"
 
 # All eight grains derived from a sidecar (mo-persons is the registry-
 # driven exception and isn't covered by the per-document state row).
