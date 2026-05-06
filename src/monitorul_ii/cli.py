@@ -514,6 +514,167 @@ def _build_parser() -> argparse.ArgumentParser:
     )
     es_init.set_defaults(func=cmd_es_init)
 
+    index_cmd = sub.add_parser(
+        "index",
+        help="Index sidecars + enrichments into Elasticsearch.",
+        description=(
+            "Walk `*.extraction.json` sidecars, denormalise across the "
+            "9 mo-* grains, bulk-upsert via per-grain write aliases, "
+            "track state in `data/monitorul.db` for idempotency, and "
+            "delete-by-query orphans for record_ids that disappeared "
+            "between runs (e.g. when a re-extract merges two adjacent "
+            "speeches into one).\n"
+            "Idempotency triple: (sidecar_content_sha, "
+            "enrichment_fingerprint, index_generation). All three "
+            "match → skip; any one differs → reindex.\n"
+            "`--target=<index-name>` writes into a specific blue-green "
+            "generation (`mo-speeches-20260615-v2`); `--mirror` writes "
+            "to BOTH the live alias AND `--target` so a catch-up run "
+            "doesn't miss new ingestion. `--rebuild` is a convenience "
+            "alias for `--force` against a target generation.\n"
+            "Reads `ES_URL` / `ES_API_KEY` / `ES_VERIFY_CERTS` from "
+            "the environment (or `.env`)."
+        ),
+    )
+    index_cmd.add_argument(
+        "paths",
+        nargs="+",
+        type=Path,
+        help="Sidecar JSON files or directories (non-recursive).",
+    )
+    index_cmd.add_argument(
+        "--force",
+        action="store_true",
+        help=(
+            "Reindex every sidecar regardless of the idempotency triple. "
+            "Useful after schema bumps, mapping changes, or to verify a "
+            "freshly-cut blue-green generation against the live one."
+        ),
+    )
+    index_cmd.add_argument(
+        "--dry-run",
+        action="store_true",
+        help=(
+            "Run the denormalisation + enrichment merge end-to-end "
+            "without contacting Elasticsearch or writing to the DB. "
+            "Prints per-doc grain counts to stdout."
+        ),
+    )
+    index_cmd.add_argument(
+        "--target",
+        default=None,
+        metavar="INDEX",
+        help=(
+            "Override the write target with a specific generation "
+            "(e.g. `mo-speeches-20260615-v2`). Only docs whose grain "
+            "matches the target's prefix are redirected — the rest "
+            "still flow through their respective live `<grain>-write` "
+            "aliases. Pair with `--mirror` to keep the live target in "
+            "sync during blue-green catch-up."
+        ),
+    )
+    index_cmd.add_argument(
+        "--mirror",
+        action="store_true",
+        help=(
+            "When set with `--target`, write to BOTH the target "
+            "generation AND the live `<grain>-write` alias. The "
+            "blue-green Q6 catch-up flow."
+        ),
+    )
+    index_cmd.add_argument(
+        "--rebuild",
+        action="store_true",
+        help=(
+            "Force a full re-index against `--target` (implies "
+            "`--force` and skips state-row idempotency). Operationally "
+            "the same as `--force --target=<gen>`; provided as a "
+            "single-flag convenience for the bootstrap rebuild."
+        ),
+    )
+    index_cmd.add_argument(
+        "--grain",
+        default=None,
+        action="append",
+        choices=(
+            "mo-documents",
+            "mo-agenda-items",
+            "mo-speeches",
+            "mo-votes",
+            "mo-interpellations",
+            "mo-questions",
+            "mo-committee-meetings",
+            "mo-reports",
+            "mo-persons",
+        ),
+        help=(
+            "Restrict projection to a single grain (or repeat for "
+            "multiple). Useful for targeted re-pass after a per-grain "
+            "mapping bump (`--grain=mo-speeches --force` after the "
+            "speech analyzer config changes)."
+        ),
+    )
+    index_cmd.add_argument(
+        "--db",
+        type=Path,
+        default=Path("data/monitorul.db"),
+        help=(
+            "SQLite path for the indexer state table (default: "
+            "data/monitorul.db, shared with `fetch`)."
+        ),
+    )
+    index_cmd.add_argument(
+        "--index-generation",
+        default="live",
+        metavar="LABEL",
+        help=(
+            "Third leg of the idempotency triple (default: `live`). "
+            "Set when running `--target` so the state row tracks the "
+            "right generation independently of the live one."
+        ),
+    )
+    index_cmd.add_argument(
+        "-j",
+        "--workers",
+        type=int,
+        default=1,
+        metavar="N",
+        help=(
+            "ThreadPoolExecutor worker count (default: 1, sequential). "
+            "Per-sidecar work is network-bound on ES round-trips "
+            "(bulk + delete_by_query), both of which release the GIL "
+            "via urllib3 — so threads scale near-linearly up to the "
+            "cluster's bulk-throughput ceiling. Each worker opens its "
+            "own `DB(db_path)` connection (SQLite forbids cross-thread "
+            "sharing); WAL mode handles concurrent reads + serialised "
+            "writes fine at this rate (one row per sidecar, microsec "
+            "per write while ES round-trips are 500 ms+). Output is "
+            "in completion order (not input order) when N > 1; set "
+            "N=1 for deterministic ordering or single-process "
+            "debugging. 20-core box: try -j 16 for a 5–10× speedup."
+        ),
+    )
+    index_cmd.add_argument(
+        "--include-persons",
+        action="store_true",
+        help=(
+            "Also project the curated `persons.json` registry into "
+            "`mo-persons` after the sidecar loop finishes. Persons "
+            "aren't sidecar-derived (Q4 of the design doc — they live "
+            "in `src/monitorul_ii/registries/persons.json`), so the "
+            "default daily-cron run leaves `mo-persons` alone. Pair "
+            "with the bootstrap rebuild or after a registry bump "
+            "(stub merges, Wikidata enrichment). Idempotent: a "
+            "`__persons_registry__` sentinel row in `es_indexed` "
+            "stores the registry's content hash; subsequent runs skip "
+            "until persons.json changes. Orphan-delete fires when an "
+            "entry is removed from the registry, pulling its "
+            "`/politicieni/<slug>` page out of `mo-persons` so the "
+            "public site stops serving stale content."
+        ),
+    )
+    index_cmd.set_defaults(func=cmd_index)
+
     return p
 
 
@@ -2385,6 +2546,307 @@ def cmd_es_init(args: argparse.Namespace) -> int:
     # confirmed. A failed api-key step still warrants a non-zero exit so
     # the operator notices, but the cluster is usable for the indexer.
     return 1 if api_key_error is not None else 0
+
+
+_INDEX_HEARTBEAT_EVERY = 50
+
+
+class _IndexProgressReporter:
+    """Live `rich` bar for `index` when stderr is a tty; heartbeat
+    every `_INDEX_HEARTBEAT_EVERY` results in pipes / cron.
+
+    Mirrors the other reporters (`_ExtractProgressReporter`,
+    `_BackfillProgressReporter`); the only vocabulary difference is
+    `idx/skip/orphans/err` instead of fill / converted / extracted.
+    """
+
+    def __init__(self, total: int, counters: dict[str, int]) -> None:
+        self.total = total
+        self.counters = counters
+        self.start = time.monotonic()
+        self.done = 0
+        self._tty = sys.stderr.isatty()
+        self._progress = None
+        self._task = None
+        if self._tty and total > 0:
+            from rich.console import Console
+            from rich.progress import (
+                BarColumn,
+                MofNCompleteColumn,
+                Progress,
+                TextColumn,
+                TimeElapsedColumn,
+                TimeRemainingColumn,
+            )
+
+            self._progress = Progress(
+                BarColumn(bar_width=None),
+                TextColumn("[progress.percentage]{task.percentage:>5.1f}%"),
+                MofNCompleteColumn(),
+                TextColumn("·"),
+                TextColumn("[cyan]{task.description}"),
+                TextColumn("·"),
+                TimeElapsedColumn(),
+                TextColumn("ETA"),
+                TimeRemainingColumn(),
+                console=Console(stderr=True),
+                transient=False,
+            )
+            self._task = self._progress.add_task(self._desc(), total=total)
+
+    def _desc(self) -> str:
+        c = self.counters
+        return (
+            f"idx={c['indexed']:,} skip={c['skipped']:,} "
+            f"orphans={c['orphans_deleted']:,} err={c['errors']:,}"
+        )
+
+    def __enter__(self) -> "_IndexProgressReporter":
+        if self._progress is not None:
+            self._progress.start()
+        return self
+
+    def __exit__(self, *exc: object) -> None:
+        if self._progress is not None:
+            self._progress.stop()
+
+    def print(self, line: str, *, err: bool = False) -> None:
+        if self._progress is not None:
+            self._progress.console.print(line, highlight=False)
+            self._progress.update(self._task, description=self._desc())
+        else:
+            print(line, file=sys.stderr if err else sys.stdout, flush=True)
+
+    def advance(self) -> None:
+        self.done += 1
+        if self._progress is not None:
+            self._progress.update(self._task, advance=1, description=self._desc())
+            return
+        if self.done % _INDEX_HEARTBEAT_EVERY == 0 and self.done < self.total:
+            elapsed = time.monotonic() - self.start
+            rate = self.done / elapsed if elapsed > 0 else 0.0
+            eta = (self.total - self.done) / rate if rate > 0 else 0.0
+            pct = self.done / self.total * 100 if self.total else 0.0
+            print(
+                f"progress: {self.done:,}/{self.total:,} ({pct:.1f}%) | "
+                f"{self._desc()} | "
+                f"elapsed={_fmt_duration(elapsed)} ETA={_fmt_duration(eta)}",
+                file=sys.stderr,
+                flush=True,
+            )
+
+
+def cmd_index(args: argparse.Namespace) -> int:
+    sidecars = _collect_sidecars(list(args.paths))
+    if not sidecars:
+        print("no .extraction.json files found", file=sys.stderr)
+        return 0
+
+    # `--rebuild` is the operator's "force a full re-index against this
+    # generation" shortcut; it implies --force and demands --target.
+    if args.rebuild and not args.target:
+        print(
+            "index: --rebuild requires --target=<generation> "
+            "(otherwise it would force-rewrite the live alias, which "
+            "is the daily indexer's job — use `--force` for that).",
+            file=sys.stderr,
+        )
+        return 2
+    force = args.force or args.rebuild
+
+    grains_filter: tuple[str, ...] | None = tuple(args.grain) if args.grain else None
+
+    cfg = ESConfig.from_env()
+    if cfg is None and not args.dry_run:
+        print(
+            "index: missing ES_URL or ES_API_KEY in environment "
+            "(set both, or pass --dry-run for a no-cluster preview)",
+            file=sys.stderr,
+        )
+        return 2
+
+    es = _build_es_client(cfg) if (cfg is not None and not args.dry_run) else None
+    if es is not None:
+        print(f"es: {cfg.url} (verify_certs={cfg.verify_certs})")
+
+    counters: dict[str, int] = {
+        "indexed": 0,
+        "skipped": 0,
+        "orphans_deleted": 0,
+        "errors": 0,
+        "dry_run": 0,
+    }
+
+    from monitorul_ii.elasticsearch.indexer import (
+        index_all_parallel as _index_all_parallel,
+    )
+    from monitorul_ii.elasticsearch.indexer import index_one as _index_one
+
+    workers = max(1, int(getattr(args, "workers", 1) or 1))
+
+    def _handle(result, *, report) -> None:
+        """Project one IndexResult into counters + log lines.
+
+        Shared between the sequential and parallel paths so output
+        formatting stays consistent regardless of `-j N`.
+        """
+        if result.action == "indexed":
+            counters["indexed"] += 1
+            grain_summary = " ".join(
+                f"{g.removeprefix('mo-')}={n}"
+                for g, n in sorted(result.grain_counts.items())
+            )
+            line = f"  ok   {result.document_id}  [{grain_summary}]"
+            if result.orphans_deleted:
+                counters["orphans_deleted"] += result.orphans_deleted
+                line += f" orphans={result.orphans_deleted}"
+            report.print(line)
+        elif result.action == "skipped":
+            counters["skipped"] += 1
+            report.print(
+                f"  skip {result.document_id}  "
+                f"[children={len(result.child_record_ids)}]"
+            )
+        elif result.action == "dry-run":
+            counters["dry_run"] += 1
+            grain_summary = " ".join(
+                f"{g.removeprefix('mo-')}={n}"
+                for g, n in sorted(result.grain_counts.items())
+            )
+            report.print(f"  dry  {result.document_id}  [{grain_summary}]")
+        elif result.action == "orphans-only":
+            counters["orphans_deleted"] += result.orphans_deleted
+            report.print(
+                f"  orph {result.document_id}  orphans={result.orphans_deleted}"
+            )
+        else:
+            counters["errors"] += 1
+            msg = "; ".join(result.errors) or "unknown"
+            report.print(f"  ERR  {result.document_id}  ({msg})", err=True)
+        report.advance()
+
+    try:
+        with _IndexProgressReporter(len(sidecars), counters) as report:
+            if workers > 1 and not args.dry_run:
+                # Parallel path — each thread opens its own DB
+                # connection inside _index_all_parallel; the main
+                # thread doesn't hold one. Yields results in
+                # completion order, not input order.
+                for result in _index_all_parallel(
+                    es,  # type: ignore[arg-type]
+                    args.db,
+                    sidecars,
+                    workers=workers,
+                    target=args.target,
+                    mirror=args.mirror,
+                    force=force,
+                    dry_run=False,
+                    grains=grains_filter,
+                    index_generation=args.index_generation,
+                ):
+                    _handle(result, report=report)
+            else:
+                # Sequential path — one shared DB connection on the
+                # main thread. Used for --dry-run (we never touch ES
+                # so threading buys nothing) and for `--workers=1`
+                # debugging / deterministic-output runs.
+                db = DB(args.db)
+                try:
+                    for path in sidecars:
+                        try:
+                            result = _index_one(
+                                None if args.dry_run else es,  # type: ignore[arg-type]
+                                db,
+                                path,
+                                target=args.target,
+                                mirror=args.mirror,
+                                force=force,
+                                dry_run=args.dry_run,
+                                grains=grains_filter,
+                                index_generation=args.index_generation,
+                            )
+                        except KeyboardInterrupt:
+                            raise
+                        except Exception as exc:
+                            counters["errors"] += 1
+                            report.print(f"  ERR   {path.name}  ({exc!r})", err=True)
+                            report.advance()
+                            continue
+                        _handle(result, report=report)
+                finally:
+                    db.close()
+    except KeyboardInterrupt:
+        print(
+            f"\ninterrupted: indexed={counters['indexed']} "
+            f"skipped={counters['skipped']} "
+            f"orphans={counters['orphans_deleted']} "
+            f"errors={counters['errors']}",
+            file=sys.stderr,
+        )
+        return 130
+
+    # --include-persons: project the curated registry into mo-persons.
+    # Runs after the sidecar loop so the operator gets the full picture
+    # in one CLI invocation. Idempotent via the sentinel state row, so
+    # subsequent runs no-op until persons.json changes.
+    if getattr(args, "include_persons", False):
+        from monitorul_ii.elasticsearch.indexer import (
+            index_persons_with_state as _index_persons,
+        )
+        from monitorul_ii.registries import load_persons
+
+        persons = load_persons()
+        db = DB(args.db)
+        try:
+            persons_result = _index_persons(
+                None if args.dry_run else es,  # type: ignore[arg-type]
+                db,
+                persons,
+                target=args.target,
+                force=force,
+                dry_run=args.dry_run,
+                index_generation=args.index_generation,
+            )
+        finally:
+            db.close()
+
+        if persons_result.action == "indexed":
+            print(
+                f"  ok   persons-registry  "
+                f"[mo-persons={persons_result.grain_counts.get('mo-persons', 0)}]"
+                + (
+                    f" orphans={persons_result.orphans_deleted}"
+                    if persons_result.orphans_deleted
+                    else ""
+                )
+            )
+        elif persons_result.action == "skipped":
+            print(
+                f"  skip persons-registry  "
+                f"[entries={len(persons_result.child_record_ids)}]"
+            )
+        elif persons_result.action == "dry-run":
+            print(
+                f"  dry  persons-registry  "
+                f"[mo-persons={persons_result.grain_counts.get('mo-persons', 0)}]"
+            )
+        elif persons_result.errors:
+            print(
+                f"  ERR  persons-registry  ({'; '.join(persons_result.errors)})",
+                file=sys.stderr,
+            )
+            counters["errors"] += 1
+
+    summary = (
+        f"indexed={counters['indexed']} "
+        f"skipped={counters['skipped']} "
+        f"orphans={counters['orphans_deleted']} "
+        f"errors={counters['errors']}"
+    )
+    if counters["dry_run"]:
+        summary += f" dry_run={counters['dry_run']}"
+    print(summary, flush=True)
+    return 1 if counters["errors"] else 0
 
 
 def main(argv: list[str] | None = None) -> int:

@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import json
 import sqlite3
 from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
@@ -34,6 +35,22 @@ CREATE TABLE IF NOT EXISTS issues (
 );
 
 CREATE INDEX IF NOT EXISTS idx_issues_status ON issues(status);
+
+-- es_indexed: per-document indexer state (Q6 of elasticsearch-indexing.md).
+-- The triple (sidecar_content_sha, enrichment_fingerprint, index_generation)
+-- is the idempotency key — the indexer skips a document whose state row's
+-- triple matches the current run's. `child_record_ids` is a JSON list of
+-- every record_id projected to ES last time, used by the orphan-delete diff.
+CREATE TABLE IF NOT EXISTS es_indexed (
+    document_id            TEXT PRIMARY KEY,
+    sidecar_content_sha    TEXT NOT NULL,
+    enrichment_fingerprint TEXT NOT NULL,
+    index_generation       TEXT NOT NULL,
+    indexed_at             INTEGER NOT NULL,
+    child_record_ids       TEXT NOT NULL
+);
+
+CREATE INDEX IF NOT EXISTS idx_es_indexed_generation ON es_indexed(index_generation);
 """
 
 
@@ -279,3 +296,135 @@ class DB:
         rows = cur.fetchall()
         self.conn.row_factory = None
         return rows
+
+    # ---- ES indexer state (Q6 of elasticsearch-indexing.md) ----
+
+    def get_indexed_state(self, document_id: str) -> dict[str, object] | None:
+        """Return the last-known indexer state for this document, or
+        None when never indexed. The dict mirrors the row columns plus
+        a deserialised `child_record_ids` list.
+        """
+        row = self.conn.execute(
+            """
+            SELECT document_id, sidecar_content_sha, enrichment_fingerprint,
+                   index_generation, indexed_at, child_record_ids
+            FROM es_indexed
+            WHERE document_id = ?
+            """,
+            (document_id,),
+        ).fetchone()
+        if row is None:
+            return None
+        try:
+            child_ids = json.loads(row[5]) if row[5] else []
+        except json.JSONDecodeError:
+            child_ids = []
+        return {
+            "document_id": row[0],
+            "sidecar_content_sha": row[1],
+            "enrichment_fingerprint": row[2],
+            "index_generation": row[3],
+            "indexed_at": row[4],
+            "child_record_ids": child_ids,
+        }
+
+    def set_indexed_state(
+        self,
+        document_id: str,
+        *,
+        sidecar_content_sha: str,
+        enrichment_fingerprint: str,
+        index_generation: str,
+        child_record_ids: list[str],
+        indexed_at: int | None = None,
+    ) -> None:
+        """Upsert the indexer state row for `document_id`.
+
+        `indexed_at` defaults to now (epoch seconds, integer for compact
+        SQLite storage). `child_record_ids` is JSON-serialised; the
+        indexer relies on the round-trip via `get_indexed_state` for
+        the orphan-delete diff.
+        """
+        if indexed_at is None:
+            indexed_at = int(datetime.now(timezone.utc).timestamp())
+        self.conn.execute(
+            """
+            INSERT INTO es_indexed (
+                document_id, sidecar_content_sha, enrichment_fingerprint,
+                index_generation, indexed_at, child_record_ids
+            )
+            VALUES (?, ?, ?, ?, ?, ?)
+            ON CONFLICT(document_id) DO UPDATE SET
+                sidecar_content_sha=excluded.sidecar_content_sha,
+                enrichment_fingerprint=excluded.enrichment_fingerprint,
+                index_generation=excluded.index_generation,
+                indexed_at=excluded.indexed_at,
+                child_record_ids=excluded.child_record_ids
+            """,
+            (
+                document_id,
+                sidecar_content_sha,
+                enrichment_fingerprint,
+                index_generation,
+                indexed_at,
+                json.dumps(child_record_ids, ensure_ascii=False),
+            ),
+        )
+
+    def delete_indexed_state(self, document_id: str) -> None:
+        """Drop the state row entirely — used when the operator wants
+        to force an indexer re-run from scratch (the next pass will see
+        no prior state and project + upsert without an idempotency
+        short-circuit). Orphan-delete still runs against ES via the
+        document_id query.
+        """
+        self.conn.execute(
+            "DELETE FROM es_indexed WHERE document_id = ?",
+            (document_id,),
+        )
+
+    def list_indexed_state(
+        self, *, generation: str | None = None
+    ) -> list[dict[str, object]]:
+        """Return every indexer state row, optionally filtered by
+        generation. Used by the blue-green helpers to iterate the
+        documents that still need to ride into a new generation.
+        """
+        if generation is not None:
+            cur = self.conn.execute(
+                """
+                SELECT document_id, sidecar_content_sha, enrichment_fingerprint,
+                       index_generation, indexed_at, child_record_ids
+                FROM es_indexed
+                WHERE index_generation = ?
+                ORDER BY document_id
+                """,
+                (generation,),
+            )
+        else:
+            cur = self.conn.execute(
+                """
+                SELECT document_id, sidecar_content_sha, enrichment_fingerprint,
+                       index_generation, indexed_at, child_record_ids
+                FROM es_indexed
+                ORDER BY document_id
+                """
+            )
+        rows = cur.fetchall()
+        out: list[dict[str, object]] = []
+        for row in rows:
+            try:
+                child_ids = json.loads(row[5]) if row[5] else []
+            except json.JSONDecodeError:
+                child_ids = []
+            out.append(
+                {
+                    "document_id": row[0],
+                    "sidecar_content_sha": row[1],
+                    "enrichment_fingerprint": row[2],
+                    "index_generation": row[3],
+                    "indexed_at": row[4],
+                    "child_record_ids": child_ids,
+                }
+            )
+        return out

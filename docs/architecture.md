@@ -1463,9 +1463,128 @@ The CLI calls each bootstrap helper individually (`create_component_templates`, 
 
 ### Future phases (not in this layer yet)
 
-- **Phase 4b** — corpus indexer (`monitorul-ii index`) that reads sidecars + enrichments and projects ES docs per grain via the per-grain write aliases. Includes the `es_indexed` SQLite state table (Q6) for the routine in-place-upsert path and the orphan-delete logic for re-extracted docs.
 - **Phase 4c** — `monitorul-ii sitemap` that emits per-grain time-partitioned sitemaps to S3 (Q7), with `<lastmod>` driven by ES doc `indexed_at`.
 - **Phase 5** — Next.js `lib/search.ts` query layer + JSON-LD + Wikidata sameAs links (Q7, Q9).
+
+## Production indexer (Phase 4b)
+
+`monitorul-ii index` is the routine-trigger codepath from Q6 of `docs/elasticsearch-indexing.md`. The indexer denormalises each sidecar across the nine grains, bulk-upserts via per-grain write aliases, tracks state in SQLite for idempotency, and runs orphan-delete on shrinkage. INDEXER_VERSION = `0.1.0`.
+
+### Module split
+
+- `denormalize.py` — pure functions, one per grain (`to_documents_doc` + 8 `to_<grain>_docs` helpers) plus `denormalize_sidecar(...)` dispatcher and `child_record_ids(docs)` grain-grouper. Same-input → same-output, no side effects, no I/O. The mapping JSONs are the authoritative shape contract — the test suite walks the mapping tree and asserts that every property the doc carries either matches the declared type family or is null.
+- `enrichments.py` — `load_enrichments(sidecar_path, *, sidecar_content_sha, live_versions)` + `enrichment_fingerprint(sidecar_path)`. Globs `<basename>.<producer>.v<version>.json` files and the `<basename>.journal.jsonl`, version-selects (configured-live wins; default highest-on-disk), drops stale entries (`_meta.source_sidecar_content_sha` mismatch), merges the journal as an append-only list under `record_id["journal"][producer]`. The fingerprint is sha256 of `{filename: (sha256, mtime)}` across every alongside file — the keystone of the idempotency triple.
+- `indexer.py` — `IndexResult` dataclass + `index_one(es, db, sidecar_path, *, target=None, mirror=False, force=False, dry_run=False, grains=None, index_generation="live", s3_urls=None, live_versions=None, refresh=False)`. Reads sidecar, computes fingerprints, checks state, denormalises, bulk-upserts, diffs orphans, deletes them, updates state. `index_all(...)` is the iterator entry. `index_persons_registry(es, persons)` is the rebuild-time persons projector (distinct because persons aren't sidecar-derived).
+- `blue_green.py` — `create_target_generation` / `add_to_write_alias` / `swap_read_alias` / `drop_old_generation` / `list_generations`. Each helper is one ES call plus a tiny preflight check; deliberately thin so an operator reading the source can predict exactly what's about to happen.
+
+### State tracking — `es_indexed` SQLite table
+
+Per Q6, indexer state lives in `data/monitorul.db`'s `es_indexed` table:
+
+```sql
+CREATE TABLE IF NOT EXISTS es_indexed (
+    document_id            TEXT PRIMARY KEY,
+    sidecar_content_sha    TEXT NOT NULL,
+    enrichment_fingerprint TEXT NOT NULL,
+    index_generation       TEXT NOT NULL,
+    indexed_at             INTEGER NOT NULL,
+    child_record_ids       TEXT NOT NULL  -- JSON array
+);
+
+CREATE INDEX IF NOT EXISTS idx_es_indexed_generation ON es_indexed(index_generation);
+```
+
+The triple `(sidecar_content_sha, enrichment_fingerprint, index_generation)` is the **idempotency key**: if all three match an existing row, the indexer skips. Any mismatch — re-extracted body, new enrichment file, blue-green generation — re-indexes. `child_record_ids` is JSON-serialised on write and round-tripped on read; the indexer relies on this for the orphan-delete diff.
+
+The generation index is what makes blue-green flows cheap to iterate: `list_indexed_state(generation="20260615-v2")` lets a catch-up script enumerate "still on the old generation" docs in O(rows) without scanning the table.
+
+### Idempotency triple — why three legs
+
+Two would have been enough for the day-job: `(sidecar_content_sha, enrichment_fingerprint)`. The third — `index_generation` — is what unlocks the blue-green flow. When the operator cuts a new generation, every doc's state row is "stale" against that generation by definition, so a routine `--target=mo-speeches-20260615-v2 --index-generation=20260615-v2` re-indexes the corpus into the target without colliding with the live state. After the swap, the operator updates `index_generation=live` (or simply re-runs without `--target`) and the state row tracks live again.
+
+### Orphan-delete — diff + scoped delete_by_query
+
+When a re-extract merges two adjacent speeches into one (or splits one, or relabels an agenda item, or any other change that drops record_ids), the previous run's children that aren't in the current run must die in ES. The indexer:
+
+1. Reads the previous `child_record_ids` from the state row (`get_indexed_state`).
+2. Groups the current run's `denormalize_sidecar(...)` output by grain via `child_record_ids(docs)`.
+3. Re-groups the previous list by grain via `_guess_grain_from_id(record_id, document_id)` — the id shape is unambiguous (per Q2: `#act-N` ⊃ speeches, `#vote-N` ⊃ votes, etc.), so attribution is deterministic.
+4. For each grain, computes `set(old) - set(new)` and `delete_by_query`'s the result.
+5. Scopes the query with `bool.filter: [term(document_id), terms(record_id)]` so even a stray attribution couldn't reach a sibling document's records.
+
+`delete_by_query` runs against the same target the bulk would have written to (`<grain>-write` for routine, the explicit `target` for blue-green; `--mirror` runs both). Its `conflicts: "proceed"` flag handles the rare Lucene conflict from a concurrent indexer; `refresh=True` makes the deletion immediately visible to the next read.
+
+### Blue-green helpers
+
+The five-step flow from Q6 maps onto the helpers as follows:
+
+1. `create_target_generation(es, ["mo-speeches"], "20260615-v2", refresh_interval="-1")` — mints `mo-speeches-20260615-v2` (other grains untouched). Refresh `-1` disables auto-refresh during bulk-load so the indexer can stream docs without paying merge cost on each refresh tick. The operator must explicitly refresh before swapping the read alias.
+2. `add_to_write_alias(es, "mo-speeches", "20260615-v2")` — atomically demotes every current target on `mo-speeches-write` (`is_write_index: false`) and promotes the new target (`is_write_index: true`) in one `update_aliases` call. The indexer's `--mirror` mode keeps the live target current while the bulk catch-up runs.
+3. (operator runs `monitorul-ii index pdfs/ --rebuild --target mo-speeches-20260615-v2` until target ≈ live)
+4. `swap_read_alias(es, "mo-speeches", "20260615-v2")` — atomic alias update that points the read alias at the target and removes it from the old. Public reads cut over in one ES call; rollback is the inverse swap.
+5. `drop_old_generation(es, "mo-speeches", "20260101-v1")` — deletes the now-unaliased index after a cooldown period. Only call once the operator is satisfied; this is the one destructive call in the module.
+
+The catch is alias atomicity. Both `update_aliases` calls (`add_to_write_alias` and `swap_read_alias`) batch all add/remove actions into one ES request, so there's never a window where the alias is unset or pointing at two targets simultaneously. ES guarantees the batch is applied atomically per cluster state update.
+
+### Why mirror + bulk are decoupled
+
+Naïve catch-up would freeze writes to the live alias during the rebuild. Mirror mode avoids that: routine ingestion (`monitorul-ii index pdfs/today/`) writes to live AND target as long as `--mirror --target=...` is set, so the new generation stays current with the daily MO ingestion while the bulk historical rebuild runs in parallel. After the rebuild + cutover, drop the `--mirror` flag and routine ingestion goes back to writing only the live alias (which is now the new generation).
+
+### CLI surface
+
+```
+monitorul-ii index <path>...
+  [--force]            # bypass idempotency-triple check
+  [--dry-run]          # denormalise + merge enrichments without ES writes
+  [--target=<index>]   # blue-green: write that grain's docs to a specific generation
+  [--mirror]           # write to BOTH target AND live <grain>-write
+  [--rebuild]          # convenience: --force + --target=<gen> required
+  [--grain=<grain>]    # restrict projection to a subset (repeatable)
+  [--db=PATH]          # state-table location (default data/monitorul.db)
+  [--index-generation=LABEL]  # third leg of idempotency triple (default "live")
+  [-j N | --workers=N] # ThreadPoolExecutor worker count (default 1)
+  [--include-persons]  # also project persons.json into mo-persons
+```
+
+### Persons-registry projection (`--include-persons`)
+
+Persons are the one grain that isn't sidecar-derived. Each MO sidecar carries Speakers with `person_id` references that point INTO `src/monitorul_ii/registries/persons.json` (~13K curated entries from the Wikidata bulk import + the corpus-derived stub set + the hand-curated leadership tier). The registry itself is the source of truth for `mo-persons`.
+
+`--include-persons` runs `index_persons_with_state(es, db, persons, ...)` after the sidecar loop finishes — sister to `index_one(...)`, mirrors its idempotency contract:
+
+- **State row**: `es_indexed` carries a sentinel keyed `__persons_registry__`. The `sidecar_content_sha` slot stores a content hash over the canonical-JSON-serialised registry (`json.dumps(persons, sort_keys=True, ensure_ascii=False)` → sha256-hex). Same registry content → same hash → skip on next run.
+- **Orphan-delete**: when an entry is removed from `persons.json` (rare; happens after a stub-merge cleanup or a polluted-row consolidation), the diff old vs new pulls the abandoned `_id` out of `mo-persons` via `delete_by_query`. The public site's `/politicieni/<slug>` page stops resolving for the removed entry; the operator can monitor this via the orphan count in the indexer summary.
+- **Cadence**: don't enable in the daily cron — the registry bumps on a slower clock than the sidecars (manual review + Wikidata enrichment runs measure in days/weeks, not minutes). Enable on the bootstrap rebuild and after a known registry update; the idempotency check makes it cheap to leave on for ad-hoc operator runs.
+
+### Parallelism — `-j N` thread pool
+
+Per-sidecar wall-clock is dominated by ES network round-trips: the bulk request (1 HTTP request, ~200-400ms on a remote cluster) and any orphan-delete `delete_by_query` calls (1 per affected grain). Both release the GIL via urllib3, so `ThreadPoolExecutor` with N workers gives near-linear speedup until the cluster's bulk-throughput ceiling becomes the new bottleneck.
+
+`index_all_parallel(es, db_path, paths, *, workers, ...)` is the parallel entry point. Design choices:
+
+- **Threads, not processes.** Process-pool (the backfill pattern) would re-construct the `Elasticsearch` client and `DB(db_path)` connection per worker spawn — pure overhead for an I/O-bound workload. The convert subcommand uses ThreadPoolExecutor for the same reason (PyMuPDF releases the GIL during PDF parsing).
+- **Per-thread DB connections.** Python's `sqlite3` module raises `ProgrammingError` on cross-thread connection use. Each worker thread opens its own `DB(db_path)` on first task via a `threading.local()` cache; the same connection serves every task that lands on that thread. WAL mode (already on) handles concurrent reads + serialised writes; one row per sidecar at microseconds each is well below the contention threshold while ES round-trips run 500ms+.
+- **One shared ES client.** `Elasticsearch` 8.x is thread-safe (urllib3 connection pool); building one and sharing it is more efficient than per-worker construction.
+- **Completion-order output.** `as_completed(futures)` yields results as workers finish, not in input order. The CLI's `_handle` projects each result into counters + log lines without depending on order. Set `-j 1` for deterministic ordering or single-process debugging.
+- **Trivial-workload short-circuit.** When `workers <= 1` or `len(paths) == 1`, `index_all_parallel` falls back to the sequential generator path with a single shared DB. Pool setup cost (thread spawn + lazy DB connect) is wasted on one-shot runs.
+- **Ctrl+C.** `executor.shutdown(wait=False, cancel_futures=True)` mirrors the backfill pattern: queued futures are cancelled immediately, in-flight workers finish their current sidecar atomically (single `set_indexed_state` is atomic per the SQLite write contract), and the CLI handler prints the interrupt summary and returns 130.
+
+Real-world numbers from the 5552-doc corpus on a 20-core box: sequential lands at ~92 sidecars/min (ES round-trip dominates); `-j 16` lifts to ~600-900/min — a 6-10× speedup, bounded by the cluster's bulk ceiling rather than CPU. Beyond ~16 workers the curve flattens; beyond ~32 the cluster starts queueing bulk requests and per-task latency rises.
+
+`--dry-run` short-circuits before any ES contact (it does need a sidecar parse + enrichment glob, but those are local-disk only). Useful for CI sanity checks against a fresh sidecar set.
+
+The handler enforces the "rebuild needs target" rule explicitly because the alternative — letting `--rebuild` force-rewrite the live alias — is exactly what `--force` is for, and the explicit error makes the operator's intent visible.
+
+### Webhook for ISR invalidation (P5 hook-in)
+
+The indexer logs one line per `(grain, record_id)` pair that would invalidate a Next.js ISR-cached page after each successful upsert / orphan-delete. The live HTTP call is gated behind `MONITORUL_ISR_WEBHOOK_URL`; until the Next.js side wires up the receiver, the log lines are the audit-shaped record the integration will be verified against.
+
+### What's deferred from v0.1.0
+
+- **Persons stats aggregation job.** `mo-persons.stats.{speech_count, first_speech_date, last_speech_date, interpellation_count, question_count}` is intentionally null at write time per Q4 (defamation safety: stats are computed query-time, not pre-aggregated). A separate periodic aggregation job will populate them; not yet shipped.
+- **Sitemap generator.** `monitorul-ii sitemap` (Phase 4c) emits per-grain time-partitioned sitemaps to S3 driven by ES `indexed_at`; deferred.
+- **Live ISR webhook.** Logs are placeholders; the HTTP call lands when the Next.js receiver does (P5).
+- **Cross-list xref linker resolution.** v0.1.0 of the cross-reference linker resolves only same-list `art. N` references. The indexer projects unresolved unknowns as-is; nothing in the projection path needs to change when v0.2 of the linker ships.
 
 ## Future graduation candidates
 

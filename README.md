@@ -10,7 +10,7 @@ uv sync
 
 ## Usage
 
-Six core subcommands: `fetch` (download PDFs), `convert` (PDF → markdown), `classify` (type-detect MDs into the extraction-schema buckets), `extract` (MD → structured JSON sidecar), `link` (cross-doc + intra-doc linker), `backfill` (registry-driven `*_normalized` slots and `Speaker.person_id`). Plus `es-init` to provision the Elasticsearch projection layer (templates, indices, aliases, API keys).
+Six core subcommands: `fetch` (download PDFs), `convert` (PDF → markdown), `classify` (type-detect MDs into the extraction-schema buckets), `extract` (MD → structured JSON sidecar), `link` (cross-doc + intra-doc linker), `backfill` (registry-driven `*_normalized` slots and `Speaker.person_id`). Plus `es-init` to provision the Elasticsearch projection layer (templates, indices, aliases, API keys), and `index` to project sidecars + enrichments into the live ES indices.
 
 ### `fetch`
 
@@ -274,6 +274,62 @@ The bootstrap finishes with a smoke index/get round-trip on `mo-documents` (`_id
 
 API-key creation is **non-blocking**: when ES refuses to mint role-scoped keys (e.g. the bootstrap `ES_API_KEY` is itself a derived API key, which ES locks out from creating keys with explicit privileges), the bootstrap surfaces the failure as a warning and proceeds to the smoke round-trip. Templates + indices are the load-bearing wiring; the smoke confirms they work. The exit code is non-zero (`1`) so the operator notices, and the warning instructs them to re-run with a primary credential (a username/password or a non-derived API key) to mint the `monitorul_reader` / `monitorul_indexer` keys.
 
+### `index`
+
+Project `*.extraction.json` sidecars + parallel enrichment files into the live Elasticsearch indices provisioned by `es-init`. The indexer denormalises each sidecar across the nine `mo-*` grains (per Q5 of [`docs/elasticsearch-indexing.md`](docs/elasticsearch-indexing.md)), bulk-upserts via per-grain write aliases, tracks state in `data/monitorul.db` for idempotency, and runs orphan-delete to drop ES docs whose record_ids disappeared between runs (e.g. when a re-extract merges two adjacent speeches into one). Run **after** `extract` / `link` / `backfill` (and any enrichment producers) — the order is `fetch → convert → extract → link → backfill → enrich → index → sitemap`.
+
+```sh
+# Index one sidecar
+uv run monitorul-ii index pdfs/2018-11-20_MO-PII-168-2018.extraction.json
+
+# Index every sidecar under pdfs/ (idempotent — second run is a no-op)
+uv run monitorul-ii index pdfs/
+
+# Dry-run: print per-doc grain counts without contacting ES
+uv run monitorul-ii index pdfs/ --dry-run
+
+# Force re-index (ignore idempotency triple)
+uv run monitorul-ii index pdfs/ --force
+
+# Restrict projection to one or more grains (repeat --grain to add more)
+uv run monitorul-ii index pdfs/ --grain mo-speeches --grain mo-documents
+
+# Blue-green catch-up: write new ingestion to BOTH the live alias AND a
+# specific generation while the bulk rebuild runs in parallel.
+uv run monitorul-ii index pdfs/today/ \
+    --target mo-speeches-20260615-v2 --mirror
+
+# Bootstrap rebuild: full re-index against a fresh generation.
+uv run monitorul-ii index pdfs/ --rebuild --target mo-speeches-20260615-v2
+
+# Parallel — threads scale near-linearly on ES round-trips (the bottleneck).
+# 20-core box: -j 16 gives a 5-10× speedup.
+uv run monitorul-ii index pdfs/ -j 16
+
+# Project the curated persons.json registry into mo-persons too —
+# idempotent via a __persons_registry__ sentinel state row.
+uv run monitorul-ii index pdfs/ -j 16 --include-persons
+```
+
+Flags:
+
+- `--force` — reindex every sidecar regardless of the `(sidecar_content_sha, enrichment_fingerprint, index_generation)` idempotency triple. Useful after schema bumps, mapping changes, or to verify a freshly-cut blue-green generation against the live one.
+- `--dry-run` — run the denormalisation + enrichment merge end-to-end without contacting Elasticsearch or writing to the DB. Prints a `dry  <document_id>  [grain=N grain=N ...]` line per sidecar to stdout.
+- `--target=<index-name>` — override the write target with a specific generation (e.g. `mo-speeches-20260615-v2`). Only docs whose grain matches the target's prefix are redirected — the rest still flow through their respective live `<grain>-write` aliases. Pair with `--mirror` to keep the live target in sync during blue-green catch-up.
+- `--mirror` — when set with `--target`, write to BOTH the target generation AND the live `<grain>-write` alias. The blue-green Q6 catch-up flow.
+- `--rebuild` — force a full re-index against `--target` (implies `--force`; the handler errors out with exit 2 if `--target` is missing). Operationally the same as `--force --target=<gen>`; provided as a single-flag convenience for the bootstrap rebuild.
+- `--grain=<grain>` — restrict projection to a single grain (or repeat `--grain` to add more). Useful for targeted re-pass after a per-grain mapping bump (`--grain=mo-speeches --force` after the speech analyzer config changes). Accepts any of the nine grain names.
+- `--db PATH` — SQLite path for the indexer state table (default `data/monitorul.db`, shared with `fetch`).
+- `--index-generation LABEL` — third leg of the idempotency triple (default `live`). Set when running `--target` so the state row tracks the right generation independently of the live one.
+- `-j N` / `--workers N` — `ThreadPoolExecutor` worker count (default 1, sequential). Per-sidecar work is network-bound on ES round-trips (bulk + delete_by_query), both of which release the GIL via urllib3, so threads scale near-linearly with worker count up to the cluster's bulk-throughput ceiling. Each worker opens its own `DB(db_path)` connection (SQLite forbids cross-thread sharing); WAL mode handles concurrent reads + serialised writes fine at this rate (one row per sidecar, microseconds per write while ES round-trips are 500 ms+). Output is in **completion order** (not input order) when N > 1; set N=1 for deterministic ordering or single-process debugging. 20-core box: try `-j 16` for a 5–10× speedup. Falls back to the sequential generator path automatically when `N <= 1` or `len(sidecars) == 1`.
+- `--include-persons` — also project the curated `persons.json` registry into `mo-persons` after the sidecar loop finishes. Persons aren't sidecar-derived (Q4 of the design doc — they live in `src/monitorul_ii/registries/persons.json`, ~13K curated entries), so the default daily-cron run leaves `mo-persons` alone. Pair with the bootstrap rebuild or after a registry bump (stub merges, Wikidata enrichment). Idempotent: a `__persons_registry__` sentinel row in `es_indexed` stores the registry's content hash; subsequent runs skip until `persons.json` changes. Orphan-delete fires when an entry is removed from the registry, pulling its `/politicieni/<slug>` page out of `mo-persons` so the public site stops serving stale content.
+
+The indexer reads `ES_URL` / `ES_API_KEY` / `ES_VERIFY_CERTS` from the environment (or `.env`); set `ES_API_KEY` to the `monitorul_indexer` key minted by `es-init` for the principle-of-least-privilege production setup. `--dry-run` short-circuits before any client construction so it doesn't need the env vars.
+
+`MONITORUL_ISR_WEBHOOK_URL` opts into the Next.js ISR-invalidation webhook (P5 of the rollout). Until set, the indexer logs the `(grain, record_id)` pairs that would have invalidated; once configured, the live HTTP call fires per upsert.
+
+The state table `es_indexed` records `(document_id → sidecar_content_sha, enrichment_fingerprint, index_generation, indexed_at, child_record_ids)`. The orphan-delete diff compares the previous run's `child_record_ids` against the current run's grouped record_ids and `delete_by_query`'s any orphans, scoped to `document_id` so a misattributed grain can never reach a sibling's records. State rows are versioned by `index_generation` so a major-trigger blue-green flow doesn't collide with the live indexer.
+
 ## Progress and interrupts
 
 All long-running subcommands show a live [`rich`](https://github.com/Textualize/rich) progress bar on stderr when stderr is a terminal, and fall back to a periodic plain-text heartbeat in pipes/CI/cron.
@@ -282,6 +338,7 @@ All long-running subcommands show a live [`rich`](https://github.com/Textualize/
 - `convert` — bar tracks PDFs completed; counters show converted / skipped / errors, plus S3 uploaded / in-bucket / errors when uploading. Per-PDF event lines scroll above the bar. Heartbeat fires every 50 PDFs in pipe mode.
 - `extract` — bar tracks MDs completed; counters show extracted / skipped / errors, the rolling-mean coverage `cov μ=0.999` for the docs that actually extracted this run, and the same S3 trio. Per-MD event lines scroll above the bar (`ok` lines include the doc_type and claimed_pct). Heartbeat fires every 50 MDs in pipe mode.
 - `backfill` — bar tracks sidecars completed for the current pass; counters show fill / skip / err and the S3 trio when uploading. Each pass (`issuing_body` / `ministry` / `proposed_by` / `persons`) opens its own bar with the pass label embedded in the description (`[persons] fill=1,524 skip=2 err=0 · s3 up=1,524 …`) so a multi-pass `--kind=all` run is easy to follow. Per-sidecar `ok` / `skip` / `ERROR` lines scroll above the bar. Heartbeat fires every 100 sidecars in pipe mode. The bar plays well with the `-j N` parallel path: results stream in completion order from the worker pool, the bar advances per result, and the description string reads the live shared counters.
+- `index` — bar tracks sidecars completed; counters show indexed / skipped (idempotency-triple match) / orphans-deleted / errors. Per-sidecar `ok` lines include a per-grain breakdown (`[documents=1 agenda-items=8 speeches=233 votes=19]`) and append `orphans=N` when the orphan-delete diff fired. Heartbeat fires every 50 sidecars in pipe mode. Sequential by design — each sidecar's work is dominated by ES bulk + delete-by-query round-trips, so process-pool overhead would dwarf the gain.
 
 Stdout (the final summary line) is unaffected by the tty check, so `monitorul-ii ... > log.txt` keeps a clean machine-readable record while you watch the bar interactively.
 
@@ -345,6 +402,8 @@ ES_VERIFY_CERTS=1
 - `ES_VERIFY_CERTS` defaults to `1` (true). Accepted values: `1/0`, `true/false`, `yes/no`, `on/off`. Empty / unset keeps the secure default. Set to `0` only for self-signed dev clusters; production must always verify.
 
 The Elasticsearch projection layer is **not** the system of record — sidecars on disk + S3 are SOT, and ES is rebuildable overnight from them. See [`docs/elasticsearch-indexing.md`](docs/elasticsearch-indexing.md) for the full design rationale (Q1–Q9, including rejected alternatives), and [`docs/architecture.md`](docs/architecture.md) for the operational mechanics of the bootstrap.
+
+The indexer (`monitorul-ii index`) is the routine-trigger codepath from Q6 — daily MO ingestion, re-extraction, linker reruns, backfill reruns, enrichment producer version bumps, new enrichment producers, and redactions all flow through `index_one(...)` calls keyed by `record_id`. Major triggers (mapping changes, schema breaking-changes) cut a new generation via the blue-green helpers in `monitorul_ii.elasticsearch.blue_green` (create target → dual-write via `--mirror` → swap read alias atomically → drop old after cooldown). State tracking lives in `data/monitorul.db`'s `es_indexed` table; the idempotency triple `(sidecar_content_sha, enrichment_fingerprint, index_generation)` is the load-bearing skip key. Enrichment files alongside each sidecar (`<basename>.<producer>.v<version>.json` + `<basename>.journal.jsonl`) are merged by `record_id` at index time, with a stale-fingerprint filter dropping entries whose `_meta.source_sidecar_content_sha` no longer matches the sidecar — see [`docs/architecture.md`](docs/architecture.md) for the full state-tracking + orphan-delete + blue-green flow.
 
 ## How it works
 
