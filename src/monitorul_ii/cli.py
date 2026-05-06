@@ -675,6 +675,57 @@ def _build_parser() -> argparse.ArgumentParser:
     )
     index_cmd.set_defaults(func=cmd_index)
 
+    query = sub.add_parser(
+        "query",
+        help="Run a named reference query against the live `mo-*` indices.",
+        description=(
+            "Debug CLI for the typed query layer in "
+            "`monitorul_ii.elasticsearch.queries`. Pick a query by name "
+            "(`--name search_speeches`), pass parameters as JSON "
+            '(`--params \'{"q":"educație","page_size":5}\'`), and the '
+            "result prints as pretty-formatted JSON to stdout. Designed "
+            "for ad-hoc inspection during the P5 webapp build-out — the "
+            "same functions back the production `lib/search.ts` layer, "
+            "so a green query here is a green query there.\n"
+            "Reads `ES_URL` / `ES_API_KEY` / `ES_VERIFY_CERTS` from the "
+            "environment (or `.env` via python-dotenv)."
+        ),
+    )
+    query.add_argument(
+        "--name",
+        required=True,
+        metavar="QUERY",
+        help=(
+            "Named query to run. One of: search_speeches, get_document, "
+            "list_documents_by_date, get_agenda_item, get_speech, "
+            "person_page, search_persons, list_committee_meetings, "
+            "get_report, agg_speeches_by_party_year. See "
+            "`monitorul_ii.elasticsearch.queries` for signatures."
+        ),
+    )
+    query.add_argument(
+        "--params",
+        default="{}",
+        metavar="JSON",
+        help=(
+            "JSON object whose keys map to the query function's keyword "
+            "arguments. Positional args (`document_id`, `record_id`, "
+            "`person_slug`, `committee_id`, `q`, `date`) may also be "
+            "passed via this dict — the CLI promotes them to positional "
+            "as needed. Default: `{}` (no parameters)."
+        ),
+    )
+    query.add_argument(
+        "--explain",
+        action="store_true",
+        help=(
+            "Print the request body before running the query, in "
+            "addition to the result. Useful for debugging the filter / "
+            "agg shape against the ES query DSL docs."
+        ),
+    )
+    query.set_defaults(func=cmd_query)
+
     return p
 
 
@@ -2847,6 +2898,129 @@ def cmd_index(args: argparse.Namespace) -> int:
         summary += f" dry_run={counters['dry_run']}"
     print(summary, flush=True)
     return 1 if counters["errors"] else 0
+
+
+# Each named query gets a tuple of param names that should be promoted
+# from the --params dict to positional arguments at call time. Keep
+# this small + explicit — it's the only place CLI ↔ Python signature
+# translation happens, and getting it wrong silently swaps a positional
+# for a kwarg and surfaces as a misleading TypeError.
+_QUERY_POSITIONALS: dict[str, tuple[str, ...]] = {
+    "search_speeches": (),
+    "get_document": ("document_id",),
+    "list_documents_by_date": ("date",),
+    "get_agenda_item": ("record_id",),
+    "get_speech": ("record_id",),
+    "person_page": ("person_slug",),
+    "search_persons": ("q",),
+    "list_committee_meetings": ("committee_id",),
+    "get_report": ("record_id",),
+    "agg_speeches_by_party_year": (),
+}
+
+
+def _render_query_result(result: object) -> str:
+    """Pretty-print a query function's return value as JSON.
+
+    Dataclasses (`SearchResult`, `PersonPage`, `SearchHit`) round-trip
+    through `dataclasses.asdict`; plain dicts (the lookup-by-id
+    helpers) pass through; None becomes the literal `null`.
+    """
+    import dataclasses
+
+    if result is None:
+        return "null"
+    if dataclasses.is_dataclass(result):
+        payload = dataclasses.asdict(result)
+    else:
+        payload = result
+    return json.dumps(payload, ensure_ascii=False, indent=2, default=str)
+
+
+def cmd_query(args: argparse.Namespace) -> int:
+    from monitorul_ii.elasticsearch import queries as es_queries
+
+    name = args.name
+    func = es_queries.NAMED_QUERIES.get(name)
+    if func is None:
+        print(
+            f"query: unknown name {name!r}. "
+            f"Choose one of: {', '.join(sorted(es_queries.NAMED_QUERIES))}",
+            file=sys.stderr,
+        )
+        return 2
+
+    try:
+        params = json.loads(args.params)
+    except json.JSONDecodeError as exc:
+        print(f"query: --params is not valid JSON: {exc}", file=sys.stderr)
+        return 2
+    if not isinstance(params, dict):
+        print("query: --params must decode to a JSON object (dict).", file=sys.stderr)
+        return 2
+
+    cfg = ESConfig.from_env()
+    if cfg is None:
+        print(
+            "query: missing ES_URL or ES_API_KEY in environment "
+            "(set both via `.env` or shell exports).",
+            file=sys.stderr,
+        )
+        return 2
+    es = _build_es_client(cfg)
+
+    if args.explain:
+        # Light-weight tracer: wrap es.search to print the body before
+        # hitting the cluster. The query layer also calls es.get for
+        # lookup-by-id helpers; trace those too for completeness.
+        original_search = es.search
+        original_get = es.get
+
+        def _traced_search(*a: object, **kw: object) -> object:
+            print("# es.search", file=sys.stderr)
+            print(
+                json.dumps(
+                    {"index": kw.get("index"), "body": kw.get("body")},
+                    ensure_ascii=False,
+                    indent=2,
+                    default=str,
+                ),
+                file=sys.stderr,
+            )
+            return original_search(*a, **kw)
+
+        def _traced_get(*a: object, **kw: object) -> object:
+            print(
+                f"# es.get index={kw.get('index')} id={kw.get('id')}",
+                file=sys.stderr,
+            )
+            return original_get(*a, **kw)
+
+        es.search = _traced_search  # type: ignore[method-assign]
+        es.get = _traced_get  # type: ignore[method-assign]
+
+    positionals = []
+    for pname in _QUERY_POSITIONALS[name]:
+        if pname not in params:
+            print(
+                f"query: {name!r} requires {pname!r} in --params "
+                f"(positional argument).",
+                file=sys.stderr,
+            )
+            return 2
+        positionals.append(params.pop(pname))
+
+    try:
+        result = func(es, *positionals, **params)
+    except TypeError as exc:
+        print(f"query: bad parameters for {name!r}: {exc}", file=sys.stderr)
+        return 2
+    except Exception as exc:  # noqa: BLE001 — surface to operator
+        print(f"query: ES error: {type(exc).__name__}: {exc}", file=sys.stderr)
+        return 1
+
+    print(_render_query_result(result))
+    return 0
 
 
 def main(argv: list[str] | None = None) -> int:

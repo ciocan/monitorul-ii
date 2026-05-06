@@ -1586,6 +1586,90 @@ The indexer logs one line per `(grain, record_id)` pair that would invalidate a 
 - **Live ISR webhook.** Logs are placeholders; the HTTP call lands when the Next.js receiver does (P5).
 - **Cross-list xref linker resolution.** v0.1.0 of the cross-reference linker resolves only same-list `art. N` references. The indexer projects unresolved unknowns as-is; nothing in the projection path needs to change when v0.2 of the linker ships.
 
+## Query layer (Phase 4c)
+
+The 10-function reference layer in `src/monitorul_ii/elasticsearch/queries.py` is the **only** path from Python application code (and the LLM-agent tool wrappers, when those land) to ES. It is the Python sister to the future Next.js `lib/search.ts` server-side query layer described in Q9 of the design doc; the same shape, the same guardrails, dispatched by the same string identifiers.
+
+### Why a typed query layer (and not direct `es.search` calls in callers)
+
+Three failure modes the wrapper closes in one place:
+
+1. **Cost-runaway.** Every route handler / tool call setting its own `size` is one `--page_size=10000` away from a 500 MB JSON response that ties up the cluster. `MAX_PAGE_SIZE = 50` enforces a server-side cap *here*, not in the webapp middleware where it's easy to forget on a new endpoint.
+2. **Filter consistency.** `is_substantive: true` defaulting on `search_speeches` is the cutoff that hides chair-procedure noise from public search. If route handlers compose their own `bool.filter` arrays, half forget the cutoff, half remember — and the public search starts surfacing "Mulțumesc, vă rog" hits at the top of `q="educație"`. Defaulting in the function signature is the correctness property.
+3. **Future-proofing for RRF.** When P3 embeddings ship, BM25-only search switches to RRF over `enrichments.embedding`. If callers compose queries themselves, every call site needs to learn about the `retriever` block. With the typed layer, the change is one branch on `rank_fusion="rrf"` inside `search_speeches`; callers are stable.
+
+The layer is also the rate-limit surface for the LLM agent (max 30 ES calls per turn per Q9): the agent's tool wrappers count `len(NAMED_QUERIES)` invocations, not `es.search` calls, and the count is meaningful only because there's exactly one path through.
+
+### What lives in `queries.py`
+
+Ten functions, one per reference query. Signatures intentionally mirror the TypeScript shapes from Q9 of the design doc — so when the Next.js side is built, every Python signature has a TypeScript twin and the LLM-agent tool layer wires them 1:1.
+
+- `search_speeches(es, *, q, speaker_person_id, chamber, date_from, date_to, ref_bills, topics, is_substantive=True, page=1, page_size=20, rank_fusion="bm25-only") -> SearchResult` — the substrate for the public search page. `multi_match` over `text^2` + `agenda_title^1.5` + `speaker.name_search` (cross-field, default operator `or`); filters as `term`/`terms`/`range`. Sort: `_score`-first when `q` is set; `session_date` desc when not. **`rank_fusion="rrf"` is a documented no-op for v1** — the parameter exists in the signature so callers can pass it without breaking once P3 embeddings ship; until then the function silently runs BM25.
+- `get_document(es, document_id)` — `mo-documents` lookup by `_id`. NotFoundError → None.
+- `list_documents_by_date(es, date, chamber=None, *, page_size=20)` — `mo-documents` filter by `session_date` term, sort by `published` desc. Drives `/calendar/<date>` pages and the per-day sitemap shard.
+- `get_agenda_item(es, record_id)` / `get_speech(es, record_id)` / `get_report(es, record_id)` — sister lookups for `mo-agenda-items` / `mo-speeches` / `mo-reports`. NotFoundError → None.
+- `person_page(es, person_slug) -> PersonPage` — composite payload backing `/politicieni/<slug>`. Two ES round-trips: `mo-persons` GET + `mo-speeches` search-with-aggs scoped to `speaker.person_id`. Stats are computed query-time from `terms` aggs (`by_chamber` / `by_year` / `by_party_group_at_time`) so the politician page never depends on the Q4-deferred pre-computed `mo-persons.stats` block. Returns None when the person isn't in the registry.
+- `search_persons(es, q, *, page=1, page_size=20)` — `multi_match` over `canonical_name^2` + `canonical_name.folded^1.5` + `aliases`. The `.folded` analyzer pass is what lets `q="vacaroiu nicolae"` hit `Văcăroiu Nicolae` despite the diacritic difference. Empty / whitespace-only `q` short-circuits to an empty result without contacting ES — the search bar shouldn't return the full registry on stumble.
+- `list_committee_meetings(es, committee_id, date_from=None, *, page=1, page_size=20)` — `mo-committee-meetings` filter by `committee_id` + optional `meeting_date >= date_from`, sort by `meeting_date` desc. Drives `/comisie/<committee_id>` index pages.
+- `agg_speeches_by_party_year(es, *, year=None, chamber=None, size=100) -> SearchResult` — terms-agg health check + the discourse-substrate. Outer `by_party` over `speaker.party_group_at_time` (with `missing: "(unknown)"` so unresolved party-group speeches surface in their own bucket), inner `by_year` over `year`, `cardinality(speaker.person_id)` for distinct-speaker counts. Always filters substantive — chair-procedure turns aren't useful here. `size` clamps to [1, 1000] (the cluster guard `search.max_buckets: 65536` is the absolute ceiling; 1000 is a sane operational cap).
+
+### Result envelopes
+
+Three dataclasses, one per shape. JSON-friendly via `dataclasses.asdict` — the CLI uses this directly to produce stable, machine-parseable output without per-call shaping.
+
+- `SearchHit{id, score, source}` — one row, normalised across grains. `source` is the unwrapped `_source`.
+- `SearchResult{total, page, page_size, hits, aggregations}` — list-style envelope. `total` is the post-filter count (ES `hits.total.value`); `page` / `page_size` echo the request so paging UIs render "X-Y of Z" without re-deriving them. `aggregations` is the raw ES dict when the caller asked for any.
+- `PersonPage{person, recent_speeches, stats}` — composite for `person_page`.
+
+The choice to return objects (not bare dicts) is deliberate: `result.page_size` can be introspected to detect the silent `MAX_PAGE_SIZE` clamp, `result.total` is consistent across BM25 and (future) RRF where ES's `_search` response shapes diverge slightly, and the CLI's `--explain` trace stays clean because the function's return value is plain data.
+
+### Server-side guardrails
+
+Hard-coded in `queries.py`, not in callers:
+
+- `MAX_PAGE_SIZE = 50`. `_clamp_page_size` silently clamps to [1, 50]; callers detect the clamp via `result.page_size`. The clamp is silent rather than raising because raising would surface as 500s in the webapp / tool errors in the LLM agent — clamping is the documented contract.
+- `is_substantive: true` defaults on `search_speeches` and is *always* enforced on `agg_speeches_by_party_year` and `person_page`. Public traffic and the discourse-substrate share the same cutoff. Admin / discourse-research views explicitly pass `is_substantive=False` on `search_speeches`.
+- `DEFAULT_AGG_SIZE = 100` for terms-agg buckets. The cluster-level guard is 65536 (Q9); 100 keeps `agg_speeches_by_party_year` results human-readable in the debug CLI and the future webapp UI. Callers needing the full distribution use composite aggs (not yet implemented).
+
+### `NAMED_QUERIES` dispatch table
+
+```python
+NAMED_QUERIES: dict[str, callable] = {
+    "search_speeches": search_speeches,
+    "get_document": get_document,
+    ...
+}
+```
+
+The CLI's `--name` switch is one lookup into this dict; tests assert that every public function appears in the table and that table values are the module attributes of the same name (so a rename without a registry update fails fast). Adding a new query means adding a function + a registry entry — never expose `es.search` directly.
+
+### CLI surface — `monitorul-ii query`
+
+Debug surface; not part of the production datapath but invaluable during the P5 webapp build. Three flags:
+
+- `--name QUERY` — required. The dispatch key into `NAMED_QUERIES`.
+- `--params JSON` — JSON object whose keys map to the query function's keyword arguments. Positional args (`document_id`, `record_id`, `person_slug`, `committee_id`, `q`, `date`) are accepted via the dict and promoted to positional via the `_QUERY_POSITIONALS` lookup in `cli.py`. The promotion is explicit — every named query has its positional vocabulary listed in one place — so a misnamed positional surfaces as a clear "requires 'X'" error, not a misleading TypeError.
+- `--explain` — monkey-patches `es.search` and `es.get` to print the request body to stderr before each call. Result still goes to stdout. Useful for debugging filter / agg shape against the ES query DSL docs without spinning up the webapp.
+
+Result rendering: `dataclasses.asdict` for SearchResult / PersonPage / SearchHit; plain dicts pass through; None becomes the literal `null`. Always pretty-formatted with `indent=2`, `ensure_ascii=False`, `default=str` (so dates round-trip via `str()` if any leak through).
+
+Exit codes: `0` success; `2` validation errors (unknown query name, malformed JSON, missing required positional, missing ES env); `1` ES connection / runtime error. The split matters because the CI wrapper / shell scripts can distinguish "user error" (retry won't help) from "ES is flaky" (retry might help).
+
+### What `query` does NOT do
+
+- **No write operations.** Read-only by design; the `monitorul_reader` API key works fine. Anyone wanting to write to ES uses `index` instead.
+- **No scroll / search-after pagination.** The 50-row cap and `from`-based offset paging are deliberate. If you find yourself wanting to scroll through `mo-speeches` from the CLI, you're solving a sidecar-iteration problem with the wrong tool — read the sidecars on disk instead.
+- **No mutation of `--explain`-traced bodies.** The trace is purely observational — it does not edit the body before sending. If you need to send a custom query, write a function in `queries.py` and re-run the CLI; that's the documented extension path.
+- **No JSON-output-shaping flags.** `--format=jsonl` / `--fields=` etc. are not provided. The CLI's purpose is human inspection; downstream programmatic consumption goes through the Python API directly.
+
+### Tested separately from the indexer
+
+The query layer's tests (`tests/elasticsearch/test_queries.py`, `tests/elasticsearch/test_cli_query.py`) drive a hand-rolled `FakeES` whose `search` and `get` methods record every call and return programmable responses keyed by index. This is fast (<1 s for the full 50-test suite), deterministic, and lets the assertions reach into the request body to verify filter shape, page-size clamping, sort order — properties that would be untestable against a live cluster without flaky integration time.
+
+The handler tests for `cmd_query` reuse the same `FakeES` pattern + `monkeypatch.setattr(cli, "_build_es_client", lambda cfg: fake)` to swap in the fake client without touching the real ES_URL. Coverage includes: unknown name → 2; malformed --params JSON → 2; --params not an object → 2; missing required positional → 2; missing ES env → 2; happy path → 0; --explain trace lands on stderr; bad kwarg → 2 (TypeError caught and converted to validation exit code); ES exception → 1 (distinct from validation errors so retry logic can branch).
+
+The `--rebuild` smoke against the live cluster is documented in `docs/elasticsearch-baseline-2026-05.md` (per-grain doc counts, p95 latencies per query, known gaps before P5). That baseline is the canonical "ready for P5" gate.
+
 ## Future graduation candidates
 
 - **Tier 4.3 long tail — `persons.json` stub enrichment**. The v0.1.0 registry covers ~99% of corpus speakers via 9,065 Wikidata-verified entries + 4,414 corpus-derived stubs (`tools/add_unresolved_speakers.py`). The stubs need follow-on work: (a) **Wikidata enrichment** — re-run `enrich_persons_wikidata.py --apply` against the registry to attach QIDs / birth dates to stubs whose canonical name happens to match a Wikidata entity (the bulk import didn't catch them because they fell outside the politician-keyword filter); (b) **mandate population** — when cdep.ro recovers (or via a manual data dump), join `merge_cdep_into_persons.py` output against the stub set to populate `mandates[]`; (c) **stub consolidation** — 521 of 4,414 stubs (11.8%) carry visibly polluted canonical names (numbered-list prefixes, roster role suffixes, substitution side-comments, vocative honorifics, MO subscription-footer text) that fragment a single politician across multiple registry rows; an operator should walk `inspect_speaker.py` output and merge polluted stubs into their canonical Wikidata equivalent. The senat.ro stub also still needs replacing once that upstream stabilises.

@@ -330,6 +330,42 @@ The indexer reads `ES_URL` / `ES_API_KEY` / `ES_VERIFY_CERTS` from the environme
 
 The state table `es_indexed` records `(document_id → sidecar_content_sha, enrichment_fingerprint, index_generation, indexed_at, child_record_ids)`. The orphan-delete diff compares the previous run's `child_record_ids` against the current run's grouped record_ids and `delete_by_query`'s any orphans, scoped to `document_id` so a misattributed grain can never reach a sibling's records. State rows are versioned by `index_generation` so a major-trigger blue-green flow doesn't collide with the live indexer.
 
+### `query`
+
+Run any of the 10 reference queries from `src/monitorul_ii/elasticsearch/queries.py` against the live `mo-*` indices. The same typed functions back the future Next.js `lib/search.ts` server-side query layer (Q9 of [`docs/elasticsearch-indexing.md`](docs/elasticsearch-indexing.md)) and the LLM-agent's tool wrappers; this CLI is the ad-hoc inspection surface for sanity-checking the index from the command line. See [`docs/elasticsearch-baseline-2026-05.md`](docs/elasticsearch-baseline-2026-05.md) for the canonical 10-query smoke checklist.
+
+```sh
+# Search speeches (BM25 over text + agenda_title + speaker.name_search)
+uv run monitorul-ii query --name search_speeches --params '{"q":"educație","page_size":5}'
+
+# Look up one MO document by its canonical document_id
+uv run monitorul-ii query --name get_document --params '{"document_id":"mo://2018/II/168"}'
+
+# All documents whose session_date matches a specific day
+uv run monitorul-ii query --name list_documents_by_date --params '{"date":"2018-11-13","chamber":"Camera Deputaților"}'
+
+# Politician page bundle: person record + recent substantive speeches + query-time stats
+uv run monitorul-ii query --name person_page --params '{"person_slug":"iordache-florin"}'
+
+# Terms agg over speaker.party_group_at_time × year — discourse-substrate health check
+uv run monitorul-ii query --name agg_speeches_by_party_year --params '{"year":2018}'
+
+# Print the request body to stderr before running, alongside the result
+uv run monitorul-ii query --name search_speeches --params '{"q":"NATO"}' --explain
+```
+
+Flags:
+
+- `--name QUERY` — required. One of: `search_speeches`, `get_document`, `list_documents_by_date`, `get_agenda_item`, `get_speech`, `person_page`, `search_persons`, `list_committee_meetings`, `get_report`, `agg_speeches_by_party_year`. The function signatures live in `monitorul_ii.elasticsearch.queries`; the CLI dispatches via the `NAMED_QUERIES` registry.
+- `--params JSON` — JSON object whose keys map to the query function's keyword arguments. Positional args (`document_id`, `record_id`, `person_slug`, `committee_id`, `q`, `date`) may also be passed via this dict — the CLI promotes them to positional as needed. Default: `{}` (no parameters). Examples: `'{"q":"educație","page_size":5}'`, `'{"record_id":"mo://2018/II/168#agenda-1"}'`.
+- `--explain` — print the request body (index + body, JSON-formatted) on stderr before running each ES call, in addition to the result. Useful for debugging the filter / agg shape against the ES query DSL docs. Wraps both `es.search` and `es.get`.
+
+The query layer enforces a few server-side guardrails by design (Q9): page sizes are clamped to `MAX_PAGE_SIZE = 50`; `search_speeches` defaults to `is_substantive: true` (chair-procedure turns hidden from public search; flip with `"is_substantive": false` for the admin / discourse-research view); `agg_speeches_by_party_year` always filters to `is_substantive: true`. These are not client-side suggestions — they're correctness properties enforced in `queries.py`. If the webapp or LLM agent needs a wider surface, add a function rather than relaxing the guardrails.
+
+`rank_fusion="bm25-only"` is the v1 default for `search_speeches`. The parameter exists in the function signature so callers can flip to `"rrf"` once P3 embeddings ship; until then the param is a documented no-op (the function silently runs BM25 even when `"rrf"` is passed).
+
+The CLI reads `ES_URL` / `ES_API_KEY` / `ES_VERIFY_CERTS` from the environment (or `.env`); set `ES_API_KEY` to the `monitorul_reader` key minted by `es-init` for read-only access. Exit codes: `0` on success, `2` on validation errors (unknown query name, malformed JSON params, missing required positional, missing ES env), `1` on ES connection / runtime errors.
+
 ## Progress and interrupts
 
 All long-running subcommands show a live [`rich`](https://github.com/Textualize/rich) progress bar on stderr when stderr is a terminal, and fall back to a periodic plain-text heartbeat in pipes/CI/cron.
