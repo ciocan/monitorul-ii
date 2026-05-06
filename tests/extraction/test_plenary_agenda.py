@@ -479,6 +479,67 @@ def test_extract_agenda_does_not_misattribute_bills_to_procedural_item():
     assert items[0]["title"] == "Aprobarea ordinii de zi și a programului de lucru"
 
 
+def test_extract_agenda_v0_2_9_first_marked_self_end_skip():
+    """v0.2.9 fix: when entry's ordinal == first_marked_ord (so start was
+    shifted backward to walk_start), the end-search loop must SKIP the
+    entry's own marker — otherwise it picks the entry's own pos as the
+    end, collapsing the span. Repro: SUMAR with ord=2 first (no ord=1),
+    body has a line-start `2.` that the partitioner records, plus a real
+    `3.` later. Without the self-skip, ord=2's span ends at its own
+    marker (collapsed); with it, the span extends until ord=3's marker."""
+    body = (
+        "SUMAR\n\n"
+        "|Nr.<br>2.<br>Topic two title<br>3.<br>Topic three title|Pagina|\n"
+        "|---|---|\n"
+        "## **Domnul Speaker A:**\n"
+        "Stimați colegi.\n"
+        "Punctul 2:\n"
+        "2. punct mid-speech\n"  # line-start `2.` — stray mark
+        "Rămâne după pauză să continuăm.\n\n"
+        + ("Speech body padding text. " * 100)
+        + "\n\n"
+        "3. Topic three title — actual agenda boundary\n\n"
+        "## **Domnul Speaker B:**\n"
+        "Discutăm punctul 3.\n"
+    )
+    items, _ = extract_agenda(body, len(body), _ctx(body))
+    assert len(items) == 2
+    span0 = items[0]["source_span"]["chars"]
+    # item[0] (ord=2) must extend from walk_start to ord=3's marker, not
+    # collapse at the stray `2.` line in the middle of Speaker A's speech.
+    assert span0[1] - span0[0] > 1000, (
+        f"expected wide span for ord=2; got width {span0[1] - span0[0]}"
+    )
+
+
+def test_extract_agenda_v0_2_9_collapsed_span_recovery():
+    """v0.2.9 fix: when SUMAR enumerates ordinals 1..N but the body has only
+    stray ordinals (16, 17 from quoted text) that don't match any SUMAR
+    entry, the partitioner used to emit (None, None) for every entry → all
+    items got 1-char placeholder spans → activities saw nothing → coverage
+    collapsed to ~0.01. The fix discards body-marks whose ordinal isn't in
+    the SUMAR set, which forces the no-marks branch and gives item[0] the
+    full post-SUMAR span."""
+    body = (
+        "SUMAR\n\n"
+        "|Nr.<br>1.<br>Aprobarea ordinii de zi|Pagina<br>3|\n"
+        "|---|---|\n"
+        "|Nr.<br>2.<br>Procesul de validare|Pagina<br>5|\n"
+        "## **Domnul Chair:**\n"
+        "Stimați colegi, conform articolelor 16. și 17. ale regulamentului, "
+        "ordinea de zi este următoarea.\n"
+        "## **Doamna Speaker:**\n"
+        "Susțin propunerea făcută de coleg.\n"
+    )
+    items, _ = extract_agenda(body, len(body), _ctx(body))
+    assert items, "expected at least one agenda item"
+    # First item must own the entire post-SUMAR span (covering both speech
+    # turns), not collapse to a 1-char placeholder.
+    span = items[0]["source_span"]["chars"]
+    assert span[1] - span[0] > 100, f"expected wide span for item[0]; got {span}"
+    assert items[0]["activities"], "expected activities[] populated for item 0"
+
+
 def test_extract_agenda_keeps_legitimate_inline_bill_cite():
     """Positive: when the bill cite is genuinely part of the title's first
     item (no contamination boundary present), it stays in

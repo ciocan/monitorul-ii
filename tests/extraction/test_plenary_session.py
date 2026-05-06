@@ -289,6 +289,65 @@ def test_chair_block_sedinta_a_fost_condusa_variant():
     assert any(c["name"] == "Chair Alpha" for c in sess["chair"])
 
 
+# -- v0.2.9 PostScript-mojibake (2000–2007 era) ------------------------------
+#
+# Pre-2008 PDFs converted from PostScript fonts substitute `™` for Ș, `∫` for
+# ș, `˛` for ț, `Ó`/`Œ` for `î`/`Î`, `„` for ă in word position, and use
+# present-tense verbs (`începe` / `se încheie` / `sunt conduse`) instead of
+# the modern perfect.
+
+
+def test_opened_at_postscript_mojibake_2002_form():
+    """2002 form: `™edinþa a Ónceput la ora 16,32` — `™` (U+2122) for Ș,
+    `þ` (U+00FE) for ț, `Ó` (U+00D3) for `î`."""
+    body = "_™edinþa a Ónceput la ora 16,32._\n## **Domnul X:**\n"
+    sess, _ = extract_session(body, _ctx(body))
+    assert sess["opened_at"] == "16:32"
+
+
+def test_opened_at_2000_present_tense_incepe():
+    """2000-era docs use present tense (`începe`) not perfect (`a început`):
+    `_ªedinþa începe la ora 15,20._`"""
+    body = "_ªedinþa începe la ora 15,20._\n## **Domnul X:**\n"
+    sess, _ = extract_session(body, _ctx(body))
+    assert sess["opened_at"] == "15:20"
+
+
+def test_closed_at_2000_present_tense_se_incheie():
+    """2000-era closing: `_ªedinþa se încheie la ora 19,15._` (present
+    reflexive, not modern `s-a încheiat`)."""
+    body = "## **Domnul X:**\nText.\n_ªedinþa se încheie la ora 19,15._\n"
+    sess, _ = extract_session(body, _ctx(body))
+    assert sess["closed_at"] == "19:15"
+
+
+def test_chair_block_2000_present_tense_sunt_conduse():
+    """2000-era chair-narrative uses `Lucrãrile sunt conduse de ...` (present)
+    instead of the modern `au fost conduse` (perfect)."""
+    body = (
+        "_Lucrãrile sunt conduse de domnul Mircea Ionescu, "
+        "preºedintele Senatului, asistat de domnul Test Secretar, "
+        "secretar al Senatului._\n\n"
+        "## **Domnul Mircea Ionescu:**\nDeschidem.\n"
+    )
+    sess, _ = extract_session(body, _ctx(body))
+    assert any(c["name"] == "Mircea Ionescu" for c in sess["chair"])
+
+
+def test_chair_block_2002_postscript_full_mojibake():
+    """2002 chair-narrative with full PostScript mojibake: `Lucr„rile
+    ∫edinþei au fost conduse de domnul ...`. Tests `„` (U+201E) for `ă`,
+    `∫` (U+222B) for `ș`, `þ` (U+00FE) for `ț`."""
+    body = (
+        "_Lucr„rile ∫edinþei au fost conduse de domnul Ovidiu Petrescu, "
+        "vicepre∫edinte al Camerei Deputaþilor, asistat de domnul Test, "
+        "secretar al Camerei Deputaþilor._\n\n"
+        "## **Domnul Ovidiu Petrescu:**\nDeschidem.\n"
+    )
+    sess, _ = extract_session(body, _ctx(body))
+    assert any(c["name"] == "Ovidiu Petrescu" for c in sess["chair"])
+
+
 def test_chair_block_modern_unchanged():
     """Negative control: modern phrasing still works after the regex
     relaxation (no quirk regression)."""

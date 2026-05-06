@@ -51,22 +51,37 @@ if TYPE_CHECKING:
 # Time separator: `:`, `.`, or `,` — pre-2008 docs use `13,25` style; modern
 # docs use `13.25` or `13:25`. The body word `Ședin[țt]a` carries Romanian
 # diacritics in modern docs, but older PDFs sometimes ship with cedilla
-# (`Ședinţa`) or mojibake (`Ședinþa`/`ªedinþa`) — accept all three.
+# (`Ședinţa`) or mojibake — v0.2.9 covers the full PostScript/Latin-1
+# substitution set we observed in 2000–2007 era PDFs:
+#   Ș → Ș Ş ª ™     (uppercase mojibake — modern, cedilla, OEM, PostScript)
+#   ș → ș ş º ∫     (lowercase — last is integral-sign mojibake from 2004+)
+#   ț → ț ţ þ ˛     (lowercase — last is combining ogonek from 2004+)
+#   î → î Ó Œ Ñ     (mojibake of `î` and uppercase `Î` — both render as Ó)
+#   ă → ă ã „        (last is double-low-9 quote — only added when bounded
+#                     by Romanian-letter context to avoid quote false-pos)
 _TIME_SEP = r"[.,:]"
-_SEDINTA_VARIANTS = r"(?:[ŞȘªS]edin[țtţþ]a|[Ss]edinta)"
+_SEDINTA_VARIANTS = r"(?:[ŞȘª™S]edin[țtţþ˛]a|[Ss]edinta)"
+# `început` / `încheiat` mojibake forms — `î` and `Î` both render as `Ó`/`Œ`/`Ñ`
+# in 2004+ PostScript docs.
+_INCEPUT = r"[îÓŒÑ]nceput"
+_INCHEIAT = r"[îÓŒÑ]ncheiat"
+# Present-tense forms used in 2000-era docs: "Ședința începe la ora ..."
+# (vs. modern perfect "a început") and "se încheie" (vs. "s-a încheiat").
+_OPEN_VERB = rf"(?:a\s+{_INCEPUT}|[îÓŒÑ]ncepe)"
+_CLOSE_VERB = rf"(?:s-a\s+{_INCHEIAT}|se\s+[îÓŒÑ]ncheie)"
 
 _OPENED_AT_RE = re.compile(
-    r"_?\s*[Ss]edinta\s+a\s+început\s+la\s+ora\s+"
+    rf"_?\s*[Ss]edinta\s+{_OPEN_VERB}\s+la\s+ora\s+"
     rf"(?P<h>\d{{1,2}}){_TIME_SEP}(?P<m>\d{{2}})",
     re.IGNORECASE,
 )
 _OPENED_AT_DIACRITICS_RE = re.compile(
-    rf"_?\s*{_SEDINTA_VARIANTS}\s+a\s+început\s+la\s+ora\s+"
+    rf"_?\s*{_SEDINTA_VARIANTS}\s+{_OPEN_VERB}\s+la\s+ora\s+"
     rf"(?P<h>\d{{1,2}}){_TIME_SEP}(?P<m>\d{{2}})",
     re.IGNORECASE,
 )
 _CLOSED_AT_RE = re.compile(
-    rf"{_SEDINTA_VARIANTS}\s+s-a\s+încheiat\s+la\s+ora\s+"
+    rf"{_SEDINTA_VARIANTS}\s+{_CLOSE_VERB}\s+la\s+ora\s+"
     rf"(?P<h>\d{{1,2}}){_TIME_SEP}(?P<m>\d{{2}})",
     re.IGNORECASE,
 )
@@ -93,25 +108,25 @@ def _parse_time_match(m: re.Match[str]) -> str:
 #                               "ªedinţa a fost condusã"
 _CHAIR_BLOCK_OPENING_RE = re.compile(
     r"_\s*(?:"
-    r"Lucr[ăaãâ]rile\s+(?:[șsşº]edin[țtţþ]ei\s+)?au\s+fost\s+conduse"
-    r"|[ŞȘªS]edin[țtţþ]a\s+a\s+fost\s+condus[ăaã]"
+    r"Lucr[ăaãâ„]rile\s+(?:[șsşº∫]edin[țtţþ˛]ei\s+)?(?:au\s+fost\s+conduse|sunt\s+conduse)"
+    r"|[ŞȘª™S]edin[țtţþ˛]a\s+a\s+fost\s+condus[ăaã„]"
     r")",
     re.IGNORECASE,
 )
 
 # Markers that split the chair-narrative into segments
 _SEGMENT_MARKERS = [
-    (re.compile(r"\bîn\s+prima\s+parte\b", re.IGNORECASE), "prima parte"),
+    (re.compile(r"\b[îÓŒÑ]n\s+prima\s+parte\b", re.IGNORECASE), "prima parte"),
     (
-        re.compile(r"\bîn\s+(?:cea\s+de-)?a\s+doua\s+parte\b", re.IGNORECASE),
+        re.compile(r"\b[îÓŒÑ]n\s+(?:cea\s+de-)?a\s+doua\s+parte\b", re.IGNORECASE),
         "a doua parte",
     ),
     (
-        re.compile(r"\b[Aa]\s+doua\s+parte\s+a\s+[șs]edin[țt]ei", re.IGNORECASE),
+        re.compile(r"\b[Aa]\s+doua\s+parte\s+a\s+[șsşº∫]edin[țtţþ˛]ei", re.IGNORECASE),
         "a doua parte",
     ),
     (
-        re.compile(r"\b[Uu]ltima\s+parte\s+a\s+[șs]edin[țt]ei", re.IGNORECASE),
+        re.compile(r"\b[Uu]ltima\s+parte\s+a\s+[șsşº∫]edin[țtţþ˛]ei", re.IGNORECASE),
         "ultima parte",
     ),
 ]
@@ -126,7 +141,7 @@ _CHAIR_PERSON_RE = re.compile(
     r"\b(?P<honorific>domnul|doamna)\s+"
     r"(?:(?P<rank>deputat|senator)\s+)?"
     r"(?P<name>[A-ZȘȚÂÎĂ][\w\-]+(?:\s+[A-ZȘȚÂÎĂ][\w\-]+){0,4})"
-    r"(?:\s*,\s*(?P<role>[^,_;]+?(?:Camerei|Senatului|Deputa[țt]ilor)[^,_;]*?))?",
+    r"(?:\s*,\s*(?P<role>[^,_;]+?(?:Camerei|Senatului|Deputa[țtţþ˛]ilor)[^,_;]*?))?",
     re.UNICODE,
 )
 
@@ -289,10 +304,10 @@ def _build_chair_segments(block_text: str) -> list[dict[str, Any]]:
 # Mojibake variants: deputaþi (þ→ț), prezenþa (þ→ț), ºi (º→ș), si-au înregistrat
 _ATTENDANCE_RE = re.compile(
     r"din\s+totalul\s+(?:celor\s+)?(?:de\s+)?(?P<total>\d+)\s+(?:de\s+)?"
-    r"(?:deputa[țtţþ]i|senatori|deputa[țtţþ]i\s+[șsşº]i\s+senatori)[^.]*?"
-    r"(?:[șs]i-au\s+înregistrat\s+prezen[țtţþ]a|"
-    r"în\s+acest\s+moment[,]?\s*[șs]i-au\s+înregistrat\s+prezen[țtţþ]a|"
-    r"prezen[țtţþ]a)[^.\n]*?"
+    r"(?:deputa[țtţþ˛]i|senatori|deputa[țtţþ˛]i\s+[șsşº∫]i\s+senatori)[^.]*?"
+    r"(?:[șs∫]i-au\s+[îÓŒÑ]nregistrat\s+prezen[țtţþ˛]a|"
+    r"[îÓŒÑ]n\s+acest\s+moment[,]?\s*[șs∫]i-au\s+[îÓŒÑ]nregistrat\s+prezen[țtţþ˛]a|"
+    r"prezen[țtţþ˛]a)[^.\n]*?"
     r"(?P<registered>\d+)",
     re.IGNORECASE | re.DOTALL,
 )
@@ -343,15 +358,15 @@ def _detect_format(body: str, year: int | None) -> str | None:
 
 
 _CLOSED_PHRASE_RE = re.compile(
-    r"Declar\s+închis[ăaã]\s+[șsşº]edin[țtţþ]a", re.IGNORECASE
+    r"Declar\s+[îÓŒÑ]nchis[ăaã„]\s+[șsşº∫]edin[țtţþ˛]a", re.IGNORECASE
 )
 _SUSPEND_NO_QUORUM_RE = re.compile(
-    r"[Ss]uspend\s+[șsşº]edin[țtţþ]a\s+pentru\s+lipsa\s+cvorumului",
+    r"[Ss]uspend\s+[șsşº∫]edin[țtţþ˛]a\s+pentru\s+lipsa\s+cvorumului",
     re.IGNORECASE,
 )
-_SUSPEND_OTHER_RE = re.compile(r"[Ss]uspend\s+[șsşº]edin[țtţþ]a\b", re.IGNORECASE)
+_SUSPEND_OTHER_RE = re.compile(r"[Ss]uspend\s+[șsşº∫]edin[țtţþ˛]a\b", re.IGNORECASE)
 _ADJOURNED_RE = re.compile(
-    r"[Șșª]edin[țtţþ]a\s+continu[ăaã]\s+m[âaã]ine|"
+    r"[Șșª™]edin[țtţþ˛]a\s+continu[ăaã„]\s+m[âaã]ine|"
     r"se\s+va\s+relua\s+m[âaã]ine",
     re.IGNORECASE,
 )
@@ -440,7 +455,7 @@ def find_sumar_span(body: str) -> tuple[int, int] | None:
     # End: first `_Ședința a început` italic (incl. mojibake/cedilla variants)
     # or first `##` header after start
     end_re = re.compile(
-        rf"_\s*{_SEDINTA_VARIANTS}\s+a\s+început|^##\s",
+        rf"_\s*{_SEDINTA_VARIANTS}\s+a\s+{_INCEPUT}|^##\s",
         re.MULTILINE,
     )
     end_match = end_re.search(body, m.end())

@@ -835,6 +835,29 @@ def _partition_body_into_item_spans(
         if 0 < ord_n <= 200 and ord_n not in body_marks:
             body_marks[ord_n] = m.start()
 
+    # Discard body marks whose ordinal isn't in the SUMAR — they're stray
+    # numerical lines (e.g., "16. Articolul..." inside a quoted text block,
+    # paragraph numbering, or a list inside a speech). When SUMAR enumerates
+    # 1–8 but body has only ordinal 16 and 17, those are unrelated to agenda
+    # items. v0.2.9: pre-fix, the partitioner treated them as valid body
+    # marks and emitted (None, None) for every SUMAR entry → all items got
+    # 1-char placeholder spans → activities got nothing → coverage collapsed.
+    sumar_ords_set = {e.ordinal for e in entries}
+    body_marks = {o: p for o, p in body_marks.items() if o in sumar_ords_set}
+
+    # Monotonicity check: real agenda body markers appear in the same
+    # order as SUMAR (1, 2, 3, ..., N). When the body has plain-text
+    # numbered lists embedded in speeches — final-vote-batch read-outs
+    # ("1. Propunerea X; 2. Propunerea Y"), inline list items, or chair
+    # narration referencing earlier ordinals — the marker positions can
+    # appear out-of-order (e.g. ord=2 at pos 2837 then ord=1 at pos 67713).
+    # When detected, discard ALL body marks and fall back to the no-marks
+    # branch so the first SUMAR entry owns the entire post-SUMAR span.
+    sorted_by_pos = sorted(body_marks.items(), key=lambda kv: kv[1])
+    ordinals_in_pos_order = [o for o, _ in sorted_by_pos]
+    if ordinals_in_pos_order != sorted(ordinals_in_pos_order):
+        body_marks = {}
+
     spans: list[tuple[int | None, int | None]] = []
     if not body_marks:
         # No body markers — give first entry the entire post-SUMAR span.
@@ -871,10 +894,13 @@ def _partition_body_into_item_spans(
         # End: next ordinal-marked position (if it belongs to a *later*
         # SUMAR entry) OR agenda_end. Body marks for ordinals NOT in
         # SUMAR entries don't terminate this span — let it absorb their
-        # content too.
+        # content too. Exclude this entry's own marker from the search:
+        # when start was shifted backward to walk_start (this entry is
+        # first_marked_ord), the entry's own pos is > start and would
+        # otherwise be picked as the end, collapsing the span.
         end = agenda_end
         for ord_n, pos in sorted_marks:
-            if pos > start and ord_n in sumar_ords:
+            if pos > start and ord_n in sumar_ords and ord_n != entry.ordinal:
                 end = pos
                 break
         # Last SUMAR entry that got a body mark extends FORWARD to
