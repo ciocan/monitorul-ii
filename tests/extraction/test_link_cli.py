@@ -10,6 +10,22 @@ import json
 from pathlib import Path
 
 from monitorul_ii.cli import _build_parser, cmd_link
+from monitorul_ii.extraction.identity import assign_identity
+
+
+def _stamp_identity(sc: dict) -> dict:
+    """Backfill the schema 1.13.0 identity layer onto an inline test sidecar."""
+    body = sc.get("body") or {}
+    meta = sc.get("metadata") or {}
+    identity = assign_identity(
+        body,
+        doc_type=sc["document_type"],
+        doc_id=sc["document_id"],
+        year=int(meta.get("year", 2024)),
+        issue=str(meta.get("issue", "1")),
+    )
+    sc.setdefault("extraction", {})["identity"] = identity
+    return sc
 
 
 def test_link_subcommand_in_parser():
@@ -101,7 +117,7 @@ def test_cmd_link_walks_directory_and_links(tmp_path, capsys):
 
     def _envelope(doc_id, doc_type, session_date):
         return {
-            "schema_version": "1.12.0",
+            "schema_version": "1.13.0",
             "document_id": doc_id,
             "content_sha": "0123456789ab",
             "document_type": doc_type,
@@ -169,6 +185,8 @@ def test_cmd_link_walks_directory_and_links(tmp_path, capsys):
         "raw_markdown_excerpt": "",
     }
 
+    _stamp_identity(joint)
+    _stamp_identity(report)
     joint_p = tmp_path / "joint.extraction.json"
     joint_p.write_text(json.dumps(joint), encoding="utf-8")
     report_p = tmp_path / "report.extraction.json"
@@ -283,7 +301,7 @@ def test_cmd_link_vote_only_pass_pairs_deferred_with_resolver(tmp_path, capsys):
 
     def _stenogram(doc_id: str, session_date: str, outcome: str) -> dict:
         return {
-            "schema_version": "1.12.0",
+            "schema_version": "1.13.0",
             "document_id": doc_id,
             "content_sha": "0123456789ab",
             "document_type": "plenary_stenogram",
@@ -331,8 +349,8 @@ def test_cmd_link_vote_only_pass_pairs_deferred_with_resolver(tmp_path, capsys):
             },
         }
 
-    deferring = _stenogram("mo://2025/II/A", "2025-04-01", "deferred")
-    resolving = _stenogram("mo://2025/II/B", "2025-04-15", "approved")
+    deferring = _stamp_identity(_stenogram("mo://2025/II/A", "2025-04-01", "deferred"))
+    resolving = _stamp_identity(_stenogram("mo://2025/II/B", "2025-04-15", "approved"))
     pa = tmp_path / "a.extraction.json"
     pa.write_text(json.dumps(deferring), encoding="utf-8")
     pb = tmp_path / "b.extraction.json"
@@ -472,6 +490,7 @@ def test_cmd_link_xref_only_pass_resolves_art_n(tmp_path, capsys):
             "interpellations": [],
         },
     }
+    _stamp_identity(sc)
     sp = tmp_path / "x.extraction.json"
     sp.write_text(json.dumps(sc), encoding="utf-8")
 

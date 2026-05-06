@@ -51,12 +51,13 @@ from monitorul_ii.extraction.envelope import (
     split_md,
 )
 from monitorul_ii.extraction.extractors import EXTRACTOR_VERSIONS, EXTRACTORS
+from monitorul_ii.extraction.identity import IDENTITY_VERSION, assign_identity
 from monitorul_ii.extraction.references import REFERENCES_VERSION
 from monitorul_ii.extraction.schema import SchemaError, validate
 from monitorul_ii.extraction.speakers import SPEAKERS_VERSION
 from monitorul_ii.extraction.topics import TOPICS_VERSION
 
-SCHEMA_VERSION = "1.12.0"
+SCHEMA_VERSION = "1.13.0"
 EXTRACTOR_LABEL = "regex@1"
 
 
@@ -67,6 +68,7 @@ def _shared_helper_versions() -> dict[str, str]:
     return {
         "boilerplate": BOILERPLATE_VERSION,
         "coverage": COVERAGE_VERSION,
+        "identity": IDENTITY_VERSION,
         "references": REFERENCES_VERSION,
         "speakers": SPEAKERS_VERSION,
         "topics": TOPICS_VERSION,
@@ -158,6 +160,7 @@ def _build_envelope(
     pdf_path: Path,
     content_sha: str,
     confidence: float,
+    identity: dict[str, Any],
 ) -> dict[str, Any]:
     versions = _shared_helper_versions()
     versions[doc_type] = EXTRACTOR_VERSIONS.get(doc_type, "0.0.0")
@@ -174,12 +177,161 @@ def _build_envelope(
             "extracted_at": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
             "extractor_versions": versions,
             "confidence": round(confidence, 4),
+            "identity": identity,
         },
     }
 
 
 def _pdf_path_for(md_path: Path) -> Path:
     return md_path.parent / f"{md_path.stem}.pdf"
+
+
+def _identity_current(cached: dict[str, Any]) -> bool:
+    """Same-or-newer schema_version + identity helper version match."""
+    if cached.get("schema_version") != SCHEMA_VERSION:
+        return False
+    versions = (cached.get("extraction") or {}).get("extractor_versions") or {}
+    return versions.get("identity") == IDENTITY_VERSION
+
+
+def _extract_identity_only(
+    md_path: Path,
+    *,
+    sidecar_path: Path,
+    force: bool,
+    write: bool,
+) -> ExtractResult:
+    """Backfill the identity layer onto an existing sidecar without
+    re-running the per-type extractor.
+
+    Reads the cached sidecar's body verbatim, runs `assign_identity` over
+    it (preserving slugs from any prior identity pass), updates the
+    envelope's `extractor_versions.identity` and bumps `schema_version` to
+    1.13.0, and rewrites atomically. Idempotent on the identity version:
+    a second call with `force=False` skips when both schema_version and
+    identity are already current.
+    """
+    if not sidecar_path.exists():
+        return ExtractResult(
+            md_path=md_path,
+            sidecar_path=sidecar_path,
+            status="error",
+            reason=f"missing sidecar for --identity-only: {sidecar_path}",
+        )
+    cached = _read_cached_sidecar(sidecar_path)
+    if cached is None:
+        return ExtractResult(
+            md_path=md_path,
+            sidecar_path=sidecar_path,
+            status="error",
+            reason=f"unparseable sidecar for --identity-only: {sidecar_path}",
+        )
+
+    doc_type = cached.get("document_type")
+    if not isinstance(doc_type, str):
+        return ExtractResult(
+            md_path=md_path,
+            sidecar_path=sidecar_path,
+            status="error",
+            reason="cached sidecar missing document_type",
+        )
+
+    if not force and _identity_current(cached):
+        cov = (cached.get("coverage") or {}).get("claimed_pct")
+        return ExtractResult(
+            md_path=md_path,
+            sidecar_path=sidecar_path,
+            status="skip",
+            doc_type=doc_type,  # type: ignore[arg-type]
+            reason="identity current",
+            coverage_pct=float(cov) if isinstance(cov, (int, float)) else None,
+        )
+
+    body = cached.get("body")
+    metadata = cached.get("metadata") or {}
+    if not isinstance(body, dict):
+        return ExtractResult(
+            md_path=md_path,
+            sidecar_path=sidecar_path,
+            status="error",
+            doc_type=doc_type,  # type: ignore[arg-type]
+            reason="cached sidecar missing body",
+        )
+
+    doc_id_str = cached.get("document_id")
+    year = metadata.get("year")
+    issue = metadata.get("issue")
+    if (
+        not isinstance(doc_id_str, str)
+        or not isinstance(year, int)
+        or not isinstance(issue, str)
+    ):
+        return ExtractResult(
+            md_path=md_path,
+            sidecar_path=sidecar_path,
+            status="error",
+            doc_type=doc_type,  # type: ignore[arg-type]
+            reason="cached sidecar missing document_id / year / issue",
+        )
+
+    identity_block = assign_identity(
+        body,
+        doc_type=doc_type,
+        doc_id=doc_id_str,
+        year=year,
+        issue=issue,
+        prior_sidecar=cached,
+    )
+
+    extraction = dict(cached.get("extraction") or {})
+    versions = dict(extraction.get("extractor_versions") or {})
+    versions["identity"] = IDENTITY_VERSION
+    extraction["extractor_versions"] = versions
+    extraction["identity"] = identity_block
+
+    new_sidecar = {
+        **cached,
+        "schema_version": SCHEMA_VERSION,
+        "extraction": extraction,
+        "body": body,
+    }
+
+    try:
+        validate(new_sidecar)
+    except SchemaError as exc:
+        rejected_path = _rejected_path_for(md_path)
+        if write:
+            _write_atomic(
+                rejected_path,
+                json.dumps(new_sidecar, indent=2, ensure_ascii=False, default=str),
+            )
+        return ExtractResult(
+            md_path=md_path,
+            sidecar_path=sidecar_path,
+            status="error",
+            doc_type=doc_type,  # type: ignore[arg-type]
+            reason=f"schema validation failed: {exc.errors[0]}",
+            rejected_path=rejected_path if write else None,
+        )
+
+    if write:
+        _write_atomic(
+            sidecar_path,
+            json.dumps(new_sidecar, indent=2, ensure_ascii=False, default=str),
+        )
+        rejected_path = _rejected_path_for(md_path)
+        if rejected_path.exists():
+            rejected_path.unlink()
+
+    cov = (new_sidecar.get("coverage") or {}).get("claimed_pct")
+    return ExtractResult(
+        md_path=md_path,
+        sidecar_path=sidecar_path,
+        status="extract",
+        doc_type=doc_type,  # type: ignore[arg-type]
+        coverage_pct=float(cov) if isinstance(cov, (int, float)) else None,
+        sidecar=new_sidecar,
+    )
 
 
 def _aggregate_confidence(body_dict: dict[str, Any]) -> float:
@@ -229,15 +381,28 @@ def extract(
     force: bool = False,
     override_type: DocumentType | None = None,
     write: bool = True,
+    identity_only: bool = False,
 ) -> ExtractResult:
     """Extract `md_path` → write sidecar + return ExtractResult.
 
     `force=True` re-runs even when versions match. `override_type` bypasses
     the classifier (use sparingly — only when classify is wrong on a
     specific doc). `write=False` runs the full pipeline but doesn't touch
-    disk — useful in tests.
+    disk — useful in tests. `identity_only=True` skips the per-type
+    extractor entirely and re-runs only `assign_identity` against an
+    existing sidecar's body — a fast path for backfilling the schema 1.13.0
+    identity layer onto already-extracted sidecars without paying the
+    ~30 minutes a full corpus re-extract would cost.
     """
     sidecar_path = _sidecar_path_for(md_path)
+
+    if identity_only:
+        return _extract_identity_only(
+            md_path,
+            sidecar_path=sidecar_path,
+            force=force,
+            write=write,
+        )
 
     if not md_path.exists():
         return ExtractResult(
@@ -276,11 +441,18 @@ def extract(
             reason=f"no extractor for {doc_type}",
         )
 
+    # Read the prior sidecar early — both the version-aware idempotency
+    # gate and the slug-once contract need it. The slug-once contract
+    # preserves an already-published slug across regex tweaks that change
+    # the source title, so URL stability survives extractor iteration.
+    prior_sidecar: dict[str, Any] | None = None
+    if sidecar_path.exists():
+        prior_sidecar = _read_cached_sidecar(sidecar_path)
+
     # Version-aware idempotency
-    if not force and write and sidecar_path.exists():
-        cached = _read_cached_sidecar(sidecar_path)
-        if cached is not None and _versions_current(cached, doc_type):
-            cov = (cached.get("coverage") or {}).get("claimed_pct")
+    if not force and write and prior_sidecar is not None:
+        if _versions_current(prior_sidecar, doc_type):
+            cov = (prior_sidecar.get("coverage") or {}).get("claimed_pct")
             return ExtractResult(
                 md_path=md_path,
                 sidecar_path=sidecar_path,
@@ -316,6 +488,17 @@ def extract(
     all_claims: list[Claim] = list(claims) + boilerplate_claims
 
     coverage = compute_coverage(body, all_claims)
+
+    doc_id = document_id(meta)
+    identity_block = assign_identity(
+        body_dict,
+        doc_type=doc_type,
+        doc_id=doc_id,
+        year=meta.year,
+        issue=meta.issue,
+        prior_sidecar=prior_sidecar,
+    )
+
     envelope = _build_envelope(
         doc_type=doc_type,
         meta=meta,
@@ -323,6 +506,7 @@ def extract(
         pdf_path=_pdf_path_for(md_path),
         content_sha=content_sha,
         confidence=_aggregate_confidence(body_dict),
+        identity=identity_block,
     )
     sidecar = {**envelope, "coverage": coverage, "body": body_dict}
 

@@ -283,6 +283,11 @@ def _build_parser() -> argparse.ArgumentParser:
         action="store_true",
         help="Process MDs in reverse order (newest→oldest, since filenames are date-prefixed). A partial run leaves you with the most recent stretch.",
     )
+    extract.add_argument(
+        "--identity-only",
+        action="store_true",
+        help="Skip per-type extractors and re-run only the identity producer (mints id/content_fingerprint/slug on every grain) against the existing sidecar. A fast path for backfilling the schema 1.13.0 identity layer onto already-extracted sidecars without paying a full re-extract; preserves slugs from any prior identity pass (slug-once contract). Idempotent: a second run with the same identity version skips.",
+    )
     _add_s3_args(extract)
     extract.set_defaults(func=cmd_extract)
 
@@ -1064,7 +1069,10 @@ def cmd_extract(args: argparse.Namespace) -> int:
             for md in mds:
                 try:
                     result = _extract_md(
-                        md, force=args.force, override_type=args.override_type
+                        md,
+                        force=args.force,
+                        override_type=args.override_type,
+                        identity_only=args.identity_only,
                     )
                 except KeyboardInterrupt:
                     raise

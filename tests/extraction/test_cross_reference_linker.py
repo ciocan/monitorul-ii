@@ -32,7 +32,7 @@ from monitorul_ii.extraction.cross_reference_linker import (
 # -- helpers --------------------------------------------------------------
 
 
-def _envelope(*, doc_id: str, doc_type: str, schema_version: str = "1.12.0") -> dict:
+def _envelope(*, doc_id: str, doc_type: str, schema_version: str = "1.13.0") -> dict:
     return {
         "schema_version": schema_version,
         "document_id": doc_id,
@@ -58,6 +58,7 @@ def _envelope(*, doc_id: str, doc_type: str, schema_version: str = "1.12.0") -> 
             "extracted_at": "2025-04-01T12:00:00Z",
             "extractor_versions": {"boilerplate": "0.1.0"},
             "confidence": 0.9,
+            "identity": {"record_id": doc_id},
         },
         "coverage": {
             "body_chars": 200,
@@ -148,6 +149,9 @@ def _agenda_item(
     span: tuple[int, int] = (0, 200),
 ) -> dict:
     return {
+        "id": "mo://2025/II/1#agenda-1",
+        "content_fingerprint": "0123456789ab",
+        "slug": "test-agenda-item-abcdef12",
         "ordinal": 1,
         "title": "Test agenda item",
         "primary_references": primary_refs,
@@ -174,6 +178,9 @@ def _speech_activity(
     span: tuple[int, int],
 ) -> dict:
     return {
+        "id": "mo://2025/II/1#agenda-1#act-1",
+        "content_fingerprint": "0123456789ab",
+        "slug": "speech-text-abcdef12",
         "type": "speech",
         "speaker": {
             "raw": "Speaker",

@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://github.com/ciocan/monitorul-ii/blob/main/src/monitorul_ii/extraction_schema.json",
   "title": "Monitorul Oficial Partea II extraction sidecar",
-  "description": "Canonical machine-readable schema for the per-document JSON sidecars emitted by `monitorul-ii extract`. Mirrors docs/extraction-schema.md (the human-readable spec). Schema_version 1.12.0 adds UnknownReference.resolved_to (object | null) — a pointer at another reference's char_offsets in the same document body, populated by the cross-reference linker (xref_linker v0.1.0+) for bare `art. N` cite resolution; always null at extract time. v1.11.0 added VoteActivity.defers_to + VoteActivity.resolves — populated by the cross-document linker (linker v0.2.0+) for cross-session vote deferrals; always null at extract time. v1.10.0 graduated the `code` reference variant out of the unknown catch-all, broadened `treaty` to absorb Acordul/Protocolul/wider Carta forms, and populated best-effort `subject` fields on bill / law / parliamentary_resolution. v1.8.0 graduated report_facsimile from PendingBody to a strict body shape; v1.9.0 graduated 6 long-tail reference variants. All six document types continue to have strict body shapes; PendingBody is kept as a $def placeholder for future types.",
+  "description": "Canonical machine-readable schema for the per-document JSON sidecars emitted by `monitorul-ii extract`. Mirrors docs/extraction-schema.md (the human-readable spec). Schema_version 1.13.0 adds the stable identity layer (Q2 of docs/elasticsearch-indexing.md): every grain that becomes an Elasticsearch doc downstream — agenda items, activities, interpellations, questions, committee meetings, committee agenda items, reports — now carries `id` / `content_fingerprint` / `slug` minted by `assign_identity()` in the extract pipeline (identity producer v0.1.0). The envelope's `extraction.identity.record_id` mirrors `document_id` for the document grain. Slugs are slug-once: re-extractions preserve the prior slug when the freshly-minted `id` matches, locking published URLs across extractor iteration. Schema_version 1.12.0 adds UnknownReference.resolved_to (object | null) — a pointer at another reference's char_offsets in the same document body, populated by the cross-reference linker (xref_linker v0.1.0+) for bare `art. N` cite resolution; always null at extract time. v1.11.0 added VoteActivity.defers_to + VoteActivity.resolves — populated by the cross-document linker (linker v0.2.0+) for cross-session vote deferrals; always null at extract time. v1.10.0 graduated the `code` reference variant out of the unknown catch-all, broadened `treaty` to absorb Acordul/Protocolul/wider Carta forms, and populated best-effort `subject` fields on bill / law / parliamentary_resolution. v1.8.0 graduated report_facsimile from PendingBody to a strict body shape; v1.9.0 graduated 6 long-tail reference variants. All six document types continue to have strict body shapes; PendingBody is kept as a $def placeholder for future types.",
   "type": "object",
   "required": [
     "schema_version",
@@ -18,7 +18,9 @@
   ],
   "additionalProperties": false,
   "properties": {
-    "schema_version": { "const": "1.12.0" },
+    "schema_version": {
+      "const": "1.13.0"
+    },
     "document_id": {
       "type": "string",
       "pattern": "^mo://\\d{4}/[IVXM]+/[0-9A-Za-z]+$"
@@ -27,49 +29,87 @@
       "type": "string",
       "pattern": "^[0-9a-f]{12}$"
     },
-    "document_type": { "$ref": "#/$defs/DocumentType" },
-    "metadata": { "$ref": "#/$defs/Metadata" },
-    "raw_markdown_path": { "type": "string", "minLength": 1 },
-    "raw_pdf_path": { "type": "string", "minLength": 1 },
-    "extraction": { "$ref": "#/$defs/Extraction" },
-    "coverage": { "$ref": "#/$defs/Coverage" },
+    "document_type": {
+      "$ref": "#/$defs/DocumentType"
+    },
+    "metadata": {
+      "$ref": "#/$defs/Metadata"
+    },
+    "raw_markdown_path": {
+      "type": "string",
+      "minLength": 1
+    },
+    "raw_pdf_path": {
+      "type": "string",
+      "minLength": 1
+    },
+    "extraction": {
+      "$ref": "#/$defs/Extraction"
+    },
+    "coverage": {
+      "$ref": "#/$defs/Coverage"
+    },
     "body": true
   },
   "oneOf": [
     {
       "properties": {
-        "document_type": { "const": "question_register" },
-        "body": { "$ref": "#/$defs/QuestionRegisterBody" }
+        "document_type": {
+          "const": "question_register"
+        },
+        "body": {
+          "$ref": "#/$defs/QuestionRegisterBody"
+        }
       }
     },
     {
       "properties": {
-        "document_type": { "const": "other" },
-        "body": { "$ref": "#/$defs/OtherBody" }
+        "document_type": {
+          "const": "other"
+        },
+        "body": {
+          "$ref": "#/$defs/OtherBody"
+        }
       }
     },
     {
       "properties": {
-        "document_type": { "const": "plenary_stenogram" },
-        "body": { "$ref": "#/$defs/PlenaryStenogramBody" }
+        "document_type": {
+          "const": "plenary_stenogram"
+        },
+        "body": {
+          "$ref": "#/$defs/PlenaryStenogramBody"
+        }
       }
     },
     {
       "properties": {
-        "document_type": { "const": "plenary_joint_session" },
-        "body": { "$ref": "#/$defs/PlenaryJointSessionBody" }
+        "document_type": {
+          "const": "plenary_joint_session"
+        },
+        "body": {
+          "$ref": "#/$defs/PlenaryJointSessionBody"
+        }
       }
     },
     {
       "properties": {
-        "document_type": { "const": "committee_synthesis" },
-        "body": { "$ref": "#/$defs/CommitteeSynthesisBody" }
+        "document_type": {
+          "const": "committee_synthesis"
+        },
+        "body": {
+          "$ref": "#/$defs/CommitteeSynthesisBody"
+        }
       }
     },
     {
       "properties": {
-        "document_type": { "const": "report_facsimile" },
-        "body": { "$ref": "#/$defs/ReportFacsimileBody" }
+        "document_type": {
+          "const": "report_facsimile"
+        },
+        "body": {
+          "$ref": "#/$defs/ReportFacsimileBody"
+        }
       }
     }
   ],
@@ -86,113 +126,263 @@
     },
     "Metadata": {
       "type": "object",
-      "required": ["issue", "year", "part", "published"],
+      "required": [
+        "issue",
+        "year",
+        "part",
+        "published"
+      ],
       "additionalProperties": false,
       "properties": {
-        "issue": { "type": "string", "minLength": 1 },
-        "year": { "type": "integer", "minimum": 1990, "maximum": 2100 },
-        "part": { "type": "string", "pattern": "^[IVXM]+$" },
-        "published": { "type": "string", "format": "date" },
+        "issue": {
+          "type": "string",
+          "minLength": 1
+        },
+        "year": {
+          "type": "integer",
+          "minimum": 1990,
+          "maximum": 2100
+        },
+        "part": {
+          "type": "string",
+          "pattern": "^[IVXM]+$"
+        },
+        "published": {
+          "type": "string",
+          "format": "date"
+        },
         "chamber": {
           "anyOf": [
-            { "enum": ["Camera Deputaților", "Senatul", "joint"] },
-            { "type": "null" }
+            {
+              "enum": [
+                "Camera Deputaților",
+                "Senatul",
+                "joint"
+              ]
+            },
+            {
+              "type": "null"
+            }
           ]
         },
-        "session": { "type": ["string", "null"] },
+        "session": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
         "session_type": {
           "anyOf": [
-            { "enum": ["ordinary", "extraordinary"] },
-            { "type": "null" }
+            {
+              "enum": [
+                "ordinary",
+                "extraordinary"
+              ]
+            },
+            {
+              "type": "null"
+            }
           ]
         },
         "session_date": {
-          "anyOf": [{ "type": "string", "format": "date" }, { "type": "null" }]
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "date"
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
-        "legislature": { "type": ["string", "null"] }
+        "legislature": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
       }
     },
     "Extraction": {
       "type": "object",
-      "required": ["extractor", "extracted_at", "extractor_versions", "confidence"],
+      "required": [
+        "extractor",
+        "extracted_at",
+        "extractor_versions",
+        "confidence",
+        "identity"
+      ],
       "additionalProperties": false,
       "properties": {
-        "extractor": { "type": "string", "minLength": 1 },
-        "extracted_at": { "type": "string", "format": "date-time" },
+        "extractor": {
+          "type": "string",
+          "minLength": 1
+        },
+        "extracted_at": {
+          "type": "string",
+          "format": "date-time"
+        },
         "extractor_versions": {
           "type": "object",
-          "description": "Per-component versions: one key per shared helper (boilerplate, references, speakers, coverage, topics) plus one per per-type extractor (question_register, plenary_stenogram, plenary_joint_session, ...). Bumping any key invalidates sidecars whose body depends on that component.",
+          "description": "Per-component versions: one key per shared helper (boilerplate, references, speakers, coverage, topics, identity) plus one per per-type extractor (question_register, plenary_stenogram, plenary_joint_session, ...). Bumping any key invalidates sidecars whose body depends on that component.",
           "patternProperties": {
             "^[a-z][a-z0-9_]*$": {
               "anyOf": [
-                { "type": "string", "pattern": "^\\d+\\.\\d+\\.\\d+$" },
-                { "type": "null" }
+                {
+                  "type": "string",
+                  "pattern": "^\\d+\\.\\d+\\.\\d+$"
+                },
+                {
+                  "type": "null"
+                }
               ]
             }
           },
           "additionalProperties": false,
           "minProperties": 1
         },
-        "confidence": { "type": "number", "minimum": 0, "maximum": 1 }
+        "confidence": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "identity": {
+          "$ref": "#/$defs/EnvelopeIdentity"
+        }
       }
+    },
+    "EnvelopeIdentity": {
+      "type": "object",
+      "description": "Stable envelope-level identity (schema 1.13.0+). `record_id` mirrors `document_id` — the canonical key the indexer copies into the `mo-documents` Elasticsearch doc's `_id`. Per-record identity (`id` / `content_fingerprint` / `slug`) lives on the body grains themselves; this envelope block only carries the document-grain key.",
+      "required": [
+        "record_id"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "record_id": {
+          "$ref": "#/$defs/RecordId"
+        }
+      }
+    },
+    "RecordId": {
+      "type": "string",
+      "description": "Canonical record identity. Document grain matches `mo://YYYY/PART/ISSUE`; child grains append `#<fragment>` segments (`#agenda-N`, `#act-S`, `#vote-S`, `#interp-NUM`, `#q-REGNUM`, `#cmt-COMMITTEEID`, `#item-N`).",
+      "pattern": "^mo://\\d{4}/[IVXM]+/[0-9A-Za-z]+(?:#[A-Za-z0-9_\\-./]+)*$"
+    },
+    "Slug": {
+      "type": "string",
+      "description": "ASCII-folded URL slug (lowercase letters, digits, hyphens; never empty). Persisted across re-extractions per the slug-once contract.",
+      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+      "minLength": 1
     },
     "Coverage": {
       "type": "object",
       "description": "Diagnostic block: how much of the body did the extractor account for, and what's left unclaimed? Never gates writes; surfaces what the next extractor version needs to cover.",
-      "required": ["body_chars", "claimed_chars", "claimed_pct", "gaps", "claimed_by_policy"],
+      "required": [
+        "body_chars",
+        "claimed_chars",
+        "claimed_pct",
+        "gaps",
+        "claimed_by_policy"
+      ],
       "additionalProperties": false,
       "properties": {
-        "body_chars": { "type": "integer", "minimum": 0 },
-        "claimed_chars": { "type": "integer", "minimum": 0 },
-        "claimed_pct": { "type": "number", "minimum": 0, "maximum": 1 },
+        "body_chars": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "claimed_chars": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "claimed_pct": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
         "gaps": {
           "type": "array",
-          "items": { "$ref": "#/$defs/CoverageGap" }
+          "items": {
+            "$ref": "#/$defs/CoverageGap"
+          }
         },
         "claimed_by_policy": {
           "type": "array",
-          "items": { "$ref": "#/$defs/ClaimByPolicy" }
+          "items": {
+            "$ref": "#/$defs/ClaimByPolicy"
+          }
         }
       }
     },
     "CoverageGap": {
       "type": "object",
-      "required": ["chars", "lines", "preview"],
+      "required": [
+        "chars",
+        "lines",
+        "preview"
+      ],
       "additionalProperties": false,
       "properties": {
-        "chars": { "$ref": "#/$defs/CharRange" },
-        "lines": { "$ref": "#/$defs/LineRange" },
-        "preview": { "type": "string" }
+        "chars": {
+          "$ref": "#/$defs/CharRange"
+        },
+        "lines": {
+          "$ref": "#/$defs/LineRange"
+        },
+        "preview": {
+          "type": "string"
+        }
       }
     },
     "ClaimByPolicy": {
       "type": "object",
-      "required": ["chars", "lines", "reason"],
+      "required": [
+        "chars",
+        "lines",
+        "reason"
+      ],
       "additionalProperties": false,
       "properties": {
-        "chars": { "$ref": "#/$defs/CharRange" },
-        "lines": { "$ref": "#/$defs/LineRange" },
-        "reason": { "type": "string", "minLength": 1 }
+        "chars": {
+          "$ref": "#/$defs/CharRange"
+        },
+        "lines": {
+          "$ref": "#/$defs/LineRange"
+        },
+        "reason": {
+          "type": "string",
+          "minLength": 1
+        }
       }
     },
     "CharRange": {
       "type": "array",
-      "items": { "type": "integer", "minimum": 0 },
+      "items": {
+        "type": "integer",
+        "minimum": 0
+      },
       "minItems": 2,
       "maxItems": 2
     },
     "RefOffset": {
       "type": "object",
       "description": "Minimal pointer at another reference inside the same document body. Carries only the anchor's char_offsets so downstream consumers can locate the anchor in the body text and join transitively. Used by the cross-reference linker (xref_linker) to resolve bare `art. N` cites to their owning law/code/bill anchor.",
-      "required": ["char_offsets"],
+      "required": [
+        "char_offsets"
+      ],
       "additionalProperties": false,
       "properties": {
-        "char_offsets": { "$ref": "#/$defs/CharRange" }
+        "char_offsets": {
+          "$ref": "#/$defs/CharRange"
+        }
       }
     },
     "LineRange": {
       "type": "array",
-      "items": { "type": "integer", "minimum": 1 },
+      "items": {
+        "type": "integer",
+        "minimum": 1
+      },
       "minItems": 2,
       "maxItems": 2
     },
@@ -202,58 +392,137 @@
     },
     "SourceSpan": {
       "type": "object",
-      "required": ["chars", "lines", "content_sha"],
+      "required": [
+        "chars",
+        "lines",
+        "content_sha"
+      ],
       "additionalProperties": false,
       "properties": {
-        "chars": { "$ref": "#/$defs/CharRange" },
-        "lines": { "$ref": "#/$defs/LineRange" },
-        "content_sha": { "$ref": "#/$defs/ContentSha" }
+        "chars": {
+          "$ref": "#/$defs/CharRange"
+        },
+        "lines": {
+          "$ref": "#/$defs/LineRange"
+        },
+        "content_sha": {
+          "$ref": "#/$defs/ContentSha"
+        }
       }
     },
     "PerSectionExtraction": {
       "type": "object",
-      "required": ["extractor", "confidence", "source_span"],
+      "required": [
+        "extractor",
+        "confidence",
+        "source_span"
+      ],
       "additionalProperties": false,
       "properties": {
-        "extractor": { "type": "string", "minLength": 1 },
-        "confidence": { "type": "number", "minimum": 0, "maximum": 1 },
-        "source_span": { "$ref": "#/$defs/SourceSpan" }
+        "extractor": {
+          "type": "string",
+          "minLength": 1
+        },
+        "confidence": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "source_span": {
+          "$ref": "#/$defs/SourceSpan"
+        }
       }
     },
     "Speaker": {
       "type": "object",
-      "required": ["raw", "name", "title", "role", "party_group", "person_id"],
+      "required": [
+        "raw",
+        "name",
+        "title",
+        "role",
+        "party_group",
+        "person_id"
+      ],
       "additionalProperties": false,
       "properties": {
-        "raw": { "type": "string", "minLength": 1 },
-        "name": { "type": ["string", "null"] },
-        "title": { "type": ["string", "null"] },
-        "role": { "type": ["string", "null"] },
-        "party_group": { "type": ["string", "null"] },
-        "person_id": { "type": ["string", "null"] }
+        "raw": {
+          "type": "string",
+          "minLength": 1
+        },
+        "name": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "title": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "role": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "party_group": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "person_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
       }
     },
     "QuestionRegisterBody": {
       "type": "object",
-      "required": ["session_label", "chamber", "questions"],
+      "required": [
+        "session_label",
+        "chamber",
+        "questions"
+      ],
       "additionalProperties": false,
       "properties": {
-        "session_label": { "type": ["string", "null"] },
+        "session_label": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
         "chamber": {
           "anyOf": [
-            { "enum": ["Camera Deputaților", "Senatul"] },
-            { "type": "null" }
+            {
+              "enum": [
+                "Camera Deputaților",
+                "Senatul"
+              ]
+            },
+            {
+              "type": "null"
+            }
           ]
         },
         "questions": {
           "type": "array",
-          "items": { "$ref": "#/$defs/Question" }
+          "items": {
+            "$ref": "#/$defs/Question"
+          }
         }
       }
     },
     "Question": {
       "type": "object",
       "required": [
+        "id",
+        "content_fingerprint",
+        "slug",
         "ordinal",
         "addressee",
         "questioner",
@@ -266,58 +535,156 @@
       ],
       "additionalProperties": false,
       "properties": {
-        "ordinal": { "type": "integer", "minimum": 1 },
-        "addressee": { "$ref": "#/$defs/QuestionAddressee" },
-        "questioner": { "$ref": "#/$defs/Speaker" },
-        "registration_number": { "type": ["string", "null"] },
-        "registration_date": {
-          "anyOf": [{ "type": "string", "format": "date" }, { "type": "null" }]
+        "id": {
+          "$ref": "#/$defs/RecordId"
         },
-        "topic": { "type": ["string", "null"] },
-        "question_text": { "type": ["string", "null"] },
-        "source_span": { "$ref": "#/$defs/SourceSpan" },
-        "extraction": { "$ref": "#/$defs/PerSectionExtraction" }
+        "content_fingerprint": {
+          "$ref": "#/$defs/ContentSha"
+        },
+        "slug": {
+          "$ref": "#/$defs/Slug"
+        },
+        "ordinal": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "addressee": {
+          "$ref": "#/$defs/QuestionAddressee"
+        },
+        "questioner": {
+          "$ref": "#/$defs/Speaker"
+        },
+        "registration_number": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "registration_date": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "date"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "topic": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "question_text": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "source_span": {
+          "$ref": "#/$defs/SourceSpan"
+        },
+        "extraction": {
+          "$ref": "#/$defs/PerSectionExtraction"
+        }
       }
     },
     "QuestionAddressee": {
       "type": "object",
       "description": "Recipient of a written question. The `ministry` field holds the institution name (typically a ministry, but also intelligence services, CNSAS, ombudsman, central bank, etc.); naming kept for schema-doc continuity.",
-      "required": ["ministry", "ministry_normalized", "name", "role"],
+      "required": [
+        "ministry",
+        "ministry_normalized",
+        "name",
+        "role"
+      ],
       "additionalProperties": false,
       "properties": {
-        "ministry": { "type": ["string", "null"] },
-        "ministry_normalized": { "type": ["string", "null"] },
-        "name": { "type": ["string", "null"] },
-        "role": { "type": ["string", "null"] }
+        "ministry": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "ministry_normalized": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "name": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "role": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
       }
     },
     "OtherBody": {
       "type": "object",
-      "required": ["headings", "raw_markdown_excerpt", "extraction"],
+      "required": [
+        "headings",
+        "raw_markdown_excerpt",
+        "extraction"
+      ],
       "additionalProperties": false,
       "properties": {
         "headings": {
           "type": "array",
-          "items": { "$ref": "#/$defs/Heading" }
+          "items": {
+            "$ref": "#/$defs/Heading"
+          }
         },
-        "raw_markdown_excerpt": { "type": "string" },
+        "raw_markdown_excerpt": {
+          "type": "string"
+        },
         "extraction": {
           "type": "object",
-          "required": ["extractor", "confidence", "reason", "candidate_types"],
+          "required": [
+            "extractor",
+            "confidence",
+            "reason",
+            "candidate_types"
+          ],
           "additionalProperties": false,
           "properties": {
-            "extractor": { "type": "string" },
-            "confidence": { "type": "number", "minimum": 0, "maximum": 1 },
-            "reason": { "type": "string" },
+            "extractor": {
+              "type": "string"
+            },
+            "confidence": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            "reason": {
+              "type": "string"
+            },
             "candidate_types": {
               "type": "array",
               "items": {
                 "type": "object",
-                "required": ["type", "score"],
+                "required": [
+                  "type",
+                  "score"
+                ],
                 "additionalProperties": false,
                 "properties": {
-                  "type": { "$ref": "#/$defs/DocumentType" },
-                  "score": { "type": "number", "minimum": 0, "maximum": 1 }
+                  "type": {
+                    "$ref": "#/$defs/DocumentType"
+                  },
+                  "score": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 1
+                  }
                 }
               }
             }
@@ -327,12 +694,25 @@
     },
     "Heading": {
       "type": "object",
-      "required": ["level", "text", "line"],
+      "required": [
+        "level",
+        "text",
+        "line"
+      ],
       "additionalProperties": false,
       "properties": {
-        "level": { "type": "integer", "minimum": 1, "maximum": 6 },
-        "text": { "type": "string" },
-        "line": { "type": "integer", "minimum": 1 }
+        "level": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 6
+        },
+        "text": {
+          "type": "string"
+        },
+        "line": {
+          "type": "integer",
+          "minimum": 1
+        }
       }
     },
     "PendingBody": {
@@ -343,20 +723,33 @@
     "ReportFacsimileBody": {
       "type": "object",
       "description": "Body shape for `report_facsimile` documents — annual activity reports from constitutional bodies (CSAT, SRI, SIE, BNR, ANCOM, ANRE, Avocatul Poporului, Consiliul Legislativ, SRTv/SRR, etc.) reproduced verbatim ('reprodus în facsimil') in MO Partea II under R-suffix issues. Body intentionally carries minimal structure: report metadata + heading outline + excerpt. Full text remains in the sidecar markdown.",
-      "required": ["report", "headings", "raw_markdown_excerpt"],
+      "required": [
+        "report",
+        "headings",
+        "raw_markdown_excerpt"
+      ],
       "additionalProperties": false,
       "properties": {
-        "report": { "$ref": "#/$defs/ReportMetadata" },
+        "report": {
+          "$ref": "#/$defs/ReportMetadata"
+        },
         "headings": {
           "type": "array",
-          "items": { "$ref": "#/$defs/Heading" }
+          "items": {
+            "$ref": "#/$defs/Heading"
+          }
         },
-        "raw_markdown_excerpt": { "type": "string" }
+        "raw_markdown_excerpt": {
+          "type": "string"
+        }
       }
     },
     "ReportMetadata": {
       "type": "object",
       "required": [
+        "id",
+        "content_fingerprint",
+        "slug",
         "title",
         "issuing_body",
         "issuing_body_normalized",
@@ -365,69 +758,167 @@
       ],
       "additionalProperties": false,
       "properties": {
-        "title": { "type": ["string", "null"] },
-        "issuing_body": { "type": ["string", "null"] },
-        "issuing_body_normalized": { "type": ["string", "null"] },
-        "reporting_period": { "$ref": "#/$defs/ReportingPeriod" },
-        "received_at": { "$ref": "#/$defs/ReceivedAt" }
+        "id": {
+          "$ref": "#/$defs/RecordId"
+        },
+        "content_fingerprint": {
+          "$ref": "#/$defs/ContentSha"
+        },
+        "slug": {
+          "$ref": "#/$defs/Slug"
+        },
+        "title": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "issuing_body": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "issuing_body_normalized": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "reporting_period": {
+          "$ref": "#/$defs/ReportingPeriod"
+        },
+        "received_at": {
+          "$ref": "#/$defs/ReceivedAt"
+        }
       }
     },
     "ReportingPeriod": {
       "type": "object",
       "description": "Annual reports cover Jan 1 – Dec 31 of the reported year; both endpoints inclusive. Multi-year periods (e.g. CSAT bi-annual reports) widen `start`/`end` accordingly.",
-      "required": ["start", "end"],
+      "required": [
+        "start",
+        "end"
+      ],
       "additionalProperties": false,
       "properties": {
         "start": {
-          "anyOf": [{ "type": "string", "format": "date" }, { "type": "null" }]
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "date"
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
         "end": {
-          "anyOf": [{ "type": "string", "format": "date" }, { "type": "null" }]
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "date"
+            },
+            {
+              "type": "null"
+            }
+          ]
         }
       }
     },
     "ReceivedAt": {
       "type": "object",
       "description": "Parliamentary session in which the report was received. `received_in_document` is the back-link to the stenogram sidecar (`mo://YYYY/PART/ISSUE`), populated by a v0.2 cross-document linker pass.",
-      "required": ["session_kind", "session_date", "received_in_document"],
+      "required": [
+        "session_kind",
+        "session_date",
+        "received_in_document"
+      ],
       "additionalProperties": false,
       "properties": {
         "session_kind": {
           "anyOf": [
-            { "enum": ["joint", "camera", "senat"] },
-            { "type": "null" }
+            {
+              "enum": [
+                "joint",
+                "camera",
+                "senat"
+              ]
+            },
+            {
+              "type": "null"
+            }
           ]
         },
         "session_date": {
-          "anyOf": [{ "type": "string", "format": "date" }, { "type": "null" }]
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "date"
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
-        "received_in_document": { "type": ["string", "null"] }
+        "received_in_document": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
       }
     },
     "CommitteeSynthesisBody": {
       "type": "object",
       "description": "Body shape for `committee_synthesis` documents — weekly synthesis of one or more parliamentary committees' work. v0.1 ships per-committee block partitioning (name, signatures, dates, agenda items with bill cites + outcome text). Fields like `purpose`, `vote_summary.counts`, `roster.intra_committee_role` are best-effort and frequently null in v0.1; tighter parsing graduates as discovery-loop coverage stabilises.",
-      "required": ["period", "committees"],
+      "required": [
+        "period",
+        "committees"
+      ],
       "additionalProperties": false,
       "properties": {
-        "period": { "$ref": "#/$defs/CommitteePeriod" },
+        "period": {
+          "$ref": "#/$defs/CommitteePeriod"
+        },
         "committees": {
           "type": "array",
-          "items": { "$ref": "#/$defs/Committee" }
+          "items": {
+            "$ref": "#/$defs/Committee"
+          }
         }
       }
     },
     "CommitteePeriod": {
       "type": "object",
       "description": "Date range covered by the synthesis (e.g. 'Perioada: 2-5.06.2025'). Both endpoints inclusive; equal when the synthesis covers a single day.",
-      "required": ["start", "end"],
+      "required": [
+        "start",
+        "end"
+      ],
       "additionalProperties": false,
       "properties": {
         "start": {
-          "anyOf": [{ "type": "string", "format": "date" }, { "type": "null" }]
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "date"
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
         "end": {
-          "anyOf": [{ "type": "string", "format": "date" }, { "type": "null" }]
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "date"
+            },
+            {
+              "type": "null"
+            }
+          ]
         }
       }
     },
@@ -444,7 +935,10 @@
       ],
       "additionalProperties": false,
       "properties": {
-        "name": { "type": "string", "minLength": 1 },
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
         "kind": {
           "anyOf": [
             {
@@ -456,27 +950,52 @@
                 "inquiry_joint"
               ]
             },
-            { "type": "null" }
+            {
+              "type": "null"
+            }
           ]
         },
         "chair": {
-          "anyOf": [{ "$ref": "#/$defs/Speaker" }, { "type": "null" }]
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Speaker"
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
         "secretary": {
-          "anyOf": [{ "$ref": "#/$defs/Speaker" }, { "type": "null" }]
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Speaker"
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
         "meetings": {
           "type": "array",
-          "items": { "$ref": "#/$defs/CommitteeMeeting" }
+          "items": {
+            "$ref": "#/$defs/CommitteeMeeting"
+          }
         },
-        "source_span": { "$ref": "#/$defs/SourceSpan" },
-        "extraction": { "$ref": "#/$defs/PerSectionExtraction" }
+        "source_span": {
+          "$ref": "#/$defs/SourceSpan"
+        },
+        "extraction": {
+          "$ref": "#/$defs/PerSectionExtraction"
+        }
       }
     },
     "CommitteeMeeting": {
       "type": "object",
       "description": "v0.1 emits one meeting per committee block — the synthesis groups multi-day work as one narrative. Per-day splits are deferred to v0.2 when per-day rosters genuinely diverge.",
       "required": [
+        "id",
+        "content_fingerprint",
+        "slug",
         "dates",
         "time_windows",
         "format",
@@ -489,18 +1008,40 @@
       ],
       "additionalProperties": false,
       "properties": {
+        "id": {
+          "$ref": "#/$defs/RecordId"
+        },
+        "content_fingerprint": {
+          "$ref": "#/$defs/ContentSha"
+        },
+        "slug": {
+          "$ref": "#/$defs/Slug"
+        },
         "dates": {
           "type": "array",
-          "items": { "type": "string", "format": "date" }
+          "items": {
+            "type": "string",
+            "format": "date"
+          }
         },
         "time_windows": {
           "type": "array",
-          "items": { "$ref": "#/$defs/TimeWindow" }
+          "items": {
+            "$ref": "#/$defs/TimeWindow"
+          }
         },
         "format": {
           "anyOf": [
-            { "enum": ["in_person", "online", "mixed"] },
-            { "type": "null" }
+            {
+              "enum": [
+                "in_person",
+                "online",
+                "mixed"
+              ]
+            },
+            {
+              "type": "null"
+            }
           ]
         },
         "purpose": {
@@ -513,64 +1054,133 @@
                 "audiere_candidați"
               ]
             },
-            { "type": "null" }
+            {
+              "type": "null"
+            }
           ]
         },
         "joint_with": {
           "type": "array",
-          "items": { "$ref": "#/$defs/JointCommittee" }
+          "items": {
+            "$ref": "#/$defs/JointCommittee"
+          }
         },
         "roster": {
           "type": "array",
-          "items": { "$ref": "#/$defs/RosterEntry" }
+          "items": {
+            "$ref": "#/$defs/RosterEntry"
+          }
         },
         "agenda": {
           "type": "array",
-          "items": { "$ref": "#/$defs/CommitteeAgendaItem" }
+          "items": {
+            "$ref": "#/$defs/CommitteeAgendaItem"
+          }
         },
-        "source_span": { "$ref": "#/$defs/SourceSpan" },
-        "extraction": { "$ref": "#/$defs/PerSectionExtraction" }
+        "source_span": {
+          "$ref": "#/$defs/SourceSpan"
+        },
+        "extraction": {
+          "$ref": "#/$defs/PerSectionExtraction"
+        }
       }
     },
     "TimeWindow": {
       "type": "object",
       "description": "Single contiguous interval; multi-window meetings emit multiple entries. Format strings preserve the source layout (e.g. '15.00' or '15:00') — normalisation happens downstream when needed.",
-      "required": ["start", "end"],
+      "required": [
+        "start",
+        "end"
+      ],
       "additionalProperties": false,
       "properties": {
-        "start": { "type": ["string", "null"] },
-        "end": { "type": ["string", "null"] }
+        "start": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "end": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
       }
     },
     "JointCommittee": {
       "type": "object",
-      "required": ["name", "chamber"],
+      "required": [
+        "name",
+        "chamber"
+      ],
       "additionalProperties": false,
       "properties": {
-        "name": { "type": "string", "minLength": 1 },
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
         "chamber": {
-          "anyOf": [{ "enum": ["camera", "senat"] }, { "type": "null" }]
+          "anyOf": [
+            {
+              "enum": [
+                "camera",
+                "senat"
+              ]
+            },
+            {
+              "type": "null"
+            }
+          ]
         }
       }
     },
     "RosterEntry": {
       "type": "object",
       "description": "One committee member's per-meeting attendance state. `mode` defaults to `physical` for pre-pandemic synthesis where no per-attendee marker exists; explicit 'Prezent fizic'/'Prezent online'/'Absent' annotations override.",
-      "required": ["speaker", "mode", "intra_committee_role", "substituted_by"],
+      "required": [
+        "speaker",
+        "mode",
+        "intra_committee_role",
+        "substituted_by"
+      ],
       "additionalProperties": false,
       "properties": {
-        "speaker": { "$ref": "#/$defs/Speaker" },
+        "speaker": {
+          "$ref": "#/$defs/Speaker"
+        },
         "mode": {
-          "enum": ["physical", "online", "absent", "substituted"]
+          "enum": [
+            "physical",
+            "online",
+            "absent",
+            "substituted"
+          ]
         },
         "intra_committee_role": {
           "anyOf": [
-            { "enum": ["președinte", "vicepreședinte", "secretar", "membru"] },
-            { "type": "null" }
+            {
+              "enum": [
+                "președinte",
+                "vicepreședinte",
+                "secretar",
+                "membru"
+              ]
+            },
+            {
+              "type": "null"
+            }
           ]
         },
         "substituted_by": {
-          "anyOf": [{ "$ref": "#/$defs/Speaker" }, { "type": "null" }]
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Speaker"
+            },
+            {
+              "type": "null"
+            }
+          ]
         }
       }
     },
@@ -589,27 +1199,75 @@
       "properties": {
         "outcome": {
           "anyOf": [
-            { "enum": ["approved", "rejected", "deferred"] },
-            { "type": "null" }
+            {
+              "enum": [
+                "approved",
+                "rejected",
+                "deferred"
+              ]
+            },
+            {
+              "type": "null"
+            }
           ]
         },
         "majority": {
           "anyOf": [
-            { "enum": ["majority", "unanimous", "tied"] },
-            { "type": "null" }
+            {
+              "enum": [
+                "majority",
+                "unanimous",
+                "tied"
+              ]
+            },
+            {
+              "type": "null"
+            }
           ]
         },
         "for": {
-          "anyOf": [{ "type": "integer", "minimum": 0 }, { "type": "null" }]
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
         "against": {
-          "anyOf": [{ "type": "integer", "minimum": 0 }, { "type": "null" }]
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
         "abstain": {
-          "anyOf": [{ "type": "integer", "minimum": 0 }, { "type": "null" }]
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
         "amendments_passed": {
-          "anyOf": [{ "type": "integer", "minimum": 0 }, { "type": "null" }]
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0
+            },
+            {
+              "type": "null"
+            }
+          ]
         }
       }
     },
@@ -617,6 +1275,9 @@
       "type": "object",
       "description": "One bill / proposal / EU document the committee considered. v0.1 surfaces ordinal, title, primary_references (bill/law/OUG/etc.), committee_role (fond / aviz / fond_comun), output_type (raport / aviz / amânare / …), and a narrative outcome_text. Structured vote_summary remains best-effort and is null when the synthesis doesn't include a tally.",
       "required": [
+        "id",
+        "content_fingerprint",
+        "slug",
         "ordinal",
         "title",
         "primary_references",
@@ -631,20 +1292,47 @@
       ],
       "additionalProperties": false,
       "properties": {
-        "ordinal": { "type": "integer", "minimum": 1 },
-        "title": { "type": "string", "minLength": 1 },
+        "id": {
+          "$ref": "#/$defs/RecordId"
+        },
+        "content_fingerprint": {
+          "$ref": "#/$defs/ContentSha"
+        },
+        "slug": {
+          "$ref": "#/$defs/Slug"
+        },
+        "ordinal": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1
+        },
         "primary_references": {
           "type": "array",
-          "items": { "$ref": "#/$defs/Reference" }
+          "items": {
+            "$ref": "#/$defs/Reference"
+          }
         },
         "co_committees": {
           "type": "array",
-          "items": { "type": "string" }
+          "items": {
+            "type": "string"
+          }
         },
         "committee_role": {
           "anyOf": [
-            { "enum": ["fond", "aviz", "fond_comun"] },
-            { "type": "null" }
+            {
+              "enum": [
+                "fond",
+                "aviz",
+                "fond_comun"
+              ]
+            },
+            {
+              "type": "null"
+            }
           ]
         },
         "output_type": {
@@ -662,209 +1350,568 @@
                 "amânare"
               ]
             },
-            { "type": "null" }
+            {
+              "type": "null"
+            }
           ]
         },
         "for_committees": {
           "type": "array",
-          "items": { "type": "string" }
+          "items": {
+            "type": "string"
+          }
         },
-        "outcome_text": { "type": ["string", "null"] },
+        "outcome_text": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
         "vote_summary": {
-          "anyOf": [{ "$ref": "#/$defs/CommitteeVoteSummary" }, { "type": "null" }]
+          "anyOf": [
+            {
+              "$ref": "#/$defs/CommitteeVoteSummary"
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
-        "source_span": { "$ref": "#/$defs/SourceSpan" },
-        "extraction": { "$ref": "#/$defs/PerSectionExtraction" }
+        "source_span": {
+          "$ref": "#/$defs/SourceSpan"
+        },
+        "extraction": {
+          "$ref": "#/$defs/PerSectionExtraction"
+        }
       }
     },
     "Reference": {
       "description": "Discriminated union of reference shapes. Universal fields on every variant: type, raw, char_offsets. v1.9.0 graduated 6 long-tail variants (motion, court_decision, constitution, regulation, eu_doc, treaty) from `unknown` to strict shapes; v1.10.0 graduates the `code` variant (Romanian named codes — Codul muncii / penal / fiscal / ...). Strict variants now total 13; `unknown` remains as a catch-all for cite-shaped spans that don't classify into any strict type.",
       "oneOf": [
-        { "$ref": "#/$defs/BillReference" },
-        { "$ref": "#/$defs/LawReference" },
-        { "$ref": "#/$defs/OugReference" },
-        { "$ref": "#/$defs/OgReference" },
-        { "$ref": "#/$defs/ChamberResolutionReference" },
-        { "$ref": "#/$defs/ParliamentaryResolutionReference" },
-        { "$ref": "#/$defs/MotionReference" },
-        { "$ref": "#/$defs/CourtDecisionReference" },
-        { "$ref": "#/$defs/ConstitutionReference" },
-        { "$ref": "#/$defs/RegulationReference" },
-        { "$ref": "#/$defs/EuDocReference" },
-        { "$ref": "#/$defs/TreatyReference" },
-        { "$ref": "#/$defs/CodeReference" },
-        { "$ref": "#/$defs/UnknownReference" }
+        {
+          "$ref": "#/$defs/BillReference"
+        },
+        {
+          "$ref": "#/$defs/LawReference"
+        },
+        {
+          "$ref": "#/$defs/OugReference"
+        },
+        {
+          "$ref": "#/$defs/OgReference"
+        },
+        {
+          "$ref": "#/$defs/ChamberResolutionReference"
+        },
+        {
+          "$ref": "#/$defs/ParliamentaryResolutionReference"
+        },
+        {
+          "$ref": "#/$defs/MotionReference"
+        },
+        {
+          "$ref": "#/$defs/CourtDecisionReference"
+        },
+        {
+          "$ref": "#/$defs/ConstitutionReference"
+        },
+        {
+          "$ref": "#/$defs/RegulationReference"
+        },
+        {
+          "$ref": "#/$defs/EuDocReference"
+        },
+        {
+          "$ref": "#/$defs/TreatyReference"
+        },
+        {
+          "$ref": "#/$defs/CodeReference"
+        },
+        {
+          "$ref": "#/$defs/UnknownReference"
+        }
       ]
     },
     "BillReference": {
       "type": "object",
-      "required": ["type", "raw", "char_offsets", "prefix", "number", "year"],
+      "required": [
+        "type",
+        "raw",
+        "char_offsets",
+        "prefix",
+        "number",
+        "year"
+      ],
       "additionalProperties": false,
       "properties": {
-        "type": { "const": "bill" },
-        "raw": { "type": "string", "minLength": 1 },
-        "char_offsets": { "$ref": "#/$defs/CharRange" },
-        "prefix": { "enum": ["Pl-x", "PL-x", "L"] },
-        "number": { "type": "string", "minLength": 1 },
-        "year": { "type": "integer", "minimum": 1990, "maximum": 2100 },
+        "type": {
+          "const": "bill"
+        },
+        "raw": {
+          "type": "string",
+          "minLength": 1
+        },
+        "char_offsets": {
+          "$ref": "#/$defs/CharRange"
+        },
+        "prefix": {
+          "enum": [
+            "Pl-x",
+            "PL-x",
+            "L"
+          ]
+        },
+        "number": {
+          "type": "string",
+          "minLength": 1
+        },
+        "year": {
+          "type": "integer",
+          "minimum": 1990,
+          "maximum": 2100
+        },
         "secondary_year": {
           "anyOf": [
-            { "type": "integer", "minimum": 1990, "maximum": 2100 },
-            { "type": "null" }
+            {
+              "type": "integer",
+              "minimum": 1990,
+              "maximum": 2100
+            },
+            {
+              "type": "null"
+            }
           ]
         },
         "chamber_of_origin": {
-          "anyOf": [{ "enum": ["camera", "senat"] }, { "type": "null" }]
+          "anyOf": [
+            {
+              "enum": [
+                "camera",
+                "senat"
+              ]
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
-        "procedure": { "type": ["string", "null"] },
-        "subject": { "type": ["string", "null"] }
+        "procedure": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "subject": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
       }
     },
     "LawReference": {
       "type": "object",
-      "required": ["type", "raw", "char_offsets", "number", "year"],
+      "required": [
+        "type",
+        "raw",
+        "char_offsets",
+        "number",
+        "year"
+      ],
       "additionalProperties": false,
       "properties": {
-        "type": { "const": "law" },
-        "raw": { "type": "string", "minLength": 1 },
-        "char_offsets": { "$ref": "#/$defs/CharRange" },
-        "number": { "type": "string", "minLength": 1 },
-        "year": { "type": "integer", "minimum": 1900, "maximum": 2100 },
-        "subject": { "type": ["string", "null"] }
+        "type": {
+          "const": "law"
+        },
+        "raw": {
+          "type": "string",
+          "minLength": 1
+        },
+        "char_offsets": {
+          "$ref": "#/$defs/CharRange"
+        },
+        "number": {
+          "type": "string",
+          "minLength": 1
+        },
+        "year": {
+          "type": "integer",
+          "minimum": 1900,
+          "maximum": 2100
+        },
+        "subject": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
       }
     },
     "OugReference": {
       "type": "object",
-      "required": ["type", "raw", "char_offsets", "number", "year"],
+      "required": [
+        "type",
+        "raw",
+        "char_offsets",
+        "number",
+        "year"
+      ],
       "additionalProperties": false,
       "properties": {
-        "type": { "const": "oug" },
-        "raw": { "type": "string", "minLength": 1 },
-        "char_offsets": { "$ref": "#/$defs/CharRange" },
-        "number": { "type": "string", "minLength": 1 },
-        "year": { "type": "integer", "minimum": 1990, "maximum": 2100 },
-        "issuer": { "type": ["string", "null"] }
+        "type": {
+          "const": "oug"
+        },
+        "raw": {
+          "type": "string",
+          "minLength": 1
+        },
+        "char_offsets": {
+          "$ref": "#/$defs/CharRange"
+        },
+        "number": {
+          "type": "string",
+          "minLength": 1
+        },
+        "year": {
+          "type": "integer",
+          "minimum": 1990,
+          "maximum": 2100
+        },
+        "issuer": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
       }
     },
     "OgReference": {
       "type": "object",
-      "required": ["type", "raw", "char_offsets", "number", "year"],
+      "required": [
+        "type",
+        "raw",
+        "char_offsets",
+        "number",
+        "year"
+      ],
       "additionalProperties": false,
       "properties": {
-        "type": { "const": "og" },
-        "raw": { "type": "string", "minLength": 1 },
-        "char_offsets": { "$ref": "#/$defs/CharRange" },
-        "number": { "type": "string", "minLength": 1 },
-        "year": { "type": "integer", "minimum": 1990, "maximum": 2100 },
-        "issuer": { "type": ["string", "null"] }
+        "type": {
+          "const": "og"
+        },
+        "raw": {
+          "type": "string",
+          "minLength": 1
+        },
+        "char_offsets": {
+          "$ref": "#/$defs/CharRange"
+        },
+        "number": {
+          "type": "string",
+          "minLength": 1
+        },
+        "year": {
+          "type": "integer",
+          "minimum": 1990,
+          "maximum": 2100
+        },
+        "issuer": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
       }
     },
     "ChamberResolutionReference": {
       "type": "object",
-      "required": ["type", "raw", "char_offsets", "prefix", "number", "year"],
+      "required": [
+        "type",
+        "raw",
+        "char_offsets",
+        "prefix",
+        "number",
+        "year"
+      ],
       "additionalProperties": false,
       "properties": {
-        "type": { "const": "chamber_resolution" },
-        "raw": { "type": "string", "minLength": 1 },
-        "char_offsets": { "$ref": "#/$defs/CharRange" },
-        "prefix": { "enum": ["PHCD", "PHS", "PHCDS"] },
-        "number": { "type": "string", "minLength": 1 },
-        "year": { "type": "integer", "minimum": 1990, "maximum": 2100 },
+        "type": {
+          "const": "chamber_resolution"
+        },
+        "raw": {
+          "type": "string",
+          "minLength": 1
+        },
+        "char_offsets": {
+          "$ref": "#/$defs/CharRange"
+        },
+        "prefix": {
+          "enum": [
+            "PHCD",
+            "PHS",
+            "PHCDS"
+          ]
+        },
+        "number": {
+          "type": "string",
+          "minLength": 1
+        },
+        "year": {
+          "type": "integer",
+          "minimum": 1990,
+          "maximum": 2100
+        },
         "chamber": {
-          "anyOf": [{ "enum": ["camera", "senat"] }, { "type": "null" }]
+          "anyOf": [
+            {
+              "enum": [
+                "camera",
+                "senat"
+              ]
+            },
+            {
+              "type": "null"
+            }
+          ]
         }
       }
     },
     "ParliamentaryResolutionReference": {
       "type": "object",
       "description": "Hotărâre a Parlamentului României (HP) — joint Camera+Senat resolution.",
-      "required": ["type", "raw", "char_offsets", "number", "year"],
+      "required": [
+        "type",
+        "raw",
+        "char_offsets",
+        "number",
+        "year"
+      ],
       "additionalProperties": false,
       "properties": {
-        "type": { "const": "parliamentary_resolution" },
-        "raw": { "type": "string", "minLength": 1 },
-        "char_offsets": { "$ref": "#/$defs/CharRange" },
-        "number": { "type": "string", "minLength": 1 },
-        "year": { "type": "integer", "minimum": 1990, "maximum": 2100 },
-        "subject": { "type": ["string", "null"] }
+        "type": {
+          "const": "parliamentary_resolution"
+        },
+        "raw": {
+          "type": "string",
+          "minLength": 1
+        },
+        "char_offsets": {
+          "$ref": "#/$defs/CharRange"
+        },
+        "number": {
+          "type": "string",
+          "minLength": 1
+        },
+        "year": {
+          "type": "integer",
+          "minimum": 1990,
+          "maximum": 2100
+        },
+        "subject": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
       }
     },
     "MotionReference": {
       "type": "object",
       "description": "Parliamentary motion — `Moțiunea simplă` (simple political motion) or `Moțiunea de cenzură` (no-confidence vote). v1.9.0+. The chamber-of-origin enum mirrors the bill cite: `camera`, `senat`, or null when the motion is joint or unspecified.",
-      "required": ["type", "raw", "char_offsets", "motion_kind"],
+      "required": [
+        "type",
+        "raw",
+        "char_offsets",
+        "motion_kind"
+      ],
       "additionalProperties": false,
       "properties": {
-        "type": { "const": "motion" },
-        "raw": { "type": "string", "minLength": 1 },
-        "char_offsets": { "$ref": "#/$defs/CharRange" },
-        "motion_kind": { "enum": ["simple", "censure"] },
-        "number": { "type": ["string", "null"] },
-        "year": {
-          "anyOf": [
-            { "type": "integer", "minimum": 1990, "maximum": 2100 },
-            { "type": "null" }
+        "type": {
+          "const": "motion"
+        },
+        "raw": {
+          "type": "string",
+          "minLength": 1
+        },
+        "char_offsets": {
+          "$ref": "#/$defs/CharRange"
+        },
+        "motion_kind": {
+          "enum": [
+            "simple",
+            "censure"
           ]
         },
-        "title": { "type": ["string", "null"] },
+        "number": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "year": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 1990,
+              "maximum": 2100
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "title": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
         "chamber_of_origin": {
-          "anyOf": [{ "enum": ["camera", "senat"] }, { "type": "null" }]
+          "anyOf": [
+            {
+              "enum": [
+                "camera",
+                "senat"
+              ]
+            },
+            {
+              "type": "null"
+            }
+          ]
         }
       }
     },
     "CourtDecisionReference": {
       "type": "object",
       "description": "Constitutional Court decision — `Decizia CCR nr. N/Y` or `Decizia Curții Constituționale nr. N/Y`. Court enum is single-valued (CCR) for v1.9.0; future versions may add ICCJ / Curtea de Apel.",
-      "required": ["type", "raw", "char_offsets", "court", "number", "year"],
+      "required": [
+        "type",
+        "raw",
+        "char_offsets",
+        "court",
+        "number",
+        "year"
+      ],
       "additionalProperties": false,
       "properties": {
-        "type": { "const": "court_decision" },
-        "raw": { "type": "string", "minLength": 1 },
-        "char_offsets": { "$ref": "#/$defs/CharRange" },
-        "court": { "enum": ["CCR"] },
-        "number": { "type": "string", "minLength": 1 },
-        "year": { "type": "integer", "minimum": 1990, "maximum": 2100 }
+        "type": {
+          "const": "court_decision"
+        },
+        "raw": {
+          "type": "string",
+          "minLength": 1
+        },
+        "char_offsets": {
+          "$ref": "#/$defs/CharRange"
+        },
+        "court": {
+          "enum": [
+            "CCR"
+          ]
+        },
+        "number": {
+          "type": "string",
+          "minLength": 1
+        },
+        "year": {
+          "type": "integer",
+          "minimum": 1990,
+          "maximum": 2100
+        }
       }
     },
     "ConstitutionReference": {
       "type": "object",
       "description": "Romanian Constitution citation — `art. N (alin. M) (lit. X) din Constituție` / `Constituția României, art. N`. The `article` field carries the full article path as cited (`N`, `N alin. (M)`, `N alin. (M) lit. (X)`); structured parsing of paragraph/letter is deferred.",
-      "required": ["type", "raw", "char_offsets", "article"],
+      "required": [
+        "type",
+        "raw",
+        "char_offsets",
+        "article"
+      ],
       "additionalProperties": false,
       "properties": {
-        "type": { "const": "constitution" },
-        "raw": { "type": "string", "minLength": 1 },
-        "char_offsets": { "$ref": "#/$defs/CharRange" },
-        "article": { "type": "string", "minLength": 1 }
+        "type": {
+          "const": "constitution"
+        },
+        "raw": {
+          "type": "string",
+          "minLength": 1
+        },
+        "char_offsets": {
+          "$ref": "#/$defs/CharRange"
+        },
+        "article": {
+          "type": "string",
+          "minLength": 1
+        }
       }
     },
     "RegulationReference": {
       "type": "object",
       "description": "Parliamentary internal regulation citation — `art. N din Regulamentul Camerei Deputaților` / `Regulamentul Senatului art. N` / `Regulamentul activităților comune ... art. N`. Chamber discriminator: `camera`, `senat`, `joint` (joint Camera+Senat regulation), or null when ambiguous.",
-      "required": ["type", "raw", "char_offsets", "chamber", "article"],
+      "required": [
+        "type",
+        "raw",
+        "char_offsets",
+        "chamber",
+        "article"
+      ],
       "additionalProperties": false,
       "properties": {
-        "type": { "const": "regulation" },
-        "raw": { "type": "string", "minLength": 1 },
-        "char_offsets": { "$ref": "#/$defs/CharRange" },
+        "type": {
+          "const": "regulation"
+        },
+        "raw": {
+          "type": "string",
+          "minLength": 1
+        },
+        "char_offsets": {
+          "$ref": "#/$defs/CharRange"
+        },
         "chamber": {
           "anyOf": [
-            { "enum": ["camera", "senat", "joint"] },
-            { "type": "null" }
+            {
+              "enum": [
+                "camera",
+                "senat",
+                "joint"
+              ]
+            },
+            {
+              "type": "null"
+            }
           ]
         },
-        "article": { "type": ["string", "null"] }
+        "article": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
       }
     },
     "EuDocReference": {
       "type": "object",
       "description": "EU document citation — Commission/Council/Parliament document codes. Patterns: `COM(2024)123 final`, `JOIN(2024)45`, `Regulamentul (UE) 2024/123`, `Directiva 2024/45/UE`, `SWD(2024)78`. The `code_kind` discriminator names the document family; `number` and `year` are extracted when present.",
-      "required": ["type", "raw", "char_offsets", "code_kind"],
+      "required": [
+        "type",
+        "raw",
+        "char_offsets",
+        "code_kind"
+      ],
       "additionalProperties": false,
       "properties": {
-        "type": { "const": "eu_doc" },
-        "raw": { "type": "string", "minLength": 1 },
-        "char_offsets": { "$ref": "#/$defs/CharRange" },
+        "type": {
+          "const": "eu_doc"
+        },
+        "raw": {
+          "type": "string",
+          "minLength": 1
+        },
+        "char_offsets": {
+          "$ref": "#/$defs/CharRange"
+        },
         "code_kind": {
           "enum": [
             "COM",
@@ -877,11 +1924,22 @@
             "treaty"
           ]
         },
-        "number": { "type": ["string", "null"] },
+        "number": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
         "year": {
           "anyOf": [
-            { "type": "integer", "minimum": 1950, "maximum": 2100 },
-            { "type": "null" }
+            {
+              "type": "integer",
+              "minimum": 1950,
+              "maximum": 2100
+            },
+            {
+              "type": "null"
+            }
           ]
         }
       }
@@ -889,17 +1947,38 @@
     "TreatyReference": {
       "type": "object",
       "description": "International treaty / convention citation — `Tratatul de la Lisabona`, `Convenția de la Geneva privind ...`, `Carta Națiunilor Unite`. The `name` field carries the canonical title as cited; `year` is the signing year when present in the citation.",
-      "required": ["type", "raw", "char_offsets", "name"],
+      "required": [
+        "type",
+        "raw",
+        "char_offsets",
+        "name"
+      ],
       "additionalProperties": false,
       "properties": {
-        "type": { "const": "treaty" },
-        "raw": { "type": "string", "minLength": 1 },
-        "char_offsets": { "$ref": "#/$defs/CharRange" },
-        "name": { "type": "string", "minLength": 1 },
+        "type": {
+          "const": "treaty"
+        },
+        "raw": {
+          "type": "string",
+          "minLength": 1
+        },
+        "char_offsets": {
+          "$ref": "#/$defs/CharRange"
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
         "year": {
           "anyOf": [
-            { "type": "integer", "minimum": 1900, "maximum": 2100 },
-            { "type": "null" }
+            {
+              "type": "integer",
+              "minimum": 1900,
+              "maximum": 2100
+            },
+            {
+              "type": "null"
+            }
           ]
         }
       }
@@ -907,12 +1986,24 @@
     "CodeReference": {
       "type": "object",
       "description": "Romanian named code citation — `Codul muncii`, `Codul penal`, `Codul fiscal`, `Codul de procedură penală`, etc. v1.10.0+. Includes genitive forms (`Codului muncii`) and combinations with `art. N` (`Codul fiscal art. 5` or `art. 5 din Codul fiscal`). The `code_kind` enum names the canonical code; the optional `article` field captures the article number when the cite includes one.",
-      "required": ["type", "raw", "char_offsets", "code_kind"],
+      "required": [
+        "type",
+        "raw",
+        "char_offsets",
+        "code_kind"
+      ],
       "additionalProperties": false,
       "properties": {
-        "type": { "const": "code" },
-        "raw": { "type": "string", "minLength": 1 },
-        "char_offsets": { "$ref": "#/$defs/CharRange" },
+        "type": {
+          "const": "code"
+        },
+        "raw": {
+          "type": "string",
+          "minLength": 1
+        },
+        "char_offsets": {
+          "$ref": "#/$defs/CharRange"
+        },
         "code_kind": {
           "enum": [
             "muncii",
@@ -933,58 +2024,139 @@
             "insolventei"
           ]
         },
-        "article": { "type": ["string", "null"] }
+        "article": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
       }
     },
     "UnknownReference": {
       "type": "object",
       "description": "Catch-all for spans that look reference-shaped but don't classify into any strict variant. The `hint` field carries a coarse classifier output (law-ish, court-ish, eu-doc-ish, other) that future extractor versions use to graduate variants. The `resolved_to` field (additive, schema 1.12.0) is populated by the cross-reference linker for bare `art. N` cites whose owning law/code/bill anchor lives elsewhere in the same document body; always null at extract time, populated by `monitorul-ii link --xref-only`.",
-      "required": ["type", "raw", "char_offsets", "hint"],
+      "required": [
+        "type",
+        "raw",
+        "char_offsets",
+        "hint"
+      ],
       "additionalProperties": false,
       "properties": {
-        "type": { "const": "unknown" },
-        "raw": { "type": "string", "minLength": 1 },
-        "char_offsets": { "$ref": "#/$defs/CharRange" },
+        "type": {
+          "const": "unknown"
+        },
+        "raw": {
+          "type": "string",
+          "minLength": 1
+        },
+        "char_offsets": {
+          "$ref": "#/$defs/CharRange"
+        },
         "hint": {
           "anyOf": [
-            { "enum": ["law-ish", "court-ish", "eu-doc-ish", "other"] },
-            { "type": "null" }
+            {
+              "enum": [
+                "law-ish",
+                "court-ish",
+                "eu-doc-ish",
+                "other"
+              ]
+            },
+            {
+              "type": "null"
+            }
           ]
         },
         "resolved_to": {
-          "anyOf": [{ "$ref": "#/$defs/RefOffset" }, { "type": "null" }]
+          "anyOf": [
+            {
+              "$ref": "#/$defs/RefOffset"
+            },
+            {
+              "type": "null"
+            }
+          ]
         }
       }
     },
     "VoteCounts": {
       "type": "object",
-      "required": ["for", "against", "abstain", "not_voting", "total_voting"],
+      "required": [
+        "for",
+        "against",
+        "abstain",
+        "not_voting",
+        "total_voting"
+      ],
       "additionalProperties": false,
       "properties": {
         "for": {
           "anyOf": [
-            { "type": "integer", "minimum": 0 },
-            { "const": "unanimous" },
-            { "type": "null" }
+            {
+              "type": "integer",
+              "minimum": 0
+            },
+            {
+              "const": "unanimous"
+            },
+            {
+              "type": "null"
+            }
           ]
         },
         "against": {
-          "anyOf": [{ "type": "integer", "minimum": 0 }, { "type": "null" }]
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
         "abstain": {
-          "anyOf": [{ "type": "integer", "minimum": 0 }, { "type": "null" }]
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
         "not_voting": {
-          "anyOf": [{ "type": "integer", "minimum": 0 }, { "type": "null" }]
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
         "total_voting": {
-          "anyOf": [{ "type": "integer", "minimum": 0 }, { "type": "null" }]
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0
+            },
+            {
+              "type": "null"
+            }
+          ]
         }
       }
     },
     "Topics": {
       "type": "object",
-      "required": ["primary", "secondary"],
+      "required": [
+        "primary",
+        "secondary"
+      ],
       "additionalProperties": false,
       "properties": {
         "primary": {
@@ -1011,35 +2183,75 @@
         },
         "secondary": {
           "type": "array",
-          "items": { "type": "string" }
+          "items": {
+            "type": "string"
+          }
         }
       }
     },
     "Attendance": {
       "type": "object",
-      "required": ["registered", "total_seats"],
+      "required": [
+        "registered",
+        "total_seats"
+      ],
       "additionalProperties": false,
       "properties": {
         "registered": {
-          "anyOf": [{ "type": "integer", "minimum": 0 }, { "type": "null" }]
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
         "total_seats": {
-          "anyOf": [{ "type": "integer", "minimum": 0 }, { "type": "null" }]
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0
+            },
+            {
+              "type": "null"
+            }
+          ]
         }
       }
     },
     "ChairSegment": {
       "type": "object",
-      "required": ["chair", "secretaries", "segment_label", "started_at"],
+      "required": [
+        "chair",
+        "secretaries",
+        "segment_label",
+        "started_at"
+      ],
       "additionalProperties": false,
       "properties": {
-        "chair": { "$ref": "#/$defs/Speaker" },
+        "chair": {
+          "$ref": "#/$defs/Speaker"
+        },
         "secretaries": {
           "type": "array",
-          "items": { "$ref": "#/$defs/Speaker" }
+          "items": {
+            "$ref": "#/$defs/Speaker"
+          }
         },
-        "segment_label": { "type": ["string", "null"] },
-        "started_at": { "type": ["string", "null"] }
+        "segment_label": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "started_at": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
       }
     },
     "PlenarySession": {
@@ -1060,24 +2272,55 @@
       "properties": {
         "chair": {
           "type": "array",
-          "items": { "$ref": "#/$defs/Speaker" }
+          "items": {
+            "$ref": "#/$defs/Speaker"
+          }
         },
         "chair_segments": {
           "type": "array",
-          "items": { "$ref": "#/$defs/ChairSegment" }
+          "items": {
+            "$ref": "#/$defs/ChairSegment"
+          }
         },
         "secretaries": {
           "type": "array",
-          "items": { "$ref": "#/$defs/Speaker" }
+          "items": {
+            "$ref": "#/$defs/Speaker"
+          }
         },
-        "attendance": { "$ref": "#/$defs/Attendance" },
-        "quorum_met": { "type": ["boolean", "null"] },
-        "opened_at": { "type": ["string", "null"] },
-        "closed_at": { "type": ["string", "null"] },
+        "attendance": {
+          "$ref": "#/$defs/Attendance"
+        },
+        "quorum_met": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "opened_at": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "closed_at": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
         "format": {
           "anyOf": [
-            { "enum": ["in_person", "online", "mixed"] },
-            { "type": "null" }
+            {
+              "enum": [
+                "in_person",
+                "online",
+                "mixed"
+              ]
+            },
+            {
+              "type": "null"
+            }
           ]
         },
         "outcome": {
@@ -1090,7 +2333,9 @@
                 "adjourned"
               ]
             },
-            { "type": "null" }
+            {
+              "type": "null"
+            }
           ]
         },
         "special_procedure": {
@@ -1105,7 +2350,9 @@
                 "deschiderea_sesiunii"
               ]
             },
-            { "type": "null" }
+            {
+              "type": "null"
+            }
           ]
         }
       }
@@ -1129,28 +2376,61 @@
       "properties": {
         "chair": {
           "type": "array",
-          "items": { "$ref": "#/$defs/Speaker" }
+          "items": {
+            "$ref": "#/$defs/Speaker"
+          }
         },
         "chair_segments": {
           "type": "array",
-          "items": { "$ref": "#/$defs/ChairSegment" }
+          "items": {
+            "$ref": "#/$defs/ChairSegment"
+          }
         },
         "chambers_present": {
           "type": "array",
-          "items": { "type": "string" }
+          "items": {
+            "type": "string"
+          }
         },
         "secretaries": {
           "type": "array",
-          "items": { "$ref": "#/$defs/Speaker" }
+          "items": {
+            "$ref": "#/$defs/Speaker"
+          }
         },
-        "attendance": { "$ref": "#/$defs/Attendance" },
-        "quorum_met": { "type": ["boolean", "null"] },
-        "opened_at": { "type": ["string", "null"] },
-        "closed_at": { "type": ["string", "null"] },
+        "attendance": {
+          "$ref": "#/$defs/Attendance"
+        },
+        "quorum_met": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "opened_at": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "closed_at": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
         "format": {
           "anyOf": [
-            { "enum": ["in_person", "online", "mixed"] },
-            { "type": "null" }
+            {
+              "enum": [
+                "in_person",
+                "online",
+                "mixed"
+              ]
+            },
+            {
+              "type": "null"
+            }
           ]
         },
         "outcome": {
@@ -1163,7 +2443,9 @@
                 "adjourned"
               ]
             },
-            { "type": "null" }
+            {
+              "type": "null"
+            }
           ]
         },
         "special_procedure": {
@@ -1178,7 +2460,9 @@
                 "deschiderea_sesiunii"
               ]
             },
-            { "type": "null" }
+            {
+              "type": "null"
+            }
           ]
         }
       }
@@ -1186,16 +2470,29 @@
     "Activity": {
       "description": "Discriminated union of agenda-item activities. Each variant carries its own type-specific fields plus the universal source_span + extraction provenance.",
       "oneOf": [
-        { "$ref": "#/$defs/SpeechActivity" },
-        { "$ref": "#/$defs/VoteActivity" },
-        { "$ref": "#/$defs/ProceduralActivity" },
-        { "$ref": "#/$defs/NarratorActivity" },
-        { "$ref": "#/$defs/DeferralActivity" }
+        {
+          "$ref": "#/$defs/SpeechActivity"
+        },
+        {
+          "$ref": "#/$defs/VoteActivity"
+        },
+        {
+          "$ref": "#/$defs/ProceduralActivity"
+        },
+        {
+          "$ref": "#/$defs/NarratorActivity"
+        },
+        {
+          "$ref": "#/$defs/DeferralActivity"
+        }
       ]
     },
     "SpeechActivity": {
       "type": "object",
       "required": [
+        "id",
+        "content_fingerprint",
+        "slug",
         "type",
         "speaker",
         "delivery_mode",
@@ -1206,28 +2503,60 @@
       ],
       "additionalProperties": false,
       "properties": {
-        "type": { "const": "speech" },
-        "speaker": { "$ref": "#/$defs/Speaker" },
+        "id": {
+          "$ref": "#/$defs/RecordId"
+        },
+        "content_fingerprint": {
+          "$ref": "#/$defs/ContentSha"
+        },
+        "slug": {
+          "$ref": "#/$defs/Slug"
+        },
+        "type": {
+          "const": "speech"
+        },
+        "speaker": {
+          "$ref": "#/$defs/Speaker"
+        },
         "delivery_mode": {
           "anyOf": [
             {
-              "enum": ["tribune", "from_floor", "written", "online", "from_balcony"]
+              "enum": [
+                "tribune",
+                "from_floor",
+                "written",
+                "online",
+                "from_balcony"
+              ]
             },
-            { "type": "null" }
+            {
+              "type": "null"
+            }
           ]
         },
-        "text": { "type": "string" },
+        "text": {
+          "type": "string"
+        },
         "references_mentioned": {
           "type": "array",
-          "items": { "$ref": "#/$defs/Reference" }
+          "items": {
+            "$ref": "#/$defs/Reference"
+          }
         },
-        "source_span": { "$ref": "#/$defs/SourceSpan" },
-        "extraction": { "$ref": "#/$defs/PerSectionExtraction" }
+        "source_span": {
+          "$ref": "#/$defs/SourceSpan"
+        },
+        "extraction": {
+          "$ref": "#/$defs/PerSectionExtraction"
+        }
       }
     },
     "VoteActivity": {
       "type": "object",
       "required": [
+        "id",
+        "content_fingerprint",
+        "slug",
         "type",
         "motion_text",
         "motion_type",
@@ -1245,8 +2574,21 @@
       ],
       "additionalProperties": false,
       "properties": {
-        "type": { "const": "vote" },
-        "motion_text": { "type": "string" },
+        "id": {
+          "$ref": "#/$defs/RecordId"
+        },
+        "content_fingerprint": {
+          "$ref": "#/$defs/ContentSha"
+        },
+        "slug": {
+          "$ref": "#/$defs/Slug"
+        },
+        "type": {
+          "const": "vote"
+        },
+        "motion_text": {
+          "type": "string"
+        },
         "motion_type": {
           "enum": [
             "procedural",
@@ -1272,19 +2614,49 @@
                 "by_acclamation"
               ]
             },
-            { "type": "null" }
+            {
+              "type": "null"
+            }
           ]
         },
-        "timing": { "enum": ["live", "deferred"] },
-        "counts": { "$ref": "#/$defs/VoteCounts" },
+        "timing": {
+          "enum": [
+            "live",
+            "deferred"
+          ]
+        },
+        "counts": {
+          "$ref": "#/$defs/VoteCounts"
+        },
         "outcome": {
-          "enum": ["approved", "rejected", "tied", "deferred", "no_quorum"]
+          "enum": [
+            "approved",
+            "rejected",
+            "tied",
+            "deferred",
+            "no_quorum"
+          ]
         },
         "quorum_announced": {
-          "anyOf": [{ "type": "integer", "minimum": 0 }, { "type": "null" }]
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
         "proposed_by": {
-          "anyOf": [{ "$ref": "#/$defs/Speaker" }, { "type": "null" }]
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Speaker"
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
         "nominal_breakdown": {
           "anyOf": [
@@ -1292,72 +2664,193 @@
               "type": "array",
               "items": {
                 "type": "object",
-                "required": ["person_id", "vote"],
+                "required": [
+                  "person_id",
+                  "vote"
+                ],
                 "additionalProperties": false,
                 "properties": {
-                  "person_id": { "type": "string" },
-                  "vote": { "enum": ["for", "against", "abstain", "absent"] }
+                  "person_id": {
+                    "type": "string"
+                  },
+                  "vote": {
+                    "enum": [
+                      "for",
+                      "against",
+                      "abstain",
+                      "absent"
+                    ]
+                  }
                 }
               }
             },
-            { "type": "null" }
+            {
+              "type": "null"
+            }
           ]
         },
         "defers_to": {
           "description": "Document_id of the future stenogram whose final vote resolves this deferred vote. Populated by the cross-document linker pass (linker v0.2.0+); always null at extract time.",
-          "type": ["string", "null"]
+          "type": [
+            "string",
+            "null"
+          ]
         },
         "resolves": {
           "description": "Document_ids of prior deferred votes that this vote resolves. Populated by the cross-document linker pass on resolving votes (typically motion_type=final / item_adoption / report_approval). Empty list when the vote does not resolve any prior deferral; null is allowed for legacy sidecars but new extractor versions emit `[]`.",
           "anyOf": [
-            { "type": "array", "items": { "type": "string", "minLength": 1 } },
-            { "type": "null" }
+            {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            {
+              "type": "null"
+            }
           ]
         },
-        "source_span": { "$ref": "#/$defs/SourceSpan" },
-        "extraction": { "$ref": "#/$defs/PerSectionExtraction" }
+        "source_span": {
+          "$ref": "#/$defs/SourceSpan"
+        },
+        "extraction": {
+          "$ref": "#/$defs/PerSectionExtraction"
+        }
       }
     },
     "ProceduralActivity": {
       "type": "object",
-      "required": ["type", "actor", "text", "source_span", "extraction"],
+      "required": [
+        "id",
+        "content_fingerprint",
+        "slug",
+        "type",
+        "actor",
+        "text",
+        "source_span",
+        "extraction"
+      ],
       "additionalProperties": false,
       "properties": {
-        "type": { "const": "procedural" },
-        "actor": {
-          "anyOf": [{ "$ref": "#/$defs/Speaker" }, { "type": "null" }]
+        "id": {
+          "$ref": "#/$defs/RecordId"
         },
-        "text": { "type": "string" },
-        "source_span": { "$ref": "#/$defs/SourceSpan" },
-        "extraction": { "$ref": "#/$defs/PerSectionExtraction" }
+        "content_fingerprint": {
+          "$ref": "#/$defs/ContentSha"
+        },
+        "slug": {
+          "$ref": "#/$defs/Slug"
+        },
+        "type": {
+          "const": "procedural"
+        },
+        "actor": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Speaker"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "text": {
+          "type": "string"
+        },
+        "source_span": {
+          "$ref": "#/$defs/SourceSpan"
+        },
+        "extraction": {
+          "$ref": "#/$defs/PerSectionExtraction"
+        }
       }
     },
     "NarratorActivity": {
       "type": "object",
-      "required": ["type", "text", "source_span", "extraction"],
+      "required": [
+        "id",
+        "content_fingerprint",
+        "slug",
+        "type",
+        "text",
+        "source_span",
+        "extraction"
+      ],
       "additionalProperties": false,
       "properties": {
-        "type": { "const": "narrator" },
-        "text": { "type": "string" },
-        "source_span": { "$ref": "#/$defs/SourceSpan" },
-        "extraction": { "$ref": "#/$defs/PerSectionExtraction" }
+        "id": {
+          "$ref": "#/$defs/RecordId"
+        },
+        "content_fingerprint": {
+          "$ref": "#/$defs/ContentSha"
+        },
+        "slug": {
+          "$ref": "#/$defs/Slug"
+        },
+        "type": {
+          "const": "narrator"
+        },
+        "text": {
+          "type": "string"
+        },
+        "source_span": {
+          "$ref": "#/$defs/SourceSpan"
+        },
+        "extraction": {
+          "$ref": "#/$defs/PerSectionExtraction"
+        }
       }
     },
     "DeferralActivity": {
       "type": "object",
-      "required": ["type", "text", "defers_to", "source_span", "extraction"],
+      "required": [
+        "id",
+        "content_fingerprint",
+        "slug",
+        "type",
+        "text",
+        "defers_to",
+        "source_span",
+        "extraction"
+      ],
       "additionalProperties": false,
       "properties": {
-        "type": { "const": "deferral" },
-        "text": { "type": "string" },
-        "defers_to": { "type": ["string", "null"] },
-        "source_span": { "$ref": "#/$defs/SourceSpan" },
-        "extraction": { "$ref": "#/$defs/PerSectionExtraction" }
+        "id": {
+          "$ref": "#/$defs/RecordId"
+        },
+        "content_fingerprint": {
+          "$ref": "#/$defs/ContentSha"
+        },
+        "slug": {
+          "$ref": "#/$defs/Slug"
+        },
+        "type": {
+          "const": "deferral"
+        },
+        "text": {
+          "type": "string"
+        },
+        "defers_to": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "source_span": {
+          "$ref": "#/$defs/SourceSpan"
+        },
+        "extraction": {
+          "$ref": "#/$defs/PerSectionExtraction"
+        }
       }
     },
     "AgendaItem": {
       "type": "object",
       "required": [
+        "id",
+        "content_fingerprint",
+        "slug",
         "ordinal",
         "title",
         "primary_references",
@@ -1374,11 +2867,27 @@
       ],
       "additionalProperties": false,
       "properties": {
-        "ordinal": { "type": "integer", "minimum": 1 },
-        "title": { "type": "string" },
+        "id": {
+          "$ref": "#/$defs/RecordId"
+        },
+        "content_fingerprint": {
+          "$ref": "#/$defs/ContentSha"
+        },
+        "slug": {
+          "$ref": "#/$defs/Slug"
+        },
+        "ordinal": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "title": {
+          "type": "string"
+        },
         "primary_references": {
           "type": "array",
-          "items": { "$ref": "#/$defs/Reference" }
+          "items": {
+            "$ref": "#/$defs/Reference"
+          }
         },
         "category": {
           "enum": [
@@ -1423,10 +2932,17 @@
                 "demitere"
               ]
             },
-            { "type": "null" }
+            {
+              "type": "null"
+            }
           ]
         },
-        "requested_by_group": { "type": ["string", "null"] },
+        "requested_by_group": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
         "outcome": {
           "anyOf": [
             {
@@ -1442,7 +2958,9 @@
                 "tăcere_legislativă"
               ]
             },
-            { "type": "null" }
+            {
+              "type": "null"
+            }
           ]
         },
         "reexamination_reason": {
@@ -1454,34 +2972,57 @@
                 "parliamentary_majority"
               ]
             },
-            { "type": "null" }
+            {
+              "type": "null"
+            }
           ]
         },
         "pages_in_pdf": {
           "type": "array",
-          "items": { "type": "integer", "minimum": 1 }
+          "items": {
+            "type": "integer",
+            "minimum": 1
+          }
         },
-        "topics": { "$ref": "#/$defs/Topics" },
+        "topics": {
+          "$ref": "#/$defs/Topics"
+        },
         "activities": {
           "type": "array",
-          "items": { "$ref": "#/$defs/Activity" }
+          "items": {
+            "$ref": "#/$defs/Activity"
+          }
         },
-        "source_span": { "$ref": "#/$defs/SourceSpan" },
-        "extraction": { "$ref": "#/$defs/PerSectionExtraction" }
+        "source_span": {
+          "$ref": "#/$defs/SourceSpan"
+        },
+        "extraction": {
+          "$ref": "#/$defs/PerSectionExtraction"
+        }
       }
     },
     "InterpellationResponse": {
       "type": "object",
-      "required": ["speaker", "text"],
+      "required": [
+        "speaker",
+        "text"
+      ],
       "additionalProperties": false,
       "properties": {
-        "speaker": { "$ref": "#/$defs/Speaker" },
-        "text": { "type": "string" }
+        "speaker": {
+          "$ref": "#/$defs/Speaker"
+        },
+        "text": {
+          "type": "string"
+        }
       }
     },
     "Interpellation": {
       "type": "object",
       "required": [
+        "id",
+        "content_fingerprint",
+        "slug",
         "genre",
         "questioner",
         "addressed_to",
@@ -1496,53 +3037,124 @@
       ],
       "additionalProperties": false,
       "properties": {
-        "genre": { "enum": ["întrebare", "interpelare"] },
-        "questioner": { "$ref": "#/$defs/Speaker" },
-        "addressed_to": { "type": ["string", "null"] },
-        "addressed_to_normalized": { "type": ["string", "null"] },
-        "interpellation_number": { "type": ["string", "null"] },
-        "topic": { "type": ["string", "null"] },
-        "question_text": { "type": ["string", "null"] },
-        "response": {
-          "anyOf": [
-            { "$ref": "#/$defs/InterpellationResponse" },
-            { "type": "null" }
+        "id": {
+          "$ref": "#/$defs/RecordId"
+        },
+        "content_fingerprint": {
+          "$ref": "#/$defs/ContentSha"
+        },
+        "slug": {
+          "$ref": "#/$defs/Slug"
+        },
+        "genre": {
+          "enum": [
+            "întrebare",
+            "interpelare"
           ]
         },
-        "response_deferred": { "type": "boolean" },
-        "source_span": { "$ref": "#/$defs/SourceSpan" },
-        "extraction": { "$ref": "#/$defs/PerSectionExtraction" }
+        "questioner": {
+          "$ref": "#/$defs/Speaker"
+        },
+        "addressed_to": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "addressed_to_normalized": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "interpellation_number": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "topic": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "question_text": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "response": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/InterpellationResponse"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "response_deferred": {
+          "type": "boolean"
+        },
+        "source_span": {
+          "$ref": "#/$defs/SourceSpan"
+        },
+        "extraction": {
+          "$ref": "#/$defs/PerSectionExtraction"
+        }
       }
     },
     "PlenaryStenogramBody": {
       "type": "object",
-      "required": ["session", "agenda_items", "interpellations"],
+      "required": [
+        "session",
+        "agenda_items",
+        "interpellations"
+      ],
       "additionalProperties": false,
       "properties": {
-        "session": { "$ref": "#/$defs/PlenarySession" },
+        "session": {
+          "$ref": "#/$defs/PlenarySession"
+        },
         "agenda_items": {
           "type": "array",
-          "items": { "$ref": "#/$defs/AgendaItem" }
+          "items": {
+            "$ref": "#/$defs/AgendaItem"
+          }
         },
         "interpellations": {
           "type": "array",
-          "items": { "$ref": "#/$defs/Interpellation" }
+          "items": {
+            "$ref": "#/$defs/Interpellation"
+          }
         }
       }
     },
     "PlenaryJointSessionBody": {
       "type": "object",
-      "required": ["session", "agenda_items", "interpellations"],
+      "required": [
+        "session",
+        "agenda_items",
+        "interpellations"
+      ],
       "additionalProperties": false,
       "properties": {
-        "session": { "$ref": "#/$defs/PlenaryJointSession" },
+        "session": {
+          "$ref": "#/$defs/PlenaryJointSession"
+        },
         "agenda_items": {
           "type": "array",
-          "items": { "$ref": "#/$defs/AgendaItem" }
+          "items": {
+            "$ref": "#/$defs/AgendaItem"
+          }
         },
         "interpellations": {
           "type": "array",
-          "items": { "$ref": "#/$defs/Interpellation" }
+          "items": {
+            "$ref": "#/$defs/Interpellation"
+          }
         }
       }
     }

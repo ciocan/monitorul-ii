@@ -11,11 +11,12 @@ from pathlib import Path
 from types import SimpleNamespace
 
 from monitorul_ii.cli import _build_parser, cmd_backfill
+from monitorul_ii.extraction.identity import assign_identity
 
 
 def _report_sidecar(doc_id: str, issuing_body: str | None) -> dict:
-    return {
-        "schema_version": "1.12.0",
+    sc = {
+        "schema_version": "1.13.0",
         "document_id": doc_id,
         "content_sha": "0123456789ab",
         "document_type": "report_facsimile",
@@ -61,6 +62,14 @@ def _report_sidecar(doc_id: str, issuing_body: str | None) -> dict:
             "raw_markdown_excerpt": "",
         },
     }
+    sc["extraction"]["identity"] = assign_identity(
+        sc["body"],
+        doc_type=sc["document_type"],
+        doc_id=sc["document_id"],
+        year=sc["metadata"]["year"],
+        issue=sc["metadata"]["issue"],
+    )
+    return sc
 
 
 # -- parser-level -----------------------------------------------------------

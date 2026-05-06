@@ -79,6 +79,7 @@ def test_cmd_extract_no_mds_returns_zero(tmp_path, capsys):
     args.force = False
     args.override_type = None
     args.coverage_below = None
+    args.identity_only = False
     rc = cmd_extract(args)
     assert rc == 0
     err = capsys.readouterr().err
@@ -105,6 +106,7 @@ def test_cmd_extract_writes_sidecar_for_qr_md(tmp_path, monkeypatch):
     args.force = False
     args.override_type = None
     args.coverage_below = None
+    args.identity_only = False
 
     rc = cmd_extract(args)
     assert rc == 0
@@ -113,7 +115,7 @@ def test_cmd_extract_writes_sidecar_for_qr_md(tmp_path, monkeypatch):
     assert sidecar.exists()
     sc = json.loads(sidecar.read_text(encoding="utf-8"))
     assert sc["document_type"] == "question_register"
-    assert sc["schema_version"] == "1.12.0"
+    assert sc["schema_version"] == "1.13.0"
     assert sc["coverage"]["claimed_pct"] >= 0.95
 
 
@@ -138,6 +140,7 @@ def test_cmd_extract_coverage_below_emits_jsonl(tmp_path, capsys):
     args.force = True
     args.override_type = None
     args.coverage_below = 0.999999
+    args.identity_only = False
 
     cmd_extract(args)
     out = capsys.readouterr().out

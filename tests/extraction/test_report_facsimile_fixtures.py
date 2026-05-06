@@ -120,6 +120,9 @@ def test_fixture_envelope_shape(md_name: str, tmp_path: Path):
     assert set(body.keys()) == {"report", "headings", "raw_markdown_excerpt"}
     rep = body["report"]
     assert set(rep.keys()) == {
+        "id",
+        "content_fingerprint",
+        "slug",
         "title",
         "issuing_body",
         "issuing_body_normalized",

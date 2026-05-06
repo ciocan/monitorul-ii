@@ -41,7 +41,7 @@ def _minimal_envelope(
 ) -> dict:
     """Build a minimal sidecar envelope shared across types."""
     return {
-        "schema_version": "1.12.0",
+        "schema_version": "1.13.0",
         "document_id": doc_id,
         "content_sha": "0123456789ab",
         "document_type": doc_type,
@@ -63,6 +63,7 @@ def _minimal_envelope(
             "extracted_at": "2026-05-04T12:00:00Z",
             "extractor_versions": {"boilerplate": "0.1.0"},
             "confidence": 0.9,
+            "identity": {"record_id": doc_id},
         },
         "coverage": {
             "body_chars": 100,
@@ -145,6 +146,9 @@ def _report_sidecar(
     )
     sc["body"] = {
         "report": {
+            "id": doc_id,
+            "content_fingerprint": "0123456789ab",
+            "slug": "raport-x-anul-2010-abcdef12",
             "title": "Raportul X în anul 2010",
             "issuing_body": "X",
             "issuing_body_normalized": None,
@@ -531,6 +535,9 @@ def _vote_activity(
     *, outcome: str, motion_type: str = "final", chars: tuple[int, int] = (0, 100)
 ) -> dict:
     return {
+        "id": "mo://2025/II/1#agenda-1#vote-1",
+        "content_fingerprint": "0123456789ab",
+        "slug": "vot-supun-votului-final-abcdef12",
         "type": "vote",
         "motion_text": "Supun votului final.",
         "motion_type": motion_type,
@@ -575,6 +582,9 @@ def _agenda_with_vote(
 ) -> dict:
     refs = [bill_ref] if bill_ref else []
     return {
+        "id": f"mo://2025/II/1#agenda-{ordinal}",
+        "content_fingerprint": "0123456789ab",
+        "slug": f"agenda-{ordinal}-abcdef12",
         "ordinal": ordinal,
         "title": title,
         "primary_references": refs,

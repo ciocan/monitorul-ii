@@ -20,9 +20,27 @@ from monitorul_ii.extraction.backfills import (
     backfill_ministries,
     backfill_proposed_by,
 )
+from monitorul_ii.extraction.identity import assign_identity
 
 
 # -- sidecar builder --------------------------------------------------------
+
+
+def _stamp_identity(sc: dict) -> dict:
+    """Backfill the schema 1.13.0 identity layer onto a freshly-built test
+    sidecar. Mutates `sc` in place AND attaches the envelope identity
+    block to `extraction.identity`."""
+    body = sc.get("body") or {}
+    meta = sc.get("metadata") or {}
+    identity = assign_identity(
+        body,
+        doc_type=sc["document_type"],
+        doc_id=sc["document_id"],
+        year=int(meta.get("year", 2024)),
+        issue=str(meta.get("issue", "1")),
+    )
+    sc.setdefault("extraction", {})["identity"] = identity
+    return sc
 
 
 def _report_sidecar(
@@ -31,8 +49,8 @@ def _report_sidecar(
     issuing_body: str | None,
     issuing_body_normalized: str | None = None,
 ) -> dict:
-    return {
-        "schema_version": "1.12.0",
+    sc = {
+        "schema_version": "1.13.0",
         "document_id": doc_id,
         "content_sha": "0123456789ab",
         "document_type": "report_facsimile",
@@ -78,6 +96,7 @@ def _report_sidecar(
             "raw_markdown_excerpt": "",
         },
     }
+    return _stamp_identity(sc)
 
 
 def _qr_sidecar(
@@ -128,8 +147,8 @@ def _qr_sidecar(
                 },
             }
         )
-    return {
-        "schema_version": "1.12.0",
+    sc = {
+        "schema_version": "1.13.0",
         "document_id": doc_id,
         "content_sha": "0123456789ab",
         "document_type": "question_register",
@@ -165,6 +184,7 @@ def _qr_sidecar(
             "questions": questions,
         },
     }
+    return _stamp_identity(sc)
 
 
 def _plenary_with_interpellations_sidecar(
@@ -206,8 +226,8 @@ def _plenary_with_interpellations_sidecar(
                 },
             }
         )
-    return {
-        "schema_version": "1.12.0",
+    sc = {
+        "schema_version": "1.13.0",
         "document_id": doc_id,
         "content_sha": "0123456789ab",
         "document_type": "plenary_stenogram",
@@ -254,6 +274,7 @@ def _plenary_with_interpellations_sidecar(
             "interpellations": interps,
         },
     }
+    return _stamp_identity(sc)
 
 
 def _vote_activity(
@@ -340,8 +361,8 @@ def _plenary_with_agenda_sidecar(
     doc_id: str,
     agenda_items: list[dict],
 ) -> dict:
-    return {
-        "schema_version": "1.12.0",
+    sc = {
+        "schema_version": "1.13.0",
         "document_id": doc_id,
         "content_sha": "0123456789ab",
         "document_type": "plenary_stenogram",
@@ -388,12 +409,13 @@ def _plenary_with_agenda_sidecar(
             "interpellations": [],
         },
     }
+    return _stamp_identity(sc)
 
 
 def _stenogram_sidecar(*, doc_id: str) -> dict:
     """A non-report sidecar — backfill should ignore these."""
-    return {
-        "schema_version": "1.12.0",
+    sc = {
+        "schema_version": "1.13.0",
         "document_id": doc_id,
         "content_sha": "0123456789ab",
         "document_type": "plenary_stenogram",
@@ -440,6 +462,7 @@ def _stenogram_sidecar(*, doc_id: str) -> dict:
             "interpellations": [],
         },
     }
+    return _stamp_identity(sc)
 
 
 def _write(tmp_path: Path, name: str, sidecar: dict) -> Path:

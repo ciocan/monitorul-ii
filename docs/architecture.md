@@ -499,7 +499,7 @@ Most committee syntheses are detected by their `c` issue suffix (decisive, score
 
 ## Extract pipeline — `monitorul-ii extract`
 
-Step 2 of the extraction pipeline (and Step 1.5 in the revised build order — see `docs/extraction-schema.md`). Reads a converted MD, classifies it (or honours `--type`), dispatches to the per-document-type extractor, and writes a strict-validated `<basename>.extraction.json` sidecar. Schema version 1.5.0 introduces the per-component `extractor_versions` block and the diagnostic `coverage` block — both engineering-driven additions, no body-shape changes from v1.4.0.
+Step 2 of the extraction pipeline (and Step 1.5 in the revised build order — see `docs/extraction-schema.md`). Reads a converted MD, classifies it (or honours `--type`), dispatches to the per-document-type extractor, mints stable per-record identity (id / content_fingerprint / slug; v1.13.0+), and writes a strict-validated `<basename>.extraction.json` sidecar. Schema version 1.5.0 introduces the per-component `extractor_versions` block and the diagnostic `coverage` block — both engineering-driven additions, no body-shape changes from v1.4.0. Schema version 1.13.0 adds the identity layer (Q2 of `docs/elasticsearch-indexing.md`); see "Identity layer" subsection below.
 
 ### Module split
 
@@ -573,6 +573,38 @@ Per-question `source_span` covers `[addressee_header_start, next_question_or_eof
 ### Why no DB tracking for extractions
 
 Symmetric with `convert` — sidecar's own envelope is the source of truth. Adding an `extractions` table for fast corpus queries (worst-coverage histogram, "which docs need re-run after a `references` bump") is a reasonable v0.2 — but as a *projection* rebuilt from the sidecars, never authoritative. The version-aware idempotency gate reads the existing sidecar's envelope (one open + parse), which is fast enough for 2300-doc batches.
+
+### Identity layer (schema 1.13.0+)
+
+The schema 1.13.0 bump ships the **identity producer** (`extraction/identity.py`, `IDENTITY_VERSION = "0.1.0"`), which mints a stable per-record key for every grain that becomes an Elasticsearch doc downstream — agenda items, activities, interpellations, questions, committee meetings, committee agenda items, and reports. The motivation is design-doc Q2 of `docs/elasticsearch-indexing.md`: every URL ever published by `monitorul.ai` must keep resolving across re-extractions, schema bumps, and content rewrites; LLM-enrichment files key against the same surface. Without the keystone identity layer every URL is brittle and every enrichment file's join key drifts.
+
+**Field surface, per record:**
+
+- `id` — canonical record_id matching the schema's `RecordId` pattern (`mo://YYYY/PART/ISSUE` for the document grain plus optional `#<fragment>` segments per Q2's table — `#agenda-N` / `#act-N` / `#vote-N` / `#interp-NUM` / `#q-REGNUM` / `#cmt-COMMITTEEID` / `#item-N`).
+- `content_fingerprint` — sha256-truncated-12 of the record's NFC-normalised + whitespace-collapsed text. Forensic: when extractor v0.3 changes activity boundaries, fingerprint comparison lets a migration script say "old `#act-12` and new `#act-12` are the same speech (fingerprint matches)" vs "old `#act-12` is gone (no fingerprint match)".
+- `slug` — ASCII-folded `<title-keywords>-<short_id>` URL slug. Title keywords are decorative (≤8 tokens, ≤60 chars after fold + lowercase + non-alphanum-to-dash + dedup). The `<short_id>` is a 10-char base32-lowercase-stripped tag derived from `(year, issue, ordinal, seq)`; deterministic, server-side route key. Slugs are persisted **slug-once**: re-extractions read the prior sidecar and preserve any slug whose `id` matches verbatim. URL stability survives every regex tweak that perturbs the source title.
+
+**Envelope-level surface:**
+
+- `extraction.identity.record_id` — mirrors `document_id` (the canonical document-grain key). The indexer copies it verbatim into the `mo-documents` Elasticsearch doc's `_id`.
+- `extraction.extractor_versions.identity` — version of the producer (currently `"0.1.0"`). Bumping this invalidates every sidecar's cached state (the version-aware idempotency gate re-extracts).
+
+**`mint_record_id` patterns** follow Q2 of the ES design doc verbatim. Activities use a shared `act-N` seq counter for speech / procedural / narrator / deferral; vote activities get a separate `vote-N` counter so `mo-speeches` vs `mo-votes` URL-shape distinctions survive even when activities are reordered. Natural-key forms (interpellation_number, question regnum, committee_id) get punctuation-cleaned before insertion into the URI fragment so the schema's `RecordId` pattern always validates.
+
+**`assign_identity` flow.** Called by the dispatcher right after the per-type extractor returns its body dict, before `_build_envelope`:
+
+1. Read the prior sidecar (if any) into `prior_sidecar`. The pipeline already reads it for the version-aware idempotency gate, so this is free.
+2. Walk `body` — the per-doc-type traversal is hardcoded by `doc_type` so each grain is reached exactly once. For each grain:
+   - Mint `id` via `mint_record_id`.
+   - Compute `content_fingerprint` via `compute_content_fingerprint` over the grain's representative text (title for agenda items, text for speeches, motion_text for votes, etc.).
+   - Look up `id` in `prior_sidecar`'s record index. If found → reuse the prior `slug` (slug-once). Otherwise → mint a fresh slug via `compute_short_id` + `mint_slug`.
+3. Return the envelope-level `{record_id: doc_id}` dict for `_build_envelope` to drop into `extraction.identity`.
+
+**`--identity-only` backfill path.** The schema-1.13.0 bump invalidates every existing sidecar's `schema_version` (1.12.0 → 1.13.0), which would normally force a full re-extract. The corpus is 5552 docs and a full re-extract takes ~30 minutes. `--identity-only` opens an alternative path: read the existing sidecar's body verbatim, run `assign_identity` over it, bump only `extractor_versions.identity` + `schema_version` to 1.13.0, validate, rewrite atomically. Per-type extractors are not re-run; coverage and envelope confidence stay as-recorded. The `_extract_identity_only` helper in `pipeline.py` enforces the contract: missing or unparseable sidecars surface as errors, the slug-once contract still applies (the cached sidecar's records ARE the prior_sidecar), and a second `--identity-only` run skips on identity-version match. This shaves the corpus backfill from ~30 minutes down to ~30 seconds.
+
+**Why slug-once is load-bearing.** Without persistence, any extractor rule change that perturbs the title (better keyword extraction in v0.2, contamination-clip in v0.2.5, etc.) would regenerate slugs on the next pass. Google sees URL drift; rankings reset on every iteration. Storing the first-mint slug locks it in forever — the human-readable part can evolve, but the canonical URL (server matches on `<short_id>` only, re-routing variant slugs as 301-redirects) survives. This decision is explicit in §Q7 of the ES design doc.
+
+**Why activities share `act-N` but votes are separate.** The URL surfaces differ: `/discurs/<slug>-<short_id>` for substantive speeches, `/vot/<short_id>` for votes. Keeping the seq counters separate at extract time means re-running an extractor that adds, removes, or reorders activities never accidentally collides a speech-id with a vote-id, even if the source-order changes. (Procedural / narrator / deferral activities share the `act-N` counter with speeches because they're URL-cousins — same content class, just different signal weight.)
 
 ### Sequential, not parallel
 

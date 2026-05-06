@@ -14,7 +14,7 @@ def _now_iso() -> str:
 
 def _minimal_question_register_sidecar() -> dict:
     return {
-        "schema_version": "1.12.0",
+        "schema_version": "1.13.0",
         "document_id": "mo://2026/II/29",
         "content_sha": "0123456789ab",
         "document_type": "question_register",
@@ -36,6 +36,7 @@ def _minimal_question_register_sidecar() -> dict:
             "extracted_at": _now_iso(),
             "extractor_versions": {"question_register": "0.1.0"},
             "confidence": 0.9,
+            "identity": {"record_id": "mo://2026/II/29"},
         },
         "coverage": {
             "body_chars": 100,
@@ -202,6 +203,9 @@ def test_validate_question_record_requires_all_fields():
     sc = _minimal_question_register_sidecar()
     sc["body"]["questions"] = [
         {
+            "id": "mo://2026/II/29#q-seq-1",
+            "content_fingerprint": "0123456789ab",
+            "slug": "test-abcdef12",
             "ordinal": 1,
             # addressee missing
             "questioner": {
