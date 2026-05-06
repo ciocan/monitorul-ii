@@ -1,5 +1,36 @@
 # Changelog
 
+## [0.12.0](https://github.com/ciocan/monitorul-ii/compare/monitorul-ii-v0.11.1...monitorul-ii-v0.12.0) (2026-05-06)
+
+
+### Features
+
+* **backfill:** Tier 4 — Registry-driven backfills (institutional bodies, ministries, bill sponsors, persons) ([fa0f7f4](https://github.com/ciocan/monitorul-ii/commit/fa0f7f4a0b0ef448037a31e431428a86d151e2e1))
+* **extraction:** add extract command and schema for structured JSON sidecars ([317b3f7](https://github.com/ciocan/monitorul-ii/commit/317b3f7f72026782e16eafe2f6b042544782b891))
+* **extraction:** art. N cross-reference linker — new sibling pass to the vote-pair linker. Body-level join from unknown art-N hits to the bill/law they belong to ([84ffe9f](https://github.com/ciocan/monitorul-ii/commit/84ffe9f0893799a5b2f56ae5de5a2b4e3f13834b))
+* **extraction:** enhance interpellations extractor and update version to 0.2.0 ([f596675](https://github.com/ciocan/monitorul-ii/commit/f5966750547951d3748554df89fd7a2f52f760d5))
+* **extraction:** enhance plenary extractors for improved coverage and diacritic handling ([b63ba77](https://github.com/ciocan/monitorul-ii/commit/b63ba7713f15dc640b8c2a6357ae84dd55a527d4))
+* **extraction:** implement plenary stenogram and joint session extractors ([238323a](https://github.com/ciocan/monitorul-ii/commit/238323aeaf09d2fac66115234a8438ce5e46d85f))
+* **extraction:** introduce committee synthesis extractor and update schema to version 1.7.0 ([eec503b](https://github.com/ciocan/monitorul-ii/commit/eec503bac68c9b184096dd6020189b6e94333061))
+* **extraction:** introduce report_facsimile extractor and update schema to version 1.8.0 ([aa30131](https://github.com/ciocan/monitorul-ii/commit/aa30131837ab7e6161838b2e4caed0e686f2c095))
+* **extraction:** Regression caught & fixed ([48a222c](https://github.com/ciocan/monitorul-ii/commit/48a222ccff70afa8dc343d6cc9fde15c4693a497))
+* **extraction:** Tier 1 - update extraction schema to version 1.10.0 and enhance reference handling ([43e93bc](https://github.com/ciocan/monitorul-ii/commit/43e93bca70685bbe9a3af19506fc1eef74dcefd2))
+* **extraction:** Tier 2 - Cross-document vote linker (vote.defers_to / resolves) ([1ddcdbe](https://github.com/ciocan/monitorul-ii/commit/1ddcdbe1b6b5bdec1e5173710cacb7a176b44aa7))
+* **extraction:** Tier 3 — committee_synthesis completeness (roster[], joint_with[], tabular agenda, joint kind) ([7fef613](https://github.com/ciocan/monitorul-ii/commit/7fef61320aacf3e51ec629158f9a2537accf67a9))
+* **extraction:** update extraction schema to version 1.6.0 and enhance plenary extractors ([6224558](https://github.com/ciocan/monitorul-ii/commit/6224558a9ac7dabeada84622c66dce6e9d5b344d))
+* **extraction:** update extraction schema to version 1.9.0 and enhance references ([1e88130](https://github.com/ciocan/monitorul-ii/commit/1e88130d25f616a57a9ddcf518835ef59a00cf16))
+* **extraction:** update interpellations extractor to version 0.2.2 with enhanced detection and filtering ([c88f17b](https://github.com/ciocan/monitorul-ii/commit/c88f17b74223a9c5a5c36058aab11ee51b88f66c))
+* **extraction:** update interpellations extractor to version 0.2.3 with improved addressed_to detection ([ddedd46](https://github.com/ciocan/monitorul-ii/commit/ddedd465944664735bf0727a4c7a1b05dbb721ce))
+* **linker:** introduce cross-document linker for report_facsimile sidecars ([89f532b](https://github.com/ciocan/monitorul-ii/commit/89f532b96c14fe6ce112a6d28670ea5eb1261147))
+
+
+### Bug Fixes
+
+* **extraction:** add mojibake regex extension ([b57be24](https://github.com/ciocan/monitorul-ii/commit/b57be24441dc2d699d56acc300988e940d74fc63))
+* **extraction:** address SUMAR title contamination in agenda extraction ([e894709](https://github.com/ciocan/monitorul-ii/commit/e894709916f5563562b902f732f87fd8c065c7ea))
+* **extraction:** Clear the 12 pre-existing plenary schema-validation errors ([dcf53f1](https://github.com/ciocan/monitorul-ii/commit/dcf53f11a11cb07699f508d716ced7098a46046f))
+* **extraction:** report_facsimile.issuing_body 18 nulls — investigation ([12bfc0b](https://github.com/ciocan/monitorul-ii/commit/12bfc0b888248784fc9f5525b67ed9c00a21165e))
+
 ## [0.11.1](https://github.com/ciocan/monitorul-ii/compare/monitorul-ii-v0.11.0...monitorul-ii-v0.11.1) (2026-05-04)
 
 
