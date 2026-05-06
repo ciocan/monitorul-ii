@@ -423,6 +423,39 @@ def _build_parser() -> argparse.ArgumentParser:
         action="store_true",
         help="Print what would change without writing to disk or S3.",
     )
+    backfill.add_argument(
+        "--reupload-on-skip",
+        action="store_true",
+        help=(
+            "Also re-upload sidecars where the backfill skipped with "
+            "reason 'already filled' (every slot already carries the "
+            "current canonical id). Closes the historical staleness "
+            "gap on the S3 bucket from pre-overwrite-fix runs that "
+            "left the bucket holding the original `extract` bytes "
+            "while subsequent link / backfill modifications stayed "
+            "local-only. No effect on other skip reasons (`no "
+            "speakers in body`, `no raw value`, `no registry match`, "
+            "`no government-proposed agendas`) — those mean the local "
+            "file simply doesn't carry data this pass would emit, so "
+            "the bucket can't be 'stale' relative to one. Has no "
+            "effect when running with `--no-upload` or when S3 is "
+            "not configured."
+        ),
+    )
+    backfill.add_argument(
+        "-j",
+        "--workers",
+        type=int,
+        default=os.cpu_count() or 1,
+        metavar="N",
+        help=(
+            "Process-pool worker count for the per-sidecar match loop "
+            "(default: CPU count). Each worker rebuilds the matcher's "
+            "lru-cached alias index once (~1-2s) and amortizes that cost "
+            "across its slice. Use 1 for sequential — necessary for "
+            "deterministic output ordering or when debugging."
+        ),
+    )
     _add_s3_args(backfill)
     backfill.set_defaults(func=cmd_backfill)
 
@@ -1124,7 +1157,9 @@ def cmd_extract(args: argparse.Namespace) -> int:
                 ):
                     try:
                         up = uploader.upload_if_missing(
-                            result.sidecar_path, content_type="application/json"
+                            result.sidecar_path,
+                            content_type="application/json",
+                            overwrite=True,
                         )
                         if up.uploaded:
                             counters["uploaded"] += 1
@@ -1280,7 +1315,9 @@ def _run_report_pass(
         ):
             try:
                 up = uploader.upload_if_missing(  # type: ignore[attr-defined]
-                    path, content_type="application/json"
+                    path,
+                    content_type="application/json",
+                    overwrite=True,
                 )
                 if up.uploaded:
                     counters["uploaded"] += 1
@@ -1373,7 +1410,9 @@ def _run_vote_pass(
         ):
             try:
                 up = uploader.upload_if_missing(  # type: ignore[attr-defined]
-                    path, content_type="application/json"
+                    path,
+                    content_type="application/json",
+                    overwrite=True,
                 )
                 if up.uploaded:
                     counters["uploaded"] += 1
@@ -1449,7 +1488,9 @@ def _run_xref_pass(
         ):
             try:
                 up = uploader.upload_if_missing(  # type: ignore[attr-defined]
-                    path, content_type="application/json"
+                    path,
+                    content_type="application/json",
+                    overwrite=True,
                 )
                 if up.uploaded:
                     counters["uploaded"] += 1
@@ -1558,6 +1599,137 @@ _BACKFILL_LABELS = {
     "error": "ERROR",
 }
 
+_BACKFILL_HEARTBEAT_EVERY = 100  # sidecars, for backfill in pipes
+
+
+class _BackfillProgressReporter:
+    """Live `rich` bar for one backfill pass when stderr is a tty;
+    heartbeat every `_BACKFILL_HEARTBEAT_EVERY` results otherwise.
+
+    Per-pass instance — each `_run_*_backfill` helper opens one for its
+    own bar / counters scope. The shared `counters` dict carries
+    fill/skip/err/s3 counts across passes for the final summary; the
+    bar's description string reads them live so a multi-pass run shows
+    the running totals as each pass progresses.
+
+    Mirrors `_ExtractProgressReporter` / `_ConvertProgressReporter` for
+    consistency; the only pass-specific bit is the leading `[<pass>]`
+    label in the description.
+    """
+
+    def __init__(self, total: int, counters: dict[str, int], pass_label: str) -> None:
+        self.total = total
+        self.counters = counters
+        self.pass_label = pass_label
+        self.start = time.monotonic()
+        self.done = 0
+        self._tty = sys.stderr.isatty()
+        self._progress = None
+        self._task = None
+        if self._tty and total > 0:
+            from rich.console import Console
+            from rich.progress import (
+                BarColumn,
+                MofNCompleteColumn,
+                Progress,
+                TextColumn,
+                TimeElapsedColumn,
+                TimeRemainingColumn,
+            )
+
+            self._progress = Progress(
+                BarColumn(bar_width=None),
+                TextColumn("[progress.percentage]{task.percentage:>5.1f}%"),
+                MofNCompleteColumn(),
+                TextColumn("·"),
+                TextColumn("[cyan]{task.description}"),
+                TextColumn("·"),
+                TimeElapsedColumn(),
+                TextColumn("ETA"),
+                TimeRemainingColumn(),
+                console=Console(stderr=True),
+                transient=False,
+            )
+            self._task = self._progress.add_task(self._desc(), total=total)
+
+    def _desc(self) -> str:
+        c = self.counters
+        s = (
+            f"[{self.pass_label}] fill={c['filled']:,} "
+            f"skip={c['skipped']:,} err={c['errors']:,}"
+        )
+        if c["uploaded"] or c["in_bucket"] or c["upload_errors"]:
+            s += (
+                f" · s3 up={c['uploaded']:,} have={c['in_bucket']:,}"
+                f" err={c['upload_errors']:,}"
+            )
+        return s
+
+    def __enter__(self) -> "_BackfillProgressReporter":
+        if self._progress is not None:
+            self._progress.start()
+        return self
+
+    def __exit__(self, *exc: object) -> None:
+        if self._progress is not None:
+            self._progress.stop()
+
+    def print(self, line: str, *, err: bool = False) -> None:
+        if self._progress is not None:
+            self._progress.console.print(line, highlight=False)
+            self._progress.update(self._task, description=self._desc())
+        else:
+            print(line, file=sys.stderr if err else sys.stdout, flush=True)
+
+    def advance(self) -> None:
+        self.done += 1
+        if self._progress is not None:
+            self._progress.update(self._task, advance=1, description=self._desc())
+            return
+        if self.done % _BACKFILL_HEARTBEAT_EVERY == 0 and self.done < self.total:
+            elapsed = time.monotonic() - self.start
+            rate = self.done / elapsed if elapsed > 0 else 0.0
+            eta = (self.total - self.done) / rate if rate > 0 else 0.0
+            pct = self.done / self.total * 100 if self.total else 0.0
+            print(
+                f"progress: {self.done:,}/{self.total:,} ({pct:.1f}%) | "
+                f"{self._desc()} | "
+                f"elapsed={_fmt_duration(elapsed)} ETA={_fmt_duration(eta)}",
+                file=sys.stderr,
+                flush=True,
+            )
+
+
+def _should_upload_after_backfill(result: object, *, reupload_on_skip: bool) -> bool:
+    """Decide whether to push a backfill result's sidecar to S3.
+
+    Default: upload when status="filled" (the local file got rewritten).
+    With `reupload_on_skip=True`: also upload when status="skip" AND
+    reason starts with "already filled" — the local-side decision was
+    "no work needed" (every slot already holds the current canonical
+    id), but the bucket may carry stale bytes from a pre-overwrite-fix
+    run. Other skip reasons (`no raw value`, `no speakers in body`,
+    `no registry match`, `no government-proposed agendas`) stay
+    upload-skipped — those mean the local file simply doesn't carry
+    data this pass emits, so the bucket can't be "stale" relative to
+    one. Errors never upload.
+
+    The reason check uses `startswith("already filled")` so all four
+    pass-specific formats match: issuing_body's literal "already
+    filled with same canonical id"; ministry / proposed_by / persons
+    aggregated forms like "already filled (N records|votes|speakers)".
+    """
+    status = getattr(result, "status", None)
+    if status == "filled":
+        return True
+    if (
+        reupload_on_skip
+        and status == "skip"
+        and (getattr(result, "reason", None) or "").startswith("already filled")
+    ):
+        return True
+    return False
+
 
 def _run_issuing_body_backfill(
     sidecars: list[Path],
@@ -1568,65 +1740,85 @@ def _run_issuing_body_backfill(
     counters: dict[str, int],
     skip_reasons: dict[str, int],
     matched_via_counts: dict[str, int],
+    workers: int = 1,
+    reupload_on_skip: bool = False,
 ) -> None:
     """Pass: report_facsimile.issuing_body → issuing_body_normalized."""
-    from monitorul_ii.extraction.backfills import backfill_all_issuing_bodies
+    from monitorul_ii.extraction.backfills import (
+        backfill_all_issuing_bodies,
+        backfill_all_issuing_bodies_parallel,
+    )
 
     n_reports = sum(1 for p in sidecars if _read_doctype(p) == "report_facsimile")
+    suffix = f" (workers={workers})" if workers > 1 else ""
     print(
         f"[issuing_body] running over {n_reports} report_facsimile sidecars "
-        f"(of {len(sidecars)} total)",
+        f"(of {len(sidecars)} total){suffix}",
         file=sys.stderr,
     )
 
-    for result in backfill_all_issuing_bodies(sidecars, force=force, write=write):
-        label = _BACKFILL_LABELS[result.status]
-        line = f"  {label} {result.sidecar_path.name}"
-        if result.status == "filled":
-            counters["filled"] += 1
-            matched_via_counts[result.matched_via or "unknown"] = (
-                matched_via_counts.get(result.matched_via or "unknown", 0) + 1
-            )
-            line += (
-                f"  -> {result.canonical_id}  [{result.matched_via}]"
-                f"  (raw={result.raw_value!r})"
-            )
-        elif result.status == "skip":
-            counters["skipped"] += 1
-            reason = result.reason or "unknown"
-            skip_reasons[reason] = skip_reasons.get(reason, 0) + 1
-            line += f"  ({reason})"
-            if result.raw_value and reason == "no registry match":
-                line += f"  raw={result.raw_value!r}"
-        else:
-            counters["errors"] += 1
-            line += f"  ({result.reason or 'unknown'})"
-        print(line, flush=True)
-        if result.status == "error":
-            print(line, file=sys.stderr, flush=True)
+    if workers > 1:
+        results = backfill_all_issuing_bodies_parallel(
+            sidecars, force=force, write=write, workers=workers
+        )
+    else:
+        results = backfill_all_issuing_bodies(sidecars, force=force, write=write)
 
-        if (
-            uploader is not None
-            and result.status == "filled"
-            and write
-            and result.sidecar_path.exists()
-        ):
-            try:
-                up = uploader.upload_if_missing(  # type: ignore[attr-defined]
-                    result.sidecar_path, content_type="application/json"
+    with _BackfillProgressReporter(
+        total=len(sidecars), counters=counters, pass_label="issuing_body"
+    ) as report:
+        for result in results:
+            label = _BACKFILL_LABELS[result.status]
+            line = f"  {label} {result.sidecar_path.name}"
+            if result.status == "filled":
+                counters["filled"] += 1
+                matched_via_counts[result.matched_via or "unknown"] = (
+                    matched_via_counts.get(result.matched_via or "unknown", 0) + 1
                 )
-                if up.uploaded:
-                    counters["uploaded"] += 1
-                    print(f"  s3+   {result.sidecar_path.name}")
-                else:
-                    counters["in_bucket"] += 1
-                    print(f"  s3=   {result.sidecar_path.name}")
-            except Exception as exc:
-                counters["upload_errors"] += 1
-                print(
-                    f"  s3!   {result.sidecar_path.name}  ({exc})",
-                    file=sys.stderr,
+                line += (
+                    f"  -> {result.canonical_id}  [{result.matched_via}]"
+                    f"  (raw={result.raw_value!r})"
                 )
+            elif result.status == "skip":
+                counters["skipped"] += 1
+                reason = result.reason or "unknown"
+                skip_reasons[reason] = skip_reasons.get(reason, 0) + 1
+                line += f"  ({reason})"
+                if result.raw_value and reason == "no registry match":
+                    line += f"  raw={result.raw_value!r}"
+            else:
+                counters["errors"] += 1
+                line += f"  ({result.reason or 'unknown'})"
+            report.print(line, err=(result.status == "error"))
+
+            if (
+                uploader is not None
+                and write
+                and result.sidecar_path.exists()
+                and _should_upload_after_backfill(
+                    result, reupload_on_skip=reupload_on_skip
+                )
+            ):
+                try:
+                    up = uploader.upload_if_missing(  # type: ignore[attr-defined]
+                        result.sidecar_path,
+                        content_type="application/json",
+                        overwrite=True,
+                    )
+                    if up.uploaded:
+                        counters["uploaded"] += 1
+                        report.print(f"  s3+   {result.sidecar_path.name}")
+                    else:
+                        counters["in_bucket"] += 1
+                        report.print(f"  s3=   {result.sidecar_path.name}")
+                except Exception as exc:
+                    counters["upload_errors"] += 1
+                    report.print(
+                        f"  s3!   {result.sidecar_path.name}  ({exc})",
+                        err=True,
+                    )
+
+            report.advance()
 
 
 def _read_doctype(path: Path) -> str | None:
@@ -1648,9 +1840,14 @@ def _run_ministry_backfill(
     counters: dict[str, int],
     skip_reasons: dict[str, int],
     matched_via_counts: dict[str, int],
+    workers: int = 1,
+    reupload_on_skip: bool = False,
 ) -> None:
     """Pass: qr/plenary addressee → ministry/addressed_to normalized."""
-    from monitorul_ii.extraction.backfills import backfill_all_ministries
+    from monitorul_ii.extraction.backfills import (
+        backfill_all_ministries,
+        backfill_all_ministries_parallel,
+    )
 
     n_relevant = sum(
         1
@@ -1658,57 +1855,72 @@ def _run_ministry_backfill(
         if _read_doctype(p)
         in ("question_register", "plenary_stenogram", "plenary_joint_session")
     )
+    suffix = f" (workers={workers})" if workers > 1 else ""
     print(
         f"[ministry] running over {n_relevant} ministry-bearing sidecars "
-        f"(of {len(sidecars)} total)",
+        f"(of {len(sidecars)} total){suffix}",
         file=sys.stderr,
     )
 
-    for result in backfill_all_ministries(sidecars, force=force, write=write):
-        label = _BACKFILL_LABELS[result.status]
-        line = f"  {label} {result.sidecar_path.name}"
-        if result.status == "filled":
-            counters["filled"] += 1
-            matched_via_counts[result.matched_via or "unknown"] = (
-                matched_via_counts.get(result.matched_via or "unknown", 0) + 1
-            )
-            line += f"  [{result.reason}]"
-            if result.canonical_id and result.matched_via:
-                line += f"  first={result.canonical_id} via={result.matched_via}"
-        elif result.status == "skip":
-            counters["skipped"] += 1
-            reason = result.reason or "unknown"
-            skip_reasons[reason] = skip_reasons.get(reason, 0) + 1
-            line += f"  ({reason})"
-        else:
-            counters["errors"] += 1
-            line += f"  ({result.reason or 'unknown'})"
-        print(line, flush=True)
-        if result.status == "error":
-            print(line, file=sys.stderr, flush=True)
+    if workers > 1:
+        results = backfill_all_ministries_parallel(
+            sidecars, force=force, write=write, workers=workers
+        )
+    else:
+        results = backfill_all_ministries(sidecars, force=force, write=write)
 
-        if (
-            uploader is not None
-            and result.status == "filled"
-            and write
-            and result.sidecar_path.exists()
-        ):
-            try:
-                up = uploader.upload_if_missing(  # type: ignore[attr-defined]
-                    result.sidecar_path, content_type="application/json"
+    with _BackfillProgressReporter(
+        total=len(sidecars), counters=counters, pass_label="ministry"
+    ) as report:
+        for result in results:
+            label = _BACKFILL_LABELS[result.status]
+            line = f"  {label} {result.sidecar_path.name}"
+            if result.status == "filled":
+                counters["filled"] += 1
+                matched_via_counts[result.matched_via or "unknown"] = (
+                    matched_via_counts.get(result.matched_via or "unknown", 0) + 1
                 )
-                if up.uploaded:
-                    counters["uploaded"] += 1
-                    print(f"  s3+   {result.sidecar_path.name}")
-                else:
-                    counters["in_bucket"] += 1
-                    print(f"  s3=   {result.sidecar_path.name}")
-            except Exception as exc:
-                counters["upload_errors"] += 1
-                print(
-                    f"  s3!   {result.sidecar_path.name}  ({exc})",
-                    file=sys.stderr,
+                line += f"  [{result.reason}]"
+                if result.canonical_id and result.matched_via:
+                    line += f"  first={result.canonical_id} via={result.matched_via}"
+            elif result.status == "skip":
+                counters["skipped"] += 1
+                reason = result.reason or "unknown"
+                skip_reasons[reason] = skip_reasons.get(reason, 0) + 1
+                line += f"  ({reason})"
+            else:
+                counters["errors"] += 1
+                line += f"  ({result.reason or 'unknown'})"
+            report.print(line, err=(result.status == "error"))
+
+            if (
+                uploader is not None
+                and write
+                and result.sidecar_path.exists()
+                and _should_upload_after_backfill(
+                    result, reupload_on_skip=reupload_on_skip
                 )
+            ):
+                try:
+                    up = uploader.upload_if_missing(  # type: ignore[attr-defined]
+                        result.sidecar_path,
+                        content_type="application/json",
+                        overwrite=True,
+                    )
+                    if up.uploaded:
+                        counters["uploaded"] += 1
+                        report.print(f"  s3+   {result.sidecar_path.name}")
+                    else:
+                        counters["in_bucket"] += 1
+                        report.print(f"  s3=   {result.sidecar_path.name}")
+                except Exception as exc:
+                    counters["upload_errors"] += 1
+                    report.print(
+                        f"  s3!   {result.sidecar_path.name}  ({exc})",
+                        err=True,
+                    )
+
+            report.advance()
 
 
 def _run_proposed_by_backfill(
@@ -1719,61 +1931,81 @@ def _run_proposed_by_backfill(
     uploader: object | None,
     counters: dict[str, int],
     skip_reasons: dict[str, int],
+    workers: int = 1,
+    reupload_on_skip: bool = False,
 ) -> None:
     """Pass: plenary votes → proposed_by=Guvern (when OUG/OG-derived)."""
-    from monitorul_ii.extraction.backfills import backfill_all_proposed_by
+    from monitorul_ii.extraction.backfills import (
+        backfill_all_proposed_by,
+        backfill_all_proposed_by_parallel,
+    )
 
     n_relevant = sum(
         1
         for p in sidecars
         if _read_doctype(p) in ("plenary_stenogram", "plenary_joint_session")
     )
+    suffix = f" (workers={workers})" if workers > 1 else ""
     print(
         f"[proposed_by] running over {n_relevant} plenary sidecars "
-        f"(of {len(sidecars)} total)",
+        f"(of {len(sidecars)} total){suffix}",
         file=sys.stderr,
     )
 
-    for result in backfill_all_proposed_by(sidecars, force=force, write=write):
-        label = _BACKFILL_LABELS[result.status]
-        line = f"  {label} {result.sidecar_path.name}"
-        if result.status == "filled":
-            counters["filled"] += 1
-            line += f"  [{result.reason}]"
-        elif result.status == "skip":
-            counters["skipped"] += 1
-            reason = result.reason or "unknown"
-            skip_reasons[reason] = skip_reasons.get(reason, 0) + 1
-            line += f"  ({reason})"
-        else:
-            counters["errors"] += 1
-            line += f"  ({result.reason or 'unknown'})"
-        print(line, flush=True)
-        if result.status == "error":
-            print(line, file=sys.stderr, flush=True)
+    if workers > 1:
+        results = backfill_all_proposed_by_parallel(
+            sidecars, force=force, write=write, workers=workers
+        )
+    else:
+        results = backfill_all_proposed_by(sidecars, force=force, write=write)
 
-        if (
-            uploader is not None
-            and result.status == "filled"
-            and write
-            and result.sidecar_path.exists()
-        ):
-            try:
-                up = uploader.upload_if_missing(  # type: ignore[attr-defined]
-                    result.sidecar_path, content_type="application/json"
+    with _BackfillProgressReporter(
+        total=len(sidecars), counters=counters, pass_label="proposed_by"
+    ) as report:
+        for result in results:
+            label = _BACKFILL_LABELS[result.status]
+            line = f"  {label} {result.sidecar_path.name}"
+            if result.status == "filled":
+                counters["filled"] += 1
+                line += f"  [{result.reason}]"
+            elif result.status == "skip":
+                counters["skipped"] += 1
+                reason = result.reason or "unknown"
+                skip_reasons[reason] = skip_reasons.get(reason, 0) + 1
+                line += f"  ({reason})"
+            else:
+                counters["errors"] += 1
+                line += f"  ({result.reason or 'unknown'})"
+            report.print(line, err=(result.status == "error"))
+
+            if (
+                uploader is not None
+                and write
+                and result.sidecar_path.exists()
+                and _should_upload_after_backfill(
+                    result, reupload_on_skip=reupload_on_skip
                 )
-                if up.uploaded:
-                    counters["uploaded"] += 1
-                    print(f"  s3+   {result.sidecar_path.name}")
-                else:
-                    counters["in_bucket"] += 1
-                    print(f"  s3=   {result.sidecar_path.name}")
-            except Exception as exc:
-                counters["upload_errors"] += 1
-                print(
-                    f"  s3!   {result.sidecar_path.name}  ({exc})",
-                    file=sys.stderr,
-                )
+            ):
+                try:
+                    up = uploader.upload_if_missing(  # type: ignore[attr-defined]
+                        result.sidecar_path,
+                        content_type="application/json",
+                        overwrite=True,
+                    )
+                    if up.uploaded:
+                        counters["uploaded"] += 1
+                        report.print(f"  s3+   {result.sidecar_path.name}")
+                    else:
+                        counters["in_bucket"] += 1
+                        report.print(f"  s3=   {result.sidecar_path.name}")
+                except Exception as exc:
+                    counters["upload_errors"] += 1
+                    report.print(
+                        f"  s3!   {result.sidecar_path.name}  ({exc})",
+                        err=True,
+                    )
+
+            report.advance()
 
 
 def _run_persons_backfill(
@@ -1785,61 +2017,81 @@ def _run_persons_backfill(
     counters: dict[str, int],
     skip_reasons: dict[str, int],
     matched_via_counts: dict[str, int],
+    workers: int = 1,
+    reupload_on_skip: bool = False,
 ) -> None:
     """Pass: every Speaker dict → person_id from persons.json registry."""
-    from monitorul_ii.extraction.backfills import backfill_all_persons
+    from monitorul_ii.extraction.backfills import (
+        backfill_all_persons,
+        backfill_all_persons_parallel,
+    )
 
+    suffix = f" (workers={workers})" if workers > 1 else ""
     print(
         f"[persons] running over {len(sidecars)} sidecars "
-        "(every doc type carries Speaker dicts)",
+        f"(every doc type carries Speaker dicts){suffix}",
         file=sys.stderr,
     )
 
-    for result in backfill_all_persons(sidecars, force=force, write=write):
-        label = _BACKFILL_LABELS[result.status]
-        line = f"  {label} {result.sidecar_path.name}"
-        if result.status == "filled":
-            counters["filled"] += 1
-            matched_via_counts[result.matched_via or "unknown"] = (
-                matched_via_counts.get(result.matched_via or "unknown", 0) + 1
-            )
-            line += f"  [{result.reason}]"
-            if result.canonical_id and result.matched_via:
-                line += f"  first={result.canonical_id} via={result.matched_via}"
-        elif result.status == "skip":
-            counters["skipped"] += 1
-            reason = result.reason or "unknown"
-            skip_reasons[reason] = skip_reasons.get(reason, 0) + 1
-            line += f"  ({reason})"
-        else:
-            counters["errors"] += 1
-            line += f"  ({result.reason or 'unknown'})"
-        print(line, flush=True)
-        if result.status == "error":
-            print(line, file=sys.stderr, flush=True)
+    if workers > 1:
+        results = backfill_all_persons_parallel(
+            sidecars, force=force, write=write, workers=workers
+        )
+    else:
+        results = backfill_all_persons(sidecars, force=force, write=write)
 
-        if (
-            uploader is not None
-            and result.status == "filled"
-            and write
-            and result.sidecar_path.exists()
-        ):
-            try:
-                up = uploader.upload_if_missing(  # type: ignore[attr-defined]
-                    result.sidecar_path, content_type="application/json"
+    with _BackfillProgressReporter(
+        total=len(sidecars), counters=counters, pass_label="persons"
+    ) as report:
+        for result in results:
+            label = _BACKFILL_LABELS[result.status]
+            line = f"  {label} {result.sidecar_path.name}"
+            if result.status == "filled":
+                counters["filled"] += 1
+                matched_via_counts[result.matched_via or "unknown"] = (
+                    matched_via_counts.get(result.matched_via or "unknown", 0) + 1
                 )
-                if up.uploaded:
-                    counters["uploaded"] += 1
-                    print(f"  s3+   {result.sidecar_path.name}")
-                else:
-                    counters["in_bucket"] += 1
-                    print(f"  s3=   {result.sidecar_path.name}")
-            except Exception as exc:
-                counters["upload_errors"] += 1
-                print(
-                    f"  s3!   {result.sidecar_path.name}  ({exc})",
-                    file=sys.stderr,
+                line += f"  [{result.reason}]"
+                if result.canonical_id and result.matched_via:
+                    line += f"  first={result.canonical_id} via={result.matched_via}"
+            elif result.status == "skip":
+                counters["skipped"] += 1
+                reason = result.reason or "unknown"
+                skip_reasons[reason] = skip_reasons.get(reason, 0) + 1
+                line += f"  ({reason})"
+            else:
+                counters["errors"] += 1
+                line += f"  ({result.reason or 'unknown'})"
+            report.print(line, err=(result.status == "error"))
+
+            if (
+                uploader is not None
+                and write
+                and result.sidecar_path.exists()
+                and _should_upload_after_backfill(
+                    result, reupload_on_skip=reupload_on_skip
                 )
+            ):
+                try:
+                    up = uploader.upload_if_missing(  # type: ignore[attr-defined]
+                        result.sidecar_path,
+                        content_type="application/json",
+                        overwrite=True,
+                    )
+                    if up.uploaded:
+                        counters["uploaded"] += 1
+                        report.print(f"  s3+   {result.sidecar_path.name}")
+                    else:
+                        counters["in_bucket"] += 1
+                        report.print(f"  s3=   {result.sidecar_path.name}")
+                except Exception as exc:
+                    counters["upload_errors"] += 1
+                    report.print(
+                        f"  s3!   {result.sidecar_path.name}  ({exc})",
+                        err=True,
+                    )
+
+            report.advance()
 
 
 def cmd_backfill(args: argparse.Namespace) -> int:
@@ -1866,6 +2118,11 @@ def cmd_backfill(args: argparse.Namespace) -> int:
     run_proposed_by = args.kind in ("proposed_by", "all")
     run_persons = args.kind in ("persons", "all")
 
+    # Default to 1 when the namespace doesn't carry --workers (some
+    # test harnesses build SimpleNamespace directly instead of going
+    # through the parser). Same pattern for reupload_on_skip.
+    workers = max(1, int(getattr(args, "workers", 1) or 1))
+    reupload_on_skip = bool(getattr(args, "reupload_on_skip", False))
     try:
         if run_issuing_body:
             _run_issuing_body_backfill(
@@ -1876,6 +2133,8 @@ def cmd_backfill(args: argparse.Namespace) -> int:
                 counters=counters,
                 skip_reasons=skip_reasons,
                 matched_via_counts=matched_via_counts,
+                workers=workers,
+                reupload_on_skip=reupload_on_skip,
             )
         if run_ministry:
             _run_ministry_backfill(
@@ -1886,6 +2145,8 @@ def cmd_backfill(args: argparse.Namespace) -> int:
                 counters=counters,
                 skip_reasons=skip_reasons,
                 matched_via_counts=matched_via_counts,
+                workers=workers,
+                reupload_on_skip=reupload_on_skip,
             )
         if run_proposed_by:
             _run_proposed_by_backfill(
@@ -1895,6 +2156,8 @@ def cmd_backfill(args: argparse.Namespace) -> int:
                 uploader=uploader,
                 counters=counters,
                 skip_reasons=skip_reasons,
+                workers=workers,
+                reupload_on_skip=reupload_on_skip,
             )
         if run_persons:
             _run_persons_backfill(
@@ -1905,11 +2168,37 @@ def cmd_backfill(args: argparse.Namespace) -> int:
                 counters=counters,
                 skip_reasons=skip_reasons,
                 matched_via_counts=matched_via_counts,
+                workers=workers,
+                reupload_on_skip=reupload_on_skip,
             )
     except KeyboardInterrupt:
+        # First Ctrl+C: graceful exit. Print summary, return 130, let
+        # the multiprocessing atexit handler join workers (they ignore
+        # SIGINT — see backfills._worker_ignore_sigint — and finish
+        # their current sidecar atomically; a few seconds in the
+        # steady state).
+        #
+        # Subsequent Ctrl+Cs: hard escape. Install a handler that
+        # calls `os._exit(130)` on the next SIGINT. The user gets out
+        # immediately if workers are stuck in init or some atexit
+        # handler is blocking longer than they're willing to wait.
+        # Trade-off: orphaned workers may leave `.part` files behind
+        # (the atomic-rename contract means the canonical sidecars
+        # are still safe — the `.part` is the sacrificial scratch
+        # file mid-write). A subsequent run reads through them
+        # cleanly, and `find pdfs/ -name '*.part' -delete` reaps any
+        # leftovers.
+        import os as _os
+        import signal as _signal
+
+        def _hard_exit(*_args: object) -> None:
+            _os._exit(130)
+
+        _signal.signal(_signal.SIGINT, _hard_exit)
         print(
             f"\ninterrupted: filled={counters['filled']} "
-            f"skipped={counters['skipped']} errors={counters['errors']}",
+            f"skipped={counters['skipped']} errors={counters['errors']} "
+            "(Ctrl+C again to force-exit immediately)",
             file=sys.stderr,
         )
         return 130

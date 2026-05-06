@@ -1371,3 +1371,195 @@ def test_backfill_all_persons_walks_every_doc_type(tmp_path: Path):
     canonical_ids = {r.canonical_id for r in results}
     assert "iordache-florin" in canonical_ids
     assert "iohannis-klaus" in canonical_ids
+
+
+# -- parallel iterators ----------------------------------------------------
+
+
+def test_persons_backfill_parallel_workers_one_short_circuits_to_serial(
+    tmp_path: Path,
+):
+    """`workers=1` (or 0) routes through the serial generator without
+    spawning a process pool — important so debugging / determinism cases
+    don't pay the spawn-pool overhead."""
+    from monitorul_ii.extraction.backfills import backfill_all_persons_parallel
+
+    sc = _plenary_with_speakers_sidecar(
+        doc_id="mo://2018/II/300",
+        year=2018,
+        speakers_in_chair=[
+            _make_speaker(raw="Domnul Florin Iordache", name="Florin Iordache"),
+        ],
+    )
+    p = _write(tmp_path, "plen.extraction.json", sc)
+    results = list(backfill_all_persons_parallel([p], workers=1))
+    assert len(results) == 1
+    assert results[0].status == "filled"
+    assert results[0].canonical_id == "iordache-florin"
+
+
+def test_persons_backfill_parallel_yields_same_set_as_serial(tmp_path: Path):
+    """The parallel iterator yields the same set of BackfillResults as
+    the serial iterator — same canonical_ids, same statuses — just
+    potentially in a different order (`as_completed` returns in
+    completion order, not input order)."""
+    from monitorul_ii.extraction.backfills import backfill_all_persons_parallel
+
+    paths = []
+    for i, (raw, name, expected_id) in enumerate(
+        [
+            ("Domnul Florin Iordache", "Florin Iordache", "iordache-florin"),
+            ("Domnul Klaus Iohannis", "Klaus Iohannis", "iohannis-klaus"),
+            ("Doamna Raluca Turcan", "Raluca Turcan", "turcan-raluca"),
+        ]
+    ):
+        sc = _plenary_with_speakers_sidecar(
+            doc_id=f"mo://2018/II/{400 + i}",
+            year=2018,
+            speakers_in_chair=[_make_speaker(raw=raw, name=name)],
+        )
+        paths.append(_write(tmp_path, f"plen{i}.extraction.json", sc))
+
+    serial = sorted(
+        (r.sidecar_path.name, r.canonical_id, r.status)
+        for r in backfill_all_persons(paths)
+    )
+    # Reset person_id so the parallel pass actually has work to do.
+    for p in paths:
+        sc = json.loads(p.read_text(encoding="utf-8"))
+        sc["body"]["session"]["chair"][0]["person_id"] = None
+        p.write_text(json.dumps(sc, ensure_ascii=False, indent=2), encoding="utf-8")
+
+    parallel = sorted(
+        (r.sidecar_path.name, r.canonical_id, r.status)
+        for r in backfill_all_persons_parallel(paths, workers=2)
+    )
+    assert serial == parallel
+
+
+def test_issuing_body_backfill_parallel_routes_to_serial_with_one_path(
+    tmp_path: Path,
+):
+    """A single-path workload short-circuits to serial regardless of
+    workers — spawning a pool for one task burns ~2s of startup for no
+    gain."""
+    from monitorul_ii.extraction.backfills import (
+        backfill_all_issuing_bodies_parallel,
+    )
+
+    sc = _report_sidecar(doc_id="mo://2014/II/1R", issuing_body="Consiliul Legislativ")
+    p = _write(tmp_path, "report.extraction.json", sc)
+    results = list(backfill_all_issuing_bodies_parallel([p], workers=8))
+    assert len(results) == 1
+    assert results[0].status == "filled"
+    assert results[0].canonical_id == "consiliul_legislativ"
+
+
+def test_worker_ignore_sigint_handler_installs_sig_ign():
+    """The worker initializer must register SIG_IGN for SIGINT so a
+    Ctrl+C in the parent doesn't propagate to workers mid-task. Verified
+    by snapshotting the previous handler, calling the initializer, and
+    confirming the new handler is `SIG_IGN`."""
+    import signal
+
+    from monitorul_ii.extraction.backfills import _worker_ignore_sigint
+
+    # Snapshot the current handler so we restore it; pytest itself
+    # may have its own SIGINT handler installed.
+    prev = signal.getsignal(signal.SIGINT)
+    try:
+        _worker_ignore_sigint()
+        assert signal.getsignal(signal.SIGINT) == signal.SIG_IGN
+    finally:
+        signal.signal(signal.SIGINT, prev)
+
+
+def test_run_in_parallel_generator_close_does_not_block_on_shutdown(
+    tmp_path: Path, monkeypatch
+):
+    """When the caller stops iterating mid-stream (e.g. Ctrl+C in the
+    parent), the parallel generator's finally block must call
+    `executor.shutdown(wait=False, cancel_futures=True)` — NOT
+    `wait=True`. wait=True would block the GeneratorExit cleanup on a
+    join, which a second Ctrl+C would interrupt and dump a traceback."""
+    import concurrent.futures
+
+    from monitorul_ii.extraction.backfills import (
+        backfill_all_persons_parallel,
+    )
+
+    # Spy on every shutdown call's kwargs.
+    calls: list[dict] = []
+    original_shutdown = concurrent.futures.ProcessPoolExecutor.shutdown
+
+    def spy_shutdown(self, *args, **kwargs):
+        calls.append(kwargs)
+        return original_shutdown(self, *args, **kwargs)
+
+    monkeypatch.setattr(
+        concurrent.futures.ProcessPoolExecutor, "shutdown", spy_shutdown
+    )
+
+    # Two synthetic sidecars — enough to trigger the parallel branch.
+    paths = []
+    for i in range(2):
+        sc = _plenary_with_speakers_sidecar(
+            doc_id=f"mo://2018/II/{900 + i}",
+            year=2018,
+            speakers_in_chair=[
+                _make_speaker(raw="Domnul Florin Iordache", name="Florin Iordache"),
+            ],
+        )
+        paths.append(_write(tmp_path, f"plen{i}.extraction.json", sc))
+
+    gen = backfill_all_persons_parallel(paths, workers=2)
+    next(gen)  # consume one result so the generator is suspended mid-stream
+    gen.close()  # simulate the GeneratorExit path on caller-side KbdInt
+
+    assert calls, "shutdown() should have been called via the finally block"
+    # The finally explicitly passes wait=False + cancel_futures=True so a
+    # second Ctrl+C during cleanup can't interrupt a blocking join.
+    last = calls[-1]
+    assert last.get("wait") is False, (
+        f"expected wait=False to avoid second-Ctrl+C race; got {last!r}"
+    )
+    assert last.get("cancel_futures") is True
+
+
+def test_run_in_parallel_serial_path_does_not_create_pool(tmp_path: Path):
+    """`workers=1` short-circuits to the serial generator without
+    constructing a `ProcessPoolExecutor` — important so debug runs and
+    single-task workloads don't pay the spawn-pool overhead AND don't
+    spin up the SIGINT-ignoring child workers."""
+    import concurrent.futures
+
+    from monitorul_ii.extraction.backfills import (
+        backfill_all_persons_parallel,
+    )
+
+    constructed = []
+    original_init = concurrent.futures.ProcessPoolExecutor.__init__
+
+    def spy_init(self, *args, **kwargs):
+        constructed.append(kwargs)
+        return original_init(self, *args, **kwargs)
+
+    sc = _plenary_with_speakers_sidecar(
+        doc_id="mo://2018/II/1000",
+        year=2018,
+        speakers_in_chair=[
+            _make_speaker(raw="Domnul Florin Iordache", name="Florin Iordache"),
+        ],
+    )
+    p = _write(tmp_path, "plen.extraction.json", sc)
+
+    # Patch only for the duration of the call.
+    try:
+        concurrent.futures.ProcessPoolExecutor.__init__ = spy_init
+        list(backfill_all_persons_parallel([p], workers=1))
+    finally:
+        concurrent.futures.ProcessPoolExecutor.__init__ = original_init
+
+    assert constructed == [], (
+        "workers=1 should short-circuit to serial without constructing a pool"
+    )

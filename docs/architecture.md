@@ -279,15 +279,33 @@ When `S3_ENDPOINT`, `S3_ACCESS_KEY_ID`, `S3_SECRET_ACCESS_KEY`, and `S3_BUCKET` 
 
 ### Idempotency
 
-`Uploader.upload_if_missing(path, key=None, content_type="application/pdf")`:
+`Uploader.upload_if_missing(path, key=None, content_type="application/pdf", *, overwrite=False)`:
 
-1. `head_object(Bucket, Key)` → if 200, return `UploadResult(uploaded=False, etag=…)` (no upload, file already there).
-2. On `404` / `NoSuchKey` / `NotFound`, `upload_file(...)` with the requested `ContentType` and return `UploadResult(uploaded=True, etag=…)`.
+1. **Default — `overwrite=False`** (immutable-artefact path):
+   1. `head_object(Bucket, Key)` → if 200, return `UploadResult(uploaded=False, etag=…)` (no upload, file already there).
+   2. On `404` / `NoSuchKey` / `NotFound`, `upload_file(...)` with the requested `ContentType` and a follow-up `head_object` → return `UploadResult(uploaded=True, etag=…)`.
+2. **`overwrite=True`** (mutable-artefact path): skip the pre-PUT head_object call and `upload_file(...)` unconditionally; follow-up `head_object` populates the new etag. `uploaded=True` always.
 3. Other errors propagate.
 
-The default `key` is `path.name`, mirroring the local flat layout (e.g. `2026-04-29_MO-PII-47-2026.pdf`). The date prefix gives chronological order in any S3 listing tool, so we don't bother with year/month prefixes. `cmd_fetch` uses the default `application/pdf`; `cmd_convert` passes `text/markdown`. Both formats live side-by-side in the same bucket — the `Content-Type` distinguishes them and a suffix filter separates them in listings.
+The default `key` is `path.name`, mirroring the local flat layout (e.g. `2026-04-29_MO-PII-47-2026.pdf`). The date prefix gives chronological order in any S3 listing tool, so we don't bother with year/month prefixes.
 
-The `head_object`-per-file policy is one extra HTTP RTT per PDF on re-runs. For ranges in the hundreds it's fine; if we ever scrape years at a time, switch to a one-shot `ListObjectsV2` to build an in-memory key set up front.
+**When to set `overwrite=True`** — the call site has just rewritten the local file in place, and the bucket copy (if it exists) is by definition stale. Concretely:
+
+| Subcommand | Artefact | Overwrite? | Why |
+| --- | --- | --- | --- |
+| `fetch` | PDF | No (default) | Bytes are immutable per filename. Resume runs head-and-skip. |
+| `convert` | MD | No (default) | Same — converter output is byte-stable for a given PDF input. |
+| `extract` | sidecar JSON | **Yes** | Extractor version bump rewrites with new fields; bucket needs the new bytes. |
+| `link` | sidecar JSON | **Yes** | All three passes (report→session, vote-pair, xref) modify in place. |
+| `backfill` | sidecar JSON | **Yes** | Every pass writes new `*_normalized` / `Speaker.person_id` values. |
+
+Pre-fix bug: every sidecar-modifying path called `upload_if_missing` without `overwrite=True`, so the head-object gate short-circuited the re-upload — link's and backfill's local modifications never reached the bucket. The bucket effectively reflected only what `extract` last wrote, which made the bucket-side data set diverge from the local set after every linker / backfill run. Caught when verifying that a stub-merge backfill rerun would actually persist the new `person_id`s to S3 — it wouldn't have. The fix passes `overwrite=True` from all eight sidecar-upload sites in `cli.py` (extract: 1; link: 3 passes; backfill: 4 passes); PDF / MD paths keep the default for the existing head-and-skip resume behavior.
+
+**Historical staleness — `--reupload-on-skip`.** The overwrite-fix solves the going-forward case: every modification done by `extract` / `link` / `backfill` from now on overwrites the bucket. It does NOT repair the bucket for sidecars that were already correctly populated locally before the fix landed. Concretely: if a backfill ran in 2026-Q1 (pre-fix), wrote `Speaker.person_id` locally, but the upload silently no-op'd because the bucket already had a key from the original `extract`, the bucket still carries stale bytes. Re-running `backfill --kind=persons --force` post-fix doesn't help — the `--force` flag only overrides the local-side **mismatch** branch in `backfill_persons` (`existing != canonical`); when `existing == canonical` the result is `status="skip"`, `reason="already filled (N speakers)"`, and the upload gate short-circuits. The local file is correct; the bucket is stale; nothing fires.
+
+`--reupload-on-skip` is the precision-targeted repair flag for this exact gap. When set, the upload gate also fires on `status="skip"` results whose `reason` starts with `"already filled"` — covering all four pass-specific formats: issuing_body's literal `"already filled with same canonical id"`; ministry / proposed_by / persons aggregated `"already filled (N records|votes|speakers)"`. Other skip reasons (`no raw value`, `no speakers in body`, `no registry match`, `no government-proposed agendas`, `mismatch (force off)`) still don't upload — those mean the local file doesn't carry pass-emitted data, so the bucket can't be "stale" relative to one. The gate decision lives in `_should_upload_after_backfill(result, *, reupload_on_skip)` so all four `_run_*_backfill` helpers share identical semantics, and the helper is unit-tested directly across status × reason combinations. After running with the flag once across the corpus, `--reupload-on-skip` becomes a no-op on subsequent runs (the bucket is back in sync). Running with `--no-upload` ignores the flag (no upload happens at all).
+
+The `head_object`-per-file policy on the immutable path is one extra HTTP RTT per PDF on re-runs. For ranges in the hundreds it's fine; if we ever scrape years at a time, switch to a one-shot `ListObjectsV2` to build an in-memory key set up front. The mutable path skips that round-trip entirely.
 
 ### Fail-fast
 
@@ -1216,6 +1234,28 @@ Each registry validates its entry shape at first load (id + canonical_name requi
 ### Versioning contract
 
 Backfill versions are NOT propagated into `extraction.extractor_versions`. Same Q11 conservative-by-design contract as the linker: an exact-match version key would force a full extractor re-run every time a registry file's `version` bumped. Backfill output lives entirely inside body content (`*_normalized` named fields), so the regression on a registry version bump is "the corpus has stale canonical ids until you re-run backfill" — a fast, idempotent operation. Re-extracting a sidecar (e.g., extractor v0.2.x → v0.2.y) clobbers all `*_normalized` fields back to their extractor defaults (typically null); re-running `monitorul-ii backfill` after re-extract is the recovery path.
+
+**Parallel backfill (`-j N` / `--workers N`).** Each per-sidecar pass (`backfill_issuing_body`, `backfill_ministries`, `backfill_proposed_by`, `backfill_persons`) is module-level, takes a `Path` + bool kwargs, returns a `BackfillResult` — embarrassingly parallel across sidecars. The CLI's `_run_in_parallel(...)` factory in `extraction/backfills.py` submits these to a `ProcessPoolExecutor` with `multiprocessing.get_context("spawn")` so each child interpreter gets a clean import (fork-after-thread is hostile to CPython for the same reasons everyone else has been bitten by it — signal handlers, FD inheritance, lru_cache duplication). Results yield via `as_completed`, so output appears in completion order rather than input order.
+
+**Why `ProcessPool` and not `ThreadPool`?** The matcher's hot path is dict lookups + per-token regex + (for persons) a pure-Python Levenshtein band — all GIL-bound. Threads would serialize the work behind the GIL and add coordination overhead for zero throughput gain. PyMuPDF's `convert` flow uses `ThreadPoolExecutor` because the layout model releases the GIL inside C-level ORT inference; backfill has no equivalent escape valve, so it has to spawn whole interpreters.
+
+**Per-worker startup amortization.** Each spawn-context worker starts cold: it re-imports `monitorul_ii.registries`, the first matcher call triggers `_persons_alias_index()` which loads `persons.json` (~5 MB JSON parse, ~13K entries) and builds the homonym + token-set + diacritic indexes (~1-2s wall on a modern box). After that, every subsequent call in the same worker is fast. With 20 workers over 5,552 sidecars, each worker handles ~278 sidecars — startup amortizes well. With 8 workers over 40 sidecars (the test bench), each worker handles ~5 sidecars — startup dominates and the speedup falls below 2× because of it.
+
+**Measured speedup at scale**: 200-sidecar batch / 16 workers — 32s wall vs ~80s estimated serial = ~2.5× speedup with 1580% CPU usage. Single-sidecar workloads short-circuit to serial regardless of the `-j` value (spawning a pool for one task is pure overhead).
+
+**KeyboardInterrupt handling — three load-bearing pieces**:
+
+1. **`initializer=_worker_ignore_sigint`** on the `ProcessPoolExecutor`. Each spawn-context child registers `signal.SIG_IGN` for `SIGINT` on entry, so the user's Ctrl+C only hits the main process. Without this, the SIGINT propagates to every worker mid-task; the resulting `KeyboardInterrupt` can fire between the matcher and the atomic rename, leaving `.part` files on disk.
+2. **`try / finally` instead of `with ProcessPoolExecutor(...) as ex`**. The `with` form's auto-`__exit__` calls `shutdown(wait=True)`, which blocks on the worker-pool join. A second Ctrl+C during that join dumps `Exception ignored in: <generator object _run_in_parallel>` plus a stack trace into the user's terminal — which is exactly what one user reported. The explicit `try / finally + ex.shutdown(wait=False, cancel_futures=True)` returns instantly: queued futures cancel, in-flight workers (which ignore SIGINT, see #1) finish their current sidecar atomically, and the multiprocessing atexit handler completes the join during normal interpreter shutdown.
+3. **Two-stage cmd-level KbdInt handler**: the *first* Ctrl+C lands in `cmd_backfill`'s `except KeyboardInterrupt` branch — it prints the "interrupted: …" summary and returns 130 (graceful path). Before returning, it installs a `_hard_exit` SIGINT handler that calls `os._exit(130)` on any subsequent signal. The user's *second* Ctrl+C (if they don't want to wait the few seconds for atexit's worker join to complete) immediately terminates the process. Workers may be orphaned but the OS reaps them; their atomic-rename contract means no half-written sidecars, only possible `.part` scratch files (cleaned with `find pdfs/ -name '*.part' -delete`).
+
+Why two-stage and not `SIG_IGN` for the rest of the lifetime: a previous iteration of this code installed `SIG_IGN` after the first Ctrl+C to absorb both the in-progress join's potential interruption AND the `Exception ignored in atexit callback` trace. The result was that users who hit a long worker-init phase — 20 spawn-context workers each loading `persons.json` (~5 MB JSON parse + alias index build, ~1-2s) — found themselves locked: the parent process was inside `multiprocessing.util._exit_function`'s `Process.join()` (no timeout), and `SIG_IGN` swallowed every Ctrl+C. The only escape was `kill -9 <pid>`. The two-stage handler keeps the graceful path for a single interrupt while preserving an escape hatch for impatient users.
+
+Net effect: a single Ctrl+C cleanly interrupts the run with one summary line, exits 130, and lets workers finish their current task before the join completes (~ms-seconds in the steady state); a second Ctrl+C is the user's hard-stop button, no traceback.
+
+**Failure surfacing**: a worker process crash (uncaught exception inside `backfill_persons` etc.) doesn't stop the loop; instead `as_completed` raises when the failed future's `.result()` is called, and the parent yields `BackfillResult(status="error", reason="worker exception: <repr>")`. The CLI counts these as errors and surfaces them on stderr — never silently lost.
+
+**Progress reporting** — `_BackfillProgressReporter` (one instance per pass, opened by each `_run_*_backfill` helper as a context manager) shows a live `rich` bar on stderr in tty mode and falls back to a heartbeat every `_BACKFILL_HEARTBEAT_EVERY=100` results otherwise. The bar's description carries the `[<pass>]` label so a multi-pass `--kind=all` run is debuggable from a tail of stderr without needing per-line context. Counter wiring matches the convert / extract reporters' contract: the `cmd_backfill` orchestrator owns a single `counters: dict[str, int]` shared across all four passes, and each per-pass reporter reads it via `_desc()` on every bar redraw — so the bar shows running totals across passes (e.g., `[persons] fill=5,548 skip=4 err=0 · s3 up=5,548 …` reflects all sidecars touched so far in the current `--kind=all` run, not just the persons pass). Per-result lines (`ok ...`, `skip ...`, `s3+ ...`, `s3= ...`) route through `report.print(line)` so they scroll above the bar in tty mode and emit cleanly to stdout in pipe mode. The same shape works under both serial and parallel iterators: `as_completed` yields one result at a time, the loop bumps counters, prints the line, and ticks `report.advance()` — the bar advances per result regardless of input order.
 
 The matcher tries tiers in order:
 1. **exact** — input equals canonical_name OR an alias (case-sensitive).

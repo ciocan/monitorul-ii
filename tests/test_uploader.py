@@ -1,8 +1,12 @@
 from __future__ import annotations
 
-import pytest
+from pathlib import Path
+from unittest.mock import MagicMock
 
-from monitorul_ii.uploader import S3Config, _etag
+import pytest
+from botocore.exceptions import ClientError
+
+from monitorul_ii.uploader import S3Config, Uploader, _etag
 
 
 # --- S3Config.from_env -----------------------------------------------------
@@ -88,3 +92,104 @@ def test_etag_returns_none_when_missing():
 def test_etag_handles_unquoted_value():
     """boto3 normally quotes ETags but the helper shouldn't trip if it ever doesn't."""
     assert _etag({"ETag": "abc123"}) == "abc123"
+
+
+# --- Uploader.upload_if_missing -------------------------------------------
+
+
+def _uploader_with_mock_client() -> tuple[Uploader, MagicMock]:
+    """Build an Uploader whose boto3 client is a MagicMock — bypasses
+    the real boto3 client constructor (which is exercised in the
+    `validate` tests above) so we can assert exactly which S3 calls
+    fire under each branch."""
+    cfg = S3Config(
+        endpoint="https://example.com",
+        access_key="k",
+        secret_key="s",
+        region="auto",
+        bucket="b",
+    )
+    up = Uploader.__new__(Uploader)
+    up.config = cfg
+    mock = MagicMock()
+    up._s3 = mock
+    return up, mock
+
+
+def _not_found(op: str) -> ClientError:
+    return ClientError(
+        {"Error": {"Code": "404", "Message": "Not Found"}},
+        op,
+    )
+
+
+def test_upload_if_missing_skips_when_object_exists(tmp_path: Path):
+    """Default `overwrite=False`: if the bucket already has the key,
+    return early without calling upload_file."""
+    up, mock = _uploader_with_mock_client()
+    p = tmp_path / "f.json"
+    p.write_text("{}", encoding="utf-8")
+    mock.head_object.return_value = {"ETag": '"existing-etag"'}
+
+    result = up.upload_if_missing(p, content_type="application/json")
+
+    assert result.uploaded is False
+    assert result.etag == "existing-etag"
+    mock.head_object.assert_called_once()  # the gate check
+    mock.upload_file.assert_not_called()
+
+
+def test_upload_if_missing_uploads_when_object_absent(tmp_path: Path):
+    up, mock = _uploader_with_mock_client()
+    p = tmp_path / "f.json"
+    p.write_text("{}", encoding="utf-8")
+    mock.head_object.side_effect = [
+        _not_found("HeadObject"),
+        {"ETag": '"new-etag"'},
+    ]
+
+    result = up.upload_if_missing(p, content_type="application/json")
+
+    assert result.uploaded is True
+    assert result.etag == "new-etag"
+    mock.upload_file.assert_called_once()
+
+
+def test_upload_if_missing_overwrite_true_skips_head_check_and_puts(
+    tmp_path: Path,
+):
+    """`overwrite=True`: skip the pre-PUT head_object call and upload
+    unconditionally — even when the bucket already has the key. This is
+    the path link / backfill / extract take after rewriting a sidecar in
+    place; the previous default-only behavior left the bucket carrying
+    stale bytes."""
+    up, mock = _uploader_with_mock_client()
+    p = tmp_path / "f.json"
+    p.write_text("{}", encoding="utf-8")
+    # A single head_object call (the post-PUT one) returns the new etag.
+    mock.head_object.return_value = {"ETag": '"new-etag"'}
+
+    result = up.upload_if_missing(p, content_type="application/json", overwrite=True)
+
+    assert result.uploaded is True
+    assert result.etag == "new-etag"
+    mock.upload_file.assert_called_once()
+    # Exactly one head_object — the post-PUT one. Pre-PUT head is
+    # skipped under overwrite=True.
+    assert mock.head_object.call_count == 1
+
+
+def test_upload_if_missing_overwrite_true_passes_content_type(
+    tmp_path: Path,
+):
+    """ContentType propagates to the boto3 upload_file call regardless
+    of the overwrite branch."""
+    up, mock = _uploader_with_mock_client()
+    p = tmp_path / "f.json"
+    p.write_text("{}", encoding="utf-8")
+    mock.head_object.return_value = {"ETag": '"x"'}
+
+    up.upload_if_missing(p, content_type="application/json", overwrite=True)
+
+    _, kwargs = mock.upload_file.call_args
+    assert kwargs["ExtraArgs"]["ContentType"] == "application/json"

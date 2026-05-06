@@ -193,3 +193,100 @@ def test_convert_parser_reverse_flag_sets_true():
 
     args = _build_parser().parse_args(["convert", "pdfs/", "--reverse"])
     assert args.reverse is True
+
+
+# --- _BackfillProgressReporter (non-tty / heartbeat path) -----------------
+
+
+def _zero_backfill_counters() -> dict[str, int]:
+    """Match the schema cmd_backfill seeds in cli.py."""
+    return {
+        "filled": 0,
+        "skipped": 0,
+        "errors": 0,
+        "uploaded": 0,
+        "in_bucket": 0,
+        "upload_errors": 0,
+    }
+
+
+def test_backfill_progress_reporter_advance_no_tty(capsys):
+    from monitorul_ii.cli import _BackfillProgressReporter
+
+    counters = _zero_backfill_counters()
+    with _BackfillProgressReporter(
+        total=10, counters=counters, pass_label="persons"
+    ) as r:
+        for _ in range(3):
+            r.advance()
+        assert r.done == 3
+
+
+def test_backfill_progress_reporter_print_no_tty(capsys):
+    from monitorul_ii.cli import _BackfillProgressReporter
+
+    counters = _zero_backfill_counters()
+    with _BackfillProgressReporter(
+        total=2, counters=counters, pass_label="persons"
+    ) as r:
+        r.print("hello stdout")
+        r.print("hello stderr", err=True)
+    out = capsys.readouterr()
+    assert "hello stdout" in out.out
+    assert "hello stderr" in out.err
+
+
+def test_backfill_progress_reporter_heartbeat_threshold(monkeypatch, capsys):
+    """Heartbeat fires once per `_BACKFILL_HEARTBEAT_EVERY` in non-tty mode."""
+    from monitorul_ii import cli
+
+    monkeypatch.setattr(cli, "_BACKFILL_HEARTBEAT_EVERY", 5)
+    counters = _zero_backfill_counters()
+    with cli._BackfillProgressReporter(
+        total=20, counters=counters, pass_label="ministry"
+    ) as r:
+        for _ in range(11):
+            r.advance()
+            counters["filled"] = r.done
+    err = capsys.readouterr().err
+    # Heartbeats at done=5 and done=10 (not at done=20 — terminal state).
+    assert err.count("progress:") == 2
+
+
+def test_backfill_progress_reporter_heartbeat_carries_pass_label(monkeypatch, capsys):
+    """The heartbeat description embeds the pass label so a multi-pass
+    run is debuggable from a tail of stderr."""
+    from monitorul_ii import cli
+
+    monkeypatch.setattr(cli, "_BACKFILL_HEARTBEAT_EVERY", 1)
+    counters = _zero_backfill_counters()
+    with cli._BackfillProgressReporter(
+        total=2, counters=counters, pass_label="proposed_by"
+    ) as r:
+        r.advance()
+    err = capsys.readouterr().err
+    assert "[proposed_by]" in err
+
+
+def test_backfill_progress_reporter_zero_total_is_safe(capsys):
+    """Empty sidecar list: reporter must construct cleanly even with total=0."""
+    from monitorul_ii.cli import _BackfillProgressReporter
+
+    with _BackfillProgressReporter(
+        total=0, counters=_zero_backfill_counters(), pass_label="issuing_body"
+    ) as r:
+        assert r.done == 0
+
+
+def test_backfill_progress_reporter_desc_includes_s3_when_active():
+    """The bar description shows the s3 trio only after at least one
+    upload has happened — quiet runs without S3 don't carry idle zeros."""
+    from monitorul_ii.cli import _BackfillProgressReporter
+
+    counters = _zero_backfill_counters() | {"filled": 3}
+    with _BackfillProgressReporter(
+        total=10, counters=counters, pass_label="persons"
+    ) as r:
+        assert "s3" not in r._desc()
+        counters["uploaded"] = 1
+        assert "s3" in r._desc()

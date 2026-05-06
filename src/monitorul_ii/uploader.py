@@ -86,17 +86,37 @@ class Uploader:
         path: Path,
         key: str | None = None,
         content_type: str = "application/pdf",
+        *,
+        overwrite: bool = False,
     ) -> UploadResult:
-        """Upload `path` to S3 unless an object with `key` already exists.
+        """Upload `path` to S3, optionally overwriting an existing object.
 
-        Returns UploadResult(uploaded, etag). `etag` is populated in both branches:
-        from `head_object` when the object was already there, from a follow-up
-        `head_object` after the upload otherwise.
+        Default (`overwrite=False`): skip the PUT when an object with `key`
+        already exists. This is the right semantics for IMMUTABLE source
+        artefacts — original PDFs and freshly-converted MDs whose bytes
+        don't change after the first successful upload.
+
+        `overwrite=True`: skip the head check and PUT unconditionally. Use
+        this for MUTABLE artefacts whose bytes change in place after the
+        initial write — sidecars rewritten by `extract` (extractor version
+        bump), `link` (cross-doc / cross-reference fill), or `backfill`
+        (registry-driven `*_normalized` / `Speaker.person_id` fill). The
+        previous default-only behavior was a real bug: link / backfill
+        modifications never made it to the bucket because the head_object
+        gate short-circuited every re-upload, leaving the bucket carrying
+        whatever `extract` last wrote.
+
+        Returns UploadResult(uploaded, etag). `etag` is populated in both
+        branches: from `head_object` when the object was already there
+        (overwrite=False, key present), from a follow-up `head_object`
+        after the upload otherwise. `uploaded=True` whenever a PUT
+        actually happened — including the overwrite case.
         """
         object_key = key or path.name
-        head = self._head(object_key)
-        if head is not None:
-            return UploadResult(uploaded=False, etag=_etag(head))
+        if not overwrite:
+            head = self._head(object_key)
+            if head is not None:
+                return UploadResult(uploaded=False, etag=_etag(head))
         self._s3.upload_file(
             str(path),
             self.config.bucket,

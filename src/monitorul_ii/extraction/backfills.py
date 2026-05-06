@@ -51,8 +51,11 @@ easy `grep` away.
 from __future__ import annotations
 
 import json
+import multiprocessing
 import re
-from collections.abc import Iterable, Iterator
+import signal
+from collections.abc import Callable, Iterable, Iterator
+from concurrent.futures import ProcessPoolExecutor, as_completed
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any, Literal
@@ -67,6 +70,26 @@ from monitorul_ii.registries import (
     normalize_institutional_body,
     normalize_speaker,
 )
+
+
+def _worker_ignore_sigint() -> None:
+    """ProcessPoolExecutor initializer that makes worker processes
+    ignore SIGINT.
+
+    Without this, a Ctrl+C in the parent propagates to every worker as
+    a `KeyboardInterrupt` raised somewhere inside the matcher / atomic
+    write — which can leave `.part` files on disk. With workers
+    ignoring SIGINT, the user's Ctrl+C only hits the main process: it
+    cancels queued futures, lets in-flight workers finish their
+    current sidecar atomically (a few ms-seconds), and exits cleanly.
+    The matcher's load-once `lru_cache` index amortizes startup, so
+    "let workers finish their current task" is a millisecond cost in
+    the steady state.
+
+    Module-level so it pickles into spawn-context children.
+    """
+    signal.signal(signal.SIGINT, signal.SIG_IGN)
+
 
 BackfillStatus = Literal["filled", "skip", "error"]
 
@@ -854,6 +877,164 @@ def backfill_all_persons(
         yield backfill_persons(path, force=force, write=write)
 
 
+# ----- Parallel variants --------------------------------------------------
+#
+# Each per-sidecar pass (`backfill_persons` etc.) is module-level, picklable,
+# and reads only the lru-cached matcher index — i.e. embarrassingly parallel
+# across sidecars. We use a ProcessPoolExecutor (NOT a ThreadPoolExecutor)
+# because the matcher's hot path is dict lookups + Levenshtein in pure
+# Python — GIL-bound. With spawn-context workers each child interpreter
+# loads `persons.json` + builds the alias index on its first matcher call
+# (~1-2s), then amortizes that cost across its slice of sidecars. On a
+# 20-core box, the persons pass over the 5,552-doc corpus drops from ~18 min
+# sequential to ~1-2 min.
+#
+# `spawn` (not `fork`) deliberately: fork-after-thread (which the parent
+# may have done — e.g. tests, signal handlers) is famously hostile to the
+# Python interpreter; spawn gives every worker a clean import.
+#
+# `Path` and `BackfillResult` are picklable; the per-sidecar functions take
+# only those + bool keyword args, so future.submit returns clean.
+
+
+def _run_in_parallel(
+    sidecars: Iterable[Path],
+    *,
+    fn: Callable[..., BackfillResult],
+    workers: int,
+    field: str,
+    force: bool,
+    write: bool,
+) -> Iterator[BackfillResult]:
+    """Submit `fn(path, force=..., write=...)` per sidecar to a process
+    pool. Yields results in completion order (NOT input order).
+
+    `workers <= 1` short-circuits to the serial generator path so callers
+    don't need a guard at every site. Workers exceptions surface as
+    `BackfillResult(status="error", reason="worker exception: <repr>")`
+    — never lost.
+    """
+    paths = list(sidecars)
+    if workers <= 1 or len(paths) <= 1:
+        for p in paths:
+            yield fn(p, force=force, write=write)
+        return
+
+    # Two interrupt-handling decisions, both load-bearing:
+    #
+    # 1. `initializer=_worker_ignore_sigint` — workers ignore SIGINT,
+    #    so Ctrl+C only hits the main process. Without this, SIGINT
+    #    propagates to each worker mid-task; the resulting KbdInt can
+    #    fire between the matcher and the atomic rename, leaving `.part`
+    #    files on disk.
+    #
+    # 2. `try / finally` (NOT `with ProcessPoolExecutor(...) as ex`) +
+    #    `shutdown(wait=False, cancel_futures=True)`. The `with` form's
+    #    auto-`__exit__` calls `shutdown(wait=True)`, which blocks on a
+    #    join; a second Ctrl+C during that join dumps a traceback into
+    #    the user's terminal. Our explicit shutdown returns immediately,
+    #    and because workers ignore SIGINT they finish their current
+    #    task cleanly anyway — the multiprocessing atexit handler
+    #    completes the join in normal interpreter shutdown.
+    ctx = multiprocessing.get_context("spawn")
+    ex = ProcessPoolExecutor(
+        max_workers=workers,
+        mp_context=ctx,
+        initializer=_worker_ignore_sigint,
+    )
+    try:
+        futures: dict[Any, Path] = {
+            ex.submit(fn, p, force=force, write=write): p for p in paths
+        }
+        for fut in as_completed(futures):
+            p = futures[fut]
+            try:
+                yield fut.result()
+            except Exception as exc:  # noqa: BLE001 — surface anything
+                yield BackfillResult(
+                    sidecar_path=p,
+                    status="error",
+                    field=field,
+                    reason=f"worker exception: {exc!r}",
+                )
+    finally:
+        # Runs on normal exhaustion AND on generator close (Ctrl+C path
+        # at the caller leaves the generator dangling; GC eventually
+        # closes it, raising GeneratorExit at the yield point — that
+        # bypasses the inner `except Exception` and lands here).
+        ex.shutdown(wait=False, cancel_futures=True)
+
+
+def backfill_all_issuing_bodies_parallel(
+    sidecars: Iterable[Path],
+    *,
+    force: bool = False,
+    write: bool = True,
+    workers: int,
+) -> Iterator[BackfillResult]:
+    """Parallel variant of `backfill_all_issuing_bodies`. See
+    `_run_in_parallel` for the contract."""
+    return _run_in_parallel(
+        sidecars,
+        fn=backfill_issuing_body,
+        workers=workers,
+        field="report.issuing_body_normalized",
+        force=force,
+        write=write,
+    )
+
+
+def backfill_all_ministries_parallel(
+    sidecars: Iterable[Path],
+    *,
+    force: bool = False,
+    write: bool = True,
+    workers: int,
+) -> Iterator[BackfillResult]:
+    return _run_in_parallel(
+        sidecars,
+        fn=backfill_ministries,
+        workers=workers,
+        field="addressee.ministry_normalized",
+        force=force,
+        write=write,
+    )
+
+
+def backfill_all_proposed_by_parallel(
+    sidecars: Iterable[Path],
+    *,
+    force: bool = False,
+    write: bool = True,
+    workers: int,
+) -> Iterator[BackfillResult]:
+    return _run_in_parallel(
+        sidecars,
+        fn=backfill_proposed_by,
+        workers=workers,
+        field="agenda_items[].activities[].proposed_by",
+        force=force,
+        write=write,
+    )
+
+
+def backfill_all_persons_parallel(
+    sidecars: Iterable[Path],
+    *,
+    force: bool = False,
+    write: bool = True,
+    workers: int,
+) -> Iterator[BackfillResult]:
+    return _run_in_parallel(
+        sidecars,
+        fn=backfill_persons,
+        workers=workers,
+        field="speaker.person_id",
+        force=force,
+        write=write,
+    )
+
+
 __all__ = [
     "INSTITUTIONAL_BODIES_REGISTRY_VERSION",
     "ISSUING_BODY_BACKFILL_VERSION",
@@ -866,9 +1047,13 @@ __all__ = [
     "BackfillStatus",
     "MinistryBackfillCounts",
     "backfill_all_issuing_bodies",
+    "backfill_all_issuing_bodies_parallel",
     "backfill_all_ministries",
+    "backfill_all_ministries_parallel",
     "backfill_all_persons",
+    "backfill_all_persons_parallel",
     "backfill_all_proposed_by",
+    "backfill_all_proposed_by_parallel",
     "backfill_issuing_body",
     "backfill_ministries",
     "backfill_persons",
