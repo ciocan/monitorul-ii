@@ -31,6 +31,8 @@ from monitorul_ii.converter import (  # noqa: E402
     convert_all,
 )
 from monitorul_ii.db import DB  # noqa: E402
+from monitorul_ii.extraction import extract as _extract_md  # noqa: E402
+from monitorul_ii.extraction.pipeline import EXTRACTOR_LABEL  # noqa: E402, F401
 from monitorul_ii.scraper import (  # noqa: E402
     DayResult,
     FileEvent,
@@ -231,6 +233,189 @@ def _build_parser() -> argparse.ArgumentParser:
         help="Process MDs in reverse order (newest→oldest).",
     )
     classify.set_defaults(func=cmd_classify)
+
+    extract = sub.add_parser(
+        "extract",
+        help="Extract structured JSON sidecars from converted MDs (step 2 of extraction).",
+        description=(
+            "Run the per-type extractor over one or more MD files or "
+            "directories and emit a `<basename>.extraction.json` sidecar "
+            "next to each MD. Document type is determined by the v1.6.0 "
+            "classifier; types whose extractor has not yet shipped are "
+            "skipped with a `not-yet-implemented` reason. Use `--type` to "
+            "override the classifier on a single doc."
+        ),
+    )
+    extract.add_argument(
+        "paths",
+        nargs="+",
+        type=Path,
+        help="MD files or directories containing MDs (non-recursive).",
+    )
+    extract.add_argument(
+        "--force",
+        action="store_true",
+        help="Re-extract even when an existing sidecar's schema_version + extractor_versions match the current code.",
+    )
+    extract.add_argument(
+        "--type",
+        dest="override_type",
+        default=None,
+        choices=(
+            "plenary_stenogram",
+            "plenary_joint_session",
+            "committee_synthesis",
+            "report_facsimile",
+            "question_register",
+            "other",
+        ),
+        help="Override the classifier and use this document type for every input. Use sparingly — only when classify is wrong on a specific doc.",
+    )
+    extract.add_argument(
+        "--coverage-below",
+        type=float,
+        default=None,
+        metavar="MARGIN",
+        help="Diagnostic: print one JSONL line per extracted doc whose claimed_pct < MARGIN (with top-3 gap previews) to stdout. Does not affect writes — extraction proceeds normally regardless.",
+    )
+    extract.add_argument(
+        "--reverse",
+        action="store_true",
+        help="Process MDs in reverse order (newest→oldest, since filenames are date-prefixed). A partial run leaves you with the most recent stretch.",
+    )
+    _add_s3_args(extract)
+    extract.set_defaults(func=cmd_extract)
+
+    link = sub.add_parser(
+        "link",
+        help="Cross-document + cross-reference linker: report→session, vote-pair, art-N xref.",
+        description=(
+            "Walk `*.extraction.json` sidecars under one or more paths and run "
+            "three linker passes:\n"
+            "  (1) report→session (cross-doc) — fills each report_facsimile's "
+            "`received_at.received_in_document` with the document_id of the "
+            "joint-session (or single-chamber) stenogram that received it.\n"
+            "  (2) vote-pair (cross-doc) — pairs deferred votes "
+            "(outcome=deferred) in stenogram N with their resolving votes in "
+            "a later stenogram M, writing `defers_to` (forward) on the "
+            "deferring vote and `resolves` (back-link) on the resolver. "
+            "60-day window; earliest-resolver-wins. Match key derived from "
+            "agenda primary_references bill cite (or motion title hash for "
+            "motion-class votes).\n"
+            "  (3) cross-reference / xref (intra-doc) — resolves bare `art. N` "
+            "unknown references in plenary + question_register sidecars to "
+            "their owning law/code/bill anchor in the same paragraph (with "
+            "fall-through to same-activity-span). Writes "
+            "`unknown.resolved_to.char_offsets` pointing at the anchor.\n"
+            "Default runs all three passes; --report-only / --vote-only / "
+            "--xref-only restrict to a single pass. "
+            "Pre-write schema validation; atomic write via .part rename. "
+            "Idempotent — already-linked entries are skipped unless --force."
+        ),
+    )
+    link.add_argument(
+        "paths",
+        nargs="+",
+        type=Path,
+        help="Sidecar JSON files or directories (non-recursive).",
+    )
+    link.add_argument(
+        "--force",
+        action="store_true",
+        help=(
+            "Re-link sidecars whose targets are already populated. Applies to "
+            "all selected passes."
+        ),
+    )
+    link.add_argument(
+        "--dry-run",
+        action="store_true",
+        help="Print what would be linked without modifying any files.",
+    )
+    pass_group = link.add_mutually_exclusive_group()
+    pass_group.add_argument(
+        "--report-only",
+        action="store_true",
+        help=(
+            "Run only the report→session pass; skip the vote-pair and "
+            "xref passes. Mutually exclusive with --vote-only / --xref-only."
+        ),
+    )
+    pass_group.add_argument(
+        "--vote-only",
+        action="store_true",
+        help=(
+            "Run only the vote-pair pass; skip the report→session and "
+            "xref passes. Mutually exclusive with --report-only / --xref-only."
+        ),
+    )
+    pass_group.add_argument(
+        "--xref-only",
+        action="store_true",
+        help=(
+            "Run only the cross-reference (art-N) pass; skip the report→"
+            "session and vote-pair passes. Mutually exclusive with "
+            "--report-only / --vote-only."
+        ),
+    )
+    _add_s3_args(link)
+    link.set_defaults(func=cmd_link)
+
+    backfill = sub.add_parser(
+        "backfill",
+        help="Registry-driven backfills: populate *_normalized slots from curated registries.",
+        description=(
+            "Walk `*.extraction.json` sidecars and join curated registries "
+            "into the schema's *_normalized slots. Each --kind targets one "
+            "registry/field pair. Pre-write schema validation; atomic write "
+            "via .part rename; idempotent (already-filled entries skip "
+            "unless --force).\n"
+            "  --kind=issuing_body — fills "
+            "report_facsimile.body.report.issuing_body_normalized from the "
+            "institutional bodies registry.\n"
+            "  --kind=all — runs every shipped pass."
+        ),
+    )
+    backfill.add_argument(
+        "paths",
+        nargs="+",
+        type=Path,
+        help="Sidecar JSON files or directories (non-recursive).",
+    )
+    backfill.add_argument(
+        "--kind",
+        choices=("issuing_body", "ministry", "proposed_by", "all"),
+        default="all",
+        help=(
+            "Which backfill pass to run (default: all). `issuing_body` "
+            "fills `report_facsimile.body.report.issuing_body_normalized`; "
+            "`ministry` fills "
+            "`question_register.body.questions[].addressee.ministry_normalized` "
+            "and "
+            "`plenary_*.body.interpellations[].addressed_to_normalized` "
+            "from the ministries registry (with institutional-body "
+            "fallback); `proposed_by` fills "
+            "`plenary_*.body.agenda_items[].activities[].proposed_by` "
+            "(Guvern) on votes whose parent agenda carries an OUG/OG cite "
+            "or title pattern. `all` runs every shipped pass; "
+            "forward-compatible with future registries."
+        ),
+    )
+    backfill.add_argument(
+        "--force",
+        action="store_true",
+        help=(
+            "Overwrite existing *_normalized values when the registry "
+            "yields a different canonical id."
+        ),
+    )
+    backfill.add_argument(
+        "--dry-run",
+        action="store_true",
+        help="Print what would change without writing to disk or S3.",
+    )
+    _add_s3_args(backfill)
+    backfill.set_defaults(func=cmd_backfill)
 
     return p
 
@@ -737,6 +922,930 @@ def cmd_classify(args: argparse.Namespace) -> int:
         print(f"  emitted (outliers only): {emitted}", file=sys.stderr)
 
     return 0
+
+
+_EXTRACT_LABELS = {
+    "extract": "ok   ",
+    "skip": "skip ",
+    "error": "ERR  ",
+}
+_EXTRACT_HEARTBEAT_EVERY = 50  # MDs, for `extract` in pipes
+
+
+class _ExtractProgressReporter:
+    """Live `rich` bar for `extract` when stderr is a tty; heartbeat otherwise.
+
+    Mirrors `_ConvertProgressReporter` but speaks the extract vocabulary
+    (extracted/skipped/errors + s3 trio + a coverage-pct rolling mean for
+    the docs that actually extracted this run).
+    """
+
+    def __init__(self, total: int, counters: dict[str, int]) -> None:
+        self.total = total
+        self.counters = counters
+        self.start = time.monotonic()
+        self.done = 0
+        self._tty = sys.stderr.isatty()
+        self._progress = None
+        self._task = None
+        if self._tty and total > 0:
+            from rich.console import Console
+            from rich.progress import (
+                BarColumn,
+                MofNCompleteColumn,
+                Progress,
+                TextColumn,
+                TimeElapsedColumn,
+                TimeRemainingColumn,
+            )
+
+            self._progress = Progress(
+                BarColumn(bar_width=None),
+                TextColumn("[progress.percentage]{task.percentage:>5.1f}%"),
+                MofNCompleteColumn(),
+                TextColumn("·"),
+                TextColumn("[cyan]{task.description}"),
+                TextColumn("·"),
+                TimeElapsedColumn(),
+                TextColumn("ETA"),
+                TimeRemainingColumn(),
+                console=Console(stderr=True),
+                transient=False,
+            )
+            self._task = self._progress.add_task(self._desc(), total=total)
+
+    def _desc(self) -> str:
+        c = self.counters
+        s = f"ok={c['extracted']:,} skip={c['skipped']:,} err={c['errors']:,}"
+        if c["coverage_n"]:
+            mean = c["coverage_sum"] / c["coverage_n"]
+            s += f" · cov μ={mean:.3f}"
+        if c["uploaded"] or c["in_bucket"] or c["upload_errors"]:
+            s += (
+                f" · s3 up={c['uploaded']:,} have={c['in_bucket']:,}"
+                f" err={c['upload_errors']:,}"
+            )
+        return s
+
+    def __enter__(self) -> "_ExtractProgressReporter":
+        if self._progress is not None:
+            self._progress.start()
+        return self
+
+    def __exit__(self, *exc: object) -> None:
+        if self._progress is not None:
+            self._progress.stop()
+
+    def print(self, line: str, *, err: bool = False) -> None:
+        if self._progress is not None:
+            self._progress.console.print(line, highlight=False)
+            self._progress.update(self._task, description=self._desc())
+        else:
+            print(line, file=sys.stderr if err else sys.stdout)
+
+    def advance(self) -> None:
+        self.done += 1
+        if self._progress is not None:
+            self._progress.update(self._task, advance=1, description=self._desc())
+            return
+        if self.done % _EXTRACT_HEARTBEAT_EVERY == 0 and self.done < self.total:
+            elapsed = time.monotonic() - self.start
+            rate = self.done / elapsed if elapsed > 0 else 0.0
+            eta = (self.total - self.done) / rate if rate > 0 else 0.0
+            pct = self.done / self.total * 100 if self.total else 0.0
+            print(
+                f"progress: {self.done:,}/{self.total:,} ({pct:.1f}%) | "
+                f"{self._desc()} | "
+                f"elapsed={_fmt_duration(elapsed)} ETA={_fmt_duration(eta)}",
+                file=sys.stderr,
+            )
+
+
+def _extract_summary_line(counters: dict[str, int], *, prefix: str = "") -> str:
+    line = (
+        f"{prefix}extracted={counters['extracted']} "
+        f"skipped={counters['skipped']} errors={counters['errors']}"
+    )
+    if counters["coverage_n"]:
+        mean = counters["coverage_sum"] / counters["coverage_n"]
+        line += f" | cov mean={mean:.4f} (n={counters['coverage_n']})"
+    if counters["uploaded"] or counters["in_bucket"] or counters["upload_errors"]:
+        line += (
+            f" | s3 uploaded={counters['uploaded']} "
+            f"in-bucket={counters['in_bucket']} "
+            f"errors={counters['upload_errors']}"
+        )
+    return line
+
+
+def cmd_extract(args: argparse.Namespace) -> int:
+    mds = collect_mds(list(args.paths), reverse=args.reverse)
+    if not mds:
+        print("no MDs found", file=sys.stderr)
+        return 0
+
+    uploader = _resolve_uploader(args)
+
+    counters: dict[str, int] = {
+        "extracted": 0,
+        "skipped": 0,
+        "errors": 0,
+        "uploaded": 0,
+        "in_bucket": 0,
+        "upload_errors": 0,
+        "coverage_sum": 0.0,
+        "coverage_n": 0,
+    }
+    skip_reasons: dict[str, int] = {}
+    threshold = args.coverage_below
+
+    try:
+        with _ExtractProgressReporter(len(mds), counters) as report:
+            for md in mds:
+                try:
+                    result = _extract_md(
+                        md, force=args.force, override_type=args.override_type
+                    )
+                except KeyboardInterrupt:
+                    raise
+                except Exception as exc:
+                    counters["errors"] += 1
+                    report.print(f"  ERR   {md.name}  ({exc!r})", err=True)
+                    report.advance()
+                    continue
+
+                label = _EXTRACT_LABELS[result.status]
+                if result.status == "extract":
+                    counters["extracted"] += 1
+                    report.print(
+                        f"  {label} {result.sidecar_path.name}  "
+                        f"[{result.doc_type}, cov={result.coverage_pct:.4f}]"
+                    )
+                    if result.coverage_pct is not None:
+                        counters["coverage_sum"] += result.coverage_pct
+                        counters["coverage_n"] += 1
+                    if (
+                        threshold is not None
+                        and result.coverage_pct is not None
+                        and result.coverage_pct < threshold
+                    ):
+                        _emit_coverage_outlier(result, report)
+                elif result.status == "skip":
+                    counters["skipped"] += 1
+                    reason = result.reason or "unknown"
+                    skip_reasons[reason] = skip_reasons.get(reason, 0) + 1
+                    report.print(
+                        f"  {label} {md.name}  [{result.doc_type or '?'}, {reason}]"
+                    )
+                else:
+                    counters["errors"] += 1
+                    detail = result.reason or "unknown"
+                    if result.rejected_path:
+                        detail += f" (rejected dump: {result.rejected_path.name})"
+                    report.print(f"  {label} {md.name}  ({detail})", err=True)
+
+                if (
+                    uploader is not None
+                    and result.status == "extract"
+                    and result.sidecar_path.exists()
+                    and result.sidecar_path.stat().st_size > 0
+                ):
+                    try:
+                        up = uploader.upload_if_missing(
+                            result.sidecar_path, content_type="application/json"
+                        )
+                        if up.uploaded:
+                            counters["uploaded"] += 1
+                            report.print(f"  s3+   {result.sidecar_path.name}")
+                        else:
+                            counters["in_bucket"] += 1
+                            report.print(f"  s3=   {result.sidecar_path.name}")
+                    except Exception as exc:
+                        counters["upload_errors"] += 1
+                        report.print(
+                            f"  s3!   {result.sidecar_path.name}  ({exc})",
+                            err=True,
+                        )
+
+                report.advance()
+    except KeyboardInterrupt:
+        print(
+            _extract_summary_line(counters, prefix="\ninterrupted: "),
+            file=sys.stderr,
+        )
+        return 130
+
+    print(_extract_summary_line(counters))
+    if skip_reasons:
+        print("skip reasons:", file=sys.stderr)
+        for reason, n in sorted(skip_reasons.items(), key=lambda kv: -kv[1]):
+            print(f"  {reason}: {n}", file=sys.stderr)
+    return 1 if counters["errors"] or counters["upload_errors"] else 0
+
+
+def _emit_coverage_outlier(result: object, report: object) -> None:
+    """Print the coverage-outlier JSONL row to stdout for the discovery loop.
+
+    Reads the just-written sidecar from disk so we get the gaps + previews
+    that compute_coverage already produced, without re-deriving them here.
+    """
+    try:
+        text = result.sidecar_path.read_text(encoding="utf-8")  # type: ignore[attr-defined]
+        sidecar = json.loads(text)
+    except Exception:
+        return
+    cov = sidecar.get("coverage") or {}
+    gaps = cov.get("gaps") or []
+    row = {
+        "file": str(result.md_path),  # type: ignore[attr-defined]
+        "doc_type": sidecar.get("document_type"),
+        "claimed_pct": cov.get("claimed_pct"),
+        "gap_count": len(gaps),
+        "top_gaps": [
+            {
+                "lines": g.get("lines"),
+                "chars": g.get("chars"),
+                "preview": g.get("preview"),
+            }
+            for g in gaps[:3]
+        ],
+    }
+    print(json.dumps(row, ensure_ascii=False))
+
+
+_LINK_LABELS = {
+    "linked": "ok   ",
+    "skip": "skip ",
+    "error": "ERROR",
+}
+
+
+def _collect_sidecars(paths: list[Path]) -> list[Path]:
+    """Resolve a mix of files and directories into a sidecar list.
+
+    Files must end with `.extraction.json`. Directories are globbed for
+    `*.extraction.json` non-recursively (mirroring `collect_mds` for MDs).
+    """
+    out: list[Path] = []
+    seen: set[Path] = set()
+    for raw in paths:
+        p = raw if isinstance(raw, Path) else Path(raw)
+        if p.is_dir():
+            for child in sorted(p.glob("*.extraction.json")):
+                if child not in seen:
+                    seen.add(child)
+                    out.append(child)
+        elif p.is_file() and p.name.endswith(".extraction.json"):
+            if p not in seen:
+                seen.add(p)
+                out.append(p)
+    return out
+
+
+def _run_report_pass(
+    sidecars: list[Path],
+    *,
+    force: bool,
+    write: bool,
+    uploader: object | None,
+    counters: dict[str, int],
+    skip_reasons: dict[str, int],
+) -> None:
+    """Pass (1): link each report_facsimile to its receiving stenogram."""
+    from monitorul_ii.extraction.linker import build_session_index, link_report
+
+    session_index = build_session_index(sidecars)
+    print(
+        f"[report-pass] indexed {len(session_index)} receiving sessions "
+        f"across {len(sidecars)} sidecars",
+        file=sys.stderr,
+    )
+
+    for path in sidecars:
+        try:
+            with path.open(encoding="utf-8") as f:
+                head = json.load(f)
+        except (OSError, json.JSONDecodeError):
+            continue
+        if head.get("document_type") != "report_facsimile":
+            continue
+        try:
+            result = link_report(
+                path,
+                session_index=session_index,
+                force=force,
+                write=write,
+            )
+        except KeyboardInterrupt:
+            raise
+        except Exception as exc:
+            counters["errors"] += 1
+            print(f"  ERROR {path.name}  ({exc!r})", file=sys.stderr)
+            continue
+
+        label = _LINK_LABELS[result.status]
+        line = f"  {label} {path.name}"
+        if result.status == "linked":
+            counters["linked"] += 1
+            line += f"  -> {result.target_document_id}"
+        elif result.status == "skip":
+            counters["skipped"] += 1
+            reason = result.reason or "unknown"
+            skip_reasons[reason] = skip_reasons.get(reason, 0) + 1
+            line += f"  ({reason})"
+        else:
+            counters["errors"] += 1
+            line += f"  ({result.reason or 'unknown'})"
+        print(line, flush=True)
+        if result.status == "error":
+            print(line, file=sys.stderr, flush=True)
+
+        if (
+            uploader is not None
+            and result.status == "linked"
+            and write
+            and path.exists()
+        ):
+            try:
+                up = uploader.upload_if_missing(  # type: ignore[attr-defined]
+                    path, content_type="application/json"
+                )
+                if up.uploaded:
+                    counters["uploaded"] += 1
+                    print(f"  s3+   {path.name}")
+                else:
+                    counters["in_bucket"] += 1
+                    print(f"  s3=   {path.name}")
+            except Exception as exc:
+                counters["upload_errors"] += 1
+                print(f"  s3!   {path.name}  ({exc})", file=sys.stderr)
+
+
+def _run_vote_pass(
+    sidecars: list[Path],
+    *,
+    force: bool,
+    write: bool,
+    uploader: object | None,
+    counters: dict[str, int],
+    skip_reasons: dict[str, int],
+) -> None:
+    """Pass (2): pair deferred votes with their resolvers in later docs."""
+    from monitorul_ii.extraction.linker import (
+        build_vote_index,
+        link_vote,
+    )
+    from monitorul_ii.extraction.linker import (
+        _build_pairs as _linker_build_pairs,  # noqa: PLC2701
+    )
+
+    vote_index = build_vote_index(sidecars)
+    forward_links, back_links = _linker_build_pairs(vote_index)
+    print(
+        f"[vote-pass] {len(forward_links)} forward + "
+        f"{len(back_links)} back-link sites across "
+        f"{sum(len(v) for v in vote_index.values())} indexed votes",
+        file=sys.stderr,
+    )
+
+    # Set of paths that actually need an update — avoids re-parsing every
+    # plenary sidecar when only a few got updates.
+    touched: set[Path] = set()
+    for key in forward_links.keys() | back_links.keys():
+        for entries in vote_index.values():
+            for e in entries:
+                if (e.document_id, e.agenda_index, e.activity_index) == key:
+                    touched.add(e.sidecar_path)
+                    break
+
+    for path in sidecars:
+        if path not in touched:
+            continue
+        try:
+            result = link_vote(
+                path,
+                forward_links=forward_links,
+                back_links=back_links,
+                force=force,
+                write=write,
+            )
+        except KeyboardInterrupt:
+            raise
+        except Exception as exc:
+            counters["errors"] += 1
+            print(f"  ERROR {path.name}  ({exc!r})", file=sys.stderr)
+            continue
+
+        label = _LINK_LABELS[result.status]
+        line = f"  {label} {path.name}"
+        if result.status == "linked":
+            counters["linked"] += 1
+            line += f"  forward={result.pairs_written} back={result.backlinks_written}"
+        elif result.status == "skip":
+            counters["skipped"] += 1
+            reason = result.reason or "unknown"
+            skip_reasons[reason] = skip_reasons.get(reason, 0) + 1
+            line += f"  ({reason})"
+        else:
+            counters["errors"] += 1
+            line += f"  ({result.reason or 'unknown'})"
+        print(line, flush=True)
+        if result.status == "error":
+            print(line, file=sys.stderr, flush=True)
+
+        if (
+            uploader is not None
+            and result.status == "linked"
+            and write
+            and path.exists()
+        ):
+            try:
+                up = uploader.upload_if_missing(  # type: ignore[attr-defined]
+                    path, content_type="application/json"
+                )
+                if up.uploaded:
+                    counters["uploaded"] += 1
+                    print(f"  s3+   {path.name}")
+                else:
+                    counters["in_bucket"] += 1
+                    print(f"  s3=   {path.name}")
+            except Exception as exc:
+                counters["upload_errors"] += 1
+                print(f"  s3!   {path.name}  ({exc})", file=sys.stderr)
+
+
+def _run_xref_pass(
+    sidecars: list[Path],
+    *,
+    force: bool,
+    write: bool,
+    uploader: object | None,
+    counters: dict[str, int],
+    skip_reasons: dict[str, int],
+) -> None:
+    """Pass (3): resolve bare `art. N` unknowns to their owning anchor."""
+    from monitorul_ii.extraction.cross_reference_linker import link_xrefs
+
+    eligible = [p for p in sidecars if p.name.endswith(".extraction.json")]
+    print(
+        f"[xref-pass] running over {len(eligible)} sidecars "
+        f"(plenary + question_register only)",
+        file=sys.stderr,
+    )
+
+    total_resolved = 0
+    total_unresolved = 0
+    for path in eligible:
+        try:
+            result = link_xrefs(path, force=force, write=write)
+        except KeyboardInterrupt:
+            raise
+        except Exception as exc:
+            counters["errors"] += 1
+            print(f"  ERROR {path.name}  ({exc!r})", file=sys.stderr)
+            continue
+
+        label = _LINK_LABELS[result.status]
+        line = f"  {label} {path.name}"
+        if result.status == "linked":
+            counters["linked"] += 1
+            total_resolved += result.resolved
+            total_unresolved += result.unresolved
+            line += (
+                f"  resolved={result.resolved} "
+                f"unresolved={result.unresolved} "
+                f"already={result.skipped_already}"
+            )
+        elif result.status == "skip":
+            counters["skipped"] += 1
+            reason = result.reason or "unknown"
+            skip_reasons[reason] = skip_reasons.get(reason, 0) + 1
+            line += f"  ({reason})"
+            total_unresolved += result.unresolved
+        else:
+            counters["errors"] += 1
+            line += f"  ({result.reason or 'unknown'})"
+        print(line, flush=True)
+        if result.status == "error":
+            print(line, file=sys.stderr, flush=True)
+
+        if (
+            uploader is not None
+            and result.status == "linked"
+            and write
+            and path.exists()
+        ):
+            try:
+                up = uploader.upload_if_missing(  # type: ignore[attr-defined]
+                    path, content_type="application/json"
+                )
+                if up.uploaded:
+                    counters["uploaded"] += 1
+                    print(f"  s3+   {path.name}")
+                else:
+                    counters["in_bucket"] += 1
+                    print(f"  s3=   {path.name}")
+            except Exception as exc:
+                counters["upload_errors"] += 1
+                print(f"  s3!   {path.name}  ({exc})", file=sys.stderr)
+
+    grand_total = total_resolved + total_unresolved
+    if grand_total:
+        pct = total_resolved / grand_total * 100
+        print(
+            f"[xref-pass] resolved={total_resolved} unresolved={total_unresolved} "
+            f"({pct:.1f}% resolution rate)",
+            file=sys.stderr,
+        )
+
+
+def cmd_link(args: argparse.Namespace) -> int:
+    sidecars = _collect_sidecars(list(args.paths))
+    if not sidecars:
+        print("no .extraction.json files found", file=sys.stderr)
+        return 0
+
+    uploader = _resolve_uploader(args) if not args.dry_run else None
+
+    counters: dict[str, int] = {
+        "linked": 0,
+        "skipped": 0,
+        "errors": 0,
+        "uploaded": 0,
+        "in_bucket": 0,
+        "upload_errors": 0,
+    }
+    skip_reasons: dict[str, int] = {}
+
+    report_only = getattr(args, "report_only", False)
+    vote_only = getattr(args, "vote_only", False)
+    xref_only = getattr(args, "xref_only", False)
+    any_only = report_only or vote_only or xref_only
+    run_report = report_only or not any_only
+    run_vote = vote_only or not any_only
+    run_xref = xref_only or not any_only
+
+    try:
+        if run_report:
+            _run_report_pass(
+                sidecars,
+                force=args.force,
+                write=not args.dry_run,
+                uploader=uploader,
+                counters=counters,
+                skip_reasons=skip_reasons,
+            )
+        if run_vote:
+            _run_vote_pass(
+                sidecars,
+                force=args.force,
+                write=not args.dry_run,
+                uploader=uploader,
+                counters=counters,
+                skip_reasons=skip_reasons,
+            )
+        if run_xref:
+            _run_xref_pass(
+                sidecars,
+                force=args.force,
+                write=not args.dry_run,
+                uploader=uploader,
+                counters=counters,
+                skip_reasons=skip_reasons,
+            )
+    except KeyboardInterrupt:
+        print(
+            f"\ninterrupted: linked={counters['linked']} "
+            f"skipped={counters['skipped']} errors={counters['errors']}",
+            file=sys.stderr,
+        )
+        return 130
+
+    summary = (
+        f"linked={counters['linked']} "
+        f"skipped={counters['skipped']} "
+        f"errors={counters['errors']}"
+    )
+    if counters["uploaded"] or counters["in_bucket"] or counters["upload_errors"]:
+        summary += (
+            f" | s3 uploaded={counters['uploaded']} "
+            f"in-bucket={counters['in_bucket']} "
+            f"errors={counters['upload_errors']}"
+        )
+    print(summary, flush=True)
+    if skip_reasons:
+        print("skip reasons:", file=sys.stderr)
+        for reason, n in sorted(skip_reasons.items(), key=lambda kv: -kv[1]):
+            print(f"  {reason}: {n}", file=sys.stderr)
+    return 1 if counters["errors"] or counters["upload_errors"] else 0
+
+
+_BACKFILL_LABELS = {
+    "filled": "ok   ",
+    "skip": "skip ",
+    "error": "ERROR",
+}
+
+
+def _run_issuing_body_backfill(
+    sidecars: list[Path],
+    *,
+    force: bool,
+    write: bool,
+    uploader: object | None,
+    counters: dict[str, int],
+    skip_reasons: dict[str, int],
+    matched_via_counts: dict[str, int],
+) -> None:
+    """Pass: report_facsimile.issuing_body → issuing_body_normalized."""
+    from monitorul_ii.extraction.backfills import backfill_all_issuing_bodies
+
+    n_reports = sum(1 for p in sidecars if _read_doctype(p) == "report_facsimile")
+    print(
+        f"[issuing_body] running over {n_reports} report_facsimile sidecars "
+        f"(of {len(sidecars)} total)",
+        file=sys.stderr,
+    )
+
+    for result in backfill_all_issuing_bodies(sidecars, force=force, write=write):
+        label = _BACKFILL_LABELS[result.status]
+        line = f"  {label} {result.sidecar_path.name}"
+        if result.status == "filled":
+            counters["filled"] += 1
+            matched_via_counts[result.matched_via or "unknown"] = (
+                matched_via_counts.get(result.matched_via or "unknown", 0) + 1
+            )
+            line += (
+                f"  -> {result.canonical_id}  [{result.matched_via}]"
+                f"  (raw={result.raw_value!r})"
+            )
+        elif result.status == "skip":
+            counters["skipped"] += 1
+            reason = result.reason or "unknown"
+            skip_reasons[reason] = skip_reasons.get(reason, 0) + 1
+            line += f"  ({reason})"
+            if result.raw_value and reason == "no registry match":
+                line += f"  raw={result.raw_value!r}"
+        else:
+            counters["errors"] += 1
+            line += f"  ({result.reason or 'unknown'})"
+        print(line, flush=True)
+        if result.status == "error":
+            print(line, file=sys.stderr, flush=True)
+
+        if (
+            uploader is not None
+            and result.status == "filled"
+            and write
+            and result.sidecar_path.exists()
+        ):
+            try:
+                up = uploader.upload_if_missing(  # type: ignore[attr-defined]
+                    result.sidecar_path, content_type="application/json"
+                )
+                if up.uploaded:
+                    counters["uploaded"] += 1
+                    print(f"  s3+   {result.sidecar_path.name}")
+                else:
+                    counters["in_bucket"] += 1
+                    print(f"  s3=   {result.sidecar_path.name}")
+            except Exception as exc:
+                counters["upload_errors"] += 1
+                print(
+                    f"  s3!   {result.sidecar_path.name}  ({exc})",
+                    file=sys.stderr,
+                )
+
+
+def _read_doctype(path: Path) -> str | None:
+    """Cheap document_type peek for the per-pass progress header."""
+    try:
+        with path.open(encoding="utf-8") as f:
+            head = json.load(f)
+        return head.get("document_type")
+    except (OSError, json.JSONDecodeError):
+        return None
+
+
+def _run_ministry_backfill(
+    sidecars: list[Path],
+    *,
+    force: bool,
+    write: bool,
+    uploader: object | None,
+    counters: dict[str, int],
+    skip_reasons: dict[str, int],
+    matched_via_counts: dict[str, int],
+) -> None:
+    """Pass: qr/plenary addressee → ministry/addressed_to normalized."""
+    from monitorul_ii.extraction.backfills import backfill_all_ministries
+
+    n_relevant = sum(
+        1
+        for p in sidecars
+        if _read_doctype(p)
+        in ("question_register", "plenary_stenogram", "plenary_joint_session")
+    )
+    print(
+        f"[ministry] running over {n_relevant} ministry-bearing sidecars "
+        f"(of {len(sidecars)} total)",
+        file=sys.stderr,
+    )
+
+    for result in backfill_all_ministries(sidecars, force=force, write=write):
+        label = _BACKFILL_LABELS[result.status]
+        line = f"  {label} {result.sidecar_path.name}"
+        if result.status == "filled":
+            counters["filled"] += 1
+            matched_via_counts[result.matched_via or "unknown"] = (
+                matched_via_counts.get(result.matched_via or "unknown", 0) + 1
+            )
+            line += f"  [{result.reason}]"
+            if result.canonical_id and result.matched_via:
+                line += f"  first={result.canonical_id} via={result.matched_via}"
+        elif result.status == "skip":
+            counters["skipped"] += 1
+            reason = result.reason or "unknown"
+            skip_reasons[reason] = skip_reasons.get(reason, 0) + 1
+            line += f"  ({reason})"
+        else:
+            counters["errors"] += 1
+            line += f"  ({result.reason or 'unknown'})"
+        print(line, flush=True)
+        if result.status == "error":
+            print(line, file=sys.stderr, flush=True)
+
+        if (
+            uploader is not None
+            and result.status == "filled"
+            and write
+            and result.sidecar_path.exists()
+        ):
+            try:
+                up = uploader.upload_if_missing(  # type: ignore[attr-defined]
+                    result.sidecar_path, content_type="application/json"
+                )
+                if up.uploaded:
+                    counters["uploaded"] += 1
+                    print(f"  s3+   {result.sidecar_path.name}")
+                else:
+                    counters["in_bucket"] += 1
+                    print(f"  s3=   {result.sidecar_path.name}")
+            except Exception as exc:
+                counters["upload_errors"] += 1
+                print(
+                    f"  s3!   {result.sidecar_path.name}  ({exc})",
+                    file=sys.stderr,
+                )
+
+
+def _run_proposed_by_backfill(
+    sidecars: list[Path],
+    *,
+    force: bool,
+    write: bool,
+    uploader: object | None,
+    counters: dict[str, int],
+    skip_reasons: dict[str, int],
+) -> None:
+    """Pass: plenary votes → proposed_by=Guvern (when OUG/OG-derived)."""
+    from monitorul_ii.extraction.backfills import backfill_all_proposed_by
+
+    n_relevant = sum(
+        1
+        for p in sidecars
+        if _read_doctype(p) in ("plenary_stenogram", "plenary_joint_session")
+    )
+    print(
+        f"[proposed_by] running over {n_relevant} plenary sidecars "
+        f"(of {len(sidecars)} total)",
+        file=sys.stderr,
+    )
+
+    for result in backfill_all_proposed_by(sidecars, force=force, write=write):
+        label = _BACKFILL_LABELS[result.status]
+        line = f"  {label} {result.sidecar_path.name}"
+        if result.status == "filled":
+            counters["filled"] += 1
+            line += f"  [{result.reason}]"
+        elif result.status == "skip":
+            counters["skipped"] += 1
+            reason = result.reason or "unknown"
+            skip_reasons[reason] = skip_reasons.get(reason, 0) + 1
+            line += f"  ({reason})"
+        else:
+            counters["errors"] += 1
+            line += f"  ({result.reason or 'unknown'})"
+        print(line, flush=True)
+        if result.status == "error":
+            print(line, file=sys.stderr, flush=True)
+
+        if (
+            uploader is not None
+            and result.status == "filled"
+            and write
+            and result.sidecar_path.exists()
+        ):
+            try:
+                up = uploader.upload_if_missing(  # type: ignore[attr-defined]
+                    result.sidecar_path, content_type="application/json"
+                )
+                if up.uploaded:
+                    counters["uploaded"] += 1
+                    print(f"  s3+   {result.sidecar_path.name}")
+                else:
+                    counters["in_bucket"] += 1
+                    print(f"  s3=   {result.sidecar_path.name}")
+            except Exception as exc:
+                counters["upload_errors"] += 1
+                print(
+                    f"  s3!   {result.sidecar_path.name}  ({exc})",
+                    file=sys.stderr,
+                )
+
+
+def cmd_backfill(args: argparse.Namespace) -> int:
+    sidecars = _collect_sidecars(list(args.paths))
+    if not sidecars:
+        print("no .extraction.json files found", file=sys.stderr)
+        return 0
+
+    uploader = _resolve_uploader(args) if not args.dry_run else None
+
+    counters: dict[str, int] = {
+        "filled": 0,
+        "skipped": 0,
+        "errors": 0,
+        "uploaded": 0,
+        "in_bucket": 0,
+        "upload_errors": 0,
+    }
+    skip_reasons: dict[str, int] = {}
+    matched_via_counts: dict[str, int] = {}
+
+    run_issuing_body = args.kind in ("issuing_body", "all")
+    run_ministry = args.kind in ("ministry", "all")
+    run_proposed_by = args.kind in ("proposed_by", "all")
+
+    try:
+        if run_issuing_body:
+            _run_issuing_body_backfill(
+                sidecars,
+                force=args.force,
+                write=not args.dry_run,
+                uploader=uploader,
+                counters=counters,
+                skip_reasons=skip_reasons,
+                matched_via_counts=matched_via_counts,
+            )
+        if run_ministry:
+            _run_ministry_backfill(
+                sidecars,
+                force=args.force,
+                write=not args.dry_run,
+                uploader=uploader,
+                counters=counters,
+                skip_reasons=skip_reasons,
+                matched_via_counts=matched_via_counts,
+            )
+        if run_proposed_by:
+            _run_proposed_by_backfill(
+                sidecars,
+                force=args.force,
+                write=not args.dry_run,
+                uploader=uploader,
+                counters=counters,
+                skip_reasons=skip_reasons,
+            )
+    except KeyboardInterrupt:
+        print(
+            f"\ninterrupted: filled={counters['filled']} "
+            f"skipped={counters['skipped']} errors={counters['errors']}",
+            file=sys.stderr,
+        )
+        return 130
+
+    summary = (
+        f"filled={counters['filled']} "
+        f"skipped={counters['skipped']} "
+        f"errors={counters['errors']}"
+    )
+    if counters["uploaded"] or counters["in_bucket"] or counters["upload_errors"]:
+        summary += (
+            f" | s3 uploaded={counters['uploaded']} "
+            f"in-bucket={counters['in_bucket']} "
+            f"errors={counters['upload_errors']}"
+        )
+    print(summary, flush=True)
+    if matched_via_counts:
+        print("matched_via:", file=sys.stderr)
+        for via, n in sorted(matched_via_counts.items(), key=lambda kv: -kv[1]):
+            print(f"  {via}: {n}", file=sys.stderr)
+    if skip_reasons:
+        print("skip reasons:", file=sys.stderr)
+        for reason, n in sorted(skip_reasons.items(), key=lambda kv: -kv[1]):
+            print(f"  {reason}: {n}", file=sys.stderr)
+    return 1 if counters["errors"] or counters["upload_errors"] else 0
 
 
 def main(argv: list[str] | None = None) -> int:
