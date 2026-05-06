@@ -112,7 +112,108 @@ def test_backfill_kind_rejects_unknown_choice():
     import pytest
 
     with pytest.raises(SystemExit):
-        p.parse_args(["backfill", "x", "--kind=person"])
+        p.parse_args(["backfill", "x", "--kind=nope"])
+
+
+def test_backfill_kind_persons_accepted():
+    """The persons pass is wired into the --kind enum."""
+    p = _build_parser()
+    args = p.parse_args(["backfill", "x", "--kind=persons"])
+    assert args.kind == "persons"
+
+
+def _plenary_sidecar_with_speaker(doc_id: str, year: int) -> dict:
+    """Tiny plenary sidecar with one chair Speaker — for the persons CLI test."""
+    sc = {
+        "schema_version": "1.13.0",
+        "document_id": doc_id,
+        "content_sha": "0123456789ab",
+        "document_type": "plenary_stenogram",
+        "metadata": {
+            "issue": doc_id.split("/")[-1],
+            "year": year,
+            "part": "II",
+            "published": f"{year}-04-09",
+            "chamber": "Camera Deputaților",
+            "session": None,
+            "session_type": None,
+            "session_date": f"{year}-04-09",
+            "legislature": None,
+        },
+        "raw_markdown_path": "x.md",
+        "raw_pdf_path": "x.pdf",
+        "extraction": {
+            "extractor": "regex@1",
+            "extracted_at": "2026-05-04T12:00:00Z",
+            "extractor_versions": {"boilerplate": "0.1.0"},
+            "confidence": 0.9,
+        },
+        "coverage": {
+            "body_chars": 100,
+            "claimed_chars": 100,
+            "claimed_pct": 1.0,
+            "gaps": [],
+            "claimed_by_policy": [],
+        },
+        "body": {
+            "session": {
+                "chair": [
+                    {
+                        "raw": "Domnul Florin Iordache",
+                        "name": "Florin Iordache",
+                        "title": None,
+                        "role": None,
+                        "party_group": None,
+                        "person_id": None,
+                    }
+                ],
+                "chair_segments": [],
+                "secretaries": [],
+                "attendance": {"registered": None, "total_seats": None},
+                "quorum_met": None,
+                "opened_at": None,
+                "closed_at": None,
+                "format": None,
+                "outcome": None,
+                "special_procedure": None,
+            },
+            "agenda_items": [],
+            "interpellations": [],
+        },
+    }
+    sc["extraction"]["identity"] = assign_identity(
+        sc["body"],
+        doc_type=sc["document_type"],
+        doc_id=sc["document_id"],
+        year=sc["metadata"]["year"],
+        issue=sc["metadata"]["issue"],
+    )
+    return sc
+
+
+def test_cmd_backfill_persons_kind_fills_chair_speaker(tmp_path: Path, capsys):
+    """End-to-end: --kind=persons over a plenary sidecar fills the chair
+    Speaker's person_id from persons.json."""
+    sc = _plenary_sidecar_with_speaker("mo://2018/II/100", 2018)
+    p = tmp_path / "plen.extraction.json"
+    p.write_text(json.dumps(sc, indent=2, ensure_ascii=False), encoding="utf-8")
+
+    args = SimpleNamespace(
+        paths=[tmp_path],
+        kind="persons",
+        force=False,
+        dry_run=False,
+        no_upload=True,
+        bucket=None,
+    )
+    rc = cmd_backfill(args)
+    assert rc == 0
+
+    on_disk = json.loads(p.read_text(encoding="utf-8"))
+    assert on_disk["body"]["session"]["chair"][0]["person_id"] == "iordache-florin"
+
+    out = capsys.readouterr().out
+    assert "filled=1" in out
 
 
 # -- end-to-end on tmp directory --------------------------------------------

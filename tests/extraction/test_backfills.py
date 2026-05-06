@@ -12,12 +12,15 @@ from pathlib import Path
 from monitorul_ii.extraction.backfills import (
     ISSUING_BODY_BACKFILL_VERSION,
     MINISTRY_BACKFILL_VERSION,
+    PERSONS_BACKFILL_VERSION,
     PROPOSED_BY_BACKFILL_VERSION,
     backfill_all_issuing_bodies,
     backfill_all_ministries,
+    backfill_all_persons,
     backfill_all_proposed_by,
     backfill_issuing_body,
     backfill_ministries,
+    backfill_persons,
     backfill_proposed_by,
 )
 from monitorul_ii.extraction.identity import assign_identity
@@ -1059,3 +1062,312 @@ def test_backfill_all_skips_corrupt_sidecar(tmp_path: Path):
     assert len(results) == 1
     assert results[0].status == "filled"
     assert results[0].sidecar_path == good
+
+
+# -- persons pass (4.3) ----------------------------------------------------
+
+
+def _make_speaker(
+    *, raw: str, name: str | None = None, person_id: str | None = None
+) -> dict:
+    """Build a Speaker dict — six keys, all required, all non-failing."""
+    return {
+        "raw": raw,
+        "name": name,
+        "title": None,
+        "role": None,
+        "party_group": None,
+        "person_id": person_id,
+    }
+
+
+def _plenary_with_speakers_sidecar(
+    *,
+    doc_id: str,
+    year: int,
+    speakers_in_chair: list[dict],
+    activity_speakers: list[dict] | None = None,
+) -> dict:
+    """Build a plenary sidecar carrying real Speaker dicts in chair +
+    optionally one agenda activity. Used by the persons backfill tests
+    to exercise the recursive Speaker walk.
+    """
+    activity_speakers = activity_speakers or []
+    activities = []
+    for i, sp in enumerate(activity_speakers, start=1):
+        activities.append(
+            {
+                "type": "speech",
+                "speaker": sp,
+                "text": "Mulțumesc, domnule președinte.",
+                "delivery_mode": None,
+                "references_mentioned": [],
+                "source_span": {
+                    "chars": [i * 100, i * 100 + 50],
+                    "lines": [i, i],
+                    "content_sha": "0123456789ab",
+                },
+                "extraction": {
+                    "extractor": "act@1",
+                    "confidence": 0.9,
+                    "source_span": {
+                        "chars": [i * 100, i * 100 + 50],
+                        "lines": [i, i],
+                        "content_sha": "0123456789ab",
+                    },
+                },
+            }
+        )
+    sc = {
+        "schema_version": "1.13.0",
+        "document_id": doc_id,
+        "content_sha": "0123456789ab",
+        "document_type": "plenary_stenogram",
+        "metadata": {
+            "issue": doc_id.split("/")[-1],
+            "year": year,
+            "part": "II",
+            "published": f"{year}-04-09",
+            "chamber": "Camera Deputaților",
+            "session": None,
+            "session_type": None,
+            "session_date": f"{year}-04-09",
+            "legislature": None,
+        },
+        "raw_markdown_path": "x.md",
+        "raw_pdf_path": "x.pdf",
+        "extraction": {
+            "extractor": "regex@1",
+            "extracted_at": "2026-05-04T12:00:00Z",
+            "extractor_versions": {"boilerplate": "0.1.0"},
+            "confidence": 0.9,
+        },
+        "coverage": {
+            "body_chars": 1000,
+            "claimed_chars": 1000,
+            "claimed_pct": 1.0,
+            "gaps": [],
+            "claimed_by_policy": [],
+        },
+        "body": {
+            "session": {
+                "chair": speakers_in_chair,
+                "chair_segments": [],
+                "secretaries": [],
+                "attendance": {"registered": None, "total_seats": None},
+                "quorum_met": None,
+                "opened_at": None,
+                "closed_at": None,
+                "format": None,
+                "outcome": None,
+                "special_procedure": None,
+            },
+            "agenda_items": [
+                {
+                    "ordinal": 1,
+                    "title": "Test agenda",
+                    "category": "bill_debate",
+                    "primary_references": [],
+                    "outcome": None,
+                    "confidence_type": None,
+                    "requested_by_group": None,
+                    "reexamination_reason": None,
+                    "pages_in_pdf": [],
+                    "topics": {"primary": [], "secondary": []},
+                    "activities": activities,
+                    "source_span": {
+                        "chars": [0, 1000],
+                        "lines": [1, 50],
+                        "content_sha": "0123456789ab",
+                    },
+                    "extraction": {
+                        "extractor": "agenda@1",
+                        "confidence": 0.9,
+                        "source_span": {
+                            "chars": [0, 1000],
+                            "lines": [1, 50],
+                            "content_sha": "0123456789ab",
+                        },
+                    },
+                }
+            ]
+            if activities
+            else [],
+            "interpellations": [],
+        },
+    }
+    return _stamp_identity(sc)
+
+
+def test_persons_backfill_version_constant_present():
+    assert isinstance(PERSONS_BACKFILL_VERSION, str)
+    assert PERSONS_BACKFILL_VERSION.count(".") == 2
+
+
+def test_persons_backfill_happy_path(tmp_path: Path):
+    """Three speakers: two resolvable (one common, one with mojibake),
+    one unknown. Backfill fills two, leaves one null, records matched_via."""
+    sc = _plenary_with_speakers_sidecar(
+        doc_id="mo://2018/II/100",
+        year=2018,
+        speakers_in_chair=[
+            _make_speaker(raw="Domnul Florin Iordache", name="Florin Iordache"),
+        ],
+        activity_speakers=[
+            _make_speaker(
+                raw="Domnul Nicolae V„c„roiu", name="Nicolae V„c„roiu"
+            ),  # mojibake → diacritic-tier hit (already an alias → exact)
+            _make_speaker(
+                raw="Doamna Inexistentă Persoană",
+                name="Inexistentă Persoană",
+            ),
+        ],
+    )
+    p = _write(tmp_path, "plen.extraction.json", sc)
+    result = backfill_persons(p)
+    assert result.status == "filled"
+    assert "2 speakers filled" in (result.reason or "")
+    on_disk = json.loads(p.read_text(encoding="utf-8"))
+    chair = on_disk["body"]["session"]["chair"][0]
+    assert chair["person_id"] == "iordache-florin"
+    a0 = on_disk["body"]["agenda_items"][0]["activities"][0]
+    a1 = on_disk["body"]["agenda_items"][0]["activities"][1]
+    assert a0["speaker"]["person_id"] == "vacaroiu-nicolae"
+    assert a1["speaker"]["person_id"] is None  # unresolved stays null
+
+
+def test_persons_backfill_idempotent_skip(tmp_path: Path):
+    """Second run on a fully-filled sidecar yields zero updates."""
+    sc = _plenary_with_speakers_sidecar(
+        doc_id="mo://2018/II/101",
+        year=2018,
+        speakers_in_chair=[
+            _make_speaker(
+                raw="Domnul Florin Iordache",
+                name="Florin Iordache",
+                person_id="iordache-florin",
+            ),
+        ],
+    )
+    p = _write(tmp_path, "plen.extraction.json", sc)
+    result = backfill_persons(p)
+    assert result.status == "skip"
+    assert "already filled" in (result.reason or "")
+
+
+def test_persons_backfill_force_overwrites_mismatch(tmp_path: Path):
+    """Without force the bogus pre-fill stays; with force it's replaced."""
+    sc = _plenary_with_speakers_sidecar(
+        doc_id="mo://2018/II/102",
+        year=2018,
+        speakers_in_chair=[
+            _make_speaker(
+                raw="Domnul Florin Iordache",
+                name="Florin Iordache",
+                person_id="not-the-real-id",
+            ),
+        ],
+    )
+    p = _write(tmp_path, "plen.extraction.json", sc)
+    r1 = backfill_persons(p)
+    assert r1.status == "skip"
+    assert "mismatch" in (r1.reason or "")
+    on_disk = json.loads(p.read_text(encoding="utf-8"))
+    assert on_disk["body"]["session"]["chair"][0]["person_id"] == "not-the-real-id"
+
+    r2 = backfill_persons(p, force=True)
+    assert r2.status == "filled"
+    on_disk = json.loads(p.read_text(encoding="utf-8"))
+    assert on_disk["body"]["session"]["chair"][0]["person_id"] == "iordache-florin"
+
+
+def test_persons_backfill_dry_run_does_not_write(tmp_path: Path):
+    sc = _plenary_with_speakers_sidecar(
+        doc_id="mo://2018/II/103",
+        year=2018,
+        speakers_in_chair=[
+            _make_speaker(raw="Domnul Florin Iordache", name="Florin Iordache"),
+        ],
+    )
+    p = _write(tmp_path, "plen.extraction.json", sc)
+    result = backfill_persons(p, write=False)
+    assert result.status == "filled"
+    on_disk = json.loads(p.read_text(encoding="utf-8"))
+    assert on_disk["body"]["session"]["chair"][0]["person_id"] is None
+
+
+def test_persons_backfill_qr_questioners(tmp_path: Path):
+    """The Speaker walker must reach into qr.questions[*].questioner."""
+    sc = _qr_sidecar(
+        doc_id="mo://2024/II/901", ministries=[("Ministerul Sănătății", None)]
+    )
+    # Mutate the questioner Speaker to point at a known person.
+    sc["body"]["questions"][0]["questioner"] = _make_speaker(
+        raw="Domnul Florin Iordache", name="Florin Iordache"
+    )
+    p = _write(tmp_path, "qr.extraction.json", sc)
+    result = backfill_persons(p)
+    assert result.status == "filled"
+    on_disk = json.loads(p.read_text(encoding="utf-8"))
+    assert on_disk["body"]["questions"][0]["questioner"]["person_id"] == (
+        "iordache-florin"
+    )
+
+
+def test_persons_backfill_handles_empty_body(tmp_path: Path):
+    """A plenary with no chair / activities / interpellations: skip."""
+    sc = _plenary_with_speakers_sidecar(
+        doc_id="mo://2018/II/104",
+        year=2018,
+        speakers_in_chair=[],
+    )
+    p = _write(tmp_path, "plen.extraction.json", sc)
+    result = backfill_persons(p)
+    assert result.status == "skip"
+
+
+def test_persons_backfill_non_canonical_labels_stay_null(tmp_path: Path):
+    """`Din sală` / `Guvernul` are not people — backfill leaves person_id=null."""
+    sc = _plenary_with_speakers_sidecar(
+        doc_id="mo://2018/II/105",
+        year=2018,
+        speakers_in_chair=[
+            _make_speaker(raw="Din sală", name="Din sală"),
+            _make_speaker(raw="Guvernul", name="Guvern"),
+        ],
+    )
+    p = _write(tmp_path, "plen.extraction.json", sc)
+    result = backfill_persons(p)
+    assert result.status == "skip"
+    assert "no registry match" in (result.reason or "")
+    on_disk = json.loads(p.read_text(encoding="utf-8"))
+    for sp in on_disk["body"]["session"]["chair"]:
+        assert sp["person_id"] is None
+
+
+def test_backfill_all_persons_walks_every_doc_type(tmp_path: Path):
+    """Iterator hits plenary, qr — both contain Speakers."""
+    plenary = _write(
+        tmp_path,
+        "plen.extraction.json",
+        _plenary_with_speakers_sidecar(
+            doc_id="mo://2018/II/200",
+            year=2018,
+            speakers_in_chair=[
+                _make_speaker(raw="Domnul Florin Iordache", name="Florin Iordache"),
+            ],
+        ),
+    )
+    qr = _qr_sidecar(
+        doc_id="mo://2024/II/201", ministries=[("Ministerul Sănătății", None)]
+    )
+    qr["body"]["questions"][0]["questioner"] = _make_speaker(
+        raw="Domnul Klaus Iohannis", name="Klaus Iohannis"
+    )
+    qr_path = _write(tmp_path, "qr.extraction.json", qr)
+    results = list(backfill_all_persons([plenary, qr_path]))
+    assert len(results) == 2
+    assert all(r.status == "filled" for r in results)
+    canonical_ids = {r.canonical_id for r in results}
+    assert "iordache-florin" in canonical_ids
+    assert "iohannis-klaus" in canonical_ids

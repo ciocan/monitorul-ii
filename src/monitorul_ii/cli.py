@@ -389,7 +389,7 @@ def _build_parser() -> argparse.ArgumentParser:
     )
     backfill.add_argument(
         "--kind",
-        choices=("issuing_body", "ministry", "proposed_by", "all"),
+        choices=("issuing_body", "ministry", "proposed_by", "persons", "all"),
         default="all",
         help=(
             "Which backfill pass to run (default: all). `issuing_body` "
@@ -402,8 +402,12 @@ def _build_parser() -> argparse.ArgumentParser:
             "fallback); `proposed_by` fills "
             "`plenary_*.body.agenda_items[].activities[].proposed_by` "
             "(Guvern) on votes whose parent agenda carries an OUG/OG cite "
-            "or title pattern. `all` runs every shipped pass; "
-            "forward-compatible with future registries."
+            "or title pattern; `persons` walks every Speaker dict (chair, "
+            "agenda activities, interpellation questioner / response, "
+            "committee roster, signatures, qr questioners) and fills "
+            "`speaker.person_id` from `persons.json`, with the MO year "
+            "feeding homonym disambiguation. `all` runs every shipped "
+            "pass; forward-compatible with future registries."
         ),
     )
     backfill.add_argument(
@@ -1772,6 +1776,72 @@ def _run_proposed_by_backfill(
                 )
 
 
+def _run_persons_backfill(
+    sidecars: list[Path],
+    *,
+    force: bool,
+    write: bool,
+    uploader: object | None,
+    counters: dict[str, int],
+    skip_reasons: dict[str, int],
+    matched_via_counts: dict[str, int],
+) -> None:
+    """Pass: every Speaker dict → person_id from persons.json registry."""
+    from monitorul_ii.extraction.backfills import backfill_all_persons
+
+    print(
+        f"[persons] running over {len(sidecars)} sidecars "
+        "(every doc type carries Speaker dicts)",
+        file=sys.stderr,
+    )
+
+    for result in backfill_all_persons(sidecars, force=force, write=write):
+        label = _BACKFILL_LABELS[result.status]
+        line = f"  {label} {result.sidecar_path.name}"
+        if result.status == "filled":
+            counters["filled"] += 1
+            matched_via_counts[result.matched_via or "unknown"] = (
+                matched_via_counts.get(result.matched_via or "unknown", 0) + 1
+            )
+            line += f"  [{result.reason}]"
+            if result.canonical_id and result.matched_via:
+                line += f"  first={result.canonical_id} via={result.matched_via}"
+        elif result.status == "skip":
+            counters["skipped"] += 1
+            reason = result.reason or "unknown"
+            skip_reasons[reason] = skip_reasons.get(reason, 0) + 1
+            line += f"  ({reason})"
+        else:
+            counters["errors"] += 1
+            line += f"  ({result.reason or 'unknown'})"
+        print(line, flush=True)
+        if result.status == "error":
+            print(line, file=sys.stderr, flush=True)
+
+        if (
+            uploader is not None
+            and result.status == "filled"
+            and write
+            and result.sidecar_path.exists()
+        ):
+            try:
+                up = uploader.upload_if_missing(  # type: ignore[attr-defined]
+                    result.sidecar_path, content_type="application/json"
+                )
+                if up.uploaded:
+                    counters["uploaded"] += 1
+                    print(f"  s3+   {result.sidecar_path.name}")
+                else:
+                    counters["in_bucket"] += 1
+                    print(f"  s3=   {result.sidecar_path.name}")
+            except Exception as exc:
+                counters["upload_errors"] += 1
+                print(
+                    f"  s3!   {result.sidecar_path.name}  ({exc})",
+                    file=sys.stderr,
+                )
+
+
 def cmd_backfill(args: argparse.Namespace) -> int:
     sidecars = _collect_sidecars(list(args.paths))
     if not sidecars:
@@ -1794,6 +1864,7 @@ def cmd_backfill(args: argparse.Namespace) -> int:
     run_issuing_body = args.kind in ("issuing_body", "all")
     run_ministry = args.kind in ("ministry", "all")
     run_proposed_by = args.kind in ("proposed_by", "all")
+    run_persons = args.kind in ("persons", "all")
 
     try:
         if run_issuing_body:
@@ -1824,6 +1895,16 @@ def cmd_backfill(args: argparse.Namespace) -> int:
                 uploader=uploader,
                 counters=counters,
                 skip_reasons=skip_reasons,
+            )
+        if run_persons:
+            _run_persons_backfill(
+                sidecars,
+                force=args.force,
+                write=not args.dry_run,
+                uploader=uploader,
+                counters=counters,
+                skip_reasons=skip_reasons,
+                matched_via_counts=matched_via_counts,
             )
     except KeyboardInterrupt:
         print(

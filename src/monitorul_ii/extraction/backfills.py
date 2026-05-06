@@ -61,9 +61,11 @@ from monitorul_ii.extraction.schema import SchemaError, validate
 from monitorul_ii.registries import (
     INSTITUTIONAL_BODIES_REGISTRY_VERSION,
     MINISTRIES_REGISTRY_VERSION,
+    PERSONS_REGISTRY_VERSION,
     MatchedVia,
     normalize_addressee,
     normalize_institutional_body,
+    normalize_speaker,
 )
 
 BackfillStatus = Literal["filled", "skip", "error"]
@@ -73,6 +75,7 @@ BackfillStatus = Literal["filled", "skip", "error"]
 ISSUING_BODY_BACKFILL_VERSION = "0.1.0"
 MINISTRY_BACKFILL_VERSION = "0.1.0"
 PROPOSED_BY_BACKFILL_VERSION = "0.1.0"
+PERSONS_BACKFILL_VERSION = "0.1.0"
 
 
 @dataclass(frozen=True)
@@ -656,19 +659,218 @@ def backfill_all_proposed_by(
         yield backfill_proposed_by(path, force=force, write=write)
 
 
+# -- persons (4.3) ----------------------------------------------------------
+
+
+# Speaker dicts are spread across many sidecar paths. Rather than hand-
+# rolling a per-doc-type walker for each variant we duck-type by shape:
+# a Speaker is any dict whose key set is exactly the canonical six.
+_SPEAKER_KEYS = frozenset({"raw", "name", "title", "role", "party_group", "person_id"})
+
+
+def _walk_speakers_in_place(o: Any) -> Iterator[dict[str, Any]]:
+    """Yield every Speaker dict under `o`, recursing into containers.
+
+    We do NOT recurse into a Speaker's own fields once detected — speakers
+    are leaves and their `raw`/`name` strings can technically contain
+    nested punctuation that this function would otherwise mistake for a
+    container. Identification is structural (presence of all six required
+    Speaker keys); committee roster `RosterEntry`, signatures, vote
+    `proposed_by`, interpellation questioner / response.speaker, plenary
+    chair / chair_segments / secretaries are all caught by the same walk.
+    """
+    if isinstance(o, dict):
+        if _SPEAKER_KEYS.issubset(o.keys()):
+            yield o
+            return
+        for v in o.values():
+            yield from _walk_speakers_in_place(v)
+    elif isinstance(o, list):
+        for v in o:
+            yield from _walk_speakers_in_place(v)
+
+
+def _person_match_input(speaker: dict[str, Any]) -> str | None:
+    """Pick the cleanest string to feed normalize_speaker.
+
+    Prefers `name` (the extractor's parsed person-name span) when it's a
+    non-empty string; falls back to `raw`. Both can be present on a well-
+    formed sidecar; `name` typically has the honorific peeled and is the
+    most direct registry-match candidate.
+    """
+    name = speaker.get("name")
+    if isinstance(name, str) and name.strip():
+        return name.strip()
+    raw = speaker.get("raw")
+    if isinstance(raw, str) and raw.strip():
+        return raw.strip()
+    return None
+
+
+def backfill_persons(
+    sidecar_path: Path,
+    *,
+    force: bool = False,
+    write: bool = True,
+) -> BackfillResult:
+    """Fill `Speaker.person_id` across every Speaker dict in one sidecar.
+
+    Walks the sidecar body for Speaker shapes (chair, secretaries,
+    chair_segments, agenda activities' speaker / proposed_by, interpellation
+    questioner / response.speaker, qr.questions[].questioner, committee
+    roster, committee signatures, etc.). For each, calls
+    `normalize_speaker(name_or_raw, context_year=metadata.year)` and writes
+    the resolved id to `person_id`. Pre-write schema validation; atomic
+    rename. The same Q11 contract as the other backfills: re-extract
+    clobbers `person_id`, re-running the backfill recovers.
+
+    Idempotency:
+      - target slot already holds the same canonical id → skip-not-write.
+      - target slot holds a different id → skip unless `force=True`.
+      - target slot is null and registry returns no match → skip-not-write.
+
+    `force=True` overwrites mismatches.
+    `write=False` runs the full logic (including matching) without
+    touching disk — the test + --dry-run path.
+
+    The result's `canonical_id` and `matched_via` summarise the *first*
+    fill in the document for headline telemetry; the per-record matched-
+    via histogram lives on the CLI side.
+    """
+    field = "speaker.person_id"
+
+    sc = _read_sidecar(sidecar_path)
+    if sc is None:
+        return BackfillResult(
+            sidecar_path=sidecar_path,
+            status="error",
+            field=field,
+            reason="failed to read sidecar JSON",
+        )
+    body = sc.get("body")
+    if not isinstance(body, dict):
+        return BackfillResult(
+            sidecar_path=sidecar_path,
+            status="error",
+            field=field,
+            reason="missing body",
+        )
+
+    metadata = sc.get("metadata") or {}
+    year_val = metadata.get("year")
+    context_year: int | None = year_val if isinstance(year_val, int) else None
+
+    fills: list[tuple[str, str, MatchedVia]] = []
+    skip_counts: dict[str, int] = {}
+    seen_speakers = 0
+
+    for speaker in _walk_speakers_in_place(body):
+        seen_speakers += 1
+        target_input = _person_match_input(speaker)
+        if not target_input:
+            skip_counts["no raw value"] = skip_counts.get("no raw value", 0) + 1
+            continue
+        canonical, via = normalize_speaker(target_input, context_year=context_year)
+        existing = speaker.get("person_id")
+        if canonical is None:
+            skip_counts["no registry match"] = (
+                skip_counts.get("no registry match", 0) + 1
+            )
+            continue
+        if existing == canonical:
+            skip_counts["already filled"] = skip_counts.get("already filled", 0) + 1
+            continue
+        if existing is not None and not force:
+            skip_counts["mismatch (force off)"] = (
+                skip_counts.get("mismatch (force off)", 0) + 1
+            )
+            continue
+        speaker["person_id"] = canonical
+        fills.append((target_input, canonical, via or "exact"))
+
+    if not fills:
+        if seen_speakers == 0:
+            reason = "no speakers in body"
+        elif skip_counts:
+            dom = max(skip_counts, key=lambda k: skip_counts[k])
+            reason = f"{dom} ({sum(skip_counts.values())} speakers)"
+        else:
+            reason = "no speakers needing fill"
+        return BackfillResult(
+            sidecar_path=sidecar_path,
+            status="skip",
+            field=field,
+            reason=reason,
+        )
+
+    try:
+        validate(sc)
+    except SchemaError as exc:
+        return BackfillResult(
+            sidecar_path=sidecar_path,
+            status="error",
+            field=field,
+            reason=f"schema validation failed after backfill: {exc.errors[0]}",
+        )
+    if write:
+        _write_atomic(
+            sidecar_path,
+            json.dumps(sc, indent=2, ensure_ascii=False),
+        )
+    raw_first, canonical_first, via_first = fills[0]
+    summary = f"{len(fills)} speakers filled"
+    if skip_counts:
+        skipped_total = sum(skip_counts.values())
+        summary += f", {skipped_total} skipped"
+    return BackfillResult(
+        sidecar_path=sidecar_path,
+        status="filled",
+        field=field,
+        canonical_id=canonical_first,
+        matched_via=via_first,
+        raw_value=raw_first,
+        reason=summary,
+    )
+
+
+def backfill_all_persons(
+    sidecars: Iterable[Path],
+    *,
+    force: bool = False,
+    write: bool = True,
+) -> Iterator[BackfillResult]:
+    """Walk a list of sidecars, run the persons pass on each.
+
+    Every document type is in scope (Speakers appear in plenary, qr, and
+    committee_synthesis). Cheap pre-filter just on JSON parse + body
+    presence; backfill_persons handles the speaker-walk internally.
+    """
+    for path in sidecars:
+        sc = _read_sidecar(path)
+        if sc is None:
+            continue
+        if not isinstance(sc.get("body"), dict):
+            continue
+        yield backfill_persons(path, force=force, write=write)
+
+
 __all__ = [
     "INSTITUTIONAL_BODIES_REGISTRY_VERSION",
     "ISSUING_BODY_BACKFILL_VERSION",
     "MINISTRIES_REGISTRY_VERSION",
     "MINISTRY_BACKFILL_VERSION",
+    "PERSONS_BACKFILL_VERSION",
+    "PERSONS_REGISTRY_VERSION",
     "PROPOSED_BY_BACKFILL_VERSION",
     "BackfillResult",
     "BackfillStatus",
     "MinistryBackfillCounts",
     "backfill_all_issuing_bodies",
     "backfill_all_ministries",
+    "backfill_all_persons",
     "backfill_all_proposed_by",
     "backfill_issuing_body",
     "backfill_ministries",
+    "backfill_persons",
     "backfill_proposed_by",
 ]

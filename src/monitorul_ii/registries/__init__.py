@@ -63,7 +63,7 @@ from typing import Literal
 
 _REGISTRIES_DIR = Path(__file__).resolve().parent
 
-MatchedVia = Literal["exact", "case", "diacritic", "token_set", "prefix"]
+MatchedVia = Literal["exact", "case", "diacritic", "token_set", "prefix", "fuzzy"]
 
 
 def _strip_diacritics(s: str) -> str:
@@ -81,6 +81,50 @@ def _strip_diacritics(s: str) -> str:
     nfkd = unicodedata.normalize("NFKD", s)
     no_combining = "".join(ch for ch in nfkd if not unicodedata.combining(ch))
     return no_combining.replace("�", "")
+
+
+# -- person-matching diacritic fold (more aggressive) ----------------------
+
+
+# Mojibake substitutions observed in pre-2018 MO PostScript-conversion
+# artefacts. Each mapping replaces a single mojibake character with the
+# ASCII-folded form of the Romanian character it represents.
+#
+# Scope is intentionally narrow: only chars that are NOT legitimate in
+# Romanian text. We do NOT include `ã`, `â` here — those NFKD-strip to
+# `a` correctly anyway, and `â` is a legitimate Romanian letter.
+#
+# This is used by `_strip_diacritics_aggressive`, which feeds the
+# person-matcher; the existing ministry / institutional matchers stay on
+# the strict `_strip_diacritics` to avoid false-positive collisions.
+_PERSON_MOJIBAKE_MAP = str.maketrans(
+    {
+        "„": "a",  # double low-9 quotation mark — mojibake for `ă`
+        "∫": "s",  # integral — mojibake for `ș`
+        "˛": "t",  # combining ogonek (free-standing) — mojibake for `ț`
+        "º": "s",  # masculine ordinal — mojibake for `ș`
+        "ª": "S",  # feminine ordinal — mojibake for `Ș`
+        "þ": "t",  # thorn — mojibake for `ț` (cedilla-era)
+        "Þ": "T",  # Thorn — mojibake for `Ț`
+        "™": "S",  # trade mark — mojibake for `Ș` (e.g. `™edinþa`)
+        "Ð": "I",  # eth — mojibake for `Î`
+        "ð": "i",  # eth — mojibake for `î`
+    }
+)
+
+
+def _strip_diacritics_aggressive(s: str) -> str:
+    """Diacritic strip + mojibake fold — used only for person matching.
+
+    Person names land in the corpus as a soup of (a) modern comma forms,
+    (b) cedilla forms, (c) PostScript-conversion mojibake (`V„c„roiu` for
+    `Văcăroiu`, `Mele∫canu` for `Meleșcanu`, `Bolca∫` for `Bolcaș`). The
+    aggressive fold normalises all three into ASCII so the matcher's
+    `diacritic` tier can collide them. The strict `_strip_diacritics`
+    used by the ministry / institutional matchers is unchanged.
+    """
+    s = s.translate(_PERSON_MOJIBAKE_MAP)
+    return _strip_diacritics(s)
 
 
 _TOKEN_SPLIT_RE = re.compile(r"[^\w]+", re.UNICODE)
@@ -328,13 +372,490 @@ def normalize_addressee(
     return normalize_institutional_body(raw)
 
 
+# -- persons (4.3) ----------------------------------------------------------
+
+
+@lru_cache(maxsize=1)
+def _load_persons() -> dict:
+    path = _REGISTRIES_DIR / "persons.json"
+    data = json.loads(path.read_text(encoding="utf-8"))
+    _validate_person_entries(data.get("entries") or [], registry_name="persons")
+    return data
+
+
+def _validate_person_entries(entries: list[dict], *, registry_name: str) -> None:
+    """Person registry validation. Stricter than the institutional one
+    because mandate dates and homonym disambiguation must be well-shaped.
+    """
+    if not isinstance(entries, list) or not entries:
+        raise ValueError(f"{registry_name}: entries must be a non-empty list")
+    seen_ids: set[str] = set()
+    for entry in entries:
+        if not isinstance(entry, dict):
+            raise ValueError(f"{registry_name}: entry is not an object: {entry!r}")
+        for key in ("id", "canonical_name"):
+            if not isinstance(entry.get(key), str) or not entry[key]:
+                raise ValueError(
+                    f"{registry_name}: entry missing required string '{key}': {entry!r}"
+                )
+        if entry["id"] in seen_ids:
+            raise ValueError(f"{registry_name}: duplicate id {entry['id']!r}")
+        seen_ids.add(entry["id"])
+        aliases = entry.get("aliases") or []
+        if not isinstance(aliases, list) or not all(
+            isinstance(a, str) and a for a in aliases
+        ):
+            raise ValueError(
+                f"{registry_name}: entry {entry['id']!r} has malformed aliases"
+            )
+        mandates = entry.get("mandates") or []
+        if not isinstance(mandates, list):
+            raise ValueError(
+                f"{registry_name}: entry {entry['id']!r} has malformed mandates"
+            )
+        for m in mandates:
+            if not isinstance(m, dict):
+                raise ValueError(
+                    f"{registry_name}: entry {entry['id']!r} mandate is not an object"
+                )
+            for k in ("from", "to"):
+                v = m.get(k)
+                if v is not None and not (
+                    isinstance(v, str) and len(v) >= 4 and v[:4].isdigit()
+                ):
+                    raise ValueError(
+                        f"{registry_name}: entry {entry['id']!r} mandate {k!r}={v!r} "
+                        "must be ISO date prefix or null"
+                    )
+
+
+def load_persons() -> dict:
+    """Public accessor — returns the parsed persons.json dict."""
+    return _load_persons()
+
+
+PERSONS_REGISTRY_VERSION: str = _load_persons()["version"]
+
+
+# Honorifics + parliamentary-title prefixes that callers commonly leave
+# attached to the speaker raw. We strip these once per call before
+# matching — a quick state-machine peel rather than a lookahead regex
+# because the token list is short and stable.
+_PERSON_HONORIFICS = (
+    "domnișoara",
+    "domnisoara",
+    "domnişoara",
+    "domnul",
+    "doamna",
+    "dl.",
+    "dna.",
+    "dl",
+    "dna",
+)
+_PERSON_TITLES = (
+    "deputat",
+    "deputata",
+    "deputatã",
+    "deputatul",
+    "senator",
+    "senatorul",
+    "senatoare",
+    "ministru",
+    "ministrul",
+    "ministrului",
+    "secretar",
+    "secretarul",
+    "președinte",
+    "presedinte",
+    "preşedinte",
+    "președintele",
+    "presedintele",
+    "preşedintele",
+    "vicepreședinte",
+    "vicepresedinte",
+    "vicepreşedinte",
+    "viceprim-ministru",
+    "viceprim",
+    "prim-ministru",
+    "premier",
+    "europarlamentar",
+)
+
+
+def _peel_person_prefix(s: str) -> str:
+    """Peel a leading `Domnul deputat` / `Doamna ministru` etc. from a
+    raw speaker string. Iterates token-by-token at most twice (one
+    honorific + one title); never consumes name tokens.
+    """
+    s = s.strip()
+    s_lower = s.lower()
+    for hon in _PERSON_HONORIFICS:
+        if s_lower.startswith(hon + " ") or s_lower == hon:
+            s = s[len(hon) :].lstrip()
+            s_lower = s.lower()
+            break
+    for tt in _PERSON_TITLES:
+        if s_lower.startswith(tt + " ") or s_lower == tt:
+            s = s[len(tt) :].lstrip()
+            s_lower = s.lower()
+            break
+    return s
+
+
+def _peel_role_suffix(s: str) -> str:
+    """Drop a trailing role clause after the first comma.
+
+    Speaker raws like `Domnul deputat NAME, vicepreședintele Camerei`
+    place the name before the comma; we keep that span only. Same applies
+    to interpellation questioner / committee signatures.
+    """
+    if "," in s:
+        return s.split(",", 1)[0].strip()
+    return s.strip()
+
+
+def _normalize_for_match(s: str) -> str:
+    """Full preprocessing pipeline applied before each match tier.
+
+    - peel honorific + title prefix
+    - peel role suffix
+    - collapse internal whitespace (newlines from sloppy MD wrapping)
+    - strip trailing punctuation (`.`, `:`)
+    """
+    s = _peel_role_suffix(_peel_person_prefix(s))
+    s = re.sub(r"\s+", " ", s).strip()
+    return s.rstrip(".:").strip()
+
+
+@lru_cache(maxsize=1)
+def _persons_alias_index() -> tuple[
+    dict[str, str],  # exact
+    dict[str, str],  # casefold
+    dict[str, str],  # diacritic+mojibake-folded + casefold
+    list[tuple[frozenset[str], str]],  # token-set
+    dict[str, list[str]],  # diacritic-folded → list of person_ids (homonym index)
+    dict[str, dict],  # person_id → entry (fast lookup for context_year scoring)
+]:
+    data = _load_persons()
+    exact: dict[str, str] = {}
+    case: dict[str, str] = {}
+    diacritic: dict[str, str] = {}
+    token: list[tuple[frozenset[str], str]] = []
+    homonym: dict[str, list[str]] = {}
+    by_id: dict[str, dict] = {}
+    for entry in data["entries"]:
+        eid = entry["id"]
+        by_id[eid] = entry
+        names: list[str] = [entry["canonical_name"], *(entry.get("aliases") or [])]
+        diacritic_form = entry.get("diacritic_form")
+        if isinstance(diacritic_form, str) and diacritic_form:
+            names.append(diacritic_form)
+        for name in names:
+            exact.setdefault(name, eid)
+            case.setdefault(name.casefold(), eid)
+            d_key = _strip_diacritics_aggressive(name).casefold()
+            diacritic.setdefault(d_key, eid)
+            homonym.setdefault(d_key, []).append(eid)
+            token_set = _person_token_set(name)
+            if token_set:
+                token.append((token_set, eid))
+    # Dedup the homonym lists so duplicated aliases on a single entry
+    # don't manufacture fake homonyms.
+    for k, v in homonym.items():
+        seen: list[str] = []
+        for eid in v:
+            if eid not in seen:
+                seen.append(eid)
+        homonym[k] = seen
+    return exact, case, diacritic, token, homonym, by_id
+
+
+_PERSON_TOKEN_SPLIT_RE = re.compile(r"[\s\-]+", re.UNICODE)
+
+
+def _person_token_set(s: str) -> frozenset[str]:
+    """Token-set form for person names — diacritic+mojibake-folded.
+
+    Splits on whitespace AND hyphens (so `Sorin-Mihai` and `Sorin Mihai`
+    collapse). Strips punctuation per token. Empty tokens dropped.
+    """
+    folded = _strip_diacritics_aggressive(s).lower()
+    parts = _PERSON_TOKEN_SPLIT_RE.split(folded)
+    cleaned = [re.sub(r"[^a-z0-9]+", "", t) for t in parts]
+    return frozenset(t for t in cleaned if t and len(t) >= 2)
+
+
+def _levenshtein(a: str, b: str, *, max_distance: int = 2) -> int:
+    """Pure-Python Levenshtein with a hard early-exit at `max_distance + 1`.
+
+    Used only as the last-tier fuzzy fall-through for person matching.
+    Returns `max_distance + 1` (i.e. "too far") whenever the distance
+    exceeds the cap; the caller treats that as a no-match.
+
+    Time is O(|a| × min(|b|, max_distance + 1)) thanks to the band-only
+    scan. Implementation kept terse — full algorithmic clarity isn't
+    needed because this is a single-purpose 30-line helper.
+    """
+    if a == b:
+        return 0
+    la, lb = len(a), len(b)
+    if abs(la - lb) > max_distance:
+        return max_distance + 1
+    if la > lb:
+        a, b, la, lb = b, a, lb, la
+    prev = list(range(la + 1))
+    cur = [0] * (la + 1)
+    for j in range(1, lb + 1):
+        cur[0] = j
+        bch = b[j - 1]
+        # Band: only the columns that could yield ≤ max_distance.
+        lo = max(1, j - max_distance)
+        hi = min(la, j + max_distance)
+        if lo > 1:
+            cur[lo - 1] = max_distance + 1  # sentinel beyond band
+        row_min = max_distance + 1
+        for i in range(lo, hi + 1):
+            cost = 0 if a[i - 1] == bch else 1
+            cur[i] = min(
+                prev[i] + 1,
+                cur[i - 1] + 1,
+                prev[i - 1] + cost,
+            )
+            if cur[i] < row_min:
+                row_min = cur[i]
+        if row_min > max_distance:
+            return max_distance + 1
+        prev, cur = cur, prev
+    return prev[la]
+
+
+def _mandate_active_in(entry: dict, year: int | None) -> bool:
+    """Return True iff `entry` has at least one mandate that overlaps `year`.
+
+    `year=None` matches every entry (caller hasn't supplied a context to
+    discriminate against). A mandate with no `to` is treated as ongoing.
+    """
+    if year is None:
+        return True
+    mandates = entry.get("mandates") or []
+    if not mandates:
+        return True  # No mandate data ⇒ don't penalise; let the caller decide.
+    for m in mandates:
+        m_from = m.get("from")
+        m_to = m.get("to")
+        from_year = (
+            int(m_from[:4])
+            if isinstance(m_from, str) and len(m_from) >= 4 and m_from[:4].isdigit()
+            else None
+        )
+        to_year = (
+            int(m_to[:4])
+            if isinstance(m_to, str) and len(m_to) >= 4 and m_to[:4].isdigit()
+            else None
+        )
+        if from_year is None and to_year is None:
+            continue
+        # treat missing `to` as "ongoing" relative to year
+        if from_year is not None and year < from_year:
+            continue
+        if to_year is not None and year > to_year:
+            continue
+        return True
+    return False
+
+
+def _resolve_homonym(
+    candidates: list[str], *, context_year: int | None, by_id: dict[str, dict]
+) -> str | None:
+    """Pick the active-mandate winner from a homonym set.
+
+    When `context_year` is None or no candidate's mandate covers it,
+    returns None — the caller treats this as "ambiguous, do not resolve"
+    rather than guessing. (We could prefer the lexicographically-first id,
+    but that would silently mis-resolve homonyms; better to leave the
+    Speaker.person_id null and surface in the long-tail report.)
+    """
+    if len(candidates) == 1:
+        return candidates[0]
+    if context_year is None:
+        return None
+    active = [
+        c for c in candidates if _mandate_active_in(by_id.get(c, {}), context_year)
+    ]
+    if len(active) == 1:
+        return active[0]
+    return None
+
+
+def normalize_speaker(
+    raw: str | None,
+    *,
+    context_year: int | None = None,
+) -> tuple[str | None, MatchedVia | None]:
+    """Map a free-text speaker raw (or pre-cleaned name) to a person_id.
+
+    The matcher peels the leading `Domnul/Doamna [deputat|senator|...]`
+    decoration and trailing `, role` clause, then runs the standard tier
+    cascade against `persons.json`:
+
+      1. exact         — byte-equal match against canonical_name / alias
+                          / diacritic_form (post-peel string).
+      2. case          — case-insensitive equality.
+      3. diacritic     — diacritic-stripped + mojibake-folded equality.
+                          This is what catches `V„c„roiu` ↔ `Văcăroiu`,
+                          `Mele∫canu` ↔ `Meleșcanu`, etc.
+      4. token_set     — orderless token-set match (diacritic+mojibake-
+                          folded). Catches `Iordache Florin` ↔ `Florin
+                          Iordache` and `Sorin-Mihai` ↔ `Sorin Mihai`.
+      5. fuzzy         — Levenshtein ≤ 2 on the diacritic-folded form.
+                          Justified for human names per the design doc;
+                          the cap of 2 is tight enough to keep precision
+                          high while absorbing OCR slips like a missing
+                          dash or a single-letter swap.
+
+    Homonym disambiguation: when a tier resolves to multiple candidate
+    person_ids, `context_year` (the MO year) breaks ties by selecting the
+    candidate whose mandates cover that year. If no candidate's mandate
+    covers it, the matcher returns `(None, None)` rather than guessing.
+
+    `raw=None`, empty input, or institution/procedural labels (`Din sală`,
+    `Guvernul`, `<chair narration>`) return `(None, None)` — the caller
+    leaves Speaker.person_id null. These non-canonical speakers stay
+    visible via Speaker.raw on the sidecar.
+
+    Returns `(id, matched_via)` on hit, `(None, None)` on miss.
+    """
+    if not isinstance(raw, str):
+        return (None, None)
+    cleaned = _normalize_for_match(raw)
+    if not cleaned or len(cleaned) < 2:
+        return (None, None)
+
+    # Filter out structural non-canonical speakers cheaply (these are
+    # populated as Speaker dicts by the extractor for procedural turns
+    # but should not match a registry person).
+    cleaned_low = cleaned.casefold()
+    if cleaned_low in _NON_CANONICAL_SPEAKER_LABELS:
+        return (None, None)
+
+    exact_idx, case_idx, dia_idx, token_idx, homonym_idx, by_id = _persons_alias_index()
+
+    # All tiers route through `homonym_idx` so an ambiguous match (two
+    # entries sharing the same canonical_name / alias surface form) can
+    # be disambiguated via context_year — or rejected when no year is
+    # given. The diacritic key collapses cedilla, modern, and mojibake
+    # surface forms onto one bucket; every alias of every entry is
+    # registered there.
+    diacritic_key = _strip_diacritics_aggressive(cleaned).casefold()
+
+    def _hit(
+        via: MatchedVia, candidates_eid: str | None
+    ) -> tuple[str | None, MatchedVia | None]:
+        """If the candidate set contains homonyms, run year disambiguation;
+        otherwise return the single hit. None on miss."""
+        if candidates_eid is None:
+            return (None, None)
+        candidates = homonym_idx.get(diacritic_key, [candidates_eid])
+        if len(candidates) == 1:
+            return (candidates[0], via)
+        chosen = _resolve_homonym(candidates, context_year=context_year, by_id=by_id)
+        if chosen is not None:
+            return (chosen, via)
+        # Ambiguous + no year disambiguation → bubble through to the next
+        # tier; if every tier is ambiguous, the matcher gives up.
+        return (None, None)
+
+    eid_or_none, via_or_none = _hit("exact", exact_idx.get(cleaned))
+    if eid_or_none is not None:
+        return (eid_or_none, via_or_none)
+    eid_or_none, via_or_none = _hit("case", case_idx.get(cleaned.casefold()))
+    if eid_or_none is not None:
+        return (eid_or_none, via_or_none)
+    if diacritic_key:
+        eid_or_none, via_or_none = _hit("diacritic", dia_idx.get(diacritic_key))
+        if eid_or_none is not None:
+            return (eid_or_none, via_or_none)
+
+    raw_tokens = _person_token_set(cleaned)
+    if len(raw_tokens) >= 2:
+        token_candidates: list[str] = []
+        for token_set, eid in token_idx:
+            if len(token_set) >= 2 and token_set == raw_tokens:
+                if eid not in token_candidates:
+                    token_candidates.append(eid)
+        if token_candidates:
+            chosen = _resolve_homonym(
+                token_candidates, context_year=context_year, by_id=by_id
+            )
+            if chosen is not None:
+                return (chosen, "token_set")
+
+    # Fuzzy tier: Levenshtein ≤ 2 on the diacritic-folded form, restricted
+    # to candidates with at least 2 tokens to avoid a fuzzy match
+    # producing a single-token false positive (e.g., `Popa` matching one
+    # of many `Popa`-suffixed entries).
+    if len(raw_tokens) >= 2:
+        best: list[tuple[int, str]] = []
+        for token_set, eid in token_idx:
+            if len(token_set) < 2:
+                continue
+            # Compare the joined-token canonical form (sorted) so order
+            # doesn't sabotage the distance metric.
+            cand_str = " ".join(sorted(token_set))
+            input_str = " ".join(sorted(raw_tokens))
+            d = _levenshtein(input_str, cand_str, max_distance=2)
+            if d <= 2:
+                best.append((d, eid))
+        if best:
+            best.sort()
+            top_d = best[0][0]
+            top_candidates: list[str] = []
+            for d, eid in best:
+                if d > top_d:
+                    break
+                if eid not in top_candidates:
+                    top_candidates.append(eid)
+            chosen = _resolve_homonym(
+                top_candidates, context_year=context_year, by_id=by_id
+            )
+            if chosen is not None:
+                return (chosen, "fuzzy")
+
+    return (None, None)
+
+
+# Procedural / institutional non-canonical labels surfaced as Speaker
+# dicts by the extractor (chair narration markers, audience interjection
+# markers, group-attribution markers). These stay `person_id: null` —
+# they're not people in the registry sense.
+_NON_CANONICAL_SPEAKER_LABELS = frozenset(
+    {
+        "<chair narration>",
+        "din sală",
+        "din sala",
+        "din sal",  # mojibake remnant
+        "guvernul",
+        "guvern",
+        "guvernul româniei",
+        "voci",
+        "voci din sală",
+        "voci din sala",
+        "vocea din sală",
+        "aplauze",
+    }
+)
+
+
 __all__ = [
     "INSTITUTIONAL_BODIES_REGISTRY_VERSION",
     "MINISTRIES_REGISTRY_VERSION",
+    "PERSONS_REGISTRY_VERSION",
     "MatchedVia",
     "load_institutional_bodies",
     "load_ministries",
+    "load_persons",
     "normalize_addressee",
     "normalize_institutional_body",
     "normalize_ministry",
+    "normalize_speaker",
 ]
