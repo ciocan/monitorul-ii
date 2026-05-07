@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.15.0](https://github.com/ciocan/monitorul-ii/compare/monitorul-ii-v0.14.0...monitorul-ii-v0.15.0) (2026-05-07)
+
+
+### Features
+
+* **elasticsearch:** implement client-side Reciprocal Rank Fusion (RRF) for hybrid search ([0ffcdad](https://github.com/ciocan/monitorul-ii/commit/0ffcdad71d2d12de455f7c92f8fce9bb50045b6e))
+
 ## [0.14.0](https://github.com/ciocan/monitorul-ii/compare/monitorul-ii-v0.13.0...monitorul-ii-v0.14.0) (2026-05-07)
 
 
