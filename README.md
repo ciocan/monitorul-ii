@@ -78,6 +78,17 @@ Each `<basename>.pdf` produces `<basename>.md` next to it. The MD opens with a Y
 
 When the S3 vars are set, MDs mirror to the same bucket alongside the PDFs (flat layout, `Content-Type: text/markdown`). Idempotent in the same way as `fetch`: skip if the local `.md` exists, `head_object` before each upload.
 
+#### Scanned-PDF triage
+
+`pymupdf4llm` extracts a *text layer*, not a *visual layer* — for scanned PDFs whose pages are images with no embedded text, it silently produces near-empty markdown. To find PDFs in `pdfs/` that need an OCR backend instead (e.g. Mistral OCR), run the diagnostic script:
+
+```sh
+.venv/bin/python scripts/detect_scanned.py            # full sweep, writes scanned_candidates.csv
+.venv/bin/python scripts/detect_scanned.py --rebuild  # regenerate CSV from cached probe state
+```
+
+The script probes each PDF in a child subprocess (PyMuPDF can SIGSEGV on malformed image-only PDFs; subprocess isolation keeps one bad file from killing the whole sweep) and classifies by `avg_chars_per_page` + `image_pages_pct`. On the current corpus this surfaces 12 OCR-tier candidates (9 `ocr_required`, 3 `ocr_recommended`) and 19 `hybrid` (mostly tiny 2-page cover-sheet + image-insert docs where OCR is usually not worth the cost). The `convert` command does **not** auto-route these to OCR — review `scanned_candidates.csv`, run those PDFs through your OCR backend of choice, and feed the resulting markdown back into the pipeline. See `docs/architecture.md` § "OCR triage" for the threshold rationale and corpus distribution.
+
 ### `classify`
 
 Step 1 of the extraction pipeline (see [`docs/extraction-schema.md`](docs/extraction-schema.md)) — sweep MDs and tag each with one of the six document-type buckets defined by the schema (`plenary_stenogram`, `plenary_joint_session`, `committee_synthesis`, `report_facsimile`, `question_register`, `other`). Pure regex over the filename suffix + first 10 KB of body; runs over thousands of docs in seconds.

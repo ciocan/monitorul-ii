@@ -469,6 +469,44 @@ A `ProcessPoolExecutor` would push further by giving each process its own ORT po
 
 Not currently. `pymupdf-layout` runs two ORT inference sessions per PDF: the main `session` honors the default provider list (would use CUDA if `onnxruntime-gpu` were installed), but the `feature_extractor` is **hardcoded** to `providers=['CPUExecutionProvider']` in `pymupdf/layout/onnx/BoxRFDGNN.py:221`. So even installing `onnxruntime-gpu` (~3 GB, plus a CUDA 12.x runtime) would only accelerate one of the two inference calls. With layout-model work already reduced to ~3 s/PDF on an 8-thread CPU pool, the marginal GPU win on the bigger of the two sessions wouldn't justify the install weight or the GPU-as-hard-dep on this tool. Revisit if `pymupdf-layout` ever exposes an execution-providers knob.
 
+## OCR triage — `scripts/detect_scanned.py`
+
+`pymupdf4llm.to_markdown` extracts a *text layer*, not a *visual layer*. For PDFs whose pages are scanned page-images with no embedded text, conversion silently produces near-empty markdown — a structural extraction failure that no schema check catches. Triage tooling lives at `scripts/detect_scanned.py` (one-off diagnostic, not part of the extract pipeline) to identify the small set of PDFs that need a different conversion path (e.g. Mistral OCR) before feeding the existing pipeline.
+
+### Two metrics, one classifier
+
+For every PDF in `pdfs/`, the probe walks pages and records `total_chars` (sum of `page.get_text()` lengths) and `image_pages` (pages with `>= 1` image via `page.get_images()`). The per-PDF recommendation is derived from two ratios:
+
+  - `avg_chars_per_page = total_chars / pages`
+  - `image_pages_pct    = image_pages / pages`
+
+Recommendation tiers (informed by the actual MO corpus distribution):
+
+| tier | rule | corpus count |
+| --- | --- | --- |
+| `ocr_required`    | `avg < 200`  AND `image_pct >= 0.5` | 9 |
+| `ocr_recommended` | `avg < 500`  AND `image_pct >= 0.2` | 3 |
+| `hybrid`          | `image_pct >= 0.5` AND `avg < 2000` | 19 |
+| `text_ok`         | everything else                      | 5521 |
+
+### Why per-PDF averages, not per-page `chars < 50`
+
+The first attempt classified pages as "scanned" if `chars < 50` AND the page had an image. That misfired across the entire corpus: even the 344 MB fully-scanned `2011-06-10_MO-PII-71Bis-2011.pdf` (3578 pages, 99.5% image pages) classified as 3576 "text" pages, because every scanned page leaks 80–150 chars from headers, page numbers, and footer running-titles. **Every MO PDF has at least 50 chars on every page.** The per-page threshold was meaningless on this corpus.
+
+The per-PDF `avg_chars_per_page` works because real text content runs 1500–3000+ chars/page, while scanned content with header/footer leakage averages 90–170 chars/page — a clean order-of-magnitude separation. The 12 OCR-tier candidates fall in the 90–335 range; the next-densest PDFs jump to ~800 and up.
+
+### Why the worker is a subprocess, not a thread
+
+PyMuPDF can SIGSEGV on malformed image-only PDFs. A `ThreadPoolExecutor` doesn't isolate native crashes — one bad page kills the parent process and loses every result that wasn't already on disk. The first run of the script crashed at ~3200/5552 PDFs with exit 139, with no output written.
+
+The fix runs each PDF in a child Python subprocess (`subprocess.run([sys.executable, __file__, "--probe", path])`). Native crashes report a non-zero exit code instead of taking down the parent. A JSONL state file at `/tmp/detect_scanned_state.jsonl` is appended to as each result lands, so re-runs resume from where a crash left off (and `--rebuild` regenerates the CSV from the cache without re-probing). On the 5552-PDF corpus the subprocess overhead added ~1× to wall time vs the threaded version (~3 min vs ~2 min) — acceptable for crash safety.
+
+### Production breakdown (5552-PDF corpus, 2026-05-05)
+
+The 12 `ocr_required` + `ocr_recommended` PDFs are dominated by `Bis`-suffix and `R`-suffix issues from 2004–2016, where the source MO either bundled a scanned annex (`Bis`) or reproduced a scanned report verbatim (`R`). The largest is `2011-06-10_MO-PII-71Bis-2011.pdf` at 344 MB / 3578 pages / 109 chars/page — a clear OCR-required outlier. The 19 `hybrid` candidates are almost all 2-page docs (cover sheet + image insert at 50%/100% image pages with ~1500–2000 chars/page); the cover-page text extracts fine and the image is typically a signature/seal, so OCR isn't usually worthwhile for these. CSV output: `scanned_candidates.csv` at the repo root.
+
+The script does not wire into `monitorul-ii convert` — current pipeline routes every PDF through `pymupdf4llm`. Wiring an actual OCR backend (Mistral, Tesseract, etc.) for the `ocr_required` tier is a separate workstream not yet picked up.
+
 ## Type detector — `monitorul-ii classify`
 
 Step 1 of the extraction pipeline. Sweeps every converted MD and tags it with one of the six document types from `docs/extraction-schema.md` (`plenary_stenogram | plenary_joint_session | committee_synthesis | report_facsimile | question_register | other`). Implemented as `src/monitorul_ii/classifier.py`: pure regex, pure functions, no I/O outside `classify_file` reading the front of one MD.
