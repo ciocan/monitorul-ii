@@ -53,8 +53,12 @@ GRAINS_WITH_DOCUMENT_PARENT: tuple[str, ...] = (
     GRAIN_REPORTS,
 )
 
-# Speech length threshold for "substantive content" per Q5. p50 of speech
-# length is 134 chars; chair phrases (Mulțumesc, ...) cluster <50.
+# Speech length threshold for "substantive content" per Q5. Calibrated
+# against the live distribution: unfiltered p25 ≈ 67, p50 ≈ 198 — 100
+# sits between them, above the chair-phrase cluster ("Mulțumesc, ...")
+# but below the median substantive turn. ~282K of 817K speeches fall
+# below the cutoff. See `docs/elasticsearch-indexing.md` Q5 for the
+# full SEO + kNN-quality rationale.
 SUBSTANTIVE_TEXT_LENGTH = 100
 
 

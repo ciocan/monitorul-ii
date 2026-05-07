@@ -190,7 +190,7 @@ Registry shape:
 
 **Why flat refs (not `nested`).** ES `nested` is a sharp tool: each nested object becomes a Lucene doc, multiplying corpus cardinality. At 1M parents × ~5 refs/speech = 5M nested docs, heap pressure and slower aggregations. `nested` is required only when correlated multi-field queries within a single array element matter (e.g., "speeches where this same ref has type=bill AND prefix=PL-x"). Your queries are mostly "speeches mentioning bill PL-x 100/2018" — flat per-type keyword arrays (`refs.bills`, `refs.laws`, `refs.codes`) are faster and simpler. Reserve `nested` for `discourse.evidence` (where evidence object correlation matters: lines+framework+polarity together).
 
-**Why `is_substantive` filter.** p50 speech length is 134 chars (chair phrases like "Mulțumesc, domnule deputat"); p25 is 40. Without the filter, a public search returns 50%+ chair-procedure noise; SEO-wise, 450K thin-content URLs would tank ranking signal across the domain. The filter is on by default for public search and indexability, off for admin and bulk export.
+**Why `is_substantive` filter.** Live speech-length distribution across the indexed corpus (5,552 MOs, 817,483 speeches): p10 ≈ 27, p25 ≈ 67, p50 ≈ 198, p75 ≈ 749, p99 ≈ 6,070 chars. The p10–p25 band is dominated by chair-procedure phrases ("Mulțumesc, domnule deputat", "Vă rog."). Without the filter, ~282K of 817K speeches (34.6%) fall below the cutoff, so a public search returns roughly a third chair-procedure noise; SEO-wise, ~282K thin-content URLs would tank ranking signal across the domain. The filter is on by default for public search and indexability, off for admin and bulk export. **Why 100 specifically.** The cutoff sits between p25 (~67) and p50 (~198) of the unfiltered distribution — above the chair-phrase cluster but below the median substantive turn — so single-paragraph remarks aren't lost while one-line interjections are. Round-number convention: easier to communicate and reason about than 80 or 124, which would land in the same gap. The same constant lives in code as `SUBSTANTIVE_TEXT_LENGTH` (`elasticsearch/denormalize.py`) and `MIN_TEXT_CHARS` (`extraction/enrichments/embedding.py`); changing it is a coordinated bump, not a one-file edit.
 
 **What stays out of ES.**
 
@@ -305,13 +305,13 @@ Estimated indexable URL count: ~640K — sizable but Google-tractable. Without `
 
 **Why ASCII-folded slugs (not Romanian-with-diacritics).** Google handles both, but ASCII URLs survive SMS/chat/email transport without IRI encoding artifacts; Romanian diacritics live in `<title>`, `<h1>`, body content, and JSON-LD where they belong.
 
-**Why `is_substantive` cutoff.** A 134-char chair-procedure turn has no content for Google to rank; indexing 450K such pages dilutes the substantive corpus's ranking signal. Keep them in ES (LLM agent might need them); exclude from public crawlable surface.
+**Why `is_substantive` cutoff.** A sub-100-char chair turn ("Mulțumesc, domnule deputat. Vă rog.") has no content for Google to rank; indexing ~282K such pages dilutes the substantive corpus's ranking signal. Keep them in ES (LLM agent might need them); exclude from public crawlable surface.
 
 **Rejected: slugs computed live in indexer with no persistence.** Failure mode: any indexer rule change → slug drift → URL churn → SEO collapse on already-published content.
 
 **Rejected: opaque hash slugs only.** Failure mode: human-debuggability disappears; researchers can't eyeball a URL to know what record it points to; agent tool tracing becomes noisier.
 
-**Rejected: index everything regardless of substance.** Failure mode: 450K thin-content pages flag the whole domain; substantive content's ranking degrades.
+**Rejected: index everything regardless of substance.** Failure mode: ~282K thin-content pages flag the whole domain; substantive content's ranking degrades.
 
 ### Q8. Embeddings — BGE-M3 1024-dim local, hybrid BM25+kNN via RRF
 

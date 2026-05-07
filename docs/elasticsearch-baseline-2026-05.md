@@ -104,7 +104,7 @@ The 11th query — added after the original P4c smoke surfaced that "render this
 > **TODO operator** — populate after rebuild from the live cluster.
 
 * **20 random `record_id` lookups** across all grains, each via the relevant `get_*` query. Expected: 20/20 return non-null `_source` matching the grain's mapping.
-* **`is_substantive: true` filter behavior** on `mo-speeches`: p25 / p50 / p99 of `text_length` in the filtered subset (Q5 expectation: p50 ≈ 134 chars, p99 ≥ 5,000 chars; chair-procedure cluster <50 chars excluded).
+* **`is_substantive: true` filter behavior** on `mo-speeches`: p25 / p50 / p99 of `text_length` in the filtered subset (live observed: p25 ≈ 201, p50 ≈ 473, p99 ≈ 7,137 chars; below-cutoff cluster of ~282K speeches at p10–p25 of the unfiltered distribution, ≤67 chars, is excluded). The 100-char cutoff falls between unfiltered p25 (~67) and p50 (~198) — see Q5 in `docs/elasticsearch-indexing.md` for the rationale.
 * **Aggregation buckets**: `terms` by `chamber`, `legislature`, `agenda_category`, `speaker.person_id`; `histogram` by `session_date` year. Each should return non-empty buckets and stay under the 100-bucket cap when called via `queries.agg_speeches_by_party_year` (or `DEFAULT_AGG_SIZE` for callers passing through the cap).
 * **Filter combination triple**: `(chamber, year, ref_bills)` on `search_speeches`. The webapp's typical query shape; latency budget < 400 ms.
 
