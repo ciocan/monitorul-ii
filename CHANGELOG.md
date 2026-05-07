@@ -1,5 +1,14 @@
 # Changelog
 
+## [0.14.0](https://github.com/ciocan/monitorul-ii/compare/monitorul-ii-v0.13.0...monitorul-ii-v0.14.0) (2026-05-07)
+
+
+### Features
+
+* **elasticsearch:** enhance playback functionality with position tracking ([e645b6f](https://github.com/ciocan/monitorul-ii/commit/e645b6f067670973d2718c6ee01ebd1613a59844))
+* **embed:** introduce BGE-M3 embedding service and CLI integration ([d269a09](https://github.com/ciocan/monitorul-ii/commit/d269a09e5097470f5f145c1e97ed0c867d5e2c0c))
+* **extraction:** enhance identity assignment and speech header parsing ([67827b3](https://github.com/ciocan/monitorul-ii/commit/67827b38a34a1db64cb452a4d129ebf620a4c2e2))
+
 ## [0.13.0](https://github.com/ciocan/monitorul-ii/compare/monitorul-ii-v0.12.0...monitorul-ii-v0.13.0) (2026-05-06)
 
 
