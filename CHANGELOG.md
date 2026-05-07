@@ -1,5 +1,23 @@
 # Changelog
 
+## [0.13.0](https://github.com/ciocan/monitorul-ii/compare/monitorul-ii-v0.12.0...monitorul-ii-v0.13.0) (2026-05-06)
+
+
+### Features
+
+* **cli, extraction:** enhance backfill functionality and S3 upload behavior ([f5bc600](https://github.com/ciocan/monitorul-ii/commit/f5bc600121cbc00f4e18c5161f3d48eec25283de))
+* **elasticsearch:** add bootstrap + v1 mappings + es-init subcommand ([d5c4c82](https://github.com/ciocan/monitorul-ii/commit/d5c4c82827265a1d0d374acdfe848284cf48c29a))
+* **elasticsearch:** query layer + production rebuild baseline ([5a29e09](https://github.com/ciocan/monitorul-ii/commit/5a29e09eb62095bf978a5ab2e4b0d9d19c8ae328))
+* **extraction:** add identity block (record_id, content_fingerprint, slug-once) ([958a639](https://github.com/ciocan/monitorul-ii/commit/958a6395d5bd8273c1ca45681d9ef95b0bb542ff))
+* **extraction:** introduce persons registry and backfill functionality ([284e86e](https://github.com/ciocan/monitorul-ii/commit/284e86e9e38b4545fad6de7208604803cf3ace91))
+* **indexing:** introduce `monitorul-ii index` command for Elasticsearch integration ([d425cbb](https://github.com/ciocan/monitorul-ii/commit/d425cbb92b8996b5ece406b812feeaadfb3ab12c))
+
+
+### Documentation
+
+* add Elasticsearch indexing documentation ([94b76e8](https://github.com/ciocan/monitorul-ii/commit/94b76e8e0e1da1f3209b32d67d31efa8b5ec0e2c))
+* add extraction baseline for May 2026 ([4917ec8](https://github.com/ciocan/monitorul-ii/commit/4917ec81c9d116693c97ae7080390ce0419efee6))
+
 ## [0.12.0](https://github.com/ciocan/monitorul-ii/compare/monitorul-ii-v0.11.1...monitorul-ii-v0.12.0) (2026-05-06)
 
 
