@@ -29,7 +29,7 @@ class FakeES:
 
     def __init__(
         self,
-        responses: dict[str, dict[str, Any]] | None = None,
+        responses: dict[str, dict[str, Any] | list[dict[str, Any]]] | None = None,
         not_found: set[tuple[str, str]] | None = None,
     ) -> None:
         self.responses = responses or {}
@@ -39,9 +39,20 @@ class FakeES:
 
     def search(self, *, index: str, body: dict[str, Any]) -> dict[str, Any]:
         self.search_calls.append({"index": index, "body": body})
-        return self.responses.get(
-            index, {"hits": {"total": {"value": 0, "relation": "eq"}, "hits": []}}
-        )
+        empty = {"hits": {"total": {"value": 0, "relation": "eq"}, "hits": []}}
+        resp = self.responses.get(index, empty)
+        # A list of responses behaves as a queue — pop FIFO so callers
+        # that issue multiple `es.search` invocations per Python call
+        # (e.g. client-side RRF: BM25 then kNN) can wire distinct
+        # fixtures per leg. Once the queue narrows to one item, that
+        # item stays put so over-iteration doesn't surprise the test.
+        if isinstance(resp, list):
+            if not resp:
+                return empty
+            if len(resp) > 1:
+                return resp.pop(0)
+            return resp[0]
+        return resp
 
     def get(self, *, index: str, id: str) -> dict[str, Any]:  # noqa: A002
         self.get_calls.append({"index": index, "id": id})
@@ -680,12 +691,31 @@ def test_search_speeches_bm25_only_default_emits_query_block():
     assert body["query"]["bool"]["must"][0]["multi_match"]["query"] == "reformă"
 
 
-def test_search_speeches_rrf_emits_retriever_with_both_legs():
-    """RRF mode should produce a `retriever.rrf` block with two
-    `retrievers` (BM25 standard + kNN), using the configured rank
-    constant.
+def _rrf_hit(doc_id: str, *, score: float = 1.0) -> dict[str, Any]:
+    """Build one ES hit row with deterministic _id / _score / _source."""
+    return {
+        "_id": doc_id,
+        "_index": queries.INDEX_SPEECHES,
+        "_score": score,
+        "_source": {"id": doc_id},
+    }
+
+
+def test_search_speeches_rrf_issues_two_calls_one_bm25_one_knn():
+    """Client-side RRF fires BM25 + kNN as two separate `_search`
+    calls (the native `retrievers.rrf` DSL needs Platinum+; we run on
+    basic). Neither call carries a `retriever` block; the BM25 call
+    has the historical multi_match shape, the kNN call carries the
+    `knn` block on the request body root.
     """
-    es = FakeES({queries.INDEX_SPEECHES: _hits_payload([])})
+    es = FakeES(
+        {
+            queries.INDEX_SPEECHES: [
+                _hits_payload([]),  # BM25 leg
+                _hits_payload([]),  # kNN leg
+            ]
+        }
+    )
     queries.search_speeches(
         es,
         q="reformă justiție",
@@ -693,30 +723,40 @@ def test_search_speeches_rrf_emits_retriever_with_both_legs():
         query_vector=_vec(0),
         page_size=20,
     )
-    body = es.search_calls[0]["body"]
-    assert "retriever" in body
-    rrf = body["retriever"]["rrf"]
-    assert rrf["rank_constant"] == queries.RRF_RANK_CONSTANT
-    legs = rrf["retrievers"]
-    assert len(legs) == 2
-    # First leg: BM25 standard query.
-    assert "standard" in legs[0]
-    bm25 = legs[0]["standard"]["query"]["bool"]
-    assert bm25["must"][0]["multi_match"]["query"] == "reformă justiție"
-    # Second leg: kNN over enrichments.embedding.
-    assert "knn" in legs[1]
-    knn = legs[1]["knn"]
+    assert len(es.search_calls) == 2
+    bm25_body = es.search_calls[0]["body"]
+    knn_body = es.search_calls[1]["body"]
+    # BM25 leg: bool/multi_match, no kNN block, no retriever block.
+    assert "retriever" not in bm25_body
+    assert "knn" not in bm25_body
+    assert (
+        bm25_body["query"]["bool"]["must"][0]["multi_match"]["query"]
+        == "reformă justiție"
+    )
+    # Window size = max(page * page_size, FLOOR) = max(1*20, 100) = 100.
+    assert bm25_body["size"] == queries.RRF_RANK_WINDOW_FLOOR
+    # kNN leg: knn block at root, no multi_match, no retriever.
+    assert "retriever" not in knn_body
+    knn = knn_body["knn"]
     assert knn["field"] == "enrichments.embedding"
-    assert knn["k"] == 20
+    assert knn["k"] == queries.RRF_RANK_WINDOW_FLOOR
     assert len(knn["query_vector"]) == 1024
 
 
-def test_search_speeches_rrf_propagates_filters_to_knn_leg():
-    """Filters (chamber, dates, etc.) must apply to the kNN leg too —
-    otherwise kNN candidates would include records the BM25 leg's
-    bool filter rejects, and RRF would up-weight them with no offset.
+def test_search_speeches_rrf_propagates_filters_to_both_legs():
+    """Filters (chamber, dates, is_substantive, etc.) must apply to
+    BOTH legs. Mismatched filters between legs would let kNN surface
+    records the BM25 leg's bool filter rejects; client-side fusion
+    would then up-weight them with no offset.
     """
-    es = FakeES({queries.INDEX_SPEECHES: _hits_payload([])})
+    es = FakeES(
+        {
+            queries.INDEX_SPEECHES: [
+                _hits_payload([]),  # BM25
+                _hits_payload([]),  # kNN
+            ]
+        }
+    )
     queries.search_speeches(
         es,
         q="educație",
@@ -726,25 +766,21 @@ def test_search_speeches_rrf_propagates_filters_to_knn_leg():
         date_from="2018-01-01",
         date_to="2018-12-31",
     )
-    legs = es.search_calls[0]["body"]["retriever"]["rrf"]["retrievers"]
-    knn = legs[1]["knn"]
-    assert "filter" in knn
-    bool_filter = knn["filter"]["bool"]["filter"]
-    # chamber + range + is_substantive
-    assert any(f.get("term") == {"chamber": "Senat"} for f in bool_filter)
-    assert any("range" in f and "session_date" in f["range"] for f in bool_filter)
-    assert any(f.get("term") == {"is_substantive": True} for f in bool_filter)
+    bm25_filters = es.search_calls[0]["body"]["query"]["bool"]["filter"]
+    knn_filters = es.search_calls[1]["body"]["knn"]["filter"]["bool"]["filter"]
+    for filters in (bm25_filters, knn_filters):
+        assert any(f.get("term") == {"chamber": "Senat"} for f in filters)
+        assert any("range" in f and "session_date" in f["range"] for f in filters)
+        assert any(f.get("term") == {"is_substantive": True} for f in filters)
 
 
 def test_search_speeches_rrf_falls_back_when_no_vector_available():
     """When `rank_fusion="rrf"` but no `query_vector` is provided AND
     the embed service is unreachable, the function must degrade to
-    BM25-only rather than crash. The call site doesn't see an RRF
-    body — the DSL switches back to the default shape.
+    BM25-only rather than crash. Only ONE `es.search` call is made
+    (the BM25 fallback); the kNN leg is skipped entirely.
     """
     es = FakeES({queries.INDEX_SPEECHES: _hits_payload([])})
-    # No vector; no embed_url override; the helper will hit the default
-    # localhost endpoint which is unreachable from the test runner.
     # Patch the embed-resolution helper to simulate the unreachable
     # service explicitly so the test is hermetic.
     from monitorul_ii.elasticsearch import queries as q
@@ -755,10 +791,165 @@ def test_search_speeches_rrf_falls_back_when_no_vector_available():
         queries.search_speeches(es, q="some query", rank_fusion="rrf")
     finally:
         q._embed_query_text = real
+    assert len(es.search_calls) == 1, (
+        "fallback should issue exactly one BM25 call, no kNN attempt"
+    )
     body = es.search_calls[0]["body"]
     assert "retriever" not in body
-    # The fallback path emitted the historical bool/multi_match shape.
+    assert "knn" not in body
     assert body["query"]["bool"]["must"][0]["multi_match"]["query"] == "some query"
+
+
+def test_search_speeches_rrf_fuses_ranks_with_correct_math():
+    """The fusion is `score(d) = Σ 1/(RRF_RANK_CONSTANT + rank)` across
+    both legs (1-indexed rank). Synthesise distinct rank lists per leg
+    and assert the merged ordering + score values.
+
+    BM25 ranks: A(1), B(2), C(3); kNN ranks: B(1), D(2), A(3).
+    Expected scores:
+        B = 1/(60+2) + 1/(60+1) ≈ 0.03252
+        A = 1/(60+1) + 1/(60+3) ≈ 0.03226
+        D = 1/(60+2)            ≈ 0.01613
+        C = 1/(60+3)            ≈ 0.01587
+    """
+    es = FakeES(
+        {
+            queries.INDEX_SPEECHES: [
+                _hits_payload([_rrf_hit("A"), _rrf_hit("B"), _rrf_hit("C")], total=3),
+                _hits_payload([_rrf_hit("B"), _rrf_hit("D"), _rrf_hit("A")], total=3),
+            ]
+        }
+    )
+    result = queries.search_speeches(
+        es,
+        q="x",
+        rank_fusion="rrf",
+        query_vector=_vec(0),
+        page_size=10,
+    )
+    assert [h.id for h in result.hits] == ["B", "A", "D", "C"]
+    k = queries.RRF_RANK_CONSTANT
+    expected = {
+        "B": 1.0 / (k + 2) + 1.0 / (k + 1),
+        "A": 1.0 / (k + 1) + 1.0 / (k + 3),
+        "D": 1.0 / (k + 2),
+        "C": 1.0 / (k + 3),
+    }
+    for hit in result.hits:
+        assert hit.score == pytest.approx(expected[hit.id], rel=1e-9)
+
+
+def test_search_speeches_rrf_uses_bm25_total_for_result_total():
+    """`result.total` carries the BM25 leg's total — the count of
+    documents matching the text query, which is the meaningful number
+    for the paging UI ("X-Y of Z"). The kNN leg's total is bounded by
+    `k` so it isn't a usable count.
+    """
+    es = FakeES(
+        {
+            queries.INDEX_SPEECHES: [
+                _hits_payload([_rrf_hit("A")], total=200),  # BM25 leg
+                _hits_payload([_rrf_hit("A")], total=10),  # kNN leg (bounded by k)
+            ]
+        }
+    )
+    result = queries.search_speeches(
+        es,
+        q="x",
+        rank_fusion="rrf",
+        query_vector=_vec(0),
+        page_size=10,
+    )
+    assert result.total == 200
+
+
+def test_search_speeches_rrf_window_size_widens_with_paging():
+    """Deep paging must widen the candidate window so the slice has
+    enough material — `rank_window_size = max(page * page_size, FLOOR)`.
+    Page 5 × size 50 = 250 > FLOOR(100), so both legs fetch 250.
+    """
+    es = FakeES(
+        {
+            queries.INDEX_SPEECHES: [
+                _hits_payload([]),
+                _hits_payload([]),
+            ]
+        }
+    )
+    queries.search_speeches(
+        es,
+        q="x",
+        rank_fusion="rrf",
+        query_vector=_vec(0),
+        page=5,
+        page_size=50,
+    )
+    bm25_body = es.search_calls[0]["body"]
+    knn_body = es.search_calls[1]["body"]
+    assert bm25_body["size"] == 250
+    assert knn_body["size"] == 250
+    assert knn_body["knn"]["k"] == 250
+
+
+def test_search_speeches_rrf_dedups_overlap_between_legs():
+    """A document that appears in BOTH legs gets one `SearchHit`; its
+    score is the SUM of the per-leg RRF terms, not double-counted as
+    two hits.
+    """
+    es = FakeES(
+        {
+            queries.INDEX_SPEECHES: [
+                _hits_payload([_rrf_hit("A"), _rrf_hit("B")], total=2),
+                _hits_payload([_rrf_hit("A"), _rrf_hit("B")], total=2),
+            ]
+        }
+    )
+    result = queries.search_speeches(
+        es,
+        q="x",
+        rank_fusion="rrf",
+        query_vector=_vec(0),
+        page_size=10,
+    )
+    ids = [h.id for h in result.hits]
+    assert ids == ["A", "B"]  # dedup'd, one entry each
+    k = queries.RRF_RANK_CONSTANT
+    assert result.hits[0].score == pytest.approx(2.0 / (k + 1), rel=1e-9)
+    assert result.hits[1].score == pytest.approx(2.0 / (k + 2), rel=1e-9)
+
+
+def test_fuse_rrf_legs_handles_empty_legs():
+    """Both legs empty → empty result, total = 0, no crash."""
+    from monitorul_ii.elasticsearch import queries as q
+
+    result = q._fuse_rrf_legs(
+        bm25_response=_hits_payload([], total=0),
+        knn_response=_hits_payload([], total=0),
+        page=1,
+        page_size=10,
+    )
+    assert result.total == 0
+    assert result.hits == []
+    assert result.page == 1
+    assert result.page_size == 10
+
+
+def test_fuse_rrf_legs_orders_by_score_then_id_lex():
+    """Tie-breaker: when two doc ids have the same RRF score, they
+    sort by `_id` ascending — deterministic ordering matters for cache
+    stability and test repeatability.
+    """
+    from monitorul_ii.elasticsearch import queries as q
+
+    # Both docs surfaced at rank 1 in their single leg → identical scores.
+    result = q._fuse_rrf_legs(
+        bm25_response=_hits_payload([_rrf_hit("zeta")], total=1),
+        knn_response=_hits_payload([_rrf_hit("alpha")], total=1),
+        page=1,
+        page_size=10,
+    )
+    assert [h.id for h in result.hits] == ["alpha", "zeta"]
+    assert result.hits[0].score == pytest.approx(result.hits[1].score, rel=1e-12)
 
 
 def test_search_speeches_knn_only_with_explicit_vector():

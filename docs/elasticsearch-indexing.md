@@ -354,7 +354,9 @@ Long-tail speeches >8K tokens get chunked into 2K-token windows in v0.2 (one vec
 | OpenAI `text-embedding-3-large` | 3072 | ~$50 | Strong | Strong quality | 3× ES storage cost; same lock-in |
 | E5-large multilingual (open) | 1024 | $0 | Strong | Free, on-prem | Slightly weaker than BGE-M3 on MTEB-romanian |
 
-**Hybrid search via RRF.** ES 8.9+ has native `rank.rrf`. Standard pattern: BM25 leg (matches on `text` + `agenda_title` + speaker) + kNN leg (vector similarity on `embedding`); RRF merges with one tunable hyperparameter (`rank_constant`, default 60). BM25 wins on rare exact terms (bill numbers, proper nouns); kNN wins on synonyms/paraphrasing. RRF lets each leg contribute where it's strong without manual weighting.
+**Hybrid search via RRF.** ES 8.9+ has native `rank.rrf` / `retrievers.rrf`. Standard pattern: BM25 leg (matches on `text` + `agenda_title` + speaker) + kNN leg (vector similarity on `embedding`); RRF merges with one tunable hyperparameter (`rank_constant`, default 60). BM25 wins on rare exact terms (bill numbers, proper nouns); kNN wins on synonyms/paraphrasing. RRF lets each leg contribute where it's strong without manual weighting.
+
+> **Implementation note (post-design).** The native `retrievers.rrf` DSL is gated behind a Platinum+ license; basic-tier clusters return `403 / current license is non-compliant for [Reciprocal Rank Fusion (RRF)]`. We ship against basic, so the actual implementation in `monitorul_ii.elasticsearch.queries._search_speeches_rrf` issues BM25 + kNN as two separate `_search` calls and fuses them in Python via `_fuse_rrf_legs` using the same `score(d) = Σ 1/(rank_constant + rank_in_leg)` formula. Two ES round-trips per query rather than one; the latency penalty is negligible at our QPS, and the fusion math is identical. License-tier portability is the right invariant for an open-data project. If we later move to a Platinum cluster the native path can return behind a feature flag, but the client-side path stays the default.
 
 **Operational notes.**
 

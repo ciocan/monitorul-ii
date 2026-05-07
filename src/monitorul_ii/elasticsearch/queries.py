@@ -27,7 +27,12 @@ Design rules (mirrors Q9):
 * **`rank_fusion="bm25-only"` for v1.** RRF needs the `embedding`
   dense_vector field populated, which is P3 work; the param exists so
   callers can flip to `"rrf"` once embeddings are live without a
-  signature change.
+  signature change. The `"rrf"` path runs **client-side** Reciprocal
+  Rank Fusion (BM25 + kNN issued as two separate `_search` calls,
+  fused in Python) because ES native RRF (`retrievers.rrf` DSL) is a
+  Platinum+ feature and we ship against basic-license clusters. The
+  fusion math is identical; only the wire shape and license envelope
+  differ.
 * **404 behavior**: lookup-by-id functions (`get_*`) return None; list
   / search / agg functions return empty result objects.
 * **Aggregation cap** = 100 buckets per terms agg by default. ES
@@ -89,6 +94,12 @@ RRF_RANK_CONSTANT = 60
 # layer's HNSW ef_construction=100 sweet spot.
 RRF_NUM_CANDIDATES_MULT = 10
 RRF_NUM_CANDIDATES_FLOOR = 100
+
+# Client-side RRF rank-window floor — the minimum number of candidates
+# pulled per leg before fusion. ES native RRF defaults to 100 here
+# (`rank_window_size`); we mirror the default. Larger windows = better
+# fusion quality at the cost of two larger ES responses to merge.
+RRF_RANK_WINDOW_FLOOR = 100
 
 
 @dataclass
@@ -365,13 +376,15 @@ def search_speeches(
     `rank_fusion`:
       - `"bm25-only"` (default for v1): plain `_score` ranking. No
         embedding required.
-      - `"rrf"`: ES native Reciprocal Rank Fusion over a BM25 leg
-        (multi_match) + a kNN leg (`enrichments.embedding`). When `q`
-        is provided and `query_vector` is None, the function calls
-        the embed service to vectorise `q`. If the embed service is
-        unreachable the function falls back to BM25-only and returns
-        a normal SearchResult (the caller doesn't need to handle the
-        degradation explicitly).
+      - `"rrf"`: client-side Reciprocal Rank Fusion over a BM25 leg
+        (multi_match) + a kNN leg (`enrichments.embedding`). Two
+        `_search` round-trips per query, fused in Python by rank —
+        works on basic-license clusters (the native `retrievers.rrf`
+        DSL is Platinum+). When `q` is provided and `query_vector` is
+        None, the function calls the embed service to vectorise `q`.
+        If the embed service is unreachable the function falls back to
+        BM25-only and returns a normal SearchResult (the caller
+        doesn't need to handle the degradation explicitly).
       - `"knn-only"`: pure kNN retrieval; useful for ablation. Requires
         a `query_vector` or `q` (with embed-service reachable); without
         a vector this falls back to a `match_none` empty result rather
@@ -480,6 +493,16 @@ def _search_speeches_bm25(
     )
 
 
+def _rrf_rank_window_size(page: int, page_size: int) -> int:
+    """How many candidates to pull per leg before client-side RRF fuses
+    them. ES native RRF defaults to `rank_window_size = 100`; we mirror
+    that and additionally widen the window when the caller pages
+    deeper (slicing a page-N requires at least `page * page_size`
+    fused entries to be available).
+    """
+    return max(page * page_size, RRF_RANK_WINDOW_FLOOR)
+
+
 def _search_speeches_rrf(
     es: Elasticsearch,
     *,
@@ -489,67 +512,145 @@ def _search_speeches_rrf(
     page_size: int,
     vector: list[float],
 ) -> SearchResult:
-    """ES 8.9+ Reciprocal Rank Fusion over BM25 + kNN.
+    """Client-side Reciprocal Rank Fusion over BM25 + kNN legs.
 
-    We emit a `retriever` block (the post-8.10 retriever DSL) with two
-    `standard` legs combined under `rrf`. ES merges the rank lists
-    server-side; the result hits' `_score` is the RRF-merged score,
-    not raw BM25 / cosine similarity.
+    ES native RRF (the `retrievers.rrf` retriever DSL) is gated behind
+    a Platinum+ license; basic-tier clusters return
+    `403 / current license is non-compliant for [Reciprocal Rank
+    Fusion (RRF)]` when the request hits the native path. Client-side
+    fusion runs the same math on the application side: pull
+    `rank_window_size` candidates from each leg, score by
+    `Σ 1/(rank_constant + rank_in_leg)` (1-indexed rank), slice the
+    fused list to the requested page. Two ES round-trips per query
+    instead of one; for the project scale (low-thousands QPS even in
+    the worst public-traffic projection) the latency penalty is
+    negligible and license-tier portability is the win.
+
+    `result.total` carries the BM25 leg's total — the count of
+    documents that have any text-search hit, which is the meaningful
+    "matching documents" number for the paging UI ("X-Y of Z"). The
+    kNN leg's `total` is always bounded by its `k` so it isn't a
+    useful total; ES native RRF reports a different "union of legs
+    inside rank_window_size" definition that we don't try to mimic
+    because BM25 total is consistent with what BM25-only mode reports
+    on the same query.
     """
-    bm25_query: dict[str, Any] = {
-        "bool": {
-            "must": [
-                {
-                    "multi_match": {
-                        "query": q,
-                        "fields": [
-                            "text^2",
-                            "agenda_title^1.5",
-                            "speaker.name_search",
-                        ],
-                        "type": "best_fields",
-                        "operator": "or",
-                    }
-                }
-            ]
-            if q
-            else [{"match_all": {}}],
-            "filter": filters,
-        }
-    }
-    knn_block: dict[str, Any] = {
-        "field": "enrichments.embedding",
-        "query_vector": vector,
-        "k": page_size,
-        "num_candidates": _rrf_num_candidates(page_size),
-    }
-    if filters:
-        # ES allows post-filters on knn via the `filter` key; pre-filter
-        # the candidates so kNN doesn't waste candidates on rows the
-        # bool filters would have rejected.
-        knn_block["filter"] = {"bool": {"filter": filters}}
+    rank_window_size = _rrf_rank_window_size(page, page_size)
 
-    body: dict[str, Any] = {
-        "size": page_size,
-        "from": _from(page, page_size),
-        "retriever": {
-            "rrf": {
-                "retrievers": [
-                    {"standard": {"query": bm25_query}},
-                    {"knn": knn_block},
-                ],
-                "rank_window_size": max(page_size, RRF_NUM_CANDIDATES_FLOOR),
-                "rank_constant": RRF_RANK_CONSTANT,
+    # Leg 1: BM25 multi_match (same field set + boosts as BM25-only mode).
+    bm25_must: list[dict[str, Any]] = []
+    if q:
+        bm25_must.append(
+            {
+                "multi_match": {
+                    "query": q,
+                    "fields": [
+                        "text^2",
+                        "agenda_title^1.5",
+                        "speaker.name_search",
+                    ],
+                    "type": "best_fields",
+                    "operator": "or",
+                }
+            }
+        )
+    bm25_body: dict[str, Any] = {
+        "size": rank_window_size,
+        "from": 0,
+        "query": {
+            "bool": {
+                "must": bm25_must or [{"match_all": {}}],
+                "filter": filters,
             }
         },
         "track_total_hits": True,
     }
-    response = es.search(index=INDEX_SPEECHES, body=body)
-    return SearchResult(
-        total=_hits_total(response),
+    bm25_response = es.search(index=INDEX_SPEECHES, body=bm25_body)
+
+    # Leg 2: kNN over enrichments.embedding. Pre-filter so HNSW doesn't
+    # spend its candidate budget on rows the bool filters would reject.
+    knn_block: dict[str, Any] = {
+        "field": "enrichments.embedding",
+        "query_vector": vector,
+        "k": rank_window_size,
+        "num_candidates": max(
+            RRF_NUM_CANDIDATES_FLOOR, rank_window_size * RRF_NUM_CANDIDATES_MULT
+        ),
+    }
+    if filters:
+        knn_block["filter"] = {"bool": {"filter": filters}}
+    knn_body: dict[str, Any] = {
+        "size": rank_window_size,
+        "from": 0,
+        "knn": knn_block,
+        "track_total_hits": True,
+    }
+    knn_response = es.search(index=INDEX_SPEECHES, body=knn_body)
+
+    return _fuse_rrf_legs(
+        bm25_response=bm25_response,
+        knn_response=knn_response,
         page=page,
         page_size=page_size,
-        hits=_to_hits(response),
+    )
+
+
+def _fuse_rrf_legs(
+    *,
+    bm25_response: dict[str, Any],
+    knn_response: dict[str, Any],
+    page: int,
+    page_size: int,
+) -> SearchResult:
+    """Reciprocal Rank Fusion math, factored so it's testable without
+    an Elasticsearch client.
+
+    For each doc id appearing in either leg's ranked hit list, score is
+    `Σ 1/(RRF_RANK_CONSTANT + rank)` across the two legs (1-indexed
+    rank). Doc ids appearing in only one leg get a single term — that
+    term still ranks them, just below docs the other leg also surfaced
+    near the top. Sort by score descending with the doc id as the lex
+    tie-breaker (deterministic ordering matters for cache stability and
+    test repeatability), then slice the requested page.
+    """
+    rrf_scores: dict[str, float] = {}
+    sources: dict[str, dict[str, Any]] = {}
+    indices: dict[str, str | None] = {}
+
+    def _accumulate(response: dict[str, Any]) -> None:
+        leg_hits = response.get("hits", {}).get("hits", []) or []
+        for rank, hit in enumerate(leg_hits, start=1):
+            doc_id = hit.get("_id")
+            if not doc_id:
+                continue
+            rrf_scores[doc_id] = rrf_scores.get(doc_id, 0.0) + 1.0 / (
+                RRF_RANK_CONSTANT + rank
+            )
+            if doc_id not in sources:
+                sources[doc_id] = hit.get("_source", {}) or {}
+                indices[doc_id] = _normalize_index(hit.get("_index"))
+
+    _accumulate(bm25_response)
+    _accumulate(knn_response)
+
+    sorted_ids = sorted(rrf_scores.keys(), key=lambda d: (-rrf_scores[d], d))
+    start = _from(page, page_size)
+    page_ids = sorted_ids[start : start + page_size]
+
+    hits = [
+        SearchHit(
+            id=doc_id,
+            score=rrf_scores[doc_id],
+            source=sources[doc_id],
+            index=indices[doc_id],
+        )
+        for doc_id in page_ids
+    ]
+    return SearchResult(
+        total=_hits_total(bm25_response),
+        page=page,
+        page_size=page_size,
+        hits=hits,
     )
 
 
@@ -1118,5 +1219,6 @@ __all__ = [
     "RRF_RANK_CONSTANT",
     "RRF_NUM_CANDIDATES_MULT",
     "RRF_NUM_CANDIDATES_FLOOR",
+    "RRF_RANK_WINDOW_FLOOR",
     "NAMED_QUERIES",
 ]

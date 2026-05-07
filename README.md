@@ -388,8 +388,10 @@ uv run monitorul-ii query --name person_page --params '{"person_slug":"iordache-
 # Terms agg over speaker.party_group_at_time × year — discourse-substrate health check
 uv run monitorul-ii query --name agg_speeches_by_party_year --params '{"year":2018}'
 
-# Hybrid search via RRF (BM25 + kNN). Embeds the query text via the
-# embed service; falls back to BM25-only if the service is down.
+# Hybrid search via client-side RRF (BM25 + kNN). Embeds the query
+# text via the embed service; falls back to BM25-only if the service
+# is down. Runs on basic-license clusters — fusion is computed in
+# Python rather than via the Platinum-only `retrievers.rrf` DSL.
 uv run monitorul-ii query --name search_speeches \
     --params '{"q":"reformă justiție","rank_fusion":"rrf","page_size":5}'
 
@@ -410,7 +412,7 @@ Flags:
 
 The 12 named queries:
 
-- `search_speeches` — multi_match over speech text + agenda titles + speaker names; `is_substantive: true` default. Filters: `q`, `speaker_person_id`, `chamber`, `document_id`, `date_from`/`to`, `ref_bills`, `topics`. `rank_fusion` accepts `"bm25-only"` (default), `"rrf"` (BM25 + kNN via ES native RRF), or `"knn-only"`.
+- `search_speeches` — multi_match over speech text + agenda titles + speaker names; `is_substantive: true` default. Filters: `q`, `speaker_person_id`, `chamber`, `document_id`, `date_from`/`to`, `ref_bills`, `topics`. `rank_fusion` accepts `"bm25-only"` (default), `"rrf"` (client-side BM25 + kNN fusion — works on any ES license tier), or `"knn-only"`.
 - `search_speeches_knn` — pure kNN ablation query; never falls back to BM25. Returns empty when no vector is available so the embed-service unreachable case is detectable.
 - `list_document_children` — multi-index search over every per-doc child grain (agenda-items, speeches, votes, interpellations, questions, committee-meetings) for one `document_id`, sorted by `position_in_document` ASC with `record_id` lex tie-breaker. **Drives the `/mo/<id>` full-document playback page**: returns interleaved hits in true source order across all grains, so the renderer dispatches per-grain via each hit's `index` field. Default `page_size=500` covers every observed doc; paging is available for outliers.
 - `get_document` / `get_agenda_item` / `get_speech` / `get_report` — single lookup by canonical `record_id`; 404 returns `null`.
@@ -425,10 +427,10 @@ The query layer enforces a few server-side guardrails by design (Q9): page sizes
 `rank_fusion` on `search_speeches` accepts three values:
 
 - `"bm25-only"` (default) — historical BM25 multi_match path; no embedding required.
-- `"rrf"` — ES native Reciprocal Rank Fusion over a BM25 leg + a kNN leg on `enrichments.embedding`. When `q` is set, the function calls the embed service to vectorise the query text (`EMBED_URL` env var, then default `http://127.0.0.1:8000`); pass a precomputed `query_vector` to skip that hop. If the embed service is unreachable, the function silently degrades to BM25-only — callers don't crash on a missing embedder.
+- `"rrf"` — **client-side** Reciprocal Rank Fusion over a BM25 leg + a kNN leg on `enrichments.embedding`. ES native `retrievers.rrf` (introduced in 8.9) is gated behind a Platinum+ license — basic-tier clusters return `403 / current license is non-compliant for [Reciprocal Rank Fusion (RRF)]`. To stay portable across license tiers, the query layer issues BM25 + kNN as two separate `_search` calls and fuses them in Python with the same formula (`Σ 1/(RRF_RANK_CONSTANT + rank_in_leg)`). Two ES round-trips per query instead of one; latency penalty is negligible at our QPS, and the fusion math is identical. `result.total` carries the BM25 leg's total (the meaningful "matching documents" count for paging). When `q` is set, the function calls the embed service to vectorise the query text (`EMBED_URL` env var, then default `http://127.0.0.1:8000`); pass a precomputed `query_vector` to skip that hop. If the embed service is unreachable, the function silently degrades to BM25-only — callers don't crash on a missing embedder.
 - `"knn-only"` — pure kNN retrieval; useful for ablation / debugging. Requires either a `query_vector` or a reachable embed service. Without a vector, returns an empty result rather than degrading to BM25, so the misconfiguration is detectable.
 
-The dedicated `search_speeches_knn` debug query is the same shape as `search_speeches(rank_fusion="knn-only")` but never falls back to BM25 — its purpose is "did the embedding leg alone find the right hit?" ablation. Listed in `NAMED_QUERIES`; runs via `monitorul-ii query --name search_speeches_knn --params '{"q":"..."}'`. RRF tuning lives in `queries.py`: `RRF_RANK_CONSTANT = 60` (ES default), `RRF_NUM_CANDIDATES_FLOOR = 100` (kNN candidates per leg), `RRF_NUM_CANDIDATES_MULT = 10` (10× page_size, the ES recommended ratio for HNSW recall).
+The dedicated `search_speeches_knn` debug query is the same shape as `search_speeches(rank_fusion="knn-only")` but never falls back to BM25 — its purpose is "did the embedding leg alone find the right hit?" ablation. Listed in `NAMED_QUERIES`; runs via `monitorul-ii query --name search_speeches_knn --params '{"q":"..."}'`. RRF tuning lives in `queries.py`: `RRF_RANK_CONSTANT = 60` (ES default), `RRF_RANK_WINDOW_FLOOR = 100` (per-leg candidate floor; widens to `page * page_size` when paging deep), `RRF_NUM_CANDIDATES_FLOOR = 100` and `RRF_NUM_CANDIDATES_MULT = 10` (HNSW `num_candidates` for the kNN leg, 10× the candidate fetch — the ES recommended ratio for HNSW recall).
 
 The CLI reads `ES_URL` / `ES_API_KEY` / `ES_VERIFY_CERTS` from the environment (or `.env`); set `ES_API_KEY` to the `monitorul_reader` key minted by `es-init` for read-only access. Exit codes: `0` on success, `2` on validation errors (unknown query name, malformed JSON params, missing required positional, missing ES env), `1` on ES connection / runtime errors.
 
