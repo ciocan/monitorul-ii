@@ -36,7 +36,7 @@ import re
 import unicodedata
 from typing import Any
 
-IDENTITY_VERSION = "0.1.0"
+IDENTITY_VERSION = "0.1.1"
 
 GrainName = str  # "agenda_item" | "activity_speech" | "activity_vote" | ...
 
@@ -350,13 +350,30 @@ def assign_identity(
                     )
 
         interp_seq = 0
+        seen_interp_ids: set[str] = set()
         for interp in body.get("interpellations", []) or []:
             interp_seq += 1
             num = interp.get("interpellation_number")
             if isinstance(num, str) and num:
                 i_rid = mint_record_id(doc_id, "interpellation", natural_key=num)
+                # Two interpellations occasionally share the same
+                # `interpellation_number` — corpus-real bug surfaced via
+                # the playback verifier (count_mismatch on
+                # `mo-interpellations`, 105 docs / 205 collisions
+                # corpus-wide). Append a positional suffix so the
+                # indexer's bulk-upsert doesn't merge them under the
+                # same `_id`. The suffix is the 1-based ordinal among
+                # entries that share the same `num` (so the first keeps
+                # `interp-N`; the second becomes `interp-N-2`, etc.).
+                if i_rid in seen_interp_ids:
+                    base = i_rid
+                    dup_idx = 2
+                    while i_rid in seen_interp_ids:
+                        i_rid = f"{base}-{dup_idx}"
+                        dup_idx += 1
             else:
                 i_rid = mint_record_id(doc_id, "interpellation_seq", seq=interp_seq)
+            seen_interp_ids.add(i_rid)
             text = str(interp.get("question_text") or interp.get("topic") or "")
             title = str(interp.get("topic") or interp.get("question_text") or "")
             _stamp(
@@ -370,13 +387,25 @@ def assign_identity(
 
     elif doc_type == "question_register":
         q_seq = 0
+        seen_q_ids: set[str] = set()
         for q in body.get("questions", []) or []:
             q_seq += 1
             regnum = q.get("registration_number")
             if isinstance(regnum, str) and regnum:
                 q_rid = mint_record_id(doc_id, "question", natural_key=regnum)
+                # Same dedup guard as the interpellation path above:
+                # extractor occasionally emits two questions sharing the
+                # same regnum; without this, the indexer's bulk-upsert
+                # would merge them under one `_id`.
+                if q_rid in seen_q_ids:
+                    base = q_rid
+                    dup_idx = 2
+                    while q_rid in seen_q_ids:
+                        q_rid = f"{base}-{dup_idx}"
+                        dup_idx += 1
             else:
                 q_rid = mint_record_id(doc_id, "question_seq", seq=q_seq)
+            seen_q_ids.add(q_rid)
             text = str(q.get("question_text") or q.get("topic") or "")
             title = str(q.get("topic") or q.get("question_text") or "")
             _stamp(

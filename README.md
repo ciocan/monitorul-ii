@@ -377,6 +377,54 @@ The query layer enforces a few server-side guardrails by design (Q9): page sizes
 
 The CLI reads `ES_URL` / `ES_API_KEY` / `ES_VERIFY_CERTS` from the environment (or `.env`); set `ES_API_KEY` to the `monitorul_reader` key minted by `es-init` for read-only access. Exit codes: `0` on success, `2` on validation errors (unknown query name, malformed JSON params, missing required positional, missing ES env), `1` on ES connection / runtime errors.
 
+### `verify-playback` (operator tool, `tools/verify_playback.py`)
+
+Data-integrity gate that proves the ES projection plays back faithfully against the source markdown for every doc in the corpus. Reads each MD body + the matching `*.extraction.json` sidecar (and optionally the live ES projection via `list_document_children`) and asserts twelve properties across three layers: hard correctness (positions in `[0, body_len)`, monotonic, dup-free, parent/child count parity, ES↔sidecar record-set parity), per-record content correctness (speech header at speech position, agenda title in body or SUMAR, interpellation questioner near position, vote-open phrase near vote position, qr-doc regnum within question span), and MD↔sidecar provenance (every body speaker-header is claimed by an activity OR by `coverage.claimed_by_policy[]` boilerplate; every sidecar speech text appears at its declared span). Three "expected, not bugs" exemptions are encoded as filters: speech continuations after narrator/vote/procedural events, agenda titles living in SUMAR rather than at the agenda's body position, and the literal `<chair narration>` speaker. See [`docs/architecture.md` § "Playback verification (Phase 4d)"](docs/architecture.md#playback-verification-phase-4d) for the full mechanics.
+
+```sh
+# Full corpus, sidecar-vs-MD only (offline; ~70 s with -j 16)
+uv run python tools/verify_playback.py pdfs/ -j 16 --no-es \
+    --output data/verify-results/$(date +%Y%m%d-%H%M).jsonl
+
+# Single doc, including ES checks (cluster must be reachable)
+uv run python tools/verify_playback.py pdfs/2024-01-03_MO-PII-1-2024.md
+
+# Filter to one issue kind (useful for round-N fix loop scoping)
+uv run python tools/verify_playback.py pdfs/ -j 16 --no-es \
+    --filter-kind=speaker_mismatch
+
+# Print only md_paths of docs with a specific issue kind, one per line —
+# pipes into `xargs uv run monitorul-ii extract --force ...` for targeted
+# re-extract during the fix loop.
+uv run python tools/verify_playback.py pdfs/ -j 16 --no-es \
+    --affected-md-paths-for-kind=dropped_turn
+```
+
+Flags:
+
+- `paths` (positional, repeatable) — MD file(s) or directories. Directories are globbed `*.md` (non-recursive); passing a `*.extraction.json` path also resolves to its sibling MD.
+- `-j N` / `--workers N` — `ProcessPoolExecutor` size. Defaults to `1`. With `-j 16` on a 20-core box the full 5,552-doc corpus runs in ~70 s sidecar-only or ~1.5 min with ES checks. Each worker constructs its own ES client lazily (urllib3 connection pool isn't fork-safe, so threads are not used).
+- `--no-es` — skip Layer A ES correctness checks. The verifier still runs Layer B (per-record content) and Layer C (MD↔sidecar provenance) entirely from the on-disk sidecar. Use this for fast iteration during the fix loop, and turn it on (default) for the final acceptance run.
+- `--output FILE.jsonl` — mirror the per-doc JSONL output to a file in addition to stdout. The file ends with a `# summary {...}` line carrying the totals so downstream tooling can tail-read the summary without re-aggregating.
+- `--filter-kind KIND` — repeatable. Only emit docs whose issues include this kind. Other docs are skipped (no JSONL row). Use to focus on one bug class (e.g. `--filter-kind=speaker_mismatch`) when iterating a fix.
+- `--affected-md-paths-for-kind KIND` — print only the MD paths of docs with at least one issue of this kind, one per line, sorted unique. Pipe-friendly into `xargs uv run monitorul-ii extract --force` for targeted re-extract.
+- `--affected-docs-for-kind KIND` — same as above but emits canonical `mo://YYYY/PART/ISSUE` document ids instead of MD paths.
+- `--limit N` — stop after N docs. Useful for smoke tests; the rest of the corpus is skipped.
+
+Output shape (one JSONL line per doc):
+
+```json
+{"doc_id": "mo://2018/II/168", "md_path": "pdfs/...", "issues": [
+   {"kind": "speaker_mismatch", "rid": "...", "attributed": "...",
+    "in_body": "...", "position": 36948, "head": "..."}
+ ], "stats": {"body_len": 49523, "doc_type": "...", "es_total": 113,
+              "sidecar_total": 113, "by_grain": {...}, "by_kind": {...}}}
+```
+
+Summary line on stderr (`verified=N passed=M with_issues=K total_issues=T elapsed=Ts`).
+
+The verifier is **not** part of the daily fetch → convert → … → index pipeline; it's a data-integrity gate that runs after every extractor / denormalize / indexer change and before the indexer overwrites ES. Tests in `tests/test_tools_verify_playback.py` cover each issue kind on synthetic input plus the three exemptions. See [`data/verify-results/PROGRESS.md`](data/verify-results/PROGRESS.md) for the running fix-loop log and [`data/verify-results/KNOWN-LIMITATIONS.md`](data/verify-results/KNOWN-LIMITATIONS.md) for residual issues that the verifier surfaces but are deferred (chiefly: 3 budget-debate joint-session docs whose pre-amendment-table chair turns aren't claimed by the SUMAR-driven partitioner).
+
 ## Progress and interrupts
 
 All long-running subcommands show a live [`rich`](https://github.com/Textualize/rich) progress bar on stderr when stderr is a terminal, and fall back to a periodic plain-text heartbeat in pipes/CI/cron.

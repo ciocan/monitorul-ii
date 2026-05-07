@@ -30,10 +30,48 @@ if TYPE_CHECKING:
     from monitorul_ii.extraction.pipeline import ExtractContext
 
 
-# Speech header: `## **NAME:**` — captures the inner string between **
-_SPEECH_HEADER_RE = re.compile(
+# Speech header — three line shapes the corpus uses, in priority order:
+#
+# (1) `## **NAME[:]**` — canonical with the colon optionally inside the
+#     bold (the dominant form across all years).
+# (2) `## **NAME** – _role_ **:**` — canonical "role-suffixed" form
+#     used for ministers / secretaries of state / president / PM. The
+#     inline `_role_` italic is followed by a `**:**` terminator on the
+#     same line (the converter wraps the colon in its own bold pair).
+# (3) `**NAME** – _role_ **:**` — same as (2) but WITHOUT the `## `
+#     heading prefix. Markdown converters intermittently drop the
+#     heading marker for some entries (foreign-dignitary visits +
+#     constitutional-body witnesses are the most-affected categories).
+#     Pre-fix, this line shape was unrecognized; the partitioner
+#     attributed the speech to the prior speaker (the chair). Adding
+#     the variant closes ~600 corpus instances.
+#
+# Each pattern captures `inner` (the bold name). Patterns 2/3 also
+# capture `role` for downstream `Speaker.role` enrichment.
+_SPEECH_HEADER_HASH_PLAIN_RE = re.compile(
     r"^##\s+\*\*\s*(?P<inner>[^*\n]+?)\s*\*\*\s*$",
     re.MULTILINE,
+)
+_SPEECH_HEADER_HASH_ROLE_RE = re.compile(
+    r"^##\s+\*\*\s*(?P<inner>[^*\n]+?)\s*\*\*"
+    r"\s*[–\-]\s*_(?P<role>[^_\n]+)_\s*\*\*:\*\*\s*$",
+    re.MULTILINE,
+)
+_SPEECH_HEADER_NOHASH_ROLE_RE = re.compile(
+    r"^\*\*\s*(?P<inner>[^*\n]+?)\s*\*\*"
+    r"\s*[–\-]\s*_(?P<role>[^_\n]+)_\s*\*\*:\*\*\s*$",
+    re.MULTILINE,
+)
+# Backwards-compat alias — kept so anything (tests, downstream tools)
+# that imports `_SPEECH_HEADER_RE` still gets the canonical pattern.
+_SPEECH_HEADER_RE = _SPEECH_HEADER_HASH_PLAIN_RE
+# Try patterns in priority order; the role-bearing variants run first
+# so the role italic is captured rather than left dangling outside the
+# match.
+_SPEECH_HEADER_PATTERNS: tuple[re.Pattern[str], ...] = (
+    _SPEECH_HEADER_HASH_ROLE_RE,
+    _SPEECH_HEADER_NOHASH_ROLE_RE,
+    _SPEECH_HEADER_HASH_PLAIN_RE,
 )
 
 # Italic block — matches both standalone-line italic paragraphs AND inline
@@ -200,8 +238,16 @@ def _build_vote_activity(
     return activity
 
 
-def _parse_speaker_from_inner(inner: str) -> tuple[dict[str, Any], str | None]:
-    """Parse speech header inner text into (speaker_dict, delivery_mode)."""
+def _parse_speaker_from_inner(
+    inner: str, *, role: str | None = None
+) -> tuple[dict[str, Any], str | None]:
+    """Parse speech header inner text into (speaker_dict, delivery_mode).
+
+    `role` is the captured italic role suffix when the header used the
+    `**NAME** – _role_ **:**` shape. The parsed Speaker keeps it under
+    `Speaker.role` for downstream consumers; downstream `Speaker.name`
+    is unaffected (the inner is parsed identically).
+    """
     stripped, mode = extract_delivery_mode(inner)
     # Strip trailing colon if present (e.g., "Domnul X:" → "Domnul X")
     if stripped.endswith(":"):
@@ -210,7 +256,32 @@ def _parse_speaker_from_inner(inner: str) -> tuple[dict[str, Any], str | None]:
     if not speaker.get("name"):
         # Fallback: use raw stripped string as raw, name as the stripped text
         speaker = make_speaker(raw=stripped, name=stripped or None)
+    if role and not speaker.get("role"):
+        speaker = {**speaker, "role": role.strip() or None}
     return speaker, mode
+
+
+def _find_speaker_headers(span_text: str) -> list[tuple[int, int, str, str | None]]:
+    """Run every speech-header pattern over `span_text` and return a
+    deduplicated list of `(start, end, inner_name, role)` tuples sorted
+    by start position.
+
+    Multiple patterns can match adjacent positions in pathological
+    cases; the first pattern (priority order) wins on a tie. Patterns
+    are line-anchored, so true overlaps are rare.
+    """
+    seen: dict[int, tuple[int, str, str | None]] = {}
+    for pat in _SPEECH_HEADER_PATTERNS:
+        for m in pat.finditer(span_text):
+            start = m.start()
+            if start in seen:
+                continue
+            inner = m.group("inner")
+            role = m.groupdict().get("role")
+            if role is not None:
+                role = role.strip() or None
+            seen[start] = (m.end(), inner, role)
+    return [(s, e, inner, role) for s, (e, inner, role) in sorted(seen.items())]
 
 
 def extract_activities(
@@ -228,7 +299,7 @@ def extract_activities(
     span_text = body[span_start:span_end]
 
     # -- Pass 1: partition by speaker headers --------------------------------
-    speaker_matches = list(_SPEECH_HEADER_RE.finditer(span_text))
+    speaker_matches = _find_speaker_headers(span_text)
     if not speaker_matches:
         # No speakers in this agenda item — wrap the entire span as an
         # implicit chair-narration speech, then refine for events.
@@ -253,16 +324,14 @@ def extract_activities(
     else:
         # Each speaker turn = [header_start, next_header_or_span_end)
         base_activities: list[tuple[int, int, dict[str, Any]]] = []
-        for i, sm in enumerate(speaker_matches):
-            turn_start = sm.start()
+        for i, (turn_start, header_end, inner, role) in enumerate(speaker_matches):
             turn_end = (
-                speaker_matches[i + 1].start()
+                speaker_matches[i + 1][0]
                 if i + 1 < len(speaker_matches)
                 else len(span_text)
             )
-            inner = sm.group("inner")
-            speaker, delivery_mode = _parse_speaker_from_inner(inner)
-            content = span_text[sm.end() : turn_end].strip()
+            speaker, delivery_mode = _parse_speaker_from_inner(inner, role=role)
+            content = span_text[header_end:turn_end].strip()
             global_start = span_start + turn_start
             global_end = span_start + turn_end
             base_activities.append(

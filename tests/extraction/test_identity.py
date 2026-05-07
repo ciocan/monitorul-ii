@@ -294,6 +294,113 @@ def _make_qr_body(question_count: int = 2) -> dict:
     }
 
 
+def _make_plenary_body_with_duplicate_interp_numbers() -> dict:
+    """Construct a plenary body where two interpellations share the same
+    `interpellation_number`. Pre-fix, both got `#interp-7` (collision);
+    indexer overwrote the first under the same `_id` → corpus-wide
+    count_mismatch on `mo-interpellations`. Post-fix, the second falls
+    through to a seq-based suffix (`#interp-7-2`) so both records are
+    indexed.
+    """
+    return {
+        "session": {"chair": [], "secretaries": []},
+        "agenda_items": [],
+        "interpellations": [
+            {
+                "interpellation_number": "7",
+                "questioner": {
+                    "raw": "A",
+                    "name": "A",
+                    "title": None,
+                    "role": None,
+                    "party_group": None,
+                    "person_id": None,
+                },
+                "addressed_to": "X",
+                "addressed_to_normalized": None,
+                "topic": "Topic A",
+                "question_text": "Body A",
+                "response": None,
+                "response_deferred": False,
+                "interpellation_number_": None,  # ignored
+                "genre": "interpelare",
+                "delivery_mode": None,
+                "source_span": {
+                    "chars": [100, 200],
+                    "lines": [1, 1],
+                    "content_sha": "0123456789ab",
+                },
+                "extraction": {
+                    "extractor": "x",
+                    "confidence": 0.9,
+                    "source_span": {
+                        "chars": [100, 200],
+                        "lines": [1, 1],
+                        "content_sha": "0123456789ab",
+                    },
+                },
+            },
+            {
+                "interpellation_number": "7",  # SAME — pre-fix collision
+                "questioner": {
+                    "raw": "B",
+                    "name": "B",
+                    "title": None,
+                    "role": None,
+                    "party_group": None,
+                    "person_id": None,
+                },
+                "addressed_to": "X",
+                "addressed_to_normalized": None,
+                "topic": "Topic B",
+                "question_text": "Body B",
+                "response": None,
+                "response_deferred": False,
+                "genre": "interpelare",
+                "delivery_mode": None,
+                "source_span": {
+                    "chars": [200, 300],
+                    "lines": [2, 2],
+                    "content_sha": "0123456789ab",
+                },
+                "extraction": {
+                    "extractor": "x",
+                    "confidence": 0.9,
+                    "source_span": {
+                        "chars": [200, 300],
+                        "lines": [2, 2],
+                        "content_sha": "0123456789ab",
+                    },
+                },
+            },
+        ],
+    }
+
+
+def test_assign_identity_disambiguates_duplicate_interp_numbers():
+    """Two interpellations with the same `interpellation_number` must
+    receive distinct record_ids — otherwise the indexer's bulk-upsert
+    would overwrite the first under the second's `_id`. The fix appends
+    a positional suffix on collision (`-2`, `-3`, ...).
+    """
+    body = _make_plenary_body_with_duplicate_interp_numbers()
+    assign_identity(
+        body,
+        doc_type="plenary_stenogram",
+        doc_id="mo://2025/II/1",
+        year=2025,
+        issue="1",
+    )
+    interps = body["interpellations"]
+    ids = [i["id"] for i in interps]
+    assert len(set(ids)) == 2, f"Expected 2 distinct ids, got {ids}"
+    # First keeps the natural-key form; second gets a deterministic
+    # disambiguation suffix.
+    assert ids[0] == "mo://2025/II/1#interp-7"
+    assert ids[1].startswith("mo://2025/II/1#interp-7")
+    assert ids[1] != ids[0]
+
+
 def test_assign_identity_returns_envelope_record_id():
     body = _make_qr_body()
     identity = assign_identity(

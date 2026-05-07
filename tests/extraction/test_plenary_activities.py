@@ -169,3 +169,62 @@ def test_extract_activities_delivery_mode_parsed():
     acts = extract_activities(body, 0, len(body), _ctx(body))
     speeches = [a for a in acts if a["type"] == "speech"]
     assert speeches[0]["delivery_mode"] == "from_floor"
+
+
+# -- no-hash speaker header (the round-1 verifier-loop bug) ---------------
+
+
+def test_extract_activities_no_hash_speaker_header_with_role():
+    """`**Name** – _role_ **:**` (no `## ` prefix) is the speech-header
+    shape used for ministers, prime minister, presidents, and foreign
+    dignitaries across the corpus. Pre-fix, the partitioner missed the
+    boundary and the speech was attributed to the previous speaker (the
+    chair). The fix adds the variant to `_SPEECH_HEADER_RE`.
+    """
+    body = (
+        "## **Doamna Roberta Alma Anastase:**\n\n"
+        "Are cuvântul prim-ministrul Guvernului României.\n\n"
+        "**Domnul Emil Boc** – _prim-ministrul Guvernului României_ **:**\n\n"
+        "Doamnă președinte al Camerei Deputaților, Stimați colegi.\n"
+    )
+    acts = extract_activities(body, 0, len(body), _ctx(body))
+    speeches = [a for a in acts if a["type"] == "speech"]
+    speakers = [s["speaker"]["name"] for s in speeches]
+    # Both Anastase and Boc must appear as distinct speech speakers.
+    assert any("Roberta Alma Anastase" in (n or "") for n in speakers), speakers
+    assert any("Emil Boc" in (n or "") for n in speakers), speakers
+
+
+def test_extract_activities_hash_role_variant_still_works():
+    """Regression guard — the `## **Name** – _role_ **:**` (with hash)
+    canonical variant must keep working alongside the no-hash addition.
+    """
+    body = (
+        "## **Domnul Mircea Dușa** – _ministrul pentru relația cu Parlamentul_ **:**\n\n"
+        "Mulțumesc, domnule președinte. Vorbesc despre proiect.\n"
+    )
+    acts = extract_activities(body, 0, len(body), _ctx(body))
+    speeches = [a for a in acts if a["type"] == "speech"]
+    assert len(speeches) == 1
+    assert "Mircea Dușa" in speeches[0]["speaker"]["name"]
+
+
+def test_extract_activities_no_hash_does_not_match_random_bold_line():
+    """A line like `**Adoptat**` (vote outcome) inside speech text must
+    not be mistaken for a no-hash speaker header. Negative regression
+    case — the no-hash variant requires both the role italic AND the
+    `**:**` terminal marker, which prose rarely satisfies.
+    """
+    body = (
+        "## **Domnul Test:**\n\n"
+        "Discutăm proiectul.\n\n"
+        "**Adoptat**\n\n"
+        "Mai sunt comentarii?\n"
+    )
+    acts = extract_activities(body, 0, len(body), _ctx(body))
+    speeches = [a for a in acts if a["type"] == "speech"]
+    speakers = [s["speaker"]["name"] for s in speeches]
+    # Only Test should be a speech speaker — `**Adoptat**` must not become
+    # a separate turn.
+    for n in speakers:
+        assert "Adoptat" not in (n or ""), speakers

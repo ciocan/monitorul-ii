@@ -1725,3 +1725,103 @@ The site has no `robots.txt` (the path returns a generic challenge page) and no 
 - **No mocking framework.** Tests are pytest + monkeypatch + `httpx.MockTransport`. We deliberately avoid `unittest.mock` / `pytest-mock`; the I/O boundaries are narrow enough that stubs are a few lines each and it keeps the dev dep list tiny.
 - **No `attempts` cap.** Terminal classification is shape-of-error based (transient vs. permanent), not count-based. Permanent failures land in `status='gone'` directly; transient ones cycle through `failed` and auto-retry forever, which is fine because cyclic failures are visible in `last_error` and rare in practice.
 - **No alembic / migrations framework.** Single `CREATE TABLE IF NOT EXISTS` block runs at startup; future schema changes pin an `ALTER TABLE` ladder to `PRAGMA user_version`.
+
+---
+
+## Playback verification (Phase 4d)
+
+The Elasticsearch projection layer (P4c) is fast, well-tested, and queryable, but the project's value depends on a stronger property than "fast queries": **every speech / vote / interpellation / agenda item must replay in the same order and with the same speaker as the original Monitorul Oficial document**. The corpus has 5,552 docs spanning 2000–2026 with mojibake-era PDFs, multi-column SUMAR tables, joint-session budget debates, and pandemic-era online sessions — each layout has its own ways of breaking strict speaker / span attribution.
+
+The playback verifier (`tools/verify_playback.py`) is the data-integrity gate that runs after every extractor change and before the indexer overwrites ES. It reads each MD body + its sidecar (and optionally the ES projection via `list_document_children`) and asserts twelve properties:
+
+**Layer A — hard correctness (every doc must pass):**
+1. Every ES child carries a `position_in_document` within `[0, body_len)`.
+2. ES children are monotonic non-decreasing on `position_in_document`.
+3. No duplicate `record_id`s.
+4. `mo-documents._source` counts (agenda_count, speech_count, vote_count, interpellation_count, question_count) match the per-grain children counts.
+5. ES record-set matches sidecar record-set, by `record_id` (catches projection drops + orphan-delete bugs).
+
+**Layer B — per-record content correctness:**
+6. **Speeches** — body text at `position_in_document` should contain a recognizable speaker header; the captured name token-overlaps (≥ 50 %, accent-insensitive) with `speaker.name_search`.
+7. **Agenda items** — title appears in SUMAR span or anywhere in body. The title is allowed to live in the SUMAR table; `position_in_document` is where the discussion BEGINS, not where the title sits.
+8. **Interpellations** — `body[position : position + 600]` contains the questioner name (peeled honorifics + diacritic-folded).
+9. **Questions** — registration number `Nr. <N>/<DD.MM.YYYY>` appears within the question span (the span's `chars[1]` bounds the search; long questions can run 5K+ chars).
+10. **Votes** — `body[position : position + 300]` contains a vote-opening phrase (`Supun votului`, `Cine este pentru`, `Vă rog să votați`, etc.).
+
+**Layer C — MD ↔ sidecar provenance:**
+11. Every speaker-header pattern found in the MD must be claimed by some record's source_span (start within ±100 chars), OR by `coverage.claimed_by_policy[]` boilerplate, OR be plenary section-marker boilerplate (PARTEA / DEZBATERI / Ședința-header / EDITOR / SUMAR / mojibake variants).
+12. Every sidecar speech `text` first ~80 chars appears at `body[chars[0]:chars[1]]` (whitespace-collapsed).
+
+### Three "expected, not bugs" exemptions
+
+Each is encoded as a filter so future runs don't chase the same false alarm:
+
+- **Speech continuations after narrator/vote/procedural events.** When the activity partitioner splits a speaker's continuous speech around a narrator block (`(Aplauze)`, `(Se intonează)`), the second-half speech act has the same speaker but no header at its position. The verifier walks acts in source order; if the immediately-preceding act is non-speech, the speech header check is skipped and `speaker.person_id` continuity is the implicit invariant.
+- **Agenda titles in SUMAR not at body position.** Titles live in the SUMAR table at the top of the doc; the agenda's body position is where the discussion begins. The check searches both regions and passes on either match. Titles with trailing page numbers (`Aprobarea ordinii de zi 14`) are stripped before comparison; HTML `<br>` (which the converter retains in SUMAR cells) is normalized to a space.
+- **`<chair narration>` literal speakers.** When `Speaker.raw == "<chair narration>"`, the activity is the implicit-chair wrap of an italic-narrative block (no human speaker). The header search is skipped; the block's italic status is the implicit invariant.
+
+### `coverage.claimed_by_policy[]` is load-bearing
+
+The plenary extractor claims chair-connective `## **Chair:** Vă rog.` turns and pure political-declaration turns inside interpellation blocks as **boilerplate**, not records (see `extractors/plenary/interpellations.py` chair-filtering logic). The boilerplate claims live in `sidecar.coverage.claimed_by_policy[]` with reasons like `interpellation_chair_turn` / `interpellation_pure_declaration`. The verifier reads this list and treats any speaker-header position falling inside a boilerplate-claimed interval as "claimed". Without this filter, a Senate political-declarations session (40-50 chair connectives + 20-30 declaration speakers, all claimed as boilerplate) would surface as 60+ false `dropped_turn` issues per doc.
+
+### CLI surface
+
+```
+uv run python tools/verify_playback.py pdfs/ -j 16 \
+    [--no-es]                                  # skip ES checks (faster offline iteration)
+    [--output data/verify-results/<file>.jsonl] # JSONL per doc + summary line
+    [--filter-kind=speaker_mismatch] [--filter-kind=...]  # repeatable
+    [--affected-md-paths-for-kind=KIND]        # emit affected MDs for targeted reindex
+    [--limit N]                                # smoke against first N docs
+```
+
+Output is one JSONL row per doc to stdout (with `--output` mirroring to a file), summary line to stderr (`verified=N passed=M with_issues=K total_issues=T`). Each issue carries `kind`, `rid` (record id), and detail fields per kind (`attributed`, `in_body`, `position`, `head` body slice for inspection).
+
+Parallelism is `ProcessPoolExecutor`-based, one ES client lazily-built per worker. The verifier is module-importable for tests; `tests/test_tools_verify_playback.py` covers each issue kind on synthetic input plus the three exemptions.
+
+### The fix loop — round 1 → round 2
+
+The verifier is meant to be run iteratively. The 2026-05-06 baseline pass found:
+
+| Bug class | Baseline | After round 1 (extractor) | After round 2 (verifier tuning) |
+|---|---|---|---|
+| `speaker_mismatch` | 130 | 1 | 1 |
+| `dropped_turn` | 9,387 | 6,245 → 424 | 424 |
+| `agenda_title_not_in_body` | 1,081 | 1,081 | 196 |
+| `question_regnum_missing` | 676 | 0 | 0 |
+| `invented_or_misplaced_speech` | 17 | 18 | 18 |
+| **total** | **11,291** | **7,345** | **639** |
+| docs passing | 2,699 (48.6 %) | — | **5,324 (95.9 %)** |
+
+**Round 1 fix landed in `extractors/plenary/activities.py` v0.3.0**: the speech-header regex was extended from the canonical `## **NAME[:]**` shape to ALSO match `## **NAME** – _role_ **:**` (hash + role suffix) and `**NAME** – _role_ **:**` (NO `## ` heading prefix). The no-hash variant was the bug source — markdown converters intermittently drop the heading marker for ministers / PM / president / foreign-dignitary entries (608 corpus instances). Pre-fix the partitioner missed the boundary and the speech got attributed to the prior speaker (typically the chair). The captured italic role is forwarded into `Speaker.role` via `_parse_speaker_from_inner(inner, role=...)`. Patterns are tried in priority order with start-position dedup so a `## **NAME[:]**` match wins over a no-hash overlap.
+
+**Round 2 was verifier-tuning** (the hard correctness checks were already passing; the noise was in the title and qr-regnum checks):
+- Multi-candidate title matching: try head[40] OR head-without-trailing-page-number OR tail[40] OR mid[30]; pass on any landing. Closes ~580 SUMAR-row-vs-body-discussion mismatches (the SUMAR has the bill name, the body's vote-tally section just has a brief header).
+- HTML `<br>` and en-dash normalization in `_normalize_for_title_match`. Closes ~313 "Supunerea la votul final a:<br>– Proiectului…" cases where the converter retained the line break inside the SUMAR table cell.
+- `question_regnum_missing` window changed from a fixed 2000-char lookahead to the question's full span (`chars[1]`). Closes 676 long-question false-positives.
+- Boilerplate header denylist extended to the mojibake variants (`™EDINfiE COMUNE`, `�EDINŢE COMUNE`, `ªedinþa`, `CAMERA DEPUTAfiILOR`, `CAMERA DEPUTAÞILOR`) — the 2000–2008 PostScript-converted PDFs use these glyphs in section banners.
+
+### Acceptance gate at v0.1.0
+
+639 residual issues across 228 / 5,552 docs (4.1 %). The remaining clusters are not cheap to close:
+
+- **3 budget-debate joint-session docs** (`mo://2018/II/11`, `mo://2008/II/13`, `mo://2003/II/35`) account for 333 of 424 dropped_turn issues — 78 % of the long-tail. The agenda partitioner produces 6 fragmented agendas covering only the post-amendment-table region; the chair's pre-agenda vote-tally turns sit in `[0, 67531]` unclaimed. Fixing this requires recognizing the budget-debate layout in `agenda.py` and is deferred — the docs are queryable, just incompletely structured.
+- **97 "Ședința" agenda titles** in 2000–2008 mojibake-era SUMAR layouts. The agenda extractor misclassifies the session header as a single agenda item with title "Ședința". This is a `agenda.py` SUMAR-parser long-tail (the SUMAR table layout is too irregular for the current parser to walk); deferred.
+- **99 column-fragmented agenda titles** in old multi-column SUMAR PDFs. Same `agenda.py` SUMAR-parser limitation.
+- **18 invented_or_misplaced_speech** cases where an old-PDF prose paragraph happens to start with `## **`-formatted text — the activity partitioner mistakes it for a speech header. Documented as a known limitation; defending against it would require sentence-shape heuristics that risk false negatives on legitimate one-sentence speeches.
+- **1 speaker_mismatch** where `## **Voci din sală** :` (collective audience interjection) appears at a Florin Iordache speech position. The Voci form is rare; manual review confirms the verifier is correct, the activity attribution is acceptable.
+
+The acceptance criteria from the verification prompt:
+- < 0.05 % speeches misattributed: **1 / ~800K = 0.000125 %** ✓
+- < 0.05 % activities dropped: 424 / ~250K total speeches+votes = **0.17 %** when the 3 budget-debate docs are included; **0.04 %** without them — under target on the well-formed corpus, over target if the 3 budget docs are counted.
+- < 0.1 % records with span errors: 0 hard-correctness failures.
+- ~ Zero on hard correctness: ✓ (no `position_oor`, no `non_monotonic`, no `dup_record_id`).
+
+The path to closing the long tail runs through the agenda partitioner, not the activities partitioner — see `extractors/plenary/agenda.py:_partition_body_into_item_spans` for the next round of work.
+
+### Tooling design notes
+
+- **In-process, not subprocess.** The 5,552-doc verification finishes in ~70 s with `-j 16`; a CLI-cold-start subprocess approach would be 10× slower.
+- **No `monitorul-ii verify` CLI subcommand.** Per the prompt, the verifier lives under `tools/` as an operator tool, not a daily-cron tool — it's the gate before changes to ES, not part of the daily fetch → convert → … → index pipeline.
+- **ES checks default-on but gracefully off.** `ESConfig.from_env()` returns None when env vars are missing; the verifier still runs Layer B + C against sidecar-vs-MD. `--no-es` is the explicit opt-out for fast iteration.
+- **Boilerplate-header detection is a denylist, not an allowlist.** Adding new section markers (e.g., a future schema version's `RAPORT ALPHA` boilerplate) requires extending `_BOILERPLATE_HEADER_RE`. The choice prefers tolerating long-tail header variants over false-flagging real speakers; the extractor is the source of truth for what's a speaker.
