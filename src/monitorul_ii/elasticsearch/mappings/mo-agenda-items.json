@@ -14,7 +14,8 @@
           "type": "text",
           "analyzer": "romanian",
           "fields": {
-            "keyword": { "type": "keyword", "ignore_above": 512 }
+            "keyword": { "type": "keyword", "ignore_above": 512 },
+            "folded":  { "type": "text", "analyzer": "romanian_folded" }
           }
         },
         "outcome":              { "type": "keyword" },

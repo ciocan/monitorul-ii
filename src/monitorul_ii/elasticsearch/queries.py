@@ -101,6 +101,28 @@ RRF_NUM_CANDIDATES_FLOOR = 100
 # fusion quality at the cost of two larger ES responses to merge.
 RRF_RANK_WINDOW_FLOOR = 100
 
+# Speech multi_match field set. The diacritic-bearing main fields keep
+# the higher boosts (so a query that includes diacritics scores the
+# exact form better), and the `.folded` subfields mirror them at a
+# lower boost so users typing without diacritics still match. Both
+# legs of the corpus — diacritic-correct parliamentary transcripts and
+# stripped queries from URL bars / mobile keyboards — converge on the
+# same hit set; only the within-set ranking differs at the margin.
+# The folded subfields use `romanian_folded` (lowercase + asciifolding)
+# so `șoșoacă` and `sosoaca` collide on the same indexed token. Pair
+# with the `.folded` mapping subfields added in mappings/*.json. Tuned
+# against zero query log signal — bumping these once we have query
+# logs is fine; revisit if no-diacritic ranking quality complaints
+# show up.
+SPEECH_SEARCH_FIELDS: list[str] = [
+    "text^2",
+    "text.folded^1",
+    "agenda_title^1.5",
+    "agenda_title.folded^0.75",
+    "speaker.name_search",
+    "speaker.name_search.folded",
+]
+
 
 @dataclass
 class SearchHit:
@@ -458,11 +480,7 @@ def _search_speeches_bm25(
             {
                 "multi_match": {
                     "query": q,
-                    "fields": [
-                        "text^2",
-                        "agenda_title^1.5",
-                        "speaker.name_search",
-                    ],
+                    "fields": SPEECH_SEARCH_FIELDS,
                     "type": "best_fields",
                     "operator": "or",
                 }
@@ -544,11 +562,7 @@ def _search_speeches_rrf(
             {
                 "multi_match": {
                     "query": q,
-                    "fields": [
-                        "text^2",
-                        "agenda_title^1.5",
-                        "speaker.name_search",
-                    ],
+                    "fields": SPEECH_SEARCH_FIELDS,
                     "type": "best_fields",
                     "operator": "or",
                 }

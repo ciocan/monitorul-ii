@@ -168,6 +168,68 @@ def test_search_speeches_empty_result():
     assert result.hits == []
 
 
+def test_search_speeches_multi_match_includes_folded_subfields():
+    """The multi_match field set must include `.folded` subfields for
+    every diacritic-bearing main field, so a query like `sosoaca` (no
+    diacritics) lands on the same documents as `șoșoacă`. The main
+    fields keep the higher boost so exact-diacritic matches still rank
+    first when both forms are present in the corpus.
+    """
+    es = FakeES({queries.INDEX_SPEECHES: _hits_payload([])})
+    queries.search_speeches(es, q="sosoaca")
+    body = es.search_calls[0]["body"]
+    fields = body["query"]["bool"]["must"][0]["multi_match"]["fields"]
+    # Same object as the module constant — single source of truth.
+    assert fields is queries.SPEECH_SEARCH_FIELDS
+    # Every diacritic-bearing main field has a paired `.folded` variant.
+    assert "text^2" in fields
+    assert "text.folded^1" in fields
+    assert "agenda_title^1.5" in fields
+    assert "agenda_title.folded^0.75" in fields
+    assert "speaker.name_search" in fields
+    assert "speaker.name_search.folded" in fields
+    # Folded boost stays below the main field's so diacritic-correct
+    # matches outrank stripped-form matches when both are eligible.
+    assert _field_boost(fields, "text") > _field_boost(fields, "text.folded")
+    assert _field_boost(fields, "agenda_title") > _field_boost(
+        fields, "agenda_title.folded"
+    )
+
+
+def test_search_speeches_rrf_bm25_leg_uses_folded_subfields():
+    """The RRF path's BM25 leg must use the same field set as BM25-only
+    mode — otherwise no-diacritic queries would behave differently
+    depending on rank_fusion choice.
+    """
+    es = FakeES(
+        {
+            queries.INDEX_SPEECHES: _hits_payload([], total=0),
+        }
+    )
+    queries.search_speeches(
+        es,
+        q="sosoaca",
+        rank_fusion="rrf",
+        query_vector=[0.0] * 1024,
+    )
+    # First call is the BM25 leg.
+    bm25_body = es.search_calls[0]["body"]
+    bm25_fields = bm25_body["query"]["bool"]["must"][0]["multi_match"]["fields"]
+    assert bm25_fields is queries.SPEECH_SEARCH_FIELDS
+
+
+def _field_boost(fields: list[str], target: str) -> float:
+    """Parse the `name^N` boost suffix; default boost is 1.0."""
+    for entry in fields:
+        if "^" in entry:
+            name, boost = entry.split("^", 1)
+            if name == target:
+                return float(boost)
+        elif entry == target:
+            return 1.0
+    raise AssertionError(f"field {target!r} not found in {fields}")
+
+
 # ----------------------------------------------------------------------
 # 2. get_document
 # ----------------------------------------------------------------------

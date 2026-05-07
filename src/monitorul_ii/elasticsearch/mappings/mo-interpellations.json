@@ -22,10 +22,17 @@
           "type": "text",
           "analyzer": "romanian",
           "fields": {
-            "keyword": { "type": "keyword", "ignore_above": 512 }
+            "keyword": { "type": "keyword", "ignore_above": 512 },
+            "folded":  { "type": "text", "analyzer": "romanian_folded" }
           }
         },
-        "question_text":           { "type": "text", "analyzer": "romanian" },
+        "question_text": {
+          "type": "text",
+          "analyzer": "romanian",
+          "fields": {
+            "folded": { "type": "text", "analyzer": "romanian_folded" }
+          }
+        },
         "response": {
           "properties": {
             "speaker": {
@@ -34,7 +41,13 @@
                 "name":         { "type": "keyword" }
               }
             },
-            "text":             { "type": "text", "analyzer": "romanian" }
+            "text": {
+              "type": "text",
+              "analyzer": "romanian",
+              "fields": {
+                "folded": { "type": "text", "analyzer": "romanian_folded" }
+              }
+            }
           }
         },
         "response_deferred":    { "type": "boolean" },

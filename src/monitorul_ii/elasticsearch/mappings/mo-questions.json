@@ -26,10 +26,17 @@
           "type": "text",
           "analyzer": "romanian",
           "fields": {
-            "keyword": { "type": "keyword", "ignore_above": 512 }
+            "keyword": { "type": "keyword", "ignore_above": 512 },
+            "folded":  { "type": "text", "analyzer": "romanian_folded" }
           }
         },
-        "text":                 { "type": "text", "analyzer": "romanian" },
+        "text": {
+          "type": "text",
+          "analyzer": "romanian",
+          "fields": {
+            "folded": { "type": "text", "analyzer": "romanian_folded" }
+          }
+        },
         "delivery_mode":        { "type": "keyword" },
         "enrichments": {
           "properties": {

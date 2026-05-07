@@ -9,7 +9,8 @@
           "type": "text",
           "analyzer": "romanian",
           "fields": {
-            "keyword": { "type": "keyword", "ignore_above": 512 }
+            "keyword": { "type": "keyword", "ignore_above": 512 },
+            "folded":  { "type": "text", "analyzer": "romanian_folded" }
           }
         },
         "committee_kind":       { "type": "keyword" },
@@ -17,15 +18,33 @@
         "meeting_date":         { "type": "date" },
         "position_in_document": { "type": "integer" },
         "format":               { "type": "keyword" },
-        "purpose":              { "type": "text", "analyzer": "romanian" },
+        "purpose": {
+          "type": "text",
+          "analyzer": "romanian",
+          "fields": {
+            "folded": { "type": "text", "analyzer": "romanian_folded" }
+          }
+        },
         "agenda_items": {
           "type": "nested",
           "properties": {
             "ordinal":          { "type": "short" },
-            "title":            { "type": "text", "analyzer": "romanian" },
+            "title": {
+              "type": "text",
+              "analyzer": "romanian",
+              "fields": {
+                "folded": { "type": "text", "analyzer": "romanian_folded" }
+              }
+            },
             "role":             { "type": "keyword" },
             "outcome":          { "type": "keyword" },
-            "outcome_text":     { "type": "text", "analyzer": "romanian" },
+            "outcome_text": {
+              "type": "text",
+              "analyzer": "romanian",
+              "fields": {
+                "folded": { "type": "text", "analyzer": "romanian_folded" }
+              }
+            },
             "primary_references": { "type": "keyword" }
           }
         },

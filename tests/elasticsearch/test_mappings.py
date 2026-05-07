@@ -119,3 +119,60 @@ def test_persons_mapping_has_nested_mandates_and_qid_keyword():
     props = body["template"]["mappings"]["properties"]
     assert props["mandates"]["type"] == "nested"
     assert props["wikidata_qid"]["type"] == "keyword"
+
+
+# Every user-searchable text field must carry a `.folded` subfield
+# analyzed with `romanian_folded` (lowercase + asciifolding) so a query
+# like `sosoaca` still matches indexed `șoșoacă`. The pairs below are
+# the field paths exercised by the query layer's multi_match calls + the
+# adjacent text fields a future query expansion is most likely to hit.
+# `mo-persons.canonical_name.folded` is asserted by the persons-specific
+# mapping fixture above; this list covers the other eight grains.
+_FOLDED_FIELD_PATHS: list[tuple[str, list[str]]] = [
+    ("mo-speeches", ["text", "agenda_title"]),
+    ("mo-agenda-items", ["title"]),
+    ("mo-interpellations", ["topic", "question_text", "response.text"]),
+    ("mo-questions", ["topic", "text"]),
+    ("mo-reports", ["title"]),
+    ("mo-committee-meetings", ["committee_name", "purpose"]),
+    ("mo-documents", ["title", "summary"]),
+    ("mo-votes", ["agenda_title"]),
+]
+
+
+def _walk_field(props: dict, path: str) -> dict:
+    """Walk a dotted field path through an ES mapping properties tree,
+    descending into `properties` at each step. Errors on missing nodes.
+    """
+    node = props
+    parts = path.split(".")
+    for i, part in enumerate(parts):
+        if "properties" in node:
+            node = node["properties"]
+        if part not in node:
+            raise AssertionError(
+                f"field path {path!r} missing at segment {part!r} (step {i})"
+            )
+        node = node[part]
+    return node
+
+
+@pytest.mark.parametrize(
+    "grain,paths",
+    _FOLDED_FIELD_PATHS,
+    ids=[grain for grain, _ in _FOLDED_FIELD_PATHS],
+)
+def test_text_fields_carry_folded_subfield(grain, paths):
+    body = _read_mapping(f"{grain}.json")
+    props = body["template"]["mappings"]["properties"]
+    for path in paths:
+        node = _walk_field(props, path)
+        assert node["type"] == "text", (
+            f"{grain}.{path}: expected type=text, got {node!r}"
+        )
+        fields = node.get("fields", {})
+        folded = fields.get("folded")
+        assert folded is not None, f"{grain}.{path}: missing .folded subfield"
+        assert folded == {"type": "text", "analyzer": "romanian_folded"}, (
+            f"{grain}.{path}.folded: unexpected shape {folded!r}"
+        )

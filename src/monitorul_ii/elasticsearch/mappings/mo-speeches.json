@@ -15,7 +15,8 @@
           "type": "text",
           "analyzer": "romanian",
           "fields": {
-            "keyword": { "type": "keyword", "ignore_above": 512 }
+            "keyword": { "type": "keyword", "ignore_above": 512 },
+            "folded":  { "type": "text", "analyzer": "romanian_folded" }
           }
         },
         "agenda_category":      { "type": "keyword" },
@@ -42,7 +43,8 @@
           "type": "text",
           "analyzer": "romanian",
           "fields": {
-            "exact": { "type": "text", "analyzer": "romanian_exact" }
+            "exact":  { "type": "text", "analyzer": "romanian_exact" },
+            "folded": { "type": "text", "analyzer": "romanian_folded" }
           }
         },
         "text_length":          { "type": "integer" },

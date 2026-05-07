@@ -17,10 +17,17 @@
           "type": "text",
           "analyzer": "romanian",
           "fields": {
-            "keyword": { "type": "keyword", "ignore_above": 512 }
+            "keyword": { "type": "keyword", "ignore_above": 512 },
+            "folded":  { "type": "text", "analyzer": "romanian_folded" }
           }
         },
-        "summary":              { "type": "text", "analyzer": "romanian" },
+        "summary": {
+          "type": "text",
+          "analyzer": "romanian",
+          "fields": {
+            "folded": { "type": "text", "analyzer": "romanian_folded" }
+          }
+        },
         "agenda_count":         { "type": "integer" },
         "speech_count":         { "type": "integer" },
         "vote_count":           { "type": "integer" },

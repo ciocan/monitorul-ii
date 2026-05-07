@@ -10,7 +10,8 @@
           "type": "text",
           "analyzer": "romanian",
           "fields": {
-            "keyword": { "type": "keyword", "ignore_above": 512 }
+            "keyword": { "type": "keyword", "ignore_above": 512 },
+            "folded":  { "type": "text", "analyzer": "romanian_folded" }
           }
         },
         "reporting_period": {
@@ -30,7 +31,13 @@
           "type": "nested",
           "properties": {
             "level":            { "type": "byte" },
-            "text":             { "type": "text", "analyzer": "romanian" }
+            "text": {
+              "type": "text",
+              "analyzer": "romanian",
+              "fields": {
+                "folded": { "type": "text", "analyzer": "romanian_folded" }
+              }
+            }
           }
         },
         "enrichments": {
