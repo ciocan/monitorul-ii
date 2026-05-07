@@ -1396,7 +1396,7 @@ ES is *not* the system of record — sidecars on disk + S3 are SOT. The ES layer
 ### Module split (Phase 4a)
 
 - `src/monitorul_ii/elasticsearch/config.py` — `ESConfig.from_env()`. Mirrors `S3Config.from_env()`'s shape: returns None if either of the two required vars (`ES_URL`, `ES_API_KEY`) is missing or empty so callers can decide whether ES is optional. `ES_VERIFY_CERTS` is opt-out (`1/0/true/false/yes/no/on/off`, default `True`); a non-boolean value raises rather than silently flipping cert verification on a typo.
-- `src/monitorul_ii/elasticsearch/client.py` — `build_client(config)` constructs an `Elasticsearch` 8.x client. Kept as its own module so test fixtures can import it without pulling in the bootstrap helpers.
+- `src/monitorul_ii/elasticsearch/client.py` — `build_client(config)` constructs an `Elasticsearch` 8.x client. Kept as its own module so test fixtures can import it without pulling in the bootstrap helpers. When `config.verify_certs` is False, the builder also installs two warning filters as a side effect: `warnings.filterwarnings("ignore", category=elastic_transport.SecurityWarning)` and `urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)`. The first is a one-shot warning fired at client construction; the second fires on **every** HTTPS request and floods the indexer's stderr at `-j N` (one line per ES round-trip × hundreds of requests per second). Both are silenced ONLY when the user has explicitly opted into self-signed dev clusters via `ES_VERIFY_CERTS=0`; the secure default leaves them loud so a regression that flips `verify_certs` (e.g. a typo in `.env` that `ESConfig.from_env()` somehow accepted) is impossible to miss. The filter installation is idempotent — repeated `build_client(...)` calls during a `monitorul-ii index` run don't accumulate filter entries because both APIs no-op when the filter is already present. The trade-off vs filtering at the CLI entry point: putting the filter in `build_client` ties suppression to the actual decision point (the `verify_certs` value is local here) instead of a stale env-var read; downside is that any caller constructing an `Elasticsearch()` directly bypasses it, but the codebase routes everything through `build_client` precisely to keep the policy single-sourced.
 - `src/monitorul_ii/elasticsearch/bootstrap.py` — `bootstrap(es)` runs all four steps in order; the per-step helpers are exposed for finer control during a major-trigger blue-green rebuild. `smoke_roundtrip(es)` indexes one minimal document into `mo-documents-write` (`_id="mo://test/PII/0"`, `refresh="wait_for"`) and reads it back via the read alias.
 - `src/monitorul_ii/elasticsearch/mappings/` — JSON files are the source of truth for v1 field shapes. One file per grain (`mo-<grain>.json` — nine files) plus `_analyzers.json` and `_common_fields.json` for the two component templates. Hand-edits here are the canonical way to amend mappings; the bootstrap loads them via `importlib.resources` at run time.
 
@@ -1596,7 +1596,7 @@ Three failure modes the wrapper closes in one place:
 
 1. **Cost-runaway.** Every route handler / tool call setting its own `size` is one `--page_size=10000` away from a 500 MB JSON response that ties up the cluster. `MAX_PAGE_SIZE = 50` enforces a server-side cap *here*, not in the webapp middleware where it's easy to forget on a new endpoint.
 2. **Filter consistency.** `is_substantive: true` defaulting on `search_speeches` is the cutoff that hides chair-procedure noise from public search. If route handlers compose their own `bool.filter` arrays, half forget the cutoff, half remember — and the public search starts surfacing "Mulțumesc, vă rog" hits at the top of `q="educație"`. Defaulting in the function signature is the correctness property.
-3. **Future-proofing for RRF.** When P3 embeddings ship, BM25-only search switches to RRF over `enrichments.embedding`. If callers compose queries themselves, every call site needs to learn about the `retriever` block. With the typed layer, the change is one branch on `rank_fusion="rrf"` inside `search_speeches`; callers are stable.
+3. **Hybrid search (P3 RRF).** `search_speeches(rank_fusion=...)` accepts `"bm25-only"` (default), `"rrf"` (ES native Reciprocal Rank Fusion over BM25 + kNN on `enrichments.embedding`), or `"knn-only"` (ablation). The branch lives in one place — callers don't compose retriever blocks themselves, they pick a string. RRF degrades to BM25 silently when the embed service is unreachable so a missing embedder never crashes a public-traffic query.
 
 The layer is also the rate-limit surface for the LLM agent (max 30 ES calls per turn per Q9): the agent's tool wrappers count `len(NAMED_QUERIES)` invocations, not `es.search` calls, and the count is meaningful only because there's exactly one path through.
 
@@ -1604,7 +1604,9 @@ The layer is also the rate-limit surface for the LLM agent (max 30 ES calls per 
 
 **Eleven functions** (10 reference + 1 multi-grain playback), one per reference query. Signatures intentionally mirror the TypeScript shapes from Q9 of the design doc — so when the Next.js side is built, every Python signature has a TypeScript twin and the LLM-agent tool layer wires them 1:1.
 
-- `search_speeches(es, *, q, speaker_person_id, chamber, document_id, date_from, date_to, ref_bills, topics, is_substantive=True, page=1, page_size=20, rank_fusion="bm25-only") -> SearchResult` — the substrate for the public search page. `multi_match` over `text^2` + `agenda_title^1.5` + `speaker.name_search` (cross-field, default operator `or`); filters as `term`/`terms`/`range`. Sort: `_score`-first when `q` is set; `session_date` desc when not. **`rank_fusion="rrf"` is a documented no-op for v1** — the parameter exists in the signature so callers can pass it without breaking once P3 embeddings ship; until then the function silently runs BM25. The `document_id` filter (added in v0.2.0) lets a caller restrict the search to a single MO — useful for "show me speeches by speaker X in this specific session" UX, separate from the multi-grain playback path.
+- `search_speeches(es, *, q, speaker_person_id, chamber, document_id, date_from, date_to, ref_bills, topics, is_substantive=True, page=1, page_size=20, rank_fusion="bm25-only", embed_url=None, query_vector=None) -> SearchResult` — the substrate for the public search page. `multi_match` over `text^2` + `agenda_title^1.5` + `speaker.name_search` (cross-field, default operator `or`); filters as `term`/`terms`/`range`. Sort: `_score`-first when `q` is set; `session_date` desc when not. **`rank_fusion`** picks one of three retrieval modes: `"bm25-only"` (default; historical multi_match path), `"rrf"` (ES 8.9+ Reciprocal Rank Fusion over BM25 + kNN on `enrichments.embedding`; `RRF_RANK_CONSTANT = 60`, `num_candidates = max(100, page_size*10)`), or `"knn-only"` (pure kNN ablation; no BM25 fallback). When `q` is set and `query_vector` is None, RRF/kNN modes call the embed service via `_embed_query_text` to vectorise `q`; if the service is unreachable, RRF degrades to BM25 silently while kNN-only returns empty (the explicit "embed service is misconfigured" signal). The `document_id` filter (added in v0.2.0) lets a caller restrict the search to a single MO — useful for "show me speeches by speaker X in this specific session" UX, separate from the multi-grain playback path.
+
+- `search_speeches_knn(es, *, q, query_vector, ...) -> SearchResult` — the dedicated kNN-only ablation query. Same body shape as `search_speeches(rank_fusion="knn-only")` but its purpose is "would the embedding leg alone find the right hit?" — never falls back to BM25, returns empty when no vector is available. Registered in `NAMED_QUERIES` so the CLI can dispatch it via `--name search_speeches_knn`.
 
 - `list_document_children(es, document_id, *, grains=None, page=1, page_size=500) -> SearchResult` — **the full-document playback substrate.** Multi-index search (`mo-agenda-items,mo-speeches,mo-votes,mo-interpellations,mo-questions,mo-committee-meetings`) filtered by one `document_id`, sorted by `position_in_document` ASC with `record_id` lex tie-breaker. Returns interleaved grains in the order they appear in the original MO body so a `/mo/<id>` page renders the document linearly: agenda header → activities inside it → next agenda → … → trailing interpellations. Each `SearchHit.index` carries the normalised grain name (physical `mo-speeches-<gen>` is folded back to `mo-speeches` by `_normalize_index`) so the Next.js renderer dispatches per-grain without parsing the record_id. `grains` restricts to a subset (`("mo-speeches",)` for speech-only playback). `PLAYBACK_PAGE_SIZE = 500` cap covers every observed doc in a single round-trip — the worst observed plenary doc has 183 child records (`mo://2022/II/75` with 170 interpellations + 12 agenda items + 1 speech).
 
@@ -1687,6 +1689,109 @@ The query layer's tests (`tests/elasticsearch/test_queries.py`, `tests/elasticse
 The handler tests for `cmd_query` reuse the same `FakeES` pattern + `monkeypatch.setattr(cli, "_build_es_client", lambda cfg: fake)` to swap in the fake client without touching the real ES_URL. Coverage includes: unknown name → 2; malformed --params JSON → 2; --params not an object → 2; missing required positional → 2; missing ES env → 2; happy path → 0; --explain trace lands on stderr; bad kwarg → 2 (TypeError caught and converted to validation exit code); ES exception → 1 (distinct from validation errors so retry logic can branch).
 
 The `--rebuild` smoke against the live cluster is documented in `docs/elasticsearch-baseline-2026-05.md` (per-grain doc counts, p95 latencies per query, known gaps before P5). That baseline is the canonical "ready for P5" gate.
+
+## Embedding producer (Phase 3) — `monitorul-ii embed`
+
+The third enrichment producer (alongside topics and the future discourse-analysis layer) ships as `monitorul-ii embed`. It projects every embeddable record from a sidecar into a 1024-dim BGE-M3 dense vector and persists the result as
+
+```
+<basename>.embedding.bge-m3.v0_1.json
+```
+
+next to the sidecar. The indexer's enrichment loader picks the file up automatically; the speech / agenda / interpellation / question / committee / report grain mappings declare `enrichments.embedding` (dense_vector, cosine, HNSW defaults) and `enrichments.embedding_text_fingerprint` (keyword); the query layer's RRF + kNN modes (Q8) read from those fields.
+
+### Why a separate FastAPI service (and not in-process embedding)
+
+The `services/embed/` directory ships a FastAPI wrapper over `sentence-transformers` that the producer talks to via HTTP. Three reasons that's the right separation, even though it means running an extra process:
+
+1. **Lifecycle decoupling.** The embedder loads ~2 GB of model weights on startup and keeps them resident; running it in-process inside `monitorul-ii` would force every `extract` / `link` / `backfill` invocation to either pay the load cost (slow) or skip it via complex conditional imports. A long-lived FastAPI process loads once and serves many CLI runs.
+2. **Hardware swap.** The same producer can target a CPU host or a GPU host — only the service URL changes. CPU bootstrap (~30 hrs on the 5552-doc corpus) and GPU re-embed (~3 hrs) share the same client contract; the producer doesn't know whether torch is using CUDA.
+3. **Optional dependency closure.** `sentence-transformers` + `torch` weigh gigabytes. Keeping them out of the main project's `pyproject.toml` (the producer's only client-side dep is `httpx`, already pulled in by the scraper) means the everyday CLI stays lean. The service ships its own `requirements.txt`.
+
+### Filename pattern + loader regex extension
+
+Embedding files use a 3-segment filename: `<basename>.embedding.bge-m3.v0_1.json`. The first segment after `<basename>` is the **enrichment namespace** (`embedding` — matches the ES `enrichments.embedding` mapping), the second is the **producer / model identifier** (`bge-m3`), the version follows the existing `v<N>_<M>` shape.
+
+The indexer's `enrichments.py` regex was extended in P3 to support the optional model segment:
+
+```python
+ENRICHMENT_FILENAME_RE = re.compile(
+    r"^(?P<basename>.+?)"
+    r"\.(?P<producer>[a-z][a-z0-9_-]*)"
+    r"(?:\.(?P<model>[a-z][a-z0-9_-]*))?"
+    r"\.v(?P<version>[0-9_]+)\.json$"
+)
+```
+
+The non-greedy `basename` ensures that for `doc.embedding.bge-m3.v0_1.json` the engine prefers `producer=embedding, model=bge-m3` over the alternative parse `basename=doc.embedding, producer=bge-m3` (also a valid match against the original 2-segment pattern). Existing 2-segment files (`doc.topics.v0_1.json`, `doc.bge-m3.v1_2.json`) parse with `model=None` and the loader's downstream behaviour is unchanged. The model segment is captured but **not** surfaced in `parse_enrichment_filename`'s return tuple — the producer namespace key (`embedding`) is what the indexer uses for the per-record dispatch dict.
+
+The forward-compat win: when v0.2 ships chunked embeddings or an alternate model (e.g. multilingual E5 for an A/B), the second producer's filename `<basename>.embedding.e5.v0_1.json` lands under the same `embedding` namespace; the operator picks which one the indexer projects via `live_versions={"embedding": "0.1"}` (or via a future model-disambiguation field, deferred until we actually have two embedding producers in the wild).
+
+### Producer module — `extraction/enrichments/embedding.py`
+
+The walk is duck-typed on `body.<key>[]` paths so any sidecar shape that exposes the canonical keys works regardless of `document_type`. Per-grain text composition:
+
+| Grain | Source field(s) embedded |
+|---|---|
+| `agenda_items[].title` | the title (when ≥ 100 chars) |
+| `agenda_items[].activities[]` (type=speech) | `text` |
+| `interpellations[]` | `topic` + `\n` + `question_text` |
+| `questions[]` (qr) | `topic` + `\n` + `question_text` |
+| `committees[].meetings[]` | `purpose` + `\n` + each agenda item's `title` |
+| `report` | `title` + `\n` + each heading's `text` |
+
+Records below `MIN_TEXT_CHARS = 100` are skipped — that's the same cutoff the indexer's `is_substantive` derives, so the long tail of chair turns ("Mulțumesc, doamnă președintă") never enters the embedding store. Vote / procedural / narrator / deferral activities are also excluded — they have structured fields, not narrative text.
+
+Records above `MAX_TEXT_CHARS = 8000` (≈2K BGE-M3 tokens at the model's ~3.8 chars/token rate on Romanian) are truncated to the first 8000 characters before sending. The entry's `_meta.truncated: true` flag fires so the operator can audit how often the cap is hit. Per Q8 v0.1 this is an explicit quality choice: BGE-M3 supports 8192 tokens, but vector quality on whole-speech embeddings degrades as the window grows because content locality is averaged. v0.2 ships proper chunking with `record_id#chunk-N` keys; v0.1 lets us bootstrap.
+
+### Idempotency contract — `text_fingerprint`
+
+Every per-record entry stores a `text_fingerprint`: 12-char sha256 of NFC + whitespace-collapsed text — the same shape as the identity layer's `compute_content_fingerprint`. On re-run:
+
+- entries whose fingerprint matches the current text are reused **verbatim** (no HTTP call, no file rewrite); the existing vector continues to be projected.
+- mismatched entries trigger a re-embed for that record only; the file is rewritten with the new vector.
+
+The flow is the same as the linker / backfill idempotency: an extractor regex tweak that doesn't change the speech text leaves vectors untouched; a tweak that changes the text re-embeds only the affected records on the next `embed` run. The hybrid-search guarantee is that `enrichments.embedding` and `enrichments.embedding_text_fingerprint` always travel together — the indexer projects both — so a downstream consumer can detect a stale vector by comparing the entry's fingerprint to the current text fingerprint.
+
+`--force` overrides the fingerprint match (use after a model bump where the same text should produce a different vector). Atomic `.part`-rename write contract; the producer never leaves a half-written file on disk where the indexer might pick it up.
+
+### Indexer flatten
+
+The producer's per-record payload is `{"_meta": {...}, "vector": [...], "text_fingerprint": "..."}`. The indexer's loader (after the `_meta` strip) returns this as `enrichments.embedding = {"vector": [...], "text_fingerprint": "..."}` — but the ES per-grain mappings declare `enrichments.embedding` as a `dense_vector` (the array), not a dict. The denormaliser's `_enrichments_for_grain` was updated in P3 to special-case the embedding shape: when the producer key is `embedding` and the value is a dict carrying `vector` + `text_fingerprint`, the helper flattens it into the two sibling fields (`enrichments.embedding` ← the array, `enrichments.embedding_text_fingerprint` ← the keyword). The flatten respects the per-grain `allowed` set — agenda items, which only declare `embedding` (no fingerprint sentinel), get the vector but not the fingerprint; speeches get both.
+
+### CLI — `monitorul-ii embed`
+
+Sequential by design (no `-j N`). The bottleneck is the embedding service's compute, not the producer's I/O — running multiple `embed` processes against the same service is the right way to scale, not threading inside one process. The CLI's progress reporter mirrors the existing `convert` / `extract` shape: live `rich` bar on tty, periodic heartbeat in pipes.
+
+Fail-fast: the CLI calls `healthcheck(embed_url)` before walking the sidecar list; a misconfigured endpoint exits 2 immediately rather than after N seconds of HTTP errors. `--dry-run` skips both health and per-call HTTP, which is useful for "how much would this cost / take?" planning.
+
+S3 mirror integration: when the env vars are set, modified embedding files mirror to the bucket with `Content-Type: application/json` and `overwrite=True`. The overwrite flag is load-bearing — embedding files are mutable per-record (fingerprint-mismatched entries are rewritten in place when re-embedded) so the historical `head_object`-first short-circuit would miss the diff.
+
+### Service surface — `services/embed/`
+
+- `GET /healthz` — liveness probe; reports the configured model id without forcing a load. Suitable for Docker / Kubernetes `livenessProbe` (the model takes ~30 seconds to load on a first call, much longer than a sensible health-check timeout, so deferred).
+- `POST /embed` — `{texts: [str], normalize: bool}` → `{vectors: [[float; 1024]], model_id, dims}`. `normalize=true` is the default since the ES `enrichments.embedding` mapping declares `similarity: cosine` and unit vectors land cosine semantics into a simple dot product.
+
+Multi-target Dockerfile: `--build-arg TARGET=cpu` (default, `python:3.12-slim`) or `--build-arg TARGET=gpu` (`nvidia/cuda:12.1.0-cudnn8-runtime-ubuntu22.04`, requires nvidia-container-toolkit on the host). The CPU image runs anywhere; the GPU image expects an NVIDIA runtime and picks up CUDA torch wheels automatically. ~10× speedup on a single consumer GPU.
+
+The project-root `docker-compose.yml` is the canonical operator surface. CPU mode: `docker compose up`. GPU mode (under a `gpu` profile so a CPU-only host doesn't accidentally try to allocate GPUs): `TARGET=gpu docker compose build embed && docker compose --profile gpu up`. A named `hf-cache` volume (`monitorul_hf-cache`) holds the ~2 GB BAAI/bge-m3 weights so subsequent `up` runs are instant; force a re-download with `docker volume rm monitorul_hf-cache` after a model bump. The compose file is intentionally **embed-only** — Elasticsearch is a derived projection (not SOT) and production runs against external infrastructure (`ES_URL` / `ES_API_KEY` in `.env`); adding ES to the compose stack would conflate dev and prod surfaces. The compose schema declares the healthcheck explicitly (`curl -fsS http://localhost:8000/healthz`, `start_period: 120s` to allow the model load) so future services can `depends_on: { embed: { condition: service_healthy } }` cleanly.
+
+### Disaster recovery
+
+The service is stateless. Lose the container → rebuild from `Dockerfile`; weights re-download on first call. Lose the vector files → re-run `monitorul-ii embed pdfs/ --force`. The vectors are not the system of record (sidecars on disk + S3 are SOT) — the embedding store is fully derivable from sidecars + the model. The only non-recoverable layer is the agent journal (`<basename>.journal.jsonl`); embeddings are version-aware and rebuildable on demand.
+
+### Production timing
+
+Bootstrap on the 5552-doc corpus: ~3 hours on a single consumer GPU (BGE-M3 at `batch_size=32`, ~50K records embed-eligible at the substantive cutoff), ~30 hours on CPU. Daily-cron post-bootstrap: 1–5 new MO sidecars produce ~50 new substantive records on average; sub-5-minute embed runs. The fingerprint-skip on re-runs means a daily run that touches one MO doesn't re-embed any of the prior corpus — the rest of the embed files reuse verbatim.
+
+### Tests
+
+- `tests/extraction/test_embedding.py` — 21 tests against an `httpx.MockTransport` stub service. Covers filename shape, loader regex back-compat with the simple form, per-doc-type record discovery (speeches, agenda titles, interpellations, qr questions, committee meetings, reports), the MIN/MAX text cutoffs, idempotency (fingerprint match → no HTTP), stale-fingerprint re-embed, force-flag re-embed, dry-run, service-failure handling, dimension-mismatch detection, atomic-write contract, and the `embed_all` batch wrapper.
+- `tests/extraction/test_embed_cli.py` — 10 tests over the `monitorul-ii embed` argparse wiring + dispatch, with the embed service mocked via `httpx.MockTransport` and a `unittest.mock.patch.object(httpx, "Client", ...)` redirect so the CLI's own client construction goes through the stub.
+- `tests/elasticsearch/test_queries.py` — 9 RRF / kNN tests appended to the existing query-layer suite. Covers BM25-only default (no retriever block), RRF retriever shape with both legs, filter propagation onto the kNN leg, BM25 fallback when no vector is available, kNN-only with explicit vector, kNN-only empty-result-without-vector, the `search_speeches_knn` debug-helper, and the `NAMED_QUERIES` registry update.
+- `tests/elasticsearch/test_denormalize.py` — 2 new tests for the embedding payload flatten: speeches get both `enrichments.embedding` (the vector) and `enrichments.embedding_text_fingerprint`; agenda items (whose mapping only declares `embedding`) get the vector but NOT the fingerprint.
+
+The full suite stays under 25 seconds on the test box and produces no real network calls.
 
 ## Future graduation candidates
 

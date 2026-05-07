@@ -589,8 +589,29 @@ def _enrichments_for_grain(
     project the keys the per-grain mapping declares. Unknown keys would
     still index (ES dynamic mapping is on by default for the
     `enrichments` namespace) but quietly burn shard storage.
+
+    Special-cased: when the payload carries the `embedding` producer's
+    nested shape (`{"vector": [...], "text_fingerprint": "..."}`), we
+    flatten it into the two sibling ES fields the per-grain mappings
+    declare — `embedding` (dense_vector) and `embedding_text_fingerprint`
+    (keyword). The producer's nesting is what the indexer's loader
+    naturally produces (one dict per producer key); the ES mapping
+    expects flat fields so kNN can score directly off `enrichments.embedding`.
     """
-    return {k: v for k, v in payload.items() if k in allowed}
+    out: dict[str, Any] = {}
+    for k, v in payload.items():
+        if k == "embedding" and isinstance(v, dict):
+            # Flatten the embedding producer's nested payload.
+            vector = v.get("vector")
+            if isinstance(vector, list) and "embedding" in allowed:
+                out["embedding"] = vector
+            fp = v.get("text_fingerprint")
+            if isinstance(fp, str) and "embedding_text_fingerprint" in allowed:
+                out["embedding_text_fingerprint"] = fp
+            continue
+        if k in allowed:
+            out[k] = v
+    return out
 
 
 def to_speeches_docs(

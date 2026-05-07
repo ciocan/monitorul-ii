@@ -669,6 +669,59 @@ def test_speeches_carry_enrichments_when_present():
     assert long["enrichment_versions"]["topics"] == "0.1"
 
 
+def test_speech_embedding_flattened_to_top_level_fields():
+    """The embedding producer's nested `{"vector": [...], "text_fingerprint":
+    "..."}` payload must flatten to ES `enrichments.embedding` (the
+    dense_vector array) and `enrichments.embedding_text_fingerprint`
+    (keyword) — siblings, not nested. The mapping is shaped that way so
+    kNN can score directly off `enrichments.embedding`.
+    """
+    sidecar = _plenary_sidecar()
+    vec = [0.001 + i * 1e-6 for i in range(1024)]
+    enrichments = {
+        "mo://2018/II/168#agenda-1#act-1": {
+            "embedding": {
+                "_meta": {
+                    "producer": "bge-m3",
+                    "version": "0.1",
+                    "model_id": "BAAI/bge-m3",
+                    "dims": 1024,
+                },
+                "vector": vec,
+                "text_fingerprint": "abc123def456",
+            }
+        }
+    }
+    docs = denormalize.to_speeches_docs(sidecar, enrichments=enrichments)
+    by_id = {d["_id"]: d["_source"] for d in docs}
+    speech = by_id["mo://2018/II/168#agenda-1#act-1"]
+    enrich = speech["enrichments"]
+    # The dense_vector field is the raw list (NOT a dict).
+    assert enrich["embedding"] == vec
+    assert enrich["embedding_text_fingerprint"] == "abc123def456"
+
+
+def test_agenda_item_embedding_flatten_only_emits_known_keys():
+    """The agenda mapping has `embedding` (dense_vector) but does NOT
+    declare `embedding_text_fingerprint`. The flatten must respect the
+    per-grain allowed set so we don't accidentally store the
+    fingerprint where there's no mapping for it.
+    """
+    sidecar = _plenary_sidecar()
+    vec = [0.0] * 1024
+    enrichments = {
+        "mo://2018/II/168#agenda-1": {
+            "embedding": {"vector": vec, "text_fingerprint": "xx"},
+        }
+    }
+    docs = denormalize.to_agenda_items_docs(sidecar, enrichments=enrichments)
+    enrich = docs[0]["_source"]["enrichments"]
+    assert enrich["embedding"] == vec
+    # The agenda mapping has no `embedding_text_fingerprint` slot, so
+    # the flatten must NOT emit it for that grain.
+    assert "embedding_text_fingerprint" not in enrich
+
+
 # ----------------------------------------------------------------------
 # position_in_document — source-order key for the playback page (P4c+)
 # ----------------------------------------------------------------------

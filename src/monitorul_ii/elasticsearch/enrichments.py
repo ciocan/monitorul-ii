@@ -24,10 +24,29 @@ import re
 from pathlib import Path
 from typing import Any
 
-# Filename shape: `<basename>.<producer>.v<version>.json`
-# Producer names are kebab-or-snake-case; version is `0_1` / `0_2` etc.
+# Filename shape (two forms accepted):
+#
+#   1. `<basename>.<producer>.v<version>.json` — single-producer files
+#      (e.g. `doc.topics.v0_1.json`). The default for producers that
+#      don't fan out by model.
+#   2. `<basename>.<producer>.<model>.v<version>.json` — model-tagged
+#      files (e.g. `doc.embedding.bge-m3.v0_1.json`). The optional
+#      `<model>` segment lets multiple competing models live alongside
+#      each other under one producer namespace; the loader projects
+#      every file under the same top-level producer key, with the
+#      version arbitrating which file wins.
+#
+# Producer + model names are kebab-or-snake-case; version is `0_1` /
+# `0_2` etc. The regex is non-greedy on `basename` so the smallest
+# basename that satisfies the rest of the pattern wins; for a file
+# like `doc.embedding.bge-m3.v0_1.json` that means producer=embedding,
+# model=bge-m3 (preferred over basename=doc.embedding, producer=bge-m3,
+# which is also a valid parse — non-greedy `basename` rules it out).
 ENRICHMENT_FILENAME_RE = re.compile(
-    r"^(?P<basename>.+?)\.(?P<producer>[a-z][a-z0-9_-]*)\.v(?P<version>[0-9_]+)\.json$"
+    r"^(?P<basename>.+?)"
+    r"\.(?P<producer>[a-z][a-z0-9_-]*)"
+    r"(?:\.(?P<model>[a-z][a-z0-9_-]*))?"
+    r"\.v(?P<version>[0-9_]+)\.json$"
 )
 JOURNAL_SUFFIX = ".journal.jsonl"
 SIDECAR_SUFFIX = ".extraction.json"

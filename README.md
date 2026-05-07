@@ -10,7 +10,7 @@ uv sync
 
 ## Usage
 
-Six core subcommands: `fetch` (download PDFs), `convert` (PDF → markdown), `classify` (type-detect MDs into the extraction-schema buckets), `extract` (MD → structured JSON sidecar), `link` (cross-doc + intra-doc linker), `backfill` (registry-driven `*_normalized` slots and `Speaker.person_id`). Plus `es-init` to provision the Elasticsearch projection layer (templates, indices, aliases, API keys), and `index` to project sidecars + enrichments into the live ES indices.
+Six core subcommands: `fetch` (download PDFs), `convert` (PDF → markdown), `classify` (type-detect MDs into the extraction-schema buckets), `extract` (MD → structured JSON sidecar), `link` (cross-doc + intra-doc linker), `backfill` (registry-driven `*_normalized` slots and `Speaker.person_id`). Plus `es-init` to provision the Elasticsearch projection layer (templates, indices, aliases, API keys), `embed` to generate BGE-M3 dense_vector enrichments, `index` to project sidecars + enrichments into the live ES indices, and `query` for the typed query layer that backs the public search and LLM-agent tools.
 
 ### `fetch`
 
@@ -274,6 +274,44 @@ The bootstrap finishes with a smoke index/get round-trip on `mo-documents` (`_id
 
 API-key creation is **non-blocking**: when ES refuses to mint role-scoped keys (e.g. the bootstrap `ES_API_KEY` is itself a derived API key, which ES locks out from creating keys with explicit privileges), the bootstrap surfaces the failure as a warning and proceeds to the smoke round-trip. Templates + indices are the load-bearing wiring; the smoke confirms they work. The exit code is non-zero (`1`) so the operator notices, and the warning instructs them to re-run with a primary credential (a username/password or a non-derived API key) to mint the `monitorul_reader` / `monitorul_indexer` keys.
 
+### `embed`
+
+Generate BGE-M3 (1024-dim) dense_vector embeddings for every embeddable record across all six document types — substantive speeches (`text_length ≥ 100`), agenda item titles, interpellation `topic + question_text`, qr questions, committee meeting purposes, and report titles + headings. Vectors persist as `<basename>.embedding.bge-m3.v0_1.json` enrichment files alongside each sidecar; the `index` step picks them up automatically and projects them onto `enrichments.embedding` (the dense_vector field) and `enrichments.embedding_text_fingerprint` (the staleness sentinel) for every grain that supports kNN retrieval. Run **after** `extract` / `link` / `backfill`, **before** `index`. Pairs with the FastAPI service in [`services/embed/`](services/embed/) — see that directory's README for deployment.
+
+```sh
+# Embed one sidecar (service must be running on http://127.0.0.1:8000)
+uv run monitorul-ii embed pdfs/2018-11-20_MO-PII-168-2018.extraction.json
+
+# Embed every sidecar under pdfs/ — idempotent, fingerprint-skip
+uv run monitorul-ii embed pdfs/
+
+# Dry-run: walk the records and report counts without contacting the service
+uv run monitorul-ii embed pdfs/ --dry-run
+
+# Re-embed everything regardless of fingerprint match (after a model bump)
+uv run monitorul-ii embed pdfs/ --force
+
+# Point at a remote / GPU service
+uv run monitorul-ii embed pdfs/ --embed-url http://gpu-host:8000
+
+# Override the per-request batch size
+uv run monitorul-ii embed pdfs/ --batch-size 16
+```
+
+Flags:
+
+- `--force` — re-embed every record regardless of `text_fingerprint` match. Pair with a model bump (the producer/version constants change) or after the producer's normalisation rules change. Without `--force`, every per-record entry whose fingerprint matches the current text reuses its prior vector verbatim — no HTTP call, no file rewrite.
+- `--dry-run` — walk the sidecars and report which records would be embedded vs reused, without contacting the service or writing files. Useful for "how much will this cost / take?" planning before kicking off a bulk run.
+- `--embed-url URL` — embedding service base URL (default: `$EMBED_URL` env var, then `http://127.0.0.1:8000`). The service must respond to `GET /healthz` (liveness probe — used by the CLI to fail fast on a misconfigured endpoint) and `POST /embed` (the actual encoding call).
+- `--batch-size N` — texts per HTTP request to the embed service (default: 32). Higher values reduce HTTP overhead at the cost of larger request bodies; the service may re-batch internally to stay under GPU memory.
+- `--no-upload` / `--bucket NAME` — same S3 mirror flags as the other subcommands. When the S3 env vars are configured, modified embedding files mirror to the bucket with `Content-Type: application/json` and `overwrite=True` (embedding files are mutable per-record — fingerprint-mismatched entries are rewritten in place).
+
+Idempotency contract: each entry's `text_fingerprint` is the 12-char sha256 of the NFC + whitespace-collapsed text — the same shape as the identity layer's `compute_content_fingerprint`. On re-run, fingerprint-matched entries reuse the existing vector verbatim. When a re-extract changes the speech text, the next `embed` pass re-embeds only the records whose fingerprint mismatched; the rest stay verbatim. Hybrid search never serves a vector that doesn't match its text — at index time the indexer projects both `enrichments.embedding` (the vector) and `enrichments.embedding_text_fingerprint` (the keyword sentinel) so the query layer can detect stale vectors and exclude them from kNN until re-embedded.
+
+Long-tail handling (Q8 v0.1): texts beyond `MAX_TEXT_CHARS = 8000` (≈2K BGE-M3 tokens) are truncated to the first 8000 characters, with `_meta.truncated: true` flagged on the entry so the operator can audit the long-tail size. v0.2 will ship proper chunking with `record_id#chunk-N` keys; v0.1 lets us bootstrap the corpus and the long-tail under-represented in semantic search is documented in [`docs/architecture.md`](docs/architecture.md).
+
+The producer is sequential — embedding throughput is dominated by the service-side compute, not the producer-side I/O. The CLI does **not** support `-j N` for parallel sidecars; if the service is GPU-backed, run multiple `embed` processes pointed at the same service rather than threading inside one process. Bootstrap timing per Q8: ~3 hours on a single consumer GPU, ~30 hours on CPU. After the bootstrap, the daily-cron run typically embeds 1–5 new MO sidecars (~5 minutes).
+
 ### `index`
 
 Project `*.extraction.json` sidecars + parallel enrichment files into the live Elasticsearch indices provisioned by `es-init`. The indexer denormalises each sidecar across the nine `mo-*` grains (per Q5 of [`docs/elasticsearch-indexing.md`](docs/elasticsearch-indexing.md)), bulk-upserts via per-grain write aliases, tracks state in `data/monitorul.db` for idempotency, and runs orphan-delete to drop ES docs whose record_ids disappeared between runs (e.g. when a re-extract merges two adjacent speeches into one). Run **after** `extract` / `link` / `backfill` (and any enrichment producers) — the order is `fetch → convert → extract → link → backfill → enrich → index → sitemap`.
@@ -350,19 +388,30 @@ uv run monitorul-ii query --name person_page --params '{"person_slug":"iordache-
 # Terms agg over speaker.party_group_at_time × year — discourse-substrate health check
 uv run monitorul-ii query --name agg_speeches_by_party_year --params '{"year":2018}'
 
+# Hybrid search via RRF (BM25 + kNN). Embeds the query text via the
+# embed service; falls back to BM25-only if the service is down.
+uv run monitorul-ii query --name search_speeches \
+    --params '{"q":"reformă justiție","rank_fusion":"rrf","page_size":5}'
+
+# Pure kNN ablation — useful for "would the embedding leg alone have
+# found the right hit?" research / debugging.
+uv run monitorul-ii query --name search_speeches_knn \
+    --params '{"q":"educație","page_size":5}'
+
 # Print the request body to stderr before running, alongside the result
 uv run monitorul-ii query --name search_speeches --params '{"q":"NATO"}' --explain
 ```
 
 Flags:
 
-- `--name QUERY` — required. One of: `search_speeches`, `get_document`, `list_documents_by_date`, `get_agenda_item`, `get_speech`, `person_page`, `search_persons`, `list_committee_meetings`, `get_report`, `agg_speeches_by_party_year`. The function signatures live in `monitorul_ii.elasticsearch.queries`; the CLI dispatches via the `NAMED_QUERIES` registry.
+- `--name QUERY` — required. One of: `search_speeches`, `search_speeches_knn`, `list_document_children`, `get_document`, `list_documents_by_date`, `get_agenda_item`, `get_speech`, `person_page`, `search_persons`, `list_committee_meetings`, `get_report`, `agg_speeches_by_party_year`. The function signatures live in `monitorul_ii.elasticsearch.queries`; the CLI dispatches via the `NAMED_QUERIES` registry.
 - `--params JSON` — JSON object whose keys map to the query function's keyword arguments. Positional args (`document_id`, `record_id`, `person_slug`, `committee_id`, `q`, `date`) may also be passed via this dict — the CLI promotes them to positional as needed. Default: `{}` (no parameters). Examples: `'{"q":"educație","page_size":5}'`, `'{"record_id":"mo://2018/II/168#agenda-1"}'`.
 - `--explain` — print the request body (index + body, JSON-formatted) on stderr before running each ES call, in addition to the result. Useful for debugging the filter / agg shape against the ES query DSL docs. Wraps both `es.search` and `es.get`.
 
-The 11 named queries:
+The 12 named queries:
 
-- `search_speeches` — multi_match over speech text + agenda titles + speaker names; `is_substantive: true` default. Filters: `q`, `speaker_person_id`, `chamber`, `document_id`, `date_from`/`to`, `ref_bills`, `topics`.
+- `search_speeches` — multi_match over speech text + agenda titles + speaker names; `is_substantive: true` default. Filters: `q`, `speaker_person_id`, `chamber`, `document_id`, `date_from`/`to`, `ref_bills`, `topics`. `rank_fusion` accepts `"bm25-only"` (default), `"rrf"` (BM25 + kNN via ES native RRF), or `"knn-only"`.
+- `search_speeches_knn` — pure kNN ablation query; never falls back to BM25. Returns empty when no vector is available so the embed-service unreachable case is detectable.
 - `list_document_children` — multi-index search over every per-doc child grain (agenda-items, speeches, votes, interpellations, questions, committee-meetings) for one `document_id`, sorted by `position_in_document` ASC with `record_id` lex tie-breaker. **Drives the `/mo/<id>` full-document playback page**: returns interleaved hits in true source order across all grains, so the renderer dispatches per-grain via each hit's `index` field. Default `page_size=500` covers every observed doc; paging is available for outliers.
 - `get_document` / `get_agenda_item` / `get_speech` / `get_report` — single lookup by canonical `record_id`; 404 returns `null`.
 - `list_documents_by_date` — all MOs whose `session_date` matches a given day, sorted by `published` DESC.
@@ -373,7 +422,13 @@ The 11 named queries:
 
 The query layer enforces a few server-side guardrails by design (Q9): page sizes are clamped to `MAX_PAGE_SIZE = 50`; `search_speeches` defaults to `is_substantive: true` (chair-procedure turns hidden from public search; flip with `"is_substantive": false` for the admin / discourse-research view); `agg_speeches_by_party_year` always filters to `is_substantive: true`. These are not client-side suggestions — they're correctness properties enforced in `queries.py`. If the webapp or LLM agent needs a wider surface, add a function rather than relaxing the guardrails.
 
-`rank_fusion="bm25-only"` is the v1 default for `search_speeches`. The parameter exists in the function signature so callers can flip to `"rrf"` once P3 embeddings ship; until then the param is a documented no-op (the function silently runs BM25 even when `"rrf"` is passed).
+`rank_fusion` on `search_speeches` accepts three values:
+
+- `"bm25-only"` (default) — historical BM25 multi_match path; no embedding required.
+- `"rrf"` — ES native Reciprocal Rank Fusion over a BM25 leg + a kNN leg on `enrichments.embedding`. When `q` is set, the function calls the embed service to vectorise the query text (`EMBED_URL` env var, then default `http://127.0.0.1:8000`); pass a precomputed `query_vector` to skip that hop. If the embed service is unreachable, the function silently degrades to BM25-only — callers don't crash on a missing embedder.
+- `"knn-only"` — pure kNN retrieval; useful for ablation / debugging. Requires either a `query_vector` or a reachable embed service. Without a vector, returns an empty result rather than degrading to BM25, so the misconfiguration is detectable.
+
+The dedicated `search_speeches_knn` debug query is the same shape as `search_speeches(rank_fusion="knn-only")` but never falls back to BM25 — its purpose is "did the embedding leg alone find the right hit?" ablation. Listed in `NAMED_QUERIES`; runs via `monitorul-ii query --name search_speeches_knn --params '{"q":"..."}'`. RRF tuning lives in `queries.py`: `RRF_RANK_CONSTANT = 60` (ES default), `RRF_NUM_CANDIDATES_FLOOR = 100` (kNN candidates per leg), `RRF_NUM_CANDIDATES_MULT = 10` (10× page_size, the ES recommended ratio for HNSW recall).
 
 The CLI reads `ES_URL` / `ES_API_KEY` / `ES_VERIFY_CERTS` from the environment (or `.env`); set `ES_API_KEY` to the `monitorul_reader` key minted by `es-init` for read-only access. Exit codes: `0` on success, `2` on validation errors (unknown query name, malformed JSON params, missing required positional, missing ES env), `1` on ES connection / runtime errors.
 
@@ -494,11 +549,58 @@ ES_VERIFY_CERTS=1
 
 - `ES_URL` and `ES_API_KEY` are required for any live ES operation. `--dry-run` skips both, so it's safe to use in CI without secrets.
 - `ES_API_KEY` is the **bootstrap** key — it needs cluster admin and `manage` on `mo-*` to install templates, create indices, and mint the per-role keys. After `es-init` runs, you'll have two purpose-scoped keys (`monitorul_reader`, `monitorul_indexer`) printed to stdout; switch downstream consumers to those.
-- `ES_VERIFY_CERTS` defaults to `1` (true). Accepted values: `1/0`, `true/false`, `yes/no`, `on/off`. Empty / unset keeps the secure default. Set to `0` only for self-signed dev clusters; production must always verify.
+- `ES_VERIFY_CERTS` defaults to `1` (true). Accepted values: `1/0`, `true/false`, `yes/no`, `on/off`. Empty / unset keeps the secure default. Set to `0` only for self-signed dev clusters; production must always verify. When `0`, the client also silences the `elastic_transport.SecurityWarning` emitted at construction and the per-request `urllib3.InsecureRequestWarning` (the latter floods parallel-indexer output at `-j N`); both fire loudly under the secure default so a regression that flips `verify_certs` is impossible to miss.
 
 The Elasticsearch projection layer is **not** the system of record — sidecars on disk + S3 are SOT, and ES is rebuildable overnight from them. See [`docs/elasticsearch-indexing.md`](docs/elasticsearch-indexing.md) for the full design rationale (Q1–Q9, including rejected alternatives), and [`docs/architecture.md`](docs/architecture.md) for the operational mechanics of the bootstrap.
 
-The indexer (`monitorul-ii index`) is the routine-trigger codepath from Q6 — daily MO ingestion, re-extraction, linker reruns, backfill reruns, enrichment producer version bumps, new enrichment producers, and redactions all flow through `index_one(...)` calls keyed by `record_id`. Major triggers (mapping changes, schema breaking-changes) cut a new generation via the blue-green helpers in `monitorul_ii.elasticsearch.blue_green` (create target → dual-write via `--mirror` → swap read alias atomically → drop old after cooldown). State tracking lives in `data/monitorul.db`'s `es_indexed` table; the idempotency triple `(sidecar_content_sha, enrichment_fingerprint, index_generation)` is the load-bearing skip key. Enrichment files alongside each sidecar (`<basename>.<producer>.v<version>.json` + `<basename>.journal.jsonl`) are merged by `record_id` at index time, with a stale-fingerprint filter dropping entries whose `_meta.source_sidecar_content_sha` no longer matches the sidecar — see [`docs/architecture.md`](docs/architecture.md) for the full state-tracking + orphan-delete + blue-green flow.
+The indexer (`monitorul-ii index`) is the routine-trigger codepath from Q6 — daily MO ingestion, re-extraction, linker reruns, backfill reruns, enrichment producer version bumps, new enrichment producers, and redactions all flow through `index_one(...)` calls keyed by `record_id`. Major triggers (mapping changes, schema breaking-changes) cut a new generation via the blue-green helpers in `monitorul_ii.elasticsearch.blue_green` (create target → dual-write via `--mirror` → swap read alias atomically → drop old after cooldown). State tracking lives in `data/monitorul.db`'s `es_indexed` table; the idempotency triple `(sidecar_content_sha, enrichment_fingerprint, index_generation)` is the load-bearing skip key. Enrichment files alongside each sidecar (`<basename>.<producer>.v<version>.json`, `<basename>.<producer>.<model>.v<version>.json`, plus `<basename>.journal.jsonl`) are merged by `record_id` at index time, with a stale-fingerprint filter dropping entries whose `_meta.source_sidecar_content_sha` no longer matches the sidecar — see [`docs/architecture.md`](docs/architecture.md) for the full state-tracking + orphan-delete + blue-green flow.
+
+## Embeddings
+
+The BGE-M3 embedding service lives at [`services/embed/`](services/embed/) and exposes `POST /embed` for the `monitorul-ii embed` producer + the `search_speeches(rank_fusion="rrf"|"knn-only")` query path. Spin it up via the project-root [`docker-compose.yml`](docker-compose.yml):
+
+```sh
+# CPU (default; works anywhere)
+docker compose up -d
+docker compose logs -f embed     # watch model load (~30 s on first run)
+curl -fsS http://127.0.0.1:8000/healthz   # smoke
+
+# GPU (requires nvidia-container-toolkit on the host)
+TARGET=gpu docker compose build embed
+docker compose --profile gpu up -d
+
+# Stop
+docker compose down
+```
+
+Configuration:
+
+```
+EMBED_URL=http://127.0.0.1:8000        # CLI + query layer (default)
+EMBED_PORT=8000                         # host port the compose file publishes
+EMBED_MODEL_ID=BAAI/bge-m3              # override at build/runtime
+EMBED_MAX_BATCH_SIZE=32                 # internal batching ceiling
+TARGET=cpu                              # or `gpu` (compose build arg)
+```
+
+- `EMBED_URL` is read by both the `embed` subcommand (when `--embed-url` isn't passed) and the `query` subcommand (when `rank_fusion` requires vectorising the query text). Default: `http://127.0.0.1:8000`.
+- The named volume `monitorul_hf-cache` keeps the ~2 GB BAAI/bge-m3 weights warm across container rebuilds — first run downloads, every subsequent `up` is instant. Force a re-download with `docker volume rm monitorul_hf-cache` (after a model bump).
+- The service is stateless and **not** the system of record — vector files on disk + S3 are SOT. Lose the container → `docker compose up` rebuilds from the Dockerfile; weights re-download on first call. Lose the vector files → re-run `monitorul-ii embed pdfs/ --force`.
+- Embeddings are NOT in the main project's dependency closure (see `pyproject.toml` — `httpx` is the only client-side dep). The service ships its own `requirements.txt` with `sentence-transformers` + `torch`. Run it locally for development or remotely on a GPU box for production embedding. The compose stack is intentionally embed-only — Elasticsearch lives outside (`ES_URL` / `ES_API_KEY` in `.env`) per the design doc's "ES is a derived projection, not SOT" stance.
+
+Detached run + smoke:
+
+```sh
+docker compose up -d
+docker compose ps                                      # `embed` healthy
+curl -X POST http://127.0.0.1:8000/embed \
+    -H 'Content-Type: application/json' \
+    -d '{"texts":["bună ziua, doamnelor și domnilor"]}' \
+    | jq '.vectors[0] | length'
+# → 1024
+uv run monitorul-ii embed pdfs/ --dry-run             # walk records without writing
+uv run monitorul-ii embed pdfs/                        # do the real thing
+```
 
 ## How it works
 

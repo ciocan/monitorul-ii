@@ -77,6 +77,19 @@ DEFAULT_AGG_SIZE = 100
 # with `speakerPersonId` set.
 PERSON_PAGE_RECENT_SPEECHES = 20
 
+# RRF rank constant — ES default is 60 and the BGE-M3 + BM25 leg
+# combination doesn't have an empirical reason to deviate yet. Bumping
+# this trades early-rank dominance for late-rank smoothness; revisit
+# once we have query logs.
+RRF_RANK_CONSTANT = 60
+
+# kNN retrieval candidates per leg. The k-out is `page_size` (so the
+# RRF merge has the right granularity) and num_candidates trades off
+# recall vs latency. ES default is 10× k; that matches the indexing
+# layer's HNSW ef_construction=100 sweet spot.
+RRF_NUM_CANDIDATES_MULT = 10
+RRF_NUM_CANDIDATES_FLOOR = 100
+
 
 @dataclass
 class SearchHit:
@@ -239,6 +252,88 @@ def _safe_get(es: Elasticsearch, index: str, doc_id: str) -> dict[str, Any] | No
 # ---------- 1. search_speeches ----------
 
 
+def _rrf_num_candidates(page_size: int) -> int:
+    """How many kNN candidates to pull per leg before RRF merges them.
+
+    Higher = better recall on the kNN leg but more compute per query.
+    The `RRF_NUM_CANDIDATES_FLOOR` floor matters for tiny page sizes
+    (e.g. page_size=5 would otherwise pull 50 candidates which loses
+    too many reasonable neighbours).
+    """
+    return max(RRF_NUM_CANDIDATES_FLOOR, page_size * RRF_NUM_CANDIDATES_MULT)
+
+
+def _build_speech_filters(
+    *,
+    speaker_person_id: str | None,
+    chamber: str | None,
+    document_id: str | None,
+    ref_bills: list[str] | None,
+    topics: list[str] | None,
+    is_substantive: bool,
+    date_from: str | None,
+    date_to: str | None,
+) -> list[dict[str, Any]]:
+    """Common filter list shared by search_speeches' BM25 + kNN legs.
+
+    Hoisted out so RRF (with two separate `query` retrievers) and
+    kNN-only debug queries don't duplicate the same boilerplate.
+    """
+    filters: list[dict[str, Any]] = []
+    if speaker_person_id:
+        filters.append({"term": {"speaker.person_id": speaker_person_id}})
+    if chamber:
+        filters.append({"term": {"chamber": chamber}})
+    if document_id:
+        filters.append({"term": {"document_id": document_id}})
+    if ref_bills:
+        filters.append({"terms": {"refs.bills": ref_bills}})
+    if topics:
+        filters.append({"terms": {"enrichments.topics": topics}})
+    if is_substantive:
+        filters.append({"term": {"is_substantive": True}})
+    rng = _date_range_filter("session_date", gte=date_from, lte=date_to)
+    if rng:
+        filters.append(rng)
+    return filters
+
+
+def _embed_query_text(
+    es: Elasticsearch, q: str, *, embed_url: str | None = None
+) -> list[float] | None:
+    """Resolve a free-text query to its 1024-dim BGE-M3 vector for kNN.
+
+    Lazily imported `httpx` so the query layer doesn't pay the import
+    cost when callers stick to BM25-only. The `embed_url` parameter
+    threads through from the caller; default reads `EMBED_URL` from the
+    environment with the producer module's documented fallback.
+
+    Returns None when the embed service is unreachable — the caller
+    should degrade to BM25-only rather than failing the whole query.
+    """
+    import os as _os
+
+    import httpx as _httpx
+
+    url = (embed_url or _os.environ.get("EMBED_URL") or "http://127.0.0.1:8000").rstrip(
+        "/"
+    )
+    try:
+        with _httpx.Client(timeout=_httpx.Timeout(10.0)) as client:
+            r = client.post(url + "/embed", json={"texts": [q], "normalize": True})
+            r.raise_for_status()
+            payload = r.json()
+            vectors = payload.get("vectors") or []
+            if not vectors:
+                return None
+            vec = vectors[0]
+            if not isinstance(vec, list):
+                return None
+            return vec
+    except Exception:  # noqa: BLE001 — degrade to BM25
+        return None
+
+
 def search_speeches(
     es: Elasticsearch,
     *,
@@ -254,6 +349,8 @@ def search_speeches(
     page: int = 1,
     page_size: int = DEFAULT_PAGE_SIZE,
     rank_fusion: str = "bm25-only",
+    embed_url: str | None = None,
+    query_vector: list[float] | None = None,
 ) -> SearchResult:
     """Speech search — the substrate for the public search page and the
     LLM-agent's "find quotes by X about Y" tool.
@@ -266,15 +363,83 @@ def search_speeches(
     / discourse-research view.
 
     `rank_fusion`:
-      - `"bm25-only"` (default for v1): plain `_score` ranking.
-      - `"rrf"`: the `_rrf` retriever over BM25 + kNN on
-        `enrichments.embedding`. Requires P3 embeddings to be populated;
-        falls back to BM25-only at runtime if the field is missing.
+      - `"bm25-only"` (default for v1): plain `_score` ranking. No
+        embedding required.
+      - `"rrf"`: ES native Reciprocal Rank Fusion over a BM25 leg
+        (multi_match) + a kNN leg (`enrichments.embedding`). When `q`
+        is provided and `query_vector` is None, the function calls
+        the embed service to vectorise `q`. If the embed service is
+        unreachable the function falls back to BM25-only and returns
+        a normal SearchResult (the caller doesn't need to handle the
+        degradation explicitly).
+      - `"knn-only"`: pure kNN retrieval; useful for ablation. Requires
+        a `query_vector` or `q` (with embed-service reachable); without
+        a vector this falls back to a `match_none` empty result rather
+        than to BM25, so the caller can detect the misconfiguration.
+
+    `query_vector` lets callers pre-compute the kNN vector themselves
+    (e.g. an LLM-agent that already has the embedding in context); when
+    set, the embed service is not called.
     """
     page_size = _clamp_page_size(page_size)
-    must: list[dict[str, Any]] = []
-    filters: list[dict[str, Any]] = []
+    filters = _build_speech_filters(
+        speaker_person_id=speaker_person_id,
+        chamber=chamber,
+        document_id=document_id,
+        ref_bills=ref_bills,
+        topics=topics,
+        is_substantive=is_substantive,
+        date_from=date_from,
+        date_to=date_to,
+    )
 
+    # kNN-only and RRF both want the query vector when q is set.
+    vector = query_vector
+    wants_vector = rank_fusion in ("rrf", "knn-only")
+    if wants_vector and vector is None and q:
+        vector = _embed_query_text(es, q, embed_url=embed_url)
+
+    if rank_fusion == "rrf" and vector is not None:
+        return _search_speeches_rrf(
+            es,
+            q=q,
+            filters=filters,
+            page=page,
+            page_size=page_size,
+            vector=vector,
+        )
+    if rank_fusion == "knn-only":
+        return _search_speeches_knn_only(
+            es,
+            filters=filters,
+            page=page,
+            page_size=page_size,
+            vector=vector,
+        )
+    # BM25-only — also the RRF degraded-fallback path when the embed
+    # service is unreachable, so the caller never crashes on a missing
+    # embedder.
+    return _search_speeches_bm25(
+        es,
+        q=q,
+        filters=filters,
+        page=page,
+        page_size=page_size,
+    )
+
+
+def _search_speeches_bm25(
+    es: Elasticsearch,
+    *,
+    q: str | None,
+    filters: list[dict[str, Any]],
+    page: int,
+    page_size: int,
+) -> SearchResult:
+    """Plain BM25 multi_match. The historical default; same DSL the
+    function emitted before RRF was wired.
+    """
+    must: list[dict[str, Any]] = []
     if q:
         must.append(
             {
@@ -290,24 +455,6 @@ def search_speeches(
                 }
             }
         )
-
-    if speaker_person_id:
-        filters.append({"term": {"speaker.person_id": speaker_person_id}})
-    if chamber:
-        filters.append({"term": {"chamber": chamber}})
-    if document_id:
-        filters.append({"term": {"document_id": document_id}})
-    if ref_bills:
-        filters.append({"terms": {"refs.bills": ref_bills}})
-    if topics:
-        filters.append({"terms": {"enrichments.topics": topics}})
-    if is_substantive:
-        filters.append({"term": {"is_substantive": True}})
-
-    rng = _date_range_filter("session_date", gte=date_from, lte=date_to)
-    if rng:
-        filters.append(rng)
-
     body: dict[str, Any] = {
         "from": _from(page, page_size),
         "size": page_size,
@@ -324,20 +471,175 @@ def search_speeches(
         ),
         "track_total_hits": True,
     }
-
-    # rank_fusion is intentionally a no-op until P3 embeddings ship.
-    # Documenting the param now keeps the call sites stable across
-    # the upcoming change; once `enrichments.embedding` is populated,
-    # branch here on `rank_fusion == "rrf"` and emit a `retriever`
-    # block instead of a `query` block.
-    _ = rank_fusion
-
     response = es.search(index=INDEX_SPEECHES, body=body)
     return SearchResult(
         total=_hits_total(response),
         page=page,
         page_size=page_size,
         hits=_to_hits(response),
+    )
+
+
+def _search_speeches_rrf(
+    es: Elasticsearch,
+    *,
+    q: str | None,
+    filters: list[dict[str, Any]],
+    page: int,
+    page_size: int,
+    vector: list[float],
+) -> SearchResult:
+    """ES 8.9+ Reciprocal Rank Fusion over BM25 + kNN.
+
+    We emit a `retriever` block (the post-8.10 retriever DSL) with two
+    `standard` legs combined under `rrf`. ES merges the rank lists
+    server-side; the result hits' `_score` is the RRF-merged score,
+    not raw BM25 / cosine similarity.
+    """
+    bm25_query: dict[str, Any] = {
+        "bool": {
+            "must": [
+                {
+                    "multi_match": {
+                        "query": q,
+                        "fields": [
+                            "text^2",
+                            "agenda_title^1.5",
+                            "speaker.name_search",
+                        ],
+                        "type": "best_fields",
+                        "operator": "or",
+                    }
+                }
+            ]
+            if q
+            else [{"match_all": {}}],
+            "filter": filters,
+        }
+    }
+    knn_block: dict[str, Any] = {
+        "field": "enrichments.embedding",
+        "query_vector": vector,
+        "k": page_size,
+        "num_candidates": _rrf_num_candidates(page_size),
+    }
+    if filters:
+        # ES allows post-filters on knn via the `filter` key; pre-filter
+        # the candidates so kNN doesn't waste candidates on rows the
+        # bool filters would have rejected.
+        knn_block["filter"] = {"bool": {"filter": filters}}
+
+    body: dict[str, Any] = {
+        "size": page_size,
+        "from": _from(page, page_size),
+        "retriever": {
+            "rrf": {
+                "retrievers": [
+                    {"standard": {"query": bm25_query}},
+                    {"knn": knn_block},
+                ],
+                "rank_window_size": max(page_size, RRF_NUM_CANDIDATES_FLOOR),
+                "rank_constant": RRF_RANK_CONSTANT,
+            }
+        },
+        "track_total_hits": True,
+    }
+    response = es.search(index=INDEX_SPEECHES, body=body)
+    return SearchResult(
+        total=_hits_total(response),
+        page=page,
+        page_size=page_size,
+        hits=_to_hits(response),
+    )
+
+
+def _search_speeches_knn_only(
+    es: Elasticsearch,
+    *,
+    filters: list[dict[str, Any]],
+    page: int,
+    page_size: int,
+    vector: list[float] | None,
+) -> SearchResult:
+    """kNN-only retrieval — used for ablation and the explicit
+    "search by semantic similarity only" agent tool.
+
+    Without a vector, returns an empty SearchResult (rather than
+    silently degrading to BM25) so the caller can detect that the
+    embed service was unreachable for an explicit kNN request.
+    """
+    if vector is None:
+        return SearchResult(total=0, page=page, page_size=page_size, hits=[])
+    knn_block: dict[str, Any] = {
+        "field": "enrichments.embedding",
+        "query_vector": vector,
+        "k": page_size,
+        "num_candidates": _rrf_num_candidates(page_size),
+    }
+    if filters:
+        knn_block["filter"] = {"bool": {"filter": filters}}
+    body: dict[str, Any] = {
+        "size": page_size,
+        "from": _from(page, page_size),
+        "knn": knn_block,
+        "track_total_hits": True,
+    }
+    response = es.search(index=INDEX_SPEECHES, body=body)
+    return SearchResult(
+        total=_hits_total(response),
+        page=page,
+        page_size=page_size,
+        hits=_to_hits(response),
+    )
+
+
+def search_speeches_knn(
+    es: Elasticsearch,
+    *,
+    q: str | None = None,
+    query_vector: list[float] | None = None,
+    speaker_person_id: str | None = None,
+    chamber: str | None = None,
+    document_id: str | None = None,
+    date_from: str | None = None,
+    date_to: str | None = None,
+    ref_bills: list[str] | None = None,
+    topics: list[str] | None = None,
+    is_substantive: bool = True,
+    page: int = 1,
+    page_size: int = DEFAULT_PAGE_SIZE,
+    embed_url: str | None = None,
+) -> SearchResult:
+    """Pure-kNN debug query: useful for "would the embedding leg alone
+    have found the right hit?" ablation runs against a populated
+    cluster.
+
+    Resolves `q` → vector via the embed service (or accepts a
+    pre-computed `query_vector`). Returns empty when no vector can be
+    obtained, which is the explicit signal the embed service is down
+    or unconfigured (BM25 fallback is intentionally NOT applied here —
+    that's `search_speeches`'s job).
+    """
+    page_size = _clamp_page_size(page_size)
+    filters = _build_speech_filters(
+        speaker_person_id=speaker_person_id,
+        chamber=chamber,
+        document_id=document_id,
+        ref_bills=ref_bills,
+        topics=topics,
+        is_substantive=is_substantive,
+        date_from=date_from,
+        date_to=date_to,
+    )
+    vector = query_vector
+    if vector is None and q:
+        vector = _embed_query_text(es, q, embed_url=embed_url)
+    return _search_speeches_knn_only(
+        es,
+        filters=filters,
+        page=page,
+        page_size=page_size,
+        vector=vector,
     )
 
 
@@ -770,6 +1072,7 @@ def agg_speeches_by_party_year(
 # expose `es.search` directly.
 NAMED_QUERIES: dict[str, Any] = {
     "search_speeches": search_speeches,
+    "search_speeches_knn": search_speeches_knn,
     "list_document_children": list_document_children,
     "get_document": get_document,
     "list_documents_by_date": list_documents_by_date,
@@ -801,6 +1104,7 @@ __all__ = [
     "SearchResult",
     "PersonPage",
     "search_speeches",
+    "search_speeches_knn",
     "list_document_children",
     "get_document",
     "list_documents_by_date",
@@ -811,5 +1115,8 @@ __all__ = [
     "list_committee_meetings",
     "get_report",
     "agg_speeches_by_party_year",
+    "RRF_RANK_CONSTANT",
+    "RRF_NUM_CANDIDATES_MULT",
+    "RRF_NUM_CANDIDATES_FLOOR",
     "NAMED_QUERIES",
 ]

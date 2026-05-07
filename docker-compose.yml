@@ -1,0 +1,77 @@
+# Local development stack for monitorul.ai.
+#
+# Currently just the BGE-M3 embedding service used by `monitorul-ii embed`
+# (the producer) and `monitorul-ii query --rank-fusion=rrf` (the query
+# layer's hybrid-search leg). ES is intentionally NOT included — the
+# design doc is explicit that ES is a derived projection, not the SOT,
+# and production runs against external infrastructure (`ES_URL` /
+# `ES_API_KEY` in `.env`).
+#
+# Default (CPU; works anywhere):
+#   docker compose up
+#   docker compose up -d        # detached
+#   docker compose logs -f embed
+#
+# GPU (requires nvidia-container-toolkit on the host):
+#   docker compose --profile gpu up
+#
+# The same image runs in both modes — modern torch wheels ship CUDA
+# libraries as transitive dependencies, so `torch.cuda.is_available()`
+# resolves at runtime based on whether `--gpus all` was passed. The
+# `gpu` profile flips that resource reservation on; the `cpu` (default)
+# profile leaves it off.
+#
+# The named `hf-cache` volume keeps the ~2 GB BAAI/bge-m3 weights warm
+# across container rebuilds — first run downloads, every subsequent
+# `up` is instant. Delete with `docker volume rm monitorul_hf-cache` to
+# force a re-download (e.g. after a model bump).
+
+x-embed-common: &embed-common
+  build:
+    context: ./services/embed
+  image: monitorul-embed:latest
+  restart: unless-stopped
+  environment:
+    EMBED_MODEL_ID: ${EMBED_MODEL_ID:-BAAI/bge-m3}
+    EMBED_MAX_BATCH_SIZE: ${EMBED_MAX_BATCH_SIZE:-32}
+  volumes:
+    - hf-cache:/cache/hf
+  healthcheck:
+    test: ["CMD", "curl", "-fsS", "http://localhost:8000/healthz"]
+    interval: 30s
+    timeout: 5s
+    retries: 5
+    start_period: 120s
+
+services:
+  # CPU service — the default `docker compose up` target.
+  embed:
+    <<: *embed-common
+    container_name: monitorul-embed
+    profiles: ["", "cpu"]
+    ports:
+      - "${EMBED_PORT:-8000}:8000"
+
+  # GPU service — same image, opted into via `--profile gpu`. The
+  # `deploy.resources.reservations.devices` block is what compose
+  # translates to `--gpus all` at runtime.
+  embed-gpu:
+    <<: *embed-common
+    container_name: monitorul-embed-gpu
+    profiles: ["gpu"]
+    ports:
+      - "${EMBED_PORT:-8000}:8000"
+    environment:
+      EMBED_MODEL_ID: ${EMBED_MODEL_ID:-BAAI/bge-m3}
+      EMBED_MAX_BATCH_SIZE: ${EMBED_MAX_BATCH_SIZE:-64}
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+
+volumes:
+  hf-cache:
+    name: monitorul_hf-cache

@@ -692,6 +692,80 @@ def _build_parser() -> argparse.ArgumentParser:
     )
     index_cmd.set_defaults(func=cmd_index)
 
+    embed = sub.add_parser(
+        "embed",
+        help="Project sidecar records to BGE-M3 embeddings via the embed service.",
+        description=(
+            "Walk `*.extraction.json` sidecars, batch every embeddable "
+            "record (substantive speeches, agenda titles, interpellation "
+            "topics+question text, qr questions, committee meeting "
+            "purposes, report titles+headings) to the BGE-M3 embedding "
+            "service, and persist the 1024-dim vectors as "
+            "`<basename>.embedding.bge-m3.v0_1.json` next to the sidecar. "
+            "The indexer's enrichment loader picks the file up "
+            "automatically on the next `monitorul-ii index` run, "
+            "populating `enrichments.embedding` (dense_vector) and "
+            "`enrichments.embedding_text_fingerprint` (keyword) on every "
+            "grain that supports kNN retrieval (Q8 of "
+            "`docs/elasticsearch-indexing.md`).\n"
+            "Idempotent: each entry stores a `text_fingerprint` "
+            "(sha256 of NFC + whitespace-collapsed text, 12 hex chars). "
+            "On re-run, fingerprint-matched entries reuse the existing "
+            "vector verbatim — no HTTP call, no file rewrite. Mismatches "
+            "trigger a re-embed so the hybrid search never serves a "
+            "vector that doesn't match its text.\n"
+            "Service URL is read from `--embed-url`, then `EMBED_URL` "
+            "env var, then defaults to `http://127.0.0.1:8000`."
+        ),
+    )
+    embed.add_argument(
+        "paths",
+        nargs="+",
+        type=Path,
+        help="Sidecar JSON files or directories (non-recursive).",
+    )
+    embed.add_argument(
+        "--force",
+        action="store_true",
+        help=(
+            "Re-embed every record regardless of `text_fingerprint` "
+            "match. Pair with a model bump or after the producer's "
+            "normalisation rules change."
+        ),
+    )
+    embed.add_argument(
+        "--dry-run",
+        action="store_true",
+        help=(
+            "Walk the sidecars and report which records would be "
+            "embedded vs reused, without contacting the service or "
+            "writing files."
+        ),
+    )
+    embed.add_argument(
+        "--embed-url",
+        default=None,
+        metavar="URL",
+        help=(
+            "Embedding service base URL (default: $EMBED_URL or "
+            "http://127.0.0.1:8000). The service must respond to "
+            "`GET /healthz` and `POST /embed`."
+        ),
+    )
+    embed.add_argument(
+        "--batch-size",
+        type=int,
+        default=None,
+        metavar="N",
+        help=(
+            "Texts per HTTP request to the embed service (default: 32). "
+            "Higher values reduce overhead at the cost of larger "
+            "request bodies; the service may re-batch internally."
+        ),
+    )
+    _add_s3_args(embed)
+    embed.set_defaults(func=cmd_embed)
+
     query = sub.add_parser(
         "query",
         help="Run a named reference query against the live `mo-*` indices.",
@@ -713,7 +787,8 @@ def _build_parser() -> argparse.ArgumentParser:
         required=True,
         metavar="QUERY",
         help=(
-            "Named query to run. One of: search_speeches, get_document, "
+            "Named query to run. One of: search_speeches, "
+            "search_speeches_knn, list_document_children, get_document, "
             "list_documents_by_date, get_agenda_item, get_speech, "
             "person_page, search_persons, list_committee_meetings, "
             "get_report, agg_speeches_by_party_year. See "
@@ -2628,6 +2703,7 @@ def cmd_es_init(args: argparse.Namespace) -> int:
 
 
 _INDEX_HEARTBEAT_EVERY = 50
+_EMBED_HEARTBEAT_EVERY = 25  # sidecars, for embed in pipes
 
 
 class _IndexProgressReporter:
@@ -2928,6 +3004,268 @@ def cmd_index(args: argparse.Namespace) -> int:
     return 1 if counters["errors"] else 0
 
 
+class _EmbedProgressReporter:
+    """Live `rich` bar for `embed` when stderr is a tty; heartbeat in pipes.
+
+    Mirrors the other reporters' shape; counters tracked are
+    `embedded` (records sent to the service this run), `reused`
+    (fingerprint-matched skips), `truncated` (records clipped at
+    `MAX_TEXT_CHARS`), `skipped_files` (sidecars with no embed-eligible
+    records or zero-delta runs), and `errors`.
+    """
+
+    def __init__(self, total: int, counters: dict[str, int]) -> None:
+        self.total = total
+        self.counters = counters
+        self.start = time.monotonic()
+        self.done = 0
+        self._tty = sys.stderr.isatty()
+        self._progress = None
+        self._task = None
+        if self._tty and total > 0:
+            from rich.console import Console
+            from rich.progress import (
+                BarColumn,
+                MofNCompleteColumn,
+                Progress,
+                TextColumn,
+                TimeElapsedColumn,
+                TimeRemainingColumn,
+            )
+
+            self._progress = Progress(
+                BarColumn(bar_width=None),
+                TextColumn("[progress.percentage]{task.percentage:>5.1f}%"),
+                MofNCompleteColumn(),
+                TextColumn("·"),
+                TextColumn("[cyan]{task.description}"),
+                TextColumn("·"),
+                TimeElapsedColumn(),
+                TextColumn("ETA"),
+                TimeRemainingColumn(),
+                console=Console(stderr=True),
+                transient=False,
+            )
+            self._task = self._progress.add_task(self._desc(), total=total)
+
+    def _desc(self) -> str:
+        c = self.counters
+        s = (
+            f"emb={c['embedded']:,} reuse={c['reused']:,} "
+            f"trunc={c['truncated']:,} skip={c['skipped_files']:,} "
+            f"err={c['errors']:,}"
+        )
+        if c.get("uploaded") or c.get("in_bucket") or c.get("upload_errors"):
+            s += (
+                f" · s3 up={c['uploaded']:,} have={c['in_bucket']:,}"
+                f" err={c['upload_errors']:,}"
+            )
+        return s
+
+    def __enter__(self) -> "_EmbedProgressReporter":
+        if self._progress is not None:
+            self._progress.start()
+        return self
+
+    def __exit__(self, *exc: object) -> None:
+        if self._progress is not None:
+            self._progress.stop()
+
+    def print(self, line: str, *, err: bool = False) -> None:
+        if self._progress is not None:
+            self._progress.console.print(line, highlight=False)
+            self._progress.update(self._task, description=self._desc())
+        else:
+            print(line, file=sys.stderr if err else sys.stdout, flush=True)
+
+    def advance(self) -> None:
+        self.done += 1
+        if self._progress is not None:
+            self._progress.update(self._task, advance=1, description=self._desc())
+            return
+        if self.done % _EMBED_HEARTBEAT_EVERY == 0 and self.done < self.total:
+            elapsed = time.monotonic() - self.start
+            rate = self.done / elapsed if elapsed > 0 else 0.0
+            eta = (self.total - self.done) / rate if rate > 0 else 0.0
+            pct = self.done / self.total * 100 if self.total else 0.0
+            print(
+                f"progress: {self.done:,}/{self.total:,} ({pct:.1f}%) | "
+                f"{self._desc()} | "
+                f"elapsed={_fmt_duration(elapsed)} ETA={_fmt_duration(eta)}",
+                file=sys.stderr,
+                flush=True,
+            )
+
+
+def cmd_embed(args: argparse.Namespace) -> int:
+    """`monitorul-ii embed <path>...` — drive the BGE-M3 producer.
+
+    Resolves the embed-service URL from CLI flag → env var →
+    default; smoke-tests `/healthz` before walking the sidecar list
+    so a misconfigured endpoint fails fast. Each sidecar's
+    `embed_sidecar(...)` result feeds a counters dict the
+    `_EmbedProgressReporter` renders; modified embedding files
+    optionally mirror to S3 with `Content-Type: application/json`.
+    """
+    from monitorul_ii.extraction.enrichments.embedding import (
+        DEFAULT_BATCH_SIZE,
+        DEFAULT_EMBED_URL,
+        embed_sidecar as _embed_sidecar,
+    )
+    from monitorul_ii.extraction.enrichments.embedding import (
+        healthcheck as _embed_healthcheck,
+    )
+
+    sidecars = _collect_sidecars(list(args.paths))
+    if not sidecars:
+        print("no .extraction.json files found", file=sys.stderr)
+        return 0
+
+    embed_url = (
+        args.embed_url or os.environ.get("EMBED_URL") or DEFAULT_EMBED_URL
+    ).rstrip("/")
+    batch_size = int(args.batch_size or DEFAULT_BATCH_SIZE)
+
+    if not args.dry_run:
+        ok, detail = _embed_healthcheck(embed_url)
+        if not ok:
+            print(
+                f"embed: service at {embed_url} is unreachable ({detail}). "
+                f"Start `services/embed` or pass `--embed-url=` / set $EMBED_URL.",
+                file=sys.stderr,
+            )
+            return 2
+        print(f"embed: service ok at {embed_url} (model_id={detail})")
+    else:
+        print(f"embed: dry-run (would target {embed_url})")
+
+    uploader = _resolve_uploader(args)
+
+    counters: dict[str, int] = {
+        "embedded": 0,
+        "reused": 0,
+        "truncated": 0,
+        "skipped_files": 0,
+        "errors": 0,
+        "uploaded": 0,
+        "in_bucket": 0,
+        "upload_errors": 0,
+    }
+
+    import httpx as _httpx
+
+    try:
+        with (
+            _httpx.Client(timeout=_httpx.Timeout(120.0)) as http_client,
+            _EmbedProgressReporter(len(sidecars), counters) as report,
+        ):
+            for path in sidecars:
+                try:
+                    result = _embed_sidecar(
+                        path,
+                        embed_url=embed_url,
+                        force=args.force,
+                        write=not args.dry_run,
+                        dry_run=args.dry_run,
+                        batch_size=batch_size,
+                        client=http_client,
+                    )
+                except KeyboardInterrupt:
+                    raise
+                except Exception as exc:  # noqa: BLE001 — surface to operator
+                    counters["errors"] += 1
+                    report.print(f"  ERR  {path.name}  ({exc!r})", err=True)
+                    report.advance()
+                    continue
+
+                if result.action == "embedded":
+                    counters["embedded"] += result.embedded
+                    counters["reused"] += result.reused
+                    counters["truncated"] += result.truncated
+                    line = (
+                        f"  ok   {path.name}  "
+                        f"[emb={result.embedded} reuse={result.reused}"
+                    )
+                    if result.truncated:
+                        line += f" trunc={result.truncated}"
+                    line += "]"
+                    report.print(line)
+                elif result.action == "skipped":
+                    counters["skipped_files"] += 1
+                    counters["reused"] += result.reused
+                    report.print(f"  skip {path.name}  [reuse={result.reused}]")
+                elif result.action == "dry-run":
+                    counters["embedded"] += result.embedded
+                    counters["reused"] += result.reused
+                    counters["truncated"] += result.truncated
+                    report.print(
+                        f"  dry  {path.name}  "
+                        f"[would-embed={result.embedded} reuse={result.reused}]"
+                    )
+                else:  # error
+                    counters["errors"] += 1
+                    msg = "; ".join(result.errors) or "unknown"
+                    report.print(f"  ERR  {path.name}  ({msg})", err=True)
+
+                # Mirror the (modified) embedding file to S3 if uploader
+                # is configured. We always overwrite — embedding files
+                # are mutable per-record (existing entries reuse, new
+                # ones append) and the uploader's default head-object
+                # gate would otherwise miss the diff.
+                if (
+                    uploader is not None
+                    and result.action == "embedded"
+                    and result.file_path is not None
+                    and result.file_path.exists()
+                    and result.file_path.stat().st_size > 0
+                ):
+                    try:
+                        up = uploader.upload_if_missing(
+                            result.file_path,
+                            content_type="application/json",
+                            overwrite=True,
+                        )
+                        if up.uploaded:
+                            counters["uploaded"] += 1
+                            report.print(f"  s3+   {result.file_path.name}")
+                        else:
+                            counters["in_bucket"] += 1
+                            report.print(f"  s3=   {result.file_path.name}")
+                    except Exception as exc:  # noqa: BLE001
+                        counters["upload_errors"] += 1
+                        report.print(
+                            f"  s3!   {result.file_path.name}  ({exc})",
+                            err=True,
+                        )
+
+                report.advance()
+    except KeyboardInterrupt:
+        print(
+            f"\ninterrupted: embedded={counters['embedded']} "
+            f"reused={counters['reused']} truncated={counters['truncated']} "
+            f"skipped_files={counters['skipped_files']} "
+            f"errors={counters['errors']}",
+            file=sys.stderr,
+        )
+        return 130
+
+    summary = (
+        f"embedded={counters['embedded']} "
+        f"reused={counters['reused']} "
+        f"truncated={counters['truncated']} "
+        f"skipped_files={counters['skipped_files']} "
+        f"errors={counters['errors']}"
+    )
+    if counters["uploaded"] or counters["in_bucket"] or counters["upload_errors"]:
+        summary += (
+            f" | s3 uploaded={counters['uploaded']} "
+            f"in-bucket={counters['in_bucket']} "
+            f"errors={counters['upload_errors']}"
+        )
+    print(summary, flush=True)
+    return 1 if counters["errors"] or counters["upload_errors"] else 0
+
+
 # Each named query gets a tuple of param names that should be promoted
 # from the --params dict to positional arguments at call time. Keep
 # this small + explicit — it's the only place CLI ↔ Python signature
@@ -2935,6 +3273,7 @@ def cmd_index(args: argparse.Namespace) -> int:
 # for a kwarg and surfaces as a misleading TypeError.
 _QUERY_POSITIONALS: dict[str, tuple[str, ...]] = {
     "search_speeches": (),
+    "search_speeches_knn": (),
     "list_document_children": ("document_id",),
     "get_document": ("document_id",),
     "list_documents_by_date": ("date",),

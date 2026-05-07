@@ -482,6 +482,7 @@ def test_named_queries_table_covers_all_public_functions():
     # `--name` switch.
     expected = {
         "search_speeches",
+        "search_speeches_knn",
         "list_document_children",
         "get_document",
         "list_documents_by_date",
@@ -654,3 +655,187 @@ def test_search_hit_carries_index_field():
     )
     result = queries.list_documents_by_date(es, "2018-11-13")
     assert result.hits[0].index == "mo-documents"
+
+
+# ----------------------------------------------------------------------
+# 12. RRF + kNN rank fusion (P3)
+# ----------------------------------------------------------------------
+
+
+def _vec(seed: int = 0, dim: int = 1024) -> list[float]:
+    base = (seed + 1) * 1e-3
+    return [base + i * 1e-7 for i in range(dim)]
+
+
+def test_search_speeches_bm25_only_default_emits_query_block():
+    """Default `rank_fusion="bm25-only"` retains the historical DSL —
+    no `retriever` block, no kNN. Smoke check against the regression of
+    silently sending kNN when callers haven't asked.
+    """
+    es = FakeES({queries.INDEX_SPEECHES: _hits_payload([])})
+    queries.search_speeches(es, q="reformă")
+    body = es.search_calls[0]["body"]
+    assert "retriever" not in body
+    assert "knn" not in body
+    assert body["query"]["bool"]["must"][0]["multi_match"]["query"] == "reformă"
+
+
+def test_search_speeches_rrf_emits_retriever_with_both_legs():
+    """RRF mode should produce a `retriever.rrf` block with two
+    `retrievers` (BM25 standard + kNN), using the configured rank
+    constant.
+    """
+    es = FakeES({queries.INDEX_SPEECHES: _hits_payload([])})
+    queries.search_speeches(
+        es,
+        q="reformă justiție",
+        rank_fusion="rrf",
+        query_vector=_vec(0),
+        page_size=20,
+    )
+    body = es.search_calls[0]["body"]
+    assert "retriever" in body
+    rrf = body["retriever"]["rrf"]
+    assert rrf["rank_constant"] == queries.RRF_RANK_CONSTANT
+    legs = rrf["retrievers"]
+    assert len(legs) == 2
+    # First leg: BM25 standard query.
+    assert "standard" in legs[0]
+    bm25 = legs[0]["standard"]["query"]["bool"]
+    assert bm25["must"][0]["multi_match"]["query"] == "reformă justiție"
+    # Second leg: kNN over enrichments.embedding.
+    assert "knn" in legs[1]
+    knn = legs[1]["knn"]
+    assert knn["field"] == "enrichments.embedding"
+    assert knn["k"] == 20
+    assert len(knn["query_vector"]) == 1024
+
+
+def test_search_speeches_rrf_propagates_filters_to_knn_leg():
+    """Filters (chamber, dates, etc.) must apply to the kNN leg too —
+    otherwise kNN candidates would include records the BM25 leg's
+    bool filter rejects, and RRF would up-weight them with no offset.
+    """
+    es = FakeES({queries.INDEX_SPEECHES: _hits_payload([])})
+    queries.search_speeches(
+        es,
+        q="educație",
+        rank_fusion="rrf",
+        query_vector=_vec(0),
+        chamber="Senat",
+        date_from="2018-01-01",
+        date_to="2018-12-31",
+    )
+    legs = es.search_calls[0]["body"]["retriever"]["rrf"]["retrievers"]
+    knn = legs[1]["knn"]
+    assert "filter" in knn
+    bool_filter = knn["filter"]["bool"]["filter"]
+    # chamber + range + is_substantive
+    assert any(f.get("term") == {"chamber": "Senat"} for f in bool_filter)
+    assert any("range" in f and "session_date" in f["range"] for f in bool_filter)
+    assert any(f.get("term") == {"is_substantive": True} for f in bool_filter)
+
+
+def test_search_speeches_rrf_falls_back_when_no_vector_available():
+    """When `rank_fusion="rrf"` but no `query_vector` is provided AND
+    the embed service is unreachable, the function must degrade to
+    BM25-only rather than crash. The call site doesn't see an RRF
+    body — the DSL switches back to the default shape.
+    """
+    es = FakeES({queries.INDEX_SPEECHES: _hits_payload([])})
+    # No vector; no embed_url override; the helper will hit the default
+    # localhost endpoint which is unreachable from the test runner.
+    # Patch the embed-resolution helper to simulate the unreachable
+    # service explicitly so the test is hermetic.
+    from monitorul_ii.elasticsearch import queries as q
+
+    real = q._embed_query_text
+    try:
+        q._embed_query_text = lambda *a, **kw: None
+        queries.search_speeches(es, q="some query", rank_fusion="rrf")
+    finally:
+        q._embed_query_text = real
+    body = es.search_calls[0]["body"]
+    assert "retriever" not in body
+    # The fallback path emitted the historical bool/multi_match shape.
+    assert body["query"]["bool"]["must"][0]["multi_match"]["query"] == "some query"
+
+
+def test_search_speeches_knn_only_with_explicit_vector():
+    """`rank_fusion="knn-only"` + a precomputed vector → pure kNN body."""
+    es = FakeES({queries.INDEX_SPEECHES: _hits_payload([])})
+    queries.search_speeches(
+        es,
+        rank_fusion="knn-only",
+        query_vector=_vec(0),
+        page_size=10,
+    )
+    body = es.search_calls[0]["body"]
+    assert "knn" in body
+    assert body["knn"]["field"] == "enrichments.embedding"
+    assert body["knn"]["k"] == 10
+    assert "retriever" not in body
+    # No multi_match should be emitted in kNN-only mode.
+    assert "query" not in body or "bool" not in body.get("query", {})
+
+
+def test_search_speeches_knn_only_returns_empty_when_no_vector():
+    """kNN-only mode WITHOUT a vector must NOT silently degrade to
+    BM25; it must return an empty SearchResult so the caller can
+    detect the misconfiguration.
+    """
+    es = FakeES({queries.INDEX_SPEECHES: _hits_payload([])})
+    from monitorul_ii.elasticsearch import queries as q
+
+    real = q._embed_query_text
+    try:
+        q._embed_query_text = lambda *a, **kw: None
+        result = queries.search_speeches(
+            es,
+            q="some query",
+            rank_fusion="knn-only",
+        )
+    finally:
+        q._embed_query_text = real
+    # No ES call was made (we returned an empty SearchResult before
+    # reaching `es.search`).
+    assert es.search_calls == []
+    assert result.total == 0
+    assert result.hits == []
+
+
+def test_search_speeches_knn_query_helper_returns_empty_without_vector():
+    """The dedicated `search_speeches_knn` debug query never falls back
+    to BM25; its purpose is ablation, so the empty result is the
+    explicit signal.
+    """
+    es = FakeES({queries.INDEX_SPEECHES: _hits_payload([])})
+    from monitorul_ii.elasticsearch import queries as q
+
+    real = q._embed_query_text
+    try:
+        q._embed_query_text = lambda *a, **kw: None
+        result = queries.search_speeches_knn(es, q="x")
+    finally:
+        q._embed_query_text = real
+    assert result.total == 0
+    assert es.search_calls == []
+
+
+def test_search_speeches_knn_query_helper_uses_provided_vector():
+    es = FakeES({queries.INDEX_SPEECHES: _hits_payload([])})
+    queries.search_speeches_knn(
+        es, query_vector=_vec(0), is_substantive=False, page_size=15
+    )
+    body = es.search_calls[0]["body"]
+    assert body["knn"]["field"] == "enrichments.embedding"
+    assert body["knn"]["k"] == 15
+    # is_substantive was disabled — no such filter on the kNN block.
+    knn_filters = body["knn"].get("filter", {}).get("bool", {}).get("filter", [])
+    assert not any(f == {"term": {"is_substantive": True}} for f in knn_filters)
+
+
+def test_named_queries_includes_knn_helper():
+    """The CLI dispatch table must register the new query name."""
+    assert "search_speeches_knn" in queries.NAMED_QUERIES
+    assert queries.NAMED_QUERIES["search_speeches_knn"] is queries.search_speeches_knn
