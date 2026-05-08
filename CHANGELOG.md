@@ -1,5 +1,22 @@
 # Changelog
 
+## [0.16.0](https://github.com/ciocan/monitorul-ii/compare/monitorul-ii-v0.15.0...monitorul-ii-v0.16.0) (2026-05-08)
+
+
+### Features
+
+* **catchup:** implement end-to-end pipeline catch-up runner ([46bd73e](https://github.com/ciocan/monitorul-ii/commit/46bd73ebea404526b81709a15d1ae1c5ab2887fb))
+* **data:** add calibration data for gemini-3.1-flash-lite model ([c2fcffb](https://github.com/ciocan/monitorul-ii/commit/c2fcffbdcf74a0abf878dbaa846573d54bbb4eac))
+* **data:** add discourse frameworks and model benchmarks ([2024465](https://github.com/ciocan/monitorul-ii/commit/20244659102c6774c831d3b5db337304d67fbb04))
+* **elasticsearch:** add diacritic-insensitive search support ([1930cea](https://github.com/ciocan/monitorul-ii/commit/1930cea640c03ac9993416aeb9e344093f7665a4))
+* **extraction:** enhance speaker normalization and registry cleanup ([1f37af9](https://github.com/ciocan/monitorul-ii/commit/1f37af992548c0327a57d14d573103b8b9a21379))
+
+
+### Documentation
+
+* **elasticsearch:** update substantive content filter rationale and threshold ([d786ce9](https://github.com/ciocan/monitorul-ii/commit/d786ce9dc82296a4af12e9d9a1b74bfb3f911977))
+* **ocr:** introduce scanned PDF triage script for OCR diagnostics ([372407e](https://github.com/ciocan/monitorul-ii/commit/372407e81b4f80b59b45a84f4f4268571c25bfd0))
+
 ## [0.15.0](https://github.com/ciocan/monitorul-ii/compare/monitorul-ii-v0.14.0...monitorul-ii-v0.15.0) (2026-05-07)
 
 
