@@ -751,8 +751,14 @@ def backfill_persons(
       - target slot already holds the same canonical id → skip-not-write.
       - target slot holds a different id → skip unless `force=True`.
       - target slot is null and registry returns no match → skip-not-write.
+      - target slot holds a stale id and the matcher now returns no match
+        (e.g. a tightened fuzzy tier rejected what an earlier matcher
+        version accepted) → skip unless `force=True`; under `force=True`
+        the field is cleared to null. This is the recovery path after a
+        precision-improving matcher change.
 
-    `force=True` overwrites mismatches.
+    `force=True` overwrites mismatches AND clears stale fills when the
+    matcher no longer resolves the speaker.
     `write=False` runs the full logic (including matching) without
     touching disk — the test + --dry-run path.
 
@@ -796,9 +802,19 @@ def backfill_persons(
         canonical, via = normalize_speaker(target_input, context_year=context_year)
         existing = speaker.get("person_id")
         if canonical is None:
-            skip_counts["no registry match"] = (
-                skip_counts.get("no registry match", 0) + 1
-            )
+            # Recovery path: the matcher returned no match but the field
+            # already holds an id from an earlier matcher version (e.g.
+            # the joined-Lev≤2 fuzzy tier that was tightened). Under
+            # --force we clear the stale fill so the data reflects the
+            # current matcher's truth; without --force we leave it alone
+            # so manual operator-set ids aren't silently dropped.
+            if existing not in (None, "") and force:
+                speaker["person_id"] = None
+                fills.append((target_input, "<cleared>", via or "exact"))
+            else:
+                skip_counts["no registry match"] = (
+                    skip_counts.get("no registry match", 0) + 1
+                )
             continue
         if existing == canonical:
             skip_counts["already filled"] = skip_counts.get("already filled", 0) + 1

@@ -221,7 +221,10 @@ uv run monitorul-ii backfill pdfs/ --kind=persons
 # preview without writing anything to disk or S3
 uv run monitorul-ii backfill pdfs/ --dry-run
 
-# overwrite existing *_normalized values when the registry now resolves a different id
+# overwrite existing *_normalized values when the registry now resolves a different id;
+# on the persons pass, --force ALSO clears stale Speaker.person_id values when the
+# matcher now returns no match (recovery path after a precision-improving matcher
+# change, e.g. the per-token fuzzy tier rejecting an old joined-Lev≤2 false positive)
 uv run monitorul-ii backfill pdfs/ --force
 
 # skip the S3 mirror (otherwise modified sidecars re-upload)

@@ -178,6 +178,63 @@ def _is_junk_name(s: str) -> bool:
     return False
 
 
+# Patterns that indicate the cluster's canonical form is a corpus
+# artefact rather than a person name. Each one fired in production on a
+# real polluted stub (444 entries, 3,195 Speaker references) — see
+# `docs/architecture.md` § "registry pollution cleanup". Casefold
+# matching everywhere; ordering doesn't matter (any-hit rejects).
+_POLLUTION_PATTERNS: tuple[re.Pattern[str], ...] = (
+    # MO trailing footer: `EDITOR: PARLAMENTUL ROMÂNIEI — CAMERA DEPUTAȚILOR`.
+    re.compile(r"\bEDITOR\s*:", re.IGNORECASE),
+    # Institutional footer / banner: `PARLAMENTUL ROMÂNIEI`.
+    re.compile(r"\bPARLAMENTUL\b"),
+    re.compile(r"\bACTIVITATEA\s+EDITORIAL", re.IGNORECASE),
+    # Roster narrative leakage: `... au fost prezenți la sediul Camerei
+    # Deputaților`, `... au fost absenți`, `... au participat la lucrările`.
+    re.compile(r"\bau\s+fost\s+(prezen|absen|aleși|alesi)", re.IGNORECASE),
+    re.compile(r"\b(au|nu\s+au)\s+participat\s+la\s+lucr[ăa]rile", re.IGNORECASE),
+    re.compile(r"\bla\s+sediul\s+Camerei", re.IGNORECASE),
+    # Agenda-title leakage: `ORDINEA DE ZI ...`, `Lucrările comisiei /
+    # ședinței / sedintei ...`, `... în perioada DD-DD month YYYY`.
+    re.compile(r"\bOrdinea\s+de\s+zi\b", re.IGNORECASE),
+    re.compile(r"\bLucr[„aă]rile\s+(comisiei|comisiilor|ședin|sedin)", re.IGNORECASE),
+    re.compile(r"\b(în|in)\s+perioada\b", re.IGNORECASE),
+    # Group-attribution leakage: `... Grupul parlamentar al ...`.
+    re.compile(r"\bGrupul\s+parlamentar\s+al\b", re.IGNORECASE),
+    # Multi-line concatenation — speaker names never carry newlines; this
+    # shape signals a partition bug bleeding into the next paragraph.
+    re.compile(r"\n"),
+    # Numbered-list prefix: `1. NAME`, `12. NAME`, `3. Emil Crișan ...`.
+    # Real names don't start with a leading number + period + space.
+    re.compile(r"^\s*\d+\.\s+\w"),
+    # Lone honorific prefix that didn't peel cleanly.
+    re.compile(
+        r"^\s*(Domnul|Doamna|Domnișoara|Dl\.|Dna\.)-\w",
+        re.IGNORECASE,
+    ),
+)
+
+
+def _is_polluted_name(s: str) -> bool:
+    """Reject canonical names that look like extractor pollution rather
+    than person names. Caller has already peeled honorifics + titles, so
+    these patterns target the post-peel shape.
+
+    The patterns were derived from the v0.1.0 corpus sweep that surfaced
+    444 polluted stub entries (EDITOR footer artifacts, attendance /
+    participation narratives, agenda titles, multiline garbage, numbered-
+    list prefixes, embedded party-group attribution). Each pattern fired
+    on at least one production-observed stub; together they catch the
+    full polluted set without flagging any real person name in the
+    Wikidata-verified subset.
+
+    Returns True iff `s` matches any pollution pattern.
+    """
+    if not s:
+        return False
+    return any(rx.search(s) for rx in _POLLUTION_PATTERNS)
+
+
 def _existing_indexes(
     entries: list[dict[str, Any]],
 ) -> tuple[set[str], dict[str, str]]:
@@ -273,6 +330,7 @@ def add_unresolved(
     )
 
     added = skipped_resolved = skipped_non_canon = skipped_junk = 0
+    skipped_polluted = 0
     new_entries: list[dict[str, Any]] = []
 
     # Sort clusters by total mention count desc — most-frequent first
@@ -287,6 +345,16 @@ def add_unresolved(
             continue
         if _is_junk_name(canonical):
             skipped_junk += 1
+            continue
+        if _is_polluted_name(canonical):
+            # Polluted canonical (EDITOR footer, attendance narrative,
+            # agenda title, multiline garbage, ...). Skipping prevents
+            # `/politicieni/<slug>` pages for non-people. The upstream
+            # extractor bug that produces these polluted Speaker raws
+            # is a separate workstream — until then the speaker stays
+            # unresolved (Speaker.person_id null) which is the correct
+            # signal for a downstream long-tail report.
+            skipped_polluted += 1
             continue
 
         # Already in the registry?
@@ -355,7 +423,7 @@ def add_unresolved(
             encoding="utf-8",
         )
 
-    return added, skipped_resolved, skipped_non_canon, skipped_junk
+    return added, skipped_resolved, skipped_non_canon, skipped_junk, skipped_polluted
 
 
 def main(argv: list[str] | None = None) -> int:
@@ -391,14 +459,15 @@ def main(argv: list[str] | None = None) -> int:
         )
         return 2
 
-    added, sk_resolved, sk_non_canon, sk_junk = add_unresolved(
+    added, sk_resolved, sk_non_canon, sk_junk, sk_polluted = add_unresolved(
         args.registry, args.speakers_raw, write=not args.dry_run
     )
     print(
         f"\nadded={added} stub entries\n"
         f"  skipped (already in registry):     {sk_resolved}\n"
         f"  skipped (non-canonical labels):    {sk_non_canon}\n"
-        f"  skipped (junk / single-token):     {sk_junk}",
+        f"  skipped (junk / single-token):     {sk_junk}\n"
+        f"  skipped (polluted canonical):      {sk_polluted}",
         file=sys.stderr,
     )
     return 0

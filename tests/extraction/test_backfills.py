@@ -1296,6 +1296,48 @@ def test_persons_backfill_dry_run_does_not_write(tmp_path: Path):
     assert on_disk["body"]["session"]["chair"][0]["person_id"] is None
 
 
+def test_persons_backfill_force_clears_stale_when_matcher_returns_none(
+    tmp_path: Path,
+):
+    """Recovery path for matcher precision improvements: a sidecar carries
+    a person_id that an earlier matcher version wrote (e.g. via the buggy
+    joined-Lev≤2 fuzzy tier), but the current matcher returns None for
+    the same raw. --force clears the stale fill so the data reflects the
+    current matcher's truth. Without --force the stale value is preserved.
+
+    Concrete case: `Domnul Gheorghe Vela` was incorrectly resolved to
+    `gheorghe-vlad` by the prior fuzzy tier; the per-token fuzzy tier
+    rejects the match (vela vs vlad is distance 2 over a 4-char token,
+    above the per-token cap of 1), so the matcher now returns None.
+    """
+    sc = _plenary_with_speakers_sidecar(
+        doc_id="mo://2025/II/200",
+        year=2025,
+        speakers_in_chair=[
+            _make_speaker(
+                raw="Domnul Gheorghe Vela",
+                name="Gheorghe Vela",
+                person_id="gheorghe-vlad",  # stale fill from buggy matcher
+            ),
+        ],
+    )
+    p = _write(tmp_path, "plen.extraction.json", sc)
+
+    # Without force: the matcher returns None and we leave the stale fill
+    # in place (defensive — operators may have set ids manually).
+    r1 = backfill_persons(p)
+    assert r1.status == "skip"
+    on_disk = json.loads(p.read_text(encoding="utf-8"))
+    assert on_disk["body"]["session"]["chair"][0]["person_id"] == "gheorghe-vlad"
+
+    # With force: the stale fill is cleared to None so ES no longer
+    # attributes Vela's speeches to the wrong person.
+    r2 = backfill_persons(p, force=True)
+    assert r2.status == "filled"
+    on_disk = json.loads(p.read_text(encoding="utf-8"))
+    assert on_disk["body"]["session"]["chair"][0]["person_id"] is None
+
+
 def test_persons_backfill_qr_questioners(tmp_path: Path):
     """The Speaker walker must reach into qr.questions[*].questioner."""
     sc = _qr_sidecar(

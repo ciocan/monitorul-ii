@@ -15,6 +15,7 @@ from tools.add_unresolved_speakers import (
     _fold_key,
     _is_junk_name,
     _is_non_canonical,
+    _is_polluted_name,
     _peel,
     _slugify,
     add_unresolved,
@@ -175,6 +176,64 @@ def test_is_junk_name_accepts_multi_token():
     assert not _is_junk_name("Florin Iordache")
 
 
+# ---- _is_polluted_name ---------------------------------------------------
+
+
+@pytest.mark.parametrize(
+    "polluted",
+    [
+        # MO trailing footer (the bug surfaced on the politicieni page)
+        "EDITOR: PARLAMENTUL ROMÂNIEI — CAMERA DEPUTAȚILOR",
+        "EDITOR: PARLAMENTUL ROM¬NIEI  — CAMERA DEPUTAfiILOR",  # mojibake variant
+        "ACTIVITATEA EDITORIALĂ",
+        # Roster-narrative leakage: the partition bled into the next entry
+        "Alexandra Huțu au fost prezenți la sediul Camerei Deputaților",
+        "Borbély László au fost absenți",
+        "Beniamin Todosiu au participat la lucrările comisiei prin mijloace electronice",
+        "Giureci Slobodan Ghera nu au participat la lucrările comisiei",
+        # Agenda titles mistaken for speakers
+        "ORDINEA DE ZI pentru ședințele Camerei Deputaților din zilele de 12 și 13 iunie 2000",
+        "Lucrările Comisiei juridice",
+        "de lucru al Camerei Deputaților în perioada 12-16 iunie 2000",
+        # Group-attribution embedded in name
+        "Dan Vîlceanu Grupul parlamentar al",
+        "Grupul parlamentar al ALDE",
+        # Multi-line concatenation
+        "Nicolae Liviu\nDragnea a fost înlocuit de domnul deputat Ioan Axente",
+        # Numbered-list prefix
+        "1. Perioada 12-14 aprilie 2000",
+        "3. Emil Crișan — Circumscripția electorală nr. 1 Alba",
+    ],
+)
+def test_is_polluted_name_true_positives(polluted: str):
+    assert _is_polluted_name(polluted), f"{polluted!r} should be flagged as polluted"
+
+
+@pytest.mark.parametrize(
+    "real",
+    [
+        "Florin Iordache",
+        "Klaus Iohannis",
+        "Vasile Văcăroiu",
+        "Marcel Ciolacu",
+        "Sorin-Mihai Cîmpeanu",  # double-barreled given
+        "Petru Vela",
+        "Vlad Gheorghe",
+        "Carmen-Daniela Dan",
+        # Names that contain a substring of pattern characters but as
+        # legitimate name parts (no narrative trigger words).
+        "Camera Deputatu",  # synthetic but matches the surface — `Camerei Deputaților` requires the word boundary; `Camera Deputatu` doesn't end in `Deputaților`
+    ],
+)
+def test_is_polluted_name_does_not_flag_real_people(real: str):
+    assert not _is_polluted_name(real), f"{real!r} must not be flagged as polluted"
+
+
+def test_is_polluted_name_handles_empty_input():
+    assert not _is_polluted_name("")
+    assert not _is_polluted_name(None)  # type: ignore[arg-type]
+
+
 # ---- add_unresolved (orchestration) --------------------------------------
 
 
@@ -218,7 +277,7 @@ def test_add_unresolved_mints_stub_for_unknown_speaker(
         ],
     )
 
-    added, sk_resolved, sk_non_canon, sk_junk = add_unresolved(
+    added, sk_resolved, sk_non_canon, sk_junk, _sk_polluted = add_unresolved(
         persons_path, speakers_raw
     )
     assert added == 1
@@ -272,7 +331,7 @@ def test_add_unresolved_skips_clusters_already_in_registry(
         [{"raw": "Domnul Florin Iordache", "name": "Florin Iordache", "count": 10}],
     )
 
-    added, sk_resolved, _, _ = add_unresolved(persons_path, speakers_raw)
+    added, sk_resolved, _, _, _ = add_unresolved(persons_path, speakers_raw)
     assert added == 0
     assert sk_resolved == 1
     data = json.loads(persons_path.read_text(encoding="utf-8"))
@@ -314,7 +373,7 @@ def test_add_unresolved_skips_non_canonical_labels(
         ],
     )
 
-    added, _, sk_non_canon, _ = add_unresolved(persons_path, speakers_raw)
+    added, _, sk_non_canon, _, _ = add_unresolved(persons_path, speakers_raw)
     assert added == 0
     assert sk_non_canon == 3
 
@@ -336,9 +395,51 @@ def test_add_unresolved_skips_junk_names(tmp_path: Path, isolate_normalize_speak
         ],
     )
 
-    added, _, _, sk_junk = add_unresolved(persons_path, speakers_raw)
+    added, _, _, sk_junk, _ = add_unresolved(persons_path, speakers_raw)
     assert added == 0
     assert sk_junk == 3
+
+
+def test_add_unresolved_skips_polluted_names(tmp_path: Path, isolate_normalize_speaker):
+    """EDITOR footer / attendance narratives / agenda titles never become
+    person stubs, even if they pass `_is_junk_name` (multi-token, alpha-
+    heavy). This is the prevention guard for the v0.1.0 corpus pollution
+    bug — without it, a re-run of `add_unresolved_speakers` would re-mint
+    `EDITOR: PARLAMENTUL ROMÂNIEI — CAMERA DEPUTAȚILOR` and friends.
+    """
+    persons_path = tmp_path / "persons.json"
+    persons_path.write_text(json.dumps(_registry([])), encoding="utf-8")
+    speakers_raw = tmp_path / "speakers_raw.jsonl"
+    _write_speakers_raw(
+        speakers_raw,
+        [
+            {
+                "raw": "EDITOR: PARLAMENTUL ROMÂNIEI — CAMERA DEPUTAȚILOR",
+                "name": "EDITOR: PARLAMENTUL ROMÂNIEI — CAMERA DEPUTAȚILOR",
+                "count": 1746,
+            },
+            {
+                "raw": "Alexandra Huțu au fost prezenți la sediul Camerei Deputaților",
+                "name": "Alexandra Huțu au fost prezenți la sediul Camerei Deputaților",
+                "count": 1,
+            },
+            {
+                "raw": "ORDINEA DE ZI pentru ședințele",
+                "name": "ORDINEA DE ZI pentru ședințele",
+                "count": 12,
+            },
+            # Sanity baseline: a clean cluster still gets minted alongside
+            # the pollution skips.
+            {"raw": "Ion Popescu", "name": "Ion Popescu", "count": 5},
+        ],
+    )
+
+    added, _, _, _, sk_polluted = add_unresolved(persons_path, speakers_raw)
+    assert added == 1  # only the clean cluster
+    assert sk_polluted == 3
+    data = json.loads(persons_path.read_text(encoding="utf-8"))
+    assert len(data["entries"]) == 1
+    assert data["entries"][0]["canonical_name"] == "Ion Popescu"
 
 
 def test_add_unresolved_collapses_diacritic_variants(
@@ -360,7 +461,7 @@ def test_add_unresolved_collapses_diacritic_variants(
         ],
     )
 
-    added, _, _, _ = add_unresolved(persons_path, speakers_raw)
+    added, _, _, _, _ = add_unresolved(persons_path, speakers_raw)
     assert added == 1
 
 
@@ -377,7 +478,7 @@ def test_add_unresolved_dry_run_does_not_write(
         [{"raw": "Ion Popescu", "name": "Ion Popescu", "count": 1}],
     )
 
-    added, _, _, _ = add_unresolved(persons_path, speakers_raw, write=False)
+    added, _, _, _, _ = add_unresolved(persons_path, speakers_raw, write=False)
     assert added == 1
     # File on disk is unchanged.
     after = json.loads(persons_path.read_text(encoding="utf-8"))
@@ -390,8 +491,8 @@ def test_add_unresolved_empty_speakers_raw(tmp_path: Path, isolate_normalize_spe
     speakers_raw = tmp_path / "speakers_raw.jsonl"
     speakers_raw.write_text("", encoding="utf-8")
 
-    added, sk_r, sk_nc, sk_j = add_unresolved(persons_path, speakers_raw)
-    assert (added, sk_r, sk_nc, sk_j) == (0, 0, 0, 0)
+    added, sk_r, sk_nc, sk_j, sk_p = add_unresolved(persons_path, speakers_raw)
+    assert (added, sk_r, sk_nc, sk_j, sk_p) == (0, 0, 0, 0, 0)
 
 
 def test_add_unresolved_skips_blank_lines_in_speakers_raw(
@@ -407,7 +508,7 @@ def test_add_unresolved_skips_blank_lines_in_speakers_raw(
         encoding="utf-8",
     )
 
-    added, _, _, _ = add_unresolved(persons_path, speakers_raw)
+    added, _, _, _, _ = add_unresolved(persons_path, speakers_raw)
     assert added == 1
 
 
@@ -425,7 +526,7 @@ def test_add_unresolved_handles_malformed_jsonl_rows(
         encoding="utf-8",
     )
 
-    added, _, _, _ = add_unresolved(persons_path, speakers_raw)
+    added, _, _, _, _ = add_unresolved(persons_path, speakers_raw)
     assert added == 1
 
 

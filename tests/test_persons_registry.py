@@ -230,6 +230,90 @@ def test_match_fuzzy_tier_one_letter_typo():
     assert via == "fuzzy"
 
 
+def test_match_fuzzy_does_not_conflate_short_distinct_surnames():
+    """Regression: `Vela` and `Vlad` differ in 2 of 4 chars (joined Lev=2)
+    but are different surnames. The per-token fuzzy tier caps short tokens
+    at distance 1, so `Gheorghe Vela` must not resolve to `gheorghe-vlad`.
+    """
+    for surface in (
+        "Gheorghe Vela",
+        "Vela Gheorghe",
+        "Domnul Gheorghe Vela",
+        "Domnul deputat Gheorghe Vela",
+    ):
+        eid, via = normalize_speaker(surface, context_year=2020)
+        assert eid != "gheorghe-vlad", (
+            f"{surface!r} must not fuzzy-match gheorghe-vlad (got {eid!r})"
+        )
+
+
+@pytest.mark.parametrize(
+    "wrong_raw,wrong_id",
+    [
+        # Each pair: a corpus raw value that the OLD fuzzy tier (sum≤2)
+        # mis-resolved to a similar-but-distinct registered person. The
+        # new sum=1 cap catches these because BOTH the given name AND the
+        # surname differ by 1 char each, totalling 2 fuzzy edits.
+        ("Florian Nicolae", "niculae-florin"),  # 88 corpus refs
+        ("Domnul Florian Nicolae", "niculae-florin"),
+        ("Darius Pop", "top-marius"),  # 42 corpus refs (Marius Țop)
+        ("Domnul Darius Pop", "top-marius"),
+        ("Mario Ruse", "rusu-marin"),  # 5 corpus refs (Marin Rusu)
+        ("Daniela Sava", "savu-daniel"),  # 1 ref (Daniel Savu)
+        ("Liviu Petreu", "litiu-petru"),  # 1 ref (Petru Lițiu)
+        ("Alexandra Dumitrașcu", "dumitrescu-alexandru"),  # 3 refs
+    ],
+)
+def test_match_fuzzy_sum_cap_one_rejects_two_real_name_differences(
+    wrong_raw: str, wrong_id: str
+):
+    """Regression: the old fuzzy tier with sum≤2 conflated different
+    real people whose given AND surname each differ by 1 char. The new
+    sum=1 cap rejects all such cases. The corpus carried 144+ references
+    across 8+ such bug pairs — see audit in `docs/architecture.md`
+    § "wrongly-linked person attributions".
+    """
+    eid, _via = normalize_speaker(wrong_raw, context_year=2020)
+    assert eid != wrong_id, (
+        f"{wrong_raw!r} must not fuzzy-match {wrong_id!r} (got {eid!r})"
+    )
+
+
+@pytest.mark.parametrize(
+    "raw,expected_id",
+    [
+        # Hungarian-name PostScript-conversion artefacts. With the
+        # `‡→a` / `š→o` / `Ž→e` / `Ó→I` additions to
+        # `_PERSON_MOJIBAKE_MAP`, the diacritic tier hits these directly
+        # — no fuzzy needed. (Before the additions, recovery relied on
+        # Lev≤2 across two mojibake-glyph tokens, which is now blocked
+        # by the tightened sum cap.)
+        ("Domnul Tam‡s S‡ndor", "tamas-sandor"),  # Tamás Sándor
+        ("Domnul Kov‡cs Zolt‡n", "kovacs-zoltan"),  # Kovács Zoltán
+        ("Doamna Bšndi Gyšngyike", "bondi-gyongyike"),  # Böndi Gyöngyike
+        ("Domnul SŽres DŽnes", "seres-denes"),  # Dénes Seres
+    ],
+)
+def test_match_hungarian_mojibake_recovery_via_diacritic_tier(
+    raw: str, expected_id: str
+):
+    eid, via = normalize_speaker(raw, context_year=2020)
+    assert eid == expected_id
+    # The whole point of extending the mojibake map is that these resolve
+    # via diacritic, NOT via the (now tighter) fuzzy tier.
+    assert via == "diacritic", f"{raw!r}: expected diacritic, got {via}"
+
+
+def test_match_fuzzy_rejects_token_count_mismatch():
+    """Token-count mismatch falls through fuzzy: `Florin` (1 token) vs
+    `Florin Iordache` (2 tokens) cannot fuzzy-match. The single-token
+    case also fails the `len(raw_tokens) >= 2` guard.
+    """
+    eid, via = normalize_speaker("Florin")
+    assert eid is None
+    assert via is None
+
+
 def test_match_no_hit_for_unknown_person():
     eid, via = normalize_speaker("Some Random Politician")
     assert eid is None

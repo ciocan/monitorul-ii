@@ -109,6 +109,21 @@ _PERSON_MOJIBAKE_MAP = str.maketrans(
         "™": "S",  # trade mark — mojibake for `Ș` (e.g. `™edinþa`)
         "Ð": "I",  # eth — mojibake for `Î`
         "ð": "i",  # eth — mojibake for `î`
+        # Hungarian-name PostScript-conversion artefacts. Hungarian-origin
+        # politicians (UDMR, MPP, etc.) appear in MO with Hungarian-
+        # diacritic letters (`á`, `é`, `ö`, `ü`, `Î`/`î`) misencoded via
+        # the same PostScript pipeline as Romanian. These mappings let
+        # the diacritic tier match Hungarian raws against canonical
+        # entries directly, instead of relying on the fuzzy tier (which
+        # was tightened to sum-of-distances ≤ 1 to fix the
+        # `Florian Nicolae` ↔ `Florin Niculae` false positive).
+        "‡": "a",  # double dagger — mojibake for Hungarian `á`
+        "š": "o",  # s with caron — mojibake for Hungarian `ö`
+        "Š": "O",  # S with caron — mojibake for Hungarian `Ö`
+        "Ž": "e",  # Z with caron — mojibake for Hungarian `é`
+        "ž": "e",  # z with caron — mojibake for Hungarian `é`
+        "Ó": "I",  # O with acute — mojibake for `Î` (capital, distinct
+        # from the lowercase `ð`/`Ð` eth pair already handled above)
     }
 )
 
@@ -707,11 +722,23 @@ def normalize_speaker(
       4. token_set     — orderless token-set match (diacritic+mojibake-
                           folded). Catches `Iordache Florin` ↔ `Florin
                           Iordache` and `Sorin-Mihai` ↔ `Sorin Mihai`.
-      5. fuzzy         — Levenshtein ≤ 2 on the diacritic-folded form.
-                          Justified for human names per the design doc;
-                          the cap of 2 is tight enough to keep precision
-                          high while absorbing OCR slips like a missing
-                          dash or a single-letter swap.
+      5. fuzzy         — per-token Levenshtein on the sorted, diacritic-
+                          folded token lists. Token counts must match;
+                          per-token cap = 1 (uniform); sum cap = 1
+                          (only ONE fuzzy edit allowed across all
+                          tokens). The per-token shape was chosen
+                          because the prior joined-string Lev≤2
+                          conflated different short surnames (e.g.
+                          `Vela` ↔ `Vlad`, distance 2 over a 4-char
+                          token); the sum cap of 1 was chosen because
+                          sum=2 conflated different real people whose
+                          given AND surname each differ by 1 char (e.g.
+                          `Florian Nicolae` ↔ `Florin Niculae`).
+                          Hungarian-name recoveries (Markó / Tamás
+                          / Kovács / Böndi) that previously required
+                          Lev=2 across two mojibake glyphs now hit the
+                          diacritic tier directly via the Hungarian
+                          additions to `_PERSON_MOJIBAKE_MAP`.
 
     Homonym disambiguation: when a tier resolves to multiple candidate
     person_ids, `context_year` (the MO year) breaks ties by selecting the
@@ -790,22 +817,47 @@ def normalize_speaker(
             if chosen is not None:
                 return (chosen, "token_set")
 
-    # Fuzzy tier: Levenshtein ≤ 2 on the diacritic-folded form, restricted
-    # to candidates with at least 2 tokens to avoid a fuzzy match
-    # producing a single-token false positive (e.g., `Popa` matching one
-    # of many `Popa`-suffixed entries).
+    # Fuzzy tier: per-token Levenshtein on the sorted, diacritic-folded
+    # token lists. Restricted to candidates with the same token count and
+    # at least 2 tokens. Two cap layers:
+    #   - per-token cap = 1 (uniform) — `vela` vs `vlad` at Lev=2 fails;
+    #     `iorache` vs `iordache` at Lev=1 still matches.
+    #   - sum cap = 1 — only ONE fuzzy edit allowed across the whole
+    #     name. This catches the `Florian Nicolae` ↔ `Florin Niculae`
+    #     false positive where BOTH the given name (florian/florin Lev=1)
+    #     AND the surname (nicolae/niculae Lev=1) differ by 1 char each
+    #     and they're DIFFERENT real people, not OCR slips of one person.
+    # Hungarian-name recoveries (Béla Markó / Tamás Sándor / Kovács
+    # Zoltán / Böndi Gyöngyike) that previously needed Lev=2 across two
+    # mojibake-glyph tokens now hit the diacritic tier directly via the
+    # extended `_PERSON_MOJIBAKE_MAP` (`‡→a`, `š→o`, `Ž→e`, `Ó→I`); no
+    # fuzzy needed. The trade-off: legit single-token long-surname OCR
+    # slips with Lev=2 (e.g. two character drops in one surname) no
+    # longer match. These are rare enough on the corpus that precision
+    # wins; the unresolved speakers stay visible in the long-tail
+    # report, where an operator can mint or merge a registry entry.
     if len(raw_tokens) >= 2:
+        input_sorted = sorted(raw_tokens)
         best: list[tuple[int, str]] = []
         for token_set, eid in token_idx:
-            if len(token_set) < 2:
+            if len(token_set) != len(raw_tokens):
                 continue
-            # Compare the joined-token canonical form (sorted) so order
-            # doesn't sabotage the distance metric.
-            cand_str = " ".join(sorted(token_set))
-            input_str = " ".join(sorted(raw_tokens))
-            d = _levenshtein(input_str, cand_str, max_distance=2)
-            if d <= 2:
-                best.append((d, eid))
+            cand_sorted = sorted(token_set)
+            total = 0
+            ok = True
+            for it, ct in zip(input_sorted, cand_sorted):
+                if it == ct:
+                    continue
+                d = _levenshtein(it, ct, max_distance=1)
+                if d > 1:
+                    ok = False
+                    break
+                total += d
+                if total > 1:
+                    ok = False
+                    break
+            if ok and total > 0:
+                best.append((total, eid))
         if best:
             best.sort()
             top_d = best[0][0]
