@@ -1,0 +1,83 @@
+{
+  "speech_id": "mo://2025/II/13#agenda-1#act-35",
+  "tier": "calibration",
+  "speaker": {
+    "id": "serban-gianina",
+    "name": "Gianina Șerban",
+    "raw": "Doamna Gianina Șerban",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2025-02-12",
+    "year": 2025,
+    "legislature": "X",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": null,
+    "voice": null,
+    "dqi": null,
+    "vparty": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "vparty",
+      "speech_id": "mo://2025/II/13#agenda-1#act-35",
+      "output": {
+        "score": 2,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "vparty@2020 + vdem-attacks-on@v13",
+        "framework_confidence": 0.95,
+        "markers": [
+          {
+            "kind": "democratic_norms_rejection",
+            "evidence": {
+              "text": "Prin anularea alegerilor, ați atacat suveranitatea poporului român!"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Respingerea procesului electoral și a deciziei instituționale ca atac la suveranitatea poporului."
+          },
+          {
+            "kind": "democratic_norms_rejection",
+            "evidence": {
+              "text": "Dictatura trebuie să înceteze! Voința poporului român nu mai poate fi ignorată!"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.92,
+            "rationale_short": "Cadrul de „dictatură” folosit pentru a respinge ordinea constituțională în favoarea voinței populare."
+          },
+          {
+            "kind": "judiciary_attack",
+            "evidence": {
+              "text": "solicităm Curții Constituționale să formuleze o erată prin care să-și îndrepte această greșeală"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.75,
+            "rationale_short": "Presiune directă asupra CCR pentru a anula o decizie, delegitimând autoritatea instituției."
+          }
+        ],
+        "rationale": "Discursul este construit în jurul respingerii fundamentale a rezultatelor electorale și a deciziilor instituționale (CCR), încadrând statul român drept o „dictatură” care a „călcat în picioare” voința poporului. Deși vorbitorul menționează ulterior o moțiune de cenzură (un instrument parlamentar legitim), cadrul general al discursului este unul de delegitimare a întregului sistem de putere și a instituțiilor care au validat procesul electoral. Această retorică, specifică discursului post-2024 privind anularea alegerilor, plasează discursul în zona anti-pluralistă de nivel 2, deoarece respingerea normelor democratice și a instituțiilor constituționale constituie coloana vertebrală a argumentației."
+      },
+      "raw_response": "{\n  \"score\": 2,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"vparty@2020 + vdem-attacks-on@v13\",\n  \"framework_confidence\": 0.95,\n  \"markers\": [\n    {\n      \"kind\": \"democratic_norms_rejection\",\n      \"evidence\": {\n        \"text\": \"Prin anularea alegerilor, ați atacat suveranitatea poporului român!\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Respingerea procesului electoral și a deciziei instituționale ca atac la suveranitatea poporului.\"\n    },\n    {\n      \"kind\": \"democratic_norms_rejection\",\n      \"evidence\": {\n        \"text\": \"Dictatura trebuie să înceteze! Voința poporului român nu mai poate fi ignorată!\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Cadrul de „dictatură” folosit pentru a respinge ordinea constituțională în favoarea voinței populare.\"\n    },\n    {\n      \"kind\": \"judiciary_attack\",\n      \"evidence\": {\n        \"text\": \"solicităm Curții Constituționale să formuleze o erată prin care să-și îndrepte această greșeală\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.75,\n      \"rationale_short\": \"Presiune directă asupra CCR pentru a anula o decizie, delegitimând autoritatea instituției.\"\n    }\n  ],\n  \"rationale\": \"Discursul este construit în jurul respingerii fundamentale a rezultatelor electorale și a deciziilor instituționale (CCR), încadrând statul român drept o „dictatură” care a „călcat în picioare” voința poporului. Deși vorbitorul menționează ulterior o moțiune de cenzură (un instrument parlamentar legitim), cadrul general al discursului este unul de delegitimare a întregului sistem de putere și a instituțiilor care au validat procesul electoral. Această retorică, specifică discursului post-2024 privind anularea alegerilor, plasează discursul în zona anti-pluralistă de nivel 2, deoarece respingerea normelor democratice și a instituțiilor constituționale constituie coloana vertebrală a argumentației.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13469,
+      "tokens_in_breakdown": {
+        "fresh": 13469,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 675,
+      "cost_usd": null,
+      "latency_ms": 2795,
+      "retries_used": 0
+    }
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "speech_id": "mo://2024/II/30#agenda-1#act-14",
+  "tier": "calibration",
+  "speaker": {
+    "id": "gudu-michael",
+    "name": "Michael Gudu",
+    "raw": "Domnul Michael Gudu",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2024-02-20",
+    "year": 2024,
+    "legislature": "IX",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": null,
+    "voice": null,
+    "dqi": null,
+    "vparty": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "vparty",
+      "speech_id": "mo://2024/II/30#agenda-1#act-14",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "vparty@2020 + vdem-attacks-on@v13",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul deputatului PNL Michael Gudu reprezintă o critică a extremismului politic, nu o manifestare a acestuia. Vorbitorul condamnă polarizarea, erodarea democrației și subminarea statului de drept, pledând pentru consolidarea instituțiilor democratice și a legislației existente. Nu există nicio delegitimizare a instituțiilor judiciare, a presei, a opoziției sau a minorităților; dimpotrivă, discursul susține valorile pluraliste și respectul pentru normele democratice. Scor 0 cu încredere ridicată, deoarece discursul se încadrează perfect în registrul democratic-procedural."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"vparty@2020 + vdem-attacks-on@v13\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul deputatului PNL Michael Gudu reprezintă o critică a extremismului politic, nu o manifestare a acestuia. Vorbitorul condamnă polarizarea, erodarea democrației și subminarea statului de drept, pledând pentru consolidarea instituțiilor democratice și a legislației existente. Nu există nicio delegitimizare a instituțiilor judiciare, a presei, a opoziției sau a minorităților; dimpotrivă, discursul susține valorile pluraliste și respectul pentru normele democratice. Scor 0 cu încredere ridicată, deoarece discursul se încadrează perfect în registrul democratic-procedural.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13496,
+      "tokens_in_breakdown": {
+        "fresh": 13496,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 231,
+      "cost_usd": null,
+      "latency_ms": 1948,
+      "retries_used": 0
+    }
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "speech_id": "mo://2024/II/133#agenda-1#act-21",
+  "tier": "calibration",
+  "speaker": {
+    "id": "popa-stefan-ovidiu",
+    "name": "Ștefan-Ovidiu Popa",
+    "raw": "Domnul Ștefan-Ovidiu Popa",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2024-11-12",
+    "year": 2024,
+    "legislature": "IX",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": null,
+    "voice": null,
+    "dqi": null,
+    "vparty": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "vparty",
+      "speech_id": "mo://2024/II/133#agenda-1#act-21",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "vparty@2020 + vdem-attacks-on@v13",
+        "framework_confidence": 1.0,
+        "markers": [],
+        "rationale": "Discursul reprezintă o intervenție procedurală standard în cadrul unei ședințe de vot final. Vorbitorul se limitează la anunțarea ordinii de zi, a procedurilor de vot și la închiderea ședinței, fără a exprima opinii politice sau a ataca vreo instituție democratică. Nu există niciun element de anti-pluralism, discursul fiind pur administrativ și respectând normele parlamentare."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"vparty@2020 + vdem-attacks-on@v13\",\n  \"framework_confidence\": 1.0,\n  \"markers\": [],\n  \"rationale\": \"Discursul reprezintă o intervenție procedurală standard în cadrul unei ședințe de vot final. Vorbitorul se limitează la anunțarea ordinii de zi, a procedurilor de vot și la închiderea ședinței, fără a exprima opinii politice sau a ataca vreo instituție democratică. Nu există niciun element de anti-pluralism, discursul fiind pur administrativ și respectând normele parlamentare.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12963,
+      "tokens_in_breakdown": {
+        "fresh": 12963,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 173,
+      "cost_usd": null,
+      "latency_ms": 1565,
+      "retries_used": 0
+    }
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "speech_id": "mo://2026/II/15#agenda-1#act-474",
+  "tier": "calibration",
+  "speaker": {
+    "id": "bortun-stefan",
+    "name": "Ștefan Borțun",
+    "raw": "Domnul Ștefan Borțun",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": "2026-02-09",
+    "year": 2026,
+    "legislature": "X",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": null,
+    "voice": null,
+    "dqi": null,
+    "vparty": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "vparty",
+      "speech_id": "mo://2026/II/15#agenda-1#act-474",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "vparty@2020 + vdem-attacks-on@v13",
+        "framework_confidence": 0.95,
+        "markers": [],
+        "rationale": "Discursul reprezintă o moțiune simplă parlamentară care critică activitatea unui ministru pe teme de politică externă și apărare. Deși limbajul este critic și acuzator la adresa ministrului și a partidului din care acesta face parte (USR), critica rămâne în limitele registrului democratic: se invocă proceduri constituționale, rolul Parlamentului și necesitatea fundamentării strategice a deciziilor. Nu există delegitimizări ale instituțiilor democratice ca clasă, nici atacuri la adresa presei, justiției, ONG-urilor sau minorităților. Discursul este o formă de contestare politică legitimă în cadrul parlamentar, motiv pentru care scorul este 0."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"vparty@2020 + vdem-attacks-on@v13\",\n  \"framework_confidence\": 0.95,\n  \"markers\": [],\n  \"rationale\": \"Discursul reprezintă o moțiune simplă parlamentară care critică activitatea unui ministru pe teme de politică externă și apărare. Deși limbajul este critic și acuzator la adresa ministrului și a partidului din care acesta face parte (USR), critica rămâne în limitele registrului democratic: se invocă proceduri constituționale, rolul Parlamentului și necesitatea fundamentării strategice a deciziilor. Nu există delegitimizări ale instituțiilor democratice ca clasă, nici atacuri la adresa presei, justiției, ONG-urilor sau minorităților. Discursul este o formă de contestare politică legitimă în cadrul parlamentar, motiv pentru care scorul este 0.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 14142,
+      "tokens_in_breakdown": {
+        "fresh": 14142,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 237,
+      "cost_usd": null,
+      "latency_ms": 2009,
+      "retries_used": 0
+    }
+  }
+}

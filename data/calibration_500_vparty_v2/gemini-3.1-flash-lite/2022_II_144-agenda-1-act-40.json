@@ -1,0 +1,52 @@
+{
+  "speech_id": "mo://2022/II/144#agenda-1#act-40",
+  "tier": "calibration",
+  "speaker": {
+    "id": "gorghiu-alina",
+    "name": "Alina-Ștefania Gorghiu",
+    "raw": "Doamna Alina-Ștefania Gorghiu",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": "2022-10-31",
+    "year": 2022,
+    "legislature": "IX",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": null,
+    "voice": null,
+    "dqi": null,
+    "vparty": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "vparty",
+      "speech_id": "mo://2022/II/144#agenda-1#act-40",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "vparty@2020 + vdem-attacks-on@v13",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul este unul pur procedural, axat pe gestionarea ordinii de zi a Senatului și pe respectarea regulamentului parlamentar. Vorbitorul nu atacă nicio instituție democratică, nu delegitimează opoziția, presa, societatea civilă sau minoritățile și nu respinge normele democratice. Intervenția se limitează la organizarea dezbaterilor și la prezentarea unui raport de comisie, încadrându-se perfect în registrul democratic normal. Nu există niciun element de anti-pluralism."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"vparty@2020 + vdem-attacks-on@v13\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul este unul pur procedural, axat pe gestionarea ordinii de zi a Senatului și pe respectarea regulamentului parlamentar. Vorbitorul nu atacă nicio instituție democratică, nu delegitimează opoziția, presa, societatea civilă sau minoritățile și nu respinge normele democratice. Intervenția se limitează la organizarea dezbaterilor și la prezentarea unui raport de comisie, încadrându-se perfect în registrul democratic normal. Nu există niciun element de anti-pluralism.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13017,
+      "tokens_in_breakdown": {
+        "fresh": 13017,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 197,
+      "cost_usd": null,
+      "latency_ms": 1560,
+      "retries_used": 0
+    }
+  }
+}

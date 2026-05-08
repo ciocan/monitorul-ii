@@ -1,0 +1,52 @@
+{
+  "speech_id": "mo://2022/II/2#agenda-1#act-641",
+  "tier": "calibration",
+  "speaker": {
+    "id": "baltaretu-viorel",
+    "name": "Viorel Băltărețu",
+    "raw": "Domnul Viorel Băltărețu",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2021-12-22",
+    "year": 2022,
+    "legislature": "IX",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": null,
+    "voice": null,
+    "dqi": null,
+    "vparty": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "vparty",
+      "speech_id": "mo://2022/II/2#agenda-1#act-641",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "vparty@2020 + vdem-attacks-on@v13",
+        "framework_confidence": 1.0,
+        "markers": [],
+        "rationale": "Discursul este unul pur tehnic și procedural, axat pe solicitarea de fonduri pentru un proiect de infrastructură rutieră (drumul expres Cluj–Dej). Vorbitorul face apel la colegii parlamentari din mai multe județe pentru a susține alocarea bugetară necesară, fără a ataca nicio instituție democratică sau a folosi retorică anti-pluralistă. Nu există nicio delegitimizare a opoziției, a justiției, a presei sau a altor actori sociali. Discursul se încadrează perfect în registrul parlamentar democratic standard."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"vparty@2020 + vdem-attacks-on@v13\",\n  \"framework_confidence\": 1.0,\n  \"markers\": [],\n  \"rationale\": \"Discursul este unul pur tehnic și procedural, axat pe solicitarea de fonduri pentru un proiect de infrastructură rutieră (drumul expres Cluj–Dej). Vorbitorul face apel la colegii parlamentari din mai multe județe pentru a susține alocarea bugetară necesară, fără a ataca nicio instituție democratică sau a folosi retorică anti-pluralistă. Nu există nicio delegitimizare a opoziției, a justiției, a presei sau a altor actori sociali. Discursul se încadrează perfect în registrul parlamentar democratic standard.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12970,
+      "tokens_in_breakdown": {
+        "fresh": 12970,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 213,
+      "cost_usd": null,
+      "latency_ms": 1860,
+      "retries_used": 0
+    }
+  }
+}

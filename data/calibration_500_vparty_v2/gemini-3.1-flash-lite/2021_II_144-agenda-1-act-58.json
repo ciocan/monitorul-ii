@@ -1,0 +1,52 @@
+{
+  "speech_id": "mo://2021/II/144#agenda-1#act-58",
+  "tier": "calibration",
+  "speaker": {
+    "id": "dragu-anca",
+    "name": "Anca Dana Dragu",
+    "raw": "Doamna Anca Dana Dragu",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": "2021-09-27",
+    "year": 2021,
+    "legislature": "IX",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": null,
+    "voice": null,
+    "dqi": null,
+    "vparty": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "vparty",
+      "speech_id": "mo://2021/II/144#agenda-1#act-58",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "vparty@2020 + vdem-attacks-on@v13",
+        "framework_confidence": 1.0,
+        "markers": [],
+        "rationale": "Discursul reprezintă o intervenție procedurală standard în cadrul ședinței de plen a Senatului. Președintele de ședință gestionează ordinea de zi, anunță rapoartele comisiilor și etapele procedurale ale proiectelor legislative fără a exprima opinii politice sau a ataca instituții democratice. Nu există niciun element de anti-pluralism, delegitimizare a opoziției, presei, justiției sau a normelor democratice. Discursul se încadrează perfect în registrul democratic-tehnic."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"vparty@2020 + vdem-attacks-on@v13\",\n  \"framework_confidence\": 1.0,\n  \"markers\": [],\n  \"rationale\": \"Discursul reprezintă o intervenție procedurală standard în cadrul ședinței de plen a Senatului. Președintele de ședință gestionează ordinea de zi, anunță rapoartele comisiilor și etapele procedurale ale proiectelor legislative fără a exprima opinii politice sau a ataca instituții democratice. Nu există niciun element de anti-pluralism, delegitimizare a opoziției, presei, justiției sau a normelor democratice. Discursul se încadrează perfect în registrul democratic-tehnic.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13105,
+      "tokens_in_breakdown": {
+        "fresh": 13105,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 203,
+      "cost_usd": null,
+      "latency_ms": 1601,
+      "retries_used": 0
+    }
+  }
+}

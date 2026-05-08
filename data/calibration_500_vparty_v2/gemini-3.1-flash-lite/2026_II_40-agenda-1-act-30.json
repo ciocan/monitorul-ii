@@ -1,0 +1,52 @@
+{
+  "speech_id": "mo://2026/II/40#agenda-1#act-30",
+  "tier": "calibration",
+  "speaker": {
+    "id": "caciu-adrian",
+    "name": "Adrian Câciu",
+    "raw": "Domnul Adrian Câciu",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2026-03-30",
+    "year": 2026,
+    "legislature": "X",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": null,
+    "voice": null,
+    "dqi": null,
+    "vparty": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "vparty",
+      "speech_id": "mo://2026/II/40#agenda-1#act-30",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "vparty@2020 + vdem-attacks-on@v13",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul este o intervenție de susținere a unei inițiative legislative și un omagiu adus unei personalități sportive, Ilie Năstase. Vorbitorul critică o situație socială (pensia mică a unui campion) și face o observație filosofică despre importanța valorilor în detrimentul banilor, însă nu delegitimează nicio instituție democratică, opoziția, presa, ONG-urile sau minoritățile. Nu există nicio urmă de retorică anti-pluralistă sau de respingere a normelor democratice. Discursul se încadrează perfect în registrul parlamentar normal."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"vparty@2020 + vdem-attacks-on@v13\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul este o intervenție de susținere a unei inițiative legislative și un omagiu adus unei personalități sportive, Ilie Năstase. Vorbitorul critică o situație socială (pensia mică a unui campion) și face o observație filosofică despre importanța valorilor în detrimentul banilor, însă nu delegitimează nicio instituție democratică, opoziția, presa, ONG-urile sau minoritățile. Nu există nicio urmă de retorică anti-pluralistă sau de respingere a normelor democratice. Discursul se încadrează perfect în registrul parlamentar normal.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13216,
+      "tokens_in_breakdown": {
+        "fresh": 13216,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 222,
+      "cost_usd": null,
+      "latency_ms": 2033,
+      "retries_used": 0
+    }
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "speech_id": "mo://2023/II/78#agenda-1#act-89",
+  "tier": "calibration",
+  "speaker": {
+    "id": "costea-adrian",
+    "name": "Adrian Costea",
+    "raw": "Domnul Adrian Costea",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": "2023-05-15",
+    "year": 2023,
+    "legislature": "IX",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": null,
+    "voice": null,
+    "dqi": null,
+    "vparty": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "vparty",
+      "speech_id": "mo://2023/II/78#agenda-1#act-89",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "vparty@2020 + vdem-attacks-on@v13",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul este unul pur tehnic și legislativ, concentrat pe amendarea unui proiect de lege privind turismul gastronomic. Vorbitorul critică viziunea limitată a legii și propune extinderea acesteia către zona Dunării, argumentând în favoarea liberei inițiative și a afacerilor de familie. Nu există nicio delegitimizare a instituțiilor democratice, a opoziției, a presei sau a altor actori sociali. Discursul se încadrează perfect în registrul parlamentar democratic, fără a prezenta trăsături anti-pluraliste."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"vparty@2020 + vdem-attacks-on@v13\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul este unul pur tehnic și legislativ, concentrat pe amendarea unui proiect de lege privind turismul gastronomic. Vorbitorul critică viziunea limitată a legii și propune extinderea acesteia către zona Dunării, argumentând în favoarea liberei inițiative și a afacerilor de familie. Nu există nicio delegitimizare a instituțiilor democratice, a opoziției, a presei sau a altor actori sociali. Discursul se încadrează perfect în registrul parlamentar democratic, fără a prezenta trăsături anti-pluraliste.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13045,
+      "tokens_in_breakdown": {
+        "fresh": 13045,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 211,
+      "cost_usd": null,
+      "latency_ms": 1880,
+      "retries_used": 0
+    }
+  }
+}

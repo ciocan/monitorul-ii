@@ -1,0 +1,52 @@
+{
+  "speech_id": "mo://2026/II/33#agenda-1#act-178",
+  "tier": "calibration",
+  "speaker": {
+    "id": "cazan-mihai",
+    "name": "Mihai Coteț",
+    "raw": "Domnul Mihai Coteț",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": "2026-03-11",
+    "year": 2026,
+    "legislature": "X",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": null,
+    "voice": null,
+    "dqi": null,
+    "vparty": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "vparty",
+      "speech_id": "mo://2026/II/33#agenda-1#act-178",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "vparty@2020 + vdem-attacks-on@v13",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul este o intervenție legislativă procedurală și de susținere a unei asociații profesionale (Asociația Presei Sportive din România). Vorbitorul laudă rolul instituțional al asociației și promovează profesionalizarea jurnalismului sportiv, fără a ataca presa ca instituție sau a delegitima alte entități democratice. Nu există nicio urmă de anti-pluralism, atacuri la adresa justiției, opoziției, minorităților sau a normelor democratice. Discursul se încadrează perfect în registrul parlamentar democratic standard."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"vparty@2020 + vdem-attacks-on@v13\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul este o intervenție legislativă procedurală și de susținere a unei asociații profesionale (Asociația Presei Sportive din România). Vorbitorul laudă rolul instituțional al asociației și promovează profesionalizarea jurnalismului sportiv, fără a ataca presa ca instituție sau a delegitima alte entități democratice. Nu există nicio urmă de anti-pluralism, atacuri la adresa justiției, opoziției, minorităților sau a normelor democratice. Discursul se încadrează perfect în registrul parlamentar democratic standard.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13251,
+      "tokens_in_breakdown": {
+        "fresh": 13251,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 209,
+      "cost_usd": null,
+      "latency_ms": 1683,
+      "retries_used": 0
+    }
+  }
+}

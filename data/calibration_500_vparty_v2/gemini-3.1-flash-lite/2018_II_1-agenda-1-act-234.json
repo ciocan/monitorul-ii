@@ -1,0 +1,52 @@
+{
+  "speech_id": "mo://2018/II/1#agenda-1#act-234",
+  "tier": "calibration",
+  "speaker": {
+    "id": "turcescu-robert-nicolae",
+    "name": "Robert Nicolae Turcescu",
+    "raw": "Domnul Robert Nicolae Turcescu",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2017-12-19",
+    "year": 2018,
+    "legislature": "VIII",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": null,
+    "voice": null,
+    "dqi": null,
+    "vparty": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "vparty",
+      "speech_id": "mo://2018/II/1#agenda-1#act-234",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "vparty@2020 + vdem-attacks-on@v13",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul reprezintă o intervenție procedurală privind organizarea și convocarea ședințelor unei comisii parlamentare. Vorbitorul critică modul de lucru al unui coleg și lipsa de transparență în comunicarea ordinii de zi, ceea ce constituie o plângere legitimă de natură administrativă și parlamentară. Nu există nicio delegitimizare a instituțiilor democratice, a opoziției, a presei sau a altor actori sociali. Discursul rămâne în limitele normale ale contestării politice și procedurale, neîntrunind criteriile pentru niciunul dintre markerii de anti-pluralism."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"vparty@2020 + vdem-attacks-on@v13\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul reprezintă o intervenție procedurală privind organizarea și convocarea ședințelor unei comisii parlamentare. Vorbitorul critică modul de lucru al unui coleg și lipsa de transparență în comunicarea ordinii de zi, ceea ce constituie o plângere legitimă de natură administrativă și parlamentară. Nu există nicio delegitimizare a instituțiilor democratice, a opoziției, a presei sau a altor actori sociali. Discursul rămâne în limitele normale ale contestării politice și procedurale, neîntrunind criteriile pentru niciunul dintre markerii de anti-pluralism.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12958,
+      "tokens_in_breakdown": {
+        "fresh": 12958,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 218,
+      "cost_usd": null,
+      "latency_ms": 1941,
+      "retries_used": 0
+    }
+  }
+}

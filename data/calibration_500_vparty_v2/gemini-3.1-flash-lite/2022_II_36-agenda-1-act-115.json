@@ -1,0 +1,52 @@
+{
+  "speech_id": "mo://2022/II/36#agenda-1#act-115",
+  "tier": "calibration",
+  "speaker": {
+    "id": "oprea-stefan-radu",
+    "name": "Ștefan-Radu Oprea",
+    "raw": "Domnul Ștefan-Radu Oprea",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": "2022-03-07",
+    "year": 2022,
+    "legislature": "IX",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": null,
+    "voice": null,
+    "dqi": null,
+    "vparty": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "vparty",
+      "speech_id": "mo://2022/II/36#agenda-1#act-115",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "vparty@2020 + vdem-attacks-on@v13",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul reprezintă o critică politică standard la adresa opoziției, în care vorbitorul îndeamnă la o mai bună prestație parlamentară și la recâștigarea încrederii cetățenilor. Deși tonul este critic și ușor condescendent, nu există nicio delegitimizare a instituțiilor democratice, a presei, a justiției sau a altor actori sociali. Critica la adresa USR se limitează la performanța lor politică și la strategiile electorale, încadrându-se în limitele normale ale dezbaterii parlamentare. Nu sunt prezente elemente de anti-pluralism, astfel că scorul este 0."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"vparty@2020 + vdem-attacks-on@v13\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul reprezintă o critică politică standard la adresa opoziției, în care vorbitorul îndeamnă la o mai bună prestație parlamentară și la recâștigarea încrederii cetățenilor. Deși tonul este critic și ușor condescendent, nu există nicio delegitimizare a instituțiilor democratice, a presei, a justiției sau a altor actori sociali. Critica la adresa USR se limitează la performanța lor politică și la strategiile electorale, încadrându-se în limitele normale ale dezbaterii parlamentare. Nu sunt prezente elemente de anti-pluralism, astfel că scorul este 0.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13029,
+      "tokens_in_breakdown": {
+        "fresh": 13029,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 232,
+      "cost_usd": null,
+      "latency_ms": 1849,
+      "retries_used": 0
+    }
+  }
+}

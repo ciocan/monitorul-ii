@@ -1,0 +1,52 @@
+{
+  "speech_id": "mo://2022/II/138#agenda-3#act-22",
+  "tier": "calibration",
+  "speaker": {
+    "id": "roman-nicolae",
+    "name": "Nicolae Roman",
+    "raw": "Domnul Nicolae Roman",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2022-10-26",
+    "year": 2022,
+    "legislature": "IX",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": null,
+    "voice": null,
+    "dqi": null,
+    "vparty": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "vparty",
+      "speech_id": "mo://2022/II/138#agenda-3#act-22",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "vparty@2020 + vdem-attacks-on@v13",
+        "framework_confidence": 0.95,
+        "markers": [],
+        "rationale": "Discursul deputatului Nicolae N. Roman se concentrează pe o temă de demnitate militară și nemulțumiri legate de statutul cadrelor în rezervă. Deși limbajul este critic și folosește un ton retoric ridicat, acesta nu delegitimează instituțiile democratice ca clasă. Referința la „individul care este dovedit de instanțele de judecată” vizează o persoană specifică, nu justiția ca sistem, iar apelul la „popor” este utilizat în contextul unei retorici patriotice standard, nu pentru a respinge normele democratice sau a ataca pluralismul. Discursul rămâne în limitele criticii politice parlamentare, fără a atinge pragul anti-pluralismului definit de rubrică."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"vparty@2020 + vdem-attacks-on@v13\",\n  \"framework_confidence\": 0.95,\n  \"markers\": [],\n  \"rationale\": \"Discursul deputatului Nicolae N. Roman se concentrează pe o temă de demnitate militară și nemulțumiri legate de statutul cadrelor în rezervă. Deși limbajul este critic și folosește un ton retoric ridicat, acesta nu delegitimează instituțiile democratice ca clasă. Referința la „individul care este dovedit de instanțele de judecată” vizează o persoană specifică, nu justiția ca sistem, iar apelul la „popor” este utilizat în contextul unei retorici patriotice standard, nu pentru a respinge normele democratice sau a ataca pluralismul. Discursul rămâne în limitele criticii politice parlamentare, fără a atinge pragul anti-pluralismului definit de rubrică.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13203,
+      "tokens_in_breakdown": {
+        "fresh": 13203,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 257,
+      "cost_usd": null,
+      "latency_ms": 2011,
+      "retries_used": 0
+    }
+  }
+}

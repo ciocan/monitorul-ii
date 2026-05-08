@@ -1,0 +1,52 @@
+{
+  "speech_id": "mo://2022/II/57#agenda-1#act-43",
+  "tier": "calibration",
+  "speaker": {
+    "id": "tudorache-daniel",
+    "name": "Daniel Tudorache",
+    "raw": "Domnul Daniel Tudorache",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2022-04-13",
+    "year": 2022,
+    "legislature": "IX",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": null,
+    "voice": null,
+    "dqi": null,
+    "vparty": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "vparty",
+      "speech_id": "mo://2022/II/57#agenda-1#act-43",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "vparty@2020 + vdem-attacks-on@v13",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul este o analiză juridică tehnică privind conflictul de competență și ierarhia normelor între deciziile CCR și hotărârile CJUE. Vorbitorul citează Constituția și comunicatele oficiale ale Curții Constituționale pentru a susține un argument despre necesitatea revizuirii constituționale, fără a delegitima instituțiile ca atare. Nu există atacuri la adresa judecătorilor, a opoziției, a presei sau a altor actori democratici. Discursul rămâne în registrul dezbaterii constituționale legitime, motiv pentru care scorul este 0."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"vparty@2020 + vdem-attacks-on@v13\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul este o analiză juridică tehnică privind conflictul de competență și ierarhia normelor între deciziile CCR și hotărârile CJUE. Vorbitorul citează Constituția și comunicatele oficiale ale Curții Constituționale pentru a susține un argument despre necesitatea revizuirii constituționale, fără a delegitima instituțiile ca atare. Nu există atacuri la adresa judecătorilor, a opoziției, a presei sau a altor actori democratici. Discursul rămâne în registrul dezbaterii constituționale legitime, motiv pentru care scorul este 0.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13240,
+      "tokens_in_breakdown": {
+        "fresh": 13240,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 217,
+      "cost_usd": null,
+      "latency_ms": 1773,
+      "retries_used": 0
+    }
+  }
+}

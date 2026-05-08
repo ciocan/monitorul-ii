@@ -1,0 +1,65 @@
+{
+  "speech_id": "mo://2025/II/79#agenda-1#act-13",
+  "tier": "calibration",
+  "speaker": {
+    "id": "negrea-petru-gabriel",
+    "name": "Petru-Gabriel Negrea",
+    "raw": "Domnul Petru-Gabriel Negrea",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2025-06-11",
+    "year": 2025,
+    "legislature": "X",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": null,
+    "voice": null,
+    "dqi": null,
+    "vparty": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "vparty",
+      "speech_id": "mo://2025/II/79#agenda-1#act-13",
+      "output": {
+        "score": 1,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "vparty@2020 + vdem-attacks-on@v13",
+        "framework_confidence": 0.88,
+        "markers": [
+          {
+            "kind": "minority_scapegoating",
+            "evidence": {
+              "text": "această ideologie care ridică păcatul la rang de virtute și care expune copiii la comportamente incompatibile cu valorile morale și tradiționale"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Ideologia LGBT este încadrată ca o amenințare la adresa copiilor și a valorilor morale tradiționale."
+          }
+        ],
+        "rationale": "Discursul conține un marker clar de scapegoating al minorităților sexuale, încadrate ca o amenințare ideologică la adresa valorilor tradiționale și a copiilor. Deși retorica este intensă și utilizează un limbaj de tip „noi vs. ei” (Europa valorilor vs. Sodoma), discursul nu atacă instituții democratice precum justiția, presa sau opoziția ca clase, ci se concentrează pe o temă culturală specifică. Având în vedere că anti-pluralismul nu este structura de rezistență a întregului discurs, ci apare ca un moment de scapegoating într-o intervenție politică, scorul 1 este cel mai adecvat conform rubricii."
+      },
+      "raw_response": "{\n  \"score\": 1,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"vparty@2020 + vdem-attacks-on@v13\",\n  \"framework_confidence\": 0.88,\n  \"markers\": [\n    {\n      \"kind\": \"minority_scapegoating\",\n      \"evidence\": {\n        \"text\": \"această ideologie care ridică păcatul la rang de virtute și care expune copiii la comportamente incompatibile cu valorile morale și tradiționale\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Ideologia LGBT este încadrată ca o amenințare la adresa copiilor și a valorilor morale tradiționale.\"\n    }\n  ],\n  \"rationale\": \"Discursul conține un marker clar de scapegoating al minorităților sexuale, încadrate ca o amenințare ideologică la adresa valorilor tradiționale și a copiilor. Deși retorica este intensă și utilizează un limbaj de tip „noi vs. ei” (Europa valorilor vs. Sodoma), discursul nu atacă instituții democratice precum justiția, presa sau opoziția ca clase, ci se concentrează pe o temă culturală specifică. Având în vedere că anti-pluralismul nu este structura de rezistență a întregului discurs, ci apare ca un moment de scapegoating într-o intervenție politică, scorul 1 este cel mai adecvat conform rubricii.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [
+        "această ideologie care ridică păcatul la rang de virtute și care expune copiii la comportamente incompatibile cu valorile morale și tradiționale"
+      ],
+      "parse_repaired": false,
+      "tokens_in": 13319,
+      "tokens_in_breakdown": {
+        "fresh": 13319,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 399,
+      "cost_usd": null,
+      "latency_ms": 2229,
+      "retries_used": 0
+    }
+  }
+}

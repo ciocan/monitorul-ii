@@ -1,0 +1,52 @@
+{
+  "speech_id": "mo://2023/II/121#agenda-1#act-59",
+  "tier": "calibration",
+  "speaker": {
+    "id": "boanca-rodica",
+    "name": "Rodica Boancă",
+    "raw": "Doamna Rodica Boancă",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": "2023-09-13",
+    "year": 2023,
+    "legislature": "IX",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": null,
+    "voice": null,
+    "dqi": null,
+    "vparty": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "vparty",
+      "speech_id": "mo://2023/II/121#agenda-1#act-59",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "vparty@2020 + vdem-attacks-on@v13",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul reprezintă o intervenție parlamentară standard privind absența reprezentanților ministerelor la dezbateri și critică poziția instituțiilor (Ministerul Sănătății, CNAS, Colegiul Medicilor) față de o inițiativă legislativă specifică. Critica este una de natură politică și procedurală, vizând lipsa de responsabilitate și transparență, fără a delegitima instituțiile respective ca entități democratice sau a le ataca independența constituțională. Nu există elemente de anti-pluralism, discursul încadrându-se în limitele normale ale dezbaterii parlamentare."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"vparty@2020 + vdem-attacks-on@v13\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul reprezintă o intervenție parlamentară standard privind absența reprezentanților ministerelor la dezbateri și critică poziția instituțiilor (Ministerul Sănătății, CNAS, Colegiul Medicilor) față de o inițiativă legislativă specifică. Critica este una de natură politică și procedurală, vizând lipsa de responsabilitate și transparență, fără a delegitima instituțiile respective ca entități democratice sau a le ataca independența constituțională. Nu există elemente de anti-pluralism, discursul încadrându-se în limitele normale ale dezbaterii parlamentare.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13005,
+      "tokens_in_breakdown": {
+        "fresh": 13005,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 217,
+      "cost_usd": null,
+      "latency_ms": 1846,
+      "retries_used": 0
+    }
+  }
+}
