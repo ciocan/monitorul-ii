@@ -1,0 +1,210 @@
+{
+  "speech_id": "mo://2019/II/80#agenda-13#act-3",
+  "tier": "calibration",
+  "speaker": {
+    "id": "plesoianu-liviu-ioan-adrian",
+    "name": "Liviu Ioan Adrian Pleșoianu",
+    "raw": "Domnul Liviu Ioan Adrian Pleșoianu",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2019-06-26",
+    "year": 2019,
+    "legislature": "VIII",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2019/II/80#agenda-13#act-3",
+      "output": {
+        "score": 1,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.85,
+        "markers": [
+          {
+            "kind": "evil_elite",
+            "evidence": {
+              "text": "o bună parte din societatea civilă a reușit să fie cu adevărat senilă"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.85,
+            "rationale_short": "Etichetarea societății civile drept „senilă\" constituie un atac moralizator la adresa unei elite percepute ca inepte."
+          },
+          {
+            "kind": "evil_elite",
+            "evidence": {
+              "text": "foarte „pregătiții” parlamentari de la USR habar n-au cum suna legislația respectivă"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.88,
+            "rationale_short": "Denigrarea parlamentarilor opoziției prin ironie și acuzații de incompetență deliberată."
+          }
+        ],
+        "rationale": "Discursul conține elemente de retorică populistă, în special prin atacurile la adresa „elitei” (societatea civilă și parlamentarii USR), pe care îi portretizează ca fiind incompetenți sau „senili”. Totuși, discursul rămâne ancorat în dezbaterea unor proiecte legislative specifice și a unor detalii tehnice (articolul de lege, termene, proceduri parlamentare), ceea ce împiedică populismul să devină cadrul structural-portant al întregii intervenții. Deși există un ton agresiv și anti-elitist, nu se invocă o voință populară omogenă sau o criză existențială, motiv pentru care scorul este 1. Este un discurs partizan care folosește tropi populiști ca instrumente de atac, fără a construi o viziune maniheistă pervazivă."
+      },
+      "raw_response": "{\n  \"score\": 1,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.85,\n  \"markers\": [\n    {\n      \"kind\": \"evil_elite\",\n      \"evidence\": {\n        \"text\": \"o bună parte din societatea civilă a reușit să fie cu adevărat senilă\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Etichetarea societății civile drept „senilă\\\" constituie un atac moralizator la adresa unei elite percepute ca inepte.\"\n    },\n    {\n      \"kind\": \"evil_elite\",\n      \"evidence\": {\n        \"text\": \"foarte „pregătiții” parlamentari de la USR habar n-au cum suna legislația respectivă\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Denigrarea parlamentarilor opoziției prin ironie și acuzații de incompetență deliberată.\"\n    }\n  ],\n  \"rationale\": \"Discursul conține elemente de retorică populistă, în special prin atacurile la adresa „elitei” (societatea civilă și parlamentarii USR), pe care îi portretizează ca fiind incompetenți sau „senili”. Totuși, discursul rămâne ancorat în dezbaterea unor proiecte legislative specifice și a unor detalii tehnice (articolul de lege, termene, proceduri parlamentare), ceea ce împiedică populismul să devină cadrul structural-portant al întregii intervenții. Deși există un ton agresiv și anti-elitist, nu se invocă o voință populară omogenă sau o criză existențială, motiv pentru care scorul este 1. Este un discurs partizan care folosește tropi populiști ca instrumente de atac, fără a construi o viziune maniheistă pervazivă.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13945,
+      "tokens_in_breakdown": {
+        "fresh": 13945,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 549,
+      "cost_usd": null,
+      "latency_ms": 3278,
+      "retries_used": 0
+    },
+    "voice": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "voice",
+      "speech_id": "mo://2019/II/80#agenda-13#act-3",
+      "output": {
+        "classifications": [
+          {
+            "marker_id": "m_0",
+            "voice": "speaker_first_person",
+            "voice_confidence": 0.95,
+            "voice_evidence": null,
+            "attributed_to": null,
+            "rationale_short": "Afirmație directă a vorbitorului la persoana întâi, fără indicii de citare, raportare sau disclaimer."
+          },
+          {
+            "marker_id": "m_1",
+            "voice": "speaker_first_person",
+            "voice_confidence": 0.92,
+            "voice_evidence": null,
+            "attributed_to": null,
+            "rationale_short": "Afirmație directă a vorbitorului; deși conține ghilimele ironice, nu este un citat sau raportare, ci o opinie asumată a vorbitorului."
+          }
+        ]
+      },
+      "raw_response": "{\n  \"classifications\": [\n    {\n      \"marker_id\": \"m_0\",\n      \"voice\": \"speaker_first_person\",\n      \"voice_confidence\": 0.95,\n      \"voice_evidence\": null,\n      \"attributed_to\": null,\n      \"rationale_short\": \"Afirmație directă a vorbitorului la persoana întâi, fără indicii de citare, raportare sau disclaimer.\"\n    },\n    {\n      \"marker_id\": \"m_1\",\n      \"voice\": \"speaker_first_person\",\n      \"voice_confidence\": 0.92,\n      \"voice_evidence\": null,\n      \"attributed_to\": null,\n      \"rationale_short\": \"Afirmație directă a vorbitorului; deși conține ghilimele ironice, nu este un citat sau raportare, ci o opinie asumată a vorbitorului.\"\n    }\n  ]\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 11563,
+      "tokens_in_breakdown": {
+        "fresh": 11563,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 225,
+      "cost_usd": null,
+      "latency_ms": 1366,
+      "retries_used": 0
+    },
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2019/II/80#agenda-13#act-3",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.72,
+        "level_of_justification": 1,
+        "content_of_justification": "group_interest",
+        "respect_for_groups": 0,
+        "respect_for_demands": 0,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 1,
+            "evidence": {
+              "text": "Respectivul articol este în vigoare de exact 19 ani, 4 luni și 27 de zile. ONG-urile habar n-au, respectivele ONG-uri, care este legislația în baza căreia funcționează."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Justificare bazată pe vechimea legii, dar fără a explica de ce aceasta invalidează criticile aduse."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "group_interest",
+            "evidence": {
+              "text": "transparentizarea finanțării ONG-urilor și depolitizarea ONG-urilor de utilitate publică"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.88,
+            "rationale_short": "Apelul este orientat către controlul unui grup specific (ONG-urile) în interesul unei agende politice proprii."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 0,
+            "evidence": {
+              "text": "o bună parte din societatea civilă a reușit să fie cu adevărat senilă"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.99,
+            "marker_confidence": 0.95,
+            "rationale_short": "Utilizarea termenului „senilă” pentru a descrie societatea civilă constituie o derogare explicită."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 0,
+            "evidence": {
+              "text": "parlamentari renumiți și foarte bine „pregătiți”. Numai că au o problemă și domnii parlamentari foarte bine „pregătiți” de la USR"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.92,
+            "rationale_short": "Respingerea cererilor opoziției prin ironizarea competenței acestora."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "spunând, de pildă, că eu încerc să modific legislația ONG-urilor în așa fel încât, discreționar, să poată să dispară un ONG"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.96,
+            "marker_confidence": 0.89,
+            "rationale_short": "Menționează argumentul opoziției, dar îl respinge prin atac la persoană și ironie, fără angajament substanțial."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Eu zic să rezolvăm și cu proiectul acesta de lege, ca să știm o treabă."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.94,
+            "rationale_short": "Discursul rămâne la nivelul susținerii propriei agende fără a propune o mediere sau alternativă constructivă."
+          }
+        ],
+        "rationale": "Discursul prezintă o calitate deliberativă scăzută, marcată de un ton agresiv și disprețuitor față de societatea civilă și opoziție (respect_for_groups=0). Justificarea este de nivel 1, bazându-se pe vechimea legii fără a oferi un raționament logic solid pentru respingerea criticilor. Vorbitorul menționează argumentele opoziției (respect_for_counterarguments=1), dar le tratează cu ironie în loc să le combată substanțial. Poziția este pur dispozițională, fără a oferi alternative sau medieri, iar apelul la transparență este ancorat în interesul de a controla un grup specific (ONG-urile). În ansamblu, discursul este un exemplu de retorică polemică, nu de deliberare parlamentară."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.72,\n  \"level_of_justification\": 1,\n  \"content_of_justification\": \"group_interest\",\n  \"respect_for_groups\": 0,\n  \"respect_for_demands\": 0,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 1,\n      \"evidence\": { \"text\": \"Respectivul articol este în vigoare de exact 19 ani, 4 luni și 27 de zile. ONG-urile habar n-au, respectivele ONG-uri, care este legislația în baza căreia funcționează.\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Justificare bazată pe vechimea legii, dar fără a explica de ce aceasta invalidează criticile aduse.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"group_interest\",\n      \"evidence\": { \"text\": \"transparentizarea finanțării ONG-urilor și depolitizarea ONG-urilor de utilitate publică\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Apelul este orientat către controlul unui grup specific (ONG-urile) în interesul unei agende politice proprii.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 0,\n      \"evidence\": { \"text\": \"o bună parte din societatea civilă a reușit să fie cu adevărat senilă\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.99,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Utilizarea termenului „senilă” pentru a descrie societatea civilă constituie o derogare explicită.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 0,\n      \"evidence\": { \"text\": \"parlamentari renumiți și foarte bine „pregătiți”. Numai că au o problemă și domnii parlamentari foarte bine „pregătiți” de la USR\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Respingerea cererilor opoziției prin ironizarea competenței acestora.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": { \"text\": \"spunând, de pildă, că eu încerc să modific legislația ONG-urilor în așa fel încât, discreționar, să poată să dispară un ONG\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.96,\n      \"marker_confidence\": 0.89,\n      \"rationale_short\": \"Menționează argumentul opoziției, dar îl respinge prin atac la persoană și ironie, fără angajament substanțial.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": { \"text\": \"Eu zic să rezolvăm și cu proiectul acesta de lege, ca să știm o treabă.\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.94,\n      \"rationale_short\": \"Discursul rămâne la nivelul susținerii propriei agende fără a propune o mediere sau alternativă constructivă.\"\n    }\n  ],\n  \"rationale\": \"Discursul prezintă o calitate deliberativă scăzută, marcată de un ton agresiv și disprețuitor față de societatea civilă și opoziție (respect_for_groups=0). Justificarea este de nivel 1, bazându-se pe vechimea legii fără a oferi un raționament logic solid pentru respingerea criticilor. Vorbitorul menționează argumentele opoziției (respect_for_counterarguments=1), dar le tratează cu ironie în loc să le combată substanțial. Poziția este pur dispozițională, fără a oferi alternative sau medieri, iar apelul la transparență este ancorat în interesul de a controla un grup specific (ONG-urile). În ansamblu, discursul este un exemplu de retorică polemică, nu de deliberare parlamentară.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12746,
+      "tokens_in_breakdown": {
+        "fresh": 12746,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1256,
+      "cost_usd": null,
+      "latency_ms": 4928,
+      "retries_used": 0
+    }
+  }
+}

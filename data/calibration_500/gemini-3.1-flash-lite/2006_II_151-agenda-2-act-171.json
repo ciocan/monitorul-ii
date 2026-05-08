@@ -1,0 +1,157 @@
+{
+  "speech_id": "mo://2006/II/151#agenda-2#act-171",
+  "tier": "calibration",
+  "speaker": {
+    "id": "david-gheorghe",
+    "name": "Gheorghe David",
+    "raw": "Domnul Gheorghe David",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": null,
+    "year": 2006,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2006/II/151#agenda-2#act-171",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 1.0,
+        "markers": [],
+        "rationale": "Discursul este o interpelare procedurală standard adresată unui secretar de stat, vizând clarificarea unor reglementări administrative privind libera circulație a cetățenilor români în UE. Nu există nicio urmă de cadru popor-vs-elită, maniheism moral, invocare a unei voințe populare omogene sau a vreunei crize existențiale. Vorbitorul se limitează la solicitarea de informații tehnice, încadrându-se perfect în registrul procedural parlamentar. Hawkins=0 cu încredere maximă."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 1.0,\n  \"markers\": [],\n  \"rationale\": \"Discursul este o interpelare procedurală standard adresată unui secretar de stat, vizând clarificarea unor reglementări administrative privind libera circulație a cetățenilor români în UE. Nu există nicio urmă de cadru popor-vs-elită, maniheism moral, invocare a unei voințe populare omogene sau a vreunei crize existențiale. Vorbitorul se limitează la solicitarea de informații tehnice, încadrându-se perfect în registrul procedural parlamentar. Hawkins=0 cu încredere maximă.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13730,
+      "tokens_in_breakdown": {
+        "fresh": 13730,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 191,
+      "cost_usd": null,
+      "latency_ms": 1744,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2006/II/151#agenda-2#act-171",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.85,
+        "level_of_justification": 1,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 1,
+            "evidence": {
+              "text": "Există cazuri în care cetățeni români au fost returnați din țări ale Uniunii Europene fără să comită acolo infracțiuni. Acești cetățeni au interdicție de a mai părăsi România."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Vorbitorul prezintă o problemă factuală, dar nu oferă un raționament cauzal sau principial pentru poziția sa."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "cetățeni români au fost returnați din țări ale Uniunii Europene"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Apelul vizează protecția cetățenilor români în contextul aderării la UE, un interes universalizabil."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "cetățeni români"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Grupul este menționat neutru, în contextul unei probleme administrative."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Vă rog să clarificați această problemă."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Solicitarea de clarificare este procedurală și nu vizează o cerere adversă."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "Întrebarea mea se referă la reglementările Uniunii Europene în această privință"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.88,
+            "rationale_short": "Nu există contraargumente invocate; vorbitorul solicită informații."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Solicit răspuns în scris."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Intervenția este o solicitare de informații, nu o propunere alternativă sau de mediere."
+          }
+        ],
+        "rationale": "Discursul reprezintă o interpelare procedurală standard, în care vorbitorul solicită clarificări administrative privind situația cetățenilor români returnați din UE. Nivelul de justificare este scăzut (1), deoarece vorbitorul descrie o problemă fără a oferi un raționament cauzal complex sau o argumentație substanțială. Apelul la binele comun este implicit prin preocuparea pentru drepturile cetățenilor, însă discursul rămâne pozițional și procedural. Nu există elemente de dispreț sau angajament cu contraargumente, deoarece nu există o dezbatere contradictorie în acest fragment. Calitatea deliberativă este limitată de natura interpelativă a discursului."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.85,\n  \"level_of_justification\": 1,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Există cazuri în care cetățeni români au fost returnați din țări ale Uniunii Europene fără să comită acolo infracțiuni. Acești cetățeni au interdicție de a mai părăsi România.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Vorbitorul prezintă o problemă factuală, dar nu oferă un raționament cauzal sau principial pentru poziția sa.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"cetățeni români au fost returnați din țări ale Uniunii Europene\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Apelul vizează protecția cetățenilor români în contextul aderării la UE, un interes universalizabil.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"cetățeni români\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Grupul este menționat neutru, în contextul unei probleme administrative.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Vă rog să clarificați această problemă.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.90,\n      \"rationale_short\": \"Solicitarea de clarificare este procedurală și nu vizează o cerere adversă.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Întrebarea mea se referă la reglementările Uniunii Europene în această privință\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Nu există contraargumente invocate; vorbitorul solicită informații.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"Solicit răspuns în scris.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Intervenția este o solicitare de informații, nu o propunere alternativă sau de mediere.\"\n    }\n  ],\n  \"rationale\": \"Discursul reprezintă o interpelare procedurală standard, în care vorbitorul solicită clarificări administrative privind situația cetățenilor români returnați din UE. Nivelul de justificare este scăzut (1), deoarece vorbitorul descrie o problemă fără a oferi un raționament cauzal complex sau o argumentație substanțială. Apelul la binele comun este implicit prin preocuparea pentru drepturile cetățenilor, însă discursul rămâne pozițional și procedural. Nu există elemente de dispreț sau angajament cu contraargumente, deoarece nu există o dezbatere contradictorie în acest fragment. Calitatea deliberativă este limitată de natura interpelativă a discursului.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [
+        "Există cazuri în care cetățeni români au fost returnați din țări ale Uniunii Europene fără să comită acolo infracțiuni. Acești cetățeni au interdicție de a mai părăsi România.",
+        "cetățeni români au fost returnați din țări ale Uniunii Europene",
+        "cetățeni români",
+        "Vă rog să clarificați această problemă.",
+        "Întrebarea mea se referă la reglementările Uniunii Europene în această privință",
+        "Solicit răspuns în scris."
+      ],
+      "parse_repaired": false,
+      "tokens_in": 12531,
+      "tokens_in_breakdown": {
+        "fresh": 12531,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1134,
+      "cost_usd": null,
+      "latency_ms": 4467,
+      "retries_used": 0
+    }
+  }
+}

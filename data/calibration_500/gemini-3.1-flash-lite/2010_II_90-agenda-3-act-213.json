@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2010/II/90#agenda-3#act-213",
+  "tier": "calibration",
+  "speaker": {
+    "id": "zgonea-valeriu-stefan",
+    "name": "Valeriu Ștefan Zgonea",
+    "raw": "Domnul Valeriu Ștefan Zgonea",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2010-06-01",
+    "year": 2010,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2010/II/90#agenda-3#act-213",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul este unul pur procedural, axat pe interpretarea Regulamentului Camerei Deputaților și a deciziilor Curții Constituționale. Vorbitorul se concentrează pe aspecte tehnice legate de vot, proceduri de publicare în Monitorul Oficial și obligațiile administrative ale președintelui Camerei. Nu există nicio tentativă de a construi un cadru maniheist popor-vs-elită, nicio invocare a unei voințe populare omogene și niciun element de retorică populistă. Discursul rămâne strict în registrul instituțional și juridic, motiv pentru care scorul este 0."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul este unul pur procedural, axat pe interpretarea Regulamentului Camerei Deputaților și a deciziilor Curții Constituționale. Vorbitorul se concentrează pe aspecte tehnice legate de vot, proceduri de publicare în Monitorul Oficial și obligațiile administrative ale președintelui Camerei. Nu există nicio tentativă de a construi un cadru maniheist popor-vs-elită, nicio invocare a unei voințe populare omogene și niciun element de retorică populistă. Discursul rămâne strict în registrul instituțional și juridic, motiv pentru care scorul este 0.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13945,
+      "tokens_in_breakdown": {
+        "fresh": 13945,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 210,
+      "cost_usd": null,
+      "latency_ms": 1939,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2010/II/90#agenda-3#act-213",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.82,
+        "level_of_justification": 2,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 2,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "decizia Curții Constituționale este fără echivoc: majoritate simplă – proiectele de hotărâre."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Vorbitorul justifică poziția prin referire directă la o decizie specifică a Curții Constituționale."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "decizia Curții Constituționale este fără echivoc"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.88,
+            "rationale_short": "Apelul la autoritatea constituțională vizează respectarea normelor procedurale pentru întregul for."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Cu tot respectul pe care-l am pentru dumneavoastră, ca președinte al Camerei Deputaților"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.85,
+            "rationale_short": "Adresare formală, convențională, fără derogare sau recunoaștere specială a unui out-group."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Dacă dumneavoastră îmi spuneți că altceva votăm astăzi decât un proiect de hotărâre și pe baza numărătorii votului, eu sunt de acord."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.96,
+            "marker_confidence": 0.82,
+            "rationale_short": "Vorbitorul nu angajează cererile opoziției, ci se concentrează pe propria interpretare procedurală."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 2,
+            "evidence": {
+              "text": "Dacă nu votăm altceva, nu am votat altceva decât un proiect de hotărâre, vă rog frumos să luați act și să publicați în Monitorul Oficial proiectul de hotărâre cum Camera, în decizia sa, l-a luat."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.89,
+            "rationale_short": "Vorbitorul identifică argumentul președintelui Camerei și îl combate direct prin argumente procedurale."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Se face hârtia de către angajații Camerei Deputaților, dumneavoastră o semnați și o trimiteți Monitorului Oficial. Punct."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.91,
+            "rationale_short": "Discursul insistă pe aplicarea unei proceduri existente, fără a propune o alternativă sau mediere."
+          }
+        ],
+        "rationale": "Discursul este un demers procedural axat pe interpretarea deciziilor Curții Constituționale. Vorbitorul oferă o justificare calificată (level_of_justification=2) prin citarea deciziei CCR, ancorând argumentul în binele comun al respectării legii (content_of_justification=common_good). Respectul pentru contraargumente este ridicat (respect_for_counterarguments=2), deoarece vorbitorul identifică și respinge argumentul președintelui Camerei cu privire la procedura de publicare. Totuși, discursul rămâne pozițional (constructive_politics=positional), neoferind alternative sau medieri, ci insistând pe executarea procedurii. Respectul pentru grupuri și cereri rămâne neutru, fiind limitat la convenții parlamentare."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.82,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 2,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"decizia Curții Constituționale este fără echivoc: majoritate simplă – proiectele de hotărâre.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Vorbitorul justifică poziția prin referire directă la o decizie specifică a Curții Constituționale.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"decizia Curții Constituționale este fără echivoc\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Apelul la autoritatea constituțională vizează respectarea normelor procedurale pentru întregul for.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Cu tot respectul pe care-l am pentru dumneavoastră, ca președinte al Camerei Deputaților\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Adresare formală, convențională, fără derogare sau recunoaștere specială a unui out-group.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Dacă dumneavoastră îmi spuneți că altceva votăm astăzi decât un proiect de hotărâre și pe baza numărătorii votului, eu sunt de acord.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.96,\n      \"marker_confidence\": 0.82,\n      \"rationale_short\": \"Vorbitorul nu angajează cererile opoziției, ci se concentrează pe propria interpretare procedurală.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"Dacă nu votăm altceva, nu am votat altceva decât un proiect de hotărâre, vă rog frumos să luați act și să publicați în Monitorul Oficial proiectul de hotărâre cum Camera, în decizia sa, l-a luat.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"marker_confidence\": 0.89,\n      \"rationale_short\": \"Vorbitorul identifică argumentul președintelui Camerei și îl combate direct prin argumente procedurale.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"Se face hârtia de către angajații Camerei Deputaților, dumneavoastră o semnați și o trimiteți Monitorului Oficial. Punct.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.91,\n      \"rationale_short\": \"Discursul insistă pe aplicarea unei proceduri existente, fără a propune o alternativă sau mediere.\"\n    }\n  ],\n  \"rationale\": \"Discursul este un demers procedural axat pe interpretarea deciziilor Curții Constituționale. Vorbitorul oferă o justificare calificată (level_of_justification=2) prin citarea deciziei CCR, ancorând argumentul în binele comun al respectării legii (content_of_justification=common_good). Respectul pentru contraargumente este ridicat (respect_for_counterarguments=2), deoarece vorbitorul identifică și respinge argumentul președintelui Camerei cu privire la procedura de publicare. Totuși, discursul rămâne pozițional (constructive_politics=positional), neoferind alternative sau medieri, ci insistând pe executarea procedurii. Respectul pentru grupuri și cereri rămâne neutru, fiind limitat la convenții parlamentare.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12746,
+      "tokens_in_breakdown": {
+        "fresh": 12746,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1252,
+      "cost_usd": null,
+      "latency_ms": 8430,
+      "retries_used": 0
+    }
+  }
+}

@@ -1,0 +1,230 @@
+{
+  "speech_id": "mo://2014/II/94#agenda-2#act-64",
+  "tier": "calibration",
+  "speaker": {
+    "id": "chereches-florica",
+    "name": "Florica Cherecheș",
+    "raw": "Doamna Florica Cherecheș",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2014-09-09",
+    "year": 2014,
+    "legislature": "VII",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2014/II/94#agenda-2#act-64",
+      "output": {
+        "score": 1,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.85,
+        "markers": [
+          {
+            "kind": "evil_elite",
+            "evidence": {
+              "text": "Singurii care cunosc această situație sunt Ponta, Pricopie, Costoiu și Avocatul Poporului, Victor Ciorbea"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.85,
+            "rationale_short": "Identifică un grup restrâns de actori politici ca fiind singurii responsabili de o situație opacă, sugerând o conspirație a elitei."
+          },
+          {
+            "kind": "popular_will_supremacy",
+            "evidence": {
+              "text": "Parlamentul României nu mai există sau nu are nicio valoare"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.88,
+            "rationale_short": "Invocă subminarea instituției parlamentare ca reprezentant al voinței populare de către guvernul executiv."
+          },
+          {
+            "kind": "crisis_invocation",
+            "evidence": {
+              "text": "Inexistența Parlamentului României este, într-adevăr, într-o țară democratică, o situație extraordinară, a cărei reglementare nu mai poate fi amânată"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.9,
+            "rationale_short": "Folosește un limbaj de urgență extremă pentru a descrie starea instituțiilor, cerând acțiuni imediate."
+          }
+        ],
+        "rationale": "Discursul oscilează între o critică tehnică a utilizării ordonanțelor de urgență și o retorică populistă care pune la îndoială legitimitatea instituțiilor. Deși vorbitorul folosește elemente de tip 'elită malefică' (grupul Ponta-Pricopie-Ciorbea) și invocă o 'situație extraordinară' pentru a cere reînființarea Parlamentului, discursul rămâne ancorat în mecanismele parlamentare și constituționale. Nu există un maniheism moralist total sau o invocare a poporului ca entitate omogenă care să domine întregul discurs, ci mai degrabă o critică a uzurpării puterii legislative. Prin urmare, discursul se încadrează la scorul 1, fiind un exemplu de opoziție care utilizează accente populiste pentru a sublinia o criză instituțională."
+      },
+      "raw_response": "{\n  \"score\": 1,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.85,\n  \"markers\": [\n    {\n      \"kind\": \"evil_elite\",\n      \"evidence\": {\n        \"text\": \"Singurii care cunosc această situație sunt Ponta, Pricopie, Costoiu și Avocatul Poporului, Victor Ciorbea\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Identifică un grup restrâns de actori politici ca fiind singurii responsabili de o situație opacă, sugerând o conspirație a elitei.\"\n    },\n    {\n      \"kind\": \"popular_will_supremacy\",\n      \"evidence\": {\n        \"text\": \"Parlamentul României nu mai există sau nu are nicio valoare\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Invocă subminarea instituției parlamentare ca reprezentant al voinței populare de către guvernul executiv.\"\n    },\n    {\n      \"kind\": \"crisis_invocation\",\n      \"evidence\": {\n        \"text\": \"Inexistența Parlamentului României este, într-adevăr, într-o țară democratică, o situație extraordinară, a cărei reglementare nu mai poate fi amânată\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Folosește un limbaj de urgență extremă pentru a descrie starea instituțiilor, cerând acțiuni imediate.\"\n    }\n  ],\n  \"rationale\": \"Discursul oscilează între o critică tehnică a utilizării ordonanțelor de urgență și o retorică populistă care pune la îndoială legitimitatea instituțiilor. Deși vorbitorul folosește elemente de tip 'elită malefică' (grupul Ponta-Pricopie-Ciorbea) și invocă o 'situație extraordinară' pentru a cere reînființarea Parlamentului, discursul rămâne ancorat în mecanismele parlamentare și constituționale. Nu există un maniheism moralist total sau o invocare a poporului ca entitate omogenă care să domine întregul discurs, ci mai degrabă o critică a uzurpării puterii legislative. Prin urmare, discursul se încadrează la scorul 1, fiind un exemplu de opoziție care utilizează accente populiste pentru a sublinia o criză instituțională.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 14218,
+      "tokens_in_breakdown": {
+        "fresh": 14218,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 721,
+      "cost_usd": null,
+      "latency_ms": 3521,
+      "retries_used": 0
+    },
+    "voice": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "voice",
+      "speech_id": "mo://2014/II/94#agenda-2#act-64",
+      "output": {
+        "classifications": [
+          {
+            "marker_id": "m_0",
+            "voice": "speaker_first_person",
+            "voice_confidence": 0.95,
+            "voice_evidence": null,
+            "attributed_to": null,
+            "rationale_short": "Afirmație directă a vorbitorului, fără indicii de citare sau raportare a unei terțe părți."
+          },
+          {
+            "marker_id": "m_1",
+            "voice": "speaker_first_person",
+            "voice_confidence": 0.95,
+            "voice_evidence": null,
+            "attributed_to": null,
+            "rationale_short": "Afirmație directă a vorbitorului, exprimată ca opinie proprie în cadrul discursului."
+          },
+          {
+            "marker_id": "m_2",
+            "voice": "sarcastic",
+            "voice_confidence": 0.75,
+            "voice_evidence": {
+              "text": "așa că solicit premierului Ponta să dea de urgență o ordonanță pentru a reînființa Parlamentul"
+            },
+            "attributed_to": null,
+            "rationale_short": "Vorbitorul folosește un ton ironic, propunând o soluție absurdă pentru a evidenția inexistența Parlamentului."
+          }
+        ]
+      },
+      "raw_response": "{\n  \"classifications\": [\n    {\n      \"marker_id\": \"m_0\",\n      \"voice\": \"speaker_first_person\",\n      \"voice_confidence\": 0.95,\n      \"voice_evidence\": null,\n      \"attributed_to\": null,\n      \"rationale_short\": \"Afirmație directă a vorbitorului, fără indicii de citare sau raportare a unei terțe părți.\"\n    },\n    {\n      \"marker_id\": \"m_1\",\n      \"voice\": \"speaker_first_person\",\n      \"voice_confidence\": 0.95,\n      \"voice_evidence\": null,\n      \"attributed_to\": null,\n      \"rationale_short\": \"Afirmație directă a vorbitorului, exprimată ca opinie proprie în cadrul discursului.\"\n    },\n    {\n      \"marker_id\": \"m_2\",\n      \"voice\": \"sarcastic\",\n      \"voice_confidence\": 0.75,\n      \"voice_evidence\": {\n        \"text\": \"așa că solicit premierului Ponta să dea de urgență o ordonanță pentru a reînființa Parlamentul\"\n      },\n      \"attributed_to\": null,\n      \"rationale_short\": \"Vorbitorul folosește un ton ironic, propunând o soluție absurdă pentru a evidenția inexistența Parlamentului.\"\n    }\n  ]\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 11936,
+      "tokens_in_breakdown": {
+        "fresh": 11936,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 336,
+      "cost_usd": null,
+      "latency_ms": 1603,
+      "retries_used": 0
+    },
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2014/II/94#agenda-2#act-64",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.78,
+        "level_of_justification": 1,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 0,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 1,
+            "evidence": {
+              "text": "Parlamentul României nu mai există sau nu are nicio valoare, altfel nu se explică cum un Guvern cu o susținere confortabilă în Parlament emite atâtea ordonanțe de urgență."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Vorbitorul oferă o corelație între ordonanțe și rolul Parlamentului, dar raționamentul rămâne mai degrabă o opinie politică decât o justificare cauzală riguroasă."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "Inexistența Parlamentului României este, într-adevăr, într-o țară democratică, o situație extraordinară"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Apelul este la principiul democratic universal și la rolul instituțional al Parlamentului, nu la interese de grup."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Ponta, Pricopie, Costoiu și Avocatul Poporului, Victor Ciorbea"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.88,
+            "rationale_short": "Persoanele sunt menționate critic în context politic, dar fără a recurge la derogare sau dehumanizare."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 0,
+            "evidence": {
+              "text": "nu cunosc această situație extraordinară nici sindicatele, nici asociațiile de studenți, nici instituțiile de învățământ."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.82,
+            "rationale_short": "Vorbitorul respinge legitimitatea acțiunilor Guvernului prin negarea existenței oricărei justificări obiective."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "nu se explică cum un Guvern cu o susținere confortabilă în Parlament emite atâtea ordonanțe de urgență."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Vorbitorul ignoră argumentele Guvernului pentru emiterea ordonanțelor, concentrându-se exclusiv pe propria critică."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "solicit premierului Ponta să dea de urgență o ordonanță pentru a reînființa Parlamentul"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Solicitarea este o figură retorică (sarcastică) de poziționare, nu o propunere alternativă sau de mediere reală."
+          }
+        ],
+        "rationale": "Discursul este un atac politic susținut, caracterizat printr-o calitate deliberativă scăzută. Deși vorbitorul invocă principii democratice (binele comun), justificarea rămâne la nivelul 1, bazându-se pe observații politice mai degrabă decât pe dovezi cauzale. Nu există un angajament real cu contraargumentele Guvernului, iar respectul pentru cererile adverse este absent, fiind înlocuit de o retorică de respingere. Constructivitatea este limitată la o poziție critică, încheiată cu o ironie (solicitarea unei ordonanțe pentru reînființarea Parlamentului) care nu constituie o propunere de politică publică. Profilul este unul de opoziție combativă, cu un respect procedural neutru, dar fără deliberare substanțială."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.78,\n  \"level_of_justification\": 1,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 0,\n  \"respect_for_counterarguments\": 0,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Parlamentul României nu mai există sau nu are nicio valoare, altfel nu se explică cum un Guvern cu o susținere confortabilă în Parlament emite atâtea ordonanțe de urgență.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Vorbitorul oferă o corelație între ordonanțe și rolul Parlamentului, dar raționamentul rămâne mai degrabă o opinie politică decât o justificare cauzală riguroasă.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"Inexistența Parlamentului României este, într-adevăr, într-o țară democratică, o situație extraordinară\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Apelul este la principiul democratic universal și la rolul instituțional al Parlamentului, nu la interese de grup.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Ponta, Pricopie, Costoiu și Avocatul Poporului, Victor Ciorbea\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Persoanele sunt menționate critic în context politic, dar fără a recurge la derogare sau dehumanizare.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"nu cunosc această situație extraordinară nici sindicatele, nici asociațiile de studenți, nici instituțiile de învățământ.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.82,\n      \"rationale_short\": \"Vorbitorul respinge legitimitatea acțiunilor Guvernului prin negarea existenței oricărei justificări obiective.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"nu se explică cum un Guvern cu o susținere confortabilă în Parlament emite atâtea ordonanțe de urgență.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Vorbitorul ignoră argumentele Guvernului pentru emiterea ordonanțelor, concentrându-se exclusiv pe propria critică.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"solicit premierului Ponta să dea de urgență o ordonanță pentru a reînființa Parlamentul\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.90,\n      \"rationale_short\": \"Solicitarea este o figură retorică (sarcastică) de poziționare, nu o propunere alternativă sau de mediere reală.\"\n    }\n  ],\n  \"rationale\": \"Discursul este un atac politic susținut, caracterizat printr-o calitate deliberativă scăzută. Deși vorbitorul invocă principii democratice (binele comun), justificarea rămâne la nivelul 1, bazându-se pe observații politice mai degrabă decât pe dovezi cauzale. Nu există un angajament real cu contraargumentele Guvernului, iar respectul pentru cererile adverse este absent, fiind înlocuit de o retorică de respingere. Constructivitatea este limitată la o poziție critică, încheiată cu o ironie (solicitarea unei ordonanțe pentru reînființarea Parlamentului) care nu constituie o propunere de politică publică. Profilul este unul de opoziție combativă, cu un respect procedural neutru, dar fără deliberare substanțială.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13019,
+      "tokens_in_breakdown": {
+        "fresh": 13019,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1294,
+      "cost_usd": null,
+      "latency_ms": 4646,
+      "retries_used": 0
+    }
+  }
+}

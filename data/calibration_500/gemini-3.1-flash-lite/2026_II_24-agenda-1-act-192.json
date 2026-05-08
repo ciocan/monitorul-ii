@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2026/II/24#agenda-1#act-192",
+  "tier": "calibration",
+  "speaker": {
+    "id": "roman-marius-valentin",
+    "name": "Marius-Valentin Roman",
+    "raw": "Domnul Marius-Valentin Roman",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": "2026-02-25",
+    "year": 2026,
+    "legislature": "X",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2026/II/24#agenda-1#act-192",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.95,
+        "markers": [],
+        "rationale": "Discursul se concentrează pe o inițiativă legislativă specifică privind repatrierea artefactelor culturale, folosind un ton naționalist moderat, dar fără a construi un cadru manihean popor-vs-elită. Deși vorbitorul invocă identitatea națională și critică ineficiența guvernamentală în prevenție, argumentația rămâne în sfera politicilor publice și a propunerilor constructive, fără a demoniza o elită sau a invoca o voință populară suverană care să ignore procedurile. Nu există markeri populiști care să susțină o viziune pervazivă, discursul fiind mai degrabă o intervenție politică pe o temă de patrimoniu."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.95,\n  \"markers\": [],\n  \"rationale\": \"Discursul se concentrează pe o inițiativă legislativă specifică privind repatrierea artefactelor culturale, folosind un ton naționalist moderat, dar fără a construi un cadru manihean popor-vs-elită. Deși vorbitorul invocă identitatea națională și critică ineficiența guvernamentală în prevenție, argumentația rămâne în sfera politicilor publice și a propunerilor constructive, fără a demoniza o elită sau a invoca o voință populară suverană care să ignore procedurile. Nu există markeri populiști care să susțină o viziune pervazivă, discursul fiind mai degrabă o intervenție politică pe o temă de patrimoniu.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13853,
+      "tokens_in_breakdown": {
+        "fresh": 13853,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 232,
+      "cost_usd": null,
+      "latency_ms": 2025,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2026/II/24#agenda-1#act-192",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.82,
+        "level_of_justification": 2,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "alternative_proposal",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "Avem și noi Tezaurul de la Sânnicolau Mare, care este la Viena, avem și noi alte tezaure care sunt la Budapesta, iar turiști le admiră acolo, și nu pe pământul unde au fost descoperite."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Vorbitorul oferă exemple concrete și specifice pentru a susține necesitatea repatrierii artefactelor."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "protejarea identității naționale"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Justificarea se bazează pe interesul național și protejarea patrimoniului cultural, un apel universalizabil."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Stimați colegi"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.99,
+            "marker_confidence": 0.9,
+            "rationale_short": "Adresare convențională; nu există referințe derogatorii sau de respect explicit către out-group-uri."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "nu pot decât să mă bucur că Guvernul mai are și astfel de idei."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Vorbitorul susține inițiativa, dar nu angajează cererile opoziției sau ale altor actori în mod deliberativ."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "Trebuie să pierdem artefacte, mă rog, să ne fie furate"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.88,
+            "rationale_short": "Nu sunt adresate contraargumente specifice; vorbitorul își expune propria perspectivă fără a interacționa cu opoziția."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "alternative_proposal",
+            "evidence": {
+              "text": "aș aștepta din partea Guvernului, dar și a colegilor parlamentari, să demarăm și acțiuni similare Greciei și Egiptului"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.93,
+            "rationale_short": "Vorbitorul propune o acțiune concretă (repatrierea artefactelor) inspirată de modele internaționale."
+          }
+        ],
+        "rationale": "Discursul prezintă o calitate deliberativă moderată, fiind susținut de o justificare calificată prin exemple concrete (Tezaurul de la Sânnicolau Mare) și ancorată în binele comun (identitatea națională). Deși vorbitorul este constructiv prin propunerea unor acțiuni de repatriere similare altor state, acesta nu angajează contraargumente sau cereri adverse, limitându-se la o poziție de susținere a inițiativei guvernamentale cu amendamente de extindere. Respectul pentru grupuri și cereri rămâne neutru, fiind marcat de convenții parlamentare standard. Profilul este unul de susținere critică, orientat spre extinderea politicilor culturale."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.82,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 0,\n  \"constructive_politics\": \"alternative_proposal\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"Avem și noi Tezaurul de la Sânnicolau Mare, care este la Viena, avem și noi alte tezaure care sunt la Budapesta, iar turiști le admiră acolo, și nu pe pământul unde au fost descoperite.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Vorbitorul oferă exemple concrete și specifice pentru a susține necesitatea repatrierii artefactelor.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"protejarea identității naționale\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Justificarea se bazează pe interesul național și protejarea patrimoniului cultural, un apel universalizabil.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Stimați colegi\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.99,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Adresare convențională; nu există referințe derogatorii sau de respect explicit către out-group-uri.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"nu pot decât să mă bucur că Guvernul mai are și astfel de idei.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Vorbitorul susține inițiativa, dar nu angajează cererile opoziției sau ale altor actori în mod deliberativ.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"Trebuie să pierdem artefacte, mă rog, să ne fie furate\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Nu sunt adresate contraargumente specifice; vorbitorul își expune propria perspectivă fără a interacționa cu opoziția.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"alternative_proposal\",\n      \"evidence\": {\n        \"text\": \"aș aștepta din partea Guvernului, dar și a colegilor parlamentari, să demarăm și acțiuni similare Greciei și Egiptului\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.93,\n      \"rationale_short\": \"Vorbitorul propune o acțiune concretă (repatrierea artefactelor) inspirată de modele internaționale.\"\n    }\n  ],\n  \"rationale\": \"Discursul prezintă o calitate deliberativă moderată, fiind susținut de o justificare calificată prin exemple concrete (Tezaurul de la Sânnicolau Mare) și ancorată în binele comun (identitatea națională). Deși vorbitorul este constructiv prin propunerea unor acțiuni de repatriere similare altor state, acesta nu angajează contraargumente sau cereri adverse, limitându-se la o poziție de susținere a inițiativei guvernamentale cu amendamente de extindere. Respectul pentru grupuri și cereri rămâne neutru, fiind marcat de convenții parlamentare standard. Profilul este unul de susținere critică, orientat spre extinderea politicilor culturale.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12654,
+      "tokens_in_breakdown": {
+        "fresh": 12654,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1193,
+      "cost_usd": null,
+      "latency_ms": 4665,
+      "retries_used": 0
+    }
+  }
+}

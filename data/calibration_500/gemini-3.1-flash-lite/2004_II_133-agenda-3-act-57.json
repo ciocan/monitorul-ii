@@ -1,0 +1,152 @@
+{
+  "speech_id": "mo://2004/II/133#agenda-3#act-57",
+  "tier": "calibration",
+  "speaker": {
+    "id": "popa-nicolae-vlad",
+    "name": "Nicolae-Vlad Popa",
+    "raw": "Domnul Nicolae-Vlad Popa",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": null,
+    "year": 2004,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2004/II/133#agenda-3#act-57",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.95,
+        "markers": [],
+        "rationale": "Discursul se concentrează pe o critică tehnică și procedurală a unui contract de privatizare, ridicând întrebări legitime despre transparență, bonitatea partenerilor și riscurile financiare. Deși vorbitorul folosește un ton sceptic și critic la adresa „sistemului” și a „firmelor din Insulele Virgine”, acesta nu construiește un cadru maniheist popor-vs-elită, nu invocă o voință populară omogenă și nu recurge la retorică populistă. Este o intervenție parlamentară de control al actului administrativ, încadrată în registrul procedural. Hawkins=0 cu încredere ridicată."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.95,\n  \"markers\": [],\n  \"rationale\": \"Discursul se concentrează pe o critică tehnică și procedurală a unui contract de privatizare, ridicând întrebări legitime despre transparență, bonitatea partenerilor și riscurile financiare. Deși vorbitorul folosește un ton sceptic și critic la adresa „sistemului” și a „firmelor din Insulele Virgine”, acesta nu construiește un cadru maniheist popor-vs-elită, nu invocă o voință populară omogenă și nu recurge la retorică populistă. Este o intervenție parlamentară de control al actului administrativ, încadrată în registrul procedural. Hawkins=0 cu încredere ridicată.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13792,
+      "tokens_in_breakdown": {
+        "fresh": 13792,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 224,
+      "cost_usd": null,
+      "latency_ms": 1939,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2004/II/133#agenda-3#act-57",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.82,
+        "level_of_justification": 2,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "De ce nu a˛i exemplificat dac„ ∫ti˛i care sunt vehiculele sau, m„ rog, partenerii? De ce nu i-a˛i trecut Ón amendament pe to˛i, celelalte firme care intr„, pentru c„ a˛i negociat"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.88,
+            "rationale_short": "Vorbitorul oferă o justificare bazată pe un mecanism de transparență și control al riscului (evitarea firmelor offshore)."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "Noi trebuie s„ sufl„m ∫i Ón iaurt. Sunt de acord cu tot ce Ónseamn„ privatizare, sunt de acord, numai s„ fie transparent„"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.85,
+            "rationale_short": "Apelul la transparență în procesul de privatizare este un principiu universalizabil, nu un interes de grup."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "o firm„, Ón ghilimele, controlat„ Ón Insulele Virgine"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.82,
+            "rationale_short": "Referință critică la entități economice, dar fără a deroga un grup social sau politic protejat."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "De ce nu a˛i exemplificat dac„ ∫ti˛i care sunt vehiculele"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.96,
+            "marker_confidence": 0.8,
+            "rationale_short": "Vorbitorul chestionează procedura fără a se angaja direct cu legitimitatea cererii de privatizare în sine."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "eu nu sunt mul˛umit de aceast„ explica˛ie"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Vorbitorul menționează existența unei explicații anterioare, dar nu o reia sau nu o combate substanțial."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "De ce nu i-a˛i trecut Ón amendament pe to˛i"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.9,
+            "rationale_short": "Vorbitorul critică omisiunile din amendament, dar nu propune o alternativă concretă sau un compromis."
+          }
+        ],
+        "rationale": "Discursul prezintă o calitate deliberativă medie, caracterizată printr-o justificare calificată (level_of_justification=2) bazată pe necesitatea transparenței în procesele de privatizare. Vorbitorul apelează la binele comun (common_good) prin cerința de verificare a bonității partenerilor contractuali. Deși critic, discursul rămâne în limitele respectului neutru (respect_for_groups=1), fără a deroga grupuri specifice. Angajamentul cu argumentele opoziției este limitat la o nemulțumire generală (respect_for_counterarguments=1), iar natura discursului este predominant pozițională, criticând lipsa de transparență fără a oferi o soluție alternativă formală. Profilul este cel al unui parlamentar care exercită un rol de control, cu o argumentație logică dar fără o componentă constructivă sau de mediere."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.82,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"De ce nu a˛i exemplificat dac„ ∫ti˛i care sunt vehiculele sau, m„ rog, partenerii? De ce nu i-a˛i trecut Ón amendament pe to˛i, celelalte firme care intr„, pentru c„ a˛i negociat\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Vorbitorul oferă o justificare bazată pe un mecanism de transparență și control al riscului (evitarea firmelor offshore).\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"Noi trebuie s„ sufl„m ∫i Ón iaurt. Sunt de acord cu tot ce Ónseamn„ privatizare, sunt de acord, numai s„ fie transparent„\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Apelul la transparență în procesul de privatizare este un principiu universalizabil, nu un interes de grup.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"o firm„, Ón ghilimele, controlat„ Ón Insulele Virgine\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.82,\n      \"rationale_short\": \"Referință critică la entități economice, dar fără a deroga un grup social sau politic protejat.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"De ce nu a˛i exemplificat dac„ ∫ti˛i care sunt vehiculele\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.96,\n      \"marker_confidence\": 0.80,\n      \"rationale_short\": \"Vorbitorul chestionează procedura fără a se angaja direct cu legitimitatea cererii de privatizare în sine.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"eu nu sunt mul˛umit de aceast„ explica˛ie\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Vorbitorul menționează existența unei explicații anterioare, dar nu o reia sau nu o combate substanțial.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"De ce nu i-a˛i trecut Ón amendament pe to˛i\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"marker_confidence\": 0.90,\n      \"rationale_short\": \"Vorbitorul critică omisiunile din amendament, dar nu propune o alternativă concretă sau un compromis.\"\n    }\n  ],\n  \"rationale\": \"Discursul prezintă o calitate deliberativă medie, caracterizată printr-o justificare calificată (level_of_justification=2) bazată pe necesitatea transparenței în procesele de privatizare. Vorbitorul apelează la binele comun (common_good) prin cerința de verificare a bonității partenerilor contractuali. Deși critic, discursul rămâne în limitele respectului neutru (respect_for_groups=1), fără a deroga grupuri specifice. Angajamentul cu argumentele opoziției este limitat la o nemulțumire generală (respect_for_counterarguments=1), iar natura discursului este predominant pozițională, criticând lipsa de transparență fără a oferi o soluție alternativă formală. Profilul este cel al unui parlamentar care exercită un rol de control, cu o argumentație logică dar fără o componentă constructivă sau de mediere.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [
+        "Noi trebuie s„ sufl„m ∫i Ón iaurt. Sunt de acord cu tot ce Ónseamn„ privatizare, sunt de acord, numai s„ fie transparent„"
+      ],
+      "parse_repaired": false,
+      "tokens_in": 12593,
+      "tokens_in_breakdown": {
+        "fresh": 12593,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1276,
+      "cost_usd": null,
+      "latency_ms": 4720,
+      "retries_used": 0
+    }
+  }
+}

@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2025/II/25#agenda-2#act-136",
+  "tier": "calibration",
+  "speaker": {
+    "id": "pauliuc-nicoleta",
+    "name": "Nicoleta Pauliuc",
+    "raw": "Doamna Nicoleta Pauliuc",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": "2025-02-26",
+    "year": 2025,
+    "legislature": "X",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2025/II/25#agenda-2#act-136",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul este unul pur procedural, axat pe respectarea regulamentului comisiei, organizarea votului și justificarea tehnică a deciziilor luate în cadrul comisiei de apărare. Deși vorbitorul menționează „reprezentanții celor care ne-au trimis în Parlament”, această formulare este utilizată în registrul convențional al mandatului parlamentar, nu ca parte a unui cadru manihean popor-vs-elită. Nu există niciun marker populist prezent, iar discursul nu conține nicio tentativă de a invoca o voință populară omogenă sau de a ataca o elită malefică. Hawkins=0 cu încredere ridicată."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul este unul pur procedural, axat pe respectarea regulamentului comisiei, organizarea votului și justificarea tehnică a deciziilor luate în cadrul comisiei de apărare. Deși vorbitorul menționează „reprezentanții celor care ne-au trimis în Parlament”, această formulare este utilizată în registrul convențional al mandatului parlamentar, nu ca parte a unui cadru manihean popor-vs-elită. Nu există niciun marker populist prezent, iar discursul nu conține nicio tentativă de a invoca o voință populară omogenă sau de a ataca o elită malefică. Hawkins=0 cu încredere ridicată.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13806,
+      "tokens_in_breakdown": {
+        "fresh": 13806,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 225,
+      "cost_usd": null,
+      "latency_ms": 2023,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2025/II/25#agenda-2#act-136",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.82,
+        "level_of_justification": 1,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 1,
+            "evidence": {
+              "text": "am considerat atunci, în cadrul dezbaterilor, că avem legislație suficientă ca să asigure garanții atunci când vorbim de drepturi și libertăți ale cetățenilor."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Justificarea invocă o opinie generală despre legislația existentă fără a oferi un mecanism cauzal sau o sursă specifică."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "drepturi și libertăți ale cetățenilor"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Apelul la drepturile și libertățile cetățenilor este universalizabil, vizând binele comun."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Stimați colegi"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.99,
+            "marker_confidence": 0.95,
+            "rationale_short": "Adresare convențională; niciun grup nu este vizat explicit pentru respect sau derogare."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "restul colegilor împotriva amendamentelor"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.88,
+            "rationale_short": "Menționarea votului opoziției este pur descriptivă, fără angajament față de legitimitatea cererilor lor."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "s-a votat șase... au fost șase colegi care au votat pentru amendamente"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Vorbitorul recunoaște existența unor amendamente, dar nu se angajează în dezbaterea raționamentelor din spatele lor."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "am considerat atunci, în cadrul dezbaterilor, că avem legislație suficientă"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Vorbitorul își susține poziția de respingere a amendamentelor fără a propune o alternativă sau mediere."
+          }
+        ],
+        "rationale": "Discursul este o intervenție procedurală care explică decizia comisiei de a respinge anumite amendamente. Nivelul de justificare este inferior (1), deoarece vorbitorul se bazează pe o evaluare subiectivă a legislației existente fără a cita surse sau mecanisme specifice. Apelul la drepturile cetățenilor plasează conținutul justificării în sfera binelui comun. Respectul pentru grupuri și cereri rămâne neutru, fiind o descriere a procesului de votare fără angajament substanțial. Vorbitorul nu oferă alternative, menținând o poziție fermă de respingere a amendamentelor, ceea ce îl clasifică drept pozițional. Calitatea deliberativă este limitată de natura procedurală a intervenției."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.82,\n  \"level_of_justification\": 1,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"am considerat atunci, în cadrul dezbaterilor, că avem legislație suficientă ca să asigure garanții atunci când vorbim de drepturi și libertăți ale cetățenilor.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Justificarea invocă o opinie generală despre legislația existentă fără a oferi un mecanism cauzal sau o sursă specifică.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"drepturi și libertăți ale cetățenilor\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Apelul la drepturile și libertățile cetățenilor este universalizabil, vizând binele comun.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Stimați colegi\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.99,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Adresare convențională; niciun grup nu este vizat explicit pentru respect sau derogare.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"restul colegilor împotriva amendamentelor\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Menționarea votului opoziției este pur descriptivă, fără angajament față de legitimitatea cererilor lor.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"s-a votat șase... au fost șase colegi care au votat pentru amendamente\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Vorbitorul recunoaște existența unor amendamente, dar nu se angajează în dezbaterea raționamentelor din spatele lor.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"am considerat atunci, în cadrul dezbaterilor, că avem legislație suficientă\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Vorbitorul își susține poziția de respingere a amendamentelor fără a propune o alternativă sau mediere.\"\n    }\n  ],\n  \"rationale\": \"Discursul este o intervenție procedurală care explică decizia comisiei de a respinge anumite amendamente. Nivelul de justificare este inferior (1), deoarece vorbitorul se bazează pe o evaluare subiectivă a legislației existente fără a cita surse sau mecanisme specifice. Apelul la drepturile cetățenilor plasează conținutul justificării în sfera binelui comun. Respectul pentru grupuri și cereri rămâne neutru, fiind o descriere a procesului de votare fără angajament substanțial. Vorbitorul nu oferă alternative, menținând o poziție fermă de respingere a amendamentelor, ceea ce îl clasifică drept pozițional. Calitatea deliberativă este limitată de natura procedurală a intervenției.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12607,
+      "tokens_in_breakdown": {
+        "fresh": 12607,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1176,
+      "cost_usd": null,
+      "latency_ms": 4962,
+      "retries_used": 0
+    }
+  }
+}

@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2016/II/127#agenda-12#act-5",
+  "tier": "calibration",
+  "speaker": {
+    "id": "chelaru-ioan",
+    "name": "Ioan Chelaru",
+    "raw": "Domnul Ioan Chelaru",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": "2016-09-13",
+    "year": 2016,
+    "legislature": "VII",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2016/II/127#agenda-12#act-5",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 1.0,
+        "markers": [],
+        "rationale": "Discursul este pur procedural și tehnic, concentrându-se pe reglementarea impozitului specific în sectorul turistic și pe obiecțiile Guvernului față de raportul comisiei. Nu există nicio urmă de cadru popor-vs-elită, maniheism moral sau invocare a unei voințe populare omogene. Vorbitorul se limitează la argumente de politici publice și proceduri parlamentare, încadrându-se perfect în registrul non-populist. Hawkins=0 cu încredere maximă."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 1.0,\n  \"markers\": [],\n  \"rationale\": \"Discursul este pur procedural și tehnic, concentrându-se pe reglementarea impozitului specific în sectorul turistic și pe obiecțiile Guvernului față de raportul comisiei. Nu există nicio urmă de cadru popor-vs-elită, maniheism moral sau invocare a unei voințe populare omogene. Vorbitorul se limitează la argumente de politici publice și proceduri parlamentare, încadrându-se perfect în registrul non-populist. Hawkins=0 cu încredere maximă.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13726,
+      "tokens_in_breakdown": {
+        "fresh": 13726,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 186,
+      "cost_usd": null,
+      "latency_ms": 1810,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2016/II/127#agenda-12#act-5",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.85,
+        "level_of_justification": 2,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "în scopul eliminării concurenței neloiale, creșterii conformării voluntare și stimulării investițiilor."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Vorbitorul oferă motive cauzale specifice pentru instituirea impozitului (eliminarea concurenței neloiale, stimularea investițiilor)."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "în scopul eliminării concurenței neloiale, creșterii conformării voluntare și stimulării investițiilor."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Justificarea se referă la obiective economice generale, universalizabile, specifice binelui comun."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Guvernul nu susține raportul comisiei"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Referință neutră la comisie; nicio derogare sau respect explicit."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Guvernul nu susține raportul comisiei, deoarece există o serie de observații care nu au fost însușite în acest raport"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.88,
+            "rationale_short": "Vorbitorul respinge raportul fără a angaja legitimitatea cererilor comisiei; non-angajament."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "există o serie de observații care nu au fost însușite în acest raport, precum introducerea unui plafon la cifra de afaceri sau definirea mai clară a unor termeni."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Vorbitorul menționează observațiile comisiei, dar nu le angajează substanțial, limitându-se la a le constata neînsușirea."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Guvernul nu susține raportul comisiei"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Poziție declarată de respingere; nicio alternativă sau mediere propusă."
+          }
+        ],
+        "rationale": "Discursul secretarului de stat prezintă o justificare calificată (level_of_justification=2) prin invocarea unor obiective economice clare (eliminarea concurenței neloiale, stimularea investițiilor), ancorate în binele comun (content_of_justification=common_good). Deși menționează observațiile comisiei, vorbitorul nu se angajează substanțial în dezbaterea acestora, limitându-se la a constata neînsușirea lor (respect_for_counterarguments=1). Poziția este una de respingere a raportului fără a oferi o alternativă sau o mediere (constructive_politics=positional). Respectul pentru grupuri și cereri rămâne neutru, fiind o comunicare instituțională standard. Calitatea deliberativă este moderată, fiind axată pe clarificarea poziției executive."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.85,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"în scopul eliminării concurenței neloiale, creșterii conformării voluntare și stimulării investițiilor.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Vorbitorul oferă motive cauzale specifice pentru instituirea impozitului (eliminarea concurenței neloiale, stimularea investițiilor).\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"în scopul eliminării concurenței neloiale, creșterii conformării voluntare și stimulării investițiilor.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Justificarea se referă la obiective economice generale, universalizabile, specifice binelui comun.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Guvernul nu susține raportul comisiei\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Referință neutră la comisie; nicio derogare sau respect explicit.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Guvernul nu susține raportul comisiei, deoarece există o serie de observații care nu au fost însușite în acest raport\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Vorbitorul respinge raportul fără a angaja legitimitatea cererilor comisiei; non-angajament.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"există o serie de observații care nu au fost însușite în acest raport, precum introducerea unui plafon la cifra de afaceri sau definirea mai clară a unor termeni.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Vorbitorul menționează observațiile comisiei, dar nu le angajează substanțial, limitându-se la a le constata neînsușirea.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"Guvernul nu susține raportul comisiei\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Poziție declarată de respingere; nicio alternativă sau mediere propusă.\"\n    }\n  ],\n  \"rationale\": \"Discursul secretarului de stat prezintă o justificare calificată (level_of_justification=2) prin invocarea unor obiective economice clare (eliminarea concurenței neloiale, stimularea investițiilor), ancorate în binele comun (content_of_justification=common_good). Deși menționează observațiile comisiei, vorbitorul nu se angajează substanțial în dezbaterea acestora, limitându-se la a constata neînsușirea lor (respect_for_counterarguments=1). Poziția este una de respingere a raportului fără a oferi o alternativă sau o mediere (constructive_politics=positional). Respectul pentru grupuri și cereri rămâne neutru, fiind o comunicare instituțională standard. Calitatea deliberativă este moderată, fiind axată pe clarificarea poziției executive.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12527,
+      "tokens_in_breakdown": {
+        "fresh": 12527,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1221,
+      "cost_usd": null,
+      "latency_ms": 4231,
+      "retries_used": 0
+    }
+  }
+}

@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2020/II/69#agenda-1#act-151",
+  "tier": "calibration",
+  "speaker": {
+    "id": "gotiu-remus-mihai",
+    "name": "Remus Mihai Goțiu",
+    "raw": "Domnul Remus Mihai Goțiu",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": "2020-06-23",
+    "year": 2020,
+    "legislature": "VIII",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2020/II/69#agenda-1#act-151",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 1.0,
+        "markers": [],
+        "rationale": "Discursul reprezintă o intervenție pur procedurală de exprimare a votului pentru o serie de puncte de pe ordinea de zi. Nu există nicio formă de retorică populistă, nicio referire la un cadru popor-vs-elită, nicio invocare a unei voințe populare omogene sau a unei crize existențiale. Vorbitorul se limitează strict la exercitarea mandatului parlamentar într-un registru tehnic și administrativ. Hawkins=0 cu încredere maximă."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 1.0,\n  \"markers\": [],\n  \"rationale\": \"Discursul reprezintă o intervenție pur procedurală de exprimare a votului pentru o serie de puncte de pe ordinea de zi. Nu există nicio formă de retorică populistă, nicio referire la un cadru popor-vs-elită, nicio invocare a unei voințe populare omogene sau a unei crize existențiale. Vorbitorul se limitează strict la exercitarea mandatului parlamentar într-un registru tehnic și administrativ. Hawkins=0 cu încredere maximă.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13695,
+      "tokens_in_breakdown": {
+        "fresh": 13695,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 184,
+      "cost_usd": null,
+      "latency_ms": 1763,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2020/II/69#agenda-1#act-151",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.55,
+        "level_of_justification": 0,
+        "content_of_justification": "none",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 0,
+            "evidence": {
+              "text": "votul meu astăzi îl exprim astfel"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Discursul este o simplă enumerare a opțiunilor de vot, fără nicio justificare sau raționament."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "none",
+            "evidence": {
+              "text": "votul meu astăzi îl exprim astfel"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Nicio justificare oferită; conținutul justificării este nedefinit."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Bună ziua!"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Salut convențional; nicio referire la grupuri sociale sau politice."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "votul meu astăzi îl exprim astfel"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Vorbitorul își exercită dreptul de vot fără a aborda cererile altor părți."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "votul meu astăzi îl exprim astfel"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Nicio contraargumentare prezentă; discursul este pur procedural."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "votul meu astăzi îl exprim astfel"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Vorbitorul își declară poziția de vot fără a propune alternative sau medieri."
+          }
+        ],
+        "rationale": "Acest discurs este un exemplu tipic de intervenție procedurală pentru exprimarea votului, lipsită de conținut deliberativ. Vorbitorul se limitează la a enumera opțiunile sale pentru fiecare punct de pe ordinea de zi, fără a oferi nicio justificare, argument sau contraargument. Din acest motiv, toate dimensiunile DQI sunt codate la valorile lor implicite (neutru sau pozițional). Deși discursul este clar și coerent, el nu îndeplinește criteriile pentru o deliberare de calitate, fiind pur administrativ. Încrederea în framework este moderată spre scăzută, deoarece discursul nu conține material argumentativ care să poată fi evaluat prin prisma rubricii Steiner & Bächtiger."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.55,\n  \"level_of_justification\": 0,\n  \"content_of_justification\": \"none\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"votul meu astăzi îl exprim astfel\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Discursul este o simplă enumerare a opțiunilor de vot, fără nicio justificare sau raționament.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"none\",\n      \"evidence\": {\n        \"text\": \"votul meu astăzi îl exprim astfel\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Nicio justificare oferită; conținutul justificării este nedefinit.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Bună ziua!\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Salut convențional; nicio referire la grupuri sociale sau politice.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"votul meu astăzi îl exprim astfel\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Vorbitorul își exercită dreptul de vot fără a aborda cererile altor părți.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"votul meu astăzi îl exprim astfel\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Nicio contraargumentare prezentă; discursul este pur procedural.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"votul meu astăzi îl exprim astfel\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Vorbitorul își declară poziția de vot fără a propune alternative sau medieri.\"\n    }\n  ],\n  \"rationale\": \"Acest discurs este un exemplu tipic de intervenție procedurală pentru exprimarea votului, lipsită de conținut deliberativ. Vorbitorul se limitează la a enumera opțiunile sale pentru fiecare punct de pe ordinea de zi, fără a oferi nicio justificare, argument sau contraargument. Din acest motiv, toate dimensiunile DQI sunt codate la valorile lor implicite (neutru sau pozițional). Deși discursul este clar și coerent, el nu îndeplinește criteriile pentru o deliberare de calitate, fiind pur administrativ. Încrederea în framework este moderată spre scăzută, deoarece discursul nu conține material argumentativ care să poată fi evaluat prin prisma rubricii Steiner & Bächtiger.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12496,
+      "tokens_in_breakdown": {
+        "fresh": 12496,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1041,
+      "cost_usd": null,
+      "latency_ms": 4383,
+      "retries_used": 0
+    }
+  }
+}

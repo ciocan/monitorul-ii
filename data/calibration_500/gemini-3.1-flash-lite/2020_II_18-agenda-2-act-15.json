@@ -1,0 +1,210 @@
+{
+  "speech_id": "mo://2020/II/18#agenda-2#act-15",
+  "tier": "calibration",
+  "speaker": {
+    "id": "gotiu-remus-mihai",
+    "name": "Remus Mihai Goțiu",
+    "raw": "Domnul Remus Mihai Goțiu",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": "2020-02-19",
+    "year": 2020,
+    "legislature": "VIII",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2020/II/18#agenda-2#act-15",
+      "output": {
+        "score": 1,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.85,
+        "markers": [
+          {
+            "kind": "people_vs_elite",
+            "evidence": {
+              "text": "Încercați să negați realitatea. Încercați să le blocați dreptul acestor cetățeni să voteze."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.82,
+            "rationale_short": "Opoziția dintre cetățenii care produc valoare și clasa politică ce încearcă să le blocheze drepturile."
+          },
+          {
+            "kind": "evil_elite",
+            "evidence": {
+              "text": "Știu, i-ați vrea pe toți acești cetățeni să plece din țară. Și, dacă se poate, să nu voteze nici în diasporă și să nu fie reprezentați nici în diasporă."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.92,
+            "marker_confidence": 0.78,
+            "rationale_short": "Elita politică este acuzată de intenții malițioase, dorind excluderea cetățenilor din procesul democratic."
+          }
+        ],
+        "rationale": "Discursul combină argumente tehnice și procedurale privind dreptul la vot și reprezentarea diasporei cu momente de retorică populistă la persoana întâi. Deși vorbitorul invocă o dihotomie între cetățenii activi și clasa politică (PSD, UDMR, ALDE) acuzată de rea-voință, discursul rămâne ancorat în dezbaterea unor amendamente și a unor realități statistice. Populismul este episodic, nu pervaziv, lipsind un cadru maniheist total sau o invocare a unei voințe populare omogene ca forță suverană absolută. Scor 1 cu încredere ridicată, reflectând natura mixtă a discursului."
+      },
+      "raw_response": "{\n  \"score\": 1,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.85,\n  \"markers\": [\n    {\n      \"kind\": \"people_vs_elite\",\n      \"evidence\": {\n        \"text\": \"Încercați să negați realitatea. Încercați să le blocați dreptul acestor cetățeni să voteze.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.82,\n      \"rationale_short\": \"Opoziția dintre cetățenii care produc valoare și clasa politică ce încearcă să le blocheze drepturile.\"\n    },\n    {\n      \"kind\": \"evil_elite\",\n      \"evidence\": {\n        \"text\": \"Știu, i-ați vrea pe toți acești cetățeni să plece din țară. Și, dacă se poate, să nu voteze nici în diasporă și să nu fie reprezentați nici în diasporă.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.92,\n      \"marker_confidence\": 0.78,\n      \"rationale_short\": \"Elita politică este acuzată de intenții malițioase, dorind excluderea cetățenilor din procesul democratic.\"\n    }\n  ],\n  \"rationale\": \"Discursul combină argumente tehnice și procedurale privind dreptul la vot și reprezentarea diasporei cu momente de retorică populistă la persoana întâi. Deși vorbitorul invocă o dihotomie între cetățenii activi și clasa politică (PSD, UDMR, ALDE) acuzată de rea-voință, discursul rămâne ancorat în dezbaterea unor amendamente și a unor realități statistice. Populismul este episodic, nu pervaziv, lipsind un cadru maniheist total sau o invocare a unei voințe populare omogene ca forță suverană absolută. Scor 1 cu încredere ridicată, reflectând natura mixtă a discursului.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 14446,
+      "tokens_in_breakdown": {
+        "fresh": 14446,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 554,
+      "cost_usd": null,
+      "latency_ms": 3327,
+      "retries_used": 0
+    },
+    "voice": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "voice",
+      "speech_id": "mo://2020/II/18#agenda-2#act-15",
+      "output": {
+        "classifications": [
+          {
+            "marker_id": "m_0",
+            "voice": "speaker_first_person",
+            "voice_confidence": 0.95,
+            "voice_evidence": null,
+            "attributed_to": null,
+            "rationale_short": "Vorbitorul își asumă direct acuzația la adresa opoziției, fără a folosi un cadru de citare sau raportare."
+          },
+          {
+            "marker_id": "m_1",
+            "voice": "speaker_first_person",
+            "voice_confidence": 0.95,
+            "voice_evidence": null,
+            "attributed_to": null,
+            "rationale_short": "Afirmație directă a vorbitorului despre intențiile adversarilor politici, exprimată în nume propriu."
+          }
+        ]
+      },
+      "raw_response": "{\n  \"classifications\": [\n    {\n      \"marker_id\": \"m_0\",\n      \"voice\": \"speaker_first_person\",\n      \"voice_confidence\": 0.95,\n      \"voice_evidence\": null,\n      \"attributed_to\": null,\n      \"rationale_short\": \"Vorbitorul își asumă direct acuzația la adresa opoziției, fără a folosi un cadru de citare sau raportare.\"\n    },\n    {\n      \"marker_id\": \"m_1\",\n      \"voice\": \"speaker_first_person\",\n      \"voice_confidence\": 0.95,\n      \"voice_evidence\": null,\n      \"attributed_to\": null,\n      \"rationale_short\": \"Afirmație directă a vorbitorului despre intențiile adversarilor politici, exprimată în nume propriu.\"\n    }\n  ]\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12103,
+      "tokens_in_breakdown": {
+        "fresh": 12103,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 211,
+      "cost_usd": null,
+      "latency_ms": 1271,
+      "retries_used": 0
+    },
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2020/II/18#agenda-2#act-15",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.78,
+        "level_of_justification": 2,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "alternative_proposal",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "Cine sunt acești cetățeni care au votat pe listele suplimentare? O mare parte dintre ei sunt studenții care învață în centrele universitare din România. O la fel de mare parte reprezintă cea mai dinamică parte a societății din România, oameni care nu au plecat în alte țări, ci au mers către alte orașe din România, unde produc valoare."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Vorbitorul oferă o justificare bazată pe realitatea socio-economică a studenților și a forței de muncă mobile."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "haideți să-i ajutăm pe acești oameni să-și exercite dreptul constituțional de a vota."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Apelul este la dreptul constituțional universal, nu la un interes de grup restrâns."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Stimați colegi de la PSD, de la UDMR, de la ALDE"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.99,
+            "marker_confidence": 0.95,
+            "rationale_short": "Adresare formală neutră către grupurile parlamentare; nicio derogare sau respect explicit."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Încercați să negați realitatea. Încercați să le blocați dreptul acestor cetățeni să voteze."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.88,
+            "rationale_short": "Vorbitorul critică acțiunile opoziției fără a angaja legitimitatea cererilor lor; non-angajament."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "Rămâneți în trecut. Nu luați în considerare ceea ce se schimbă în România și realitatea din România."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.82,
+            "rationale_short": "Menționează poziția adversă ca fiind 'în trecut', dar nu oferă o contra-argumentare substanțială."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "alternative_proposal",
+            "evidence": {
+              "text": "USR susține această ordonanță de urgență. A pregătit și amendamente pentru acele puncte în care ar fi fost bine să mai discutăm"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.91,
+            "rationale_short": "Vorbitorul menționează depunerea de amendamente concrete pentru îmbunătățirea ordonanței."
+          }
+        ],
+        "rationale": "Discursul prezintă o calitate deliberativă medie, marcată de o justificare calificată (level_of_justification=2) bazată pe realitatea demografică și constituțională. Vorbitorul apelează la binele comun (dreptul la vot) și propune o abordare constructivă prin amendamente (constructive_politics=alternative_proposal). Totuși, respectul pentru opoziție rămâne la un nivel neutru sau de non-angajament, folosind retorică critică ('rămâneți în trecut') în loc de o dezbatere substanțială a contraargumentelor. Profilul este unul de opoziție angajată, dar care evită deliberarea aprofundată cu adversarii politici."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.78,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"alternative_proposal\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"Cine sunt acești cetățeni care au votat pe listele suplimentare? O mare parte dintre ei sunt studenții care învață în centrele universitare din România. O la fel de mare parte reprezintă cea mai dinamică parte a societății din România, oameni care nu au plecat în alte țări, ci au mers către alte orașe din România, unde produc valoare.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Vorbitorul oferă o justificare bazată pe realitatea socio-economică a studenților și a forței de muncă mobile.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"haideți să-i ajutăm pe acești oameni să-și exercite dreptul constituțional de a vota.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Apelul este la dreptul constituțional universal, nu la un interes de grup restrâns.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Stimați colegi de la PSD, de la UDMR, de la ALDE\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.99,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Adresare formală neutră către grupurile parlamentare; nicio derogare sau respect explicit.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Încercați să negați realitatea. Încercați să le blocați dreptul acestor cetățeni să voteze.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Vorbitorul critică acțiunile opoziției fără a angaja legitimitatea cererilor lor; non-angajament.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Rămâneți în trecut. Nu luați în considerare ceea ce se schimbă în România și realitatea din România.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"marker_confidence\": 0.82,\n      \"rationale_short\": \"Menționează poziția adversă ca fiind 'în trecut', dar nu oferă o contra-argumentare substanțială.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"alternative_proposal\",\n      \"evidence\": {\n        \"text\": \"USR susține această ordonanță de urgență. A pregătit și amendamente pentru acele puncte în care ar fi fost bine să mai discutăm\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.91,\n      \"rationale_short\": \"Vorbitorul menționează depunerea de amendamente concrete pentru îmbunătățirea ordonanței.\"\n    }\n  ],\n  \"rationale\": \"Discursul prezintă o calitate deliberativă medie, marcată de o justificare calificată (level_of_justification=2) bazată pe realitatea demografică și constituțională. Vorbitorul apelează la binele comun (dreptul la vot) și propune o abordare constructivă prin amendamente (constructive_politics=alternative_proposal). Totuși, respectul pentru opoziție rămâne la un nivel neutru sau de non-angajament, folosind retorică critică ('rămâneți în trecut') în loc de o dezbatere substanțială a contraargumentelor. Profilul este unul de opoziție angajată, dar care evită deliberarea aprofundată cu adversarii politici.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13247,
+      "tokens_in_breakdown": {
+        "fresh": 13247,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1274,
+      "cost_usd": null,
+      "latency_ms": 4914,
+      "retries_used": 0
+    }
+  }
+}

@@ -1,0 +1,194 @@
+{
+  "speech_id": "mo://2024/II/76#agenda-2#act-101",
+  "tier": "calibration",
+  "speaker": {
+    "id": "cozmanciuc-corneliu-mugurel",
+    "name": "Corneliu-Mugurel Cozmanciuc",
+    "raw": "Domnul Corneliu-Mugurel Cozmanciuc",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2024-05-21",
+    "year": 2024,
+    "legislature": "IX",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2024/II/76#agenda-2#act-101",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [
+          {
+            "kind": "people_vs_elite",
+            "evidence": {
+              "text": "fiecare candidat în parte încearcă să „fure” cât mai multe voturi, apelând la simpatia oamenilor, la emoțiile lor, la neajunsurile lor, pe care ei promit în van că le vor remedia"
+            },
+            "preliminary_voice": "quoted",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.85,
+            "rationale_short": "Vorbitorul descrie critic tacticile altor candidați, folosind un cadru de tip popor-vs-elită ca obiect al criticii sale, nu ca propria viziune."
+          }
+        ],
+        "rationale": "Discursul este unul de tip electoral-tehnocratic, axat pe promovarea realizărilor guvernării liberale (investiții medicale, digitalizare, reforme administrative). Deși menționează tacticile populiste ale altor candidați, vorbitorul o face pentru a le critica și a îndemna alegătorii către o analiză rațională și pragmatică a performanței. Nu există un cadru maniheist, nicio invocare a unei voințe populare omogene ca forță suverană, iar discursul rămâne ancorat în argumente de politici publice. Hawkins=0 cu încredere ridicată."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [\n    {\n      \"kind\": \"people_vs_elite\",\n      \"evidence\": {\n        \"text\": \"fiecare candidat în parte încearcă să „fure” cât mai multe voturi, apelând la simpatia oamenilor, la emoțiile lor, la neajunsurile lor, pe care ei promit în van că le vor remedia\"\n      },\n      \"preliminary_voice\": \"quoted\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Vorbitorul descrie critic tacticile altor candidați, folosind un cadru de tip popor-vs-elită ca obiect al criticii sale, nu ca propria viziune.\"\n    }\n  ],\n  \"rationale\": \"Discursul este unul de tip electoral-tehnocratic, axat pe promovarea realizărilor guvernării liberale (investiții medicale, digitalizare, reforme administrative). Deși menționează tacticile populiste ale altor candidați, vorbitorul o face pentru a le critica și a îndemna alegătorii către o analiză rațională și pragmatică a performanței. Nu există un cadru maniheist, nicio invocare a unei voințe populare omogene ca forță suverană, iar discursul rămâne ancorat în argumente de politici publice. Hawkins=0 cu încredere ridicată.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 14398,
+      "tokens_in_breakdown": {
+        "fresh": 14398,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 391,
+      "cost_usd": null,
+      "latency_ms": 2570,
+      "retries_used": 0
+    },
+    "voice": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "voice",
+      "speech_id": "mo://2024/II/76#agenda-2#act-101",
+      "output": {
+        "classifications": [
+          {
+            "marker_id": "m_0",
+            "voice": "speaker_first_person",
+            "voice_confidence": 0.95,
+            "voice_evidence": null,
+            "attributed_to": null,
+            "rationale_short": "Afirmație directă a vorbitorului despre comportamentul candidaților; nu există indicii de citare, raportare sau disclaimer."
+          }
+        ]
+      },
+      "raw_response": "{\n  \"classifications\": [\n    {\n      \"marker_id\": \"m_0\",\n      \"voice\": \"speaker_first_person\",\n      \"voice_confidence\": 0.95,\n      \"voice_evidence\": null,\n      \"attributed_to\": null,\n      \"rationale_short\": \"Afirmație directă a vorbitorului despre comportamentul candidaților; nu există indicii de citare, raportare sau disclaimer.\"\n    }\n  ]\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 11971,
+      "tokens_in_breakdown": {
+        "fresh": 11971,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 113,
+      "cost_usd": null,
+      "latency_ms": 1057,
+      "retries_used": 0
+    },
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2024/II/76#agenda-2#act-101",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.78,
+        "level_of_justification": 2,
+        "content_of_justification": "mixed",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "Centrul de Excelență pentru Diagnosticare și Tratament cu Protonoterapie este un proiect cu o valoare estimativă de 70 de milioane de euro, fiind susținută din fonduri structurale europene."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Vorbitorul oferă detalii specifice despre proiect (valoare, sursă de finanțare) pentru a justifica importanța investiției."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "mixed",
+            "evidence": {
+              "text": "Guvernarea liberală ne-a pus pe harta globală în calitate de actor important în jocurile de securitate ale Europei"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.85,
+            "rationale_short": "Discursul îmbină interesele de partid (lauda guvernării liberale) cu apeluri la binele comun (securitatea europeană)."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "fiecare candidat în parte încearcă să „fure” cât mai multe voturi"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.96,
+            "marker_confidence": 0.88,
+            "rationale_short": "Referință critică la candidați, dar fără a atinge pragul de derogare sau respect explicit; postură neutră."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Este foarte ușor să cazi pradă cuvintelor frumoase, acuzațiilor făcute la adresa altor candidați"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.82,
+            "rationale_short": "Vorbitorul ignoră cererile opoziției, concentrându-se pe propria agendă; non-angajament."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "Este foarte ușor să cazi pradă cuvintelor frumoase, acuzațiilor făcute la adresa altor candidați"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.89,
+            "rationale_short": "Argumentele opoziției sunt ignorate complet, fiind reduse la simple acuzații fără substanță."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "a pune ștampila pe liberalism înseamnă a pune ștampila pe un viitor al evoluției și al dezvoltării"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.91,
+            "rationale_short": "Discursul este o pledoarie electorală pentru o poziție politică, fără a propune alternative sau medieri."
+          }
+        ],
+        "rationale": "Discursul prezintă o calitate deliberativă mixtă, fiind marcat de un ton electoral pronunțat. Deși vorbitorul oferă justificări calificate pentru proiectele guvernamentale (level_of_justification=2), argumentația rămâne ancorată în promovarea interesului de partid (content=mixed). Respectul pentru grupuri și cereri este neutru, evitând atacurile directe dar refuzând orice angajament substanțial cu raționamentele opoziției (respect_for_counterarguments=0). Discursul este în esență pozițional, având scopul de a convinge electoratul prin enumerarea realizărilor, fără a deschide un dialog deliberativ cu ceilalți actori politici."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.78,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"mixed\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 0,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"Centrul de Excelență pentru Diagnosticare și Tratament cu Protonoterapie este un proiect cu o valoare estimativă de 70 de milioane de euro, fiind susținută din fonduri structurale europene.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Vorbitorul oferă detalii specifice despre proiect (valoare, sursă de finanțare) pentru a justifica importanța investiției.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"mixed\",\n      \"evidence\": {\n        \"text\": \"Guvernarea liberală ne-a pus pe harta globală în calitate de actor important în jocurile de securitate ale Europei\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Discursul îmbină interesele de partid (lauda guvernării liberale) cu apeluri la binele comun (securitatea europeană).\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"fiecare candidat în parte încearcă să „fure” cât mai multe voturi\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.96,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Referință critică la candidați, dar fără a atinge pragul de derogare sau respect explicit; postură neutră.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Este foarte ușor să cazi pradă cuvintelor frumoase, acuzațiilor făcute la adresa altor candidați\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.82,\n      \"rationale_short\": \"Vorbitorul ignoră cererile opoziției, concentrându-se pe propria agendă; non-angajament.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"Este foarte ușor să cazi pradă cuvintelor frumoase, acuzațiilor făcute la adresa altor candidați\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.89,\n      \"rationale_short\": \"Argumentele opoziției sunt ignorate complet, fiind reduse la simple acuzații fără substanță.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"a pune ștampila pe liberalism înseamnă a pune ștampila pe un viitor al evoluției și al dezvoltării\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"marker_confidence\": 0.91,\n      \"rationale_short\": \"Discursul este o pledoarie electorală pentru o poziție politică, fără a propune alternative sau medieri.\"\n    }\n  ],\n  \"rationale\": \"Discursul prezintă o calitate deliberativă mixtă, fiind marcat de un ton electoral pronunțat. Deși vorbitorul oferă justificări calificate pentru proiectele guvernamentale (level_of_justification=2), argumentația rămâne ancorată în promovarea interesului de partid (content=mixed). Respectul pentru grupuri și cereri este neutru, evitând atacurile directe dar refuzând orice angajament substanțial cu raționamentele opoziției (respect_for_counterarguments=0). Discursul este în esență pozițional, având scopul de a convinge electoratul prin enumerarea realizărilor, fără a deschide un dialog deliberativ cu ceilalți actori politici.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [
+        "Guvernarea liberală ne-a pus pe harta globală în calitate de actor important în jocurile de securitate ale Europei"
+      ],
+      "parse_repaired": false,
+      "tokens_in": 13199,
+      "tokens_in_breakdown": {
+        "fresh": 13199,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1247,
+      "cost_usd": null,
+      "latency_ms": 5623,
+      "retries_used": 0
+    }
+  }
+}

@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2018/II/148#agenda-1#act-42",
+  "tier": "calibration",
+  "speaker": {
+    "id": "iurisniti-cristina-ionela",
+    "name": "Cristina Ionela Iurișniți",
+    "raw": "Doamna Cristina Ionela Iurișniți",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2018-10-17",
+    "year": 2018,
+    "legislature": "VIII",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2018/II/148#agenda-1#act-42",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul se înscrie într-un registru tehnic și procedural, concentrându-se pe propunerea unei modificări legislative specifice (Legea nr. 272/2004) pentru introducerea educației pentru sănătate în școli. Deși vorbitorul menționează „probleme cu subfinanțarea cronică” și „situații excepționale”, acestea sunt invocate în contextul unei argumentații de politici publice, nu ca parte a unui cadru maniheist popor-vs-elită. Nu există apeluri la o voință populară omogenă care să conteste instituțiile, nici demonizarea unei elite, discursul rămânând ancorat în logica reformei administrative. Hawkins=0 cu încredere ridicată."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul se înscrie într-un registru tehnic și procedural, concentrându-se pe propunerea unei modificări legislative specifice (Legea nr. 272/2004) pentru introducerea educației pentru sănătate în școli. Deși vorbitorul menționează „probleme cu subfinanțarea cronică” și „situații excepționale”, acestea sunt invocate în contextul unei argumentații de politici publice, nu ca parte a unui cadru maniheist popor-vs-elită. Nu există apeluri la o voință populară omogenă care să conteste instituțiile, nici demonizarea unei elite, discursul rămânând ancorat în logica reformei administrative. Hawkins=0 cu încredere ridicată.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 14004,
+      "tokens_in_breakdown": {
+        "fresh": 14004,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 245,
+      "cost_usd": null,
+      "latency_ms": 2043,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2018/II/148#agenda-1#act-42",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.88,
+        "level_of_justification": 2,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "alternative_proposal",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "În România sunt foarte mari probleme. Suntem pe locul I în Europa la sarcinile accidentale la nivelul adolescentelor, un loc rușinos în Europa, pe care nu ni-l dorim."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Vorbitorul conectează propunerea legislativă la o problemă socială specifică și documentată (locul I în Europa la sarcini la adolescente)."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "educația pentru sănătate trebuie să fie o prioritate pentru Guvernul României și pentru orice guvern, din orice țară."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.95,
+            "rationale_short": "Apelul este universalizabil, vizând sănătatea publică și bunăstarea copiilor ca interes general al societății."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "domnule președinte de ședință"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.99,
+            "marker_confidence": 0.9,
+            "rationale_short": "Adresare convențională; nu există referințe derogatorii sau de respect explicit față de grupuri."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Modificarea pe care o propun este ca și Ministerul Educației să vină cu implicarea pe care o presupune prezența cadrelor didactice"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Vorbitorul își urmărește propria agendă legislativă fără a menționa sau angaja cereri adverse."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "Modificarea pe care o propun este ca și Ministerul Educației să vină cu implicarea pe care o presupune prezența cadrelor didactice"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Nu există nicio referire la argumente contrare sau la dezbateri anterioare pe acest subiect."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "alternative_proposal",
+            "evidence": {
+              "text": "am inițiat o propunere legislativă legată de Legea nr. 272 din 2004"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.99,
+            "marker_confidence": 0.96,
+            "rationale_short": "Vorbitorul prezintă o propunere legislativă concretă pentru a completa cadrul legal existent."
+          }
+        ],
+        "rationale": "Discursul prezintă o calitate deliberativă medie-ridicată, fiind centrat pe o propunere legislativă concretă (constructive_politics=alternative_proposal). Justificarea este calificată (level_of_justification=2) prin apelul la date statistice privind sarcinile la adolescente, ancorând argumentul în binele comun (content_of_justification=common_good). Totuși, discursul este unilateral, neangajând contraargumente sau cereri adverse (respect_for_counterarguments=0, respect_for_demands=1), ceea ce limitează scorul deliberativ global. Respectul pentru grupuri rămâne neutru, fiind un discurs de inițiativă legislativă fără conotații polemice."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.88,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 0,\n  \"constructive_politics\": \"alternative_proposal\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"În România sunt foarte mari probleme. Suntem pe locul I în Europa la sarcinile accidentale la nivelul adolescentelor, un loc rușinos în Europa, pe care nu ni-l dorim.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Vorbitorul conectează propunerea legislativă la o problemă socială specifică și documentată (locul I în Europa la sarcini la adolescente).\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"educația pentru sănătate trebuie să fie o prioritate pentru Guvernul României și pentru orice guvern, din orice țară.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Apelul este universalizabil, vizând sănătatea publică și bunăstarea copiilor ca interes general al societății.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"domnule președinte de ședință\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.99,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Adresare convențională; nu există referințe derogatorii sau de respect explicit față de grupuri.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Modificarea pe care o propun este ca și Ministerul Educației să vină cu implicarea pe care o presupune prezența cadrelor didactice\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Vorbitorul își urmărește propria agendă legislativă fără a menționa sau angaja cereri adverse.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"Modificarea pe care o propun este ca și Ministerul Educației să vină cu implicarea pe care o presupune prezența cadrelor didactice\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Nu există nicio referire la argumente contrare sau la dezbateri anterioare pe acest subiect.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"alternative_proposal\",\n      \"evidence\": {\n        \"text\": \"am inițiat o propunere legislativă legată de Legea nr. 272 din 2004\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.99,\n      \"marker_confidence\": 0.96,\n      \"rationale_short\": \"Vorbitorul prezintă o propunere legislativă concretă pentru a completa cadrul legal existent.\"\n    }\n  ],\n  \"rationale\": \"Discursul prezintă o calitate deliberativă medie-ridicată, fiind centrat pe o propunere legislativă concretă (constructive_politics=alternative_proposal). Justificarea este calificată (level_of_justification=2) prin apelul la date statistice privind sarcinile la adolescente, ancorând argumentul în binele comun (content_of_justification=common_good). Totuși, discursul este unilateral, neangajând contraargumente sau cereri adverse (respect_for_counterarguments=0, respect_for_demands=1), ceea ce limitează scorul deliberativ global. Respectul pentru grupuri rămâne neutru, fiind un discurs de inițiativă legislativă fără conotații polemice.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12805,
+      "tokens_in_breakdown": {
+        "fresh": 12805,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1235,
+      "cost_usd": null,
+      "latency_ms": 4778,
+      "retries_used": 0
+    }
+  }
+}

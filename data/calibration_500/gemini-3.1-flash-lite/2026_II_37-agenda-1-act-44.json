@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2026/II/37#agenda-1#act-44",
+  "tier": "calibration",
+  "speaker": {
+    "id": "faget-madalin-laurentiu",
+    "name": "Mădălin-Laurențiu Făget",
+    "raw": "Domnul Mădălin-Laurențiu Făget",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2026-03-23",
+    "year": 2026,
+    "legislature": "X",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2026/II/37#agenda-1#act-44",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul este unul tehnic, axat pe politici publice și infrastructură regională (Dobrogea, resurse de apă, salinizare, securitate națională). Vorbitorul propune soluții concrete (cartografiere, monitorizare, proiecte-pilot) și argumentează necesitatea acestora prin prisma eficienței și a securității, nu prin prisma unui conflict maniheist între popor și elită. Nu există nicio invocare a unei voințe populare omogene sau a unei elite malefice. Discursul se încadrează perfect în registrul procedural și tehnocratic, primind scorul 0."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul este unul tehnic, axat pe politici publice și infrastructură regională (Dobrogea, resurse de apă, salinizare, securitate națională). Vorbitorul propune soluții concrete (cartografiere, monitorizare, proiecte-pilot) și argumentează necesitatea acestora prin prisma eficienței și a securității, nu prin prisma unui conflict maniheist între popor și elită. Nu există nicio invocare a unei voințe populare omogene sau a unei elite malefice. Discursul se încadrează perfect în registrul procedural și tehnocratic, primind scorul 0.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13857,
+      "tokens_in_breakdown": {
+        "fresh": 13857,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 206,
+      "cost_usd": null,
+      "latency_ms": 2067,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2026/II/37#agenda-1#act-44",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.88,
+        "level_of_justification": 2,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "alternative_proposal",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "o regiune care se confruntă cu deficit structural de apă, cu salinizarea apelor dulci subterane, cu secetă severă și prelungită, dar și cu o presiune sezonieră enormă asupra infrastructurii, generată de turism."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Vorbitorul oferă o justificare bazată pe mecanisme cauzale specifice (deficit de apă, salinizare, presiune turistică)."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "reziliența apelor să nu fie doar o problemă de mediu, ci și una de securitate națională."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Justificarea este ancorată în interesul securității naționale, un bun comun universalizabil."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Ne bucurăm că doar USR citește"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.85,
+            "rationale_short": "Referință ironică la un grup politic, dar fără a depăși pragul de derogare sau respect explicit."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Ne bucurăm că doar USR citește, iar noi nu știm să citim."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.88,
+            "rationale_short": "Vorbitorul ignoră cererile opoziției, concentrându-se pe propria argumentare."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "Ne bucurăm că doar USR citește, iar noi nu știm să citim."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.85,
+            "rationale_short": "Mențiune superficială a opoziției fără angajament substanțial cu raționamentul lor."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "alternative_proposal",
+            "evidence": {
+              "text": "consider că era necesară introducerea unui amendament care să trateze explicit situația Dobrogei, cu următoarele caracteristici: cartografierea detaliată a resurselor apelor din Dobrogea"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.96,
+            "rationale_short": "Vorbitorul propune un amendament concret pentru a completa strategia europeană."
+          }
+        ],
+        "rationale": "Discursul prezintă o calitate deliberativă solidă, marcată de o justificare calificată (level_of_justification=2) care leagă problemele specifice ale Dobrogei de securitatea națională. Vorbitorul apelează la binele comun, evitând interesele de grup înguste. Deși există o notă ironică la adresa opoziției, aceasta rămâne în limitele neutralității (respect_for_groups=1). Vorbitorul nu angajează substanțial contraargumentele, dar oferă o propunere alternativă concretă (amendamentul pentru Dobrogea), demonstrând un caracter constructiv. Profilul este cel al unui discurs de amendament bine fundamentat, deși ușor polemic în deschidere."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.88,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"alternative_proposal\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"o regiune care se confruntă cu deficit structural de apă, cu salinizarea apelor dulci subterane, cu secetă severă și prelungită, dar și cu o presiune sezonieră enormă asupra infrastructurii, generată de turism.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Vorbitorul oferă o justificare bazată pe mecanisme cauzale specifice (deficit de apă, salinizare, presiune turistică).\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"reziliența apelor să nu fie doar o problemă de mediu, ci și una de securitate națională.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Justificarea este ancorată în interesul securității naționale, un bun comun universalizabil.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Ne bucurăm că doar USR citește\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Referință ironică la un grup politic, dar fără a depăși pragul de derogare sau respect explicit.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Ne bucurăm că doar USR citește, iar noi nu știm să citim.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Vorbitorul ignoră cererile opoziției, concentrându-se pe propria argumentare.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Ne bucurăm că doar USR citește, iar noi nu știm să citim.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Mențiune superficială a opoziției fără angajament substanțial cu raționamentul lor.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"alternative_proposal\",\n      \"evidence\": {\n        \"text\": \"consider că era necesară introducerea unui amendament care să trateze explicit situația Dobrogei, cu următoarele caracteristici: cartografierea detaliată a resurselor apelor din Dobrogea\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.96,\n      \"rationale_short\": \"Vorbitorul propune un amendament concret pentru a completa strategia europeană.\"\n    }\n  ],\n  \"rationale\": \"Discursul prezintă o calitate deliberativă solidă, marcată de o justificare calificată (level_of_justification=2) care leagă problemele specifice ale Dobrogei de securitatea națională. Vorbitorul apelează la binele comun, evitând interesele de grup înguste. Deși există o notă ironică la adresa opoziției, aceasta rămâne în limitele neutralității (respect_for_groups=1). Vorbitorul nu angajează substanțial contraargumentele, dar oferă o propunere alternativă concretă (amendamentul pentru Dobrogea), demonstrând un caracter constructiv. Profilul este cel al unui discurs de amendament bine fundamentat, deși ușor polemic în deschidere.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12658,
+      "tokens_in_breakdown": {
+        "fresh": 12658,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1226,
+      "cost_usd": null,
+      "latency_ms": 4689,
+      "retries_used": 0
+    }
+  }
+}

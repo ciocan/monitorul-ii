@@ -1,0 +1,152 @@
+{
+  "speech_id": "mo://2023/II/107#agenda-2#act-8",
+  "tier": "calibration",
+  "speaker": {
+    "id": "fagarasian-valentin-ilie",
+    "name": "Valentin-Ilie Făgărășian",
+    "raw": "Domnul Valentin-Ilie Făgărășian",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2023-06-28",
+    "year": 2023,
+    "legislature": "IX",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2023/II/107#agenda-2#act-8",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul se înscrie într-un registru procedural și de politici publice, concentrându-se pe o propunere legislativă concretă pentru facilități fiscale destinate românilor din diaspora. Deși utilizează un ton patriotic și apeluri emoționale („Dragii mei români”, „nicăieri nu-i mai bine ca acasă”), acestea nu sunt integrate într-un cadru maniheist popor-vs-elită. Nu există nicio invocare a unei elite malefice, a unei voințe populare suverane care să ignore instituțiile sau a unei crize existențiale. Discursul este o intervenție parlamentară standard, fără elemente ale viziunii populiste."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul se înscrie într-un registru procedural și de politici publice, concentrându-se pe o propunere legislativă concretă pentru facilități fiscale destinate românilor din diaspora. Deși utilizează un ton patriotic și apeluri emoționale („Dragii mei români”, „nicăieri nu-i mai bine ca acasă”), acestea nu sunt integrate într-un cadru maniheist popor-vs-elită. Nu există nicio invocare a unei elite malefice, a unei voințe populare suverane care să ignore instituțiile sau a unei crize existențiale. Discursul este o intervenție parlamentară standard, fără elemente ale viziunii populiste.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 14047,
+      "tokens_in_breakdown": {
+        "fresh": 14047,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 221,
+      "cost_usd": null,
+      "latency_ms": 2089,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2023/II/107#agenda-2#act-8",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.85,
+        "level_of_justification": 2,
+        "content_of_justification": "mixed",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "alternative_proposal",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "antreprenorii din România care vor angaja pe o perioadă nedeterminată români care se întorc în țară vor beneficia pe o perioadă de 6 luni de un pachet de facilități fiscale."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Vorbitorul oferă un mecanism cauzal specific (facilități fiscale pentru angajatori) pentru a atinge obiectivul propus."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "mixed",
+            "evidence": {
+              "text": "Milioanele de români care trudesc astăzi în străinătate reprezintă o resursă deosebită pentru țara noastră. [...] ele vor produce resurse financiare suplimentare pentru bugetul general consolidat al României."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.88,
+            "rationale_short": "Justificarea combină interesul unui grup specific (diaspora) cu beneficiul pentru binele comun (bugetul consolidat)."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Dragii mei români din diaspora"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Referință neutră și incluzivă la un grup, fără a depăși cadrul convențional."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "voi depune în Parlament, așa cum am anunțat deja, o propunere legislativă"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Discursul se concentrează pe propria inițiativă, fără a aborda cereri opuse; neutru implicit."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "nu este un demers politic, ci unul despre români și despre România."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.88,
+            "rationale_short": "Vorbitorul ignoră orice potențială critică sau contraargument, prezentând demersul ca fiind apolitic."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "alternative_proposal",
+            "evidence": {
+              "text": "voi depune în Parlament, așa cum am anunțat deja, o propunere legislativă care va conține un pachet de măsuri economice"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Vorbitorul prezintă o propunere legislativă concretă ca alternativă pentru stimularea întoarcerii diasporei."
+          }
+        ],
+        "rationale": "Discursul prezintă o calitate deliberativă moderată, fiind centrat pe o propunere legislativă concretă (constructive_politics=alternative_proposal). Justificarea este calificată (level_of_justification=2) prin mecanisme economice clare, apelând la un mix de interese de grup și bine comun. Totuși, discursul rămâne în mare parte monologic, ignorând contraargumentele (respect_for_counterarguments=0) și neangajând cereri opuse (respect_for_demands=1). Respectul pentru grupuri este neutru, reflectând o retorică incluzivă dar convențională. Profilul este cel al unui discurs de inițiativă legislativă, orientat spre soluții, dar lipsit de angajament deliberativ cu opoziția."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.85,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"mixed\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 0,\n  \"constructive_politics\": \"alternative_proposal\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"antreprenorii din România care vor angaja pe o perioadă nedeterminată români care se întorc în țară vor beneficia pe o perioadă de 6 luni de un pachet de facilități fiscale.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Vorbitorul oferă un mecanism cauzal specific (facilități fiscale pentru angajatori) pentru a atinge obiectivul propus.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"mixed\",\n      \"evidence\": {\n        \"text\": \"Milioanele de români care trudesc astăzi în străinătate reprezintă o resursă deosebită pentru țara noastră. [...] ele vor produce resurse financiare suplimentare pentru bugetul general consolidat al României.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Justificarea combină interesul unui grup specific (diaspora) cu beneficiul pentru binele comun (bugetul consolidat).\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Dragii mei români din diaspora\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Referință neutră și incluzivă la un grup, fără a depăși cadrul convențional.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"voi depune în Parlament, așa cum am anunțat deja, o propunere legislativă\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Discursul se concentrează pe propria inițiativă, fără a aborda cereri opuse; neutru implicit.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"nu este un demers politic, ci unul despre români și despre România.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Vorbitorul ignoră orice potențială critică sau contraargument, prezentând demersul ca fiind apolitic.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"alternative_proposal\",\n      \"evidence\": {\n        \"text\": \"voi depune în Parlament, așa cum am anunțat deja, o propunere legislativă care va conține un pachet de măsuri economice\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Vorbitorul prezintă o propunere legislativă concretă ca alternativă pentru stimularea întoarcerii diasporei.\"\n    }\n  ],\n  \"rationale\": \"Discursul prezintă o calitate deliberativă moderată, fiind centrat pe o propunere legislativă concretă (constructive_politics=alternative_proposal). Justificarea este calificată (level_of_justification=2) prin mecanisme economice clare, apelând la un mix de interese de grup și bine comun. Totuși, discursul rămâne în mare parte monologic, ignorând contraargumentele (respect_for_counterarguments=0) și neangajând cereri opuse (respect_for_demands=1). Respectul pentru grupuri este neutru, reflectând o retorică incluzivă dar convențională. Profilul este cel al unui discurs de inițiativă legislativă, orientat spre soluții, dar lipsit de angajament deliberativ cu opoziția.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [
+        "Milioanele de români care trudesc astăzi în străinătate reprezintă o resursă deosebită pentru țara noastră. [...] ele vor produce resurse financiare suplimentare pentru bugetul general consolidat al României."
+      ],
+      "parse_repaired": false,
+      "tokens_in": 12848,
+      "tokens_in_breakdown": {
+        "fresh": 12848,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1250,
+      "cost_usd": null,
+      "latency_ms": 4762,
+      "retries_used": 0
+    }
+  }
+}

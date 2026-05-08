@@ -1,0 +1,217 @@
+{
+  "speech_id": "mo://2026/II/24#agenda-1#act-163",
+  "tier": "calibration",
+  "speaker": {
+    "id": "palarie-stefan",
+    "name": "Ștefan Pălărie",
+    "raw": "Domnul Ștefan Pălărie",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": "2026-02-25",
+    "year": 2026,
+    "legislature": "X",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2026/II/24#agenda-1#act-163",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.95,
+        "markers": [
+          {
+            "kind": "people_vs_elite",
+            "evidence": {
+              "text": "niște oameni aleg să meargă pe calea populismului"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.85,
+            "rationale_short": "Vorbitorul critică populismul altora, folosind termenul ca pe o etichetă negativă, nu ca pe un cadru structural propriu."
+          },
+          {
+            "kind": "popular_will_supremacy",
+            "evidence": {
+              "text": "desființăm CCR-ul. Un CCR care e trecut, ne place sau nu ne place, în Constituție"
+            },
+            "preliminary_voice": "quoted",
+            "preliminary_voice_confidence": 0.9,
+            "marker_confidence": 0.8,
+            "rationale_short": "Vorbitorul citează propunerea altora de a desființa instituții pentru a o demonta, deci vocea este raportată/critică."
+          }
+        ],
+        "rationale": "Discursul este unul anti-populist, în care vorbitorul critică retorica populistă a opoziției, numind-o „demagogie” și „cale a populismului”. Deși menționează concepte precum „populism” sau „desființarea CCR”, el face acest lucru pentru a expune și a respinge aceste idei, nu pentru a le promova. Nu există un cadru maniheist sau o invocare a unei voințe populare omogene ca sursă de legitimitate proprie. Vorbitorul apără instituțiile democratice (Constituția, CCR, Președinția) împotriva a ceea ce el percepe ca fiind atacuri populiste. Scor 0 cu încredere ridicată."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.95,\n  \"markers\": [\n    {\n      \"kind\": \"people_vs_elite\",\n      \"evidence\": {\n        \"text\": \"niște oameni aleg să meargă pe calea populismului\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Vorbitorul critică populismul altora, folosind termenul ca pe o etichetă negativă, nu ca pe un cadru structural propriu.\"\n    },\n    {\n      \"kind\": \"popular_will_supremacy\",\n      \"evidence\": {\n        \"text\": \"desființăm CCR-ul. Un CCR care e trecut, ne place sau nu ne place, în Constituție\"\n      },\n      \"preliminary_voice\": \"quoted\",\n      \"preliminary_voice_confidence\": 0.9,\n      \"marker_confidence\": 0.8,\n      \"rationale_short\": \"Vorbitorul citează propunerea altora de a desființa instituții pentru a o demonta, deci vocea este raportată/critică.\"\n    }\n  ],\n  \"rationale\": \"Discursul este unul anti-populist, în care vorbitorul critică retorica populistă a opoziției, numind-o „demagogie” și „cale a populismului”. Deși menționează concepte precum „populism” sau „desființarea CCR”, el face acest lucru pentru a expune și a respinge aceste idei, nu pentru a le promova. Nu există un cadru maniheist sau o invocare a unei voințe populare omogene ca sursă de legitimitate proprie. Vorbitorul apără instituțiile democratice (Constituția, CCR, Președinția) împotriva a ceea ce el percepe ca fiind atacuri populiste. Scor 0 cu încredere ridicată.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13837,
+      "tokens_in_breakdown": {
+        "fresh": 13837,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 526,
+      "cost_usd": null,
+      "latency_ms": 3042,
+      "retries_used": 0
+    },
+    "voice": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "voice",
+      "speech_id": "mo://2026/II/24#agenda-1#act-163",
+      "output": {
+        "classifications": [
+          {
+            "marker_id": "m_0",
+            "voice": "speaker_first_person",
+            "voice_confidence": 0.95,
+            "voice_evidence": null,
+            "attributed_to": null,
+            "rationale_short": "Vorbitorul își exprimă propria opinie critică despre acțiunile altora, fără a cita sau raporta direct o sursă externă."
+          },
+          {
+            "marker_id": "m_1",
+            "voice": "reported",
+            "voice_confidence": 0.92,
+            "voice_evidence": {
+              "text": "ei spun:"
+            },
+            "attributed_to": {
+              "raw": "antevorbitorului",
+              "kind": "individual"
+            },
+            "rationale_short": "Vorbitorul parafrazează afirmațiile antevorbitorului folosind verbul „spun” urmat de clauza ce conține propunerea de desființare a CCR."
+          }
+        ]
+      },
+      "raw_response": "{\n  \"classifications\": [\n    {\n      \"marker_id\": \"m_0\",\n      \"voice\": \"speaker_first_person\",\n      \"voice_confidence\": 0.95,\n      \"voice_evidence\": null,\n      \"attributed_to\": null,\n      \"rationale_short\": \"Vorbitorul își exprimă propria opinie critică despre acțiunile altora, fără a cita sau raporta direct o sursă externă.\"\n    },\n    {\n      \"marker_id\": \"m_1\",\n      \"voice\": \"reported\",\n      \"voice_confidence\": 0.92,\n      \"voice_evidence\": {\n        \"text\": \"ei spun:\"\n      },\n      \"attributed_to\": {\n        \"raw\": \"antevorbitorului\",\n        \"kind\": \"individual\"\n      },\n      \"rationale_short\": \"Vorbitorul parafrazează afirmațiile antevorbitorului folosind verbul „spun” urmat de clauza ce conține propunerea de desființare a CCR.\"\n    }\n  ]\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 11449,
+      "tokens_in_breakdown": {
+        "fresh": 11449,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 258,
+      "cost_usd": null,
+      "latency_ms": 1474,
+      "retries_used": 0
+    },
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2026/II/24#agenda-1#act-163",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.78,
+        "level_of_justification": 1,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 0,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 1,
+            "evidence": {
+              "text": "Faptul că, cu o lejeritate înfiorătoare, niște oameni aleg să meargă pe calea populismului"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Vorbitorul critică populismul, dar argumentația rămâne la nivel de etichetare, fără a oferi o justificare cauzală."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "Un CCR care e trecut, ne place sau nu ne place, în Constituție și este arbitrul problemelor de constituționalitate din România."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Apelul la rolul constituțional al CCR este un argument universalizabil, orientat către binele comun."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "niște oameni aleg să meargă pe calea populismului"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.88,
+            "rationale_short": "Critica este aspră, dar nu atinge pragul de derogare sau dehumanizare a unui grup social definit."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 0,
+            "evidence": {
+              "text": "De ce ar avea nevoie țara asta de președinte?!"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Vorbitorul ridiculizează cererile opoziției, tratându-le ca fiind neserioase și ilegitime."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "atunci când sunt întrebați de unde luăm bani, ei spun: desființăm CCR-ul."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Vorbitorul menționează argumentul opoziției, dar nu se angajează substanțial în combaterea lui, preferând ironia."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "lejeritatea cu care vorbiți despre batjocorirea Constituției arată... faptul că... țara asta o să aibă un destin foarte, foarte prost."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Discursul este pur pozițional, axat pe critică și avertisment, fără a propune alternative concrete."
+          }
+        ],
+        "rationale": "Discursul se încadrează într-un profil critic-pozițional, caracterizat prin utilizarea ironiei și a etichetării politice. Deși vorbitorul invocă principii constituționale (binele comun) pentru a apăra rolul CCR, argumentația rămâne la un nivel superficial (level_of_justification=1), bazându-se mai mult pe retorică decât pe raționamente cauzale. Respectul pentru cererile opoziției este scăzut, acestea fiind ridiculizate, iar angajamentul față de contraargumente este minim, limitându-se la menționarea lor pentru a sublinia absurditatea percepută. Nu există nicio propunere constructivă sau alternativă, discursul fiind orientat exclusiv către atacul politic. Calitatea deliberativă este limitată de tonul polemic și de absența unei dezbateri substanțiale."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.78,\n  \"level_of_justification\": 1,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 0,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Faptul că, cu o lejeritate înfiorătoare, niște oameni aleg să meargă pe calea populismului\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Vorbitorul critică populismul, dar argumentația rămâne la nivel de etichetare, fără a oferi o justificare cauzală.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"Un CCR care e trecut, ne place sau nu ne place, în Constituție și este arbitrul problemelor de constituționalitate din România.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Apelul la rolul constituțional al CCR este un argument universalizabil, orientat către binele comun.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"niște oameni aleg să meargă pe calea populismului\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Critica este aspră, dar nu atinge pragul de derogare sau dehumanizare a unui grup social definit.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"De ce ar avea nevoie țara asta de președinte?!\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Vorbitorul ridiculizează cererile opoziției, tratându-le ca fiind neserioase și ilegitime.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"atunci când sunt întrebați de unde luăm bani, ei spun: desființăm CCR-ul.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Vorbitorul menționează argumentul opoziției, dar nu se angajează substanțial în combaterea lui, preferând ironia.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"lejeritatea cu care vorbiți despre batjocorirea Constituției arată... faptul că... țara asta o să aibă un destin foarte, foarte prost.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Discursul este pur pozițional, axat pe critică și avertisment, fără a propune alternative concrete.\"\n    }\n  ],\n  \"rationale\": \"Discursul se încadrează într-un profil critic-pozițional, caracterizat prin utilizarea ironiei și a etichetării politice. Deși vorbitorul invocă principii constituționale (binele comun) pentru a apăra rolul CCR, argumentația rămâne la un nivel superficial (level_of_justification=1), bazându-se mai mult pe retorică decât pe raționamente cauzale. Respectul pentru cererile opoziției este scăzut, acestea fiind ridiculizate, iar angajamentul față de contraargumente este minim, limitându-se la menționarea lor pentru a sublinia absurditatea percepută. Nu există nicio propunere constructivă sau alternativă, discursul fiind orientat exclusiv către atacul politic. Calitatea deliberativă este limitată de tonul polemic și de absența unei dezbateri substanțiale.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [
+        "lejeritatea cu care vorbiți despre batjocorirea Constituției arată... faptul că... țara asta o să aibă un destin foarte, foarte prost."
+      ],
+      "parse_repaired": false,
+      "tokens_in": 12638,
+      "tokens_in_breakdown": {
+        "fresh": 12638,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1243,
+      "cost_usd": null,
+      "latency_ms": 5325,
+      "retries_used": 0
+    }
+  }
+}

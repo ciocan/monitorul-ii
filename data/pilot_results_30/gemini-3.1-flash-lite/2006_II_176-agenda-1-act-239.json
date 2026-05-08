@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2006/II/176#agenda-1#act-239",
+  "tier": "register_shift",
+  "speaker": {
+    "id": "ponta-victor-viorel",
+    "name": "Victor Viorel Ponta",
+    "raw": "Domnul Victor Viorel Ponta",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": null,
+    "year": 2006,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2006/II/176#agenda-1#act-239",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 1.0,
+        "markers": [],
+        "rationale": "Discursul este pur procedural, concentrându-se pe numărarea voturilor, gestionarea ordinii de zi și organizarea tehnică a dezbaterilor pe articolele 7 și 8. Nu există nicio urmă de retorică populistă, cadru maniheist sau invocare a unei voințe populare în opoziție cu elitele. Vorbitorul acționează strict în rolul de moderator al ședinței parlamentare. Hawkins=0 cu încredere maximă."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 1.0,\n  \"markers\": [],\n  \"rationale\": \"Discursul este pur procedural, concentrându-se pe numărarea voturilor, gestionarea ordinii de zi și organizarea tehnică a dezbaterilor pe articolele 7 și 8. Nu există nicio urmă de retorică populistă, cadru maniheist sau invocare a unei voințe populare în opoziție cu elitele. Vorbitorul acționează strict în rolul de moderator al ședinței parlamentare. Hawkins=0 cu încredere maximă.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13735,
+      "tokens_in_breakdown": {
+        "fresh": 13735,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 179,
+      "cost_usd": null,
+      "latency_ms": 1793,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2006/II/176#agenda-1#act-239",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.45,
+        "level_of_justification": 0,
+        "content_of_justification": "none",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 0,
+            "evidence": {
+              "text": "Continu„m dezbaterile la art. 8"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.95,
+            "rationale_short": "Intervenție pur procedurală de gestionare a ordinii de zi, fără argumentație."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "none",
+            "evidence": {
+              "text": "Continu„m dezbaterile la art. 8"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.95,
+            "rationale_short": "Nicio justificare oferită; conținutul justificării este nedefinit."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "doamna deputat Vasilescu"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.9,
+            "rationale_short": "Adresare formală neutră; niciun grup vizat."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "V„ rog, doamna deputat Vasilescu, pe procedur„, dac„ dori˛i"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.9,
+            "rationale_short": "Interacțiune procedurală neutră; nu există cereri politice opuse angajate."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "dac„ ave˛i amendamente respinse..."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.9,
+            "rationale_short": "Referire tehnică la amendamente fără angajament argumentativ."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "s„ Óncepem cu amendamentul admis"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.9,
+            "rationale_short": "Decizie procedurală de organizare a dezbaterii, nu o propunere politică alternativă."
+          }
+        ],
+        "rationale": "Fragmentul reprezintă o intervenție pur procedurală a președintelui de ședință, axată pe organizarea ordinii de zi și a fluxului de vot. Nu există nicio argumentație substanțială, nicio justificare a unor poziții politice și niciun angajament cu cereri sau contraargumente ale opoziției. Toate dimensiunile DQI sunt codate la valorile lor implicite (neutru/pozițional), deoarece discursul nu conține deliberare politică. Nivelul de încredere este scăzut, reflectând natura pur administrativă a textului care nu se pretează la o analiză deliberativă."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.45,\n  \"level_of_justification\": 0,\n  \"content_of_justification\": \"none\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 0,\n      \"evidence\": { \"text\": \"Continu„m dezbaterile la art. 8\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Intervenție pur procedurală de gestionare a ordinii de zi, fără argumentație.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"none\",\n      \"evidence\": { \"text\": \"Continu„m dezbaterile la art. 8\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Nicio justificare oferită; conținutul justificării este nedefinit.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": { \"text\": \"doamna deputat Vasilescu\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Adresare formală neutră; niciun grup vizat.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": { \"text\": \"V„ rog, doamna deputat Vasilescu, pe procedur„, dac„ dori˛i\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Interacțiune procedurală neutră; nu există cereri politice opuse angajate.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": { \"text\": \"dac„ ave˛i amendamente respinse...\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Referire tehnică la amendamente fără angajament argumentativ.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": { \"text\": \"s„ Óncepem cu amendamentul admis\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Decizie procedurală de organizare a dezbaterii, nu o propunere politică alternativă.\"\n    }\n  ],\n  \"rationale\": \"Fragmentul reprezintă o intervenție pur procedurală a președintelui de ședință, axată pe organizarea ordinii de zi și a fluxului de vot. Nu există nicio argumentație substanțială, nicio justificare a unor poziții politice și niciun angajament cu cereri sau contraargumente ale opoziției. Toate dimensiunile DQI sunt codate la valorile lor implicite (neutru/pozițional), deoarece discursul nu conține deliberare politică. Nivelul de încredere este scăzut, reflectând natura pur administrativă a textului care nu se pretează la o analiză deliberativă.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12536,
+      "tokens_in_breakdown": {
+        "fresh": 12536,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1031,
+      "cost_usd": null,
+      "latency_ms": 3977,
+      "retries_used": 0
+    }
+  }
+}

@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2023/II/51#agenda-1#act-97",
+  "tier": "calibration",
+  "speaker": {
+    "id": "hatos-adrian",
+    "name": "Adrian Hatos",
+    "raw": "Domnul Adrian Hatos",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": "2023-04-03",
+    "year": 2023,
+    "legislature": "IX",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2023/II/51#agenda-1#act-97",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul este unul pur tehnic și procedural, concentrat pe modificări legislative specifice în Legea educației și managementul resurselor umane în universități. Vorbitorul analizează impactul unei ordonanțe de Guvern și propune o corecție legislativă, fără a utiliza nicio retorică populistă. Nu există nicio referire la un cadru popor-vs-elită, maniheism moral sau invocarea unei voințe populare omogene. Discursul se încadrează complet în registrul dezbaterii de politici publice, primind astfel scorul 0."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul este unul pur tehnic și procedural, concentrat pe modificări legislative specifice în Legea educației și managementul resurselor umane în universități. Vorbitorul analizează impactul unei ordonanțe de Guvern și propune o corecție legislativă, fără a utiliza nicio retorică populistă. Nu există nicio referire la un cadru popor-vs-elită, maniheism moral sau invocarea unei voințe populare omogene. Discursul se încadrează complet în registrul dezbaterii de politici publice, primind astfel scorul 0.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13752,
+      "tokens_in_breakdown": {
+        "fresh": 13752,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 203,
+      "cost_usd": null,
+      "latency_ms": 1919,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2023/II/51#agenda-1#act-97",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.88,
+        "level_of_justification": 2,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "alternative_proposal",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "problema este că asta afecta foarte serios managementul resurselor umane în cadrul universităților, pentru că trebuia să fii foarte atent pe cine angajezi pe un post de asistent, pentru că rămâneai cu el pe cap toată viața"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Vorbitorul explică mecanismul cauzal prin care legislația anterioară afecta managementul resurselor umane."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "managementul resurselor umane în cadrul universităților"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Justificarea se referă la eficiența instituțională și managementul universitar, un interes general al sistemului educațional."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "studenții doctoranzi"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Grupul este menționat în contextul reglementării, fără a fi derogate sau lăudate explicit."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Această mică intervenție legislativă rezolvă această ciudățenie din Legea educației."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.88,
+            "rationale_short": "Vorbitorul se concentrează pe propria propunere de corecție, fără a aborda cererile altor actori."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "Nu contează care era motivația ordonanței respective"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Vorbitorul menționează existența unei motivații anterioare dar refuză să o analizeze, marcând o recunoaștere minimă."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "alternative_proposal",
+            "evidence": {
+              "text": "Această mică intervenție legislativă rezolvă această ciudățenie din Legea educației."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Vorbitorul propune o modificare legislativă concretă pentru a corecta o problemă de management."
+          }
+        ],
+        "rationale": "Discursul prezintă o calitate deliberativă solidă, fiind axat pe o problemă tehnică de management universitar. Vorbitorul oferă o justificare calificată (level_of_justification=2) explicând mecanismul cauzal al ineficienței legislative, apelând la binele comun al sistemului universitar. Deși respectul pentru grupuri și cereri rămâne neutru (1), vorbitorul demonstrează o atitudine constructivă prin propunerea unei soluții legislative specifice. Angajamentul față de contraargumente este minim, vorbitorul alegând să ignore motivația ordonanței din 2018, ceea ce limitează scorul pe acea dimensiune. În ansamblu, este o intervenție tehnică, argumentată și orientată spre soluționarea unei probleme administrative."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.88,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"alternative_proposal\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"problema este că asta afecta foarte serios managementul resurselor umane în cadrul universităților, pentru că trebuia să fii foarte atent pe cine angajezi pe un post de asistent, pentru că rămâneai cu el pe cap toată viața\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Vorbitorul explică mecanismul cauzal prin care legislația anterioară afecta managementul resurselor umane.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"managementul resurselor umane în cadrul universităților\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Justificarea se referă la eficiența instituțională și managementul universitar, un interes general al sistemului educațional.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"studenții doctoranzi\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Grupul este menționat în contextul reglementării, fără a fi derogate sau lăudate explicit.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Această mică intervenție legislativă rezolvă această ciudățenie din Legea educației.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Vorbitorul se concentrează pe propria propunere de corecție, fără a aborda cererile altor actori.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Nu contează care era motivația ordonanței respective\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Vorbitorul menționează existența unei motivații anterioare dar refuză să o analizeze, marcând o recunoaștere minimă.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"alternative_proposal\",\n      \"evidence\": {\n        \"text\": \"Această mică intervenție legislativă rezolvă această ciudățenie din Legea educației.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Vorbitorul propune o modificare legislativă concretă pentru a corecta o problemă de management.\"\n    }\n  ],\n  \"rationale\": \"Discursul prezintă o calitate deliberativă solidă, fiind axat pe o problemă tehnică de management universitar. Vorbitorul oferă o justificare calificată (level_of_justification=2) explicând mecanismul cauzal al ineficienței legislative, apelând la binele comun al sistemului universitar. Deși respectul pentru grupuri și cereri rămâne neutru (1), vorbitorul demonstrează o atitudine constructivă prin propunerea unei soluții legislative specifice. Angajamentul față de contraargumente este minim, vorbitorul alegând să ignore motivația ordonanței din 2018, ceea ce limitează scorul pe acea dimensiune. În ansamblu, este o intervenție tehnică, argumentată și orientată spre soluționarea unei probleme administrative.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12553,
+      "tokens_in_breakdown": {
+        "fresh": 12553,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1215,
+      "cost_usd": null,
+      "latency_ms": 4592,
+      "retries_used": 0
+    }
+  }
+}

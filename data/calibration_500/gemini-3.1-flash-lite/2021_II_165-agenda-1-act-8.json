@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2021/II/165#agenda-1#act-8",
+  "tier": "calibration",
+  "speaker": {
+    "id": "leoreanu-laurentiu-dan",
+    "name": "Laurențiu-Dan Leoreanu",
+    "raw": "Domnul Laurențiu-Dan Leoreanu",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2021-11-03",
+    "year": 2021,
+    "legislature": "IX",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2021/II/165#agenda-1#act-8",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul este un raport tehnic detaliat despre măsurile guvernamentale de plafonare și compensare a prețurilor la energie. Vorbitorul prezintă cifre, perioade de aplicare și mecanisme administrative, menținându-se strict în registrul procedural și de politici publice. Nu există nicio tentativă de a construi un cadru manihean popor-vs-elită, nicio invocare a unei voințe populare omogene și nicio retorică populistă. Discursul este un exemplu clasic de comunicare instituțională, motiv pentru care scorul este 0 cu încredere maximă."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul este un raport tehnic detaliat despre măsurile guvernamentale de plafonare și compensare a prețurilor la energie. Vorbitorul prezintă cifre, perioade de aplicare și mecanisme administrative, menținându-se strict în registrul procedural și de politici publice. Nu există nicio tentativă de a construi un cadru manihean popor-vs-elită, nicio invocare a unei voințe populare omogene și nicio retorică populistă. Discursul este un exemplu clasic de comunicare instituțională, motiv pentru care scorul este 0 cu încredere maximă.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 14383,
+      "tokens_in_breakdown": {
+        "fresh": 14383,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 208,
+      "cost_usd": null,
+      "latency_ms": 2096,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2021/II/165#agenda-1#act-8",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.85,
+        "level_of_justification": 2,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "Prețurile plafonate sunt: 1 leu/kilowatt-oră la curent electric și 0,37 lei/kilowatt-oră la gaze. Plafoanele reprezintă prețul final facturat pentru clientul casnic."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Vorbitorul oferă detalii tehnice specifice și mecanisme de calcul pentru măsurile propuse."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "Aproape 15 milioane de români vor beneficia, iar facturile vor fi la același nivel ca în 2020"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Justificarea se bazează pe interesul general al cetățenilor afectați de criză."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Stimați colegi"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.99,
+            "marker_confidence": 0.9,
+            "rationale_short": "Adresare convențională; nu există referințe derogatorii sau de respect explicit către grupuri."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Guvernul, Parlamentul au găsit cele mai bune soluții"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Vorbitorul se concentrează pe prezentarea propriilor măsuri fără a aborda cererile opoziției."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "Guvernul, Parlamentul au găsit cele mai bune soluții pentru românii afectați"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Argumentele opoziției sunt ignorate complet în favoarea unei prezentări unilaterale a măsurilor."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Suntem într-o criză energetică la nivel mondial, care, evident, nu a ocolit nici România, dar Guvernul, Parlamentul au găsit cele mai bune soluții"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.93,
+            "rationale_short": "Discursul susține măsurile deja adoptate, fără a propune alternative sau medieri."
+          }
+        ],
+        "rationale": "Discursul prezintă o justificare calificată (level_of_justification=2) prin detalierea tehnică a măsurilor de plafonare și compensare, ancorată în binele comun (content_of_justification=common_good). Totuși, discursul este pur pozițional (constructive_politics=positional), concentrându-se pe promovarea acțiunilor guvernamentale fără a angaja opoziția. Respectul pentru grupuri și cereri rămâne neutru, iar contraargumentele sunt ignorate (respect_for_counterarguments=0). Calitatea deliberativă este ridicată în ceea ce privește claritatea argumentării tehnice, dar scăzută în ceea ce privește interacțiunea cu alte perspective politice."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.85,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 0,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"Prețurile plafonate sunt: 1 leu/kilowatt-oră la curent electric și 0,37 lei/kilowatt-oră la gaze. Plafoanele reprezintă prețul final facturat pentru clientul casnic.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Vorbitorul oferă detalii tehnice specifice și mecanisme de calcul pentru măsurile propuse.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"Aproape 15 milioane de români vor beneficia, iar facturile vor fi la același nivel ca în 2020\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Justificarea se bazează pe interesul general al cetățenilor afectați de criză.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Stimați colegi\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.99,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Adresare convențională; nu există referințe derogatorii sau de respect explicit către grupuri.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Guvernul, Parlamentul au găsit cele mai bune soluții\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Vorbitorul se concentrează pe prezentarea propriilor măsuri fără a aborda cererile opoziției.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"Guvernul, Parlamentul au găsit cele mai bune soluții pentru românii afectați\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Argumentele opoziției sunt ignorate complet în favoarea unei prezentări unilaterale a măsurilor.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"Suntem într-o criză energetică la nivel mondial, care, evident, nu a ocolit nici România, dar Guvernul, Parlamentul au găsit cele mai bune soluții\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.93,\n      \"rationale_short\": \"Discursul susține măsurile deja adoptate, fără a propune alternative sau medieri.\"\n    }\n  ],\n  \"rationale\": \"Discursul prezintă o justificare calificată (level_of_justification=2) prin detalierea tehnică a măsurilor de plafonare și compensare, ancorată în binele comun (content_of_justification=common_good). Totuși, discursul este pur pozițional (constructive_politics=positional), concentrându-se pe promovarea acțiunilor guvernamentale fără a angaja opoziția. Respectul pentru grupuri și cereri rămâne neutru, iar contraargumentele sunt ignorate (respect_for_counterarguments=0). Calitatea deliberativă este ridicată în ceea ce privește claritatea argumentării tehnice, dar scăzută în ceea ce privește interacțiunea cu alte perspective politice.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13184,
+      "tokens_in_breakdown": {
+        "fresh": 13184,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1200,
+      "cost_usd": null,
+      "latency_ms": 4522,
+      "retries_used": 0
+    }
+  }
+}

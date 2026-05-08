@@ -1,0 +1,52 @@
+{
+  "speech_id": "mo://2014/II/120#agenda-1#act-18",
+  "tier": "calibration",
+  "speaker": {
+    "id": "mitrea-miron-tudor",
+    "name": "Miron Tudor Mitrea",
+    "raw": "Domnul Miron Tudor Mitrea",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2014-12-02",
+    "year": 2014,
+    "legislature": "VII",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": null,
+    "voice": null,
+    "dqi": null,
+    "vparty": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "vparty",
+      "speech_id": "mo://2014/II/120#agenda-1#act-18",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "vparty@2020 + vdem-attacks-on@v13",
+        "framework_confidence": 1.0,
+        "markers": [],
+        "rationale": "Discursul este pur procedural, constând în gestionarea ordinii de zi a ședinței parlamentare, invitarea vorbitorilor și anunțarea procedurilor de vot. Nu există nicio urmă de retorică anti-pluralistă, atacuri la adresa instituțiilor democratice sau delegitimizarea vreunui actor politic. Discursul se încadrează perfect în registrul parlamentar standard, respectând normele democratice și procedurile instituționale."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"vparty@2020 + vdem-attacks-on@v13\",\n  \"framework_confidence\": 1.0,\n  \"markers\": [],\n  \"rationale\": \"Discursul este pur procedural, constând în gestionarea ordinii de zi a ședinței parlamentare, invitarea vorbitorilor și anunțarea procedurilor de vot. Nu există nicio urmă de retorică anti-pluralistă, atacuri la adresa instituțiilor democratice sau delegitimizarea vreunui actor politic. Discursul se încadrează perfect în registrul parlamentar standard, respectând normele democratice și procedurile instituționale.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13042,
+      "tokens_in_breakdown": {
+        "fresh": 13042,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 178,
+      "cost_usd": null,
+      "latency_ms": 1806,
+      "retries_used": 0
+    }
+  }
+}

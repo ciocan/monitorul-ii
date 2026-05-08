@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2023/II/165#agenda-1#act-373",
+  "tier": "calibration",
+  "speaker": {
+    "id": "simonis-alfred-robert",
+    "name": "Alfred-Robert Simonis",
+    "raw": "Domnul Alfred-Robert Simonis",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2023-12-05",
+    "year": 2023,
+    "legislature": "IX",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2023/II/165#agenda-1#act-373",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 1.0,
+        "markers": [],
+        "rationale": "Discursul reprezintă o succesiune de proceduri parlamentare standard: citirea titlurilor proiectelor de lege, solicitarea votului și anunțarea rezultatelor numerice. Nu există nicio formă de retorică populistă, cadru maniheist sau invocare a unei voințe populare în opoziție cu instituțiile. Este un text pur administrativ, fără conținut ideologic sau populist. Hawkins=0 cu încredere maximă."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 1.0,\n  \"markers\": [],\n  \"rationale\": \"Discursul reprezintă o succesiune de proceduri parlamentare standard: citirea titlurilor proiectelor de lege, solicitarea votului și anunțarea rezultatelor numerice. Nu există nicio formă de retorică populistă, cadru maniheist sau invocare a unei voințe populare în opoziție cu instituțiile. Este un text pur administrativ, fără conținut ideologic sau populist. Hawkins=0 cu încredere maximă.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13766,
+      "tokens_in_breakdown": {
+        "fresh": 13766,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 167,
+      "cost_usd": null,
+      "latency_ms": 1865,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2023/II/165#agenda-1#act-373",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.45,
+        "level_of_justification": 0,
+        "content_of_justification": "none",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 0,
+            "evidence": {
+              "text": "Mulțumim."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.9,
+            "marker_confidence": 0.9,
+            "rationale_short": "Fragmentul conține doar proceduri administrative și numărarea voturilor, fără argumentație."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "none",
+            "evidence": {
+              "text": "Mulțumim."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.9,
+            "marker_confidence": 0.9,
+            "rationale_short": "Nicio justificare oferită; conținutul este nedefinit."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Mulțumim."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.9,
+            "marker_confidence": 0.8,
+            "rationale_short": "Interacțiune procedurală neutră; niciun grup vizat."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Vot, vă rog."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.9,
+            "marker_confidence": 0.8,
+            "rationale_short": "Procedură standard de vot; nicio cerere politică adresată."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "Vot, vă rog."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.9,
+            "marker_confidence": 0.8,
+            "rationale_short": "Absența oricărui argument; nu există angajament cu opoziția."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Adoptat."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.9,
+            "marker_confidence": 0.8,
+            "rationale_short": "Fragmentul este pur procedural, fără propuneri alternative sau mediere."
+          }
+        ],
+        "rationale": "Fragmentul reprezintă o succesiune de proceduri parlamentare standard (anunțarea proiectelor, solicitarea votului, confirmarea rezultatelor) și nu conține discurs deliberativ. Deoarece nu există nicio argumentație, justificare sau angajament cu opoziția, toate dimensiunile DQI sunt codate la valorile lor implicite (neutru/pozițional). framework_confidence este scăzut deoarece acest tip de text nu este destinat deliberării, ci gestionării fluxului de lucru al ședinței. Nu există conținut argumentativ care să permită o analiză calitativă conform rubricii Steiner & Bächtiger."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.45,\n  \"level_of_justification\": 0,\n  \"content_of_justification\": \"none\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 0,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 0,\n      \"evidence\": { \"text\": \"Mulțumim.\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.9,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Fragmentul conține doar proceduri administrative și numărarea voturilor, fără argumentație.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"none\",\n      \"evidence\": { \"text\": \"Mulțumim.\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.9,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Nicio justificare oferită; conținutul este nedefinit.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": { \"text\": \"Mulțumim.\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.9,\n      \"marker_confidence\": 0.8,\n      \"rationale_short\": \"Interacțiune procedurală neutră; niciun grup vizat.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": { \"text\": \"Vot, vă rog.\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.9,\n      \"marker_confidence\": 0.8,\n      \"rationale_short\": \"Procedură standard de vot; nicio cerere politică adresată.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 0,\n      \"evidence\": { \"text\": \"Vot, vă rog.\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.9,\n      \"marker_confidence\": 0.8,\n      \"rationale_short\": \"Absența oricărui argument; nu există angajament cu opoziția.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": { \"text\": \"Adoptat.\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.9,\n      \"marker_confidence\": 0.8,\n      \"rationale_short\": \"Fragmentul este pur procedural, fără propuneri alternative sau mediere.\"\n    }\n  ],\n  \"rationale\": \"Fragmentul reprezintă o succesiune de proceduri parlamentare standard (anunțarea proiectelor, solicitarea votului, confirmarea rezultatelor) și nu conține discurs deliberativ. Deoarece nu există nicio argumentație, justificare sau angajament cu opoziția, toate dimensiunile DQI sunt codate la valorile lor implicite (neutru/pozițional). framework_confidence este scăzut deoarece acest tip de text nu este destinat deliberării, ci gestionării fluxului de lucru al ședinței. Nu există conținut argumentativ care să permită o analiză calitativă conform rubricii Steiner & Bächtiger.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12567,
+      "tokens_in_breakdown": {
+        "fresh": 12567,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 950,
+      "cost_usd": null,
+      "latency_ms": 3867,
+      "retries_used": 0
+    }
+  }
+}

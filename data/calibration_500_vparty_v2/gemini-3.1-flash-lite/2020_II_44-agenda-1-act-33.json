@@ -1,0 +1,52 @@
+{
+  "speech_id": "mo://2020/II/44#agenda-1#act-33",
+  "tier": "calibration",
+  "speaker": {
+    "id": "ciolacu-marcel",
+    "name": "Ion Marcel Ciolacu",
+    "raw": "Domnul Ion Marcel Ciolacu",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2020-05-18",
+    "year": 2020,
+    "legislature": "VIII",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": null,
+    "voice": null,
+    "dqi": null,
+    "vparty": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "vparty",
+      "speech_id": "mo://2020/II/44#agenda-1#act-33",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "vparty@2020 + vdem-attacks-on@v13",
+        "framework_confidence": 0.95,
+        "markers": [],
+        "rationale": "Discursul reprezintă o critică politică dură, dar încadrată în registrul parlamentar standard. Vorbitorul atacă guvernul pentru incompetență, gestionarea crizei și lipsa de transparență, folosind un limbaj polemic, dar fără a delegitima instituțiile democratice ca atare. Critica la adresa Constituției vizează acțiunile guvernului, nu autoritatea instituției în sine. Nu există elemente de delegitimizare a opoziției, presei, justiției sau a altor grupuri sociale, discursul rămânând în sfera contestării politice legitime."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"vparty@2020 + vdem-attacks-on@v13\",\n  \"framework_confidence\": 0.95,\n  \"markers\": [],\n  \"rationale\": \"Discursul reprezintă o critică politică dură, dar încadrată în registrul parlamentar standard. Vorbitorul atacă guvernul pentru incompetență, gestionarea crizei și lipsa de transparență, folosind un limbaj polemic, dar fără a delegitima instituțiile democratice ca atare. Critica la adresa Constituției vizează acțiunile guvernului, nu autoritatea instituției în sine. Nu există elemente de delegitimizare a opoziției, presei, justiției sau a altor grupuri sociale, discursul rămânând în sfera contestării politice legitime.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13523,
+      "tokens_in_breakdown": {
+        "fresh": 13523,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 218,
+      "cost_usd": null,
+      "latency_ms": 1807,
+      "retries_used": 0
+    }
+  }
+}

@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2016/II/106#agenda-1#act-8",
+  "tier": "calibration",
+  "speaker": {
+    "id": "motiu-florin-aurel",
+    "name": "Florin Aurel Moțiu",
+    "raw": "Domnul Florin Aurel Moțiu",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2016-06-15",
+    "year": 2016,
+    "legislature": "VII",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2016/II/106#agenda-1#act-8",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 1.0,
+        "markers": [],
+        "rationale": "Discursul este unul pur tehnic și procedural, axat pe transpunerea unei directive europene în legislația națională. Vorbitorul explică mecanismele juridice ale ordinului european de protecție și necesitatea evitării unei proceduri de infringement, fără a utiliza nicio retorică populistă. Nu există nicio referire la un cadru popor-vs-elită, maniheism moral sau invocarea unei voințe populare omogene. Discursul se încadrează perfect în registrul legislativ standard, primind scorul 0 cu încredere maximă."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 1.0,\n  \"markers\": [],\n  \"rationale\": \"Discursul este unul pur tehnic și procedural, axat pe transpunerea unei directive europene în legislația națională. Vorbitorul explică mecanismele juridice ale ordinului european de protecție și necesitatea evitării unei proceduri de infringement, fără a utiliza nicio retorică populistă. Nu există nicio referire la un cadru popor-vs-elită, maniheism moral sau invocarea unei voințe populare omogene. Discursul se încadrează perfect în registrul legislativ standard, primind scorul 0 cu încredere maximă.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13866,
+      "tokens_in_breakdown": {
+        "fresh": 13866,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 198,
+      "cost_usd": null,
+      "latency_ms": 1849,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2016/II/106#agenda-1#act-8",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.85,
+        "level_of_justification": 2,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "Având în vedere că această directivă trebuia transpusă până în anul 2015, vă solicităm adoptarea proiectului de lege, pentru ca România să nu intre în procedură de infringement."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Justificare bazată pe un mecanism cauzal clar (evitarea procedurii de infringement) și o obligație normativă (termenul de transpunere)."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "pentru ca România să nu intre în procedură de infringement"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Apelul la evitarea sancțiunilor europene pentru statul român reprezintă un interes general al politicii."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Vă mulțumesc, domnule președinte."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.99,
+            "marker_confidence": 0.9,
+            "rationale_short": "Adresare convențională neutră; nu există referințe la grupuri sociale sau politice."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "vă solicităm adoptarea proiectului de lege"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Vorbitorul își prezintă cererea fără a angaja sau respinge cereri adverse; neutru implicit."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "vă solicităm adoptarea proiectului de lege"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Nu există nicio mențiune sau angajament față de argumente contrare; discursul este pur informativ-procedural."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "vă solicităm adoptarea proiectului de lege"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Vorbitorul susține adoptarea proiectului fără a propune alternative sau medieri."
+          }
+        ],
+        "rationale": "Discursul este un raport tehnic de transpunere a unei directive europene, caracterizat printr-o calitate deliberativă moderată. Justificarea este calificată (level_of_justification=2) prin invocarea riscului de infringement și a termenului limită, apelând la binele comun al statului. Nu există elemente de respect sau dispreț față de grupuri sau cereri adverse, deoarece discursul este pur informativ și procedural, ceea ce duce la scoruri neutre pe dimensiunile de respect. Constructivitatea este pozițională, deoarece vorbitorul susține adoptarea proiectului fără a oferi alternative sau medieri. Profilul este cel al unui discurs de raportor care prioritizează claritatea tehnică în detrimentul dezbaterii argumentative."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.85,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 0,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"Având în vedere că această directivă trebuia transpusă până în anul 2015, vă solicităm adoptarea proiectului de lege, pentru ca România să nu intre în procedură de infringement.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Justificare bazată pe un mecanism cauzal clar (evitarea procedurii de infringement) și o obligație normativă (termenul de transpunere).\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"pentru ca România să nu intre în procedură de infringement\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Apelul la evitarea sancțiunilor europene pentru statul român reprezintă un interes general al politicii.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Vă mulțumesc, domnule președinte.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.99,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Adresare convențională neutră; nu există referințe la grupuri sociale sau politice.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"vă solicităm adoptarea proiectului de lege\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Vorbitorul își prezintă cererea fără a angaja sau respinge cereri adverse; neutru implicit.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"vă solicităm adoptarea proiectului de lege\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Nu există nicio mențiune sau angajament față de argumente contrare; discursul este pur informativ-procedural.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"vă solicităm adoptarea proiectului de lege\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Vorbitorul susține adoptarea proiectului fără a propune alternative sau medieri.\"\n    }\n  ],\n  \"rationale\": \"Discursul este un raport tehnic de transpunere a unei directive europene, caracterizat printr-o calitate deliberativă moderată. Justificarea este calificată (level_of_justification=2) prin invocarea riscului de infringement și a termenului limită, apelând la binele comun al statului. Nu există elemente de respect sau dispreț față de grupuri sau cereri adverse, deoarece discursul este pur informativ și procedural, ceea ce duce la scoruri neutre pe dimensiunile de respect. Constructivitatea este pozițională, deoarece vorbitorul susține adoptarea proiectului fără a oferi alternative sau medieri. Profilul este cel al unui discurs de raportor care prioritizează claritatea tehnică în detrimentul dezbaterii argumentative.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12667,
+      "tokens_in_breakdown": {
+        "fresh": 12667,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1154,
+      "cost_usd": null,
+      "latency_ms": 4314,
+      "retries_used": 0
+    }
+  }
+}

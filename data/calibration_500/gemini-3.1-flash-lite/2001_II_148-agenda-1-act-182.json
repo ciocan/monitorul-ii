@@ -1,0 +1,152 @@
+{
+  "speech_id": "mo://2001/II/148#agenda-1#act-182",
+  "tier": "calibration",
+  "speaker": {
+    "id": "dorneanu-valer",
+    "name": "Valer Dorneanu",
+    "raw": "Domnul Valer Dorneanu",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": null,
+    "year": 2001,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2001/II/148#agenda-1#act-182",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 1.0,
+        "markers": [],
+        "rationale": "Discursul este pur procedural, concentrat pe redactarea tehnică a unor amendamente la un proiect de lege. Nu există nicio urmă de cadru popor-vs-elită, maniheism moral sau invocare a unei voințe populare suverane. Vorbitorul gestionează fluxul legislativ într-un registru tehnic, neutru, specific activității parlamentare de rutină. Hawkins=0 cu încredere maximă."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 1.0,\n  \"markers\": [],\n  \"rationale\": \"Discursul este pur procedural, concentrat pe redactarea tehnică a unor amendamente la un proiect de lege. Nu există nicio urmă de cadru popor-vs-elită, maniheism moral sau invocare a unei voințe populare suverane. Vorbitorul gestionează fluxul legislativ într-un registru tehnic, neutru, specific activității parlamentare de rutină. Hawkins=0 cu încredere maximă.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13762,
+      "tokens_in_breakdown": {
+        "fresh": 13762,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 165,
+      "cost_usd": null,
+      "latency_ms": 1882,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2001/II/148#agenda-1#act-182",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.55,
+        "level_of_justification": 0,
+        "content_of_justification": "none",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 0,
+            "evidence": {
+              "text": "E acelaºi lucru ºi trebuie sã fim consecvenþi."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.85,
+            "rationale_short": "Afirmație procedurală fără justificare cauzală sau normativă substanțială."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "none",
+            "evidence": {
+              "text": "E acelaºi lucru ºi trebuie sã fim consecvenþi."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.85,
+            "rationale_short": "Nicio justificare oferită; conținutul este nedefinit."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Domnul coleg a propus"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.9,
+            "rationale_short": "Referință neutră la un coleg; nicio derogare sau respect explicit."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Dacã aveþi obiecþiuni la amendamentul nr. 74?"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.9,
+            "rationale_short": "Intervenție procedurală de gestionare a ședinței; non-angajament cu cereri."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "Dacã aveþi obiecþiuni la amendamentul nr. 73 sau dacã aveþi obiecþiuni?"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.9,
+            "rationale_short": "Solicitare procedurală de feedback; nu constituie angajament cu argumente."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "comisia ne propune eliminarea alin. 3 din art. 16"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.9,
+            "rationale_short": "Prezentarea unor propuneri tehnice de comisie; pozițional în contextul procedurii."
+          }
+        ],
+        "rationale": "Acest fragment reprezintă un discurs pur procedural de gestionare a votului pe amendamente, specific activității de raportor sau președinte de ședință. Nu există o argumentare deliberativă, ci doar coordonarea tehnică a procesului legislativ (level_of_justification=0). Respectul pentru grupuri și cereri este neutru, limitându-se la interacțiuni formale de sală. Deoarece discursul este strict procedural și nu conține dezbatere substanțială, scorul de încredere este scăzut, reflectând natura tehnică a intervenției care nu se pretează la o analiză DQI aprofundată."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.55,\n  \"level_of_justification\": 0,\n  \"content_of_justification\": \"none\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 0,\n      \"evidence\": { \"text\": \"E acelaºi lucru ºi trebuie sã fim consecvenþi.\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Afirmație procedurală fără justificare cauzală sau normativă substanțială.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"none\",\n      \"evidence\": { \"text\": \"E acelaºi lucru ºi trebuie sã fim consecvenþi.\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Nicio justificare oferită; conținutul este nedefinit.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": { \"text\": \"Domnul coleg a propus\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Referință neutră la un coleg; nicio derogare sau respect explicit.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": { \"text\": \"Dacã aveþi obiecþiuni la amendamentul nr. 74?\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Intervenție procedurală de gestionare a ședinței; non-angajament cu cereri.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": { \"text\": \"Dacã aveþi obiecþiuni la amendamentul nr. 73 sau dacã aveþi obiecþiuni?\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Solicitare procedurală de feedback; nu constituie angajament cu argumente.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": { \"text\": \"comisia ne propune eliminarea alin. 3 din art. 16\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Prezentarea unor propuneri tehnice de comisie; pozițional în contextul procedurii.\"\n    }\n  ],\n  \"rationale\": \"Acest fragment reprezintă un discurs pur procedural de gestionare a votului pe amendamente, specific activității de raportor sau președinte de ședință. Nu există o argumentare deliberativă, ci doar coordonarea tehnică a procesului legislativ (level_of_justification=0). Respectul pentru grupuri și cereri este neutru, limitându-se la interacțiuni formale de sală. Deoarece discursul este strict procedural și nu conține dezbatere substanțială, scorul de încredere este scăzut, reflectând natura tehnică a intervenției care nu se pretează la o analiză DQI aprofundată.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [
+        "Dacã aveþi obiecþiuni la amendamentul nr. 73 sau dacã aveþi obiecþiuni?"
+      ],
+      "parse_repaired": false,
+      "tokens_in": 12563,
+      "tokens_in_breakdown": {
+        "fresh": 12563,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1064,
+      "cost_usd": null,
+      "latency_ms": 4314,
+      "retries_used": 0
+    }
+  }
+}

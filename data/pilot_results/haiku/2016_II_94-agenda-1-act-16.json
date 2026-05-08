@@ -1,0 +1,152 @@
+{
+  "speech_id": "mo://2016/II/94#agenda-1#act-16",
+  "tier": "register_shift",
+  "speaker": {
+    "id": "popescu-tariceanu-calin",
+    "name": "Călin Constantin Anton Popescu-Tăriceanu",
+    "raw": "Domnul Călin Constantin Anton Popescu-Tăriceanu",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2016-05-10",
+    "year": 2016,
+    "legislature": "VII",
+    "delivery_mode": null
+  },
+  "model_key": "haiku",
+  "model_label": "claude-haiku-4.5",
+  "results": {
+    "hawkins": {
+      "model_key": "haiku",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2016/II/94#agenda-1#act-16",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.97,
+        "markers": [],
+        "rationale": "Discursul este o închidere procedurală a unei ședințe parlamentare în care vorbitorul anunță finalizarea votului, invită membrilor Birourilor permanente să se reunească pentru verificarea rezultatelor și informează formal Parlamentul despre depunerea a două legi pentru revizuire constituțională per Legea 47/1992. Registrul este pur instituțional și administrativ. Nu apare niciun cadru popor-vs-elită, niciun maniheism moralizator, niciun apel la o voință populară omogenă. Adresa ceremonială către \"Doamnelor și domnilor senatori și deputați\" este protocol formal, nu invocare populistă. Nici o referință la criză, la elită malefică sau la supremația voinței populare deasupra instituțiilor. Scor Hawkins = 0 cu încredere foarte ridicată."
+      },
+      "raw_response": "```json\n{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.97,\n  \"markers\": [],\n  \"rationale\": \"Discursul este o închidere procedurală a unei ședințe parlamentare în care vorbitorul anunță finalizarea votului, invită membrilor Birourilor permanente să se reunească pentru verificarea rezultatelor și informează formal Parlamentul despre depunerea a două legi pentru revizuire constituțională per Legea 47/1992. Registrul este pur instituțional și administrativ. Nu apare niciun cadru popor-vs-elită, niciun maniheism moralizator, niciun apel la o voință populară omogenă. Adresa ceremonială către \\\"Doamnelor și domnilor senatori și deputați\\\" este protocol formal, nu invocare populistă. Nici o referință la criză, la elită malefică sau la supremația voinței populare deasupra instituțiilor. Scor Hawkins = 0 cu încredere foarte ridicată.\"\n}\n```",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 116484,
+      "tokens_in_breakdown": {
+        "fresh": 9,
+        "cache_creation": 58838,
+        "cache_read": 57637
+      },
+      "tokens_out": 1468,
+      "cost_usd": 0.0866602,
+      "latency_ms": 19187,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "haiku",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2016/II/94#agenda-1#act-16",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.38,
+        "level_of_justification": 0,
+        "content_of_justification": "none",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 0,
+            "evidence": {
+              "text": "Îi invit pe membrii Birourilor permanente să se întrunească în sala de ședință a Biroului permanent al Camerei Deputaților pentru constatarea rezultatului votului"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.92,
+            "rationale_short": "Anunț procedural pur; nicio justificare sau raționament substanțial pentru poziția oricărui fel."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "none",
+            "evidence": {
+              "text": "Vă informez că, în conformitate cu prevederile art. 15 alin. (2) și (3) din Legea nr. 47/1992"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.96,
+            "marker_confidence": 0.91,
+            "rationale_short": "Nicio justificare de poziție oferită; discursul este o notificare procedurală formală."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Doamnelor și domnilor senatori și deputați"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.96,
+            "marker_confidence": 0.78,
+            "rationale_short": "Adresare convențională formală; niciun out-group invocat, nicio derogare sau recunoaștere; neutru implicit."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Vă informez că, în conformitate cu prevederile art. 15 alin. (2) și (3)"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.96,
+            "marker_confidence": 0.75,
+            "rationale_short": "Nicio cerere de opoziție sau niciun angajament cu revendicări; notificare procedurală."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "s-au depus la secretarii generali ai Senatului și Camerei Deputaților"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.96,
+            "marker_confidence": 0.74,
+            "rationale_short": "Niciun argument sau contraargument deliberativ prezent; cadru procedural care nu implică angajament retorical."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "următoarele legi adoptate de ambele Camere ale Parlamentului: 1. Legea pentru aprobarea Ordonanței de urgență"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.96,
+            "marker_confidence": 0.88,
+            "rationale_short": "Prezentare factică procedurală; nicio propunere alternativă sau mediere politică ofertă."
+          }
+        ],
+        "rationale": "Discurs procedural pur din rolul de preşedință — anunț oficial privind: (1) constatarea rezultatului votului, (2) întrunirea birourilor permanente, (3) depunerea legilor în conformitate cu prevederile constituționale. Niciun conținut deliberativ nu este prezent; vorbitorul nu ia vreo poziție substanțială, nu oferă justificare pentru nicio poziție politică, nu se angajează cu argumente adverse, și nu propune constructe politice. DQI este un cadru proiectat pentru a evalua calitatea argumentării deliberative în dezbaterea parlamentară. Un discurs procedural-administrativ de notificare cade în afara domeniului intenționat al rubricii. Framework_confidence este scăzut (~0.38) fiindcă codarea este în mare parte implicit-procedurală și nu expune calități deliberative semnificative — consumatorii cu pragul framework_confidence > 0.6 vor exclude în mod corect acest tip de intervenție din analizele deliberative."
+      },
+      "raw_response": "```json\n{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.38,\n  \"level_of_justification\": 0,\n  \"content_of_justification\": \"none\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"Îi invit pe membrii Birourilor permanente să se întrunească în sala de ședință a Biroului permanent al Camerei Deputaților pentru constatarea rezultatului votului\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Anunț procedural pur; nicio justificare sau raționament substanțial pentru poziția oricărui fel.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"none\",\n      \"evidence\": {\n        \"text\": \"Vă informez că, în conformitate cu prevederile art. 15 alin. (2) și (3) din Legea nr. 47/1992\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.96,\n      \"marker_confidence\": 0.91,\n      \"rationale_short\": \"Nicio justificare de poziție oferită; discursul este o notificare procedurală formală.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Doamnelor și domnilor senatori și deputați\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.96,\n      \"marker_confidence\": 0.78,\n      \"rationale_short\": \"Adresare convențională formală; niciun out-group invocat, nicio derogare sau recunoaștere; neutru implicit.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Vă informez că, în conformitate cu prevederile art. 15 alin. (2) și (3)\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.96,\n      \"marker_confidence\": 0.75,\n      \"rationale_short\": \"Nicio cerere de opoziție sau niciun angajament cu revendicări; notificare procedurală.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"s-au depus la secretarii generali ai Senatului și Camerei Deputaților\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.96,\n      \"marker_confidence\": 0.74,\n      \"rationale_short\": \"Niciun argument sau contraargument deliberativ prezent; cadru procedural care nu implică angajament retorical.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"următoarele legi adoptate de ambele Camere ale Parlamentului: 1. Legea pentru aprobarea Ordonanței de urgență\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.96,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Prezentare factică procedurală; nicio propunere alternativă sau mediere politică ofertă.\"\n    }\n  ],\n  \"rationale\": \"Discurs procedural pur din rolul de preşedință — anunț oficial privind: (1) constatarea rezultatului votului, (2) întrunirea birourilor permanente, (3) depunerea legilor în conformitate cu prevederile constituționale. Niciun conținut deliberativ nu este prezent; vorbitorul nu ia vreo poziție substanțială, nu oferă justificare pentru nicio poziție politică, nu se angajează cu argumente adverse, și nu propune constructe politice. DQI este un cadru proiectat pentru a evalua calitatea argumentării deliberative în dezbaterea parlamentară. Un discurs procedural-administrativ de notificare cade în afara domeniului intenționat al rubricii. Framework_confidence este scăzut (~0.38) fiindcă codarea este în mare parte implicit-procedurală și nu expune calități deliberative semnificative — consumatorii cu pragul framework_confidence > 0.6 vor exclude în mod corect acest tip de intervenție din analizele deliberative.\"\n}\n```",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [
+        "următoarele legi adoptate de ambele Camere ale Parlamentului: 1. Legea pentru aprobarea Ordonanței de urgență"
+      ],
+      "parse_repaired": false,
+      "tokens_in": 115115,
+      "tokens_in_breakdown": {
+        "fresh": 9,
+        "cache_creation": 57469,
+        "cache_read": 57637
+      },
+      "tokens_out": 2482,
+      "cost_usd": 0.09001895,
+      "latency_ms": 27467,
+      "retries_used": 0
+    }
+  }
+}

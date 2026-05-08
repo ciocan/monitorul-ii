@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2026/II/5#agenda-1#act-91",
+  "tier": "calibration",
+  "speaker": {
+    "id": "cascaval-dan",
+    "name": "Dan Cașcaval",
+    "raw": "Domnul Dan Cașcaval",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": "2025-12-17",
+    "year": 2026,
+    "legislature": "X",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2026/II/5#agenda-1#act-91",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul este unul pur procedural și tehnic, axat pe amendamente legislative și armonizarea cu cadrul Bologna. Vorbitorul analizează beneficiile inițiativei pentru universitățile umaniste și tehnice, fără a invoca vreun cadru populist, maniheist sau anti-elitist. Nu există nicio referire la o voință populară omogenă sau la o criză existențială. Discursul se încadrează complet în registrul dezbaterii parlamentare constructive, primind astfel scorul 0."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul este unul pur procedural și tehnic, axat pe amendamente legislative și armonizarea cu cadrul Bologna. Vorbitorul analizează beneficiile inițiativei pentru universitățile umaniste și tehnice, fără a invoca vreun cadru populist, maniheist sau anti-elitist. Nu există nicio referire la o voință populară omogenă sau la o criză existențială. Discursul se încadrează complet în registrul dezbaterii parlamentare constructive, primind astfel scorul 0.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13734,
+      "tokens_in_breakdown": {
+        "fresh": 13734,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 187,
+      "cost_usd": null,
+      "latency_ms": 1925,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2026/II/5#agenda-1#act-91",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.85,
+        "level_of_justification": 2,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "la început a fost o formă care, cumva, exagera lucrurile în ceea ce privește practica, ieșea și din cadrul Bologna, prevăzând în practică o porție de cercetare, ceea ce cadrul Bologna nu prevede pentru studiile de licență."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Vorbitorul oferă o justificare bazată pe un standard extern specific (cadrul Bologna) pentru a explica evoluția proiectului."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "are grijă și de particularitățile universităților umaniste, ceea ce este un lucru foarte bun."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.88,
+            "rationale_short": "Justificarea se concentrează pe beneficiile pentru întregul sistem universitar, nu pe un interes de grup restrâns."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Dragi colegi"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.99,
+            "marker_confidence": 0.95,
+            "rationale_short": "Adresare convențională; nu există referințe derogatorii sau de respect explicit către out-group-uri."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Partidul Social Democrat susține această inițiativă legislativă"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Vorbitorul își exprimă susținerea fără a angaja explicit cererile altor părți."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "deși nu suntem coinițiatori, este o formă care, să spunem, aduce beneficii"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Recunoaște implicit existența altor autori, dar nu angajează substanțial contraargumente."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Partidul Social Democrat susține această inițiativă legislativă"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Vorbitorul își exprimă poziția de susținere fără a propune o alternativă sau o mediere."
+          }
+        ],
+        "rationale": "Discursul prezintă o calitate deliberativă moderată, caracterizată printr-o justificare calificată (level_of_justification=2) care apelează la standarde externe (cadrul Bologna) pentru a explica rațiunea susținerii proiectului. Apelul la binele comun este evident prin preocuparea pentru echilibrul dintre universitățile tehnice și cele umaniste. Deși discursul este constructiv în ton, acesta rămâne pozițional (constructive_politics=positional), nefiind oferite amendamente sau medieri. Respectul pentru grupuri și cereri este neutru, reflectând o postură parlamentară convențională. Vorbitorul nu angajează direct contraargumente, limitându-se la o recunoaștere implicită a contextului legislativ."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.85,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"la început a fost o formă care, cumva, exagera lucrurile în ceea ce privește practica, ieșea și din cadrul Bologna, prevăzând în practică o porție de cercetare, ceea ce cadrul Bologna nu prevede pentru studiile de licență.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Vorbitorul oferă o justificare bazată pe un standard extern specific (cadrul Bologna) pentru a explica evoluția proiectului.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"are grijă și de particularitățile universităților umaniste, ceea ce este un lucru foarte bun.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Justificarea se concentrează pe beneficiile pentru întregul sistem universitar, nu pe un interes de grup restrâns.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Dragi colegi\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.99,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Adresare convențională; nu există referințe derogatorii sau de respect explicit către out-group-uri.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Partidul Social Democrat susține această inițiativă legislativă\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Vorbitorul își exprimă susținerea fără a angaja explicit cererile altor părți.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"deși nu suntem coinițiatori, este o formă care, să spunem, aduce beneficii\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Recunoaște implicit existența altor autori, dar nu angajează substanțial contraargumente.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"Partidul Social Democrat susține această inițiativă legislativă\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Vorbitorul își exprimă poziția de susținere fără a propune o alternativă sau o mediere.\"\n    }\n  ],\n  \"rationale\": \"Discursul prezintă o calitate deliberativă moderată, caracterizată printr-o justificare calificată (level_of_justification=2) care apelează la standarde externe (cadrul Bologna) pentru a explica rațiunea susținerii proiectului. Apelul la binele comun este evident prin preocuparea pentru echilibrul dintre universitățile tehnice și cele umaniste. Deși discursul este constructiv în ton, acesta rămâne pozițional (constructive_politics=positional), nefiind oferite amendamente sau medieri. Respectul pentru grupuri și cereri este neutru, reflectând o postură parlamentară convențională. Vorbitorul nu angajează direct contraargumente, limitându-se la o recunoaștere implicită a contextului legislativ.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12535,
+      "tokens_in_breakdown": {
+        "fresh": 12535,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1195,
+      "cost_usd": null,
+      "latency_ms": 4526,
+      "retries_used": 0
+    }
+  }
+}

@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2006/II/177#agenda-2#act-34",
+  "tier": "register_shift",
+  "speaker": {
+    "id": "ponta-victor-viorel",
+    "name": "Victor Viorel Ponta",
+    "raw": "Domnul Victor Viorel Ponta",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": null,
+    "session_date": null,
+    "year": 2006,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "opus",
+  "model_label": "claude-opus-4.7",
+  "results": {
+    "hawkins": {
+      "model_key": "opus",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2006/II/177#agenda-2#act-34",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discurs pur procedural de dezbatere pe articole a unui proiect de lege în comisie/plen, cu parcurgerea punct cu punct a textului raportului („Punctul 1...22\", „Obiecțiuni? Nu există. Adoptat.\") și anunțuri tehnice despre procedura de urgență, calitatea de Cameră decizională și prioritatea legislativă de integrare. Nu există cadru popor-vs-elită, nici maniheism, nici invocare a unei voințe populare omogene, nici elită malefică, nici criză sau mize cosmice. Registrul este integral tehnocratic-procedural, fără niciun trop populist la persoana întâi sau în altă voce. Hawkins=0 cu încredere foarte ridicată."
+      },
+      "raw_response": "{\"score\":0,\"score_unit\":\"ordinal_0_2\",\"framework_version\":\"hawkins@2018\",\"framework_confidence\":0.98,\"markers\":[],\"rationale\":\"Discurs pur procedural de dezbatere pe articole a unui proiect de lege în comisie/plen, cu parcurgerea punct cu punct a textului raportului („Punctul 1...22\\\", „Obiecțiuni? Nu există. Adoptat.\\\") și anunțuri tehnice despre procedura de urgență, calitatea de Cameră decizională și prioritatea legislativă de integrare. Nu există cadru popor-vs-elită, nici maniheism, nici invocare a unei voințe populare omogene, nici elită malefică, nici criză sau mize cosmice. Registrul este integral tehnocratic-procedural, fără niciun trop populist la persoana întâi sau în altă voce. Hawkins=0 cu încredere foarte ridicată.\"}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 105246,
+      "tokens_in_breakdown": {
+        "fresh": 5,
+        "cache_creation": 86888,
+        "cache_read": 18353
+      },
+      "tokens_out": 325,
+      "cost_usd": 0.5603765,
+      "latency_ms": 15129,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "opus",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2006/II/177#agenda-2#act-34",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.46,
+        "level_of_justification": 0,
+        "content_of_justification": "none",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 0,
+            "evidence": {
+              "text": "Atunci o s„ trecem la dezbaterea proiectului de lege, conform modific„rilor aduse Ón cadrul comisiei. Deci vom lucra pe textul raportului."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.86,
+            "rationale_short": "Discurs procedural de prezidare; nicio justificare substanțială oferită — doar parcurgerea articolelor."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "none",
+            "evidence": {
+              "text": "Adoptat."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.85,
+            "rationale_short": "Nicio justificare invocată; conținutul este, prin urmare, nedefinit."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "V„ mul˛umesc, domnule deputat."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.94,
+            "marker_confidence": 0.7,
+            "rationale_short": "Adresare convențională în sală; niciun out-group invocat — neutru standard."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Alte opinii din partea colegilor? Nu sunt."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.72,
+            "rationale_short": "Prezidentul deschide formal spațiul pentru obiecțiuni; absența cererilor adverse face dimensiunea inaplicabilă — neutru."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "Dac„ exist„ obiec˛iuni? Nu exist„. Adoptat."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.7,
+            "rationale_short": "Solicitare procedurală de obiecțiuni, fără argumente adverse efectiv ridicate — neutru implicit."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Urmeaz„ s„ fie supus„ votului final."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.78,
+            "rationale_short": "Discurs procedural de prezidare; nicio alternativă sau mediere propusă."
+          }
+        ],
+        "rationale": "Fragmentul nu este un discurs deliberativ în sensul DQI, ci o intervenție procedurală de prezidare a ședinței: președintele parcurge punctele raportului comisiei, întreabă rutinier de obiecțiuni și consemnează adoptarea fiecărui articol. Nu există nicio poziție argumentată, nicio justificare independentă (level_of_justification=0, content=none) și niciun angajament cu cereri sau contraargumente adverse — pur și simplu pentru că nimeni nu intervine. Respectul pentru grupuri rămâne la nivelul curtoaziei convenționale de cameră („Vă mulțumesc, domnule deputat\"), iar dimensiunile de respect față de cereri și contraargumente sunt neutre implicit, nu pentru că ar fi ignorate, ci pentru că procedura nu produce conținut adversativ. Nu există propunere alternativă sau de mediere; rolul vorbitorului este strict de orchestrare. framework_confidence este scăzut (~0.46) fiindcă acest tip de intervenție nu se pretează DQI-ului — codingul ar trebui filtrat în aval prin pragul de încredere; consumatorii care cer framework_confidence > 0.7 vor exclude corect aceste fragmente."
+      },
+      "raw_response": "{\"framework_version\":\"steiner-bachtiger@2017\",\"score_unit\":\"dqi_multi\",\"framework_confidence\":0.46,\"level_of_justification\":0,\"content_of_justification\":\"none\",\"respect_for_groups\":1,\"respect_for_demands\":1,\"respect_for_counterarguments\":1,\"constructive_politics\":\"positional\",\"markers\":[{\"kind\":\"level_of_justification\",\"value\":0,\"evidence\":{\"text\":\"Atunci o s„ trecem la dezbaterea proiectului de lege, conform modific„rilor aduse Ón cadrul comisiei. Deci vom lucra pe textul raportului.\"},\"preliminary_voice\":\"speaker_first_person\",\"preliminary_voice_confidence\":0.95,\"marker_confidence\":0.86,\"rationale_short\":\"Discurs procedural de prezidare; nicio justificare substanțială oferită — doar parcurgerea articolelor.\"},{\"kind\":\"content_of_justification\",\"value\":\"none\",\"evidence\":{\"text\":\"Adoptat.\"},\"preliminary_voice\":\"speaker_first_person\",\"preliminary_voice_confidence\":0.95,\"marker_confidence\":0.85,\"rationale_short\":\"Nicio justificare invocată; conținutul este, prin urmare, nedefinit.\"},{\"kind\":\"respect_for_groups\",\"value\":1,\"evidence\":{\"text\":\"V„ mul˛umesc, domnule deputat.\"},\"preliminary_voice\":\"speaker_first_person\",\"preliminary_voice_confidence\":0.94,\"marker_confidence\":0.7,\"rationale_short\":\"Adresare convențională în sală; niciun out-group invocat — neutru standard.\"},{\"kind\":\"respect_for_demands\",\"value\":1,\"evidence\":{\"text\":\"Alte opinii din partea colegilor? Nu sunt.\"},\"preliminary_voice\":\"speaker_first_person\",\"preliminary_voice_confidence\":0.95,\"marker_confidence\":0.72,\"rationale_short\":\"Prezidentul deschide formal spațiul pentru obiecțiuni; absența cererilor adverse face dimensiunea inaplicabilă — neutru.\"},{\"kind\":\"respect_for_counterarguments\",\"value\":1,\"evidence\":{\"text\":\"Dac„ exist„ obiec˛iuni? Nu exist„. Adoptat.\"},\"preliminary_voice\":\"speaker_first_person\",\"preliminary_voice_confidence\":0.95,\"marker_confidence\":0.7,\"rationale_short\":\"Solicitare procedurală de obiecțiuni, fără argumente adverse efectiv ridicate — neutru implicit.\"},{\"kind\":\"constructive_politics\",\"value\":\"positional\",\"evidence\":{\"text\":\"Urmeaz„ s„ fie supus„ votului final.\"},\"preliminary_voice\":\"speaker_first_person\",\"preliminary_voice_confidence\":0.95,\"marker_confidence\":0.78,\"rationale_short\":\"Discurs procedural de prezidare; nicio alternativă sau mediere propusă.\"}],\"rationale\":\"Fragmentul nu este un discurs deliberativ în sensul DQI, ci o intervenție procedurală de prezidare a ședinței: președintele parcurge punctele raportului comisiei, întreabă rutinier de obiecțiuni și consemnează adoptarea fiecărui articol. Nu există nicio poziție argumentată, nicio justificare independentă (level_of_justification=0, content=none) și niciun angajament cu cereri sau contraargumente adverse — pur și simplu pentru că nimeni nu intervine. Respectul pentru grupuri rămâne la nivelul curtoaziei convenționale de cameră („Vă mulțumesc, domnule deputat\\\"), iar dimensiunile de respect față de cereri și contraargumente sunt neutre implicit, nu pentru că ar fi ignorate, ci pentru că procedura nu produce conținut adversativ. Nu există propunere alternativă sau de mediere; rolul vorbitorului este strict de orchestrare. framework_confidence este scăzut (~0.46) fiindcă acest tip de intervenție nu se pretează DQI-ului — codingul ar trebui filtrat în aval prin pragul de încredere; consumatorii care cer framework_confidence > 0.7 vor exclude corect aceste fragmente.\"}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 103237,
+      "tokens_in_breakdown": {
+        "fresh": 5,
+        "cache_creation": 84879,
+        "cache_read": 18353
+      },
+      "tokens_out": 1461,
+      "cost_usd": 0.57622025,
+      "latency_ms": 27582,
+      "retries_used": 0
+    }
+  }
+}

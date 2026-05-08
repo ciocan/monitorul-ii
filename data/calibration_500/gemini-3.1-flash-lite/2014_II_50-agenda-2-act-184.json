@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2014/II/50#agenda-2#act-184",
+  "tier": "calibration",
+  "speaker": {
+    "id": "firczak-gheorghe",
+    "name": "Gheorghe Firczak",
+    "raw": "Domnul Gheorghe Firczak",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2014-04-15",
+    "year": 2014,
+    "legislature": "VII",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2014/II/50#agenda-2#act-184",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul este o intervenție procedurală și lingvistică pură, axată pe corectitudinea terminologiei juridice („a aviza” vs „a aproba”). Vorbitorul folosește o referință culturală la Caragiale pentru a ilustra un nonsens logic în redactarea actelor normative, fără a invoca nicio temă populistă. Nu există cadru popor-vs-elită, maniheism sau apel la o voință populară suverană. Discursul rămâne strict în registrul tehnic-procedural al activității parlamentare."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul este o intervenție procedurală și lingvistică pură, axată pe corectitudinea terminologiei juridice („a aviza” vs „a aproba”). Vorbitorul folosește o referință culturală la Caragiale pentru a ilustra un nonsens logic în redactarea actelor normative, fără a invoca nicio temă populistă. Nu există cadru popor-vs-elită, maniheism sau apel la o voință populară suverană. Discursul rămâne strict în registrul tehnic-procedural al activității parlamentare.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13640,
+      "tokens_in_breakdown": {
+        "fresh": 13640,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 199,
+      "cost_usd": null,
+      "latency_ms": 1924,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2014/II/50#agenda-2#act-184",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.85,
+        "level_of_justification": 2,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "alternative_proposal",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "În momentul în care spui „a avizat negativ” este un nonsens, pentru că „a aviza” este sinonim cu „a aproba”."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Vorbitorul oferă o justificare semantică logică pentru a susține propunerea sa de corecție terminologică."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "Deci este suficient a spune „a fost avizat” sau „nu a fost avizat”."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Apelul la claritatea limbajului legislativ servește interesului general al calității actului normativ."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Domnule președinte"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.99,
+            "marker_confidence": 0.95,
+            "rationale_short": "Adresare convențională; nu există referințe la grupuri sociale sau politice."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "aproape în toate rapoartele prezentate de la acest microfon"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.88,
+            "rationale_short": "Critica este adresată stilului general al rapoartelor, fără a viza cereri politice specifice."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "În momentul în care spui „a avizat negativ” este un nonsens"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Vorbitorul identifică o eroare terminologică recurentă, dar nu angajează un contraargument specific."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "alternative_proposal",
+            "evidence": {
+              "text": "Deci este suficient a spune „a fost avizat” sau „nu a fost avizat”."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.94,
+            "rationale_short": "Vorbitorul propune o alternativă concretă și simplificată pentru terminologia legislativă."
+          }
+        ],
+        "rationale": "Discursul este o intervenție de natură tehnică și lingvistică, având o calitate deliberativă moderată. Vorbitorul oferă o justificare logică (level_of_justification=2) pentru a corecta o eroare terminologică, apelând la claritatea limbajului ca bine comun (content_of_justification=common_good). Deși discursul este critic la adresa modului în care sunt redactate rapoartele, acesta rămâne neutru față de grupuri și cereri politice (respect_for_groups=1, respect_for_demands=1). Intervenția este constructivă prin propunerea unei alternative terminologice clare (constructive_politics=alternative_proposal). Nu există un angajament cu contraargumente, deoarece discursul vizează o eroare de redactare, nu o dispută politică."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.85,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"alternative_proposal\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": { \"text\": \"În momentul în care spui „a avizat negativ” este un nonsens, pentru că „a aviza” este sinonim cu „a aproba”.\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Vorbitorul oferă o justificare semantică logică pentru a susține propunerea sa de corecție terminologică.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": { \"text\": \"Deci este suficient a spune „a fost avizat” sau „nu a fost avizat”.\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.90,\n      \"rationale_short\": \"Apelul la claritatea limbajului legislativ servește interesului general al calității actului normativ.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": { \"text\": \"Domnule președinte\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.99,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Adresare convențională; nu există referințe la grupuri sociale sau politice.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": { \"text\": \"aproape în toate rapoartele prezentate de la acest microfon\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Critica este adresată stilului general al rapoartelor, fără a viza cereri politice specifice.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": { \"text\": \"În momentul în care spui „a avizat negativ” este un nonsens\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Vorbitorul identifică o eroare terminologică recurentă, dar nu angajează un contraargument specific.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"alternative_proposal\",\n      \"evidence\": { \"text\": \"Deci este suficient a spune „a fost avizat” sau „nu a fost avizat”.\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.94,\n      \"rationale_short\": \"Vorbitorul propune o alternativă concretă și simplificată pentru terminologia legislativă.\"\n    }\n  ],\n  \"rationale\": \"Discursul este o intervenție de natură tehnică și lingvistică, având o calitate deliberativă moderată. Vorbitorul oferă o justificare logică (level_of_justification=2) pentru a corecta o eroare terminologică, apelând la claritatea limbajului ca bine comun (content_of_justification=common_good). Deși discursul este critic la adresa modului în care sunt redactate rapoartele, acesta rămâne neutru față de grupuri și cereri politice (respect_for_groups=1, respect_for_demands=1). Intervenția este constructivă prin propunerea unei alternative terminologice clare (constructive_politics=alternative_proposal). Nu există un angajament cu contraargumente, deoarece discursul vizează o eroare de redactare, nu o dispută politică.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12441,
+      "tokens_in_breakdown": {
+        "fresh": 12441,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1162,
+      "cost_usd": null,
+      "latency_ms": 3835,
+      "retries_used": 0
+    }
+  }
+}

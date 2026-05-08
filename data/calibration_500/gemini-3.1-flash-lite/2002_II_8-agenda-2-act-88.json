@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2002/II/8#agenda-2#act-88",
+  "tier": "calibration",
+  "speaker": {
+    "id": "dorneanu-valer",
+    "name": "Valer Dorneanu",
+    "raw": "Domnul Valer Dorneanu",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": null,
+    "year": 2002,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2002/II/8#agenda-2#act-88",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 1.0,
+        "markers": [],
+        "rationale": "Discursul este pur procedural, limitându-se la gestionarea ordinii de zi, supunerea la vot a unor propuneri de respingere și anunțarea amânării unor proiecte legislative. Nu există nicio urmă de retorică populistă, cadru maniheist sau invocare a unei voințe populare în opoziție cu instituțiile. Limbajul este tehnic și administrativ, specific activității parlamentare curente. Hawkins=0 cu încredere maximă."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 1.0,\n  \"markers\": [],\n  \"rationale\": \"Discursul este pur procedural, limitându-se la gestionarea ordinii de zi, supunerea la vot a unor propuneri de respingere și anunțarea amânării unor proiecte legislative. Nu există nicio urmă de retorică populistă, cadru maniheist sau invocare a unei voințe populare în opoziție cu instituțiile. Limbajul este tehnic și administrativ, specific activității parlamentare curente. Hawkins=0 cu încredere maximă.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13726,
+      "tokens_in_breakdown": {
+        "fresh": 13726,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 175,
+      "cost_usd": null,
+      "latency_ms": 1712,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2002/II/8#agenda-2#act-88",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.45,
+        "level_of_justification": 0,
+        "content_of_justification": "none",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 0,
+            "evidence": {
+              "text": "Comisia pentru buget ne propune respingerea acestei propuneri."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.95,
+            "rationale_short": "Discursul este pur procedural, prezentând ordinea de zi fără a oferi justificări pentru decizii."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "none",
+            "evidence": {
+              "text": "Comisia pentru buget ne propune respingerea acestei propuneri."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.95,
+            "rationale_short": "Nicio justificare oferită; conținutul justificării este nedefinit."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Mulþumesc."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.9,
+            "rationale_short": "Adresare convențională neutră; niciun grup vizat."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Supun la vot, Ón consecinþ„, propunerea de respingere"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.9,
+            "rationale_short": "Procedură administrativă neutră; nu există cereri opuse angajate."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "Supun la vot, Ón consecinþ„, propunerea de respingere"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.9,
+            "rationale_short": "Nu există contraargumente adresate; discursul este pur procedural."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Supun la vot, Ón consecinþ„, propunerea de respingere"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.9,
+            "rationale_short": "Intervenție procedurală de gestionare a ordinii de zi; nu este o propunere politică."
+          }
+        ],
+        "rationale": "Acest fragment reprezintă un discurs pur procedural de gestionare a ordinii de zi parlamentare, lipsit de conținut deliberativ. Vorbitorul se limitează la a anunța voturi și a constata stadiul procedurilor, fără a oferi justificări, a angaja contraargumente sau a propune alternative politice. Din acest motiv, toate dimensiunile DQI sunt codate la valorile lor implicite (neutru/pozițional/fără justificare). framework_confidence este scăzut deoarece discursul nu constituie o dezbatere politică, ci o sarcină administrativă de ședință, ceea ce face ca rubricile DQI să fie inaplicabile în sensul lor deliberativ."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.45,\n  \"level_of_justification\": 0,\n  \"content_of_justification\": \"none\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 0,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 0,\n      \"evidence\": { \"text\": \"Comisia pentru buget ne propune respingerea acestei propuneri.\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Discursul este pur procedural, prezentând ordinea de zi fără a oferi justificări pentru decizii.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"none\",\n      \"evidence\": { \"text\": \"Comisia pentru buget ne propune respingerea acestei propuneri.\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Nicio justificare oferită; conținutul justificării este nedefinit.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": { \"text\": \"Mulþumesc.\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Adresare convențională neutră; niciun grup vizat.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": { \"text\": \"Supun la vot, Ón consecinþ„, propunerea de respingere\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Procedură administrativă neutră; nu există cereri opuse angajate.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 0,\n      \"evidence\": { \"text\": \"Supun la vot, Ón consecinþ„, propunerea de respingere\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Nu există contraargumente adresate; discursul este pur procedural.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": { \"text\": \"Supun la vot, Ón consecinþ„, propunerea de respingere\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Intervenție procedurală de gestionare a ordinii de zi; nu este o propunere politică.\"\n    }\n  ],\n  \"rationale\": \"Acest fragment reprezintă un discurs pur procedural de gestionare a ordinii de zi parlamentare, lipsit de conținut deliberativ. Vorbitorul se limitează la a anunța voturi și a constata stadiul procedurilor, fără a oferi justificări, a angaja contraargumente sau a propune alternative politice. Din acest motiv, toate dimensiunile DQI sunt codate la valorile lor implicite (neutru/pozițional/fără justificare). framework_confidence este scăzut deoarece discursul nu constituie o dezbatere politică, ci o sarcină administrativă de ședință, ceea ce face ca rubricile DQI să fie inaplicabile în sensul lor deliberativ.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12527,
+      "tokens_in_breakdown": {
+        "fresh": 12527,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1055,
+      "cost_usd": null,
+      "latency_ms": 4115,
+      "retries_used": 0
+    }
+  }
+}

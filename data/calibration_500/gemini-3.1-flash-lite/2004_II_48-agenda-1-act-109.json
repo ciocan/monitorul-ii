@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2004/II/48#agenda-1#act-109",
+  "tier": "calibration",
+  "speaker": {
+    "id": "vacaroiu-nicolae",
+    "name": "Nicolae V„c„roiu",
+    "raw": "Domnul Nicolae V„c„roiu",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": null,
+    "year": 2004,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2004/II/48#agenda-1#act-109",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul este unul pur procedural și administrativ, vizând reorganizarea teritorială a unei comune. Vorbitorul prezintă argumente geografice, logistice și istorice pentru susținerea proiectului de lege, fără a utiliza nicio retorică populistă. Nu există nicio referire la un cadru popor-vs-elită, maniheism moral sau invocarea unei voințe populare suverane. Discursul se încadrează perfect în registrul tehnic parlamentar, primind scorul 0 cu încredere maximă."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul este unul pur procedural și administrativ, vizând reorganizarea teritorială a unei comune. Vorbitorul prezintă argumente geografice, logistice și istorice pentru susținerea proiectului de lege, fără a utiliza nicio retorică populistă. Nu există nicio referire la un cadru popor-vs-elită, maniheism moral sau invocarea unei voințe populare suverane. Discursul se încadrează perfect în registrul tehnic parlamentar, primind scorul 0 cu încredere maximă.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 14085,
+      "tokens_in_breakdown": {
+        "fresh": 14085,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 190,
+      "cost_usd": null,
+      "latency_ms": 1831,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2004/II/48#agenda-1#act-109",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.85,
+        "level_of_justification": 2,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 2,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "Din punct de vedere geografic, zona este un ˛inut deluros, premontan, Ón care ∫i drumurile sunt mai pu˛in modernizate ∫i, din acest motiv, accesul ∫i comunica˛iile sunt destul de greoaie Ón zon„"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Vorbitorul oferă o justificare bazată pe un mecanism cauzal specific (geografie, infrastructură, accesibilitate)."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "accesul ∫i comunica˛iile sunt destul de greoaie Ón zon„, fapt care constituie unul dintre motivele pentru care am propus reÓnfiin˛area comunei Bereni"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Justificarea vizează îmbunătățirea serviciilor publice pentru cetățeni, un apel universalizabil la binele comun."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Colegii no∫tri din Senat"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Referință neutră la colegii din Senat; nicio derogare sau laudă explicită."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "colegii de la Camera Deputa˛ilor, care au invocat un motiv privind num„rul locuitorilor din aceste comune ∫i, pentru acest motiv, au ezitat s„ dea und„ verde aprob„rii proiectului de lege"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.88,
+            "rationale_short": "Vorbitorul menționează cererea/obiecția opoziției fără a o respinge sau a-i recunoaște explicit legitimitatea."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 2,
+            "evidence": {
+              "text": "Colegii no∫tri din Senat au fost mai aproape de spiritul legii privind Ónfiin˛area de noi localit„˛i ∫i au avut Ón vedere acest lucru, deci dispersia teritorial„ foarte mare ∫i distan˛a mare dintre comune, fa˛„ de colegii de la Camera Deputa˛ilor, care au invocat un motiv privind num„rul locuitorilor"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.91,
+            "rationale_short": "Vorbitorul identifică argumentul opoziției (numărul de locuitori) și îl contraargumentează prin accentuarea dispersiei teritoriale."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "V„ rog ∫i eu s„ ne ajuta˛i Ón Ónfiin˛area comunei Bereni din jude˛ul Mure∫."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Discursul susține o poziție inițiată anterior; nu propune o alternativă nouă sau o mediere."
+          }
+        ],
+        "rationale": "Discursul prezintă o calitate deliberativă medie-ridicată, caracterizată printr-o justificare bazată pe nevoi geografice și administrative concrete (level_of_justification=2). Vorbitorul apelează la binele comun al cetățenilor din zonă (content_of_justification=common_good). Un punct forte este angajamentul cu raționamentul opoziției, unde vorbitorul identifică argumentul privind numărul de locuitori și îl combate prin evidențierea dispersiei teritoriale (respect_for_counterarguments=2). Respectul pentru grupuri și cereri rămâne neutru, fiind o referință funcțională la colegii din cele două camere. Deși discursul este constructiv în argumentare, el rămâne pozițional, susținând inițiativa legislativă existentă fără a propune un nou amendament sau o mediere (constructive_politics=positional)."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.85,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 2,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"Din punct de vedere geografic, zona este un ˛inut deluros, premontan, Ón care ∫i drumurile sunt mai pu˛in modernizate ∫i, din acest motiv, accesul ∫i comunica˛iile sunt destul de greoaie Ón zon„\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Vorbitorul oferă o justificare bazată pe un mecanism cauzal specific (geografie, infrastructură, accesibilitate).\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"accesul ∫i comunica˛iile sunt destul de greoaie Ón zon„, fapt care constituie unul dintre motivele pentru care am propus reÓnfiin˛area comunei Bereni\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.90,\n      \"rationale_short\": \"Justificarea vizează îmbunătățirea serviciilor publice pentru cetățeni, un apel universalizabil la binele comun.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Colegii no∫tri din Senat\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Referință neutră la colegii din Senat; nicio derogare sau laudă explicită.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"colegii de la Camera Deputa˛ilor, care au invocat un motiv privind num„rul locuitorilor din aceste comune ∫i, pentru acest motiv, au ezitat s„ dea und„ verde aprob„rii proiectului de lege\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Vorbitorul menționează cererea/obiecția opoziției fără a o respinge sau a-i recunoaște explicit legitimitatea.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"Colegii no∫tri din Senat au fost mai aproape de spiritul legii privind Ónfiin˛area de noi localit„˛i ∫i au avut Ón vedere acest lucru, deci dispersia teritorial„ foarte mare ∫i distan˛a mare dintre comune, fa˛„ de colegii de la Camera Deputa˛ilor, care au invocat un motiv privind num„rul locuitorilor\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.91,\n      \"rationale_short\": \"Vorbitorul identifică argumentul opoziției (numărul de locuitori) și îl contraargumentează prin accentuarea dispersiei teritoriale.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"V„ rog ∫i eu s„ ne ajuta˛i Ón Ónfiin˛area comunei Bereni din jude˛ul Mure∫.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.90,\n      \"rationale_short\": \"Discursul susține o poziție inițiată anterior; nu propune o alternativă nouă sau o mediere.\"\n    }\n  ],\n  \"rationale\": \"Discursul prezintă o calitate deliberativă medie-ridicată, caracterizată printr-o justificare bazată pe nevoi geografice și administrative concrete (level_of_justification=2). Vorbitorul apelează la binele comun al cetățenilor din zonă (content_of_justification=common_good). Un punct forte este angajamentul cu raționamentul opoziției, unde vorbitorul identifică argumentul privind numărul de locuitori și îl combate prin evidențierea dispersiei teritoriale (respect_for_counterarguments=2). Respectul pentru grupuri și cereri rămâne neutru, fiind o referință funcțională la colegii din cele două camere. Deși discursul este constructiv în argumentare, el rămâne pozițional, susținând inițiativa legislativă existentă fără a propune un nou amendament sau o mediere (constructive_politics=positional).\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12886,
+      "tokens_in_breakdown": {
+        "fresh": 12886,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1392,
+      "cost_usd": null,
+      "latency_ms": 4859,
+      "retries_used": 0
+    }
+  }
+}

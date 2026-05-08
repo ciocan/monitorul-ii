@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2011/II/126#agenda-13#act-177",
+  "tier": "calibration",
+  "speaker": {
+    "id": "necula-marius-gerard",
+    "name": "Marius Gerard Necula",
+    "raw": "Domnul Marius Gerard Necula",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": "2011-10-31",
+    "year": 2011,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2011/II/126#agenda-13#act-177",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 1.0,
+        "markers": [],
+        "rationale": "Discursul este pur procedural, concentrat pe activitatea administrativă a unei comisii parlamentare și pe detaliile tehnice ale unei propuneri legislative. Nu există nicio urmă de cadru popor-vs-elită, maniheism moral sau invocare a unei voințe populare suverane. Vorbitorul se limitează la prezentarea raportului comisiei și a amendamentelor aferente, menținându-se strict în registrul tehnic-parlamentar. Hawkins=0 cu încredere maximă."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 1.0,\n  \"markers\": [],\n  \"rationale\": \"Discursul este pur procedural, concentrat pe activitatea administrativă a unei comisii parlamentare și pe detaliile tehnice ale unei propuneri legislative. Nu există nicio urmă de cadru popor-vs-elită, maniheism moral sau invocare a unei voințe populare suverane. Vorbitorul se limitează la prezentarea raportului comisiei și a amendamentelor aferente, menținându-se strict în registrul tehnic-parlamentar. Hawkins=0 cu încredere maximă.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13732,
+      "tokens_in_breakdown": {
+        "fresh": 13732,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 183,
+      "cost_usd": null,
+      "latency_ms": 1855,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2011/II/126#agenda-13#act-177",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.92,
+        "level_of_justification": 2,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 2,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "modificarea avută în vedere are la bază introducerea în sarcina secretariatului unității administrativ-teritoriale a obligației de a informa consilierii locali cu privire la hotărârile instanțelor judecătorești"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Vorbitorul explică mecanismul cauzal al modificării legislative propuse."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "introducerea în sarcina secretariatului unității administrativ-teritoriale a obligației de a informa consilierii locali"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Justificarea vizează transparența administrativă și informarea aleșilor locali, un interes public general."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Comisia pentru administrație publică, organizarea teritoriului și protecția mediului"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Referință funcțională la comisia parlamentară; ton neutru."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "situația de inadvertență menționată de către unul dintre inițiatori nu se poate susține"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Vorbitorul respinge o cerere/observație fără a o denigra, dar fără a-i recunoaște legitimitatea."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 2,
+            "evidence": {
+              "text": "constatându-se că situația de inadvertență menționată de către unul dintre inițiatori nu se poate susține, deoarece modificarea avută în vedere are la bază introducerea în sarcina secretariatului unității administrativ-teritoriale a obligației de a informa consilierii locali"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.94,
+            "rationale_short": "Vorbitorul identifică argumentul opoziției (inadvertența) și îl combate prin explicarea mecanismului legislativ."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Comisia pentru administrație publică, organizarea teritoriului și protecția mediului propune plenului Senatului adoptarea unui raport de admitere"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.96,
+            "rationale_short": "Discursul susține raportul comisiei; este o poziție procedurală standard."
+          }
+        ],
+        "rationale": "Discursul este o prezentare tehnică a unui raport de comisie, caracterizată printr-o calitate deliberativă solidă. Vorbitorul oferă o justificare calificată (level_of_justification=2) explicând mecanismul administrativ propus, ancorat în interesul public (common_good). Respectul pentru contraargumente este ridicat (respect_for_counterarguments=2), deoarece vorbitorul abordează direct obiecția privind inadvertența ridicată de un inițiator și o respinge prin argumente logice. Respectul pentru grupuri și cereri rămâne neutru, fiind o intervenție procedurală. Deși este un discurs pozițional (constructive_politics=positional), acesta îndeplinește standardele de rigoare necesare pentru o dezbatere parlamentară informată."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.92,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 2,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"modificarea avută în vedere are la bază introducerea în sarcina secretariatului unității administrativ-teritoriale a obligației de a informa consilierii locali cu privire la hotărârile instanțelor judecătorești\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Vorbitorul explică mecanismul cauzal al modificării legislative propuse.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"introducerea în sarcina secretariatului unității administrativ-teritoriale a obligației de a informa consilierii locali\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Justificarea vizează transparența administrativă și informarea aleșilor locali, un interes public general.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Comisia pentru administrație publică, organizarea teritoriului și protecția mediului\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Referință funcțională la comisia parlamentară; ton neutru.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"situația de inadvertență menționată de către unul dintre inițiatori nu se poate susține\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.90,\n      \"rationale_short\": \"Vorbitorul respinge o cerere/observație fără a o denigra, dar fără a-i recunoaște legitimitatea.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"constatându-se că situația de inadvertență menționată de către unul dintre inițiatori nu se poate susține, deoarece modificarea avută în vedere are la bază introducerea în sarcina secretariatului unității administrativ-teritoriale a obligației de a informa consilierii locali\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.94,\n      \"rationale_short\": \"Vorbitorul identifică argumentul opoziției (inadvertența) și îl combate prin explicarea mecanismului legislativ.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"Comisia pentru administrație publică, organizarea teritoriului și protecția mediului propune plenului Senatului adoptarea unui raport de admitere\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.96,\n      \"rationale_short\": \"Discursul susține raportul comisiei; este o poziție procedurală standard.\"\n    }\n  ],\n  \"rationale\": \"Discursul este o prezentare tehnică a unui raport de comisie, caracterizată printr-o calitate deliberativă solidă. Vorbitorul oferă o justificare calificată (level_of_justification=2) explicând mecanismul administrativ propus, ancorat în interesul public (common_good). Respectul pentru contraargumente este ridicat (respect_for_counterarguments=2), deoarece vorbitorul abordează direct obiecția privind inadvertența ridicată de un inițiator și o respinge prin argumente logice. Respectul pentru grupuri și cereri rămâne neutru, fiind o intervenție procedurală. Deși este un discurs pozițional (constructive_politics=positional), acesta îndeplinește standardele de rigoare necesare pentru o dezbatere parlamentară informată.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12533,
+      "tokens_in_breakdown": {
+        "fresh": 12533,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1280,
+      "cost_usd": null,
+      "latency_ms": 4617,
+      "retries_used": 0
+    }
+  }
+}

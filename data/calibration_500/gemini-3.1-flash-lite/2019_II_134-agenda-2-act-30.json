@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2019/II/134#agenda-2#act-30",
+  "tier": "calibration",
+  "speaker": {
+    "id": "iurisniti-cristina-ionela",
+    "name": "Cristina Ionela Iurișniți",
+    "raw": "Doamna Cristina Ionela Iurișniți",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2019-12-04",
+    "year": 2019,
+    "legislature": "VIII",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2019/II/134#agenda-2#act-30",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.95,
+        "markers": [],
+        "rationale": "Discursul Cristinei Iurișniți este un discurs tehnic, axat pe politici publice în domeniul educației, care utilizează date statistice (OECD, PISA) și propuneri concrete de reformă (audit extern, depolitizare, finanțare 6% din PIB). Deși vorbitoarea critică „incompetența” și „impostura” guvernanților, aceasta o face în contextul unei analize de politici publice, fără a construi un cadru maniheist popor-vs-elită sau a invoca o voință populară omogenă ca forță suverană. Critica la adresa sistemului este una de tip tehnocratic, vizând eficiența și calitatea actului educațional, nu o mobilizare populistă. Prin urmare, discursul nu întrunește criteriile pentru un scor populist, fiind încadrat la Hawkins=0."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.95,\n  \"markers\": [],\n  \"rationale\": \"Discursul Cristinei Iurișniți este un discurs tehnic, axat pe politici publice în domeniul educației, care utilizează date statistice (OECD, PISA) și propuneri concrete de reformă (audit extern, depolitizare, finanțare 6% din PIB). Deși vorbitoarea critică „incompetența” și „impostura” guvernanților, aceasta o face în contextul unei analize de politici publice, fără a construi un cadru maniheist popor-vs-elită sau a invoca o voință populară omogenă ca forță suverană. Critica la adresa sistemului este una de tip tehnocratic, vizând eficiența și calitatea actului educațional, nu o mobilizare populistă. Prin urmare, discursul nu întrunește criteriile pentru un scor populist, fiind încadrat la Hawkins=0.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 14770,
+      "tokens_in_breakdown": {
+        "fresh": 14770,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 268,
+      "cost_usd": null,
+      "latency_ms": 2446,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2019/II/134#agenda-2#act-30",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.85,
+        "level_of_justification": 2,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "alternative_proposal",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "44% analfabeți funcționali, potrivit testelor PISA, este rezultatul a zeci de ani de nepăsare a guvernanților, al incompetenței zecilor de miniștri și al subfinanțării cronice, prin nerespectarea Legii educației nr. 1/2011."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Justificare calificată prin apel la date statistice (PISA) și cadrul legislativ (Legea 1/2011)."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "Stabilitatea, predictibilitatea și egalitatea de șanse trebuie să primeze! Și copiii din medii defavorizate, sărace au dreptul la educație de calitate!"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Apel universalizabil la egalitatea de șanse și dreptul la educație pentru toți copiii."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "primari indolenți"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.88,
+            "rationale_short": "Referință critică la o categorie administrativă, dar fără a depăși pragul de derogare explicită."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "USR propune un MCV pe educație, depolitizarea întregului sistem, un audit extern și o evaluare reală a profesorilor și directorilor"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Vorbitorul își prezintă propriile cereri fără a angaja explicit legitimitatea cererilor adverse."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "Am avut ieri o discuție cu ministrul în funcție, Monica Anisie, care a acceptat că este necesară investiția financiară"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.96,
+            "marker_confidence": 0.82,
+            "rationale_short": "Menționează poziția ministrului, dar fără un angajament substanțial sau o dezbatere a argumentelor."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "alternative_proposal",
+            "evidence": {
+              "text": "USR propune un MCV pe educație, depolitizarea întregului sistem, un audit extern și o evaluare reală a profesorilor și directorilor, prin concurs."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.94,
+            "rationale_short": "Propunere concretă de măsuri alternative (MCV, audit, depolitizare) pentru sistemul de educație."
+          }
+        ],
+        "rationale": "Discursul prezintă o calitate deliberativă medie-ridicată, caracterizată printr-o justificare calificată bazată pe date (PISA) și principii de bine comun (egalitatea de șanse). Vorbitorul oferă propuneri alternative concrete (MCV, audit, depolitizare), ceea ce îi conferă un caracter constructiv. Totuși, respectul pentru cererile și contraargumentele opoziției rămâne la un nivel neutru, menționând poziții adverse fără a le angaja într-o dezbatere substanțială. Deși există critici la adresa unor actori (primari indolenți), acestea nu coboară la nivelul de derogare sau dispreț. Profilul este unul de opoziție argumentată, axată pe soluții sistemice."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.85,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"alternative_proposal\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"44% analfabeți funcționali, potrivit testelor PISA, este rezultatul a zeci de ani de nepăsare a guvernanților, al incompetenței zecilor de miniștri și al subfinanțării cronice, prin nerespectarea Legii educației nr. 1/2011.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Justificare calificată prin apel la date statistice (PISA) și cadrul legislativ (Legea 1/2011).\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"Stabilitatea, predictibilitatea și egalitatea de șanse trebuie să primeze! Și copiii din medii defavorizate, sărace au dreptul la educație de calitate!\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Apel universalizabil la egalitatea de șanse și dreptul la educație pentru toți copiii.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"primari indolenți\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Referință critică la o categorie administrativă, dar fără a depăși pragul de derogare explicită.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"USR propune un MCV pe educație, depolitizarea întregului sistem, un audit extern și o evaluare reală a profesorilor și directorilor\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Vorbitorul își prezintă propriile cereri fără a angaja explicit legitimitatea cererilor adverse.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Am avut ieri o discuție cu ministrul în funcție, Monica Anisie, care a acceptat că este necesară investiția financiară\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.96,\n      \"marker_confidence\": 0.82,\n      \"rationale_short\": \"Menționează poziția ministrului, dar fără un angajament substanțial sau o dezbatere a argumentelor.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"alternative_proposal\",\n      \"evidence\": {\n        \"text\": \"USR propune un MCV pe educație, depolitizarea întregului sistem, un audit extern și o evaluare reală a profesorilor și directorilor, prin concurs.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.94,\n      \"rationale_short\": \"Propunere concretă de măsuri alternative (MCV, audit, depolitizare) pentru sistemul de educație.\"\n    }\n  ],\n  \"rationale\": \"Discursul prezintă o calitate deliberativă medie-ridicată, caracterizată printr-o justificare calificată bazată pe date (PISA) și principii de bine comun (egalitatea de șanse). Vorbitorul oferă propuneri alternative concrete (MCV, audit, depolitizare), ceea ce îi conferă un caracter constructiv. Totuși, respectul pentru cererile și contraargumentele opoziției rămâne la un nivel neutru, menționând poziții adverse fără a le angaja într-o dezbatere substanțială. Deși există critici la adresa unor actori (primari indolenți), acestea nu coboară la nivelul de derogare sau dispreț. Profilul este unul de opoziție argumentată, axată pe soluții sistemice.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13571,
+      "tokens_in_breakdown": {
+        "fresh": 13571,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1285,
+      "cost_usd": null,
+      "latency_ms": 5123,
+      "retries_used": 0
+    }
+  }
+}

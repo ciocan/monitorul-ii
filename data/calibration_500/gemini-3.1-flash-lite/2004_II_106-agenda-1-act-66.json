@@ -1,0 +1,152 @@
+{
+  "speech_id": "mo://2004/II/106#agenda-1#act-66",
+  "tier": "calibration",
+  "speaker": {
+    "id": "vacaroiu-nicolae",
+    "name": "Nicolae V„c„roiu",
+    "raw": "Domnul Nicolae V„c„roiu",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": null,
+    "year": 2004,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2004/II/106#agenda-1#act-66",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul secretarului de stat este pur tehnic și procedural, concentrându-se pe armonizarea legislației privind poliția judiciară cu Constituția, Codul de procedură penală și recomandările Consiliului Europei. Nu există nicio urmă de cadru popor-vs-elită, maniheism moral sau invocare a unei voințe populare suverane. Vorbitorul se limitează la explicarea competențelor instituționale și a procedurii de urgență, încadrându-se perfect în registrul non-populist. Hawkins=0 cu încredere maximă."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul secretarului de stat este pur tehnic și procedural, concentrându-se pe armonizarea legislației privind poliția judiciară cu Constituția, Codul de procedură penală și recomandările Consiliului Europei. Nu există nicio urmă de cadru popor-vs-elită, maniheism moral sau invocare a unei voințe populare suverane. Vorbitorul se limitează la explicarea competențelor instituționale și a procedurii de urgență, încadrându-se perfect în registrul non-populist. Hawkins=0 cu încredere maximă.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 14010,
+      "tokens_in_breakdown": {
+        "fresh": 14010,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 203,
+      "cost_usd": null,
+      "latency_ms": 2645,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2004/II/106#agenda-1#act-66",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.88,
+        "level_of_justification": 2,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "Aceast„ lege a fost creat„ tocmai ca s„ fie Ón acord cu aceste acte normative, deci cu legea fundamental„, cu Codul de procedur„ penal„ ∫i cu Legea privind reforma judiciar„"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Justificare calificată prin ancorarea proiectului în ierarhia normativă (Constituție, Cod penal, Lege judiciară)."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "r„spund dispozi˛iilor cuprinse din Recomandarea nr. 1.604/2003 a Adun„rii Parlamentare a Consiliului Europei"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.91,
+            "rationale_short": "Apelul la standarde europene și statul de drept vizează binele comun, nu interese de grup."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "cadre din Ministerul Administra˛iei ∫i Internelor"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Referință funcțională la personalul MAI; neutru, fără conotații de respect sau dispreț."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Legea de organizare ∫i func˛ionare a poli˛iei judiciare este reclamat„ de textele din Constitu˛ie"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.82,
+            "rationale_short": "Vorbitorul își susține proiectul fără a aborda explicit cereri adverse; non-angajament."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "Fa˛„ de cele prezentate, a fost elaborat acest proiect de lege ∫i propus spre adoptare Ón procedur„ de urgen˛„."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.88,
+            "rationale_short": "Discursul ignoră complet eventualele contraargumente, concentrându-se exclusiv pe expunerea propriei poziții."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "a fost elaborat acest proiect de lege ∫i propus spre adoptare Ón procedur„ de urgen˛„"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.93,
+            "rationale_short": "Vorbitorul prezintă proiectul Guvernului fără a oferi alternative sau medieri; pozițional."
+          }
+        ],
+        "rationale": "Discursul secretarului de stat este o prezentare tehnică a proiectului de lege, caracterizată printr-o justificare calificată (level_of_justification=2) bazată pe conformitatea cu Constituția și recomandările Consiliului Europei. Apelul la aceste norme indică o orientare către binele comun (content_of_justification=common_good). Totuși, discursul este pur pozițional (constructive_politics=positional), neangajând contraargumente sau cereri adverse (respect_for_counterarguments=0, respect_for_demands=1). Respectul pentru grupuri este neutru, limitându-se la descrierea funcțională a cadrelor MAI. Profilul este cel al unui raportor tehnic care își susține inițiativa fără a intra în dezbatere deliberativă."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.88,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 0,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"Aceast„ lege a fost creat„ tocmai ca s„ fie Ón acord cu aceste acte normative, deci cu legea fundamental„, cu Codul de procedur„ penal„ ∫i cu Legea privind reforma judiciar„\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Justificare calificată prin ancorarea proiectului în ierarhia normativă (Constituție, Cod penal, Lege judiciară).\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"r„spund dispozi˛iilor cuprinse din Recomandarea nr. 1.604/2003 a Adun„rii Parlamentare a Consiliului Europei\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.91,\n      \"rationale_short\": \"Apelul la standarde europene și statul de drept vizează binele comun, nu interese de grup.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"cadre din Ministerul Administra˛iei ∫i Internelor\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Referință funcțională la personalul MAI; neutru, fără conotații de respect sau dispreț.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Legea de organizare ∫i func˛ionare a poli˛iei judiciare este reclamat„ de textele din Constitu˛ie\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.82,\n      \"rationale_short\": \"Vorbitorul își susține proiectul fără a aborda explicit cereri adverse; non-angajament.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"Fa˛„ de cele prezentate, a fost elaborat acest proiect de lege ∫i propus spre adoptare Ón procedur„ de urgen˛„.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Discursul ignoră complet eventualele contraargumente, concentrându-se exclusiv pe expunerea propriei poziții.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"a fost elaborat acest proiect de lege ∫i propus spre adoptare Ón procedur„ de urgen˛„\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.93,\n      \"rationale_short\": \"Vorbitorul prezintă proiectul Guvernului fără a oferi alternative sau medieri; pozițional.\"\n    }\n  ],\n  \"rationale\": \"Discursul secretarului de stat este o prezentare tehnică a proiectului de lege, caracterizată printr-o justificare calificată (level_of_justification=2) bazată pe conformitatea cu Constituția și recomandările Consiliului Europei. Apelul la aceste norme indică o orientare către binele comun (content_of_justification=common_good). Totuși, discursul este pur pozițional (constructive_politics=positional), neangajând contraargumente sau cereri adverse (respect_for_counterarguments=0, respect_for_demands=1). Respectul pentru grupuri este neutru, limitându-se la descrierea funcțională a cadrelor MAI. Profilul este cel al unui raportor tehnic care își susține inițiativa fără a intra în dezbatere deliberativă.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [
+        "r„spund dispozi˛iilor cuprinse din Recomandarea nr. 1.604/2003 a Adun„rii Parlamentare a Consiliului Europei"
+      ],
+      "parse_repaired": false,
+      "tokens_in": 12811,
+      "tokens_in_breakdown": {
+        "fresh": 12811,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1266,
+      "cost_usd": null,
+      "latency_ms": 5066,
+      "retries_used": 0
+    }
+  }
+}

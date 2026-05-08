@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2023/II/151#agenda-1#act-155",
+  "tier": "calibration",
+  "speaker": {
+    "id": "hutuca-bogdan-iulian",
+    "name": "Bogdan-Iulian Huțucă",
+    "raw": "Domnul Bogdan-Iulian Huțucă",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2023-11-08",
+    "year": 2023,
+    "legislature": "IX",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2023/II/151#agenda-1#act-155",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 1.0,
+        "markers": [],
+        "rationale": "Discursul este unul pur procedural, limitat la prezentarea unui raport tehnic privind aprobarea plății unei cotizații financiare pentru participarea Poliției Române la o rețea europeană. Nu există nicio urmă de cadru popor-vs-elită, maniheism moral sau invocare a unei voințe populare suverane. Limbajul este strict administrativ, iar discursul nu conține elemente care să sugereze o viziune populistă. Hawkins=0 cu încredere maximă."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 1.0,\n  \"markers\": [],\n  \"rationale\": \"Discursul este unul pur procedural, limitat la prezentarea unui raport tehnic privind aprobarea plății unei cotizații financiare pentru participarea Poliției Române la o rețea europeană. Nu există nicio urmă de cadru popor-vs-elită, maniheism moral sau invocare a unei voințe populare suverane. Limbajul este strict administrativ, iar discursul nu conține elemente care să sugereze o viziune populistă. Hawkins=0 cu încredere maximă.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13801,
+      "tokens_in_breakdown": {
+        "fresh": 13801,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 181,
+      "cost_usd": null,
+      "latency_ms": 1974,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2023/II/151#agenda-1#act-155",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.45,
+        "level_of_justification": 0,
+        "content_of_justification": "none",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 0,
+            "evidence": {
+              "text": "În urma examinării proiectului de lege, deputații prezenți la lucrările comisiei au hotărât, cu unanimitatea voturilor exprimate, să transmită plenului Camerei Deputaților prezentul raport"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.95,
+            "rationale_short": "Discursul este un raport procedural de comisie, nu o argumentare deliberativă."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "none",
+            "evidence": {
+              "text": "proiectul de lege face parte din categoria legilor ordinare"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.95,
+            "rationale_short": "Nicio justificare oferită; conținutul este nedefinit."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Vă mulțumesc."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.9,
+            "rationale_short": "Adresare convențională; neutru implicit."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "deputații prezenți la lucrările comisiei au hotărât, cu unanimitatea voturilor exprimate"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.9,
+            "rationale_short": "Raportare procedurală a consensului comisiei; nu există cereri adverse de tratat."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "să transmită plenului Camerei Deputaților prezentul raport, prin care se propune adoptarea proiectului de lege"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.9,
+            "rationale_short": "Discursul este pur informativ/procedural, fără angajament cu contraargumente."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "se propune adoptarea proiectului de lege"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.95,
+            "rationale_short": "Poziție procedurală de raportor; nu este o propunere alternativă sau mediere."
+          }
+        ],
+        "rationale": "Acest discurs reprezintă prezentarea unui raport de comisie parlamentară, fiind un text pur procedural și informativ. Deoarece vorbitorul acționează în calitate de raportor pentru a transmite decizia comisiei, nu există o argumentare deliberativă proprie, ceea ce duce la scoruri minime pe dimensiunile de justificare și angajament. Nu există contraargumente sau cereri adverse de tratat, iar caracterul constructiv este limitat la procedura de adoptare. Din cauza naturii pur administrative a textului, framework_confidence este scăzut, deoarece DQI nu este conceput pentru a evalua rapoarte tehnice de comisie."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.45,\n  \"level_of_justification\": 0,\n  \"content_of_justification\": \"none\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 0,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"În urma examinării proiectului de lege, deputații prezenți la lucrările comisiei au hotărât, cu unanimitatea voturilor exprimate, să transmită plenului Camerei Deputaților prezentul raport\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Discursul este un raport procedural de comisie, nu o argumentare deliberativă.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"none\",\n      \"evidence\": {\n        \"text\": \"proiectul de lege face parte din categoria legilor ordinare\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Nicio justificare oferită; conținutul este nedefinit.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Vă mulțumesc.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Adresare convențională; neutru implicit.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"deputații prezenți la lucrările comisiei au hotărât, cu unanimitatea voturilor exprimate\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Raportare procedurală a consensului comisiei; nu există cereri adverse de tratat.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"să transmită plenului Camerei Deputaților prezentul raport, prin care se propune adoptarea proiectului de lege\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Discursul este pur informativ/procedural, fără angajament cu contraargumente.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"se propune adoptarea proiectului de lege\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Poziție procedurală de raportor; nu este o propunere alternativă sau mediere.\"\n    }\n  ],\n  \"rationale\": \"Acest discurs reprezintă prezentarea unui raport de comisie parlamentară, fiind un text pur procedural și informativ. Deoarece vorbitorul acționează în calitate de raportor pentru a transmite decizia comisiei, nu există o argumentare deliberativă proprie, ceea ce duce la scoruri minime pe dimensiunile de justificare și angajament. Nu există contraargumente sau cereri adverse de tratat, iar caracterul constructiv este limitat la procedura de adoptare. Din cauza naturii pur administrative a textului, framework_confidence este scăzut, deoarece DQI nu este conceput pentru a evalua rapoarte tehnice de comisie.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12602,
+      "tokens_in_breakdown": {
+        "fresh": 12602,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1094,
+      "cost_usd": null,
+      "latency_ms": 4500,
+      "retries_used": 0
+    }
+  }
+}

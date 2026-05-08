@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2017/II/174#agenda-14#act-287",
+  "tier": "calibration",
+  "speaker": {
+    "id": "lungu-vasile-cristian",
+    "name": "Vasile Cristian Lungu",
+    "raw": "Domnul Vasile Cristian Lungu",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": "2017-11-27",
+    "year": 2017,
+    "legislature": "VIII",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2017/II/174#agenda-14#act-287",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul este o interpelare parlamentară tehnică, axată pe date statistice (Eurostat, deficit bugetar, PIB) și pe solicitarea unor informații administrative concrete de la Ministerul Muncii. Deși vorbitorul critică politicile Guvernului PSD-ALDE, acesta o face dintr-o perspectivă ideologică libertariană, bazată pe argumente economice și procedurale, fără a recurge la un cadru maniheist popor-vs-elită sau la invocarea unei voințe populare omogene. Nu există elemente de populism în sensul rubricii Hawkins; discursul rămâne în registrul dezbaterii de politici publice."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul este o interpelare parlamentară tehnică, axată pe date statistice (Eurostat, deficit bugetar, PIB) și pe solicitarea unor informații administrative concrete de la Ministerul Muncii. Deși vorbitorul critică politicile Guvernului PSD-ALDE, acesta o face dintr-o perspectivă ideologică libertariană, bazată pe argumente economice și procedurale, fără a recurge la un cadru maniheist popor-vs-elită sau la invocarea unei voințe populare omogene. Nu există elemente de populism în sensul rubricii Hawkins; discursul rămâne în registrul dezbaterii de politici publice.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13960,
+      "tokens_in_breakdown": {
+        "fresh": 13960,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 219,
+      "cost_usd": null,
+      "latency_ms": 2166,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2017/II/174#agenda-14#act-287",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.85,
+        "level_of_justification": 2,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "Conform celor mai recente statistici Eurostat privind al doilea trimestru al acestui an, țara noastră înregistrează un deficit bugetar de 4,1%, peste pragul admis de Uniunea Europeană, anume de 3%."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Vorbitorul ancorează argumentul în date statistice Eurostat specifice pentru a justifica poziția sa."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "pentru a susține aceste creșteri ale cheltuielilor sociale, se reintroduc taxe, cresc impozitele și toți românii încep să fie afectați de aceste creșteri fiscale."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.89,
+            "rationale_short": "Justificarea se referă la impactul fiscal asupra tuturor cetățenilor, invocând interesul general."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Guvernul PSD–ALDE"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Referință funcțională la coaliția de guvernare; tonul este critic, dar nu derogatoriu."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "vă rugăm să ne răspundeți la două întrebări"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Vorbitorul solicită informații fără a angaja sau respinge explicit cererile opoziției."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "Deși la început părea că își respectă angajamentul, Guvernul PSD–ALDE a trecut rapid de la exces bugetar la un deficit uriaș"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.88,
+            "rationale_short": "Menționează poziția guvernului, dar nu angajează substanțial raționamentul acestuia."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "vă rugăm să ne răspundeți la două întrebări"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Interpelarea este o acțiune de control parlamentar, nu o propunere alternativă de politică publică."
+          }
+        ],
+        "rationale": "Discursul este o interpelare parlamentară bine structurată, care oferă o justificare calificată (level_of_justification=2) prin utilizarea datelor Eurostat pentru a susține critica deficitului bugetar. Apelul la binele comun este prezent prin preocuparea pentru impactul fiscal asupra tuturor cetățenilor. Respectul pentru grupuri și cereri rămâne neutru, fiind o critică politică standard fără derapaje verbale. Deși vorbitorul menționează acțiunile guvernului, nu există un angajament substanțial cu raționamentul acestora (respect_for_counterarguments=1). Interpelarea este în esență o poziție critică și un instrument de control, nefiind o propunere alternativă sau de mediere, ceea ce o plasează în categoria positional."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.85,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"Conform celor mai recente statistici Eurostat privind al doilea trimestru al acestui an, țara noastră înregistrează un deficit bugetar de 4,1%, peste pragul admis de Uniunea Europeană, anume de 3%.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Vorbitorul ancorează argumentul în date statistice Eurostat specifice pentru a justifica poziția sa.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"pentru a susține aceste creșteri ale cheltuielilor sociale, se reintroduc taxe, cresc impozitele și toți românii încep să fie afectați de aceste creșteri fiscale.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.89,\n      \"rationale_short\": \"Justificarea se referă la impactul fiscal asupra tuturor cetățenilor, invocând interesul general.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Guvernul PSD–ALDE\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Referință funcțională la coaliția de guvernare; tonul este critic, dar nu derogatoriu.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"vă rugăm să ne răspundeți la două întrebări\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.90,\n      \"rationale_short\": \"Vorbitorul solicită informații fără a angaja sau respinge explicit cererile opoziției.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Deși la început părea că își respectă angajamentul, Guvernul PSD–ALDE a trecut rapid de la exces bugetar la un deficit uriaș\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Menționează poziția guvernului, dar nu angajează substanțial raționamentul acestuia.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"vă rugăm să ne răspundeți la două întrebări\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Interpelarea este o acțiune de control parlamentar, nu o propunere alternativă de politică publică.\"\n    }\n  ],\n  \"rationale\": \"Discursul este o interpelare parlamentară bine structurată, care oferă o justificare calificată (level_of_justification=2) prin utilizarea datelor Eurostat pentru a susține critica deficitului bugetar. Apelul la binele comun este prezent prin preocuparea pentru impactul fiscal asupra tuturor cetățenilor. Respectul pentru grupuri și cereri rămâne neutru, fiind o critică politică standard fără derapaje verbale. Deși vorbitorul menționează acțiunile guvernului, nu există un angajament substanțial cu raționamentul acestora (respect_for_counterarguments=1). Interpelarea este în esență o poziție critică și un instrument de control, nefiind o propunere alternativă sau de mediere, ceea ce o plasează în categoria positional.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12761,
+      "tokens_in_breakdown": {
+        "fresh": 12761,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1223,
+      "cost_usd": null,
+      "latency_ms": 4396,
+      "retries_used": 0
+    }
+  }
+}

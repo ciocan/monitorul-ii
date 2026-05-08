@@ -1,0 +1,148 @@
+{
+  "speech_id": "mo://2016/II/94#agenda-1#act-16",
+  "tier": "register_shift",
+  "speaker": {
+    "id": "popescu-tariceanu-calin",
+    "name": "Călin Constantin Anton Popescu-Tăriceanu",
+    "raw": "Domnul Călin Constantin Anton Popescu-Tăriceanu",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2016-05-10",
+    "year": 2016,
+    "legislature": "VII",
+    "delivery_mode": null
+  },
+  "model_key": "opus",
+  "model_label": "claude-opus-4.7",
+  "results": {
+    "hawkins": {
+      "model_key": "opus",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2016/II/94#agenda-1#act-16",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discurs strict procedural rostit de președintele de ședință: convocarea Birourilor permanente pentru constatarea rezultatului votului, încheierea și semnarea procesului-verbal, urmată de o informare tehnică privind depunerea la secretarii generali a unor legi adoptate, în baza art. 15 alin. (2) și (3) din Legea nr. 47/1992, în vederea exercitării dreptului de sesizare a Curții Constituționale. Nu există cadru popor-vs-elită, nici maniheism moralizator, nici invocarea unei voințe populare omogene sau a unei elite malefice. Mențiunile la „Parlament\", „senatori și deputați\" și „Curtea Constituțională\" sunt referințe instituțional-procedurale, nu tropi populiști. Hawkins=0 cu încredere foarte ridicată."
+      },
+      "raw_response": "{\"score\":0,\"score_unit\":\"ordinal_0_2\",\"framework_version\":\"hawkins@2018\",\"framework_confidence\":0.98,\"markers\":[],\"rationale\":\"Discurs strict procedural rostit de președintele de ședință: convocarea Birourilor permanente pentru constatarea rezultatului votului, încheierea și semnarea procesului-verbal, urmată de o informare tehnică privind depunerea la secretarii generali a unor legi adoptate, în baza art. 15 alin. (2) și (3) din Legea nr. 47/1992, în vederea exercitării dreptului de sesizare a Curții Constituționale. Nu există cadru popor-vs-elită, nici maniheism moralizator, nici invocarea unei voințe populare omogene sau a unei elite malefice. Mențiunile la „Parlament\\\", „senatori și deputați\\\" și „Curtea Constituțională\\\" sunt referințe instituțional-procedurale, nu tropi populiști. Hawkins=0 cu încredere foarte ridicată.\"}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "tokens_in": 104118,
+      "tokens_in_breakdown": {
+        "fresh": 5,
+        "cache_creation": 85760,
+        "cache_read": 18353
+      },
+      "tokens_out": 358,
+      "cost_usd": 0.5541515,
+      "latency_ms": 17181,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "opus",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2016/II/94#agenda-1#act-16",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.38,
+        "level_of_justification": 0,
+        "content_of_justification": "none",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 0,
+            "evidence": {
+              "text": "Vă informez că, în conformitate cu prevederile art. 15 alin. (2) și (3) din Legea nr. 47/1992 privind organizarea și funcționarea Curții Constituționale, republicată, astăzi, 10 mai 2016, s-au depus la secretarii generali ai Senatului și Camerei Deputaților"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.82,
+            "rationale_short": "Anunț procedural pur; nicio poziție argumentată, doar invocarea temeiului legal pentru o procedură de informare."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "none",
+            "evidence": {
+              "text": "Vă informez că, în conformitate cu prevederile art. 15 alin. (2) și (3) din Legea nr. 47/1992"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.82,
+            "rationale_short": "Nicio justificare substanțială oferită; doar referință la temeiul legal procedural."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Doamnelor și domnilor senatori și deputați"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.7,
+            "rationale_short": "Adresare convențională în sală; niciun out-group invocat sau angajat."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Îi invit pe membrii Birourilor permanente să se întrunească"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.65,
+            "rationale_short": "Niciun angajament cu cereri adverse; context pur procedural — neutru implicit."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "Vă informez că, în conformitate cu prevederile art. 15 alin. (2) și (3)"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.62,
+            "rationale_short": "Niciun contraargument în context procedural; neutru implicit, fără ocazie de angajament."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "s-au depus la secretarii generali ai Senatului și Camerei Deputaților, în vederea exercitării de către senatori și deputați a dreptului de sesizare a Curții Constituționale"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.7,
+            "rationale_short": "Anunț procedural; nicio alternativă sau mediere — în afara cadrului deliberativ propriu-zis."
+          }
+        ],
+        "rationale": "Discursul este un anunț procedural al președintelui de ședință, nu o intervenție deliberativă. Vorbitorul invită Birourile permanente la constatarea rezultatului votului și informează plenul cu privire la depunerea unor legi adoptate la secretarii generali, în temeiul art. 15 din Legea nr. 47/1992. Nicio poziție politică nu este avansată, nicio justificare substanțială nu este oferită (level_of_justification=0, content=none), iar dimensiunile de respect rămân la valori neutre implicite întrucât contextul nu generează angajamente cu cereri sau contraargumente adverse. constructive_politics este positional prin default — nu există nici alternativă, nici mediere de propus într-un anunț procedural. framework_confidence este scăzut (~0.38) fiindcă rubrica DQI nu se aplică propriu-zis acestui gen de intervenție; consumatorii care filtrează după framework_confidence > 0.7 vor exclude corect aceste discursuri din analizele de calitate deliberativă."
+      },
+      "raw_response": "{\"framework_version\":\"steiner-bachtiger@2017\",\"score_unit\":\"dqi_multi\",\"framework_confidence\":0.38,\"level_of_justification\":0,\"content_of_justification\":\"none\",\"respect_for_groups\":1,\"respect_for_demands\":1,\"respect_for_counterarguments\":1,\"constructive_politics\":\"positional\",\"markers\":[{\"kind\":\"level_of_justification\",\"value\":0,\"evidence\":{\"text\":\"Vă informez că, în conformitate cu prevederile art. 15 alin. (2) și (3) din Legea nr. 47/1992 privind organizarea și funcționarea Curții Constituționale, republicată, astăzi, 10 mai 2016, s-au depus la secretarii generali ai Senatului și Camerei Deputaților\"},\"preliminary_voice\":\"speaker_first_person\",\"preliminary_voice_confidence\":0.95,\"marker_confidence\":0.82,\"rationale_short\":\"Anunț procedural pur; nicio poziție argumentată, doar invocarea temeiului legal pentru o procedură de informare.\"},{\"kind\":\"content_of_justification\",\"value\":\"none\",\"evidence\":{\"text\":\"Vă informez că, în conformitate cu prevederile art. 15 alin. (2) și (3) din Legea nr. 47/1992\"},\"preliminary_voice\":\"speaker_first_person\",\"preliminary_voice_confidence\":0.95,\"marker_confidence\":0.82,\"rationale_short\":\"Nicio justificare substanțială oferită; doar referință la temeiul legal procedural.\"},{\"kind\":\"respect_for_groups\",\"value\":1,\"evidence\":{\"text\":\"Doamnelor și domnilor senatori și deputați\"},\"preliminary_voice\":\"speaker_first_person\",\"preliminary_voice_confidence\":0.95,\"marker_confidence\":0.7,\"rationale_short\":\"Adresare convențională în sală; niciun out-group invocat sau angajat.\"},{\"kind\":\"respect_for_demands\",\"value\":1,\"evidence\":{\"text\":\"Îi invit pe membrii Birourilor permanente să se întrunească\"},\"preliminary_voice\":\"speaker_first_person\",\"preliminary_voice_confidence\":0.95,\"marker_confidence\":0.65,\"rationale_short\":\"Niciun angajament cu cereri adverse; context pur procedural — neutru implicit.\"},{\"kind\":\"respect_for_counterarguments\",\"value\":1,\"evidence\":{\"text\":\"Vă informez că, în conformitate cu prevederile art. 15 alin. (2) și (3)\"},\"preliminary_voice\":\"speaker_first_person\",\"preliminary_voice_confidence\":0.95,\"marker_confidence\":0.62,\"rationale_short\":\"Niciun contraargument în context procedural; neutru implicit, fără ocazie de angajament.\"},{\"kind\":\"constructive_politics\",\"value\":\"positional\",\"evidence\":{\"text\":\"s-au depus la secretarii generali ai Senatului și Camerei Deputaților, în vederea exercitării de către senatori și deputați a dreptului de sesizare a Curții Constituționale\"},\"preliminary_voice\":\"speaker_first_person\",\"preliminary_voice_confidence\":0.95,\"marker_confidence\":0.7,\"rationale_short\":\"Anunț procedural; nicio alternativă sau mediere — în afara cadrului deliberativ propriu-zis.\"}],\"rationale\":\"Discursul este un anunț procedural al președintelui de ședință, nu o intervenție deliberativă. Vorbitorul invită Birourile permanente la constatarea rezultatului votului și informează plenul cu privire la depunerea unor legi adoptate la secretarii generali, în temeiul art. 15 din Legea nr. 47/1992. Nicio poziție politică nu este avansată, nicio justificare substanțială nu este oferită (level_of_justification=0, content=none), iar dimensiunile de respect rămân la valori neutre implicite întrucât contextul nu generează angajamente cu cereri sau contraargumente adverse. constructive_politics este positional prin default — nu există nici alternativă, nici mediere de propus într-un anunț procedural. framework_confidence este scăzut (~0.38) fiindcă rubrica DQI nu se aplică propriu-zis acestui gen de intervenție; consumatorii care filtrează după framework_confidence > 0.7 vor exclude corect aceste discursuri din analizele de calitate deliberativă.\"}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "tokens_in": 102109,
+      "tokens_in_breakdown": {
+        "fresh": 5,
+        "cache_creation": 83751,
+        "cache_read": 18353
+      },
+      "tokens_out": 1501,
+      "cost_usd": 0.57017025,
+      "latency_ms": 30818,
+      "retries_used": 0
+    }
+  }
+}

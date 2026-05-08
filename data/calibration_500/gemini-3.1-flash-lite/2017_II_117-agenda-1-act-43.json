@@ -1,0 +1,152 @@
+{
+  "speech_id": "mo://2017/II/117#agenda-1#act-43",
+  "tier": "calibration",
+  "speaker": {
+    "id": "vasilescu-lia-olguta",
+    "name": "Lia Olguța Vasilescu",
+    "raw": "Doamna Lia Olguța Vasilescu",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2017-09-04",
+    "year": 2017,
+    "legislature": "VIII",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2017/II/117#agenda-1#act-43",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.95,
+        "markers": [],
+        "rationale": "Discursul ministrului Lia Olguța Vasilescu este un raport de activitate guvernamentală bazat pe date statistice, cifre economice și comparații de politici publice (salariul minim, punctul de pensie, deficitul bugetar). Deși tonul este combativ și critic la adresa guvernării anterioare (Boc/PNL), acesta rămâne în registrul partizan-tehnocratic, fără a construi un cadru maniheist popor-vs-elită sau a invoca o voință populară omogenă ca autoritate supremă. Nu există markeri populiști, discursul fiind centrat pe argumente de eficiență administrativă și succesul programului de guvernare. Hawkins=0 cu încredere ridicată."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.95,\n  \"markers\": [],\n  \"rationale\": \"Discursul ministrului Lia Olguța Vasilescu este un raport de activitate guvernamentală bazat pe date statistice, cifre economice și comparații de politici publice (salariul minim, punctul de pensie, deficitul bugetar). Deși tonul este combativ și critic la adresa guvernării anterioare (Boc/PNL), acesta rămâne în registrul partizan-tehnocratic, fără a construi un cadru maniheist popor-vs-elită sau a invoca o voință populară omogenă ca autoritate supremă. Nu există markeri populiști, discursul fiind centrat pe argumente de eficiență administrativă și succesul programului de guvernare. Hawkins=0 cu încredere ridicată.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 14233,
+      "tokens_in_breakdown": {
+        "fresh": 14233,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 239,
+      "cost_usd": null,
+      "latency_ms": 2440,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2017/II/117#agenda-1#act-43",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.78,
+        "level_of_justification": 2,
+        "content_of_justification": "mixed",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 2,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "impactul pe Legea salarizării este de 63 de miliarde, așa cum arată actualul Cod fiscal. Dar, întrucât Legea salarizării unitare a fost gândită în coerență cu programul de guvernare și cu trecerea contribuțiilor, impactul, după apariția noului Cod fiscal, va fi de 42 de miliarde până în 2022"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Vorbitorul oferă o justificare bazată pe date bugetare și proiecții fiscale specifice."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "mixed",
+            "evidence": {
+              "text": "Noi credem că trebuie să menținem ritmul de creștere pe care l-am promis în programul de guvernare și, în general, să facem tot ceea ce am început noi"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Justificarea combină interesele electorale ale partidului cu apelul la eficiența guvernării."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Stimați colegi din PNL"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.99,
+            "marker_confidence": 0.95,
+            "rationale_short": "Adresare convențională, neutră, fără derogare sau respect explicit."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Ați vorbit aici despre deficitul la fondul de pensii."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.88,
+            "rationale_short": "Vorbitorul menționează cererea opoziției fără a o evalua ca legitimă sau nelegitimă."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 2,
+            "evidence": {
+              "text": "Ați spus că le luăm bani angajaților, prin trecerea contribuțiilor... Vreau să vă informez că impactul pe Legea salarizării este de 63 de miliarde, așa cum arată actualul Cod fiscal. Dar, întrucât Legea salarizării unitare a fost gândită în coerență cu programul de guvernare și cu trecerea contribuțiilor, impactul... va fi de 42 de miliarde"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.91,
+            "rationale_short": "Vorbitorul reformulează argumentul opoziției și îl combate cu date tehnice specifice."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Noi credem că trebuie să menținem ritmul de creștere pe care l-am promis în programul de guvernare"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Discursul apără poziția guvernului fără a propune o alternativă sau o mediere."
+          }
+        ],
+        "rationale": "Discursul ministrului prezintă un nivel de justificare calificat (level 2), utilizând date bugetare și proiecții fiscale pentru a susține politicile guvernului. Deși tonul este combativ, vorbitorul demonstrează un respect ridicat pentru contraargumente (level 2), reformulând criticile opoziției privind salariile și deficitul și oferind contra-argumente tehnice. Conținutul justificării este mixt, îmbinând interesele programului de guvernare cu argumente de eficiență economică. Respectul pentru grupuri și cereri rămâne neutru, fiind marcat de o retorică de confruntare politică standard. Discursul este în esență pozițional, apărând agenda guvernului fără a oferi alternative sau medieri."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.78,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"mixed\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 2,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"impactul pe Legea salarizării este de 63 de miliarde, așa cum arată actualul Cod fiscal. Dar, întrucât Legea salarizării unitare a fost gândită în coerență cu programul de guvernare și cu trecerea contribuțiilor, impactul, după apariția noului Cod fiscal, va fi de 42 de miliarde până în 2022\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Vorbitorul oferă o justificare bazată pe date bugetare și proiecții fiscale specifice.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"mixed\",\n      \"evidence\": {\n        \"text\": \"Noi credem că trebuie să menținem ritmul de creștere pe care l-am promis în programul de guvernare și, în general, să facem tot ceea ce am început noi\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Justificarea combină interesele electorale ale partidului cu apelul la eficiența guvernării.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Stimați colegi din PNL\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.99,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Adresare convențională, neutră, fără derogare sau respect explicit.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Ați vorbit aici despre deficitul la fondul de pensii.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Vorbitorul menționează cererea opoziției fără a o evalua ca legitimă sau nelegitimă.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"Ați spus că le luăm bani angajaților, prin trecerea contribuțiilor... Vreau să vă informez că impactul pe Legea salarizării este de 63 de miliarde, așa cum arată actualul Cod fiscal. Dar, întrucât Legea salarizării unitare a fost gândită în coerență cu programul de guvernare și cu trecerea contribuțiilor, impactul... va fi de 42 de miliarde\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.91,\n      \"rationale_short\": \"Vorbitorul reformulează argumentul opoziției și îl combate cu date tehnice specifice.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"Noi credem că trebuie să menținem ritmul de creștere pe care l-am promis în programul de guvernare\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.90,\n      \"rationale_short\": \"Discursul apără poziția guvernului fără a propune o alternativă sau o mediere.\"\n    }\n  ],\n  \"rationale\": \"Discursul ministrului prezintă un nivel de justificare calificat (level 2), utilizând date bugetare și proiecții fiscale pentru a susține politicile guvernului. Deși tonul este combativ, vorbitorul demonstrează un respect ridicat pentru contraargumente (level 2), reformulând criticile opoziției privind salariile și deficitul și oferind contra-argumente tehnice. Conținutul justificării este mixt, îmbinând interesele programului de guvernare cu argumente de eficiență economică. Respectul pentru grupuri și cereri rămâne neutru, fiind marcat de o retorică de confruntare politică standard. Discursul este în esență pozițional, apărând agenda guvernului fără a oferi alternative sau medieri.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [
+        "Ați spus că le luăm bani angajaților, prin trecerea contribuțiilor... Vreau să vă informez că impactul pe Legea salarizării este de 63 de miliarde, așa cum arată actualul Cod fiscal. Dar, întrucât Legea salarizării unitare a fost gândită în coerență cu programul de guvernare și cu trecerea contribuțiilor, impactul... va fi de 42 de miliarde"
+      ],
+      "parse_repaired": false,
+      "tokens_in": 13034,
+      "tokens_in_breakdown": {
+        "fresh": 13034,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1315,
+      "cost_usd": null,
+      "latency_ms": 5189,
+      "retries_used": 0
+    }
+  }
+}

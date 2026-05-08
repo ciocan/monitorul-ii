@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2004/II/69#agenda-2#act-139",
+  "tier": "calibration",
+  "speaker": {
+    "id": "sassu-alexandru",
+    "name": "Alexandru Sassu",
+    "raw": "Domnul Alexandru Sassu",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": null,
+    "session_date": null,
+    "year": 2004,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2004/II/69#agenda-2#act-139",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul este pur procedural, concentrându-se pe clarificarea unei inițiative legislative (Ziua Presei) și pe poziționarea grupului parlamentar față de aceasta. Nu există nicio urmă de cadru popor-vs-elită, maniheism moral sau invocare a unei voințe populare omogene. Vorbitorul se limitează la fapte și proceduri parlamentare, fără a utiliza retorică populistă. Hawkins=0 cu încredere ridicată."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul este pur procedural, concentrându-se pe clarificarea unei inițiative legislative (Ziua Presei) și pe poziționarea grupului parlamentar față de aceasta. Nu există nicio urmă de cadru popor-vs-elită, maniheism moral sau invocare a unei voințe populare omogene. Vorbitorul se limitează la fapte și proceduri parlamentare, fără a utiliza retorică populistă. Hawkins=0 cu încredere ridicată.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13775,
+      "tokens_in_breakdown": {
+        "fresh": 13775,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 176,
+      "cost_usd": null,
+      "latency_ms": 1734,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2004/II/69#agenda-2#act-139",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.82,
+        "level_of_justification": 1,
+        "content_of_justification": "none",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 1,
+            "evidence": {
+              "text": "Cred c„ ini˛iativa a fost gre∫it„, fie ∫i numai pentru c„, de dou„ zile, la tribun„, foarte mult„ lume se pronun˛„ ∫i spune tot felul de lucruri care nu au leg„tur„ cu nimic legat de subiectul acesta."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Justificarea este bazată pe opinia vorbitorului despre calitatea dezbaterii, nu pe argumente substanțiale privind proiectul."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "none",
+            "evidence": {
+              "text": "Cred c„ ini˛iativa, fie ∫i din acest punct de vedere, a fost o gre∫eal„."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Nicio justificare substanțială oferită; conținutul justificării este nedefinit."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Grupul parlamentar al Partidului Social Democrat"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.9,
+            "rationale_short": "Referință funcțională la grupul parlamentar; neutru implicit."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "nu are nici o leg„tur„ cu o lege a presei"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.96,
+            "marker_confidence": 0.88,
+            "rationale_short": "Clarificare procedurală fără angajament cu cererile opoziției; neutru."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "foarte mult„ lume se pronun˛„ ∫i spune tot felul de lucruri care nu au leg„tur„ cu nimic legat de subiectul acesta."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.85,
+            "rationale_short": "Menționează argumentele altora dar le respinge generic fără angajament substanțial."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Cred c„ ini˛iativa, fie ∫i din acest punct de vedere, a fost o gre∫eal„."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Vorbitorul își exprimă dezacordul fără a propune o alternativă sau o mediere."
+          }
+        ],
+        "rationale": "Discursul este predominant procedural și critic, axat pe clarificarea naturii inițiativei legislative. Vorbitorul oferă o justificare de nivel 1, bazată pe opinia că dezbaterea a fost irelevantă, fără a oferi argumente cauzale sau principiale solide. Nu există un apel explicit la binele comun sau interesul de grup, iar respectul pentru grupuri și cereri rămâne neutru, fiind o referință funcțională. Vorbitorul menționează criticile altora dar nu se angajează substanțial cu ele, limitându-se la a le califica drept irelevante. Poziția este pur dispozițională, fără a oferi alternative constructive, ceea ce plasează discursul într-o zonă de calitate deliberativă scăzută."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.82,\n  \"level_of_justification\": 1,\n  \"content_of_justification\": \"none\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Cred c„ ini˛iativa a fost gre∫it„, fie ∫i numai pentru c„, de dou„ zile, la tribun„, foarte mult„ lume se pronun˛„ ∫i spune tot felul de lucruri care nu au leg„tur„ cu nimic legat de subiectul acesta.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Justificarea este bazată pe opinia vorbitorului despre calitatea dezbaterii, nu pe argumente substanțiale privind proiectul.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"none\",\n      \"evidence\": {\n        \"text\": \"Cred c„ ini˛iativa, fie ∫i din acest punct de vedere, a fost o gre∫eal„.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Nicio justificare substanțială oferită; conținutul justificării este nedefinit.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Grupul parlamentar al Partidului Social Democrat\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Referință funcțională la grupul parlamentar; neutru implicit.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"nu are nici o leg„tur„ cu o lege a presei\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.96,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Clarificare procedurală fără angajament cu cererile opoziției; neutru.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"foarte mult„ lume se pronun˛„ ∫i spune tot felul de lucruri care nu au leg„tur„ cu nimic legat de subiectul acesta.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Menționează argumentele altora dar le respinge generic fără angajament substanțial.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"Cred c„ ini˛iativa, fie ∫i din acest punct de vedere, a fost o gre∫eal„.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Vorbitorul își exprimă dezacordul fără a propune o alternativă sau o mediere.\"\n    }\n  ],\n  \"rationale\": \"Discursul este predominant procedural și critic, axat pe clarificarea naturii inițiativei legislative. Vorbitorul oferă o justificare de nivel 1, bazată pe opinia că dezbaterea a fost irelevantă, fără a oferi argumente cauzale sau principiale solide. Nu există un apel explicit la binele comun sau interesul de grup, iar respectul pentru grupuri și cereri rămâne neutru, fiind o referință funcțională. Vorbitorul menționează criticile altora dar nu se angajează substanțial cu ele, limitându-se la a le califica drept irelevante. Poziția este pur dispozițională, fără a oferi alternative constructive, ceea ce plasează discursul într-o zonă de calitate deliberativă scăzută.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12576,
+      "tokens_in_breakdown": {
+        "fresh": 12576,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1205,
+      "cost_usd": null,
+      "latency_ms": 4398,
+      "retries_used": 0
+    }
+  }
+}

@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2025/II/132#agenda-1#act-38",
+  "tier": "calibration",
+  "speaker": {
+    "id": "mitrea-dumitrina",
+    "name": "Dumitrina Mitrea",
+    "raw": "Doamna Dumitrina Mitrea",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2025-10-27",
+    "year": 2025,
+    "legislature": "X",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2025/II/132#agenda-1#act-38",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul reprezintă o prezentare tehnică a unui raport al Comisiei pentru afaceri europene privind Strategia europeană pentru o Uniune a pregătirii. Textul se concentrează pe proceduri parlamentare, consultări între comisii și recomandări de politici publice, fără a utiliza un cadru maniheist popor-vs-elită. Deși menționează „pregătirea populației”, aceasta este încadrată într-un context de securitate colectivă și parteneriat civic, nu într-un registru populist. Discursul este pur procedural și nu conține niciunul dintre markerii Hawkins."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul reprezintă o prezentare tehnică a unui raport al Comisiei pentru afaceri europene privind Strategia europeană pentru o Uniune a pregătirii. Textul se concentrează pe proceduri parlamentare, consultări între comisii și recomandări de politici publice, fără a utiliza un cadru maniheist popor-vs-elită. Deși menționează „pregătirea populației”, aceasta este încadrată într-un context de securitate colectivă și parteneriat civic, nu într-un registru populist. Discursul este pur procedural și nu conține niciunul dintre markerii Hawkins.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13936,
+      "tokens_in_breakdown": {
+        "fresh": 13936,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 206,
+      "cost_usd": null,
+      "latency_ms": 1825,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2025/II/132#agenda-1#act-38",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.45,
+        "level_of_justification": 0,
+        "content_of_justification": "none",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 0,
+            "evidence": {
+              "text": "Supunem aprobării plenului Camerei Deputaților opinia, în forma adoptată de Comisia pentru afaceri europene."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Discursul este pur procedural, prezentând un raport fără a oferi o justificare proprie pentru conținutul acestuia."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "none",
+            "evidence": {
+              "text": "Supunem aprobării plenului Camerei Deputaților opinia"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Nicio justificare oferită; conținutul justificării este nedefinit."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "doamnă președinte de ședință"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Adresare convențională; neutru implicit."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "și-a exprimat susținerea față de domeniile de acțiune enunțate în Strategia europeană"
+            },
+            "preliminary_voice": "reported",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.85,
+            "rationale_short": "Raportarea poziției comisiei este neutră, fără angajament deliberativ."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "a exprimat rezerve față de inițiativa instituirii unui mecanism european de apărare civilă"
+            },
+            "preliminary_voice": "reported",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.85,
+            "rationale_short": "Menționarea rezervelor comisiei fără angajament substanțial din partea vorbitorului."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Supunem aprobării plenului Camerei Deputaților opinia"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Discursul este o prezentare procedurală a unui raport, nu o propunere politică alternativă."
+          }
+        ],
+        "rationale": "Acest discurs este un raport procedural de prezentare a unei opinii adoptate de Comisia pentru afaceri europene. Vorbitorul nu își exprimă propriile argumente, ci rezumă activitatea comisiei, ceea ce face ca dimensiunile DQI să fie inoperante sau neutre. Deoarece discursul constă în mare parte din raportarea activității altor entități (comisii), framework_confidence este scăzut, reflectând faptul că nu este o deliberare proprie a vorbitorului. Nu există justificare, respectul este pur convențional, iar caracterul este strict procedural."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.45,\n  \"level_of_justification\": 0,\n  \"content_of_justification\": \"none\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 0,\n      \"evidence\": { \"text\": \"Supunem aprobării plenului Camerei Deputaților opinia, în forma adoptată de Comisia pentru afaceri europene.\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Discursul este pur procedural, prezentând un raport fără a oferi o justificare proprie pentru conținutul acestuia.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"none\",\n      \"evidence\": { \"text\": \"Supunem aprobării plenului Camerei Deputaților opinia\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Nicio justificare oferită; conținutul justificării este nedefinit.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": { \"text\": \"doamnă președinte de ședință\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Adresare convențională; neutru implicit.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": { \"text\": \"și-a exprimat susținerea față de domeniile de acțiune enunțate în Strategia europeană\" },\n      \"preliminary_voice\": \"reported\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Raportarea poziției comisiei este neutră, fără angajament deliberativ.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": { \"text\": \"a exprimat rezerve față de inițiativa instituirii unui mecanism european de apărare civilă\" },\n      \"preliminary_voice\": \"reported\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Menționarea rezervelor comisiei fără angajament substanțial din partea vorbitorului.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": { \"text\": \"Supunem aprobării plenului Camerei Deputaților opinia\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Discursul este o prezentare procedurală a unui raport, nu o propunere politică alternativă.\"\n    }\n  ],\n  \"rationale\": \"Acest discurs este un raport procedural de prezentare a unei opinii adoptate de Comisia pentru afaceri europene. Vorbitorul nu își exprimă propriile argumente, ci rezumă activitatea comisiei, ceea ce face ca dimensiunile DQI să fie inoperante sau neutre. Deoarece discursul constă în mare parte din raportarea activității altor entități (comisii), framework_confidence este scăzut, reflectând faptul că nu este o deliberare proprie a vorbitorului. Nu există justificare, respectul este pur convențional, iar caracterul este strict procedural.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12737,
+      "tokens_in_breakdown": {
+        "fresh": 12737,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1052,
+      "cost_usd": null,
+      "latency_ms": 4410,
+      "retries_used": 0
+    }
+  }
+}

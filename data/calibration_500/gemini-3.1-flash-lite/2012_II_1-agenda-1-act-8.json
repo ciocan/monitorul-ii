@@ -1,0 +1,152 @@
+{
+  "speech_id": "mo://2012/II/1#agenda-1#act-8",
+  "tier": "calibration",
+  "speaker": {
+    "id": "grebla-toni",
+    "name": "Toni Greblă",
+    "raw": "Domnul Toni Greblă",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2012-01-23",
+    "year": 2012,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2012/II/1#agenda-1#act-8",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.95,
+        "markers": [],
+        "rationale": "Discursul este unul pur procedural, concentrat pe organizarea ședinței solemne, invitațiile protocolare și respectarea regulamentului parlamentar. Deși menționează „criza socială”, „criza economică” și „criza politică”, acestea sunt invocate în contextul unei dezbateri tehnice despre agenda parlamentară și prerogativele constituționale, nu ca parte a unui cadru maniheist popor-vs-elită. Nu există niciun marker populist la persoana întâi, iar discursul se înscrie în registrul instituțional standard. Hawkins=0 cu încredere ridicată."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.95,\n  \"markers\": [],\n  \"rationale\": \"Discursul este unul pur procedural, concentrat pe organizarea ședinței solemne, invitațiile protocolare și respectarea regulamentului parlamentar. Deși menționează „criza socială”, „criza economică” și „criza politică”, acestea sunt invocate în contextul unei dezbateri tehnice despre agenda parlamentară și prerogativele constituționale, nu ca parte a unui cadru maniheist popor-vs-elită. Nu există niciun marker populist la persoana întâi, iar discursul se înscrie în registrul instituțional standard. Hawkins=0 cu încredere ridicată.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13847,
+      "tokens_in_breakdown": {
+        "fresh": 13847,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 204,
+      "cost_usd": null,
+      "latency_ms": 3663,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2012/II/1#agenda-1#act-8",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.85,
+        "level_of_justification": 2,
+        "content_of_justification": "group_interest",
+        "respect_for_groups": 1,
+        "respect_for_demands": 2,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "Președintele Traian Băsescu, în virtutea prerogativelor constituționale, dacă dorește, poate să participe la ședința solemnă, adresând o solicitare în acest sens Birourilor reunite"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Vorbitorul invocă prerogativele constituționale pentru a justifica refuzul invitației, oferind o cale procedurală clară."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "group_interest",
+            "evidence": {
+              "text": "cel puțin parlamentarii USL nu sunt de acord cu propunerea ca președintele să fie invitat mâine"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Justificarea este ancorată explicit în poziția și interesele grupului parlamentar USL."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Stimați colegi"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.99,
+            "marker_confidence": 0.95,
+            "rationale_short": "Adresare convențională; nu există derogări sau aprecieri explicite pentru out-group-uri."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 2,
+            "evidence": {
+              "text": "În legătură cu a doua propunere, de prelungire a sesiunii extraordinare, ea poate fi luată în considerare"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Vorbitorul recunoaște legitimitatea cererii de prelungire a sesiunii, propunând o cale de urmat."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "Propunerea de a-l invita pe președintele țării, Traian Băsescu, la ședința solemnă... nu-și are rostul într-o sesiune solemnă"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Vorbitorul menționează propunerea adversă și o respinge, dar fără a angaja substanțial raționamentul din spatele ei."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "nu sunt de acord cu propunerea ca președintele să fie invitat mâine"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Discursul este predominant pozițional, apărând o decizie de grup fără a oferi o alternativă de compromis."
+          }
+        ],
+        "rationale": "Discursul prezintă un nivel moderat de calitate deliberativă, caracterizat prin argumentare procedurală clară (level_of_justification=2) ancorată în prerogative constituționale. Vorbitorul adoptă o poziție fermă în numele grupului USL (content_of_justification=group_interest), dar menține un ton respectuos față de cererile procedurale ale opoziției, recunoscând legitimitatea discuției despre sesiunea extraordinară (respect_for_demands=2). Deși respinge invitația președintelui, o face prin referire la normele sesiunii solemne, fără a coborî în atacuri personale. Totuși, discursul rămâne în mare parte pozițional, fără a propune o mediere reală între părți. Calitatea deliberativă este solidă pentru un discurs de procedură parlamentară."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.85,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"group_interest\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 2,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"Președintele Traian Băsescu, în virtutea prerogativelor constituționale, dacă dorește, poate să participe la ședința solemnă, adresând o solicitare în acest sens Birourilor reunite\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Vorbitorul invocă prerogativele constituționale pentru a justifica refuzul invitației, oferind o cale procedurală clară.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"group_interest\",\n      \"evidence\": {\n        \"text\": \"cel puțin parlamentarii USL nu sunt de acord cu propunerea ca președintele să fie invitat mâine\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Justificarea este ancorată explicit în poziția și interesele grupului parlamentar USL.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Stimați colegi\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.99,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Adresare convențională; nu există derogări sau aprecieri explicite pentru out-group-uri.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"În legătură cu a doua propunere, de prelungire a sesiunii extraordinare, ea poate fi luată în considerare\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Vorbitorul recunoaște legitimitatea cererii de prelungire a sesiunii, propunând o cale de urmat.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Propunerea de a-l invita pe președintele țării, Traian Băsescu, la ședința solemnă... nu-și are rostul într-o sesiune solemnă\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Vorbitorul menționează propunerea adversă și o respinge, dar fără a angaja substanțial raționamentul din spatele ei.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"nu sunt de acord cu propunerea ca președintele să fie invitat mâine\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Discursul este predominant pozițional, apărând o decizie de grup fără a oferi o alternativă de compromis.\"\n    }\n  ],\n  \"rationale\": \"Discursul prezintă un nivel moderat de calitate deliberativă, caracterizat prin argumentare procedurală clară (level_of_justification=2) ancorată în prerogative constituționale. Vorbitorul adoptă o poziție fermă în numele grupului USL (content_of_justification=group_interest), dar menține un ton respectuos față de cererile procedurale ale opoziției, recunoscând legitimitatea discuției despre sesiunea extraordinară (respect_for_demands=2). Deși respinge invitația președintelui, o face prin referire la normele sesiunii solemne, fără a coborî în atacuri personale. Totuși, discursul rămâne în mare parte pozițional, fără a propune o mediere reală între părți. Calitatea deliberativă este solidă pentru un discurs de procedură parlamentară.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [
+        "Propunerea de a-l invita pe președintele țării, Traian Băsescu, la ședința solemnă... nu-și are rostul într-o sesiune solemnă"
+      ],
+      "parse_repaired": false,
+      "tokens_in": 12649,
+      "tokens_in_breakdown": {
+        "fresh": 12649,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1253,
+      "cost_usd": null,
+      "latency_ms": 4193,
+      "retries_used": 0
+    }
+  }
+}

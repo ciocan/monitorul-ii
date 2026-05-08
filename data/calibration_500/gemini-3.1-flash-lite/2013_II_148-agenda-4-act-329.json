@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2013/II/148#agenda-4#act-329",
+  "tier": "calibration",
+  "speaker": {
+    "id": "rozalia-ibolya-biro",
+    "name": "Biró Rozalia Ibolya",
+    "raw": "Doamna Biró Rozalia Ibolya",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": "2013-11-19",
+    "year": 2013,
+    "legislature": "VII",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2013/II/148#agenda-4#act-329",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 1.0,
+        "markers": [],
+        "rationale": "Discursul este un raport procedural standard prezentat în cadrul unei comisii parlamentare, axat pe avizele primite de la Consiliul Legislativ și alte comisii de specialitate. Nu există nicio urmă de retorică populistă, maniheism moral sau invocare a unei voințe populare omogene. Limbajul este strict tehnic, administrativ și procedural, specific activității parlamentare curente. Hawkins=0 cu încredere maximă."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 1.0,\n  \"markers\": [],\n  \"rationale\": \"Discursul este un raport procedural standard prezentat în cadrul unei comisii parlamentare, axat pe avizele primite de la Consiliul Legislativ și alte comisii de specialitate. Nu există nicio urmă de retorică populistă, maniheism moral sau invocare a unei voințe populare omogene. Limbajul este strict tehnic, administrativ și procedural, specific activității parlamentare curente. Hawkins=0 cu încredere maximă.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13790,
+      "tokens_in_breakdown": {
+        "fresh": 13790,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 167,
+      "cost_usd": null,
+      "latency_ms": 4030,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2013/II/148#agenda-4#act-329",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.45,
+        "level_of_justification": 0,
+        "content_of_justification": "none",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 0,
+            "evidence": {
+              "text": "Comisia pentru drepturile omului, culte și minorități supune spre dezbatere și adoptare plenului Senatului raportul suplimentar de admitere"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.95,
+            "rationale_short": "Discurs pur procedural de prezentare a unui raport; nicio justificare a poziției."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "none",
+            "evidence": {
+              "text": "Comisia pentru drepturile omului, culte și minorități supune spre dezbatere și adoptare plenului Senatului raportul suplimentar de admitere"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.95,
+            "rationale_short": "Nicio justificare oferită; conținutul este nedefinit."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "domnule președinte"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.9,
+            "rationale_short": "Adresare convențională; neutru implicit."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Comisia pentru drepturile omului, culte și minorități supune spre dezbatere și adoptare plenului Senatului raportul suplimentar de admitere"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.9,
+            "rationale_short": "Procedură administrativă fără angajament cu cereri adverse."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "Comisia pentru drepturile omului, culte și minorități supune spre dezbatere și adoptare plenului Senatului raportul suplimentar de admitere"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.9,
+            "rationale_short": "Nicio mențiune a argumentelor opoziției; discurs pur tehnic."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Comisia pentru drepturile omului, culte și minorități supune spre dezbatere și adoptare plenului Senatului raportul suplimentar de admitere"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.95,
+            "rationale_short": "Prezentare de raport procedural; nicio alternativă sau mediere."
+          }
+        ],
+        "rationale": "Acest discurs este un fragment pur procedural de prezentare a unui raport de comisie în plenul Senatului. Vorbitorul nu oferă nicio justificare pentru conținutul raportului, limitându-se la a enumera avizele primite și procedura de adoptare. Nu există angajament cu contraargumente sau cereri adverse, iar discursul nu conține elemente de deliberare politică, fiind strict administrativ. Din acest motiv, scorurile sunt setate la valorile implicite de bază, iar framework_confidence este scăzut, deoarece discursul nu îndeplinește funcția deliberativă pe care DQI o măsoară."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.45,\n  \"level_of_justification\": 0,\n  \"content_of_justification\": \"none\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 0,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 0,\n      \"evidence\": { \"text\": \"Comisia pentru drepturile omului, culte și minorități supune spre dezbatere și adoptare plenului Senatului raportul suplimentar de admitere\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Discurs pur procedural de prezentare a unui raport; nicio justificare a poziției.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"none\",\n      \"evidence\": { \"text\": \"Comisia pentru drepturile omului, culte și minorități supune spre dezbatere și adoptare plenului Senatului raportul suplimentar de admitere\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Nicio justificare oferită; conținutul este nedefinit.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": { \"text\": \"domnule președinte\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Adresare convențională; neutru implicit.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": { \"text\": \"Comisia pentru drepturile omului, culte și minorități supune spre dezbatere și adoptare plenului Senatului raportul suplimentar de admitere\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Procedură administrativă fără angajament cu cereri adverse.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 0,\n      \"evidence\": { \"text\": \"Comisia pentru drepturile omului, culte și minorități supune spre dezbatere și adoptare plenului Senatului raportul suplimentar de admitere\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Nicio mențiune a argumentelor opoziției; discurs pur tehnic.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": { \"text\": \"Comisia pentru drepturile omului, culte și minorități supune spre dezbatere și adoptare plenului Senatului raportul suplimentar de admitere\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Prezentare de raport procedural; nicio alternativă sau mediere.\"\n    }\n  ],\n  \"rationale\": \"Acest discurs este un fragment pur procedural de prezentare a unui raport de comisie în plenul Senatului. Vorbitorul nu oferă nicio justificare pentru conținutul raportului, limitându-se la a enumera avizele primite și procedura de adoptare. Nu există angajament cu contraargumente sau cereri adverse, iar discursul nu conține elemente de deliberare politică, fiind strict administrativ. Din acest motiv, scorurile sunt setate la valorile implicite de bază, iar framework_confidence este scăzut, deoarece discursul nu îndeplinește funcția deliberativă pe care DQI o măsoară.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12591,
+      "tokens_in_breakdown": {
+        "fresh": 12591,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1116,
+      "cost_usd": null,
+      "latency_ms": 3966,
+      "retries_used": 0
+    }
+  }
+}

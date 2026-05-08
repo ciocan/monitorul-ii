@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2000/II/43#agenda-4#act-192",
+  "tier": "calibration",
+  "speaker": {
+    "id": "mitrea-miron-tudor",
+    "name": "Miron-Tudor Mitrea",
+    "raw": "Domnul Miron-Tudor Mitrea",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": null,
+    "year": 2000,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2000/II/43#agenda-4#act-192",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 1.0,
+        "markers": [],
+        "rationale": "Discursul reprezintă o intervenție pur procedurală de conducere a ședinței parlamentare, axată pe gestionarea votului pentru articolele din proiectul de lege. Nu există nicio urmă de retorică populistă, nicio invocare a unui conflict între popor și elită, niciun maniheism moral și nicio referire la o voință populară suverană. Limbajul este strict tehnic și administrativ, specific activității curente de legiferare. Hawkins=0 cu încredere maximă."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 1.0,\n  \"markers\": [],\n  \"rationale\": \"Discursul reprezintă o intervenție pur procedurală de conducere a ședinței parlamentare, axată pe gestionarea votului pentru articolele din proiectul de lege. Nu există nicio urmă de retorică populistă, nicio invocare a unui conflict între popor și elită, niciun maniheism moral și nicio referire la o voință populară suverană. Limbajul este strict tehnic și administrativ, specific activității curente de legiferare. Hawkins=0 cu încredere maximă.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13705,
+      "tokens_in_breakdown": {
+        "fresh": 13705,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 183,
+      "cost_usd": null,
+      "latency_ms": 3116,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2000/II/43#agenda-4#act-192",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.45,
+        "level_of_justification": 0,
+        "content_of_justification": "none",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 0,
+            "evidence": {
+              "text": "Supun textul, în formularea iniþiatorului, votului dumneavoastrã."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Intervenție pur procedurală de conducere a ședinței, fără argumentație."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "none",
+            "evidence": {
+              "text": "Supun textul, în formularea iniþiatorului, votului dumneavoastrã."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Nicio justificare oferită; conținutul este nedefinit."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Cine este pentru?"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Interacțiune procedurală neutră cu plenul."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Supun votului dumneavoastrã art. 16, în ansamblu."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Procedură neutră, fără angajament cu cereri politice."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "Voturi împotrivã? Un vot împotrivã."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Înregistrarea votului nu constituie angajament cu raționamentul opoziției."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Supun textul, în formularea iniþiatorului, votului dumneavoastrã."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Intervenție pur procedurală, fără propuneri alternative sau mediere."
+          }
+        ],
+        "rationale": "Acest fragment reprezintă o intervenție pur procedurală a președintelui de ședință, constând în gestionarea votului pe articole. Nu există nicio argumentație, justificare sau angajament deliberativ, deoarece vorbitorul îndeplinește un rol administrativ. Toate dimensiunile DQI sunt codate la valorile implicite pentru discursuri procedurale, iar încrederea în framework este scăzută, deoarece acest tip de discurs nu este destinat deliberării politice. Fragmentul nu conține elemente de respect sau dispreț, fiind neutru prin natura sa tehnică."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.45,\n  \"level_of_justification\": 0,\n  \"content_of_justification\": \"none\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 0,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 0,\n      \"evidence\": { \"text\": \"Supun textul, în formularea iniþiatorului, votului dumneavoastrã.\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Intervenție pur procedurală de conducere a ședinței, fără argumentație.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"none\",\n      \"evidence\": { \"text\": \"Supun textul, în formularea iniþiatorului, votului dumneavoastrã.\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Nicio justificare oferită; conținutul este nedefinit.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": { \"text\": \"Cine este pentru?\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Interacțiune procedurală neutră cu plenul.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": { \"text\": \"Supun votului dumneavoastrã art. 16, în ansamblu.\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Procedură neutră, fără angajament cu cereri politice.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 0,\n      \"evidence\": { \"text\": \"Voturi împotrivã? Un vot împotrivã.\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Înregistrarea votului nu constituie angajament cu raționamentul opoziției.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": { \"text\": \"Supun textul, în formularea iniþiatorului, votului dumneavoastrã.\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Intervenție pur procedurală, fără propuneri alternative sau mediere.\"\n    }\n  ],\n  \"rationale\": \"Acest fragment reprezintă o intervenție pur procedurală a președintelui de ședință, constând în gestionarea votului pe articole. Nu există nicio argumentație, justificare sau angajament deliberativ, deoarece vorbitorul îndeplinește un rol administrativ. Toate dimensiunile DQI sunt codate la valorile implicite pentru discursuri procedurale, iar încrederea în framework este scăzută, deoarece acest tip de discurs nu este destinat deliberării politice. Fragmentul nu conține elemente de respect sau dispreț, fiind neutru prin natura sa tehnică.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12507,
+      "tokens_in_breakdown": {
+        "fresh": 12507,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1030,
+      "cost_usd": null,
+      "latency_ms": 4549,
+      "retries_used": 0
+    }
+  }
+}

@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2020/II/45#agenda-1#act-50",
+  "tier": "calibration",
+  "speaker": {
+    "id": "fenechiu-catalin-daniel",
+    "name": "Cătălin Daniel Fenechiu",
+    "raw": "Domnul Cătălin Daniel Fenechiu",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": "2020-05-05",
+    "year": 2020,
+    "legislature": "VIII",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2020/II/45#agenda-1#act-50",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul este unul procedural, axat pe istoricul legislativ al unui proiect de lege și pe poziția politică a PNL față de acesta. Vorbitorul respinge explicit dezbinarea și pledează pentru colaborare și transparență, folosind un registru pluralist și constructiv. Nu există nicio urmă de cadru maniheist popor-vs-elită, nicio invocare a unei voințe populare omogene ca forță suverană și nicio retorică populistă. Discursul se încadrează clar în registrul parlamentar standard, motiv pentru care scorul este 0."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul este unul procedural, axat pe istoricul legislativ al unui proiect de lege și pe poziția politică a PNL față de acesta. Vorbitorul respinge explicit dezbinarea și pledează pentru colaborare și transparență, folosind un registru pluralist și constructiv. Nu există nicio urmă de cadru maniheist popor-vs-elită, nicio invocare a unei voințe populare omogene ca forță suverană și nicio retorică populistă. Discursul se încadrează clar în registrul parlamentar standard, motiv pentru care scorul este 0.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13927,
+      "tokens_in_breakdown": {
+        "fresh": 13927,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 203,
+      "cost_usd": null,
+      "latency_ms": 1864,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2020/II/45#agenda-1#act-50",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.82,
+        "level_of_justification": 1,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 2,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 1,
+            "evidence": {
+              "text": "Partidul Național Liberal nu poate vota o asemenea inițiativă legislativă, sens în care va vota pentru raportul de respingere."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Poziție declarată fără un raționament cauzal sau probatoriu specific; justificare inferioară."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "căutăm punți de colaborare, și nu punți de dezbinare"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.88,
+            "rationale_short": "Apelul la coeziune socială și evitarea dezbinării este universalizabil, vizând binele comun."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 2,
+            "evidence": {
+              "text": "întotdeauna am respectat și întotdeauna respect cetățenii români de naționalitate maghiară. Personal, am copilărit într-o zonă din Covasna și am avut o relație excelentă cu etnicii maghiari"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.99,
+            "marker_confidence": 0.95,
+            "rationale_short": "Vorbitorul exprimă explicit respectul și recunoaște demnitatea grupului etnic maghiar."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Nu o să intru în discuții tehnice despre obiectul reglementării"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.82,
+            "rationale_short": "Cererile opoziției nu sunt adresate substanțial; vorbitorul alege să evite discuția tehnică."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "Nu o să intru în detalii datorită faptului că întotdeauna am respectat și întotdeauna respect cetățenii români de naționalitate maghiară."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.89,
+            "rationale_short": "Vorbitorul ignoră complet argumentele tehnice ale inițiatorilor, preferând o declarație de principiu."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Partidul Național Liberal nu poate vota o asemenea inițiativă legislativă"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Poziție fermă de respingere fără a propune o alternativă sau o mediere a proiectului."
+          }
+        ],
+        "rationale": "Discursul prezintă un profil deliberativ mixt. Vorbitorul manifestă un respect explicit și remarcabil pentru grupul etnic maghiar (respect_for_groups=2), însă eșuează în a oferi o justificare substanțială pentru votul de respingere (level_of_justification=1), limitându-se la o poziție politică. Deși invocă binele comun prin dorința de a evita dezbinarea, vorbitorul refuză deliberat angajamentul tehnic cu inițiativa legislativă, ignorând argumentele opoziției (respect_for_counterarguments=0). Discursul este pur pozițional, fără a oferi alternative constructive. Calitatea deliberativă este ridicată în planul eticii intergrupale, dar scăzută în planul argumentării tehnice și al angajamentului cu contraargumentele."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.82,\n  \"level_of_justification\": 1,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 2,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 0,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Partidul Național Liberal nu poate vota o asemenea inițiativă legislativă, sens în care va vota pentru raportul de respingere.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Poziție declarată fără un raționament cauzal sau probatoriu specific; justificare inferioară.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"căutăm punți de colaborare, și nu punți de dezbinare\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Apelul la coeziune socială și evitarea dezbinării este universalizabil, vizând binele comun.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"întotdeauna am respectat și întotdeauna respect cetățenii români de naționalitate maghiară. Personal, am copilărit într-o zonă din Covasna și am avut o relație excelentă cu etnicii maghiari\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.99,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Vorbitorul exprimă explicit respectul și recunoaște demnitatea grupului etnic maghiar.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Nu o să intru în discuții tehnice despre obiectul reglementării\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.82,\n      \"rationale_short\": \"Cererile opoziției nu sunt adresate substanțial; vorbitorul alege să evite discuția tehnică.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"Nu o să intru în detalii datorită faptului că întotdeauna am respectat și întotdeauna respect cetățenii români de naționalitate maghiară.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"marker_confidence\": 0.89,\n      \"rationale_short\": \"Vorbitorul ignoră complet argumentele tehnice ale inițiatorilor, preferând o declarație de principiu.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"Partidul Național Liberal nu poate vota o asemenea inițiativă legislativă\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Poziție fermă de respingere fără a propune o alternativă sau o mediere a proiectului.\"\n    }\n  ],\n  \"rationale\": \"Discursul prezintă un profil deliberativ mixt. Vorbitorul manifestă un respect explicit și remarcabil pentru grupul etnic maghiar (respect_for_groups=2), însă eșuează în a oferi o justificare substanțială pentru votul de respingere (level_of_justification=1), limitându-se la o poziție politică. Deși invocă binele comun prin dorința de a evita dezbinarea, vorbitorul refuză deliberat angajamentul tehnic cu inițiativa legislativă, ignorând argumentele opoziției (respect_for_counterarguments=0). Discursul este pur pozițional, fără a oferi alternative constructive. Calitatea deliberativă este ridicată în planul eticii intergrupale, dar scăzută în planul argumentării tehnice și al angajamentului cu contraargumentele.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12728,
+      "tokens_in_breakdown": {
+        "fresh": 12728,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1269,
+      "cost_usd": null,
+      "latency_ms": 5097,
+      "retries_used": 0
+    }
+  }
+}

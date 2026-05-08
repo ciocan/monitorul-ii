@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2000/II/144#agenda-1#act-451",
+  "tier": "calibration",
+  "speaker": {
+    "id": "spineanu-ulm-nicolae",
+    "name": "Ulm Nicolae Spineanu",
+    "raw": "Domnul Ulm Nicolae Spineanu",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": null,
+    "year": 2000,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2000/II/144#agenda-1#act-451",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 1.0,
+        "markers": [],
+        "rationale": "Discursul este pur procedural, vizând finalizarea unei anexe la o hotărâre parlamentară privind orarul campaniei electorale și repartizarea timpilor de antenă. Vorbitorul enumeră componența nominală a comisiei pe baza deciziilor grupurilor parlamentare și solicită votul plenului. Nu există nicio urmă de retorică populistă, cadru maniheist sau invocare a unei voințe populare în opoziție cu instituțiile. Discursul se încadrează perfect în registrul administrativ-parlamentar standard."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 1.0,\n  \"markers\": [],\n  \"rationale\": \"Discursul este pur procedural, vizând finalizarea unei anexe la o hotărâre parlamentară privind orarul campaniei electorale și repartizarea timpilor de antenă. Vorbitorul enumeră componența nominală a comisiei pe baza deciziilor grupurilor parlamentare și solicită votul plenului. Nu există nicio urmă de retorică populistă, cadru maniheist sau invocare a unei voințe populare în opoziție cu instituțiile. Discursul se încadrează perfect în registrul administrativ-parlamentar standard.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13941,
+      "tokens_in_breakdown": {
+        "fresh": 13941,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 194,
+      "cost_usd": null,
+      "latency_ms": 1927,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2000/II/144#agenda-1#act-451",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.85,
+        "level_of_justification": 1,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 1,
+            "evidence": {
+              "text": "V-aº ruga s-o votãm aºa cum este propusã, cã este fãcutã pe baza înþelegerii partidelor în cauzã."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Justificarea invocă consensul partidelor, o formă de autoritate procedurală, fără a oferi un raționament substanțial."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "pe baza înþelegerii partidelor în cauzã"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Apelul la înțelegerea partidelor vizează buna funcționare a instituției, fiind un argument de tip bine comun procedural."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Domnilor colegi"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.99,
+            "marker_confidence": 0.95,
+            "rationale_short": "Adresare convențională neutră; nu există referințe derogatorii sau de respect explicit către grupuri."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "nu s-a votat anexa nr. 1, pentru cã nu toate grupurile parlamentare îºi numiserã persoanele în cauzã"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Vorbitorul constată o situație procedurală fără a angaja legitimitatea cererilor opoziției."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "V-aº ruga s-o votãm aºa cum este propusã"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.88,
+            "rationale_short": "Nu există contraargumente adresate; vorbitorul se limitează la prezentarea anexei."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "V-aº ruga s-o votãm aºa cum este propusã"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.94,
+            "rationale_short": "Vorbitorul solicită votul pentru o propunere existentă, fără a oferi alternative sau medieri."
+          }
+        ],
+        "rationale": "Discursul este unul pur procedural, axat pe finalizarea unei sarcini administrative (numirea membrilor unei comisii). Justificarea este de nivel 1, bazându-se pe consensul partidelor ca autoritate, fără a oferi un raționament cauzal complex. Nu există elemente de dispreț sau respect explicit, iar respectul pentru cereri și contraargumente este neutru, deoarece nu au existat opoziții substanțiale în acest context. Politica este pozițională, vizând doar adoptarea anexei. Calitatea deliberativă este scăzută, fiind un discurs de rutină parlamentară."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.85,\n  \"level_of_justification\": 1,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"V-aº ruga s-o votãm aºa cum este propusã, cã este fãcutã pe baza înþelegerii partidelor în cauzã.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Justificarea invocă consensul partidelor, o formă de autoritate procedurală, fără a oferi un raționament substanțial.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"pe baza înþelegerii partidelor în cauzã\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Apelul la înțelegerea partidelor vizează buna funcționare a instituției, fiind un argument de tip bine comun procedural.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Domnilor colegi\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.99,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Adresare convențională neutră; nu există referințe derogatorii sau de respect explicit către grupuri.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"nu s-a votat anexa nr. 1, pentru cã nu toate grupurile parlamentare îºi numiserã persoanele în cauzã\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.90,\n      \"rationale_short\": \"Vorbitorul constată o situație procedurală fără a angaja legitimitatea cererilor opoziției.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"V-aº ruga s-o votãm aºa cum este propusã\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Nu există contraargumente adresate; vorbitorul se limitează la prezentarea anexei.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"V-aº ruga s-o votãm aºa cum este propusã\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.94,\n      \"rationale_short\": \"Vorbitorul solicită votul pentru o propunere existentă, fără a oferi alternative sau medieri.\"\n    }\n  ],\n  \"rationale\": \"Discursul este unul pur procedural, axat pe finalizarea unei sarcini administrative (numirea membrilor unei comisii). Justificarea este de nivel 1, bazându-se pe consensul partidelor ca autoritate, fără a oferi un raționament cauzal complex. Nu există elemente de dispreț sau respect explicit, iar respectul pentru cereri și contraargumente este neutru, deoarece nu au existat opoziții substanțiale în acest context. Politica este pozițională, vizând doar adoptarea anexei. Calitatea deliberativă este scăzută, fiind un discurs de rutină parlamentară.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12742,
+      "tokens_in_breakdown": {
+        "fresh": 12742,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1161,
+      "cost_usd": null,
+      "latency_ms": 4691,
+      "retries_used": 0
+    }
+  }
+}

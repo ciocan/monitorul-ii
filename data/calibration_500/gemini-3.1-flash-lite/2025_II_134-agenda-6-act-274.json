@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2025/II/134#agenda-6#act-274",
+  "tier": "calibration",
+  "speaker": {
+    "id": null,
+    "name": "Gheorghe Vela",
+    "raw": "Domnul Gheorghe Vela",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": "2025-10-13",
+    "year": 2025,
+    "legislature": "X",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2025/II/134#agenda-6#act-274",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul este unul pur procedural și tehnic, concentrat pe critica calității legislative, a transparenței și a fundamentării bugetare a proiectului de lege. Vorbitorul utilizează un registru de politici publice, solicitând analize de impact, calendare de implementare și debirocratizare, fără a invoca un cadru manihean popor-vs-elită sau alte tropi populiste. Deși menționează „valori sociale”, acestea sunt integrate într-o argumentație rațională, nu populistă. Hawkins=0 cu încredere ridicată."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul este unul pur procedural și tehnic, concentrat pe critica calității legislative, a transparenței și a fundamentării bugetare a proiectului de lege. Vorbitorul utilizează un registru de politici publice, solicitând analize de impact, calendare de implementare și debirocratizare, fără a invoca un cadru manihean popor-vs-elită sau alte tropi populiste. Deși menționează „valori sociale”, acestea sunt integrate într-o argumentație rațională, nu populistă. Hawkins=0 cu încredere ridicată.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13668,
+      "tokens_in_breakdown": {
+        "fresh": 13668,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 194,
+      "cost_usd": null,
+      "latency_ms": 1868,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2025/II/134#agenda-6#act-274",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.85,
+        "level_of_justification": 2,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "alternative_proposal",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "fără claritate asupra impactului instituțional și bugetar. Titlul generic, lipsa unei fundamentări detaliate și a unei consultări reale riscă să creeze instabilitate administrativă și costuri neacoperite și suprapuneri de competențe"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Vorbitorul oferă motive cauzale specifice (instabilitate, costuri, suprapuneri) pentru opoziția sa."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "calitatea legislativă, transparența și predictibilitatea sunt niște valori sociale"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Justificarea se bazează pe valori universale (transparență, predictibilitate) aplicabile întregului sistem legislativ."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Onorați colegi"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.99,
+            "marker_confidence": 0.9,
+            "rationale_short": "Adresare formală standard; nu există referințe derogatorii sau de respect explicit către grupuri."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "nu putem susține o intervenție-umbrelă"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.88,
+            "rationale_short": "Vorbitorul își exprimă dezacordul fără a angaja explicit legitimitatea cererii opoziției."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "nu putem susține o intervenție-umbrelă asupra mai multor acte normative, în procedură de urgență"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Menționează procedura de urgență ca punct de critică, dar fără un angajament substanțial cu argumentele pro-urgență."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "alternative_proposal",
+            "evidence": {
+              "text": "Susținem reluarea proiectului pe capitole distincte, cu analiză de impact, cu calendar de implementare și obiective măsurabile și debirocratizare, și digitalizare."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.94,
+            "rationale_short": "Vorbitorul propune o alternativă concretă la modul de lucru actual al proiectului."
+          }
+        ],
+        "rationale": "Discursul prezintă o calitate deliberativă solidă, fiind justificat prin riscuri administrative și bugetare concrete (level_of_justification=2) și ancorat în valori de bine comun (content_of_justification=common_good). Deși respectul pentru grupuri și cereri rămâne neutru (respect_for_groups=1, respect_for_demands=1), vorbitorul adoptă o poziție constructivă oferind o alternativă clară la procedura de urgență (constructive_politics=alternative_proposal). Nu există un angajament profund cu contraargumentele (respect_for_counterarguments=1), dar discursul evită atacurile la persoană și se concentrează pe substanța legislativă. Profilul este unul de opoziție critică, dar argumentată și orientată spre soluții."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.85,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"alternative_proposal\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"fără claritate asupra impactului instituțional și bugetar. Titlul generic, lipsa unei fundamentări detaliate și a unei consultări reale riscă să creeze instabilitate administrativă și costuri neacoperite și suprapuneri de competențe\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Vorbitorul oferă motive cauzale specifice (instabilitate, costuri, suprapuneri) pentru opoziția sa.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"calitatea legislativă, transparența și predictibilitatea sunt niște valori sociale\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Justificarea se bazează pe valori universale (transparență, predictibilitate) aplicabile întregului sistem legislativ.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Onorați colegi\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.99,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Adresare formală standard; nu există referințe derogatorii sau de respect explicit către grupuri.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"nu putem susține o intervenție-umbrelă\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Vorbitorul își exprimă dezacordul fără a angaja explicit legitimitatea cererii opoziției.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"nu putem susține o intervenție-umbrelă asupra mai multor acte normative, în procedură de urgență\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Menționează procedura de urgență ca punct de critică, dar fără un angajament substanțial cu argumentele pro-urgență.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"alternative_proposal\",\n      \"evidence\": {\n        \"text\": \"Susținem reluarea proiectului pe capitole distincte, cu analiză de impact, cu calendar de implementare și obiective măsurabile și debirocratizare, și digitalizare.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.94,\n      \"rationale_short\": \"Vorbitorul propune o alternativă concretă la modul de lucru actual al proiectului.\"\n    }\n  ],\n  \"rationale\": \"Discursul prezintă o calitate deliberativă solidă, fiind justificat prin riscuri administrative și bugetare concrete (level_of_justification=2) și ancorat în valori de bine comun (content_of_justification=common_good). Deși respectul pentru grupuri și cereri rămâne neutru (respect_for_groups=1, respect_for_demands=1), vorbitorul adoptă o poziție constructivă oferind o alternativă clară la procedura de urgență (constructive_politics=alternative_proposal). Nu există un angajament profund cu contraargumentele (respect_for_counterarguments=1), dar discursul evită atacurile la persoană și se concentrează pe substanța legislativă. Profilul este unul de opoziție critică, dar argumentată și orientată spre soluții.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12469,
+      "tokens_in_breakdown": {
+        "fresh": 12469,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1236,
+      "cost_usd": null,
+      "latency_ms": 4788,
+      "retries_used": 0
+    }
+  }
+}

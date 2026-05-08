@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2017/II/153#agenda-1#act-116",
+  "tier": "register_shift",
+  "speaker": {
+    "id": "basescu-traian",
+    "name": "Traian Băsescu",
+    "raw": "Domnul Traian Băsescu",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": "2017-10-24",
+    "year": 2017,
+    "legislature": "VIII",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-pro",
+  "model_label": "gemini-3.1-pro-preview",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-pro",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2017/II/153#agenda-1#act-116",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discurs procedural și instituțional privind subordonarea Monitorului Oficial (Parlament vs. Guvern). Deși vorbitorul acuză Executivul de intenția de a genera ilegalități, critica rămâne strict în registrul dezbaterii politice, instituționale și al controlului parlamentar asupra guvernului. Nu există nicio invocare a poporului, niciun cadru manihean popor-vs-elită și nicio retorică populistă. Hawkins=0 cu încredere ridicată."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discurs procedural și instituțional privind subordonarea Monitorului Oficial (Parlament vs. Guvern). Deși vorbitorul acuză Executivul de intenția de a genera ilegalități, critica rămâne strict în registrul dezbaterii politice, instituționale și al controlului parlamentar asupra guvernului. Nu există nicio invocare a poporului, niciun cadru manihean popor-vs-elită și nicio retorică populistă. Hawkins=0 cu încredere ridicată.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13677,
+      "tokens_in_breakdown": {
+        "fresh": 13677,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1241,
+      "cost_usd": null,
+      "latency_ms": 10652,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-pro",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2017/II/153#agenda-1#act-116",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.88,
+        "level_of_justification": 2,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "Nu trebuie să perpetuăm dreptul Executivului, pe care avem pretenția că-l controlăm, să jongleze cu actele normative în funcție de nevoile lui."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Justificare calificată bazată pe principiul separării puterilor și necesitatea controlului parlamentar asupra executivului."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "încălcarea Constituției și nerespectarea legii"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Apel la respectarea Constituției și a legii, principii universale ale statului de drept, nu interese de grup."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Și un avertisment și pentru majoritate"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.85,
+            "rationale_short": "Referire funcțională la majoritatea parlamentară; ton adversarial, dar fără derogare explicită a unui grup."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "susținem fără rezerve varianta revenirii Monitorului Oficial acolo unde îi este locul"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.88,
+            "rationale_short": "Vorbitorul își avansează propria cerere fără a interacționa cu legitimitatea cererilor taberei adverse."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "susținem fără rezerve varianta revenirii Monitorului Oficial acolo unde îi este locul"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Niciun contraargument nu este menționat sau combătut; discursul ignoră complet argumentele opuse."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "susținem fără rezerve varianta revenirii Monitorului Oficial acolo unde îi este locul"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Susținere fermă a unei poziții clare, fără a oferi o alternativă nouă sau un compromis mediator."
+          }
+        ],
+        "rationale": "Discursul prezintă un profil deliberativ mixt, caracteristic intervențiilor de opoziție principiale, dar strict poziționale. Vorbitorul oferă o justificare calificată (nivel 2) pentru revenirea Monitorului Oficial sub control parlamentar, ancorându-și argumentația în principii constituționale și în mecanismul separării puterilor. Această justificare face apel la binele comun, invocând respectarea legii și stabilitatea instituțională. Cu toate acestea, discursul este lipsit de angajament față de tabăra adversă: nu abordează cererile opuse și ignoră complet orice contraargument (nivel 0). Din punct de vedere constructiv, intervenția este pur pozițională, susținând o singură soluție fără a explora compromisuri. Respectul pentru grupuri rămâne la un nivel neutru, referirile la guvern și majoritate fiind funcționale și adversariale, dar nu explicit derogatorii."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.88,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 0,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"Nu trebuie să perpetuăm dreptul Executivului, pe care avem pretenția că-l controlăm, să jongleze cu actele normative în funcție de nevoile lui.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.90,\n      \"rationale_short\": \"Justificare calificată bazată pe principiul separării puterilor și necesitatea controlului parlamentar asupra executivului.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"încălcarea Constituției și nerespectarea legii\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Apel la respectarea Constituției și a legii, principii universale ale statului de drept, nu interese de grup.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Și un avertisment și pentru majoritate\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Referire funcțională la majoritatea parlamentară; ton adversarial, dar fără derogare explicită a unui grup.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"susținem fără rezerve varianta revenirii Monitorului Oficial acolo unde îi este locul\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Vorbitorul își avansează propria cerere fără a interacționa cu legitimitatea cererilor taberei adverse.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"susținem fără rezerve varianta revenirii Monitorului Oficial acolo unde îi este locul\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.90,\n      \"rationale_short\": \"Niciun contraargument nu este menționat sau combătut; discursul ignoră complet argumentele opuse.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"susținem fără rezerve varianta revenirii Monitorului Oficial acolo unde îi este locul\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Susținere fermă a unei poziții clare, fără a oferi o alternativă nouă sau un compromis mediator.\"\n    }\n  ],\n  \"rationale\": \"Discursul prezintă un profil deliberativ mixt, caracteristic intervențiilor de opoziție principiale, dar strict poziționale. Vorbitorul oferă o justificare calificată (nivel 2) pentru revenirea Monitorului Oficial sub control parlamentar, ancorându-și argumentația în principii constituționale și în mecanismul separării puterilor. Această justificare face apel la binele comun, invocând respectarea legii și stabilitatea instituțională. Cu toate acestea, discursul este lipsit de angajament față de tabăra adversă: nu abordează cererile opuse și ignoră complet orice contraargument (nivel 0). Din punct de vedere constructiv, intervenția este pur pozițională, susținând o singură soluție fără a explora compromisuri. Respectul pentru grupuri rămâne la un nivel neutru, referirile la guvern și majoritate fiind funcționale și adversariale, dar nu explicit derogatorii.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12478,
+      "tokens_in_breakdown": {
+        "fresh": 12478,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 3325,
+      "cost_usd": null,
+      "latency_ms": 31130,
+      "retries_used": 0
+    }
+  }
+}

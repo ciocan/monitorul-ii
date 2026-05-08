@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2014/II/15#agenda-4#act-121",
+  "tier": "calibration",
+  "speaker": {
+    "id": "weber-mihai",
+    "name": "Mihai Weber",
+    "raw": "Domnul Mihai Weber",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2014-02-18",
+    "year": 2014,
+    "legislature": "VII",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2014/II/15#agenda-4#act-121",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul este un raport economic bazat pe date statistice (PIB, inflație, deficit bugetar) și comparații între perioade de guvernare (USL vs. Guvernarea Boc). Deși conține o critică politică la adresa măsurilor luate în trecut, aceasta rămâne în registrul dezbaterii de politici publice și al bilanțului guvernamental, fără a invoca un cadru maniheist popor-vs-elită sau o voință populară omogenă. Nu există elemente de populism în sensul rubricii Hawkins; discursul este pur tehnic și partizan-convențional. Scor 0 cu încredere ridicată."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul este un raport economic bazat pe date statistice (PIB, inflație, deficit bugetar) și comparații între perioade de guvernare (USL vs. Guvernarea Boc). Deși conține o critică politică la adresa măsurilor luate în trecut, aceasta rămâne în registrul dezbaterii de politici publice și al bilanțului guvernamental, fără a invoca un cadru maniheist popor-vs-elită sau o voință populară omogenă. Nu există elemente de populism în sensul rubricii Hawkins; discursul este pur tehnic și partizan-convențional. Scor 0 cu încredere ridicată.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 14046,
+      "tokens_in_breakdown": {
+        "fresh": 14046,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 220,
+      "cost_usd": null,
+      "latency_ms": 2046,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2014/II/15#agenda-4#act-121",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.78,
+        "level_of_justification": 2,
+        "content_of_justification": "group_interest",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "Economia României a avansat anul trecut cu 3,5% față de 2012, depășind așteptările Fondului Monetar Internațional, care preconiza un salt de 2,8%."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Vorbitorul utilizează date statistice și surse externe (FMI) pentru a justifica performanța economică."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "group_interest",
+            "evidence": {
+              "text": "Toate aceste măsuri luate de USL au adus România pe calea cea bună"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Justificarea este ancorată în succesul politic al unei alianțe specifice (USL)."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "În timpul Guvernării Boc, respectiv în 2009, 2010, 2011, economia țării noastre nu a înregistrat valori tocmai bune și asta din cauza măsurilor prost luate în acea perioadă."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.88,
+            "rationale_short": "Critica la adresa guvernării anterioare este politică, nu derogatorie la adresa unui grup social."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Pentru ca 2014 să păstreze acest trend pozitiv, este nevoie de stabilitate politică."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.82,
+            "rationale_short": "Nu există un angajament explicit cu cererile opoziției; discursul rămâne centrat pe propria agendă."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "În timpul Guvernării Boc, respectiv în 2009, 2010, 2011, economia țării noastre nu a înregistrat valori tocmai bune"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.8,
+            "rationale_short": "Menționează performanța economică anterioară fără a angaja substanțial argumentele opoziției."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Îmi doresc ca USL să rămână unit, în acest fel Guvernul se va bucura, ca și până acum, de sprijinul său."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Discursul susține menținerea status-quo-ului politic, fără a propune alternative sau medieri."
+          }
+        ],
+        "rationale": "Discursul prezintă o justificare calificată (level_of_justification=2) prin utilizarea datelor statistice și a referințelor la FMI, însă conținutul justificării este orientat către interesul de grup (USL). Respectul pentru grupuri și cereri este neutru, limitându-se la o critică politică a guvernării anterioare fără a coborî în derogare. Nu există un angajament substanțial cu contraargumentele opoziției, iar discursul este în esență pozițional, vizând consolidarea sprijinului pentru coaliția aflată la guvernare. Calitatea deliberativă este medie, fiind un discurs de bilanț economic cu tentă partizană."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.78,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"group_interest\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"Economia României a avansat anul trecut cu 3,5% față de 2012, depășind așteptările Fondului Monetar Internațional, care preconiza un salt de 2,8%.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Vorbitorul utilizează date statistice și surse externe (FMI) pentru a justifica performanța economică.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"group_interest\",\n      \"evidence\": {\n        \"text\": \"Toate aceste măsuri luate de USL au adus România pe calea cea bună\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Justificarea este ancorată în succesul politic al unei alianțe specifice (USL).\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"În timpul Guvernării Boc, respectiv în 2009, 2010, 2011, economia țării noastre nu a înregistrat valori tocmai bune și asta din cauza măsurilor prost luate în acea perioadă.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Critica la adresa guvernării anterioare este politică, nu derogatorie la adresa unui grup social.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Pentru ca 2014 să păstreze acest trend pozitiv, este nevoie de stabilitate politică.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.82,\n      \"rationale_short\": \"Nu există un angajament explicit cu cererile opoziției; discursul rămâne centrat pe propria agendă.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"În timpul Guvernării Boc, respectiv în 2009, 2010, 2011, economia țării noastre nu a înregistrat valori tocmai bune\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.80,\n      \"rationale_short\": \"Menționează performanța economică anterioară fără a angaja substanțial argumentele opoziției.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"Îmi doresc ca USL să rămână unit, în acest fel Guvernul se va bucura, ca și până acum, de sprijinul său.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.90,\n      \"rationale_short\": \"Discursul susține menținerea status-quo-ului politic, fără a propune alternative sau medieri.\"\n    }\n  ],\n  \"rationale\": \"Discursul prezintă o justificare calificată (level_of_justification=2) prin utilizarea datelor statistice și a referințelor la FMI, însă conținutul justificării este orientat către interesul de grup (USL). Respectul pentru grupuri și cereri este neutru, limitându-se la o critică politică a guvernării anterioare fără a coborî în derogare. Nu există un angajament substanțial cu contraargumentele opoziției, iar discursul este în esență pozițional, vizând consolidarea sprijinului pentru coaliția aflată la guvernare. Calitatea deliberativă este medie, fiind un discurs de bilanț economic cu tentă partizană.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12847,
+      "tokens_in_breakdown": {
+        "fresh": 12847,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1268,
+      "cost_usd": null,
+      "latency_ms": 4352,
+      "retries_used": 0
+    }
+  }
+}

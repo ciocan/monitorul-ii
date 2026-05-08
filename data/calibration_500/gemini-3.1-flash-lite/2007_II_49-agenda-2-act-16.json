@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2007/II/49#agenda-2#act-16",
+  "tier": "calibration",
+  "speaker": {
+    "id": "ardelean-cornelia",
+    "name": "Cornelia Ardelean",
+    "raw": "Doamna Cornelia Ardelean",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": null,
+    "session_date": null,
+    "year": 2007,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2007/II/49#agenda-2#act-16",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul se înscrie într-un registru procedural și tehnic, concentrându-se pe corectarea unei nedreptăți administrative legate de calculul pensiilor. Deși vorbitorul menționează „nedreptatea” și „oamenii”, aceștia sunt invocați în contextul unei erori de interpretare a legii, nu ca parte a unui cadru maniheist popor-vs-elită. Nu există elemente de populism, cum ar fi invocarea unei voințe populare omogene, atacuri la adresa unei elite malefice sau apeluri la o criză existențială. Discursul rămâne în limitele dezbaterii parlamentare obișnuite."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul se înscrie într-un registru procedural și tehnic, concentrându-se pe corectarea unei nedreptăți administrative legate de calculul pensiilor. Deși vorbitorul menționează „nedreptatea” și „oamenii”, aceștia sunt invocați în contextul unei erori de interpretare a legii, nu ca parte a unui cadru maniheist popor-vs-elită. Nu există elemente de populism, cum ar fi invocarea unei voințe populare omogene, atacuri la adresa unei elite malefice sau apeluri la o criză existențială. Discursul rămâne în limitele dezbaterii parlamentare obișnuite.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13676,
+      "tokens_in_breakdown": {
+        "fresh": 13676,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 227,
+      "cost_usd": null,
+      "latency_ms": 2440,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2007/II/49#agenda-2#act-16",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.82,
+        "level_of_justification": 1,
+        "content_of_justification": "group_interest",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 1,
+            "evidence": {
+              "text": "aceast„ propunere nu face dec‚t s„ Óndrepte nedreptatea care le-a fost f„cut„ acestor oameni"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Justificarea este circulară, bazată pe o afirmație morală generală („nedreptate”) fără un mecanism cauzal sau sursă specifică."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "group_interest",
+            "evidence": {
+              "text": "aceast„ propunere nu face dec‚t s„ Óndrepte nedreptatea care le-a fost f„cut„ acestor oameni"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Apelul este direcționat către interesele specifice ale grupului de pensionari afectați."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Doamnelor ∫i domnilor deputa˛i"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.99,
+            "marker_confidence": 0.95,
+            "rationale_short": "Adresare formală standard; nu există derogări sau recunoașteri explicite ale out-group-urilor."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Partidul Conservator va sus˛ine propunerea legislativ„"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.88,
+            "rationale_short": "Vorbitorul își susține poziția fără a menționa sau angaja cererile opoziției."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "Repet, vom sus˛ine propunerea legislativ„."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Argumentele contrare nu sunt menționate sau adresate; discursul este pur pozițional."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Partidul Conservator va sus˛ine propunerea legislativ„"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Vorbitorul declară susținerea pentru o inițiativă existentă fără a propune alternative sau medieri."
+          }
+        ],
+        "rationale": "Discursul prezintă o calitate deliberativă limitată, fiind centrat pe susținerea unei inițiative legislative din perspectiva interesului unui grup specific (pensionarii). Justificarea este de nivel 1, bazându-se pe o afirmație morală generală despre „nedreptate” fără a oferi dovezi sau mecanisme cauzale concrete. Nu există un angajament față de contraargumente sau cereri adverse, iar discursul rămâne strict pozițional. Respectul pentru grupuri și cereri este neutru, limitându-se la convențiile formale de adresare. Profilul este cel al unui discurs de susținere politică standard, lipsit de profunzime deliberativă."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.82,\n  \"level_of_justification\": 1,\n  \"content_of_justification\": \"group_interest\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 0,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"aceast„ propunere nu face dec‚t s„ Óndrepte nedreptatea care le-a fost f„cut„ acestor oameni\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Justificarea este circulară, bazată pe o afirmație morală generală („nedreptate”) fără un mecanism cauzal sau sursă specifică.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"group_interest\",\n      \"evidence\": {\n        \"text\": \"aceast„ propunere nu face dec‚t s„ Óndrepte nedreptatea care le-a fost f„cut„ acestor oameni\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Apelul este direcționat către interesele specifice ale grupului de pensionari afectați.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Doamnelor ∫i domnilor deputa˛i\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.99,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Adresare formală standard; nu există derogări sau recunoașteri explicite ale out-group-urilor.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Partidul Conservator va sus˛ine propunerea legislativ„\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Vorbitorul își susține poziția fără a menționa sau angaja cererile opoziției.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"Repet, vom sus˛ine propunerea legislativ„.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Argumentele contrare nu sunt menționate sau adresate; discursul este pur pozițional.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"Partidul Conservator va sus˛ine propunerea legislativ„\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Vorbitorul declară susținerea pentru o inițiativă existentă fără a propune alternative sau medieri.\"\n    }\n  ],\n  \"rationale\": \"Discursul prezintă o calitate deliberativă limitată, fiind centrat pe susținerea unei inițiative legislative din perspectiva interesului unui grup specific (pensionarii). Justificarea este de nivel 1, bazându-se pe o afirmație morală generală despre „nedreptate” fără a oferi dovezi sau mecanisme cauzale concrete. Nu există un angajament față de contraargumente sau cereri adverse, iar discursul rămâne strict pozițional. Respectul pentru grupuri și cereri este neutru, limitându-se la convențiile formale de adresare. Profilul este cel al unui discurs de susținere politică standard, lipsit de profunzime deliberativă.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12477,
+      "tokens_in_breakdown": {
+        "fresh": 12477,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1159,
+      "cost_usd": null,
+      "latency_ms": 4346,
+      "retries_used": 0
+    }
+  }
+}

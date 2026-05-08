@@ -1,0 +1,152 @@
+{
+  "speech_id": "mo://2010/II/185#agenda-1#act-263",
+  "tier": "calibration",
+  "speaker": {
+    "id": "tanasescu-gabriel",
+    "name": "Gabriel Tănăsescu",
+    "raw": "Domnul Gabriel Tănăsescu",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": "2010-12-08",
+    "year": 2010,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2010/II/185#agenda-1#act-263",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 1.0,
+        "markers": [],
+        "rationale": "Discursul este unul pur tehnic și procedural, axat pe modificările legislative aduse de Ordonanța de urgență nr. 124/2005 și pe integrarea instituției investigatorului sub acoperire în Codul de procedură penală. Nu există nicio urmă de cadru popor-vs-elită, maniheism moral sau invocare a unei voințe populare omogene. Vorbitorul se limitează la argumente juridice și administrative, fără a utiliza retorica populistă. Hawkins=0 cu încredere maximă."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 1.0,\n  \"markers\": [],\n  \"rationale\": \"Discursul este unul pur tehnic și procedural, axat pe modificările legislative aduse de Ordonanța de urgență nr. 124/2005 și pe integrarea instituției investigatorului sub acoperire în Codul de procedură penală. Nu există nicio urmă de cadru popor-vs-elită, maniheism moral sau invocare a unei voințe populare omogene. Vorbitorul se limitează la argumente juridice și administrative, fără a utiliza retorica populistă. Hawkins=0 cu încredere maximă.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13726,
+      "tokens_in_breakdown": {
+        "fresh": 13726,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 193,
+      "cost_usd": null,
+      "latency_ms": 1699,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2010/II/185#agenda-1#act-263",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.85,
+        "level_of_justification": 2,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "folosirea investigatorilor sub acoperire este o instituție deja preluată în noul Cod de procedură penală, aprobat deja de Parlamentul României și că, din anul 2005, de când a intrat în vigoare ordonanța de urgență, nu au fost semnalate în practică probleme"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Justificare bazată pe coerența legislativă (Codul de procedură penală) și pe experiența practică din 2005."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "în scopul descoperirii faptelor, identificării făptuitorilor și a mijloacelor de probă, în cazul în care există indicii temeinice și concrete cu privire la săvârșirea unor fapte de corupție."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Apel la interesul public (prevenirea corupției) ca justificare pentru măsurile propuse."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Doamnelor și domnilor senatori"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.99,
+            "marker_confidence": 0.95,
+            "rationale_short": "Adresare formală standard; niciun grup vizat în mod derogatoriu sau respectuos."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Prin Ordonanța de urgență a Guvernului nr. 124/2005 se modifică și se completează Legea nr. 78/2000"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Discurs informativ/procedural; nu există cereri adverse abordate."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "nu au fost semnalate în practică probleme legate de folosirea investigatorilor sub acoperire."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.88,
+            "rationale_short": "Anticiparea unei posibile obiecții privind problemele practice, fără a cita un argument specific al opoziției."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Prin Ordonanța de urgență a Guvernului nr. 124/2005 se modifică și se completează Legea nr. 78/2000"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Prezentarea unei măsuri legislative; discursul este pozițional, susținând reglementarea."
+          }
+        ],
+        "rationale": "Discursul are un caracter informativ și procedural, prezentând justificări pentru o ordonanță de urgență. Vorbitorul oferă o justificare calificată (level_of_justification=2) prin apel la coerența cu noul Cod de procedură penală și la absența problemelor practice din 2005. Justificarea este orientată către binele comun (prevenirea corupției). Respectul pentru grupuri și cereri este neutru, fiind un discurs de prezentare a unei măsuri guvernamentale. Nu există un angajament direct cu contraargumente specifice ale opoziției, ci o anticipare generală a lipsei problemelor practice. Discursul este pozițional, susținând necesitatea ordonanței."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.85,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"folosirea investigatorilor sub acoperire este o instituție deja preluată în noul Cod de procedură penală, aprobat deja de Parlamentul României și că, din anul 2005, de când a intrat în vigoare ordonanța de urgență, nu au fost semnalate în practică probleme\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Justificare bazată pe coerența legislativă (Codul de procedură penală) și pe experiența practică din 2005.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"în scopul descoperirii faptelor, identificării făptuitorilor și a mijloacelor de probă, în cazul în care există indicii temeinice și concrete cu privire la săvârșirea unor fapte de corupție.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Apel la interesul public (prevenirea corupției) ca justificare pentru măsurile propuse.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Doamnelor și domnilor senatori\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.99,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Adresare formală standard; niciun grup vizat în mod derogatoriu sau respectuos.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Prin Ordonanța de urgență a Guvernului nr. 124/2005 se modifică și se completează Legea nr. 78/2000\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Discurs informativ/procedural; nu există cereri adverse abordate.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"nu au fost semnalate în practică probleme legate de folosirea investigatorilor sub acoperire.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Anticiparea unei posibile obiecții privind problemele practice, fără a cita un argument specific al opoziției.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"Prin Ordonanța de urgență a Guvernului nr. 124/2005 se modifică și se completează Legea nr. 78/2000\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Prezentarea unei măsuri legislative; discursul este pozițional, susținând reglementarea.\"\n    }\n  ],\n  \"rationale\": \"Discursul are un caracter informativ și procedural, prezentând justificări pentru o ordonanță de urgență. Vorbitorul oferă o justificare calificată (level_of_justification=2) prin apel la coerența cu noul Cod de procedură penală și la absența problemelor practice din 2005. Justificarea este orientată către binele comun (prevenirea corupției). Respectul pentru grupuri și cereri este neutru, fiind un discurs de prezentare a unei măsuri guvernamentale. Nu există un angajament direct cu contraargumente specifice ale opoziției, ci o anticipare generală a lipsei problemelor practice. Discursul este pozițional, susținând necesitatea ordonanței.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [
+        "în scopul descoperirii faptelor, identificării făptuitorilor și a mijloacelor de probă, în cazul în care există indicii temeinice și concrete cu privire la săvârșirea unor fapte de corupție."
+      ],
+      "parse_repaired": false,
+      "tokens_in": 12527,
+      "tokens_in_breakdown": {
+        "fresh": 12527,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1283,
+      "cost_usd": null,
+      "latency_ms": 4246,
+      "retries_used": 0
+    }
+  }
+}

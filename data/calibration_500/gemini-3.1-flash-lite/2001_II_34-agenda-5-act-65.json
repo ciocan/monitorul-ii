@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2001/II/34#agenda-5#act-65",
+  "tier": "calibration",
+  "speaker": {
+    "id": "taracila-doru-ioan",
+    "name": "Doru Ioan Tãrãcilã",
+    "raw": "Domnul Doru Ioan Tãrãcilã",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": null,
+    "year": 2001,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2001/II/34#agenda-5#act-65",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul este pur procedural, constând în gestionarea votului pe articolele unui proiect de lege și o intervenție administrativă a domnului Corneliu Vadim Tudor privind prezența senatorilor în sală. Nu există nicio urmă de cadru popor-vs-elită, maniheism moral sau invocare a unei voințe populare suverane. Discursul se înscrie strict în registrul tehnic al activității parlamentare curente. Hawkins=0 cu încredere ridicată."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul este pur procedural, constând în gestionarea votului pe articolele unui proiect de lege și o intervenție administrativă a domnului Corneliu Vadim Tudor privind prezența senatorilor în sală. Nu există nicio urmă de cadru popor-vs-elită, maniheism moral sau invocare a unei voințe populare suverane. Discursul se înscrie strict în registrul tehnic al activității parlamentare curente. Hawkins=0 cu încredere ridicată.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13805,
+      "tokens_in_breakdown": {
+        "fresh": 13805,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 181,
+      "cost_usd": null,
+      "latency_ms": 1757,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2001/II/34#agenda-5#act-65",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.45,
+        "level_of_justification": 0,
+        "content_of_justification": "none",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 0,
+            "evidence": {
+              "text": "Domnule preºedinte, am o rugãminte la dumneavoastrã."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Intervenție procedurală fără nicio justificare argumentativă."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "none",
+            "evidence": {
+              "text": "am o rugãminte la dumneavoastrã"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Nicio justificare oferită; conținut nedefinit."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Domnule preºedinte"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Adresare formală neutră; niciun grup vizat."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "am o rugãminte la dumneavoastrã"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Intervenție procedurală fără angajament cu cereri politice."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "n-a mai intrat nici un senator absent în salã"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Observație factuală fără angajament cu argumente opuse."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "am o rugãminte la dumneavoastrã"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Intervenție procedurală de natură administrativă, nu politică."
+          }
+        ],
+        "rationale": "Fragmentul reprezintă o intervenție procedurală de natură administrativă (verificarea cvorumului), nu un discurs deliberativ. Vorbitorul nu oferă nicio justificare pentru poziția sa, nu angajează contraargumente și nu propune alternative politice. Calitatea deliberativă este minimă, fiind un act de rutină parlamentară. Din acest motiv, framework_confidence este scăzut, reflectând faptul că DQI nu este instrumentul adecvat pentru a evalua intervenții pur procedurale."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.45,\n  \"level_of_justification\": 0,\n  \"content_of_justification\": \"none\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 0,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 0,\n      \"evidence\": { \"text\": \"Domnule preºedinte, am o rugãminte la dumneavoastrã.\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Intervenție procedurală fără nicio justificare argumentativă.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"none\",\n      \"evidence\": { \"text\": \"am o rugãminte la dumneavoastrã\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Nicio justificare oferită; conținut nedefinit.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": { \"text\": \"Domnule preºedinte\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Adresare formală neutră; niciun grup vizat.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": { \"text\": \"am o rugãminte la dumneavoastrã\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Intervenție procedurală fără angajament cu cereri politice.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 0,\n      \"evidence\": { \"text\": \"n-a mai intrat nici un senator absent în salã\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Observație factuală fără angajament cu argumente opuse.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": { \"text\": \"am o rugãminte la dumneavoastrã\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Intervenție procedurală de natură administrativă, nu politică.\"\n    }\n  ],\n  \"rationale\": \"Fragmentul reprezintă o intervenție procedurală de natură administrativă (verificarea cvorumului), nu un discurs deliberativ. Vorbitorul nu oferă nicio justificare pentru poziția sa, nu angajează contraargumente și nu propune alternative politice. Calitatea deliberativă este minimă, fiind un act de rutină parlamentară. Din acest motiv, framework_confidence este scăzut, reflectând faptul că DQI nu este instrumentul adecvat pentru a evalua intervenții pur procedurale.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12606,
+      "tokens_in_breakdown": {
+        "fresh": 12606,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 969,
+      "cost_usd": null,
+      "latency_ms": 3784,
+      "retries_used": 0
+    }
+  }
+}

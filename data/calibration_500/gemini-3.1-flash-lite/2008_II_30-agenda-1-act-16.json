@@ -1,0 +1,152 @@
+{
+  "speech_id": "mo://2008/II/30#agenda-1#act-16",
+  "tier": "calibration",
+  "speaker": {
+    "id": "stoica-ilie",
+    "name": "Ilie Stoica",
+    "raw": "Domnul Ilie Stoica",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": "2008-03-17",
+    "year": 2008,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2008/II/30#agenda-1#act-16",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.95,
+        "markers": [],
+        "rationale": "Discursul este o informare tehnică și procedurală privind o misiune de control parlamentar în Irak. Vorbitorul prezintă activitatea delegației, concluziile vizitei și propuneri legislative concrete pentru statutul soldaților, fără a construi un cadru manihean popor-vs-elită. Deși există o critică la adresa alocărilor bugetare pentru limuzine în comparație cu dotările militare, aceasta rămâne în registrul dezbaterii de politici publice și al eficienței administrative, nu al unei retorici populiste. Hawkins=0 cu încredere ridicată."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.95,\n  \"markers\": [],\n  \"rationale\": \"Discursul este o informare tehnică și procedurală privind o misiune de control parlamentar în Irak. Vorbitorul prezintă activitatea delegației, concluziile vizitei și propuneri legislative concrete pentru statutul soldaților, fără a construi un cadru manihean popor-vs-elită. Deși există o critică la adresa alocărilor bugetare pentru limuzine în comparație cu dotările militare, aceasta rămâne în registrul dezbaterii de politici publice și al eficienței administrative, nu al unei retorici populiste. Hawkins=0 cu încredere ridicată.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 14861,
+      "tokens_in_breakdown": {
+        "fresh": 14861,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 204,
+      "cost_usd": null,
+      "latency_ms": 1924,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2008/II/30#agenda-1#act-16",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.88,
+        "level_of_justification": 2,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "alternative_proposal",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "în condițiile în care pe plan intern din bugetele locale se cheltuiesc milioane de euro pentru limuzine moderne care să înlocuiască alte limuzine moderne, în timp ce pe plan extern în situații și locuri în care este reprezentată România tehnica cea veche de luptă și de transport este menținută în stare de operativitate doar cu piese vechi și recondiționate."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Vorbitorul oferă o justificare bazată pe un contrast cauzal între prioritățile bugetare interne și nevoile operaționale externe."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "în situații și locuri în care este reprezentată România tehnica cea veche de luptă și de transport este menținută în stare de operativitate doar cu piese vechi și recondiționate."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Apelul vizează interesul național și siguranța militarilor români, reprezentând un bine comun universalizabil."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Comandanții forțelor americane, engleze, australiene, reprezentantul Departamentului de Stat al Apărării al Statelor Unite ale Americii, cât și comandantul diviziei 10 a armatei irakiene"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.85,
+            "rationale_short": "Referințe funcționale la partenerii internaționali; ton neutru, profesional."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "în dezbaterea Comisiei pentru apărare, ordine publică și siguranță națională se află un proiect de lege vizând statutul soldaților și gradaților voluntari"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.88,
+            "rationale_short": "Prezentarea proiectului este neutră; nu există o respingere sau o recunoaștere explicită a unor cereri adverse."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "în opinia delegației, valoarea acestor aprecieri deosebite este cu atât mai mare cu cât militarii români, deși acționează în aceleași condiții de risc maxim, sunt mult mai slab dotați"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Vorbitorul își susține argumentul fără a adresa sau a menționa contraargumente din partea altor actori politici."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "alternative_proposal",
+            "evidence": {
+              "text": "reglementarea prin lege a unor drepturi ale acestei categorii de personal care constituie baza ierarhiei militare, respectiv sporirea perioadei pentru care aceștia sunt angajați și menținuți în serviciul militar"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.93,
+            "rationale_short": "Vorbitorul propune amendamente concrete pentru îmbunătățirea statutului soldaților voluntari."
+          }
+        ],
+        "rationale": "Discursul prezintă o calitate deliberativă solidă, caracterizată prin justificări calificate (level_of_justification=2) care leagă resursele bugetare de eficiența operațională a militarilor români. Vorbitorul apelează la binele comun (interesul național și siguranța trupelor) și propune soluții legislative concrete (constructive_politics=alternative_proposal). Deși discursul este informativ și constructiv, acesta nu angajează contraargumente (respect_for_counterarguments=0), concentrându-se pe prezentarea concluziilor misiunii și pe necesitatea reformelor. Respectul pentru grupuri și cereri rămâne neutru, reflectând o postură profesională de raportor parlamentar."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.88,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 0,\n  \"constructive_politics\": \"alternative_proposal\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"în condițiile în care pe plan intern din bugetele locale se cheltuiesc milioane de euro pentru limuzine moderne care să înlocuiască alte limuzine moderne, în timp ce pe plan extern în situații și locuri în care este reprezentată România tehnica cea veche de luptă și de transport este menținută în stare de operativitate doar cu piese vechi și recondiționate.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Vorbitorul oferă o justificare bazată pe un contrast cauzal între prioritățile bugetare interne și nevoile operaționale externe.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"în situații și locuri în care este reprezentată România tehnica cea veche de luptă și de transport este menținută în stare de operativitate doar cu piese vechi și recondiționate.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Apelul vizează interesul național și siguranța militarilor români, reprezentând un bine comun universalizabil.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Comandanții forțelor americane, engleze, australiene, reprezentantul Departamentului de Stat al Apărării al Statelor Unite ale Americii, cât și comandantul diviziei 10 a armatei irakiene\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Referințe funcționale la partenerii internaționali; ton neutru, profesional.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"în dezbaterea Comisiei pentru apărare, ordine publică și siguranță națională se află un proiect de lege vizând statutul soldaților și gradaților voluntari\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Prezentarea proiectului este neutră; nu există o respingere sau o recunoaștere explicită a unor cereri adverse.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"în opinia delegației, valoarea acestor aprecieri deosebite este cu atât mai mare cu cât militarii români, deși acționează în aceleași condiții de risc maxim, sunt mult mai slab dotați\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Vorbitorul își susține argumentul fără a adresa sau a menționa contraargumente din partea altor actori politici.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"alternative_proposal\",\n      \"evidence\": {\n        \"text\": \"reglementarea prin lege a unor drepturi ale acestei categorii de personal care constituie baza ierarhiei militare, respectiv sporirea perioadei pentru care aceștia sunt angajați și menținuți în serviciul militar\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"marker_confidence\": 0.93,\n      \"rationale_short\": \"Vorbitorul propune amendamente concrete pentru îmbunătățirea statutului soldaților voluntari.\"\n    }\n  ],\n  \"rationale\": \"Discursul prezintă o calitate deliberativă solidă, caracterizată prin justificări calificate (level_of_justification=2) care leagă resursele bugetare de eficiența operațională a militarilor români. Vorbitorul apelează la binele comun (interesul național și siguranța trupelor) și propune soluții legislative concrete (constructive_politics=alternative_proposal). Deși discursul este informativ și constructiv, acesta nu angajează contraargumente (respect_for_counterarguments=0), concentrându-se pe prezentarea concluziilor misiunii și pe necesitatea reformelor. Respectul pentru grupuri și cereri rămâne neutru, reflectând o postură profesională de raportor parlamentar.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [
+        "în condițiile în care pe plan intern din bugetele locale se cheltuiesc milioane de euro pentru limuzine moderne care să înlocuiască alte limuzine moderne, în timp ce pe plan extern în situații și locuri în care este reprezentată România tehnica cea veche de luptă și de transport este menținută în stare de operativitate doar cu piese vechi și recondiționate."
+      ],
+      "parse_repaired": false,
+      "tokens_in": 13662,
+      "tokens_in_breakdown": {
+        "fresh": 13662,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1388,
+      "cost_usd": null,
+      "latency_ms": 5040,
+      "retries_used": 0
+    }
+  }
+}

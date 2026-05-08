@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2020/II/112#agenda-1#act-6",
+  "tier": "calibration",
+  "speaker": {
+    "id": "alexandrescu-vlad-tudor",
+    "name": "Vlad Tudor Alexandrescu",
+    "raw": "Domnul Vlad Tudor Alexandrescu",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": "2020-09-30",
+    "year": 2020,
+    "legislature": "VIII",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2020/II/112#agenda-1#act-6",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul senatorului Vlad Alexandrescu se înscrie într-un registru pluralist și procedural, axat pe argumente de coeziune socială, respect pentru diversitate și susținerea unei proceduri parlamentare specifice (cererea de reexaminare a Președintelui). Nu există nicio tentativă de a construi un cadru maniheist popor-vs-elită, nicio invocare a unei voințe populare omogene care să ignore instituțiile și nicio retorică a crizei sau a elitelor malefice. Discursul promovează valori democratice și incluzive, fiind opus viziunii populiste. Hawkins=0 cu încredere ridicată."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul senatorului Vlad Alexandrescu se înscrie într-un registru pluralist și procedural, axat pe argumente de coeziune socială, respect pentru diversitate și susținerea unei proceduri parlamentare specifice (cererea de reexaminare a Președintelui). Nu există nicio tentativă de a construi un cadru maniheist popor-vs-elită, nicio invocare a unei voințe populare omogene care să ignore instituțiile și nicio retorică a crizei sau a elitelor malefice. Discursul promovează valori democratice și incluzive, fiind opus viziunii populiste. Hawkins=0 cu încredere ridicată.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13823,
+      "tokens_in_breakdown": {
+        "fresh": 13823,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 223,
+      "cost_usd": null,
+      "latency_ms": 2078,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2020/II/112#agenda-1#act-6",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.85,
+        "level_of_justification": 2,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 2,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "Nu cred că în momentul de față să semnalăm într-un mod nepotrivit un diferend care a existat acum 100 de ani este o inițiativă bună. Noi trebuie să mergem către inițiative comune, proiecte comune, un respect al diversității culturale"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Vorbitorul oferă o justificare bazată pe principiul coeziunii sociale și al respectului pentru diversitate."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "un respect al diversității culturale, al valorilor fiecărei etnii, să celebrăm în fiecare zi, în fiecare an această comunitate de suflet care este România"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Apelul este universalizabil, vizând coeziunea întregii societăți și respectul pentru toate etniile."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 2,
+            "evidence": {
+              "text": "un respect al diversității culturale, al valorilor fiecărei etnii"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.94,
+            "rationale_short": "Vorbitorul recunoaște explicit legitimitatea și valoarea diversității etnice în România."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "sunt întru totul de acord cu cererea de reexaminare a Președintelui României"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.88,
+            "rationale_short": "Susținerea cererii de reexaminare este o poziție politică, fără a angaja critic cererile opoziției."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "sunt întru totul de acord cu cererea de reexaminare a Președintelui României"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Vorbitorul menționează poziția Președintelui, dar nu angajează substanțial argumentele contrare."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Grupul senatorilor USR va vota împotriva respingerii cererii de reexaminare"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.96,
+            "rationale_short": "Discursul susține o poziție de vot fără a propune o alternativă legislativă nouă."
+          }
+        ],
+        "rationale": "Discursul senatorului Alexandrescu prezintă o calitate deliberativă moderată spre ridicată. Justificarea este calificată (level 2) prin apelul la principii de coeziune socială și diversitate culturală, orientate către binele comun. Vorbitorul manifestă un respect explicit pentru diversitatea etnică (respect_for_groups=2), depășind neutralitatea standard. Totuși, discursul rămâne pozițional în ceea ce privește construcția politică, limitându-se la susținerea cererii de reexaminare a Președintelui fără a oferi o alternativă legislativă proprie. Angajamentul față de contraargumente este minim, fiind mai degrabă o aliniere politică decât o dezbatere substanțială. Profilul este unul de argumentare principială, dar cu o funcție politică de susținere a unei decizii deja luate."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.85,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 2,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"Nu cred că în momentul de față să semnalăm într-un mod nepotrivit un diferend care a existat acum 100 de ani este o inițiativă bună. Noi trebuie să mergem către inițiative comune, proiecte comune, un respect al diversității culturale\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Vorbitorul oferă o justificare bazată pe principiul coeziunii sociale și al respectului pentru diversitate.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"un respect al diversității culturale, al valorilor fiecărei etnii, să celebrăm în fiecare zi, în fiecare an această comunitate de suflet care este România\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Apelul este universalizabil, vizând coeziunea întregii societăți și respectul pentru toate etniile.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"un respect al diversității culturale, al valorilor fiecărei etnii\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.94,\n      \"rationale_short\": \"Vorbitorul recunoaște explicit legitimitatea și valoarea diversității etnice în România.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"sunt întru totul de acord cu cererea de reexaminare a Președintelui României\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Susținerea cererii de reexaminare este o poziție politică, fără a angaja critic cererile opoziției.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"sunt întru totul de acord cu cererea de reexaminare a Președintelui României\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Vorbitorul menționează poziția Președintelui, dar nu angajează substanțial argumentele contrare.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"Grupul senatorilor USR va vota împotriva respingerii cererii de reexaminare\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.96,\n      \"rationale_short\": \"Discursul susține o poziție de vot fără a propune o alternativă legislativă nouă.\"\n    }\n  ],\n  \"rationale\": \"Discursul senatorului Alexandrescu prezintă o calitate deliberativă moderată spre ridicată. Justificarea este calificată (level 2) prin apelul la principii de coeziune socială și diversitate culturală, orientate către binele comun. Vorbitorul manifestă un respect explicit pentru diversitatea etnică (respect_for_groups=2), depășind neutralitatea standard. Totuși, discursul rămâne pozițional în ceea ce privește construcția politică, limitându-se la susținerea cererii de reexaminare a Președintelui fără a oferi o alternativă legislativă proprie. Angajamentul față de contraargumente este minim, fiind mai degrabă o aliniere politică decât o dezbatere substanțială. Profilul este unul de argumentare principială, dar cu o funcție politică de susținere a unei decizii deja luate.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12624,
+      "tokens_in_breakdown": {
+        "fresh": 12624,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1274,
+      "cost_usd": null,
+      "latency_ms": 4664,
+      "retries_used": 0
+    }
+  }
+}

@@ -1,0 +1,152 @@
+{
+  "speech_id": "mo://2021/II/130#agenda-1#act-33",
+  "tier": "calibration",
+  "speaker": {
+    "id": "manea-catalin-zamfir",
+    "name": "Cătălin-Zamfir Manea",
+    "raw": "Domnul Cătălin-Zamfir Manea",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2021-09-07",
+    "year": 2021,
+    "legislature": "IX",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2021/II/130#agenda-1#act-33",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.95,
+        "markers": [],
+        "rationale": "Discursul deputatului Cătălin Manea se concentrează pe o problemă specifică de politici publice: pregătirea sistemului educațional pentru începerea anului școlar în contextul pandemiei și accesul copiilor din mediul rural la educație online. Deși vorbitorul critică Guvernul pentru lipsa de pregătire și invocă drepturi constituționale, acesta nu construiește un cadru maniheist popor-vs-elită, nu demonizează elita ca fiind o entitate malignă și nu invocă o voință populară omogenă ca autoritate supremă. Discursul rămâne în registrul procedural și de advocacy pentru o minoritate, fără a adopta viziunea populistă definită de Hawkins. Scor 0 cu încredere ridicată."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.95,\n  \"markers\": [],\n  \"rationale\": \"Discursul deputatului Cătălin Manea se concentrează pe o problemă specifică de politici publice: pregătirea sistemului educațional pentru începerea anului școlar în contextul pandemiei și accesul copiilor din mediul rural la educație online. Deși vorbitorul critică Guvernul pentru lipsa de pregătire și invocă drepturi constituționale, acesta nu construiește un cadru maniheist popor-vs-elită, nu demonizează elita ca fiind o entitate malignă și nu invocă o voință populară omogenă ca autoritate supremă. Discursul rămâne în registrul procedural și de advocacy pentru o minoritate, fără a adopta viziunea populistă definită de Hawkins. Scor 0 cu încredere ridicată.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 14126,
+      "tokens_in_breakdown": {
+        "fresh": 14126,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 245,
+      "cost_usd": null,
+      "latency_ms": 2310,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2021/II/130#agenda-1#act-33",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.82,
+        "level_of_justification": 2,
+        "content_of_justification": "mixed",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "zeci de mii de copii romi care trăiesc în condiții similare cu cele din Evul Mediu, fără acces la energie electrică, fără acces la apă potabilă."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.88,
+            "rationale_short": "Vorbitorul oferă o justificare bazată pe condiții empirice specifice și drepturi constituționale."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "mixed",
+            "evidence": {
+              "text": "dreptul constituțional la educație. Vorbesc despre cei aproximativ 900.000 de copii din mediul rural... zeci de mii de copii aparținând minorității rome"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Justificarea combină un principiu universal (dreptul la educație) cu interesele specifice ale minorității rome."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "zeci de mii de copii aparținând minorității rome"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Grupul este menționat ca subiect al preocupării, fără derogare sau laudă explicită."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "fac apel, tot de la această tribună, către guvernanți, către prim-ministrul acestei țări, domnul Florin Cîțu, să aprobe cât mai urgent Strategia de incluziune"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Vorbitorul își prezintă propriile cereri fără a angaja legitimitatea cererilor opoziției."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "Guvernul României a fost luat prin surprindere"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Vorbitorul critică guvernul fără a adresa sau a cita argumentele acestuia."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "fac apel, tot de la această tribună, către guvernanți, către prim-ministrul acestei țări, domnul Florin Cîțu, să aprobe cât mai urgent Strategia de incluziune"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.88,
+            "rationale_short": "Discursul este o solicitare de acțiune (poziție), nu o propunere legislativă alternativă sau mediere."
+          }
+        ],
+        "rationale": "Discursul deputatului Cătălin Manea prezintă o calitate deliberativă mixtă. Vorbitorul oferă o justificare calificată (level_of_justification=2) prin ancorarea nevoilor educaționale în realități empirice și principii constituționale, apelând atât la binele comun, cât și la interesele specifice ale minorității rome (content_of_justification=mixed). Totuși, discursul rămâne pozițional (constructive_politics=positional), concentrându-se pe solicitări de acțiune guvernamentală fără a oferi alternative legislative concrete sau a media între poziții. Respectul pentru grupuri este neutru, iar respectul pentru contraargumente este absent (0), deoarece vorbitorul critică guvernul fără a angaja raționamentele acestuia. Profilul este cel al unui discurs de advocacy parlamentar, eficient în argumentarea nevoilor, dar limitat în deliberarea inter-partidă."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.82,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"mixed\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 0,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"zeci de mii de copii romi care trăiesc în condiții similare cu cele din Evul Mediu, fără acces la energie electrică, fără acces la apă potabilă.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Vorbitorul oferă o justificare bazată pe condiții empirice specifice și drepturi constituționale.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"mixed\",\n      \"evidence\": {\n        \"text\": \"dreptul constituțional la educație. Vorbesc despre cei aproximativ 900.000 de copii din mediul rural... zeci de mii de copii aparținând minorității rome\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Justificarea combină un principiu universal (dreptul la educație) cu interesele specifice ale minorității rome.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"zeci de mii de copii aparținând minorității rome\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Grupul este menționat ca subiect al preocupării, fără derogare sau laudă explicită.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"fac apel, tot de la această tribună, către guvernanți, către prim-ministrul acestei țări, domnul Florin Cîțu, să aprobe cât mai urgent Strategia de incluziune\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Vorbitorul își prezintă propriile cereri fără a angaja legitimitatea cererilor opoziției.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"Guvernul României a fost luat prin surprindere\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.90,\n      \"rationale_short\": \"Vorbitorul critică guvernul fără a adresa sau a cita argumentele acestuia.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"fac apel, tot de la această tribună, către guvernanți, către prim-ministrul acestei țări, domnul Florin Cîțu, să aprobe cât mai urgent Strategia de incluziune\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Discursul este o solicitare de acțiune (poziție), nu o propunere legislativă alternativă sau mediere.\"\n    }\n  ],\n  \"rationale\": \"Discursul deputatului Cătălin Manea prezintă o calitate deliberativă mixtă. Vorbitorul oferă o justificare calificată (level_of_justification=2) prin ancorarea nevoilor educaționale în realități empirice și principii constituționale, apelând atât la binele comun, cât și la interesele specifice ale minorității rome (content_of_justification=mixed). Totuși, discursul rămâne pozițional (constructive_politics=positional), concentrându-se pe solicitări de acțiune guvernamentală fără a oferi alternative legislative concrete sau a media între poziții. Respectul pentru grupuri este neutru, iar respectul pentru contraargumente este absent (0), deoarece vorbitorul critică guvernul fără a angaja raționamentele acestuia. Profilul este cel al unui discurs de advocacy parlamentar, eficient în argumentarea nevoilor, dar limitat în deliberarea inter-partidă.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [
+        "dreptul constituțional la educație. Vorbesc despre cei aproximativ 900.000 de copii din mediul rural... zeci de mii de copii aparținând minorității rome"
+      ],
+      "parse_repaired": false,
+      "tokens_in": 12927,
+      "tokens_in_breakdown": {
+        "fresh": 12927,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1292,
+      "cost_usd": null,
+      "latency_ms": 5195,
+      "retries_used": 0
+    }
+  }
+}

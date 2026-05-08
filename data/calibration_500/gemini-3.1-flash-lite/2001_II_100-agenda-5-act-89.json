@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2001/II/100#agenda-5#act-89",
+  "tier": "calibration",
+  "speaker": {
+    "id": "vacaroiu-nicolae",
+    "name": "Nicolae Vãcãroiu",
+    "raw": "Domnul Nicolae Vãcãroiu",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": null,
+    "year": 2001,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2001/II/100#agenda-5#act-89",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul este pur procedural, concentrându-se pe organizarea ședinței de plen, regulamentul parlamentar și gestionarea întrebărilor și interpelărilor. Nu există nicio urmă de cadru popor-vs-elită, maniheism moral sau invocare a unei voințe populare omogene. Vorbitorul se limitează la aspecte tehnice și administrative, fără a utiliza retorică populistă. Hawkins=0 cu încredere ridicată."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul este pur procedural, concentrându-se pe organizarea ședinței de plen, regulamentul parlamentar și gestionarea întrebărilor și interpelărilor. Nu există nicio urmă de cadru popor-vs-elită, maniheism moral sau invocare a unei voințe populare omogene. Vorbitorul se limitează la aspecte tehnice și administrative, fără a utiliza retorică populistă. Hawkins=0 cu încredere ridicată.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13780,
+      "tokens_in_breakdown": {
+        "fresh": 13780,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 170,
+      "cost_usd": null,
+      "latency_ms": 1733,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2001/II/100#agenda-5#act-89",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.82,
+        "level_of_justification": 1,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "alternative_proposal",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 1,
+            "evidence": {
+              "text": "Deci dacã ar fi fost un volum atât de important de întrebãri ºi interpelãri care sunt aici, v-aº spune, domnÕe, merge pe aceastã formulã."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.85,
+            "rationale_short": "Justificarea este bazată pe o evaluare subiectivă a volumului de întrebări, fără un raționament cauzal solid."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "numai votul plenului, conform regulamentului, este cel care hotãrãºte"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.96,
+            "marker_confidence": 0.9,
+            "rationale_short": "Apelul la regulamentul parlamentar și la votul plenului reprezintă o justificare bazată pe proceduri universale (binele comun)."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Stimaþi colegi"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Adresare convențională, neutră, fără derogări sau laude explicite."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "un lider de grup parlamentar, în derularea pe parcursul unei zile a unei ºedinþe de plen, are dreptul sã propunã"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.94,
+            "marker_confidence": 0.88,
+            "rationale_short": "Recunoașterea dreptului procedural de a propune, fără a angaja substanțial cererile opoziției."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "Sigur, putem merge ºi în varianta asta ºi foarte rapid, într-un sfert de orã"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.82,
+            "rationale_short": "Menționează posibilitatea unei variante alternative fără a angaja critic argumentele opoziției."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "alternative_proposal",
+            "evidence": {
+              "text": "putem merge ºi în varianta asta ºi foarte rapid, într-un sfert de orã, rugând miniºtrii sã rãspundã în douã minute"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.96,
+            "marker_confidence": 0.91,
+            "rationale_short": "Vorbitorul propune o soluție concretă pentru gestionarea timpului în ședință."
+          }
+        ],
+        "rationale": "Discursul președintelui Văcăroiu este unul procedural, axat pe gestionarea ordinii de zi. Justificarea este de nivel 1, bazându-se pe evaluări subiective ale volumului de muncă, deși apelează la principii procedurale (binele comun) pentru a legitima deciziile. Respectul pentru grupuri și cereri este neutru, limitându-se la convenții parlamentare. Vorbitorul oferă o propunere alternativă constructivă pentru organizarea timpului de lucru, ceea ce îi conferă un caracter ușor constructiv. Per total, discursul este un exemplu tipic de management al ședinței, cu o calitate deliberativă moderată, concentrată pe eficiență procedurală mai degrabă decât pe dezbatere substanțială."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.82,\n  \"level_of_justification\": 1,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"alternative_proposal\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 1,\n      \"evidence\": { \"text\": \"Deci dacã ar fi fost un volum atât de important de întrebãri ºi interpelãri care sunt aici, v-aº spune, domnÕe, merge pe aceastã formulã.\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Justificarea este bazată pe o evaluare subiectivă a volumului de întrebări, fără un raționament cauzal solid.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": { \"text\": \"numai votul plenului, conform regulamentului, este cel care hotãrãºte\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.96,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Apelul la regulamentul parlamentar și la votul plenului reprezintă o justificare bazată pe proceduri universale (binele comun).\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": { \"text\": \"Stimaþi colegi\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Adresare convențională, neutră, fără derogări sau laude explicite.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": { \"text\": \"un lider de grup parlamentar, în derularea pe parcursul unei zile a unei ºedinþe de plen, are dreptul sã propunã\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.94,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Recunoașterea dreptului procedural de a propune, fără a angaja substanțial cererile opoziției.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": { \"text\": \"Sigur, putem merge ºi în varianta asta ºi foarte rapid, într-un sfert de orã\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.82,\n      \"rationale_short\": \"Menționează posibilitatea unei variante alternative fără a angaja critic argumentele opoziției.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"alternative_proposal\",\n      \"evidence\": { \"text\": \"putem merge ºi în varianta asta ºi foarte rapid, într-un sfert de orã, rugând miniºtrii sã rãspundã în douã minute\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.96,\n      \"marker_confidence\": 0.91,\n      \"rationale_short\": \"Vorbitorul propune o soluție concretă pentru gestionarea timpului în ședință.\"\n    }\n  ],\n  \"rationale\": \"Discursul președintelui Văcăroiu este unul procedural, axat pe gestionarea ordinii de zi. Justificarea este de nivel 1, bazându-se pe evaluări subiective ale volumului de muncă, deși apelează la principii procedurale (binele comun) pentru a legitima deciziile. Respectul pentru grupuri și cereri este neutru, limitându-se la convenții parlamentare. Vorbitorul oferă o propunere alternativă constructivă pentru organizarea timpului de lucru, ceea ce îi conferă un caracter ușor constructiv. Per total, discursul este un exemplu tipic de management al ședinței, cu o calitate deliberativă moderată, concentrată pe eficiență procedurală mai degrabă decât pe dezbatere substanțială.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12581,
+      "tokens_in_breakdown": {
+        "fresh": 12581,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1213,
+      "cost_usd": null,
+      "latency_ms": 4562,
+      "retries_used": 0
+    }
+  }
+}

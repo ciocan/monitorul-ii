@@ -1,0 +1,210 @@
+{
+  "speech_id": "mo://2003/II/147#agenda-1#act-180",
+  "tier": "calibration",
+  "speaker": {
+    "id": "pop-dumitru-petru",
+    "name": "Dumitru Petru Pop",
+    "raw": "Domnul Dumitru Petru Pop",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": null,
+    "year": 2003,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2003/II/147#agenda-1#act-180",
+      "output": {
+        "score": 1,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.85,
+        "markers": [
+          {
+            "kind": "evil_elite",
+            "evidence": {
+              "text": "aceast„ surs„ financiar„ din privatizare s„ fie pus„ la dispozi˛ia Executivului, s„ fac„ ce vrea cu aceast„ surs„ financiar„"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.85,
+            "rationale_short": "Executivul este acuzat de gestionarea discreționară și suspectă a resurselor financiare provenite din privatizare."
+          },
+          {
+            "kind": "homogeneous_people",
+            "evidence": {
+              "text": "tot ce a f„cut acest popor de 20, 30, 40, 50 de ani"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.88,
+            "rationale_short": "Invocă „acest popor” ca subiect colectiv care a muncit decenii, contrastând cu acțiunile elitei politice."
+          }
+        ],
+        "rationale": "Discursul combină elemente de critică procedurală și interpelare parlamentară cu accente populiste episodice. Vorbitorul invocă „poporul” ca entitate colectivă care a muncit decenii și acuză Executivul de gestionarea netransparentă și discreționară a resurselor naționale, sugerând o opoziție între munca poporului și interesele elitei politice. Deși discursul conține elemente de populism, acesta rămâne ancorat în contextul unei dezbateri parlamentare specifice despre un proiect de lege și privatizare, fără a atinge un nivel de maniheism moralist sau o viziune populistă pervazivă. Scor 1 cu încredere ridicată, reflectând natura mixtă a discursului."
+      },
+      "raw_response": "{\n  \"score\": 1,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.85,\n  \"markers\": [\n    {\n      \"kind\": \"evil_elite\",\n      \"evidence\": {\n        \"text\": \"aceast„ surs„ financiar„ din privatizare s„ fie pus„ la dispozi˛ia Executivului, s„ fac„ ce vrea cu aceast„ surs„ financiar„\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Executivul este acuzat de gestionarea discreționară și suspectă a resurselor financiare provenite din privatizare.\"\n    },\n    {\n      \"kind\": \"homogeneous_people\",\n      \"evidence\": {\n        \"text\": \"tot ce a f„cut acest popor de 20, 30, 40, 50 de ani\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Invocă „acest popor” ca subiect colectiv care a muncit decenii, contrastând cu acțiunile elitei politice.\"\n    }\n  ],\n  \"rationale\": \"Discursul combină elemente de critică procedurală și interpelare parlamentară cu accente populiste episodice. Vorbitorul invocă „poporul” ca entitate colectivă care a muncit decenii și acuză Executivul de gestionarea netransparentă și discreționară a resurselor naționale, sugerând o opoziție între munca poporului și interesele elitei politice. Deși discursul conține elemente de populism, acesta rămâne ancorat în contextul unei dezbateri parlamentare specifice despre un proiect de lege și privatizare, fără a atinge un nivel de maniheism moralist sau o viziune populistă pervazivă. Scor 1 cu încredere ridicată, reflectând natura mixtă a discursului.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 14126,
+      "tokens_in_breakdown": {
+        "fresh": 14126,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 553,
+      "cost_usd": null,
+      "latency_ms": 2792,
+      "retries_used": 0
+    },
+    "voice": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "voice",
+      "speech_id": "mo://2003/II/147#agenda-1#act-180",
+      "output": {
+        "classifications": [
+          {
+            "marker_id": "m_0",
+            "voice": "speaker_first_person",
+            "voice_confidence": 0.95,
+            "voice_evidence": null,
+            "attributed_to": null,
+            "rationale_short": "Vorbitorul își exprimă direct opinia critică la persoana întâi, fără a cita sau raporta o sursă externă."
+          },
+          {
+            "marker_id": "m_1",
+            "voice": "speaker_first_person",
+            "voice_confidence": 0.95,
+            "voice_evidence": null,
+            "attributed_to": null,
+            "rationale_short": "Afirmație retorică directă a vorbitorului despre acțiunile poporului, exprimată în nume propriu."
+          }
+        ]
+      },
+      "raw_response": "{\n  \"classifications\": [\n    {\n      \"marker_id\": \"m_0\",\n      \"voice\": \"speaker_first_person\",\n      \"voice_confidence\": 0.95,\n      \"voice_evidence\": null,\n      \"attributed_to\": null,\n      \"rationale_short\": \"Vorbitorul își exprimă direct opinia critică la persoana întâi, fără a cita sau raporta o sursă externă.\"\n    },\n    {\n      \"marker_id\": \"m_1\",\n      \"voice\": \"speaker_first_person\",\n      \"voice_confidence\": 0.95,\n      \"voice_evidence\": null,\n      \"attributed_to\": null,\n      \"rationale_short\": \"Afirmație retorică directă a vorbitorului despre acțiunile poporului, exprimată în nume propriu.\"\n    }\n  ]\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 11765,
+      "tokens_in_breakdown": {
+        "fresh": 11765,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 212,
+      "cost_usd": null,
+      "latency_ms": 1319,
+      "retries_used": 0
+    },
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2003/II/147#agenda-1#act-180",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.78,
+        "level_of_justification": 1,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "alternative_proposal",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 1,
+            "evidence": {
+              "text": "Eu nu mi-am putut Ónchipui c„ Guvernul Rom‚niei poate s„-∫i permit„ s„ aduc„ Ón fa˛a forului legislativ propunerea ca aceast„ surs„ financiar„ din privatizare s„ fie pus„ la dispozi˛ia Executivului"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Vorbitorul exprimă o opoziție puternică, dar argumentarea rămâne la nivelul indignării morale fără a oferi o justificare cauzală sau principială detaliată."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "ce a f„cut acest popor de 20, 30, 40, 50 de ani"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.8,
+            "rationale_short": "Apelul este la interesul național și la patrimoniul colectiv al poporului, nu la un grup politic specific."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "colegii care sunt Ón aceea∫i idee"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.96,
+            "marker_confidence": 0.9,
+            "rationale_short": "Referințele la colegi sunt neutre și funcționale, fără a manifesta respect explicit sau derogare."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "solicit, ∫i rog colegii"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.85,
+            "rationale_short": "Vorbitorul își formulează propria cerere fără a angaja sau respinge explicit cererile opoziției."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "Eu nu mi-am putut Ónchipui c„ se poate uza de o asemenea... s„ nu zic lips„ chiar de bun-sim˛!"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Vorbitorul ignoră raționamentul guvernului, concentrându-se pe atacul retoric asupra lipsei de bun-simț."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "alternative_proposal",
+            "evidence": {
+              "text": "rug„mintea noastr„ ar fi s„ se restituie la comisie ∫i, Óntr-adev„r, s„-i aducem Ómbun„t„˛irile cuvenite"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Vorbitorul propune o alternativă procedurală concretă (restituirea la comisie pentru îmbunătățiri)."
+          }
+        ],
+        "rationale": "Discursul prezintă o calitate deliberativă mixtă. Deși vorbitorul oferă o justificare bazată pe interesul public (common_good), aceasta rămâne la un nivel inferior (level_of_justification=1) din cauza lipsei unei analize cauzale detaliate. Respectul pentru contraargumente este absent (0), fiind înlocuit de o critică retorică la adresa lipsei de bun-simț a guvernului. Totuși, discursul capătă o notă constructivă prin propunerea concretă de a retrimite proiectul la comisie pentru îmbunătățiri (alternative_proposal). Dimensiunile de respect pentru grupuri și cereri rămân neutre, reflectând o postură de opoziție fermă, dar procedurală."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.78,\n  \"level_of_justification\": 1,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 0,\n  \"constructive_politics\": \"alternative_proposal\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Eu nu mi-am putut Ónchipui c„ Guvernul Rom‚niei poate s„-∫i permit„ s„ aduc„ Ón fa˛a forului legislativ propunerea ca aceast„ surs„ financiar„ din privatizare s„ fie pus„ la dispozi˛ia Executivului\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Vorbitorul exprimă o opoziție puternică, dar argumentarea rămâne la nivelul indignării morale fără a oferi o justificare cauzală sau principială detaliată.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"ce a f„cut acest popor de 20, 30, 40, 50 de ani\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.8,\n      \"rationale_short\": \"Apelul este la interesul național și la patrimoniul colectiv al poporului, nu la un grup politic specific.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"colegii care sunt Ón aceea∫i idee\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.96,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Referințele la colegi sunt neutre și funcționale, fără a manifesta respect explicit sau derogare.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"solicit, ∫i rog colegii\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Vorbitorul își formulează propria cerere fără a angaja sau respinge explicit cererile opoziției.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"Eu nu mi-am putut Ónchipui c„ se poate uza de o asemenea... s„ nu zic lips„ chiar de bun-sim˛!\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Vorbitorul ignoră raționamentul guvernului, concentrându-se pe atacul retoric asupra lipsei de bun-simț.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"alternative_proposal\",\n      \"evidence\": {\n        \"text\": \"rug„mintea noastr„ ar fi s„ se restituie la comisie ∫i, Óntr-adev„r, s„-i aducem Ómbun„t„˛irile cuvenite\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Vorbitorul propune o alternativă procedurală concretă (restituirea la comisie pentru îmbunătățiri).\"\n    }\n  ],\n  \"rationale\": \"Discursul prezintă o calitate deliberativă mixtă. Deși vorbitorul oferă o justificare bazată pe interesul public (common_good), aceasta rămâne la un nivel inferior (level_of_justification=1) din cauza lipsei unei analize cauzale detaliate. Respectul pentru contraargumente este absent (0), fiind înlocuit de o critică retorică la adresa lipsei de bun-simț a guvernului. Totuși, discursul capătă o notă constructivă prin propunerea concretă de a retrimite proiectul la comisie pentru îmbunătățiri (alternative_proposal). Dimensiunile de respect pentru grupuri și cereri rămân neutre, reflectând o postură de opoziție fermă, dar procedurală.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12927,
+      "tokens_in_breakdown": {
+        "fresh": 12927,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1282,
+      "cost_usd": null,
+      "latency_ms": 5654,
+      "retries_used": 0
+    }
+  }
+}

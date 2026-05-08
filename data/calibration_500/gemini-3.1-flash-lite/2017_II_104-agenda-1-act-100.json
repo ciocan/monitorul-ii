@@ -1,0 +1,192 @@
+{
+  "speech_id": "mo://2017/II/104#agenda-1#act-100",
+  "tier": "calibration",
+  "speaker": {
+    "id": "oprea-dumitru",
+    "name": "Dumitru Oprea",
+    "raw": "Domnul Dumitru Oprea",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2017-06-20",
+    "year": 2017,
+    "legislature": "VIII",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2017/II/104#agenda-1#act-100",
+      "output": {
+        "score": 1,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.85,
+        "markers": [
+          {
+            "kind": "evil_elite",
+            "evidence": {
+              "text": "adevărata agendă a celor aflați vremelnic la guvernare, o agendă bazată pe interese personale, cu ignorarea completă a interesului public"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.88,
+            "rationale_short": "Elita guvernamentală este descrisă ca fiind motivată exclusiv de interese personale, ignorând deliberat interesul public."
+          }
+        ],
+        "rationale": "Discursul este predominant tehnic, concentrându-se pe date economice (Eurostat, investiții, fonduri europene, sistem fiscal) și pe critica politicilor guvernamentale. Totuși, spre final, vorbitorul introduce un element populist prin caracterizarea elitei guvernamentale ca fiind preocupată doar de interese personale în detrimentul interesului public. Deși acest marker de elită-malefică este prezent, el nu devine o temă maniheistă pervazivă care să definească întregul discurs, acesta rămânând ancorat în argumentația de politici publice. Scor 1 cu încredere ridicată, reflectând natura episodică a apelului populist într-un discurs altfel procedural."
+      },
+      "raw_response": "{\n  \"score\": 1,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.85,\n  \"markers\": [\n    {\n      \"kind\": \"evil_elite\",\n      \"evidence\": {\n        \"text\": \"adevărata agendă a celor aflați vremelnic la guvernare, o agendă bazată pe interese personale, cu ignorarea completă a interesului public\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Elita guvernamentală este descrisă ca fiind motivată exclusiv de interese personale, ignorând deliberat interesul public.\"\n    }\n  ],\n  \"rationale\": \"Discursul este predominant tehnic, concentrându-se pe date economice (Eurostat, investiții, fonduri europene, sistem fiscal) și pe critica politicilor guvernamentale. Totuși, spre final, vorbitorul introduce un element populist prin caracterizarea elitei guvernamentale ca fiind preocupată doar de interese personale în detrimentul interesului public. Deși acest marker de elită-malefică este prezent, el nu devine o temă maniheistă pervazivă care să definească întregul discurs, acesta rămânând ancorat în argumentația de politici publice. Scor 1 cu încredere ridicată, reflectând natura episodică a apelului populist într-un discurs altfel procedural.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 14020,
+      "tokens_in_breakdown": {
+        "fresh": 14020,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 385,
+      "cost_usd": null,
+      "latency_ms": 2767,
+      "retries_used": 0
+    },
+    "voice": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "voice",
+      "speech_id": "mo://2017/II/104#agenda-1#act-100",
+      "output": {
+        "classifications": [
+          {
+            "marker_id": "m_0",
+            "voice": "speaker_first_person",
+            "voice_confidence": 0.95,
+            "voice_evidence": null,
+            "attributed_to": null,
+            "rationale_short": "Afirmație directă a vorbitorului, fără indicii de citare, raportare sau disclaimer; vorbitorul își asumă criticile aduse guvernului."
+          }
+        ]
+      },
+      "raw_response": "{\n  \"classifications\": [\n    {\n      \"marker_id\": \"m_0\",\n      \"voice\": \"speaker_first_person\",\n      \"voice_confidence\": 0.95,\n      \"voice_evidence\": null,\n      \"attributed_to\": null,\n      \"rationale_short\": \"Afirmație directă a vorbitorului, fără indicii de citare, raportare sau disclaimer; vorbitorul își asumă criticile aduse guvernului.\"\n    }\n  ]\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 11578,
+      "tokens_in_breakdown": {
+        "fresh": 11578,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 120,
+      "cost_usd": null,
+      "latency_ms": 952,
+      "retries_used": 0
+    },
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2017/II/104#agenda-1#act-100",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.82,
+        "level_of_justification": 2,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "Atâta timp cât Executivul se laudă cu o creștere economică bazată aproape exclusiv pe consum, este clar că cele două motoare esențiale de creștere – investițiile publice și atragerea fondurilor europene – nu vor fi priorități imediate ale actualei puteri."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Vorbitorul oferă o justificare bazată pe un mecanism economic (consum vs. investiții) pentru a susține critica adusă guvernării."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "cât de mult ar fi putut progresa țara, din punct de vedere economic, în absența crizelor politice"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Apelul este la progresul economic al țării ca întreg, nu la interesele unui grup politic specific."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "coaliției guvernamentale"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Referință funcțională la coaliția guvernamentală; tonul este critic, dar nu derogatoriu la nivel de grup social."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "adevărata agendă a celor aflați vremelnic la guvernare, o agendă bazată pe interese personale"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Vorbitorul ignoră cererile sau justificările guvernului, concentrându-se pe atacul asupra agendei acestora."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "asistăm iar la un teatru prost regizat și de o calitate îndoielnică din partea coaliției guvernamentale."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Vorbitorul nu abordează argumentele coaliției, ci le respinge prin etichetare retorică."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Iată realitatea economică în care se zbate mediul de afaceri românesc"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.94,
+            "rationale_short": "Discursul este o critică pozițională a guvernării fără a propune o alternativă legislativă concretă."
+          }
+        ],
+        "rationale": "Discursul prezintă o critică economică structurată, oferind o justificare calificată (level_of_justification=2) prin legătura cauzală dintre consum și lipsa investițiilor. Apelul este orientat către binele comun (progresul țării), însă discursul rămâne pur pozițional, fără a oferi alternative concrete sau a media între părți. Respectul pentru grupuri este neutru, dar respectul pentru cererile și contraargumentele opoziției este scăzut, acestea fiind ignorate sau respinse prin retorică critică. Profilul este cel al unei opoziții critice, analitice, dar neconstructive în sens deliberativ."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.82,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 0,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"Atâta timp cât Executivul se laudă cu o creștere economică bazată aproape exclusiv pe consum, este clar că cele două motoare esențiale de creștere – investițiile publice și atragerea fondurilor europene – nu vor fi priorități imediate ale actualei puteri.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Vorbitorul oferă o justificare bazată pe un mecanism economic (consum vs. investiții) pentru a susține critica adusă guvernării.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"cât de mult ar fi putut progresa țara, din punct de vedere economic, în absența crizelor politice\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Apelul este la progresul economic al țării ca întreg, nu la interesele unui grup politic specific.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"coaliției guvernamentale\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Referință funcțională la coaliția guvernamentală; tonul este critic, dar nu derogatoriu la nivel de grup social.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"adevărata agendă a celor aflați vremelnic la guvernare, o agendă bazată pe interese personale\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Vorbitorul ignoră cererile sau justificările guvernului, concentrându-se pe atacul asupra agendei acestora.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"asistăm iar la un teatru prost regizat și de o calitate îndoielnică din partea coaliției guvernamentale.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Vorbitorul nu abordează argumentele coaliției, ci le respinge prin etichetare retorică.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"Iată realitatea economică în care se zbate mediul de afaceri românesc\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.94,\n      \"rationale_short\": \"Discursul este o critică pozițională a guvernării fără a propune o alternativă legislativă concretă.\"\n    }\n  ],\n  \"rationale\": \"Discursul prezintă o critică economică structurată, oferind o justificare calificată (level_of_justification=2) prin legătura cauzală dintre consum și lipsa investițiilor. Apelul este orientat către binele comun (progresul țării), însă discursul rămâne pur pozițional, fără a oferi alternative concrete sau a media între părți. Respectul pentru grupuri este neutru, dar respectul pentru cererile și contraargumentele opoziției este scăzut, acestea fiind ignorate sau respinse prin retorică critică. Profilul este cel al unei opoziții critice, analitice, dar neconstructive în sens deliberativ.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12821,
+      "tokens_in_breakdown": {
+        "fresh": 12821,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1231,
+      "cost_usd": null,
+      "latency_ms": 4883,
+      "retries_used": 0
+    }
+  }
+}

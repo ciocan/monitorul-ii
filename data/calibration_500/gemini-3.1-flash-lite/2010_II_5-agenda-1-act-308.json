@@ -1,0 +1,192 @@
+{
+  "speech_id": "mo://2010/II/5#agenda-1#act-308",
+  "tier": "calibration",
+  "speaker": {
+    "id": "munteanu-ioan",
+    "name": "Ioan Munteanu",
+    "raw": "Domnul Ioan Munteanu",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2010-01-13",
+    "year": 2010,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2010/II/5#agenda-1#act-308",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.95,
+        "markers": [
+          {
+            "kind": "evil_elite",
+            "evidence": {
+              "text": "acolo știm că o decizie mai mică este pentru cei din opoziție, o decizie mai importantă – de exemplu, validarea alegerilor – este pentru ceilalți."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.65,
+            "rationale_short": "Sugerează o politizare a Curții Constituționale, dar rămâne în registrul criticii instituționale partizane fără a invoca un cadru maniheist popor-vs-elită."
+          }
+        ],
+        "rationale": "Discursul este unul procedural, axat pe alocări bugetare și critici privind procesul de amendare a legilor în Parlament. Deși vorbitorul exprimă nemulțumire față de modul în care Curtea Constituțională ia decizii, această critică este una de natură partizană și instituțională, nu una populistă. Nu există un cadru maniheist care să opună un popor omogen unei elite malefice, iar discursul nu invocă o criză existențială sau supremația voinței populare. Prin urmare, discursul rămâne în registrul procedural, primind scorul 0."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.95,\n  \"markers\": [\n    {\n      \"kind\": \"evil_elite\",\n      \"evidence\": {\n        \"text\": \"acolo știm că o decizie mai mică este pentru cei din opoziție, o decizie mai importantă – de exemplu, validarea alegerilor – este pentru ceilalți.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.65,\n      \"rationale_short\": \"Sugerează o politizare a Curții Constituționale, dar rămâne în registrul criticii instituționale partizane fără a invoca un cadru maniheist popor-vs-elită.\"\n    }\n  ],\n  \"rationale\": \"Discursul este unul procedural, axat pe alocări bugetare și critici privind procesul de amendare a legilor în Parlament. Deși vorbitorul exprimă nemulțumire față de modul în care Curtea Constituțională ia decizii, această critică este una de natură partizană și instituțională, nu una populistă. Nu există un cadru maniheist care să opună un popor omogen unei elite malefice, iar discursul nu invocă o criză existențială sau supremația voinței populare. Prin urmare, discursul rămâne în registrul procedural, primind scorul 0.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13661,
+      "tokens_in_breakdown": {
+        "fresh": 13661,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 385,
+      "cost_usd": null,
+      "latency_ms": 2914,
+      "retries_used": 0
+    },
+    "voice": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "voice",
+      "speech_id": "mo://2010/II/5#agenda-1#act-308",
+      "output": {
+        "classifications": [
+          {
+            "marker_id": "m_0",
+            "voice": "speaker_first_person",
+            "voice_confidence": 0.95,
+            "voice_evidence": null,
+            "attributed_to": null,
+            "rationale_short": "Afirmație directă la persoana întâi; vorbitorul își asumă analiza politică a deciziilor Curții Constituționale fără a cita sau raporta o sursă externă."
+          }
+        ]
+      },
+      "raw_response": "{\n  \"classifications\": [\n    {\n      \"marker_id\": \"m_0\",\n      \"voice\": \"speaker_first_person\",\n      \"voice_confidence\": 0.95,\n      \"voice_evidence\": null,\n      \"attributed_to\": null,\n      \"rationale_short\": \"Afirmație directă la persoana întâi; vorbitorul își asumă analiza politică a deciziilor Curții Constituționale fără a cita sau raporta o sursă externă.\"\n    }\n  ]\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 11226,
+      "tokens_in_breakdown": {
+        "fresh": 11226,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 125,
+      "cost_usd": null,
+      "latency_ms": 1090,
+      "retries_used": 0
+    },
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2010/II/5#agenda-1#act-308",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.72,
+        "level_of_justification": 1,
+        "content_of_justification": "group_interest",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 1,
+            "evidence": {
+              "text": "Eu înțeleg că acelea admise a fost lege să nu treacă niciunul, dar poate din respinse luăm vreo două-trei."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Justificare bazată pe dorința de a obține amendamente, fără un raționament cauzal sau principial solid."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "group_interest",
+            "evidence": {
+              "text": "poate din respinse luăm vreo două-trei. Chiar ar fi o surpriză plăcută pentru noi."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.82,
+            "rationale_short": "Apelul vizează interesul grupului parlamentar propriu de a vedea amendamentele aprobate."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Stimați colegi"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.99,
+            "marker_confidence": 0.95,
+            "rationale_short": "Adresare convențională, neutră, fără derogări sau aprecieri explicite."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Haideți să vorbim cu Ministerul Finanțelor Publice să nu se întâmple ceea ce spuneam ieri."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.88,
+            "rationale_short": "Vorbitorul solicită o acțiune fără a angaja legitimitatea cererilor opoziției."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "Trec doar cele de la Curtea Constituțională, pentru că acolo știm că o decizie mai mică este pentru cei din opoziție"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.8,
+            "rationale_short": "Menționează argumente despre deciziile CCR fără a intra într-o dezbatere substanțială cu acestea."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "poate din respinse luăm vreo două-trei."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Poziție exprimată privind amendamentele, fără a oferi o alternativă sau o mediere concretă."
+          }
+        ],
+        "rationale": "Discursul este unul procedural și de negociere politică imediată, caracterizat printr-o calitate deliberativă limitată. Justificarea este de nivel 1, bazându-se pe dorința de a obține aprobarea unor amendamente respinse, cu un apel la interesul de grup (partidul propriu). Respectul pentru grupuri și cereri este neutru, iar angajamentul față de contraargumente este superficial, menționând deciziile CCR fără a le analiza critic. Discursul rămâne în sfera pozițională, fără a propune soluții alternative sau mecanisme de mediere. Calitatea deliberativă este scăzută, reflectând un stil de intervenție parlamentară axat pe tactică politică."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.72,\n  \"level_of_justification\": 1,\n  \"content_of_justification\": \"group_interest\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Eu înțeleg că acelea admise a fost lege să nu treacă niciunul, dar poate din respinse luăm vreo două-trei.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Justificare bazată pe dorința de a obține amendamente, fără un raționament cauzal sau principial solid.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"group_interest\",\n      \"evidence\": {\n        \"text\": \"poate din respinse luăm vreo două-trei. Chiar ar fi o surpriză plăcută pentru noi.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.82,\n      \"rationale_short\": \"Apelul vizează interesul grupului parlamentar propriu de a vedea amendamentele aprobate.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Stimați colegi\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.99,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Adresare convențională, neutră, fără derogări sau aprecieri explicite.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Haideți să vorbim cu Ministerul Finanțelor Publice să nu se întâmple ceea ce spuneam ieri.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Vorbitorul solicită o acțiune fără a angaja legitimitatea cererilor opoziției.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Trec doar cele de la Curtea Constituțională, pentru că acolo știm că o decizie mai mică este pentru cei din opoziție\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.80,\n      \"rationale_short\": \"Menționează argumente despre deciziile CCR fără a intra într-o dezbatere substanțială cu acestea.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"poate din respinse luăm vreo două-trei.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.90,\n      \"rationale_short\": \"Poziție exprimată privind amendamentele, fără a oferi o alternativă sau o mediere concretă.\"\n    }\n  ],\n  \"rationale\": \"Discursul este unul procedural și de negociere politică imediată, caracterizat printr-o calitate deliberativă limitată. Justificarea este de nivel 1, bazându-se pe dorința de a obține aprobarea unor amendamente respinse, cu un apel la interesul de grup (partidul propriu). Respectul pentru grupuri și cereri este neutru, iar angajamentul față de contraargumente este superficial, menționând deciziile CCR fără a le analiza critic. Discursul rămâne în sfera pozițională, fără a propune soluții alternative sau mecanisme de mediere. Calitatea deliberativă este scăzută, reflectând un stil de intervenție parlamentară axat pe tactică politică.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12462,
+      "tokens_in_breakdown": {
+        "fresh": 12462,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1173,
+      "cost_usd": null,
+      "latency_ms": 4497,
+      "retries_used": 0
+    }
+  }
+}

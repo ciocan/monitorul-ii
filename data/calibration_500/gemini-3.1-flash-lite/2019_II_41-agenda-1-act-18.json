@@ -1,0 +1,152 @@
+{
+  "speech_id": "mo://2019/II/41#agenda-1#act-18",
+  "tier": "calibration",
+  "speaker": {
+    "id": "francisc-marton-arpad",
+    "name": "Márton Árpád Francisc",
+    "raw": "Domnul Márton Árpád Francisc",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2019-03-25",
+    "year": 2019,
+    "legislature": "VIII",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2019/II/41#agenda-1#act-18",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul este unul tehnic și procedural, axat pe interpretarea juridică a Rezoluțiunii de la Alba Iulia din 1918 și transpunerea acesteia în legislația actuală. Vorbitorul utilizează termeni precum „popor” sau „valori democratice” în contextul istoric și constituțional, fără a construi un cadru maniheist popor-vs-elită sau a invoca o voință populară omogenă care să prevaleze asupra instituțiilor. Nu există nicio urmă de populism în sensul rubricii Hawkins; discursul rămâne în registrul dezbaterii legislative și al argumentării juridice."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul este unul tehnic și procedural, axat pe interpretarea juridică a Rezoluțiunii de la Alba Iulia din 1918 și transpunerea acesteia în legislația actuală. Vorbitorul utilizează termeni precum „popor” sau „valori democratice” în contextul istoric și constituțional, fără a construi un cadru maniheist popor-vs-elită sau a invoca o voință populară omogenă care să prevaleze asupra instituțiilor. Nu există nicio urmă de populism în sensul rubricii Hawkins; discursul rămâne în registrul dezbaterii legislative și al argumentării juridice.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 14179,
+      "tokens_in_breakdown": {
+        "fresh": 14179,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 215,
+      "cost_usd": null,
+      "latency_ms": 2627,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2019/II/41#agenda-1#act-18",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.85,
+        "level_of_justification": 2,
+        "content_of_justification": "mixed",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "alternative_proposal",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "Și facem trimitere concretă la Regulamentul Consiliului Europei 1.059 din 2003, mai exact la alin. (10) din preambul, respectiv alin. (6) din art. 3."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Vorbitorul oferă o justificare calificată prin trimiterea la surse externe specifice (Regulamentul CE 1.059/2003)."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "mixed",
+            "evidence": {
+              "text": "popor conlocuitor înseamnă minoritățile naționale tradiționale, istorice"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.88,
+            "rationale_short": "Justificarea îmbină apelul la valori democratice universale cu interesele specifice ale minorităților naționale."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Doamnelor și domnilor deputați"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.99,
+            "marker_confidence": 0.95,
+            "rationale_short": "Adresare formală standard; nu există derogări sau recunoașteri explicite ale legitimității out-group-urilor."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Inițiativa noastră își propune doar transpunerea acestei părți din rezoluțiune"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.96,
+            "marker_confidence": 0.85,
+            "rationale_short": "Vorbitorul se concentrează pe propria inițiativă fără a angaja explicit cererile opoziției."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "nicidecum părțile tranzitorii la care unii fac trimitere"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.82,
+            "rationale_short": "Menționează existența unor critici („la care unii fac trimitere”) fără a le angaja substanțial."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "alternative_proposal",
+            "evidence": {
+              "text": "Ce propunem noi? Preluarea textului din rezoluțiune."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.94,
+            "rationale_short": "Vorbitorul prezintă o propunere legislativă concretă ca alternativă la cadrul actual."
+          }
+        ],
+        "rationale": "Discursul prezintă o calitate deliberativă medie-ridicată, caracterizată printr-o justificare calificată (level_of_justification=2) care utilizează surse externe (Regulamentul CE 1.059/2003) pentru a fundamenta propunerea. Conținutul justificării este mixt, apelând atât la principii democratice generale, cât și la interesele specifice ale minorităților. Deși vorbitorul este constructiv prin oferirea unei alternative legislative (constructive_politics=alternative_proposal), respectul pentru cererile și contraargumentele opoziției rămâne la un nivel neutru (1), menționând criticile doar tangențial fără a le combate substanțial. Respectul pentru grupuri este de asemenea neutru, limitându-se la convenții parlamentare. Profilul este unul de prezentare tehnică a unei inițiative, cu un grad rezonabil de argumentare, dar cu un angajament deliberativ limitat față de opoziție."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.85,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"mixed\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"alternative_proposal\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"Și facem trimitere concretă la Regulamentul Consiliului Europei 1.059 din 2003, mai exact la alin. (10) din preambul, respectiv alin. (6) din art. 3.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Vorbitorul oferă o justificare calificată prin trimiterea la surse externe specifice (Regulamentul CE 1.059/2003).\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"mixed\",\n      \"evidence\": {\n        \"text\": \"popor conlocuitor înseamnă minoritățile naționale tradiționale, istorice\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Justificarea îmbină apelul la valori democratice universale cu interesele specifice ale minorităților naționale.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Doamnelor și domnilor deputați\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.99,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Adresare formală standard; nu există derogări sau recunoașteri explicite ale legitimității out-group-urilor.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Inițiativa noastră își propune doar transpunerea acestei părți din rezoluțiune\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.96,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Vorbitorul se concentrează pe propria inițiativă fără a angaja explicit cererile opoziției.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"nicidecum părțile tranzitorii la care unii fac trimitere\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.82,\n      \"rationale_short\": \"Menționează existența unor critici („la care unii fac trimitere”) fără a le angaja substanțial.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"alternative_proposal\",\n      \"evidence\": {\n        \"text\": \"Ce propunem noi? Preluarea textului din rezoluțiune.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.94,\n      \"rationale_short\": \"Vorbitorul prezintă o propunere legislativă concretă ca alternativă la cadrul actual.\"\n    }\n  ],\n  \"rationale\": \"Discursul prezintă o calitate deliberativă medie-ridicată, caracterizată printr-o justificare calificată (level_of_justification=2) care utilizează surse externe (Regulamentul CE 1.059/2003) pentru a fundamenta propunerea. Conținutul justificării este mixt, apelând atât la principii democratice generale, cât și la interesele specifice ale minorităților. Deși vorbitorul este constructiv prin oferirea unei alternative legislative (constructive_politics=alternative_proposal), respectul pentru cererile și contraargumentele opoziției rămâne la un nivel neutru (1), menționând criticile doar tangențial fără a le combate substanțial. Respectul pentru grupuri este de asemenea neutru, limitându-se la convenții parlamentare. Profilul este unul de prezentare tehnică a unei inițiative, cu un grad rezonabil de argumentare, dar cu un angajament deliberativ limitat față de opoziție.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [
+        "Ce propunem noi? Preluarea textului din rezoluțiune."
+      ],
+      "parse_repaired": false,
+      "tokens_in": 12980,
+      "tokens_in_breakdown": {
+        "fresh": 12980,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1260,
+      "cost_usd": null,
+      "latency_ms": 4936,
+      "retries_used": 0
+    }
+  }
+}

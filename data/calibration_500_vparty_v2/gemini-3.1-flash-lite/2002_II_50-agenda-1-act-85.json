@@ -1,0 +1,52 @@
+{
+  "speech_id": "mo://2002/II/50#agenda-1#act-85",
+  "tier": "calibration",
+  "speaker": {
+    "id": "vacaroiu-nicolae",
+    "name": "Nicolae Vãcãroiu",
+    "raw": "Domnul Nicolae Vãcãroiu",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": null,
+    "year": 2002,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": null,
+    "voice": null,
+    "dqi": null,
+    "vparty": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "vparty",
+      "speech_id": "mo://2002/II/50#agenda-1#act-85",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "vparty@2020 + vdem-attacks-on@v13",
+        "framework_confidence": 1.0,
+        "markers": [],
+        "rationale": "Discursul este unul pur procedural, axat pe gestionarea voturilor în cadrul unei comisii de mediere parlamentare. Vorbitorul se limitează la a anunța rezultatele voturilor și a solicita votul colegilor pentru diverse texte legislative, fără a exprima nicio opinie politică sau a ataca vreo instituție democratică. Nu există nicio urmă de delegitimizare a opoziției, justiției, presei, societății civile sau a normelor democratice. Este un exemplu clasic de discurs parlamentar tehnic, care respectă pe deplin cadrul pluralist."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"vparty@2020 + vdem-attacks-on@v13\",\n  \"framework_confidence\": 1.0,\n  \"markers\": [],\n  \"rationale\": \"Discursul este unul pur procedural, axat pe gestionarea voturilor în cadrul unei comisii de mediere parlamentare. Vorbitorul se limitează la a anunța rezultatele voturilor și a solicita votul colegilor pentru diverse texte legislative, fără a exprima nicio opinie politică sau a ataca vreo instituție democratică. Nu există nicio urmă de delegitimizare a opoziției, justiției, presei, societății civile sau a normelor democratice. Este un exemplu clasic de discurs parlamentar tehnic, care respectă pe deplin cadrul pluralist.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13159,
+      "tokens_in_breakdown": {
+        "fresh": 13159,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 208,
+      "cost_usd": null,
+      "latency_ms": 2985,
+      "retries_used": 0
+    }
+  }
+}

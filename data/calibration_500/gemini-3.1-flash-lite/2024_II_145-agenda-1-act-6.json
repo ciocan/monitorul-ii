@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2024/II/145#agenda-1#act-6",
+  "tier": "calibration",
+  "speaker": {
+    "id": "suciu-daniel-vasile",
+    "name": "Vasile-Daniel Suciu",
+    "raw": "Domnul Vasile-Daniel Suciu",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2024-12-16",
+    "year": 2024,
+    "legislature": "IX",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2024/II/145#agenda-1#act-6",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 1.0,
+        "markers": [],
+        "rationale": "Discursul este pur procedural, limitându-se la anunțarea ordinii de zi, a procedurilor legislative și la invitarea vorbitorilor la tribună. Nu există nicio urmă de cadru populist, maniheism moral sau invocare a unei voințe populare omogene. Limbajul este strict tehnic și administrativ, specific activității parlamentare curente. Hawkins=0 cu încredere maximă."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 1.0,\n  \"markers\": [],\n  \"rationale\": \"Discursul este pur procedural, limitându-se la anunțarea ordinii de zi, a procedurilor legislative și la invitarea vorbitorilor la tribună. Nu există nicio urmă de cadru populist, maniheism moral sau invocare a unei voințe populare omogene. Limbajul este strict tehnic și administrativ, specific activității parlamentare curente. Hawkins=0 cu încredere maximă.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13727,
+      "tokens_in_breakdown": {
+        "fresh": 13727,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 158,
+      "cost_usd": null,
+      "latency_ms": 1812,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2024/II/145#agenda-1#act-6",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.45,
+        "level_of_justification": 0,
+        "content_of_justification": "none",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 0,
+            "evidence": {
+              "text": "Programul de lucru a fost aprobat."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.95,
+            "rationale_short": "Discurs pur procedural, fără argumentație sau justificare."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "none",
+            "evidence": {
+              "text": "Programul de lucru a fost aprobat."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.95,
+            "rationale_short": "Nicio justificare oferită; conținut nedefinit."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "domnului deputat Eugen Bejinariu"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.9,
+            "rationale_short": "Referință neutră, procedurală la un coleg."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Dacă din partea inițiatorilor dorește cineva să ia cuvântul?"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.9,
+            "rationale_short": "Întrebare procedurală neutră, fără angajament cu cereri."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "Programul de lucru a fost aprobat."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.9,
+            "rationale_short": "Absența oricărui contraargument; discurs pur administrativ."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "propunerea legislativă urmează a fi dezbătută în procedură de urgență."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.9,
+            "rationale_short": "Enunț procedural, nu o propunere politică alternativă."
+          }
+        ],
+        "rationale": "Acest fragment reprezintă un discurs pur procedural de deschidere a ședinței, fără conținut deliberativ. Vorbitorul se limitează la anunțarea ordinii de zi și la gestionarea timpilor de dezbatere, ceea ce face ca toate dimensiunile DQI să fie fie neutre, fie absente. Nu există justificare, angajament cu contraargumente sau propuneri politice alternative. Din cauza naturii strict administrative a textului, framework_confidence este scăzut, reflectând faptul că DQI nu este instrumentul adecvat pentru a evalua acest tip de intervenție."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.45,\n  \"level_of_justification\": 0,\n  \"content_of_justification\": \"none\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 0,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"Programul de lucru a fost aprobat.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Discurs pur procedural, fără argumentație sau justificare.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"none\",\n      \"evidence\": {\n        \"text\": \"Programul de lucru a fost aprobat.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Nicio justificare oferită; conținut nedefinit.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"domnului deputat Eugen Bejinariu\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Referință neutră, procedurală la un coleg.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Dacă din partea inițiatorilor dorește cineva să ia cuvântul?\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Întrebare procedurală neutră, fără angajament cu cereri.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"Programul de lucru a fost aprobat.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Absența oricărui contraargument; discurs pur administrativ.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"propunerea legislativă urmează a fi dezbătută în procedură de urgență.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Enunț procedural, nu o propunere politică alternativă.\"\n    }\n  ],\n  \"rationale\": \"Acest fragment reprezintă un discurs pur procedural de deschidere a ședinței, fără conținut deliberativ. Vorbitorul se limitează la anunțarea ordinii de zi și la gestionarea timpilor de dezbatere, ceea ce face ca toate dimensiunile DQI să fie fie neutre, fie absente. Nu există justificare, angajament cu contraargumente sau propuneri politice alternative. Din cauza naturii strict administrative a textului, framework_confidence este scăzut, reflectând faptul că DQI nu este instrumentul adecvat pentru a evalua acest tip de intervenție.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12528,
+      "tokens_in_breakdown": {
+        "fresh": 12528,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1008,
+      "cost_usd": null,
+      "latency_ms": 3953,
+      "retries_used": 0
+    }
+  }
+}

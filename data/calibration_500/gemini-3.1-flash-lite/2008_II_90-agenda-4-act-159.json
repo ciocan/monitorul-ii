@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2008/II/90#agenda-4#act-159",
+  "tier": "calibration",
+  "speaker": {
+    "id": "olteanu-bogdan",
+    "name": "Bogdan Olteanu",
+    "raw": "Domnul Bogdan Olteanu",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2008-09-30",
+    "year": 2008,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2008/II/90#agenda-4#act-159",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul secretarului de stat este unul pur tehnic, axat pe modificări legislative specifice (art. 2, art. 7, art. 9) privind organizarea centrelor de permanență și finanțarea acestora. Deși menționează „dreptul elementar al omului” la asistență medicală, acesta este utilizat în contextul unei justificări administrative pentru schimbarea sursei de finanțare, nu ca un apel populist la o voință populară suverană împotriva instituțiilor. Nu există nicio structură maniheistă, nicio invocare a unei elite malefice sau a unui popor omogen în opoziție cu sistemul. Discursul rămâne în registrul procedural și administrativ, primind astfel scorul 0."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul secretarului de stat este unul pur tehnic, axat pe modificări legislative specifice (art. 2, art. 7, art. 9) privind organizarea centrelor de permanență și finanțarea acestora. Deși menționează „dreptul elementar al omului” la asistență medicală, acesta este utilizat în contextul unei justificări administrative pentru schimbarea sursei de finanțare, nu ca un apel populist la o voință populară suverană împotriva instituțiilor. Nu există nicio structură maniheistă, nicio invocare a unei elite malefice sau a unui popor omogen în opoziție cu sistemul. Discursul rămâne în registrul procedural și administrativ, primind astfel scorul 0.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 14380,
+      "tokens_in_breakdown": {
+        "fresh": 14380,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 244,
+      "cost_usd": null,
+      "latency_ms": 2076,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2008/II/90#agenda-4#act-159",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.92,
+        "level_of_justification": 2,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "majoritatea pacienților, mai ales în mediul rural, erau netransportabili sau nu se puteau deplasa la medic și au rămas fără asistență medicală."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Vorbitorul oferă un mecanism cauzal clar pentru necesitatea modificării, bazat pe realitatea accesului la servicii medicale în mediul rural."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "dreptul la asistență medicală de urgență este un drept elementar al omului și nu trebuie să beneficieze de acest drept doar cei care au plătit contribuția la asigurările sociale de stat."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.96,
+            "rationale_short": "Justificarea se ancorează în principiul universal al drepturilor omului, dincolo de interesele de grup sau financiare."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "medici de medicină generală"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Referință funcțională la categoria profesională a medicilor; ton neutru."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Prin acest act normativ propunem câteva modificări importante"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.91,
+            "rationale_short": "Vorbitorul își prezintă propunerea fără a aborda explicit cereri adverse; non-angajament."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "am considerat că dreptul la asistență medicală de urgență este un drept elementar al omului și nu trebuie să beneficieze de acest drept doar cei care au plătit contribuția"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.93,
+            "rationale_short": "Menționează implicit o logică contrară (finanțarea prin CNAS) pentru a o respinge, dar fără a cita un argument specific al opoziției."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Pentru aceste motive, vă rugăm să aprobați această ordonanță a Guvernului."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.94,
+            "rationale_short": "Vorbitorul susține propunerea Guvernului; nu oferă o alternativă sau mediere, ci argumentează pentru adoptarea textului."
+          }
+        ],
+        "rationale": "Discursul secretarului de stat prezintă o justificare calificată (level_of_justification=2) prin explicarea mecanismului cauzal al ineficienței sistemului actual în mediul rural. Apelul la binele comun (content_of_justification=common_good) este clar, invocând drepturile fundamentale ale omului. Respectul pentru grupuri și cereri este neutru (1), deoarece vorbitorul se concentrează pe expunerea tehnică a proiectului fără a angaja direct opoziția. Deși menționează implicit o logică contrară privind finanțarea, nu există un angajament substanțial cu contraargumente specifice (respect_for_counterarguments=1). Discursul este pozițional, susținând adoptarea ordonanței, fără a propune alternative sau medieri. Calitatea deliberativă este solidă pentru un discurs de prezentare a unui proiect guvernamental."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.92,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"majoritatea pacienților, mai ales în mediul rural, erau netransportabili sau nu se puteau deplasa la medic și au rămas fără asistență medicală.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Vorbitorul oferă un mecanism cauzal clar pentru necesitatea modificării, bazat pe realitatea accesului la servicii medicale în mediul rural.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"dreptul la asistență medicală de urgență este un drept elementar al omului și nu trebuie să beneficieze de acest drept doar cei care au plătit contribuția la asigurările sociale de stat.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.96,\n      \"rationale_short\": \"Justificarea se ancorează în principiul universal al drepturilor omului, dincolo de interesele de grup sau financiare.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"medici de medicină generală\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Referință funcțională la categoria profesională a medicilor; ton neutru.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Prin acest act normativ propunem câteva modificări importante\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.91,\n      \"rationale_short\": \"Vorbitorul își prezintă propunerea fără a aborda explicit cereri adverse; non-angajament.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"am considerat că dreptul la asistență medicală de urgență este un drept elementar al omului și nu trebuie să beneficieze de acest drept doar cei care au plătit contribuția\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.93,\n      \"rationale_short\": \"Menționează implicit o logică contrară (finanțarea prin CNAS) pentru a o respinge, dar fără a cita un argument specific al opoziției.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"Pentru aceste motive, vă rugăm să aprobați această ordonanță a Guvernului.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.94,\n      \"rationale_short\": \"Vorbitorul susține propunerea Guvernului; nu oferă o alternativă sau mediere, ci argumentează pentru adoptarea textului.\"\n    }\n  ],\n  \"rationale\": \"Discursul secretarului de stat prezintă o justificare calificată (level_of_justification=2) prin explicarea mecanismului cauzal al ineficienței sistemului actual în mediul rural. Apelul la binele comun (content_of_justification=common_good) este clar, invocând drepturile fundamentale ale omului. Respectul pentru grupuri și cereri este neutru (1), deoarece vorbitorul se concentrează pe expunerea tehnică a proiectului fără a angaja direct opoziția. Deși menționează implicit o logică contrară privind finanțarea, nu există un angajament substanțial cu contraargumente specifice (respect_for_counterarguments=1). Discursul este pozițional, susținând adoptarea ordonanței, fără a propune alternative sau medieri. Calitatea deliberativă este solidă pentru un discurs de prezentare a unui proiect guvernamental.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13181,
+      "tokens_in_breakdown": {
+        "fresh": 13181,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1279,
+      "cost_usd": null,
+      "latency_ms": 4537,
+      "retries_used": 0
+    }
+  }
+}

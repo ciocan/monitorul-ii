@@ -1,0 +1,52 @@
+{
+  "speech_id": "mo://2018/II/142#agenda-1#act-260",
+  "tier": "calibration",
+  "speaker": {
+    "id": "borza-remus-adrian",
+    "name": "Remus Adrian Borza",
+    "raw": "Domnul Remus Adrian Borza",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2018-10-03",
+    "year": 2018,
+    "legislature": "VIII",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": null,
+    "voice": null,
+    "dqi": null,
+    "vparty": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "vparty",
+      "speech_id": "mo://2018/II/142#agenda-1#act-260",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "vparty@2020 + vdem-attacks-on@v13",
+        "framework_confidence": 0.95,
+        "markers": [],
+        "rationale": "Discursul este o critică tehnică și politică a execuției bugetare și a eficienței administrative a ANAF. Deși vorbitorul folosește un limbaj critic și colorat la adresa ANAF (numind-o „instituție anacronică” și criticând managementul defectuos), aceasta este o agenție administrativă, nu o instituție judiciară, deci nu se încadrează în markerul judiciary_attack. Critica la adresa corupției este formulată ca o dezbatere despre prioritățile de securitate națională, nu ca o delegitimizare a instituțiilor democratice. Nu există atacuri la adresa opoziției, presei, minorităților sau a normelor democratice. Discursul rămâne în limitele criticii parlamentare legitime."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"vparty@2020 + vdem-attacks-on@v13\",\n  \"framework_confidence\": 0.95,\n  \"markers\": [],\n  \"rationale\": \"Discursul este o critică tehnică și politică a execuției bugetare și a eficienței administrative a ANAF. Deși vorbitorul folosește un limbaj critic și colorat la adresa ANAF (numind-o „instituție anacronică” și criticând managementul defectuos), aceasta este o agenție administrativă, nu o instituție judiciară, deci nu se încadrează în markerul judiciary_attack. Critica la adresa corupției este formulată ca o dezbatere despre prioritățile de securitate națională, nu ca o delegitimizare a instituțiilor democratice. Nu există atacuri la adresa opoziției, presei, minorităților sau a normelor democratice. Discursul rămâne în limitele criticii parlamentare legitime.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13509,
+      "tokens_in_breakdown": {
+        "fresh": 13509,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 259,
+      "cost_usd": null,
+      "latency_ms": 2211,
+      "retries_used": 0
+    }
+  }
+}

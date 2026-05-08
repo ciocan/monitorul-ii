@@ -1,0 +1,52 @@
+{
+  "speech_id": "mo://2019/II/45#agenda-13#act-35",
+  "tier": "calibration",
+  "speaker": {
+    "id": "wiener-adrian",
+    "name": "Adrian Wiener",
+    "raw": "Domnul Adrian Wiener",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": "2019-03-25",
+    "year": 2019,
+    "legislature": "VIII",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": null,
+    "voice": null,
+    "dqi": null,
+    "vparty": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "vparty",
+      "speech_id": "mo://2019/II/45#agenda-13#act-35",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "vparty@2020 + vdem-attacks-on@v13",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul este unul de natură tehnică și legislativă, concentrat pe o propunere de reglementare a serviciilor medicale mobile. Vorbitorul critică raportul de respingere al comisiei, dar o face în termeni de logică parlamentară și procedură, fără a delegitima instituția Parlamentului sau a opoziției ca entități. Nu există nicio referire la atacuri asupra justiției, presei, ONG-urilor, minorităților sau a normelor democratice. Discursul rămâne în limitele dezbaterii democratice legitime."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"vparty@2020 + vdem-attacks-on@v13\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul este unul de natură tehnică și legislativă, concentrat pe o propunere de reglementare a serviciilor medicale mobile. Vorbitorul critică raportul de respingere al comisiei, dar o face în termeni de logică parlamentară și procedură, fără a delegitima instituția Parlamentului sau a opoziției ca entități. Nu există nicio referire la atacuri asupra justiției, presei, ONG-urilor, minorităților sau a normelor democratice. Discursul rămâne în limitele dezbaterii democratice legitime.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13177,
+      "tokens_in_breakdown": {
+        "fresh": 13177,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 210,
+      "cost_usd": null,
+      "latency_ms": 1722,
+      "retries_used": 0
+    }
+  }
+}

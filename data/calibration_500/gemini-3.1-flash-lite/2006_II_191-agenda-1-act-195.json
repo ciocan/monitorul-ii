@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2006/II/191#agenda-1#act-195",
+  "tier": "calibration",
+  "speaker": {
+    "id": "moisoiu-adrian",
+    "name": "Adrian Moisoiu",
+    "raw": "Domnul Adrian Moisoiu",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": null,
+    "year": 2006,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2006/II/191#agenda-1#act-195",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul este unul pur procedural, axat pe alocarea bugetară pentru lăcașurile de cult și pe o observație personală privind starea bisericii din Densuș. Nu există nicio tentativă de a construi un cadru maniheist popor-vs-elită, nicio invocare a unei voințe populare omogene și nicio retorică populistă. Vorbitorul se limitează la o intervenție administrativă și la o constatare factuală, fără a politiza subiectul în termeni populiști. Hawkins=0 cu încredere ridicată."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul este unul pur procedural, axat pe alocarea bugetară pentru lăcașurile de cult și pe o observație personală privind starea bisericii din Densuș. Nu există nicio tentativă de a construi un cadru maniheist popor-vs-elită, nicio invocare a unei voințe populare omogene și nicio retorică populistă. Vorbitorul se limitează la o intervenție administrativă și la o constatare factuală, fără a politiza subiectul în termeni populiști. Hawkins=0 cu încredere ridicată.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13803,
+      "tokens_in_breakdown": {
+        "fresh": 13803,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 200,
+      "cost_usd": null,
+      "latency_ms": 1900,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2006/II/191#agenda-1#act-195",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.82,
+        "level_of_justification": 2,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "alternative_proposal",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "nu toat„ lumea este membr„ a Comisiei pentru buget, finan˛e ∫i b„nci, motiv pentru care o serie Óntreag„ de l„ca∫uri de cult au r„mas Ón afara acestei liste"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Vorbitorul oferă un motiv cauzal specific pentru inechitatea listei: lipsa reprezentării tuturor zonelor în comisia de buget."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "cred c„ este nedrept, din acest punct de vedere, ca unele s„ primeasc„ pentru c„ au avut prioritate ∫i au avut informarea necesar„, iar altele nu ajung s„ primeasc„ ∫i ele un sprijin"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.89,
+            "rationale_short": "Apelul la echitate și distribuție egală a sprijinului pentru lăcașurile de cult vizează un principiu de bine comun."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "domnul secretar de stat Onisei"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.85,
+            "rationale_short": "Referință neutră la un oficial guvernamental; nicio derogare sau respect explicit."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Eu cred c„ ar trebui l„sat„ list„, a∫a cum a˛i spus ∫i dumneavoastr„"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.96,
+            "marker_confidence": 0.82,
+            "rationale_short": "Recunoaștere procedurală a propunerii anterioare fără angajament substanțial cu legitimitatea cererii."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "a∫a cum a˛i spus ∫i dumneavoastr„, Ón leg„tur„ cu l„ca∫urile de cult, ca s„ mai verific„m"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.96,
+            "marker_confidence": 0.8,
+            "rationale_short": "Menționează poziția anterioară pentru a sugera o verificare suplimentară, dar fără o dezbatere a raționamentului."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "alternative_proposal",
+            "evidence": {
+              "text": "Eu cred c„ ar trebui l„sat„ list„, a∫a cum a˛i spus ∫i dumneavoastr„, Ón leg„tur„ cu l„ca∫urile de cult, ca s„ mai verific„m, ∫i, eventual, s„ mai ad„ug„m ceva."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.91,
+            "rationale_short": "Propune o modificare concretă a procedurii (reverificarea și completarea listei) pentru a corecta inechitatea."
+          }
+        ],
+        "rationale": "Discursul prezintă o calitate deliberativă moderată, fiind centrat pe o problemă specifică de echitate procedurală. Vorbitorul oferă o justificare clară (level_of_justification=2) bazată pe lipsa reprezentării în comisia de buget, apelând la un principiu de echitate (common_good). Deși respectul pentru grupuri și cereri rămâne neutru (1), vorbitorul adoptă o postură constructivă (alternative_proposal) propunând o revizuire a listei pentru a include lăcașurile omise. Nu există un angajament substanțial cu contraargumente, ci mai degrabă o utilizare a poziției anterioare pentru a susține propria propunere de verificare. Profilul este unul de intervenție corectivă, bine argumentată, dar limitată la sfera procedurală."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.82,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"alternative_proposal\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"nu toat„ lumea este membr„ a Comisiei pentru buget, finan˛e ∫i b„nci, motiv pentru care o serie Óntreag„ de l„ca∫uri de cult au r„mas Ón afara acestei liste\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Vorbitorul oferă un motiv cauzal specific pentru inechitatea listei: lipsa reprezentării tuturor zonelor în comisia de buget.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"cred c„ este nedrept, din acest punct de vedere, ca unele s„ primeasc„ pentru c„ au avut prioritate ∫i au avut informarea necesar„, iar altele nu ajung s„ primeasc„ ∫i ele un sprijin\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"marker_confidence\": 0.89,\n      \"rationale_short\": \"Apelul la echitate și distribuție egală a sprijinului pentru lăcașurile de cult vizează un principiu de bine comun.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"domnul secretar de stat Onisei\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Referință neutră la un oficial guvernamental; nicio derogare sau respect explicit.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Eu cred c„ ar trebui l„sat„ list„, a∫a cum a˛i spus ∫i dumneavoastr„\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.96,\n      \"marker_confidence\": 0.82,\n      \"rationale_short\": \"Recunoaștere procedurală a propunerii anterioare fără angajament substanțial cu legitimitatea cererii.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"a∫a cum a˛i spus ∫i dumneavoastr„, Ón leg„tur„ cu l„ca∫urile de cult, ca s„ mai verific„m\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.96,\n      \"marker_confidence\": 0.80,\n      \"rationale_short\": \"Menționează poziția anterioară pentru a sugera o verificare suplimentară, dar fără o dezbatere a raționamentului.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"alternative_proposal\",\n      \"evidence\": {\n        \"text\": \"Eu cred c„ ar trebui l„sat„ list„, a∫a cum a˛i spus ∫i dumneavoastr„, Ón leg„tur„ cu l„ca∫urile de cult, ca s„ mai verific„m, ∫i, eventual, s„ mai ad„ug„m ceva.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"marker_confidence\": 0.91,\n      \"rationale_short\": \"Propune o modificare concretă a procedurii (reverificarea și completarea listei) pentru a corecta inechitatea.\"\n    }\n  ],\n  \"rationale\": \"Discursul prezintă o calitate deliberativă moderată, fiind centrat pe o problemă specifică de echitate procedurală. Vorbitorul oferă o justificare clară (level_of_justification=2) bazată pe lipsa reprezentării în comisia de buget, apelând la un principiu de echitate (common_good). Deși respectul pentru grupuri și cereri rămâne neutru (1), vorbitorul adoptă o postură constructivă (alternative_proposal) propunând o revizuire a listei pentru a include lăcașurile omise. Nu există un angajament substanțial cu contraargumente, ci mai degrabă o utilizare a poziției anterioare pentru a susține propria propunere de verificare. Profilul este unul de intervenție corectivă, bine argumentată, dar limitată la sfera procedurală.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12604,
+      "tokens_in_breakdown": {
+        "fresh": 12604,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1347,
+      "cost_usd": null,
+      "latency_ms": 5092,
+      "retries_used": 0
+    }
+  }
+}

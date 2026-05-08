@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2019/II/50#agenda-17#act-109",
+  "tier": "calibration",
+  "speaker": {
+    "id": "manda-iulian-claudiu",
+    "name": "Iulian Claudiu Manda",
+    "raw": "Domnul Iulian Claudiu Manda",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": "2019-04-01",
+    "year": 2019,
+    "legislature": "VIII",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2019/II/50#agenda-17#act-109",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 1.0,
+        "markers": [],
+        "rationale": "Discursul doamnei secretar de stat este pur procedural și tehnic, concentrându-se pe analiza juridică a unei propuneri legislative și pe compararea acesteia cu legislația în vigoare (art. 10 din Legea cetățeniei). Nu există nicio urmă de retorică populistă, maniheism sau invocare a unei voințe populare omogene. Discursul se încadrează strict în registrul administrativ-tehnocratic, motiv pentru care scorul este 0 cu încredere maximă."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 1.0,\n  \"markers\": [],\n  \"rationale\": \"Discursul doamnei secretar de stat este pur procedural și tehnic, concentrându-se pe analiza juridică a unei propuneri legislative și pe compararea acesteia cu legislația în vigoare (art. 10 din Legea cetățeniei). Nu există nicio urmă de retorică populistă, maniheism sau invocare a unei voințe populare omogene. Discursul se încadrează strict în registrul administrativ-tehnocratic, motiv pentru care scorul este 0 cu încredere maximă.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13762,
+      "tokens_in_breakdown": {
+        "fresh": 13762,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 188,
+      "cost_usd": null,
+      "latency_ms": 1876,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2019/II/50#agenda-17#act-109",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.92,
+        "level_of_justification": 2,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "reglementarea propusă dublează dispozițiile art. 10 din forma în vigoare a Legii cetățeniei române. Art. 10 reglementează toate situațiile în care cetățenia română poate fi redobândită."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Vorbitorul oferă o justificare bazată pe redundanța legislativă, citând articolul specific din legea în vigoare."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "reglementarea propusă dublează dispozițiile art. 10 din forma în vigoare a Legii cetățeniei române"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Apelul la coerența legislativă și evitarea suprapunerilor normative servește interesului general al ordinii de drept."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Inițiatorii propun reglementarea procedurii"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Referință neutră la inițiatori, fără conotații de respect sau dispreț."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "vă rugăm să respingeți această propunere legislativă"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Vorbitorul își susține poziția fără a angaja explicit legitimitatea cererii inițiatorilor."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "Inițiatorii propun reglementarea procedurii recuperării cetățeniei române, arătându-se în acest sens faptul că procedura recuperării cetățeniei române este o formă de reparație istorică."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Argumentul inițiatorilor este menționat, dar nu este supus unei analize critice sau unei respingeri substanțiale."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "vă rugăm să respingeți această propunere legislativă"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Vorbitorul adoptă o poziție clară de respingere fără a propune o alternativă sau o mediere."
+          }
+        ],
+        "rationale": "Discursul reprezentantului Guvernului este unul tehnic și concis, axat pe argumente juridice. Vorbitorul oferă o justificare calificată (level_of_justification=2) prin identificarea redundanței legislative față de art. 10 din Legea 21/1991, apelând la binele comun al clarității legislative. Respectul pentru grupuri și cereri este neutru, iar angajamentul față de argumentele inițiatorilor este minim (respect_for_counterarguments=1), limitându-se la o menționare a motivației acestora fără o dezbatere aprofundată. Poziția este clară și orientată spre respingerea proiectului, fără a oferi alternative constructive. Calitatea deliberativă este medie, reflectând rolul tehnic al secretarului de stat în cadrul procedurii parlamentare."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.92,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"reglementarea propusă dublează dispozițiile art. 10 din forma în vigoare a Legii cetățeniei române. Art. 10 reglementează toate situațiile în care cetățenia română poate fi redobândită.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Vorbitorul oferă o justificare bazată pe redundanța legislativă, citând articolul specific din legea în vigoare.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"reglementarea propusă dublează dispozițiile art. 10 din forma în vigoare a Legii cetățeniei române\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Apelul la coerența legislativă și evitarea suprapunerilor normative servește interesului general al ordinii de drept.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Inițiatorii propun reglementarea procedurii\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Referință neutră la inițiatori, fără conotații de respect sau dispreț.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"vă rugăm să respingeți această propunere legislativă\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.90,\n      \"rationale_short\": \"Vorbitorul își susține poziția fără a angaja explicit legitimitatea cererii inițiatorilor.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Inițiatorii propun reglementarea procedurii recuperării cetățeniei române, arătându-se în acest sens faptul că procedura recuperării cetățeniei române este o formă de reparație istorică.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.90,\n      \"rationale_short\": \"Argumentul inițiatorilor este menționat, dar nu este supus unei analize critice sau unei respingeri substanțiale.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"vă rugăm să respingeți această propunere legislativă\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Vorbitorul adoptă o poziție clară de respingere fără a propune o alternativă sau o mediere.\"\n    }\n  ],\n  \"rationale\": \"Discursul reprezentantului Guvernului este unul tehnic și concis, axat pe argumente juridice. Vorbitorul oferă o justificare calificată (level_of_justification=2) prin identificarea redundanței legislative față de art. 10 din Legea 21/1991, apelând la binele comun al clarității legislative. Respectul pentru grupuri și cereri este neutru, iar angajamentul față de argumentele inițiatorilor este minim (respect_for_counterarguments=1), limitându-se la o menționare a motivației acestora fără o dezbatere aprofundată. Poziția este clară și orientată spre respingerea proiectului, fără a oferi alternative constructive. Calitatea deliberativă este medie, reflectând rolul tehnic al secretarului de stat în cadrul procedurii parlamentare.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12563,
+      "tokens_in_breakdown": {
+        "fresh": 12563,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1267,
+      "cost_usd": null,
+      "latency_ms": 4886,
+      "retries_used": 0
+    }
+  }
+}

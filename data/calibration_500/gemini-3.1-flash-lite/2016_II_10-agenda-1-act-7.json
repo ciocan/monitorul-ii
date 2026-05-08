@@ -1,0 +1,152 @@
+{
+  "speech_id": "mo://2016/II/10#agenda-1#act-7",
+  "tier": "calibration",
+  "speaker": {
+    "id": "boboc-catalin",
+    "name": "Cătălin Boboc",
+    "raw": "Domnul Cătălin Boboc",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": "2016-02-08",
+    "year": 2016,
+    "legislature": "VII",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2016/II/10#agenda-1#act-7",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.95,
+        "markers": [],
+        "rationale": "Discursul este un demers pur procedural, axat pe funcționarea comisiilor parlamentare, raportarea activității acestora și interpretarea regulamentului Senatului. Deși vorbitorul menționează „voința majorității” și „plenul este suveran”, aceste referințe sunt utilizate în contextul tehnic al procedurilor parlamentare și al mecanismelor de vot, nu ca o invocare populistă a unei voințe populare mistice care ar trebui să ignore instituțiile. Nu există nicio urmă de maniheism moral, de cadru popor-vs-elită sau de invocare a unei crize existențiale. Discursul rămâne în limitele dezbaterii parlamentare convenționale."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.95,\n  \"markers\": [],\n  \"rationale\": \"Discursul este un demers pur procedural, axat pe funcționarea comisiilor parlamentare, raportarea activității acestora și interpretarea regulamentului Senatului. Deși vorbitorul menționează „voința majorității” și „plenul este suveran”, aceste referințe sunt utilizate în contextul tehnic al procedurilor parlamentare și al mecanismelor de vot, nu ca o invocare populistă a unei voințe populare mistice care ar trebui să ignore instituțiile. Nu există nicio urmă de maniheism moral, de cadru popor-vs-elită sau de invocare a unei crize existențiale. Discursul rămâne în limitele dezbaterii parlamentare convenționale.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 14102,
+      "tokens_in_breakdown": {
+        "fresh": 14102,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 231,
+      "cost_usd": null,
+      "latency_ms": 2232,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2016/II/10#agenda-1#act-7",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.82,
+        "level_of_justification": 2,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 2,
+        "constructive_politics": "alternative_proposal",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "S-a înființat în Parlamentul României Comisia comună de cod electoral a Camerei Deputaților și Senatului, care a avut niște obiective precise, printre care și elaborarea unei modificări la Legea privind alegerile locale. Și-a îndeplinit această funcție."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Vorbitorul oferă o justificare bazată pe mandatul specific al comisiei și stadiul îndeplinirii obiectivelor."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "procedura ar trebui să fie una pentru toți pentru că așa e ea, nu pentru că o votează o majoritate."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.89,
+            "rationale_short": "Apelul la corectitudinea procedurală universală indică o justificare orientată spre binele comun."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Stimați colegi, domnule senator"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.99,
+            "marker_confidence": 0.95,
+            "rationale_short": "Adresare formală standard; nu există derogări sau recunoașteri explicite de out-group."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "cerem un raport suplimentar de la administrație, juridică și constituționalitate"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.96,
+            "marker_confidence": 0.85,
+            "rationale_short": "Vorbitorul descrie cererea opoziției fără a o valida sau respinge explicit, menținând o postură neutră."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 2,
+            "evidence": {
+              "text": "nu aș vrea să-i ducem pe colegi în eroare. Și de ce nu spuneți foarte clar că este modalitatea pe care ați găsit-o – sigur, explicată frumos și chiar cu multe argumente, care stau în picioare, aș spune – ca să amânați această dezbatere?"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.91,
+            "rationale_short": "Vorbitorul identifică argumentul advers (necesitatea raportului) și îl confruntă cu o interpretare critică a intenției."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "alternative_proposal",
+            "evidence": {
+              "text": "Ceea ce noi propunem este un lucru simplu: haideți să votăm, pentru că, până la urmă, plenul este suveran."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.93,
+            "rationale_short": "Vorbitorul propune o alternativă concretă la amânarea procedurală: votul direct în plen."
+          }
+        ],
+        "rationale": "Discursul prezintă o calitate deliberativă medie-ridicată, caracterizată prin argumentație logică și o abordare constructivă. Vorbitorul justifică poziția sa prin referințe la mandatul comisiei și la principiul echității procedurale (level_of_justification=2, content=common_good). Deși respectul pentru grupuri rămâne neutru, vorbitorul demonstrează un angajament substanțial cu raționamentul opoziției, recunoscând validitatea argumentelor lor tehnice în timp ce le contestă scopul politic (respect_for_counterarguments=2). Propunerea de a trece direct la vot reprezintă o alternativă clară la amânarea solicitată de majoritate (constructive_politics=alternative_proposal). Discursul evită atacurile la persoană, menținând un ton parlamentar adecvat."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.82,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 2,\n  \"constructive_politics\": \"alternative_proposal\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"S-a înființat în Parlamentul României Comisia comună de cod electoral a Camerei Deputaților și Senatului, care a avut niște obiective precise, printre care și elaborarea unei modificări la Legea privind alegerile locale. Și-a îndeplinit această funcție.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Vorbitorul oferă o justificare bazată pe mandatul specific al comisiei și stadiul îndeplinirii obiectivelor.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"procedura ar trebui să fie una pentru toți pentru că așa e ea, nu pentru că o votează o majoritate.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"marker_confidence\": 0.89,\n      \"rationale_short\": \"Apelul la corectitudinea procedurală universală indică o justificare orientată spre binele comun.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Stimați colegi, domnule senator\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.99,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Adresare formală standard; nu există derogări sau recunoașteri explicite de out-group.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"cerem un raport suplimentar de la administrație, juridică și constituționalitate\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.96,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Vorbitorul descrie cererea opoziției fără a o valida sau respinge explicit, menținând o postură neutră.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"nu aș vrea să-i ducem pe colegi în eroare. Și de ce nu spuneți foarte clar că este modalitatea pe care ați găsit-o – sigur, explicată frumos și chiar cu multe argumente, care stau în picioare, aș spune – ca să amânați această dezbatere?\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"marker_confidence\": 0.91,\n      \"rationale_short\": \"Vorbitorul identifică argumentul advers (necesitatea raportului) și îl confruntă cu o interpretare critică a intenției.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"alternative_proposal\",\n      \"evidence\": {\n        \"text\": \"Ceea ce noi propunem este un lucru simplu: haideți să votăm, pentru că, până la urmă, plenul este suveran.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.93,\n      \"rationale_short\": \"Vorbitorul propune o alternativă concretă la amânarea procedurală: votul direct în plen.\"\n    }\n  ],\n  \"rationale\": \"Discursul prezintă o calitate deliberativă medie-ridicată, caracterizată prin argumentație logică și o abordare constructivă. Vorbitorul justifică poziția sa prin referințe la mandatul comisiei și la principiul echității procedurale (level_of_justification=2, content=common_good). Deși respectul pentru grupuri rămâne neutru, vorbitorul demonstrează un angajament substanțial cu raționamentul opoziției, recunoscând validitatea argumentelor lor tehnice în timp ce le contestă scopul politic (respect_for_counterarguments=2). Propunerea de a trece direct la vot reprezintă o alternativă clară la amânarea solicitată de majoritate (constructive_politics=alternative_proposal). Discursul evită atacurile la persoană, menținând un ton parlamentar adecvat.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [
+        "nu aș vrea să-i ducem pe colegi în eroare. Și de ce nu spuneți foarte clar că este modalitatea pe care ați găsit-o – sigur, explicată frumos și chiar cu multe argumente, care stau în picioare, aș spune – ca să amânați această dezbatere?"
+      ],
+      "parse_repaired": false,
+      "tokens_in": 12903,
+      "tokens_in_breakdown": {
+        "fresh": 12903,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1320,
+      "cost_usd": null,
+      "latency_ms": 4882,
+      "retries_used": 0
+    }
+  }
+}

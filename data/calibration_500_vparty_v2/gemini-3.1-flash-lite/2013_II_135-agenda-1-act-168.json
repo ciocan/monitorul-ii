@@ -1,0 +1,52 @@
+{
+  "speech_id": "mo://2013/II/135#agenda-1#act-168",
+  "tier": "calibration",
+  "speaker": {
+    "id": "alexe-irina",
+    "name": "Irina Alexe",
+    "raw": "Doamna Irina Alexe",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2013-10-29",
+    "year": 2013,
+    "legislature": "VII",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": null,
+    "voice": null,
+    "dqi": null,
+    "vparty": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "vparty",
+      "speech_id": "mo://2013/II/135#agenda-1#act-168",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "vparty@2020 + vdem-attacks-on@v13",
+        "framework_confidence": 1.0,
+        "markers": [],
+        "rationale": "Discursul este unul pur tehnic și procedural, axat pe reglementarea regimului juridic al apei grele și transferul de patrimoniu între entități administrative (Nuclearelectrica și Administrația Națională a Rezervelor de Stat). Nu există nicio referire la instituții democratice, opoziție, presă, societate civilă sau minorități, iar limbajul utilizat este specific activității parlamentare de rutină. Nu se identifică niciun marker de anti-pluralism, discursul fiind în întregime în registrul democratic-tehnocratic."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"vparty@2020 + vdem-attacks-on@v13\",\n  \"framework_confidence\": 1.0,\n  \"markers\": [],\n  \"rationale\": \"Discursul este unul pur tehnic și procedural, axat pe reglementarea regimului juridic al apei grele și transferul de patrimoniu între entități administrative (Nuclearelectrica și Administrația Națională a Rezervelor de Stat). Nu există nicio referire la instituții democratice, opoziție, presă, societate civilă sau minorități, iar limbajul utilizat este specific activității parlamentare de rutină. Nu se identifică niciun marker de anti-pluralism, discursul fiind în întregime în registrul democratic-tehnocratic.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13469,
+      "tokens_in_breakdown": {
+        "fresh": 13469,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 206,
+      "cost_usd": null,
+      "latency_ms": 1672,
+      "retries_used": 0
+    }
+  }
+}

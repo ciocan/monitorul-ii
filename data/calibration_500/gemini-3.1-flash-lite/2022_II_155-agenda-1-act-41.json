@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2022/II/155#agenda-1#act-41",
+  "tier": "calibration",
+  "speaker": {
+    "id": "mihail-radu",
+    "name": "Radu-Mihai Mihail",
+    "raw": "Domnul Radu-Mihai Mihail",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": "2022-11-21",
+    "year": 2022,
+    "legislature": "IX",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2022/II/155#agenda-1#act-41",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul este o intervenție procedurală strictă referitoare la interpretarea Regulamentului Senatului și a procedurii pentru plenul hibrid. Vorbitorul se concentrează pe aspecte tehnice, solicitând clarificări privind dreptul senatorilor de a susține amendamente, fără a invoca un cadru maniheist popor-vs-elită sau alte tropi populiste. Nu există nicio tentativă de a construi o viziune populistă, discursul rămânând în limitele dezbaterii parlamentare procedurale. Hawkins=0 cu încredere ridicată."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul este o intervenție procedurală strictă referitoare la interpretarea Regulamentului Senatului și a procedurii pentru plenul hibrid. Vorbitorul se concentrează pe aspecte tehnice, solicitând clarificări privind dreptul senatorilor de a susține amendamente, fără a invoca un cadru maniheist popor-vs-elită sau alte tropi populiste. Nu există nicio tentativă de a construi o viziune populistă, discursul rămânând în limitele dezbaterii parlamentare procedurale. Hawkins=0 cu încredere ridicată.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13646,
+      "tokens_in_breakdown": {
+        "fresh": 13646,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 202,
+      "cost_usd": null,
+      "latency_ms": 1919,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2022/II/155#agenda-1#act-41",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.85,
+        "level_of_justification": 2,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 2,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "Procedura nu poate să se substituie Regulamentului Senatului. Procedura aduce elemente suplimentare, face precizări."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Vorbitorul oferă un raționament logic bazat pe ierarhia normativă (Regulament vs. Procedură)."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "este o îngrădire gravă a dreptului senatorilor de a își susține amendamentele."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.88,
+            "rationale_short": "Apelul vizează drepturile procedurale ale senatorilor ca principiu general de funcționare a forului."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "doamna președintă"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.99,
+            "marker_confidence": 0.95,
+            "rationale_short": "Adresare formală neutră; niciun grup vizat pentru respect sau derogare."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Vă rog frumos, doamna președintă, dacă cumva ați descoperit în hotărârea pe care am votat-o privind plenul hibrid ceva care să spună că nu putem susține în plen, să ne indicați la ce articol."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Solicitare de clarificare procedurală; nu angajează legitimitatea unei cereri adverse."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 2,
+            "evidence": {
+              "text": "Vă rog frumos, doamna președintă, dacă cumva ați descoperit în hotărârea pe care am votat-o privind plenul hibrid ceva care să spună că nu putem susține în plen, să ne indicați la ce articol."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.89,
+            "rationale_short": "Vorbitorul provoacă argumentul implicit al președinției, cerând indicarea sursei normative pentru restricție."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "este o îngrădire gravă a dreptului senatorilor de a își susține amendamentele."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Vorbitorul își susține poziția privind drepturile procedurale fără a propune o alternativă sau mediere."
+          }
+        ],
+        "rationale": "Discursul prezintă o calitate deliberativă medie-ridicată, concentrată pe clarificarea normativă a procedurii parlamentare. Vorbitorul oferă o justificare calificată (level_of_justification=2) bazată pe distincția dintre Regulamentul Senatului și procedura hibridă, apelând la binele comun al drepturilor senatoriale. Respectul pentru contraargumente este ridicat (respect_for_counterarguments=2) prin provocarea directă a președinției de a indica baza legală a restricției. Totuși, discursul rămâne pozițional (constructive_politics=positional), nefiind oferită o soluție de compromis. Respectul pentru grupuri și cereri rămâne neutru, fiind o intervenție procedurală standard."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.85,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 2,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"Procedura nu poate să se substituie Regulamentului Senatului. Procedura aduce elemente suplimentare, face precizări.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Vorbitorul oferă un raționament logic bazat pe ierarhia normativă (Regulament vs. Procedură).\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"este o îngrădire gravă a dreptului senatorilor de a își susține amendamentele.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Apelul vizează drepturile procedurale ale senatorilor ca principiu general de funcționare a forului.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"doamna președintă\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.99,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Adresare formală neutră; niciun grup vizat pentru respect sau derogare.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Vă rog frumos, doamna președintă, dacă cumva ați descoperit în hotărârea pe care am votat-o privind plenul hibrid ceva care să spună că nu putem susține în plen, să ne indicați la ce articol.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Solicitare de clarificare procedurală; nu angajează legitimitatea unei cereri adverse.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"Vă rog frumos, doamna președintă, dacă cumva ați descoperit în hotărârea pe care am votat-o privind plenul hibrid ceva care să spună că nu putem susține în plen, să ne indicați la ce articol.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.89,\n      \"rationale_short\": \"Vorbitorul provoacă argumentul implicit al președinției, cerând indicarea sursei normative pentru restricție.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"este o îngrădire gravă a dreptului senatorilor de a își susține amendamentele.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Vorbitorul își susține poziția privind drepturile procedurale fără a propune o alternativă sau mediere.\"\n    }\n  ],\n  \"rationale\": \"Discursul prezintă o calitate deliberativă medie-ridicată, concentrată pe clarificarea normativă a procedurii parlamentare. Vorbitorul oferă o justificare calificată (level_of_justification=2) bazată pe distincția dintre Regulamentul Senatului și procedura hibridă, apelând la binele comun al drepturilor senatoriale. Respectul pentru contraargumente este ridicat (respect_for_counterarguments=2) prin provocarea directă a președinției de a indica baza legală a restricției. Totuși, discursul rămâne pozițional (constructive_politics=positional), nefiind oferită o soluție de compromis. Respectul pentru grupuri și cereri rămâne neutru, fiind o intervenție procedurală standard.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12447,
+      "tokens_in_breakdown": {
+        "fresh": 12447,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1245,
+      "cost_usd": null,
+      "latency_ms": 4833,
+      "retries_used": 0
+    }
+  }
+}

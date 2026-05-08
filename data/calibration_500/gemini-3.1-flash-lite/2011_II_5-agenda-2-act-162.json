@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2011/II/5#agenda-2#act-162",
+  "tier": "calibration",
+  "speaker": {
+    "id": "nicolaescu-gheorghe-eugen",
+    "name": "Gheorghe Eugen Nicolăescu",
+    "raw": "Domnul Gheorghe Eugen Nicolăescu",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2011-02-08",
+    "year": 2011,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2011/II/5#agenda-2#act-162",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul este o intervenție procedurală pură, axată pe ordinea de zi a ședinței și pe competențele formale ale unui coleg deputat. Nu există nicio referire la un cadru popor-vs-elită, nicio invocare a unei voințe populare omogene și niciun element de maniheism moral. Vorbitorul critică o eroare procedurală și lipsa de atenție a unui coleg, rămânând strict în registrul parlamentar convențional. Hawkins=0 cu încredere ridicată."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul este o intervenție procedurală pură, axată pe ordinea de zi a ședinței și pe competențele formale ale unui coleg deputat. Nu există nicio referire la un cadru popor-vs-elită, nicio invocare a unei voințe populare omogene și niciun element de maniheism moral. Vorbitorul critică o eroare procedurală și lipsa de atenție a unui coleg, rămânând strict în registrul parlamentar convențional. Hawkins=0 cu încredere ridicată.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13644,
+      "tokens_in_breakdown": {
+        "fresh": 13644,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 188,
+      "cost_usd": null,
+      "latency_ms": 1735,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2011/II/5#agenda-2#act-162",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.75,
+        "level_of_justification": 0,
+        "content_of_justification": "none",
+        "respect_for_groups": 1,
+        "respect_for_demands": 0,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 0,
+            "evidence": {
+              "text": "Ar trebui să vă gândiți bine ce spuneți!"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Discursul conține doar atacuri la persoană și instrucțiuni procedurale, fără nicio justificare a unei poziții politice."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "none",
+            "evidence": {
+              "text": "Ar trebui să vă gândiți bine ce spuneți!"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Nicio justificare oferită; conținutul justificării este nedefinit."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Domnule deputat Ioan Oltean"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.99,
+            "marker_confidence": 0.9,
+            "rationale_short": "Adresare formală neutră; nu există derogare explicită a unui grup, ci un conflict interpersonal."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 0,
+            "evidence": {
+              "text": "Cu toată vehemența pe care a manifestat-o de la acest microfon, o să-l invit să citească ordinea de zi"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Vorbitorul respinge implicit legitimitatea intervenției anterioare, reducând-o la o eroare de citire a ordinii de zi."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "până la urmă, că poate așa învață și dumnealui"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Vorbitorul ignoră complet argumentele substanțiale, folosind ironia pentru a discredita interlocutorul."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "o să-l invit să citească ordinea de zi"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Intervenția este pur procedurală și critică, fără a oferi o alternativă politică sau o mediere."
+          }
+        ],
+        "rationale": "Discursul este un atac procedural axat pe discreditarea interlocutorului, nu pe deliberare. Vorbitorul nu oferă nicio justificare pentru poziția sa (level_of_justification=0), limitându-se la a critica competența colegului său. Respectul pentru cererile și argumentele opoziției este absent (respect_for_demands=0, respect_for_counterarguments=0), fiind înlocuit de ironie și atacuri la persoană. Nu există nicio propunere constructivă, discursul fiind pur pozițional. Calitatea deliberativă este minimă, reflectând un schimb tensionat de natură procedurală."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.75,\n  \"level_of_justification\": 0,\n  \"content_of_justification\": \"none\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 0,\n  \"respect_for_counterarguments\": 0,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"Ar trebui să vă gândiți bine ce spuneți!\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Discursul conține doar atacuri la persoană și instrucțiuni procedurale, fără nicio justificare a unei poziții politice.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"none\",\n      \"evidence\": {\n        \"text\": \"Ar trebui să vă gândiți bine ce spuneți!\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Nicio justificare oferită; conținutul justificării este nedefinit.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Domnule deputat Ioan Oltean\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.99,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Adresare formală neutră; nu există derogare explicită a unui grup, ci un conflict interpersonal.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"Cu toată vehemența pe care a manifestat-o de la acest microfon, o să-l invit să citească ordinea de zi\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Vorbitorul respinge implicit legitimitatea intervenției anterioare, reducând-o la o eroare de citire a ordinii de zi.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"până la urmă, că poate așa învață și dumnealui\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Vorbitorul ignoră complet argumentele substanțiale, folosind ironia pentru a discredita interlocutorul.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"o să-l invit să citească ordinea de zi\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Intervenția este pur procedurală și critică, fără a oferi o alternativă politică sau o mediere.\"\n    }\n  ],\n  \"rationale\": \"Discursul este un atac procedural axat pe discreditarea interlocutorului, nu pe deliberare. Vorbitorul nu oferă nicio justificare pentru poziția sa (level_of_justification=0), limitându-se la a critica competența colegului său. Respectul pentru cererile și argumentele opoziției este absent (respect_for_demands=0, respect_for_counterarguments=0), fiind înlocuit de ironie și atacuri la persoană. Nu există nicio propunere constructivă, discursul fiind pur pozițional. Calitatea deliberativă este minimă, reflectând un schimb tensionat de natură procedurală.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12445,
+      "tokens_in_breakdown": {
+        "fresh": 12445,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1116,
+      "cost_usd": null,
+      "latency_ms": 3923,
+      "retries_used": 0
+    }
+  }
+}

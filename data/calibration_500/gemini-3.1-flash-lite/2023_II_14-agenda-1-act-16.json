@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2023/II/14#agenda-1#act-16",
+  "tier": "calibration",
+  "speaker": {
+    "id": "ciolacu-marcel",
+    "name": "Ion-Marcel Ciolacu",
+    "raw": "Domnul Ion-Marcel Ciolacu",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2023-02-06",
+    "year": 2023,
+    "legislature": "IX",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2023/II/14#agenda-1#act-16",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 1.0,
+        "markers": [],
+        "rationale": "Discursul reprezintă o intervenție pur procedurală de deschidere a ședinței Camerei Deputaților. Vorbitorul se limitează la citirea ordinii de zi, a programului de lucru și la informări administrative privind componența grupurilor parlamentare. Nu există nicio urmă de retorică populistă, cadru maniheist sau invocare a unei voințe populare în opoziție cu instituțiile. Discursul este un exemplu clasic de registru parlamentar tehnic, scorul 0 fiind cert."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 1.0,\n  \"markers\": [],\n  \"rationale\": \"Discursul reprezintă o intervenție pur procedurală de deschidere a ședinței Camerei Deputaților. Vorbitorul se limitează la citirea ordinii de zi, a programului de lucru și la informări administrative privind componența grupurilor parlamentare. Nu există nicio urmă de retorică populistă, cadru maniheist sau invocare a unei voințe populare în opoziție cu instituțiile. Discursul este un exemplu clasic de registru parlamentar tehnic, scorul 0 fiind cert.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13786,
+      "tokens_in_breakdown": {
+        "fresh": 13786,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 185,
+      "cost_usd": null,
+      "latency_ms": 1870,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2023/II/14#agenda-1#act-16",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.45,
+        "level_of_justification": 0,
+        "content_of_justification": "none",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 0,
+            "evidence": {
+              "text": "Declar deschisă ședința de astăzi a Camerei Deputaților"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Discurs pur procedural, fără argumentație sau justificare."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "none",
+            "evidence": {
+              "text": "Declar deschisă ședința"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Nicio justificare oferită; conținutul este nedefinit."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Doamnelor și domnilor deputați"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Adresare formală neutră; niciun grup vizat."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Vă prezint o informare din partea Grupului parlamentar AUR"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Informare neutră, fără angajament cu cereri politice."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "astăzi dezbatem moțiunea simplă"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Discursul nu conține angajament cu argumente opuse."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "astăzi dezbatem moțiunea simplă"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Intervenție procedurală, fără propuneri alternative."
+          }
+        ],
+        "rationale": "Acest fragment reprezintă un discurs pur procedural de deschidere a ședinței parlamentare, incluzând anunțuri administrative și informări de rutină. Deoarece discursul nu conține nicio formă de argumentație, justificare sau dezbatere, acesta nu poate fi evaluat prin prisma calității deliberative (DQI). Toate dimensiunile sunt setate la valorile implicite de bază, iar framework_confidence este scăzut pentru a reflecta natura non-deliberativă a textului. Nu există nicio încercare de a convinge sau de a angaja opoziția, ci doar îndeplinirea unor obligații regulamentare."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.45,\n  \"level_of_justification\": 0,\n  \"content_of_justification\": \"none\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 0,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"Declar deschisă ședința de astăzi a Camerei Deputaților\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Discurs pur procedural, fără argumentație sau justificare.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"none\",\n      \"evidence\": {\n        \"text\": \"Declar deschisă ședința\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Nicio justificare oferită; conținutul este nedefinit.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Doamnelor și domnilor deputați\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Adresare formală neutră; niciun grup vizat.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Vă prezint o informare din partea Grupului parlamentar AUR\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Informare neutră, fără angajament cu cereri politice.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"astăzi dezbatem moțiunea simplă\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Discursul nu conține angajament cu argumente opuse.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"astăzi dezbatem moțiunea simplă\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Intervenție procedurală, fără propuneri alternative.\"\n    }\n  ],\n  \"rationale\": \"Acest fragment reprezintă un discurs pur procedural de deschidere a ședinței parlamentare, incluzând anunțuri administrative și informări de rutină. Deoarece discursul nu conține nicio formă de argumentație, justificare sau dezbatere, acesta nu poate fi evaluat prin prisma calității deliberative (DQI). Toate dimensiunile sunt setate la valorile implicite de bază, iar framework_confidence este scăzut pentru a reflecta natura non-deliberativă a textului. Nu există nicio încercare de a convinge sau de a angaja opoziția, ci doar îndeplinirea unor obligații regulamentare.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12587,
+      "tokens_in_breakdown": {
+        "fresh": 12587,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1018,
+      "cost_usd": null,
+      "latency_ms": 4066,
+      "retries_used": 0
+    }
+  }
+}

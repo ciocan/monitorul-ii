@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2011/II/105#agenda-1#act-127",
+  "tier": "calibration",
+  "speaker": {
+    "id": "dusa-mircea",
+    "name": "Mircea Dușa",
+    "raw": "Domnul Mircea Dușa",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2011-09-27",
+    "year": 2011,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2011/II/105#agenda-1#act-127",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.95,
+        "markers": [],
+        "rationale": "Discursul se concentrează pe o dispută procedurală și legală privind un raport și votul în comisiile parlamentare. Deși tonul este combativ și acuzator („Vă jucați cu legea!”, „îi avertizez pe domnii care candidează”), acesta rămâne ancorat în proceduri parlamentare și consecințe juridice, fără a invoca un cadru maniheist popor-vs-elită sau o voință populară omogenă. Nu există elemente care să susțină o viziune populistă pervazivă, discursul fiind o intervenție de ordin procedural. Hawkins=0 cu încredere ridicată."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.95,\n  \"markers\": [],\n  \"rationale\": \"Discursul se concentrează pe o dispută procedurală și legală privind un raport și votul în comisiile parlamentare. Deși tonul este combativ și acuzator („Vă jucați cu legea!”, „îi avertizez pe domnii care candidează”), acesta rămâne ancorat în proceduri parlamentare și consecințe juridice, fără a invoca un cadru maniheist popor-vs-elită sau o voință populară omogenă. Nu există elemente care să susțină o viziune populistă pervazivă, discursul fiind o intervenție de ordin procedural. Hawkins=0 cu încredere ridicată.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13649,
+      "tokens_in_breakdown": {
+        "fresh": 13649,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 218,
+      "cost_usd": null,
+      "latency_ms": 4896,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2011/II/105#agenda-1#act-127",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.72,
+        "level_of_justification": 1,
+        "content_of_justification": "none",
+        "respect_for_groups": 1,
+        "respect_for_demands": 0,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 1,
+            "evidence": {
+              "text": "Este un raport ilegal și au recunoscut-o colegii dumneavoastră"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.85,
+            "rationale_short": "Justificarea se bazează pe apelul la autoritatea altora, fără a explica mecanismul ilegalității."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "none",
+            "evidence": {
+              "text": "Este un raport ilegal"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.88,
+            "rationale_short": "Nicio justificare substanțială oferită; conținutul justificării este nedefinit."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "colegii dumneavoastră"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.92,
+            "marker_confidence": 0.8,
+            "rationale_short": "Referință neutră la grupul politic advers; nicio derogare sau respect explicit."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 0,
+            "evidence": {
+              "text": "Vreți să dați astăzi un vot pe ceea ce nu există"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.94,
+            "marker_confidence": 0.85,
+            "rationale_short": "Cererile opoziției sunt respinse ca fiind lipsite de obiect și ilegitime."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "Noi nu rămânem să legitimăm o încălcare a legii."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.96,
+            "marker_confidence": 0.9,
+            "rationale_short": "Vorbitorul ignoră raționamentul advers și alege să părăsească dezbaterea."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Noi nu rămânem să legitimăm o încălcare a legii."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.96,
+            "marker_confidence": 0.92,
+            "rationale_short": "Poziție de protest; nicio alternativă sau propunere de mediere oferită."
+          }
+        ],
+        "rationale": "Discursul este unul de protest, caracterizat prin refuzul de a participa la procesul deliberativ. Vorbitorul invocă ilegalitatea raportului fără a oferi o justificare cauzală sau normativă detaliată, bazându-se pe autoritatea altor colegi (level_of_justification=1). Nu există un angajament cu cererile sau argumentele opoziției, acestea fiind respinse prin refuzul de a legitima votul (respect_for_demands=0, respect_for_counterarguments=0). Poziția este pur dispozițională, fără a oferi alternative constructive. Calitatea deliberativă este scăzută, reflectând o postură de confruntare mai degrabă decât una de dezbatere parlamentară."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.72,\n  \"level_of_justification\": 1,\n  \"content_of_justification\": \"none\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 0,\n  \"respect_for_counterarguments\": 0,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Este un raport ilegal și au recunoscut-o colegii dumneavoastră\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Justificarea se bazează pe apelul la autoritatea altora, fără a explica mecanismul ilegalității.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"none\",\n      \"evidence\": {\n        \"text\": \"Este un raport ilegal\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Nicio justificare substanțială oferită; conținutul justificării este nedefinit.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"colegii dumneavoastră\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.92,\n      \"marker_confidence\": 0.8,\n      \"rationale_short\": \"Referință neutră la grupul politic advers; nicio derogare sau respect explicit.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"Vreți să dați astăzi un vot pe ceea ce nu există\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.94,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Cererile opoziției sunt respinse ca fiind lipsite de obiect și ilegitime.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"Noi nu rămânem să legitimăm o încălcare a legii.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.96,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Vorbitorul ignoră raționamentul advers și alege să părăsească dezbaterea.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"Noi nu rămânem să legitimăm o încălcare a legii.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.96,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Poziție de protest; nicio alternativă sau propunere de mediere oferită.\"\n    }\n  ],\n  \"rationale\": \"Discursul este unul de protest, caracterizat prin refuzul de a participa la procesul deliberativ. Vorbitorul invocă ilegalitatea raportului fără a oferi o justificare cauzală sau normativă detaliată, bazându-se pe autoritatea altor colegi (level_of_justification=1). Nu există un angajament cu cererile sau argumentele opoziției, acestea fiind respinse prin refuzul de a legitima votul (respect_for_demands=0, respect_for_counterarguments=0). Poziția este pur dispozițională, fără a oferi alternative constructive. Calitatea deliberativă este scăzută, reflectând o postură de confruntare mai degrabă decât una de dezbatere parlamentară.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12450,
+      "tokens_in_breakdown": {
+        "fresh": 12450,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1099,
+      "cost_usd": null,
+      "latency_ms": 3749,
+      "retries_used": 0
+    }
+  }
+}

@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2015/II/178#agenda-1#act-340",
+  "tier": "calibration",
+  "speaker": {
+    "id": "constantin-daniel",
+    "name": "Daniel Constantin",
+    "raw": "Domnul Daniel Constantin",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2015-10-13",
+    "year": 2015,
+    "legislature": "VII",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2015/II/178#agenda-1#act-340",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul este unul pur procedural, concentrat pe desfășurarea ședinței Comisiei de agricultură și pe prezența sau absența colegilor la vot. Deși vorbitorul folosește un ton ușor acuzator la adresa opoziției, acesta rămâne în limitele dezbaterii parlamentare obișnuite, fără a invoca un cadru maniheist popor-vs-elită sau alte tropi populiste. Nu există nicio încercare de a construi o viziune populistă, discursul fiind ancorat strict în logistica legislativă. Hawkins=0 cu încredere ridicată."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul este unul pur procedural, concentrat pe desfășurarea ședinței Comisiei de agricultură și pe prezența sau absența colegilor la vot. Deși vorbitorul folosește un ton ușor acuzator la adresa opoziției, acesta rămâne în limitele dezbaterii parlamentare obișnuite, fără a invoca un cadru maniheist popor-vs-elită sau alte tropi populiste. Nu există nicio încercare de a construi o viziune populistă, discursul fiind ancorat strict în logistica legislativă. Hawkins=0 cu încredere ridicată.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13685,
+      "tokens_in_breakdown": {
+        "fresh": 13685,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 212,
+      "cost_usd": null,
+      "latency_ms": 1948,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2015/II/178#agenda-1#act-340",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.72,
+        "level_of_justification": 1,
+        "content_of_justification": "group_interest",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 1,
+            "evidence": {
+              "text": "Asta pentru a avea o imagine foarte clară asupra intențiilor care vă domină pe dumneavoastră."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Vorbitorul oferă o interpretare a intențiilor opoziției, dar fără un raționament cauzal sau probatoriu."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "group_interest",
+            "evidence": {
+              "text": "cei care susțin Coaliția de guvernare au spus că acceptă orice, numai să treacă această lege."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.82,
+            "rationale_short": "Justificarea se bazează pe dinamica de partid și interesele coaliției, nu pe un principiu universal."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "restul au plecat"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.96,
+            "marker_confidence": 0.88,
+            "rationale_short": "Referință critică la comportamentul colegilor, dar fără a atinge pragul de derogare sau dispreț explicit."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Aveați ocazia atunci să faceți orice fel de amendamente"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.85,
+            "rationale_short": "Vorbitorul nu angajează cererile opoziției, ci critică absența lor procedurală."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "n-am mai vrut să fac niciun fel de observație politică în intervenția mea anterioară"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.8,
+            "rationale_short": "Menționează intervenția anterioară fără a angaja substanțial argumentele opoziției."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Asta pentru a avea o imagine foarte clară asupra intențiilor care vă domină pe dumneavoastră."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Discursul este pur pozițional, axat pe critică politică, fără a propune alternative sau medieri."
+          }
+        ],
+        "rationale": "Discursul este predominant pozițional și axat pe critica comportamentului opoziției în comisie, mai degrabă decât pe deliberarea substanțială a legii. Justificarea este de nivel 1, bazându-se pe interpretări subiective ale intențiilor politice ale adversarilor, cu un conținut orientat spre interesul de grup (coaliție vs. opoziție). Respectul pentru grupuri și cereri rămâne neutru, deoarece vorbitorul critică absența procedurală a opoziției fără a folosi un limbaj derogatoriu sau a respinge explicit legitimitatea cererilor lor. Nu există un angajament real cu contraargumentele, ci doar o referință la intervenția anterioară. Calitatea deliberativă este limitată de natura conflictuală a intervenției."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.72,\n  \"level_of_justification\": 1,\n  \"content_of_justification\": \"group_interest\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Asta pentru a avea o imagine foarte clară asupra intențiilor care vă domină pe dumneavoastră.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Vorbitorul oferă o interpretare a intențiilor opoziției, dar fără un raționament cauzal sau probatoriu.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"group_interest\",\n      \"evidence\": {\n        \"text\": \"cei care susțin Coaliția de guvernare au spus că acceptă orice, numai să treacă această lege.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"marker_confidence\": 0.82,\n      \"rationale_short\": \"Justificarea se bazează pe dinamica de partid și interesele coaliției, nu pe un principiu universal.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"restul au plecat\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.96,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Referință critică la comportamentul colegilor, dar fără a atinge pragul de derogare sau dispreț explicit.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Aveați ocazia atunci să faceți orice fel de amendamente\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Vorbitorul nu angajează cererile opoziției, ci critică absența lor procedurală.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"n-am mai vrut să fac niciun fel de observație politică în intervenția mea anterioară\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.80,\n      \"rationale_short\": \"Menționează intervenția anterioară fără a angaja substanțial argumentele opoziției.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"Asta pentru a avea o imagine foarte clară asupra intențiilor care vă domină pe dumneavoastră.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Discursul este pur pozițional, axat pe critică politică, fără a propune alternative sau medieri.\"\n    }\n  ],\n  \"rationale\": \"Discursul este predominant pozițional și axat pe critica comportamentului opoziției în comisie, mai degrabă decât pe deliberarea substanțială a legii. Justificarea este de nivel 1, bazându-se pe interpretări subiective ale intențiilor politice ale adversarilor, cu un conținut orientat spre interesul de grup (coaliție vs. opoziție). Respectul pentru grupuri și cereri rămâne neutru, deoarece vorbitorul critică absența procedurală a opoziției fără a folosi un limbaj derogatoriu sau a respinge explicit legitimitatea cererilor lor. Nu există un angajament real cu contraargumentele, ci doar o referință la intervenția anterioară. Calitatea deliberativă este limitată de natura conflictuală a intervenției.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12486,
+      "tokens_in_breakdown": {
+        "fresh": 12486,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1178,
+      "cost_usd": null,
+      "latency_ms": 4124,
+      "retries_used": 0
+    }
+  }
+}

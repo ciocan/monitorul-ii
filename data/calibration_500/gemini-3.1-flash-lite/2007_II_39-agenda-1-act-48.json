@@ -1,0 +1,152 @@
+{
+  "speech_id": "mo://2007/II/39#agenda-1#act-48",
+  "tier": "calibration",
+  "speaker": {
+    "id": "nicolicea-eugen",
+    "name": "Eugen Nicolicea",
+    "raw": "Domnul Eugen Nicolicea",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": null,
+    "session_date": null,
+    "year": 2007,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2007/II/39#agenda-1#act-48",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 1.0,
+        "markers": [],
+        "rationale": "Discursul este pur procedural, constând în gestionarea ordinii de zi a ședinței parlamentare și a votului pe articole. Nu există nicio urmă de cadru populist, maniheism moral sau invocare a unei voințe populare omogene. Vorbitorul se limitează strict la rolul de moderator al dezbaterii, fără a exprima opinii politice sau a utiliza retorică populistă. Hawkins=0 cu încredere maximă."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 1.0,\n  \"markers\": [],\n  \"rationale\": \"Discursul este pur procedural, constând în gestionarea ordinii de zi a ședinței parlamentare și a votului pe articole. Nu există nicio urmă de cadru populist, maniheism moral sau invocare a unei voințe populare omogene. Vorbitorul se limitează strict la rolul de moderator al dezbaterii, fără a exprima opinii politice sau a utiliza retorică populistă. Hawkins=0 cu încredere maximă.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13749,
+      "tokens_in_breakdown": {
+        "fresh": 13749,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 169,
+      "cost_usd": null,
+      "latency_ms": 1684,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2007/II/39#agenda-1#act-48",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.45,
+        "level_of_justification": 0,
+        "content_of_justification": "none",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 0,
+            "evidence": {
+              "text": "Œn acest stadiu Ón care suntem noi nu se mai poate solicita raport comun."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.95,
+            "rationale_short": "Intervenție procedurală pură fără justificare argumentativă."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "none",
+            "evidence": {
+              "text": "Œn acest stadiu Ón care suntem noi nu se mai poate solicita raport comun."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.95,
+            "rationale_short": "Nicio justificare oferită; conținut nedefinit."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Doamna Petrescu, v„ rog."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.9,
+            "rationale_short": "Adresare procedurală neutră."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Obiec˛ii?"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.9,
+            "rationale_short": "Solicitare procedurală neutră de feedback."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "Obiec˛ii? Nu. Adoptat„."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.9,
+            "rationale_short": "Gestionare procedurală a dezbaterii fără angajament substanțial."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Se consider„ adoptate."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.9,
+            "rationale_short": "Acțiune procedurală de confirmare a votului."
+          }
+        ],
+        "rationale": "Fragmentul reprezintă o intervenție pur procedurală de conducere a ședinței parlamentare, nu un discurs deliberativ. Vorbitorul se limitează la gestionarea ordinii de zi, solicitarea de obiecții și confirmarea adoptării articolelor. Nu există nicio justificare, nicio propunere alternativă și niciun angajament substanțial cu argumente sau cereri. Calitatea deliberativă este inobservabilă, motiv pentru care framework_confidence este scăzut. Toate dimensiunile sunt codate la valorile implicite pentru intervenții procedurale."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.45,\n  \"level_of_justification\": 0,\n  \"content_of_justification\": \"none\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 0,\n      \"evidence\": { \"text\": \"Œn acest stadiu Ón care suntem noi nu se mai poate solicita raport comun.\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Intervenție procedurală pură fără justificare argumentativă.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"none\",\n      \"evidence\": { \"text\": \"Œn acest stadiu Ón care suntem noi nu se mai poate solicita raport comun.\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Nicio justificare oferită; conținut nedefinit.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": { \"text\": \"Doamna Petrescu, v„ rog.\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Adresare procedurală neutră.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": { \"text\": \"Obiec˛ii?\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Solicitare procedurală neutră de feedback.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": { \"text\": \"Obiec˛ii? Nu. Adoptat„.\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Gestionare procedurală a dezbaterii fără angajament substanțial.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": { \"text\": \"Se consider„ adoptate.\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Acțiune procedurală de confirmare a votului.\"\n    }\n  ],\n  \"rationale\": \"Fragmentul reprezintă o intervenție pur procedurală de conducere a ședinței parlamentare, nu un discurs deliberativ. Vorbitorul se limitează la gestionarea ordinii de zi, solicitarea de obiecții și confirmarea adoptării articolelor. Nu există nicio justificare, nicio propunere alternativă și niciun angajament substanțial cu argumente sau cereri. Calitatea deliberativă este inobservabilă, motiv pentru care framework_confidence este scăzut. Toate dimensiunile sunt codate la valorile implicite pentru intervenții procedurale.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [
+        "Obiec˛ii? Nu. Adoptat„."
+      ],
+      "parse_repaired": false,
+      "tokens_in": 12550,
+      "tokens_in_breakdown": {
+        "fresh": 12550,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 963,
+      "cost_usd": null,
+      "latency_ms": 3696,
+      "retries_used": 0
+    }
+  }
+}

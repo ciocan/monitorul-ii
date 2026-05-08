@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2017/II/3#agenda-1#act-3",
+  "tier": "calibration",
+  "speaker": {
+    "id": "dragnea-nicolae-liviu",
+    "name": "Nicolae Liviu Dragnea",
+    "raw": "Domnul Nicolae Liviu Dragnea",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2017-01-04",
+    "year": 2017,
+    "legislature": "VIII",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2017/II/3#agenda-1#act-3",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul reprezintă o intervenție procedurală standard de deschidere a unei ședințe comune a Parlamentului pentru prezentarea programului de guvernare. Vorbitorul utilizează un limbaj protocolar, adresându-se instituțiilor statului și reprezentanților diplomatici, fără a recurge la nicio retorică populistă. Nu există nicio tentativă de a construi un cadru maniheist popor-vs-elită, nicio invocare a unei voințe populare omogene și nicio critică la adresa unei elite malefice. Discursul se încadrează strict în normele procedurale parlamentare, primind astfel scorul 0 cu încredere ridicată."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul reprezintă o intervenție procedurală standard de deschidere a unei ședințe comune a Parlamentului pentru prezentarea programului de guvernare. Vorbitorul utilizează un limbaj protocolar, adresându-se instituțiilor statului și reprezentanților diplomatici, fără a recurge la nicio retorică populistă. Nu există nicio tentativă de a construi un cadru maniheist popor-vs-elită, nicio invocare a unei voințe populare omogene și nicio critică la adresa unei elite malefice. Discursul se încadrează strict în normele procedurale parlamentare, primind astfel scorul 0 cu încredere ridicată.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13967,
+      "tokens_in_breakdown": {
+        "fresh": 13967,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 223,
+      "cost_usd": null,
+      "latency_ms": 1941,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2017/II/3#agenda-1#act-3",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.55,
+        "level_of_justification": 0,
+        "content_of_justification": "none",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 0,
+            "evidence": {
+              "text": "Vă mulțumesc pentru participarea la această ședință comună pentru dezbaterea programului de guvernare și a listei miniștrilor pentru Guvernul României."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Discursul este de natură procedurală și introductivă, fără a oferi argumente sau justificări pentru programul de guvernare."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "none",
+            "evidence": {
+              "text": "Vă mulțumesc pentru participarea la această ședință comună"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Nicio justificare oferită; conținutul justificării este nedefinit."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Stimați reprezentanți ai Corpului diplomatic"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Adresare protocolară standard; nu există derogări sau recunoașteri explicite de legitimitate."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "pe care le supun astăzi dezbaterii dumneavoastră"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Vorbitorul invită la dezbatere, dar nu angajează cereri specifice ale opoziției."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "pe care le supun astăzi dezbaterii dumneavoastră"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Nu există nicio referire la contraargumente sau opoziție în acest fragment introductiv."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "pe care le supun astăzi dezbaterii dumneavoastră"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Discursul este pur procedural, fără a avansa propuneri alternative sau medieri."
+          }
+        ],
+        "rationale": "Fragmentul analizat reprezintă o alocuțiune introductivă de natură protocolară, specifică prezentării unui nou Guvern. Vorbitorul se limitează la saluturi formale și la deschiderea ședinței, fără a prezenta argumente substanțiale pentru programul de guvernare (level_of_justification=0). Nu există angajament cu contraargumente sau cereri ale opoziției, iar tonul este unul neutru, marcat de convenții parlamentare. Deoarece discursul nu conține deliberare propriu-zisă, scorul de încredere este moderat, reflectând natura procedurală a textului. Toate dimensiunile DQI sunt codate la valorile lor implicite pentru acest tip de intervenție."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.55,\n  \"level_of_justification\": 0,\n  \"content_of_justification\": \"none\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 0,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"Vă mulțumesc pentru participarea la această ședință comună pentru dezbaterea programului de guvernare și a listei miniștrilor pentru Guvernul României.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Discursul este de natură procedurală și introductivă, fără a oferi argumente sau justificări pentru programul de guvernare.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"none\",\n      \"evidence\": {\n        \"text\": \"Vă mulțumesc pentru participarea la această ședință comună\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Nicio justificare oferită; conținutul justificării este nedefinit.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Stimați reprezentanți ai Corpului diplomatic\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Adresare protocolară standard; nu există derogări sau recunoașteri explicite de legitimitate.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"pe care le supun astăzi dezbaterii dumneavoastră\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Vorbitorul invită la dezbatere, dar nu angajează cereri specifice ale opoziției.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"pe care le supun astăzi dezbaterii dumneavoastră\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Nu există nicio referire la contraargumente sau opoziție în acest fragment introductiv.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"pe care le supun astăzi dezbaterii dumneavoastră\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Discursul este pur procedural, fără a avansa propuneri alternative sau medieri.\"\n    }\n  ],\n  \"rationale\": \"Fragmentul analizat reprezintă o alocuțiune introductivă de natură protocolară, specifică prezentării unui nou Guvern. Vorbitorul se limitează la saluturi formale și la deschiderea ședinței, fără a prezenta argumente substanțiale pentru programul de guvernare (level_of_justification=0). Nu există angajament cu contraargumente sau cereri ale opoziției, iar tonul este unul neutru, marcat de convenții parlamentare. Deoarece discursul nu conține deliberare propriu-zisă, scorul de încredere este moderat, reflectând natura procedurală a textului. Toate dimensiunile DQI sunt codate la valorile lor implicite pentru acest tip de intervenție.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12768,
+      "tokens_in_breakdown": {
+        "fresh": 12768,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1136,
+      "cost_usd": null,
+      "latency_ms": 4624,
+      "retries_used": 0
+    }
+  }
+}

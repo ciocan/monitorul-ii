@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2008/II/5#agenda-4#act-70",
+  "tier": "calibration",
+  "speaker": {
+    "id": "prodan-tiberiu-aurelian",
+    "name": "Tiberiu Aurelian Prodan",
+    "raw": "Domnul Tiberiu Aurelian Prodan",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": "2008-02-06",
+    "year": 2008,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2008/II/5#agenda-4#act-70",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul este pur procedural și tehnic, concentrându-se pe clarificarea unor prevederi legislative din Legea nr. 346/2002 și pe evitarea suprapunerii surselor de finanțare pentru bolile profesionale. Nu există nicio urmă de cadru popor-vs-elită, maniheism moral sau invocare a unei voințe populare omogene. Vorbitorul se limitează la argumente de natură administrativă și fiscală, fără a utiliza retorică populistă. Hawkins=0 cu încredere ridicată."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul este pur procedural și tehnic, concentrându-se pe clarificarea unor prevederi legislative din Legea nr. 346/2002 și pe evitarea suprapunerii surselor de finanțare pentru bolile profesionale. Nu există nicio urmă de cadru popor-vs-elită, maniheism moral sau invocare a unei voințe populare omogene. Vorbitorul se limitează la argumente de natură administrativă și fiscală, fără a utiliza retorică populistă. Hawkins=0 cu încredere ridicată.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13656,
+      "tokens_in_breakdown": {
+        "fresh": 13656,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 197,
+      "cost_usd": null,
+      "latency_ms": 2048,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2008/II/5#agenda-4#act-70",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.88,
+        "level_of_justification": 2,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "Bolile profesionale și accidentele de muncă se decontează din fondurile Ministerului Muncii, Familiei și Egalității de Șanse, iar celelalte boli de profesie se decontează prin Casele de asigurări de sănătate. Deci sub nicio formă nu putem să amestecăm cele două lucruri."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Vorbitorul oferă o justificare bazată pe mecanismul administrativ de decontare pentru a respinge propunerea."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "sub nicio formă nu putem să amestecăm cele două lucruri"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Apelul este la corectitudinea administrativă și separarea fondurilor, vizând interesul general al sistemului."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Propunerea legislativă este făcută de două grupuri parlamentare diferite"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Referință neutră la grupurile parlamentare inițiatoare; nicio derogare sau respect explicit."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Propunerea legislativă este făcută de două grupuri parlamentare diferite, dar prevăd același lucru"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.88,
+            "rationale_short": "Vorbitorul constată existența cererii fără a o angaja sau a-i recunoaște legitimitatea."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "Vreau să precizez că acest punct 19 din ordinea de zi este similar cu cel de la punctul anterior"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Menționează similaritatea propunerilor fără a angaja substanțial argumentele din spatele lor."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Deci sub nicio formă nu putem să amestecăm cele două lucruri."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Vorbitorul își susține poziția de respingere fără a oferi o alternativă sau o mediere."
+          }
+        ],
+        "rationale": "Discursul prezintă o calitate deliberativă medie, caracterizată printr-o justificare tehnică clară (level_of_justification=2) bazată pe mecanismele de decontare a bolilor profesionale. Vorbitorul apelează la binele comun (corectitudinea sistemului de asigurări) pentru a argumenta împotriva propunerii. Respectul pentru grupuri și cereri rămâne neutru, fiind o referință funcțională la inițiatori. Deși discursul este argumentat, acesta rămâne pozițional, fără a oferi o alternativă constructivă sau a angaja profund contraargumentele. Profilul este cel al unui expert care explică o eroare tehnică în legislație."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.88,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"Bolile profesionale și accidentele de muncă se decontează din fondurile Ministerului Muncii, Familiei și Egalității de Șanse, iar celelalte boli de profesie se decontează prin Casele de asigurări de sănătate. Deci sub nicio formă nu putem să amestecăm cele două lucruri.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Vorbitorul oferă o justificare bazată pe mecanismul administrativ de decontare pentru a respinge propunerea.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"sub nicio formă nu putem să amestecăm cele două lucruri\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Apelul este la corectitudinea administrativă și separarea fondurilor, vizând interesul general al sistemului.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Propunerea legislativă este făcută de două grupuri parlamentare diferite\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Referință neutră la grupurile parlamentare inițiatoare; nicio derogare sau respect explicit.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Propunerea legislativă este făcută de două grupuri parlamentare diferite, dar prevăd același lucru\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Vorbitorul constată existența cererii fără a o angaja sau a-i recunoaște legitimitatea.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Vreau să precizez că acest punct 19 din ordinea de zi este similar cu cel de la punctul anterior\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Menționează similaritatea propunerilor fără a angaja substanțial argumentele din spatele lor.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"Deci sub nicio formă nu putem să amestecăm cele două lucruri.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Vorbitorul își susține poziția de respingere fără a oferi o alternativă sau o mediere.\"\n    }\n  ],\n  \"rationale\": \"Discursul prezintă o calitate deliberativă medie, caracterizată printr-o justificare tehnică clară (level_of_justification=2) bazată pe mecanismele de decontare a bolilor profesionale. Vorbitorul apelează la binele comun (corectitudinea sistemului de asigurări) pentru a argumenta împotriva propunerii. Respectul pentru grupuri și cereri rămâne neutru, fiind o referință funcțională la inițiatori. Deși discursul este argumentat, acesta rămâne pozițional, fără a oferi o alternativă constructivă sau a angaja profund contraargumentele. Profilul este cel al unui expert care explică o eroare tehnică în legislație.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12457,
+      "tokens_in_breakdown": {
+        "fresh": 12457,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1214,
+      "cost_usd": null,
+      "latency_ms": 4787,
+      "retries_used": 0
+    }
+  }
+}

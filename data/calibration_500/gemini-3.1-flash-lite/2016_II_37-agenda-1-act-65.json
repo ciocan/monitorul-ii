@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2016/II/37#agenda-1#act-65",
+  "tier": "calibration",
+  "speaker": {
+    "id": "nicoara-marius-petre",
+    "name": "Marius Petre Nicoară",
+    "raw": "Domnul Marius Petre Nicoară",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": "2016-03-08",
+    "year": 2016,
+    "legislature": "VII",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2016/II/37#agenda-1#act-65",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul este unul pur tehnic și procedural, axat pe propunerea de modificare a Codului Muncii pentru a permite flexibilizarea programului de lucru. Vorbitorul prezintă argumente economice și practice, făcând referire la modele din alte țări și la beneficiile pentru angajatori și angajați, fără a utiliza nicio retorică populistă. Nu există nicio referire la un cadru maniheist popor-vs-elită, nicio invocare a unei voințe populare omogene și nicio critică moralizatoare la adresa unei elite. Discursul se încadrează perfect în registrul dezbaterii parlamentare constructive, motiv pentru care scorul este 0."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul este unul pur tehnic și procedural, axat pe propunerea de modificare a Codului Muncii pentru a permite flexibilizarea programului de lucru. Vorbitorul prezintă argumente economice și practice, făcând referire la modele din alte țări și la beneficiile pentru angajatori și angajați, fără a utiliza nicio retorică populistă. Nu există nicio referire la un cadru maniheist popor-vs-elită, nicio invocare a unei voințe populare omogene și nicio critică moralizatoare la adresa unei elite. Discursul se încadrează perfect în registrul dezbaterii parlamentare constructive, motiv pentru care scorul este 0.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13966,
+      "tokens_in_breakdown": {
+        "fresh": 13966,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 228,
+      "cost_usd": null,
+      "latency_ms": 1901,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2016/II/37#agenda-1#act-65",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.85,
+        "level_of_justification": 2,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "alternative_proposal",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "fiecare angajator care poate stabili o astfel de chestiune să aibă posibilitatea să dea angajatului – la cererea angajatului, evident – să aibă trei zile libere pe săptămână. În Statele Unite, deja 43% din companii aplică astfel de practici."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Vorbitorul oferă un mecanism cauzal clar și un exemplu empiric (43% din companii în SUA) pentru a justifica propunerea."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "în ziua în care acei oameni nu vin la serviciu se creează alte locuri de muncă pentru cei care doresc să obțină productivitate și, evident, profit."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.88,
+            "rationale_short": "Justificarea se bazează pe beneficii economice generale (productivitate, locuri de muncă) aplicabile întregii societăți."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Stimați colegi"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.99,
+            "marker_confidence": 0.95,
+            "rationale_short": "Adresare convențională în sală; niciun grup social sau politic nu este vizat sau derogatoriu menționat."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Propunerea legislativă este una destul de simplă"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Vorbitorul își prezintă propria inițiativă fără a aborda cererile opoziției; atitudine neutră."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "Nu este, până la urmă, o chestiune de a inventa roata, ci este o chestiune de a moderniza un cod al muncii"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.89,
+            "rationale_short": "Vorbitorul ignoră complet existența unor contraargumente sau rezerve față de propunerea sa."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "alternative_proposal",
+            "evidence": {
+              "text": "Propunerea legislativă este una destul de simplă și se referă la faptul că, și în Statele Unite, de exemplu, și în alte țări, a început să se facă ca fiecare angajator, împreună cu angajatul, să-și poată stabili norma de muncă"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.94,
+            "rationale_short": "Vorbitorul propune o modificare concretă a Codului Muncii ca alternativă la starea actuală."
+          }
+        ],
+        "rationale": "Discursul prezintă o propunere legislativă concretă de modificare a Codului Muncii, fiind clasificat ca 'alternative_proposal'. Justificarea este de nivel 2, oferind un mecanism cauzal și un exemplu empiric din SUA, apelând la binele comun prin creșterea productivității. Totuși, discursul nu angajează nicio critică sau contraargument, ignorând complet opoziția (respect_for_counterarguments=0). Respectul pentru grupuri și cereri rămâne neutru, fiind limitat la convenții formale de adresare. Profilul deliberativ este unul constructiv, dar unilateral, concentrat exclusiv pe promovarea propriei inițiative fără a media sau a răspunde criticilor."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.85,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 0,\n  \"constructive_politics\": \"alternative_proposal\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"fiecare angajator care poate stabili o astfel de chestiune să aibă posibilitatea să dea angajatului – la cererea angajatului, evident – să aibă trei zile libere pe săptămână. În Statele Unite, deja 43% din companii aplică astfel de practici.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Vorbitorul oferă un mecanism cauzal clar și un exemplu empiric (43% din companii în SUA) pentru a justifica propunerea.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"în ziua în care acei oameni nu vin la serviciu se creează alte locuri de muncă pentru cei care doresc să obțină productivitate și, evident, profit.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Justificarea se bazează pe beneficii economice generale (productivitate, locuri de muncă) aplicabile întregii societăți.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Stimați colegi\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.99,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Adresare convențională în sală; niciun grup social sau politic nu este vizat sau derogatoriu menționat.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Propunerea legislativă este una destul de simplă\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Vorbitorul își prezintă propria inițiativă fără a aborda cererile opoziției; atitudine neutră.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"Nu este, până la urmă, o chestiune de a inventa roata, ci este o chestiune de a moderniza un cod al muncii\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.89,\n      \"rationale_short\": \"Vorbitorul ignoră complet existența unor contraargumente sau rezerve față de propunerea sa.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"alternative_proposal\",\n      \"evidence\": {\n        \"text\": \"Propunerea legislativă este una destul de simplă și se referă la faptul că, și în Statele Unite, de exemplu, și în alte țări, a început să se facă ca fiecare angajator, împreună cu angajatul, să-și poată stabili norma de muncă\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.94,\n      \"rationale_short\": \"Vorbitorul propune o modificare concretă a Codului Muncii ca alternativă la starea actuală.\"\n    }\n  ],\n  \"rationale\": \"Discursul prezintă o propunere legislativă concretă de modificare a Codului Muncii, fiind clasificat ca 'alternative_proposal'. Justificarea este de nivel 2, oferind un mecanism cauzal și un exemplu empiric din SUA, apelând la binele comun prin creșterea productivității. Totuși, discursul nu angajează nicio critică sau contraargument, ignorând complet opoziția (respect_for_counterarguments=0). Respectul pentru grupuri și cereri rămâne neutru, fiind limitat la convenții formale de adresare. Profilul deliberativ este unul constructiv, dar unilateral, concentrat exclusiv pe promovarea propriei inițiative fără a media sau a răspunde criticilor.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12767,
+      "tokens_in_breakdown": {
+        "fresh": 12767,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1289,
+      "cost_usd": null,
+      "latency_ms": 5271,
+      "retries_used": 0
+    }
+  }
+}

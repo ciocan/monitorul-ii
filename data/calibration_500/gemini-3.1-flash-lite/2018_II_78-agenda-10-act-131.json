@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2018/II/78#agenda-10#act-131",
+  "tier": "calibration",
+  "speaker": {
+    "id": "borza-remus-adrian",
+    "name": "Remus Adrian Borza",
+    "raw": "Domnul Remus Adrian Borza",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2018-05-09",
+    "year": 2018,
+    "legislature": "VIII",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2018/II/78#agenda-10#act-131",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.95,
+        "markers": [],
+        "rationale": "Discursul se concentrează pe o temă de politică publică (agricultura și învățământul agricol), oferind o analiză a situației actuale și propuneri concrete de reformă. Deși menționează „pământul țării pentru care bunii și străbunii noștri și-au dat viața”, această referință are un caracter patriotic convențional, nu unul populist-maniheist. Nu există un cadru popor-vs-elită, nicio invocare a unei voințe populare omogene care să se opună instituțiilor și nicio demonizare a unei elite. Discursul rămâne în registrul dezbaterii parlamentare tehnice, motiv pentru care scorul este 0."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.95,\n  \"markers\": [],\n  \"rationale\": \"Discursul se concentrează pe o temă de politică publică (agricultura și învățământul agricol), oferind o analiză a situației actuale și propuneri concrete de reformă. Deși menționează „pământul țării pentru care bunii și străbunii noștri și-au dat viața”, această referință are un caracter patriotic convențional, nu unul populist-maniheist. Nu există un cadru popor-vs-elită, nicio invocare a unei voințe populare omogene care să se opună instituțiilor și nicio demonizare a unei elite. Discursul rămâne în registrul dezbaterii parlamentare tehnice, motiv pentru care scorul este 0.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13895,
+      "tokens_in_breakdown": {
+        "fresh": 13895,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 230,
+      "cost_usd": null,
+      "latency_ms": 2020,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2018/II/78#agenda-10#act-131",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.78,
+        "level_of_justification": 2,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "Avem nevoie, în primul rând, și de un învățământ, atât liceal, profesional, cât și universitar, în domeniul agricol. Nu putem să ne facem toți avocați, juriști, economiști și, mai nou, doctori. Cineva mai trebuie să lucreze și pământul țării"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Vorbitorul oferă o justificare bazată pe o nevoie structurală a economiei agricole, conectând poziția la un mecanism de dezvoltare."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "pământul țării pentru care bunii și străbunii noștri și-au dat viața"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.82,
+            "rationale_short": "Apelul este la interesul național și la conservarea resurselor țării, nu la un grup politic specific."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "bătrânii noștri de la țară"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.96,
+            "marker_confidence": 0.88,
+            "rationale_short": "Referință neutră la o categorie socială; nu există derogare sau respect explicit."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Noi susținem un astfel de demers legislativ."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.85,
+            "rationale_short": "Vorbitorul își exprimă susținerea fără a aborda cererile sau pozițiile opoziției."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "Noi susținem un astfel de demers legislativ."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.85,
+            "rationale_short": "Nu există nicio referire la argumentele contrare; discursul este pur pozițional."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Noi susținem un astfel de demers legislativ."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.92,
+            "rationale_short": "Vorbitorul își declară susținerea pentru inițiativă fără a propune o alternativă sau o mediere."
+          }
+        ],
+        "rationale": "Discursul prezintă o calitate deliberativă mixtă. Vorbitorul oferă o justificare calificată (level_of_justification=2) prin argumentarea necesității învățământului agricol pentru economia națională, apelând la binele comun (content_of_justification=common_good). Totuși, discursul rămâne pur pozițional (constructive_politics=positional) și nu angajează deloc opoziția sau contraargumentele (respect_for_counterarguments=0). Respectul pentru grupuri este neutru, reflectând o postură funcțională. Deși argumentația este coerentă, lipsa angajamentului deliberativ cu alte puncte de vedere limitează scorul general."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.78,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 0,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"Avem nevoie, în primul rând, și de un învățământ, atât liceal, profesional, cât și universitar, în domeniul agricol. Nu putem să ne facem toți avocați, juriști, economiști și, mai nou, doctori. Cineva mai trebuie să lucreze și pământul țării\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Vorbitorul oferă o justificare bazată pe o nevoie structurală a economiei agricole, conectând poziția la un mecanism de dezvoltare.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"pământul țării pentru care bunii și străbunii noștri și-au dat viața\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.82,\n      \"rationale_short\": \"Apelul este la interesul național și la conservarea resurselor țării, nu la un grup politic specific.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"bătrânii noștri de la țară\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.96,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Referință neutră la o categorie socială; nu există derogare sau respect explicit.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Noi susținem un astfel de demers legislativ.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Vorbitorul își exprimă susținerea fără a aborda cererile sau pozițiile opoziției.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"Noi susținem un astfel de demers legislativ.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Nu există nicio referire la argumentele contrare; discursul este pur pozițional.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"Noi susținem un astfel de demers legislativ.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Vorbitorul își declară susținerea pentru inițiativă fără a propune o alternativă sau o mediere.\"\n    }\n  ],\n  \"rationale\": \"Discursul prezintă o calitate deliberativă mixtă. Vorbitorul oferă o justificare calificată (level_of_justification=2) prin argumentarea necesității învățământului agricol pentru economia națională, apelând la binele comun (content_of_justification=common_good). Totuși, discursul rămâne pur pozițional (constructive_politics=positional) și nu angajează deloc opoziția sau contraargumentele (respect_for_counterarguments=0). Respectul pentru grupuri este neutru, reflectând o postură funcțională. Deși argumentația este coerentă, lipsa angajamentului deliberativ cu alte puncte de vedere limitează scorul general.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12696,
+      "tokens_in_breakdown": {
+        "fresh": 12696,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1186,
+      "cost_usd": null,
+      "latency_ms": 4508,
+      "retries_used": 0
+    }
+  }
+}

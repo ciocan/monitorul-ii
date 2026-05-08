@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2011/II/125#agenda-5#act-10",
+  "tier": "calibration",
+  "speaker": {
+    "id": null,
+    "name": "Bodgan Nicolae Niculescu Duvăz",
+    "raw": "Domnul Bodgan Nicolae Niculescu Duvăz",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2011-10-31",
+    "year": 2011,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2011/II/125#agenda-5#act-10",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.95,
+        "markers": [],
+        "rationale": "Discursul este unul procedural, axat pe rolul constituțional al Parlamentului și pe relația instituțională dintre Legislativ și Președinte. Deși vorbitorul folosește un ton combativ și face referiri la perioada de dinainte de 1989, acesta nu construiește un cadru maniheist popor-vs-elită, ci unul de apărare a competențelor parlamentare. Nu există invocarea unei voințe populare omogene sau a unei elite malefice, ci o dezbatere despre proceduri și ierarhii instituționale. Discursul rămâne în registrul pluralist și procedural, neîndeplinind criteriile pentru un scor populist."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.95,\n  \"markers\": [],\n  \"rationale\": \"Discursul este unul procedural, axat pe rolul constituțional al Parlamentului și pe relația instituțională dintre Legislativ și Președinte. Deși vorbitorul folosește un ton combativ și face referiri la perioada de dinainte de 1989, acesta nu construiește un cadru maniheist popor-vs-elită, ci unul de apărare a competențelor parlamentare. Nu există invocarea unei voințe populare omogene sau a unei elite malefice, ci o dezbatere despre proceduri și ierarhii instituționale. Discursul rămâne în registrul pluralist și procedural, neîndeplinind criteriile pentru un scor populist.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13856,
+      "tokens_in_breakdown": {
+        "fresh": 13856,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 218,
+      "cost_usd": null,
+      "latency_ms": 2150,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2011/II/125#agenda-5#act-10",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.78,
+        "level_of_justification": 1,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 1,
+            "evidence": {
+              "text": "Acest lucru eu îl resping de la această tribună."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Vorbitorul respinge o practică, dar argumentația rămâne la nivel de opinie politică fără o justificare cauzală sau normativă detaliată."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "aici ne aflăm aleși în forul suprem, unica instituție legiuitoare a statului român și singura – subliniez –, singura reprezentativă"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Apelul este la rolul constituțional și reprezentativ al Parlamentului, un principiu universalizabil de bine comun."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "indiferent că fac parte din majoritate sau din opoziție"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Referință neutră la grupurile politice din Parlament; nicio derogare sau respect explicit."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "președintele nu are absolut nimic de spus"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.88,
+            "rationale_short": "Vorbitorul ignoră cererile președintelui, considerându-le neavenite, fără a le angaja legitimitatea."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "eu am întrebat-o pe doamna președinte de ce ne-a citit nouă, ne-a făcut părtași la un dialog oarecum particular"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.82,
+            "rationale_short": "Menționează acțiunea președintelui, dar nu angajează substanțial raționamentul din spatele acesteia."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Acest lucru eu îl resping de la această tribună."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.94,
+            "rationale_short": "Discursul este o poziționare critică față de procedurile curente, fără a oferi o alternativă sau o mediere."
+          }
+        ],
+        "rationale": "Discursul se concentrează pe apărarea rolului instituțional al Parlamentului, folosind un ton critic față de interacțiunea dintre președinte și conducerea Camerei. Justificarea este de nivel 1, bazându-se pe principii generale despre reprezentativitate fără a oferi o analiză cauzală complexă. Respectul pentru grupuri și cereri este neutru, iar angajamentul față de contraargumente este minim, limitându-se la o critică procedurală. Discursul rămâne în sfera pozițională, fără a propune soluții alternative sau mecanisme de mediere. Calitatea deliberativă este moderată, reflectând o retorică de afirmare a autorității parlamentare."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.78,\n  \"level_of_justification\": 1,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Acest lucru eu îl resping de la această tribună.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Vorbitorul respinge o practică, dar argumentația rămâne la nivel de opinie politică fără o justificare cauzală sau normativă detaliată.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"aici ne aflăm aleși în forul suprem, unica instituție legiuitoare a statului român și singura – subliniez –, singura reprezentativă\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Apelul este la rolul constituțional și reprezentativ al Parlamentului, un principiu universalizabil de bine comun.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"indiferent că fac parte din majoritate sau din opoziție\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Referință neutră la grupurile politice din Parlament; nicio derogare sau respect explicit.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"președintele nu are absolut nimic de spus\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Vorbitorul ignoră cererile președintelui, considerându-le neavenite, fără a le angaja legitimitatea.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"eu am întrebat-o pe doamna președinte de ce ne-a citit nouă, ne-a făcut părtași la un dialog oarecum particular\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.82,\n      \"rationale_short\": \"Menționează acțiunea președintelui, dar nu angajează substanțial raționamentul din spatele acesteia.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"Acest lucru eu îl resping de la această tribună.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.94,\n      \"rationale_short\": \"Discursul este o poziționare critică față de procedurile curente, fără a oferi o alternativă sau o mediere.\"\n    }\n  ],\n  \"rationale\": \"Discursul se concentrează pe apărarea rolului instituțional al Parlamentului, folosind un ton critic față de interacțiunea dintre președinte și conducerea Camerei. Justificarea este de nivel 1, bazându-se pe principii generale despre reprezentativitate fără a oferi o analiză cauzală complexă. Respectul pentru grupuri și cereri este neutru, iar angajamentul față de contraargumente este minim, limitându-se la o critică procedurală. Discursul rămâne în sfera pozițională, fără a propune soluții alternative sau mecanisme de mediere. Calitatea deliberativă este moderată, reflectând o retorică de afirmare a autorității parlamentare.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12657,
+      "tokens_in_breakdown": {
+        "fresh": 12657,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1182,
+      "cost_usd": null,
+      "latency_ms": 4367,
+      "retries_used": 0
+    }
+  }
+}

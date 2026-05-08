@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2021/II/191#agenda-1#act-54",
+  "tier": "calibration",
+  "speaker": {
+    "id": "tenita-dragos-catalin",
+    "name": "Dragoș-Cătălin Teniță",
+    "raw": "Domnul Dragoș-Cătălin Teniță",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2021-12-14",
+    "year": 2021,
+    "legislature": "IX",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2021/II/191#agenda-1#act-54",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul este un eseu filosofic și istoric despre drepturile omului, utilizând exemplul lui Thomas Jefferson pentru a ilustra evoluția valorilor umanitare. Vorbitorul adoptă un ton reflexiv, pluralist și incluziv, recunoscând complexitatea istorică și progresul gradual al societăților, fără a recurge la un cadru maniheist popor-vs-elită. Nu există nicio invocare a unei voințe populare omogene care să se opună instituțiilor, nici o demonizare a unei elite. Discursul se înscrie în registrul valorilor democratice universale, nu în cel al populismului."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul este un eseu filosofic și istoric despre drepturile omului, utilizând exemplul lui Thomas Jefferson pentru a ilustra evoluția valorilor umanitare. Vorbitorul adoptă un ton reflexiv, pluralist și incluziv, recunoscând complexitatea istorică și progresul gradual al societăților, fără a recurge la un cadru maniheist popor-vs-elită. Nu există nicio invocare a unei voințe populare omogene care să se opună instituțiilor, nici o demonizare a unei elite. Discursul se înscrie în registrul valorilor democratice universale, nu în cel al populismului.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 14453,
+      "tokens_in_breakdown": {
+        "fresh": 14453,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 215,
+      "cost_usd": null,
+      "latency_ms": 1961,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2021/II/191#agenda-1#act-54",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.82,
+        "level_of_justification": 2,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "Noi credem, fiecare dintre noi, că există o valoare în fiecare făptură umană. Credem că umanitatea fiecăruia se reflectă în umanitatea celuilalt, că suferința celuilalt ne diminuează și nouă umanitatea"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.88,
+            "rationale_short": "Vorbitorul oferă o justificare bazată pe principii etice și mecanisme de interdependență umană."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "o societate justă este una în care nimeni nu este supus unei suferințe inutile și încearcă toți să își atingă potențialul"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Apelul este universalizabil, vizând binele comun și o societate justă pentru toți."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "persoanele de culoare erau segregate, femeile nu aveau posibilități de dezvoltare profesională deplină, minoritățile erau considerate ca fiind ceva primejdios"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.9,
+            "rationale_short": "Grupurile sunt menționate descriptiv în context istoric, fără derogare sau laudă explicită."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Sunt mai multe țări cu regimuri autoritare decât democrații."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.96,
+            "marker_confidence": 0.85,
+            "rationale_short": "Nu există o cerere politică specifică a opoziției adresată în acest discurs; atitudine neutră."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "Sunt multe cazuri în care femeile sau persoanele de culoare sau minoritățile etnice, sexuale, religioase sunt persecutate."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.88,
+            "rationale_short": "Vorbitorul expune o viziune proprie fără a se angaja în dezbaterea unor contraargumente specifice."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Dar această declarație, la fel ca cuvintele tânărului avocat Jefferson, reprezintă un far călăuzitor."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.91,
+            "rationale_short": "Discursul susține o poziție valorică și morală, fără a propune o alternativă legislativă sau mediere."
+          }
+        ],
+        "rationale": "Discursul lui Cătălin Teniță este un eseu moral despre drepturile omului, caracterizat printr-o justificare calificată (level_of_justification=2) bazată pe principii umaniste universale (content_of_justification=common_good). Deși discursul este elocvent și bine structurat, acesta rămâne în sfera pozițională (constructive_politics=positional), nefiind o intervenție de dezbatere legislativă care să necesite mediere sau amendamente. Respectul pentru grupuri este neutru, reflectând o perspectivă istorică și descriptivă asupra discriminării. Nu există un angajament cu contraargumente specifice, deoarece discursul nu răspunde unei opoziții punctuale, ci promovează un crez etic. Calitatea deliberativă este ridicată în ceea ce privește profunzimea argumentării morale, dar limitată în ceea ce privește interacțiunea dialectică cu alte poziții politice."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.82,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 0,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": { \"text\": \"Noi credem, fiecare dintre noi, că există o valoare în fiecare făptură umană. Credem că umanitatea fiecăruia se reflectă în umanitatea celuilalt, că suferința celuilalt ne diminuează și nouă umanitatea\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Vorbitorul oferă o justificare bazată pe principii etice și mecanisme de interdependență umană.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": { \"text\": \"o societate justă este una în care nimeni nu este supus unei suferințe inutile și încearcă toți să își atingă potențialul\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Apelul este universalizabil, vizând binele comun și o societate justă pentru toți.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": { \"text\": \"persoanele de culoare erau segregate, femeile nu aveau posibilități de dezvoltare profesională deplină, minoritățile erau considerate ca fiind ceva primejdios\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"marker_confidence\": 0.90,\n      \"rationale_short\": \"Grupurile sunt menționate descriptiv în context istoric, fără derogare sau laudă explicită.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": { \"text\": \"Sunt mai multe țări cu regimuri autoritare decât democrații.\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.96,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Nu există o cerere politică specifică a opoziției adresată în acest discurs; atitudine neutră.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 0,\n      \"evidence\": { \"text\": \"Sunt multe cazuri în care femeile sau persoanele de culoare sau minoritățile etnice, sexuale, religioase sunt persecutate.\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Vorbitorul expune o viziune proprie fără a se angaja în dezbaterea unor contraargumente specifice.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": { \"text\": \"Dar această declarație, la fel ca cuvintele tânărului avocat Jefferson, reprezintă un far călăuzitor.\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.91,\n      \"rationale_short\": \"Discursul susține o poziție valorică și morală, fără a propune o alternativă legislativă sau mediere.\"\n    }\n  ],\n  \"rationale\": \"Discursul lui Cătălin Teniță este un eseu moral despre drepturile omului, caracterizat printr-o justificare calificată (level_of_justification=2) bazată pe principii umaniste universale (content_of_justification=common_good). Deși discursul este elocvent și bine structurat, acesta rămâne în sfera pozițională (constructive_politics=positional), nefiind o intervenție de dezbatere legislativă care să necesite mediere sau amendamente. Respectul pentru grupuri este neutru, reflectând o perspectivă istorică și descriptivă asupra discriminării. Nu există un angajament cu contraargumente specifice, deoarece discursul nu răspunde unei opoziții punctuale, ci promovează un crez etic. Calitatea deliberativă este ridicată în ceea ce privește profunzimea argumentării morale, dar limitată în ceea ce privește interacțiunea dialectică cu alte poziții politice.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13254,
+      "tokens_in_breakdown": {
+        "fresh": 13254,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1275,
+      "cost_usd": null,
+      "latency_ms": 5282,
+      "retries_used": 0
+    }
+  }
+}

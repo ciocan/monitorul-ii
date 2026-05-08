@@ -1,0 +1,63 @@
+{
+  "speech_id": "mo://2016/II/71#agenda-1#act-149",
+  "tier": "calibration",
+  "speaker": {
+    "id": "anghel-cristiana-irina",
+    "name": "Cristiana Irina Anghel",
+    "raw": "Doamna Cristiana Irina Anghel",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": "2016-04-12",
+    "year": 2016,
+    "legislature": "VII",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": null,
+    "voice": null,
+    "dqi": null,
+    "vparty": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "vparty",
+      "speech_id": "mo://2016/II/71#agenda-1#act-149",
+      "output": {
+        "score": 1,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "vparty@2020 + vdem-attacks-on@v13",
+        "framework_confidence": 0.85,
+        "markers": [
+          {
+            "kind": "minority_scapegoating",
+            "evidence": {
+              "text": "Explicați-mi și mie cum există bani pentru minoritatea maghiară, cum se poate încălca Constituția în momentul în care există o variantă în limba maghiară, când limba oficială este limba română, și cum de niciodată n-aveți bani pentru amărâții ăștia de români"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.88,
+            "rationale_short": "Minoritatea maghiară este folosită ca țap ispășitor pentru alocarea resurselor, fiind pusă în opoziție directă cu „amărâții de români\"."
+          }
+        ],
+        "rationale": "Discursul conține un moment clar de scapegoating al minorității maghiare, prezentând alocarea resurselor pentru publicarea Monitorului Oficial în limba maghiară ca pe o încălcare a Constituției și o nedreptate față de „amărâții de români\". Deși discursul atacă și o decizie administrativă (mutarea Monitorului Oficial), acest element nu constituie un atac la adresa justiției, ci o critică politică. Totuși, cadrul de victimizare a majorității în raport cu minoritatea etnică, folosit pentru a delegitima drepturile lingvistice ale acesteia, justifică un scor de 1. Discursul nu atinge pragul de scor 2, deoarece nu susține o viziune anti-pluralistă pervazivă care să atace multiple instituții democratice."
+      },
+      "raw_response": "{\n  \"score\": 1,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"vparty@2020 + vdem-attacks-on@v13\",\n  \"framework_confidence\": 0.85,\n  \"markers\": [\n    {\n      \"kind\": \"minority_scapegoating\",\n      \"evidence\": {\n        \"text\": \"Explicați-mi și mie cum există bani pentru minoritatea maghiară, cum se poate încălca Constituția în momentul în care există o variantă în limba maghiară, când limba oficială este limba română, și cum de niciodată n-aveți bani pentru amărâții ăștia de români\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Minoritatea maghiară este folosită ca țap ispășitor pentru alocarea resurselor, fiind pusă în opoziție directă cu „amărâții de români\\\".\"\n    }\n  ],\n  \"rationale\": \"Discursul conține un moment clar de scapegoating al minorității maghiare, prezentând alocarea resurselor pentru publicarea Monitorului Oficial în limba maghiară ca pe o încălcare a Constituției și o nedreptate față de „amărâții de români\\\". Deși discursul atacă și o decizie administrativă (mutarea Monitorului Oficial), acest element nu constituie un atac la adresa justiției, ci o critică politică. Totuși, cadrul de victimizare a majorității în raport cu minoritatea etnică, folosit pentru a delegitima drepturile lingvistice ale acesteia, justifică un scor de 1. Discursul nu atinge pragul de scor 2, deoarece nu susține o viziune anti-pluralistă pervazivă care să atace multiple instituții democratice.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13161,
+      "tokens_in_breakdown": {
+        "fresh": 13161,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 474,
+      "cost_usd": null,
+      "latency_ms": 3123,
+      "retries_used": 0
+    }
+  }
+}

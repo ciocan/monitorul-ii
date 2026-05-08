@@ -1,0 +1,246 @@
+{
+  "speech_id": "mo://2018/II/133#agenda-1#act-40",
+  "tier": "calibration",
+  "speaker": {
+    "id": "todoran-adrian-mihaita",
+    "name": "Adrian Mihăiță Todoran",
+    "raw": "Domnul Adrian Mihăiță Todoran",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2018-09-19",
+    "year": 2018,
+    "legislature": "VIII",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2018/II/133#agenda-1#act-40",
+      "output": {
+        "score": 1,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.85,
+        "markers": [
+          {
+            "kind": "homogeneous_people",
+            "evidence": {
+              "text": "proiect de suflet, al nostru, al românilor"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.85,
+            "rationale_short": "Invocă „proiectul de suflet” ca fiind al întregului popor român, creând o identitate colectivă omogenă."
+          },
+          {
+            "kind": "evil_elite",
+            "evidence": {
+              "text": "Tentativa de ministru George Ivașcu s-a dovedit că joacă un rol foarte prost: cel de ministru al culturii."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.88,
+            "rationale_short": "Ministrul este portretizat ca un impostor („tentativa de ministru”) și un actor incompetent, marcând o elită malignă."
+          },
+          {
+            "kind": "evil_elite",
+            "evidence": {
+              "text": "Tentativa de ministru George Ivașcu a dat de pământ cu angajații ministerului responsabili cu Centenarul, a sfidat pe toată lumea"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.9,
+            "rationale_short": "Elita este descrisă ca fiind sfidătoare și abuzivă față de subalterni și față de publicul larg."
+          },
+          {
+            "kind": "cosmic_proportions",
+            "evidence": {
+              "text": "cel mai important moment al acestei națiuni: sărbătorirea Marii Uniri de la 1 Decembrie 1918"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.8,
+            "rationale_short": "Evenimentul Centenarului este ridicat la rangul de moment istoric definitoriu pentru existența națiunii."
+          }
+        ],
+        "rationale": "Discursul conține elemente populiste clare, în special prin atacul personalizat asupra ministrului culturii, portretizat ca o elită incompetentă și sfidătoare (evil_elite). Deși invocă poporul ca entitate omogenă (homogeneous_people) și ridică miza la nivel istoric (cosmic_proportions), discursul rămâne ancorat într-o critică administrativă specifică legată de gestionarea Centenarului și a Casei Memoriale. Nu atinge pragul de scor 2 deoarece cadrul populist nu este structural-portant pentru întregul discurs, ci servește ca retorică de atac politic într-o interpelare ministerială. Scor 1 cu încredere ridicată."
+      },
+      "raw_response": "{\n  \"score\": 1,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.85,\n  \"markers\": [\n    {\n      \"kind\": \"homogeneous_people\",\n      \"evidence\": {\n        \"text\": \"proiect de suflet, al nostru, al românilor\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Invocă „proiectul de suflet” ca fiind al întregului popor român, creând o identitate colectivă omogenă.\"\n    },\n    {\n      \"kind\": \"evil_elite\",\n      \"evidence\": {\n        \"text\": \"Tentativa de ministru George Ivașcu s-a dovedit că joacă un rol foarte prost: cel de ministru al culturii.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Ministrul este portretizat ca un impostor („tentativa de ministru”) și un actor incompetent, marcând o elită malignă.\"\n    },\n    {\n      \"kind\": \"evil_elite\",\n      \"evidence\": {\n        \"text\": \"Tentativa de ministru George Ivașcu a dat de pământ cu angajații ministerului responsabili cu Centenarul, a sfidat pe toată lumea\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Elita este descrisă ca fiind sfidătoare și abuzivă față de subalterni și față de publicul larg.\"\n    },\n    {\n      \"kind\": \"cosmic_proportions\",\n      \"evidence\": {\n        \"text\": \"cel mai important moment al acestei națiuni: sărbătorirea Marii Uniri de la 1 Decembrie 1918\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.8,\n      \"rationale_short\": \"Evenimentul Centenarului este ridicat la rangul de moment istoric definitoriu pentru existența națiunii.\"\n    }\n  ],\n  \"rationale\": \"Discursul conține elemente populiste clare, în special prin atacul personalizat asupra ministrului culturii, portretizat ca o elită incompetentă și sfidătoare (evil_elite). Deși invocă poporul ca entitate omogenă (homogeneous_people) și ridică miza la nivel istoric (cosmic_proportions), discursul rămâne ancorat într-o critică administrativă specifică legată de gestionarea Centenarului și a Casei Memoriale. Nu atinge pragul de scor 2 deoarece cadrul populist nu este structural-portant pentru întregul discurs, ci servește ca retorică de atac politic într-o interpelare ministerială. Scor 1 cu încredere ridicată.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 14168,
+      "tokens_in_breakdown": {
+        "fresh": 14168,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 804,
+      "cost_usd": null,
+      "latency_ms": 3599,
+      "retries_used": 0
+    },
+    "voice": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "voice",
+      "speech_id": "mo://2018/II/133#agenda-1#act-40",
+      "output": {
+        "classifications": [
+          {
+            "marker_id": "m_0",
+            "voice": "speaker_first_person",
+            "voice_confidence": 0.95,
+            "voice_evidence": null,
+            "attributed_to": null,
+            "rationale_short": "Afirmație directă a vorbitorului, fără indicii de citare, raportare sau alte cadre retorice."
+          },
+          {
+            "marker_id": "m_1",
+            "voice": "speaker_first_person",
+            "voice_confidence": 0.95,
+            "voice_evidence": null,
+            "attributed_to": null,
+            "rationale_short": "Afirmație directă și asumată de către vorbitor la adresa ministrului, fără a fi un citat sau o raportare."
+          },
+          {
+            "marker_id": "m_2",
+            "voice": "speaker_first_person",
+            "voice_confidence": 0.95,
+            "voice_evidence": null,
+            "attributed_to": null,
+            "rationale_short": "Vorbitorul își exprimă direct acuzațiile la persoana întâi, fără a atribui afirmațiile unei terțe părți."
+          },
+          {
+            "marker_id": "m_3",
+            "voice": "speaker_first_person",
+            "voice_confidence": 0.95,
+            "voice_evidence": null,
+            "attributed_to": null,
+            "rationale_short": "Afirmație directă a vorbitorului despre importanța istorică a momentului, fără cadre de citare."
+          }
+        ]
+      },
+      "raw_response": "{\n  \"classifications\": [\n    {\n      \"marker_id\": \"m_0\",\n      \"voice\": \"speaker_first_person\",\n      \"voice_confidence\": 0.95,\n      \"voice_evidence\": null,\n      \"attributed_to\": null,\n      \"rationale_short\": \"Afirmație directă a vorbitorului, fără indicii de citare, raportare sau alte cadre retorice.\"\n    },\n    {\n      \"marker_id\": \"m_1\",\n      \"voice\": \"speaker_first_person\",\n      \"voice_confidence\": 0.95,\n      \"voice_evidence\": null,\n      \"attributed_to\": null,\n      \"rationale_short\": \"Afirmație directă și asumată de către vorbitor la adresa ministrului, fără a fi un citat sau o raportare.\"\n    },\n    {\n      \"marker_id\": \"m_2\",\n      \"voice\": \"speaker_first_person\",\n      \"voice_confidence\": 0.95,\n      \"voice_evidence\": null,\n      \"attributed_to\": null,\n      \"rationale_short\": \"Vorbitorul își exprimă direct acuzațiile la persoana întâi, fără a atribui afirmațiile unei terțe părți.\"\n    },\n    {\n      \"marker_id\": \"m_3\",\n      \"voice\": \"speaker_first_person\",\n      \"voice_confidence\": 0.95,\n      \"voice_evidence\": null,\n      \"attributed_to\": null,\n      \"rationale_short\": \"Afirmație directă a vorbitorului despre importanța istorică a momentului, fără cadre de citare.\"\n    }\n  ]\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 11965,
+      "tokens_in_breakdown": {
+        "fresh": 11965,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 407,
+      "cost_usd": null,
+      "latency_ms": 1730,
+      "retries_used": 0
+    },
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2018/II/133#agenda-1#act-40",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.72,
+        "level_of_justification": 1,
+        "content_of_justification": "group_interest",
+        "respect_for_groups": 0,
+        "respect_for_demands": 0,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 1,
+            "evidence": {
+              "text": "Unul dintre exemplele de incompetență a acestui personaj, ușor de confundat cu un bufon, este și cazul Casei Memoriale „George Pop de Băsești” din Maramureș"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Oferă un exemplu specific (Casa Memorială), dar raționamentul rămâne centrat pe atac la persoană, nu pe o analiză cauzală a politicii."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "group_interest",
+            "evidence": {
+              "text": "cele care ar trebui să fie un exemplu de prețuire pentru cei care au făcut posibilă Unirea noastră, a tuturor românilor"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.8,
+            "rationale_short": "Apelul este la identitatea națională și la interesele simbolice ale grupului românilor."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 0,
+            "evidence": {
+              "text": "Tentativa de ministru George Ivașcu s-a dovedit că joacă un rol foarte prost: cel de ministru al culturii. O pălărie prea mare pentru capacitatea dumnealui"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Utilizarea termenilor denigratori („tentativa de ministru”, „bufon”) constituie o lipsă explicită de respect."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 0,
+            "evidence": {
+              "text": "aruncând la gunoi munca unei echipe mult mai competente decât ilustra dumnealui minte"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.9,
+            "rationale_short": "Respinge activitatea ministerială ca fiind nulă și incompetentă, fără a recunoaște vreo legitimitate."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "Nu putem vorbi de Centenarul Marii Uniri din moment ce casa memorială a celui mai important om politic al acelor vremuri nu este reabilitată."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Ignoră complet orice argumente sau justificări care ar putea veni din partea ministerului, concentrându-se pe acuzare."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Este momentul să demisionați."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.99,
+            "marker_confidence": 0.95,
+            "rationale_short": "Discursul este pur pozițional, cerând demisia fără a propune o alternativă de politică publică."
+          }
+        ],
+        "rationale": "Discursul este predominant un atac politic personal, caracterizat prin limbaj denigrator și lipsă de respect față de persoana vizată (respect_for_groups=0). Deși menționează un caz specific (Casa Memorială), acesta este folosit ca instrument de acuzare, nu ca parte a unei justificări deliberative complexe (level_of_justification=1). Nu există nicio încercare de a angaja contraargumente sau de a recunoaște legitimitatea cererilor adverse, iar discursul rămâne strict pozițional, axat pe solicitarea demisiei. Calitatea deliberativă este scăzută, fiind un exemplu tipic de retorică de opoziție agresivă."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.72,\n  \"level_of_justification\": 1,\n  \"content_of_justification\": \"group_interest\",\n  \"respect_for_groups\": 0,\n  \"respect_for_demands\": 0,\n  \"respect_for_counterarguments\": 0,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Unul dintre exemplele de incompetență a acestui personaj, ușor de confundat cu un bufon, este și cazul Casei Memoriale „George Pop de Băsești” din Maramureș\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Oferă un exemplu specific (Casa Memorială), dar raționamentul rămâne centrat pe atac la persoană, nu pe o analiză cauzală a politicii.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"group_interest\",\n      \"evidence\": {\n        \"text\": \"cele care ar trebui să fie un exemplu de prețuire pentru cei care au făcut posibilă Unirea noastră, a tuturor românilor\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.8,\n      \"rationale_short\": \"Apelul este la identitatea națională și la interesele simbolice ale grupului românilor.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"Tentativa de ministru George Ivașcu s-a dovedit că joacă un rol foarte prost: cel de ministru al culturii. O pălărie prea mare pentru capacitatea dumnealui\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Utilizarea termenilor denigratori („tentativa de ministru”, „bufon”) constituie o lipsă explicită de respect.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"aruncând la gunoi munca unei echipe mult mai competente decât ilustra dumnealui minte\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Respinge activitatea ministerială ca fiind nulă și incompetentă, fără a recunoaște vreo legitimitate.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"Nu putem vorbi de Centenarul Marii Uniri din moment ce casa memorială a celui mai important om politic al acelor vremuri nu este reabilitată.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Ignoră complet orice argumente sau justificări care ar putea veni din partea ministerului, concentrându-se pe acuzare.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"Este momentul să demisionați.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.99,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Discursul este pur pozițional, cerând demisia fără a propune o alternativă de politică publică.\"\n    }\n  ],\n  \"rationale\": \"Discursul este predominant un atac politic personal, caracterizat prin limbaj denigrator și lipsă de respect față de persoana vizată (respect_for_groups=0). Deși menționează un caz specific (Casa Memorială), acesta este folosit ca instrument de acuzare, nu ca parte a unei justificări deliberative complexe (level_of_justification=1). Nu există nicio încercare de a angaja contraargumente sau de a recunoaște legitimitatea cererilor adverse, iar discursul rămâne strict pozițional, axat pe solicitarea demisiei. Calitatea deliberativă este scăzută, fiind un exemplu tipic de retorică de opoziție agresivă.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12969,
+      "tokens_in_breakdown": {
+        "fresh": 12969,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1236,
+      "cost_usd": null,
+      "latency_ms": 5253,
+      "retries_used": 0
+    }
+  }
+}

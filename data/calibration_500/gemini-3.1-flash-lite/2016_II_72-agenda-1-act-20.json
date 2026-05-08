@@ -1,0 +1,194 @@
+{
+  "speech_id": "mo://2016/II/72#agenda-1#act-20",
+  "tier": "calibration",
+  "speaker": {
+    "id": "oprea-dumitru",
+    "name": "Dumitru Oprea",
+    "raw": "Domnul Dumitru Oprea",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": "2016-04-13",
+    "year": 2016,
+    "legislature": "VII",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2016/II/72#agenda-1#act-20",
+      "output": {
+        "score": 1,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.88,
+        "markers": [
+          {
+            "kind": "evil_elite",
+            "evidence": {
+              "text": "unii din principalii vinovați fiind guvernanții PSD, care ani de zile au pozat în apărători ai celor mulți și săraci, dar n-au făcut nimic să amelioreze situația lor."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Guvernanții PSD sunt prezentați ca actori maligni care au manipulat poporul prin ipocrizie, o formă de elită malefică."
+          }
+        ],
+        "rationale": "Discursul este în mare parte o intervenție tehnică despre piața muncii și politici de ocupare, însă conține un pasaj populist distinct în care vorbitorul atacă guvernanții PSD, acuzându-i de ipocrizie și manipulare a celor săraci. Deși acest fragment introduce un element de elită malefică, discursul nu susține un cadru maniheist pervaziv pe tot parcursul său, revenind rapid la un registru de propuneri administrative. Prin urmare, discursul se încadrează la scorul 1, fiind un exemplu de critică politică ce utilizează episodic retorica populistă fără a o transforma în coloana vertebrală a argumentației."
+      },
+      "raw_response": "{\n  \"score\": 1,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.88,\n  \"markers\": [\n    {\n      \"kind\": \"evil_elite\",\n      \"evidence\": {\n        \"text\": \"unii din principalii vinovați fiind guvernanții PSD, care ani de zile au pozat în apărători ai celor mulți și săraci, dar n-au făcut nimic să amelioreze situația lor.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Guvernanții PSD sunt prezentați ca actori maligni care au manipulat poporul prin ipocrizie, o formă de elită malefică.\"\n    }\n  ],\n  \"rationale\": \"Discursul este în mare parte o intervenție tehnică despre piața muncii și politici de ocupare, însă conține un pasaj populist distinct în care vorbitorul atacă guvernanții PSD, acuzându-i de ipocrizie și manipulare a celor săraci. Deși acest fragment introduce un element de elită malefică, discursul nu susține un cadru maniheist pervaziv pe tot parcursul său, revenind rapid la un registru de propuneri administrative. Prin urmare, discursul se încadrează la scorul 1, fiind un exemplu de critică politică ce utilizează episodic retorica populistă fără a o transforma în coloana vertebrală a argumentației.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 14182,
+      "tokens_in_breakdown": {
+        "fresh": 14182,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 402,
+      "cost_usd": null,
+      "latency_ms": 2810,
+      "retries_used": 0
+    },
+    "voice": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "voice",
+      "speech_id": "mo://2016/II/72#agenda-1#act-20",
+      "output": {
+        "classifications": [
+          {
+            "marker_id": "m_0",
+            "voice": "speaker_first_person",
+            "voice_confidence": 0.95,
+            "voice_evidence": null,
+            "attributed_to": null,
+            "rationale_short": "Afirmație directă a vorbitorului, fără indicii de citare, raportare sau disclaimer; vorbitorul își asumă criticile aduse guvernanților PSD."
+          }
+        ]
+      },
+      "raw_response": "{\n  \"classifications\": [\n    {\n      \"marker_id\": \"m_0\",\n      \"voice\": \"speaker_first_person\",\n      \"voice_confidence\": 0.95,\n      \"voice_evidence\": null,\n      \"attributed_to\": null,\n      \"rationale_short\": \"Afirmație directă a vorbitorului, fără indicii de citare, raportare sau disclaimer; vorbitorul își asumă criticile aduse guvernanților PSD.\"\n    }\n  ]\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 11759,
+      "tokens_in_breakdown": {
+        "fresh": 11759,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 123,
+      "cost_usd": null,
+      "latency_ms": 1101,
+      "retries_used": 0
+    },
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2016/II/72#agenda-1#act-20",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.78,
+        "level_of_justification": 1,
+        "content_of_justification": "mixed",
+        "respect_for_groups": 0,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 1,
+            "evidence": {
+              "text": "Oamenii trecuți de o anumită vârstă sau cei foarte tineri, femeile și persoanele din mediul rural au slabe șanse să-și găsească sau să accepte un loc de muncă. Cauzele cel mai des invocate sunt slaba dezvoltare economică a acestor zone geografice și abandonul școlar."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Identifică probleme, dar raționamentul cauzal este generic și nu oferă o legătură substanțială cu soluția propusă."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "mixed",
+            "evidence": {
+              "text": "vulnerabilitatea socială a multor români"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.8,
+            "rationale_short": "Apelul combină interesul unor grupuri vulnerabile specifice cu o retorică despre binele comun al societății."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 0,
+            "evidence": {
+              "text": "unii din principalii vinovați fiind guvernanții PSD, care ani de zile au pozat în apărători ai celor mulți și săraci, dar n-au făcut nimic să amelioreze situația lor. Au preferat să-i facă pe bieții oameni dependenți de ajutoarele și asistența socială"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.9,
+            "rationale_short": "Derogare explicită a adversarilor politici prin acuzații de manipulare și creare de dependență socială."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "actualul Executiv trebuie să renunțe la pasivitate"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.96,
+            "marker_confidence": 0.85,
+            "rationale_short": "Nu există o cerere a opoziției adresată direct, ci o critică generală la adresa Executivului; non-angajament."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "n-au făcut nimic să amelioreze situația lor"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.88,
+            "rationale_short": "Vorbitorul ignoră orice argumente contrare, concentrându-se pe atacul politic asupra guvernării anterioare."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "instituțiile abilitate să înceapă să ofere servicii adaptate și personalizate"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.96,
+            "marker_confidence": 0.85,
+            "rationale_short": "Propunerea este vagă și declarativă, neconstituind un amendament sau o alternativă concretă de politică publică."
+          }
+        ],
+        "rationale": "Discursul prezintă o calitate deliberativă scăzută, fiind dominat de retorică politică și atacuri la adresa guvernării anterioare. Deși identifică probleme sociale reale, nivelul de justificare rămâne inferior (level_of_justification=1), lipsind mecanismele cauzale detaliate. Respectul pentru grupuri este afectat de derogarea explicită a adversarilor politici (respect_for_groups=0), iar lipsa angajamentului cu contraargumente (respect_for_counterarguments=0) confirmă natura pozițională a discursului. Propunerile de soluții sunt formulate vag, fără a oferi alternative concrete, ceea ce menține discursul în sfera pozițională. Calitatea deliberativă este limitată de orientarea către critică politică în detrimentul argumentării substanțiale."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.78,\n  \"level_of_justification\": 1,\n  \"content_of_justification\": \"mixed\",\n  \"respect_for_groups\": 0,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 0,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Oamenii trecuți de o anumită vârstă sau cei foarte tineri, femeile și persoanele din mediul rural au slabe șanse să-și găsească sau să accepte un loc de muncă. Cauzele cel mai des invocate sunt slaba dezvoltare economică a acestor zone geografice și abandonul școlar.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Identifică probleme, dar raționamentul cauzal este generic și nu oferă o legătură substanțială cu soluția propusă.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"mixed\",\n      \"evidence\": {\n        \"text\": \"vulnerabilitatea socială a multor români\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.8,\n      \"rationale_short\": \"Apelul combină interesul unor grupuri vulnerabile specifice cu o retorică despre binele comun al societății.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"unii din principalii vinovați fiind guvernanții PSD, care ani de zile au pozat în apărători ai celor mulți și săraci, dar n-au făcut nimic să amelioreze situația lor. Au preferat să-i facă pe bieții oameni dependenți de ajutoarele și asistența socială\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Derogare explicită a adversarilor politici prin acuzații de manipulare și creare de dependență socială.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"actualul Executiv trebuie să renunțe la pasivitate\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.96,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Nu există o cerere a opoziției adresată direct, ci o critică generală la adresa Executivului; non-angajament.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"n-au făcut nimic să amelioreze situația lor\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Vorbitorul ignoră orice argumente contrare, concentrându-se pe atacul politic asupra guvernării anterioare.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"instituțiile abilitate să înceapă să ofere servicii adaptate și personalizate\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.96,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Propunerea este vagă și declarativă, neconstituind un amendament sau o alternativă concretă de politică publică.\"\n    }\n  ],\n  \"rationale\": \"Discursul prezintă o calitate deliberativă scăzută, fiind dominat de retorică politică și atacuri la adresa guvernării anterioare. Deși identifică probleme sociale reale, nivelul de justificare rămâne inferior (level_of_justification=1), lipsind mecanismele cauzale detaliate. Respectul pentru grupuri este afectat de derogarea explicită a adversarilor politici (respect_for_groups=0), iar lipsa angajamentului cu contraargumente (respect_for_counterarguments=0) confirmă natura pozițională a discursului. Propunerile de soluții sunt formulate vag, fără a oferi alternative concrete, ceea ce menține discursul în sfera pozițională. Calitatea deliberativă este limitată de orientarea către critică politică în detrimentul argumentării substanțiale.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [
+        "vulnerabilitatea socială a multor români"
+      ],
+      "parse_repaired": false,
+      "tokens_in": 12983,
+      "tokens_in_breakdown": {
+        "fresh": 12983,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1292,
+      "cost_usd": null,
+      "latency_ms": 4678,
+      "retries_used": 0
+    }
+  }
+}

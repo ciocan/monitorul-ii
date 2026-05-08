@@ -1,0 +1,156 @@
+{
+  "speech_id": "mo://2001/II/76#agenda-1#act-58",
+  "tier": "calibration",
+  "speaker": {
+    "id": "stoica-valeriu",
+    "name": "Valeriu Stoica",
+    "raw": "Domnul Valeriu Stoica",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": null,
+    "year": 2001,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2001/II/76#agenda-1#act-58",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.95,
+        "markers": [],
+        "rationale": "Discursul este o interpelare parlamentară tehnică și procedurală care critică excesul de ordonanțe de urgență al Guvernului Năstase. Deși vorbitorul folosește un ton critic și acuzator, acesta se bazează pe argumente constituționale (art. 114 alin. 4), comparații statistice între guverne și respectarea regulamentelor parlamentare. Nu există un cadru manihean popor-vs-elită, nici invocarea unei voințe populare omogene ca forță suverană, ci o critică a nerespectării procedurilor democratice. Discursul rămâne în registrul pluralist și instituțional, neîndeplinind criteriile pentru un scor populist."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.95,\n  \"markers\": [],\n  \"rationale\": \"Discursul este o interpelare parlamentară tehnică și procedurală care critică excesul de ordonanțe de urgență al Guvernului Năstase. Deși vorbitorul folosește un ton critic și acuzator, acesta se bazează pe argumente constituționale (art. 114 alin. 4), comparații statistice între guverne și respectarea regulamentelor parlamentare. Nu există un cadru manihean popor-vs-elită, nici invocarea unei voințe populare omogene ca forță suverană, ci o critică a nerespectării procedurilor democratice. Discursul rămâne în registrul pluralist și instituțional, neîndeplinind criteriile pentru un scor populist.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 15172,
+      "tokens_in_breakdown": {
+        "fresh": 15172,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 234,
+      "cost_usd": null,
+      "latency_ms": 2114,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2001/II/76#agenda-1#act-58",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.85,
+        "level_of_justification": 2,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "Prin nerespectarea art. 114 alin. (4) din Constituție, care prevede că adoptarea ordonanțelor de urgență se face doar în cazuri excepționale, Guvernul P.D.S.R. s-a situat mai presus de legea fundamentală"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Justificare calificată prin referință directă la articolul 114 alin. (4) din Constituție."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "restabilirea raporturilor constituționale între Parlament și Guvern și respectarea cu strictețe a dispozițiilor constituționale"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.9,
+            "rationale_short": "Apelul este la principiul constituțional și la funcționarea democratică a statului, nu la interese de grup."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Guvernul P.D.S.R."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Referință funcțională la partidul de guvernământ; ton critic, dar fără derogare explicită."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Cum comentați, domnule prim-ministru Adrian Năstase, abuzul legislativ creat de inflația ordonanțelor de urgență"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.88,
+            "rationale_short": "Vorbitorul solicită explicații, dar nu angajează legitimitatea cererilor adverse."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "Domnul Adrian Năstase ne-a transmis că putem conta pe Guvernul P.D.S.R. pentru că, citez din ceea ce a spus domnul Adrian Năstase cu acea ocazie: ”În contextul acestei noi proceduri, vom ști să respectăm cu adevărat ceea ce se cuvine să fie respectat pentru Parlament"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Cită argumentul advers, dar nu îl combate substanțial, folosindu-l doar pentru a evidenția contradicția."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Ce alte soluții aveți, în afara celor prevăzute în Programul de guvernare, pe care, din păcate, constat că nu le respectați, pentru a remedia acest abuz"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Discursul este o interpelare critică; nu oferă o alternativă proprie, ci cere soluții de la Guvern."
+          }
+        ],
+        "rationale": "Discursul este o interpelare parlamentară bine structurată, cu un nivel de justificare calificat (level_of_justification=2) prin ancorarea în Constituție (art. 114). Justificarea vizează binele comun (respectarea ordinii constituționale). Respectul pentru grupuri și cereri este neutru, fiind o critică politică standard. Deși citează promisiunile Guvernului, nu angajează substanțial raționamentul acestora, limitându-se la a sublinia eșecul lor (respect_for_counterarguments=1). Discursul rămâne pozițional, solicitând soluții de la Executiv fără a propune o alternativă legislativă proprie. Calitatea deliberativă este medie, fiind un exercițiu de control parlamentar tipic."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.85,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"Prin nerespectarea art. 114 alin. (4) din Constituție, care prevede că adoptarea ordonanțelor de urgență se face doar în cazuri excepționale, Guvernul P.D.S.R. s-a situat mai presus de legea fundamentală\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Justificare calificată prin referință directă la articolul 114 alin. (4) din Constituție.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"restabilirea raporturilor constituționale între Parlament și Guvern și respectarea cu strictețe a dispozițiilor constituționale\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"marker_confidence\": 0.90,\n      \"rationale_short\": \"Apelul este la principiul constituțional și la funcționarea democratică a statului, nu la interese de grup.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Guvernul P.D.S.R.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Referință funcțională la partidul de guvernământ; ton critic, dar fără derogare explicită.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Cum comentați, domnule prim-ministru Adrian Năstase, abuzul legislativ creat de inflația ordonanțelor de urgență\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Vorbitorul solicită explicații, dar nu angajează legitimitatea cererilor adverse.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Domnul Adrian Năstase ne-a transmis că putem conta pe Guvernul P.D.S.R. pentru că, citez din ceea ce a spus domnul Adrian Năstase cu acea ocazie: ”În contextul acestei noi proceduri, vom ști să respectăm cu adevărat ceea ce se cuvine să fie respectat pentru Parlament\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Cită argumentul advers, dar nu îl combate substanțial, folosindu-l doar pentru a evidenția contradicția.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"Ce alte soluții aveți, în afara celor prevăzute în Programul de guvernare, pe care, din păcate, constat că nu le respectați, pentru a remedia acest abuz\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.90,\n      \"rationale_short\": \"Discursul este o interpelare critică; nu oferă o alternativă proprie, ci cere soluții de la Guvern.\"\n    }\n  ],\n  \"rationale\": \"Discursul este o interpelare parlamentară bine structurată, cu un nivel de justificare calificat (level_of_justification=2) prin ancorarea în Constituție (art. 114). Justificarea vizează binele comun (respectarea ordinii constituționale). Respectul pentru grupuri și cereri este neutru, fiind o critică politică standard. Deși citează promisiunile Guvernului, nu angajează substanțial raționamentul acestora, limitându-se la a sublinia eșecul lor (respect_for_counterarguments=1). Discursul rămâne pozițional, solicitând soluții de la Executiv fără a propune o alternativă legislativă proprie. Calitatea deliberativă este medie, fiind un exercițiu de control parlamentar tipic.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [
+        "Prin nerespectarea art. 114 alin. (4) din Constituție, care prevede că adoptarea ordonanțelor de urgență se face doar în cazuri excepționale, Guvernul P.D.S.R. s-a situat mai presus de legea fundamentală",
+        "restabilirea raporturilor constituționale între Parlament și Guvern și respectarea cu strictețe a dispozițiilor constituționale",
+        "Cum comentați, domnule prim-ministru Adrian Năstase, abuzul legislativ creat de inflația ordonanțelor de urgență",
+        "Domnul Adrian Năstase ne-a transmis că putem conta pe Guvernul P.D.S.R. pentru că, citez din ceea ce a spus domnul Adrian Năstase cu acea ocazie: ”În contextul acestei noi proceduri, vom ști să respectăm cu adevărat ceea ce se cuvine să fie respectat pentru Parlament",
+        "Ce alte soluții aveți, în afara celor prevăzute în Programul de guvernare, pe care, din păcate, constat că nu le respectați, pentru a remedia acest abuz"
+      ],
+      "parse_repaired": false,
+      "tokens_in": 13973,
+      "tokens_in_breakdown": {
+        "fresh": 13973,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1323,
+      "cost_usd": null,
+      "latency_ms": 4951,
+      "retries_used": 0
+    }
+  }
+}

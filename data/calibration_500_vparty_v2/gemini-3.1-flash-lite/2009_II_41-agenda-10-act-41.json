@@ -1,0 +1,52 @@
+{
+  "speech_id": "mo://2009/II/41#agenda-10#act-41",
+  "tier": "calibration",
+  "speaker": {
+    "id": "palar-ionel",
+    "name": "Ionel Palăr",
+    "raw": "Domnul Ionel Palăr",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2009-03-31",
+    "year": 2009,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": null,
+    "voice": null,
+    "dqi": null,
+    "vparty": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "vparty",
+      "speech_id": "mo://2009/II/41#agenda-10#act-41",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "vparty@2020 + vdem-attacks-on@v13",
+        "framework_confidence": 1.0,
+        "markers": [],
+        "rationale": "Discursul este unul pur procedural, prezentând raportul unei comisii parlamentare privind modificarea Statutului funcționarului public parlamentar. Nu există nicio referire la instituții democratice, opoziție, presă, societate civilă sau minorități, ci doar mențiuni tehnice despre avizele Consiliului Legislativ și ale Guvernului. Limbajul este neutru, administrativ și respectă pe deplin normele parlamentare. Nu există niciun element de anti-pluralism, discursul fiind un exemplu clasic de activitate legislativă de rutină."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"vparty@2020 + vdem-attacks-on@v13\",\n  \"framework_confidence\": 1.0,\n  \"markers\": [],\n  \"rationale\": \"Discursul este unul pur procedural, prezentând raportul unei comisii parlamentare privind modificarea Statutului funcționarului public parlamentar. Nu există nicio referire la instituții democratice, opoziție, presă, societate civilă sau minorități, ci doar mențiuni tehnice despre avizele Consiliului Legislativ și ale Guvernului. Limbajul este neutru, administrativ și respectă pe deplin normele parlamentare. Nu există niciun element de anti-pluralism, discursul fiind un exemplu clasic de activitate legislativă de rutină.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13120,
+      "tokens_in_breakdown": {
+        "fresh": 13120,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 205,
+      "cost_usd": null,
+      "latency_ms": 1810,
+      "retries_used": 0
+    }
+  }
+}

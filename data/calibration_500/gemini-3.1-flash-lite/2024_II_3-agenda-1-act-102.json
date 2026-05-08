@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2024/II/3#agenda-1#act-102",
+  "tier": "calibration",
+  "speaker": {
+    "id": "furtuna-mirela",
+    "name": "Mirela Furtună",
+    "raw": "Doamna Mirela Furtună",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2023-12-12",
+    "year": 2024,
+    "legislature": "IX",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2024/II/3#agenda-1#act-102",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul este un raport tehnic și procedural despre bugetul de stat pentru anul 2024, concentrându-se pe cifre, procente, alocări bugetare și indicatori macroeconomici (PIB, inflație, deficit). Deși menționează guvernarea PSD, o face în contextul comparării performanței economice, fără a utiliza un cadru maniheist popor-vs-elită sau a invoca o voință populară omogenă împotriva instituțiilor. Nu există niciun marker populist prezent; discursul rămâne strict în registrul tehnocratic și de politică publică. Hawkins=0 cu încredere ridicată."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul este un raport tehnic și procedural despre bugetul de stat pentru anul 2024, concentrându-se pe cifre, procente, alocări bugetare și indicatori macroeconomici (PIB, inflație, deficit). Deși menționează guvernarea PSD, o face în contextul comparării performanței economice, fără a utiliza un cadru maniheist popor-vs-elită sau a invoca o voință populară omogenă împotriva instituțiilor. Nu există niciun marker populist prezent; discursul rămâne strict în registrul tehnocratic și de politică publică. Hawkins=0 cu încredere ridicată.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 14160,
+      "tokens_in_breakdown": {
+        "fresh": 14160,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 218,
+      "cost_usd": null,
+      "latency_ms": 2118,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2024/II/3#agenda-1#act-102",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.78,
+        "level_of_justification": 2,
+        "content_of_justification": "mixed",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "Vom respecta regula UE de reducere cu 0,5 puncte procentuale anual."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Justificare calificată prin ancorarea în reguli UE și proiecții bugetare specifice."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "mixed",
+            "evidence": {
+              "text": "PSD își face treaba și adoptă un buget echilibrat și orientat către educație și dezvoltare pentru anul 2024!"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.82,
+            "rationale_short": "Discursul îmbină apelul la interesul de partid (PSD) cu cel la binele comun (dezvoltare, educație)."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "PSD, prin Marcel Ciolacu, a preluat mandatul de prim-ministru"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Referințe neutre la actori politici; nicio derogare sau respect explicit pentru out-group-uri."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Un buget al educației și dezvoltării"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Vorbitorul își prezintă propria agendă fără a menționa sau angaja cererile opoziției."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "PSD își face treaba și adoptă un buget echilibrat"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.88,
+            "rationale_short": "Argumentele opoziției sunt ignorate complet; discursul este pur auto-laudativ."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "PSD își face treaba și adoptă un buget echilibrat"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Discursul susține poziția guvernului fără a propune alternative sau medieri."
+          }
+        ],
+        "rationale": "Discursul prezintă un profil de justificare tehnică (level_of_justification=2) prin utilizarea datelor macroeconomice și a normelor UE, însă rămâne strict pozițional (constructive_politics=positional). Conținutul justificării este mixt, alternând între realizările partidului și beneficiile pentru binele comun. Respectul pentru grupuri și cereri este neutru, deoarece vorbitorul nu interacționează cu opoziția, ignorând complet contraargumentele (respect_for_counterarguments=0). Deși discursul este dens în cifre, acesta funcționează ca o prezentare de bilanț guvernamental, lipsită de deliberare interactivă."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.78,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"mixed\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 0,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"Vom respecta regula UE de reducere cu 0,5 puncte procentuale anual.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Justificare calificată prin ancorarea în reguli UE și proiecții bugetare specifice.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"mixed\",\n      \"evidence\": {\n        \"text\": \"PSD își face treaba și adoptă un buget echilibrat și orientat către educație și dezvoltare pentru anul 2024!\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.82,\n      \"rationale_short\": \"Discursul îmbină apelul la interesul de partid (PSD) cu cel la binele comun (dezvoltare, educație).\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"PSD, prin Marcel Ciolacu, a preluat mandatul de prim-ministru\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Referințe neutre la actori politici; nicio derogare sau respect explicit pentru out-group-uri.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Un buget al educației și dezvoltării\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Vorbitorul își prezintă propria agendă fără a menționa sau angaja cererile opoziției.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"PSD își face treaba și adoptă un buget echilibrat\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Argumentele opoziției sunt ignorate complet; discursul este pur auto-laudativ.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"PSD își face treaba și adoptă un buget echilibrat\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Discursul susține poziția guvernului fără a propune alternative sau medieri.\"\n    }\n  ],\n  \"rationale\": \"Discursul prezintă un profil de justificare tehnică (level_of_justification=2) prin utilizarea datelor macroeconomice și a normelor UE, însă rămâne strict pozițional (constructive_politics=positional). Conținutul justificării este mixt, alternând între realizările partidului și beneficiile pentru binele comun. Respectul pentru grupuri și cereri este neutru, deoarece vorbitorul nu interacționează cu opoziția, ignorând complet contraargumentele (respect_for_counterarguments=0). Deși discursul este dens în cifre, acesta funcționează ca o prezentare de bilanț guvernamental, lipsită de deliberare interactivă.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12961,
+      "tokens_in_breakdown": {
+        "fresh": 12961,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1124,
+      "cost_usd": null,
+      "latency_ms": 4585,
+      "retries_used": 0
+    }
+  }
+}

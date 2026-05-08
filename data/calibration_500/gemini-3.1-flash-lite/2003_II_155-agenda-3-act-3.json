@@ -1,0 +1,153 @@
+{
+  "speech_id": "mo://2003/II/155#agenda-3#act-3",
+  "tier": "calibration",
+  "speaker": {
+    "id": "mocioalca-ion",
+    "name": "Ion Mocioalc„",
+    "raw": "Domnul Ion Mocioalc„",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": null,
+    "session_date": null,
+    "year": 2003,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2003/II/155#agenda-3#act-3",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.95,
+        "markers": [],
+        "rationale": "Discursul se înscrie într-un registru procedural și politic convențional, axat pe necesitatea consensului național în contextul integrării europene și al anului electoral 2004. Deși vorbitorul critică opoziția pentru „atacuri demolatoare” și „obsedată de putere”, acesta nu construiește un cadru maniheist popor-vs-elită, ci pledează pentru dialog și soluții realiste. Termenii precum „interesul național” sau „consens național” sunt utilizați în sensul lor procedural-politic standard, nu ca instrumente ale unei retorici populiste. Discursul nu conține niciun marker populist la persoana întâi, fiind un apel la responsabilitate politică în cadrul instituțional existent."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.95,\n  \"markers\": [],\n  \"rationale\": \"Discursul se înscrie într-un registru procedural și politic convențional, axat pe necesitatea consensului național în contextul integrării europene și al anului electoral 2004. Deși vorbitorul critică opoziția pentru „atacuri demolatoare” și „obsedată de putere”, acesta nu construiește un cadru maniheist popor-vs-elită, ci pledează pentru dialog și soluții realiste. Termenii precum „interesul național” sau „consens național” sunt utilizați în sensul lor procedural-politic standard, nu ca instrumente ale unei retorici populiste. Discursul nu conține niciun marker populist la persoana întâi, fiind un apel la responsabilitate politică în cadrul instituțional existent.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 15298,
+      "tokens_in_breakdown": {
+        "fresh": 15298,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 244,
+      "cost_usd": null,
+      "latency_ms": 2378,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2003/II/155#agenda-3#act-3",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.78,
+        "level_of_justification": 2,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "Rom‚nia are nevoie, mai mult ca oric‚nd, nu de aruncarea anatemei de la un partid la altul, ci de dialog. Rom‚nia are nevoie de consens na˛ional, Ón acest an 2004, an electoral, dar ∫i an hot„r‚tor prin dimensiunile lui politice privind Óndeplinirea condi˛iilor de integrare Ón Uniunea European„."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Vorbitorul leagă necesitatea consensului de un obiectiv național specific (integrarea UE) și un context temporal (anul 2004)."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "miza integr„rii Ón Uniunea European„ a devenit pentru P.S.D. un pariu ∫i o provocare pe care noi, social-democra˛ii, nu avem voie, Ón numele ˛„rii Óntregi, s„ o rat„m."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.9,
+            "rationale_short": "Justificarea este ancorată explicit în interesul național și în obiectivul universalizabil al integrării europene."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Partidele care Ó∫i doresc puterea, mai ales Alian˛a P.N.L.—P.D., dar nici P.R.M. nu face excep˛ie"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.8,
+            "rationale_short": "Referințe funcționale la partidele de opoziție; tonul este critic, dar nu atinge pragul de derogare explicită."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Se urm„re∫te cu pumnii Óncle∫ta˛i Ónsemnarea cu bil„ neagr„ a oric„rui gest ∫i ac˛iune a actualei puteri"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.96,
+            "marker_confidence": 0.82,
+            "rationale_short": "Vorbitorul descrie cererile opoziției ca fiind motivate politic, fără a le recunoaște legitimitatea."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "Tot opoziția conduce tirul aproape cu pietre spre bugetul ˛„rii din 2004, c„ ar fi un buget electoral, uit‚nd c„ el este parte a Programului de guvernare socialdemocrat"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.85,
+            "rationale_short": "Menționează argumentul opoziției despre buget, dar îl respinge prin simpla referire la programul de guvernare, fără angajament substanțial."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Avem nevoie to˛i de consens na˛ional, pentru solu˛ii realiste ∫i viabile."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.88,
+            "rationale_short": "Vorbitorul pledează pentru consens, dar nu oferă o propunere alternativă sau un mecanism de mediere concret."
+          }
+        ],
+        "rationale": "Discursul prezintă o calitate deliberativă mixtă. Vorbitorul oferă o justificare calificată (level_of_justification=2) ancorată în interesul național (integrarea UE), însă respectul pentru opoziție rămâne la un nivel neutru sau de non-angajament. Deși discursul invită la consens, acesta rămâne o poziție politică generală (constructive_politics=positional) fără a propune un mecanism de mediere specific. Argumentele opoziției sunt menționate, dar nu sunt tratate cu rigoare analitică, ci respinse prin apel la legitimitatea guvernului. Profilul este unul de retorică politică standard, cu un efort vizibil de a ridica miza la nivelul binelui comun."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.78,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"Rom‚nia are nevoie, mai mult ca oric‚nd, nu de aruncarea anatemei de la un partid la altul, ci de dialog. Rom‚nia are nevoie de consens na˛ional, Ón acest an 2004, an electoral, dar ∫i an hot„r‚tor prin dimensiunile lui politice privind Óndeplinirea condi˛iilor de integrare Ón Uniunea European„.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Vorbitorul leagă necesitatea consensului de un obiectiv național specific (integrarea UE) și un context temporal (anul 2004).\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"miza integr„rii Ón Uniunea European„ a devenit pentru P.S.D. un pariu ∫i o provocare pe care noi, social-democra˛ii, nu avem voie, Ón numele ˛„rii Óntregi, s„ o rat„m.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Justificarea este ancorată explicit în interesul național și în obiectivul universalizabil al integrării europene.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Partidele care Ó∫i doresc puterea, mai ales Alian˛a P.N.L.—P.D., dar nici P.R.M. nu face excep˛ie\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.8,\n      \"rationale_short\": \"Referințe funcționale la partidele de opoziție; tonul este critic, dar nu atinge pragul de derogare explicită.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Se urm„re∫te cu pumnii Óncle∫ta˛i Ónsemnarea cu bil„ neagr„ a oric„rui gest ∫i ac˛iune a actualei puteri\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.96,\n      \"marker_confidence\": 0.82,\n      \"rationale_short\": \"Vorbitorul descrie cererile opoziției ca fiind motivate politic, fără a le recunoaște legitimitatea.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Tot opoziția conduce tirul aproape cu pietre spre bugetul ˛„rii din 2004, c„ ar fi un buget electoral, uit‚nd c„ el este parte a Programului de guvernare socialdemocrat\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Menționează argumentul opoziției despre buget, dar îl respinge prin simpla referire la programul de guvernare, fără angajament substanțial.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"Avem nevoie to˛i de consens na˛ional, pentru solu˛ii realiste ∫i viabile.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Vorbitorul pledează pentru consens, dar nu oferă o propunere alternativă sau un mecanism de mediere concret.\"\n    }\n  ],\n  \"rationale\": \"Discursul prezintă o calitate deliberativă mixtă. Vorbitorul oferă o justificare calificată (level_of_justification=2) ancorată în interesul național (integrarea UE), însă respectul pentru opoziție rămâne la un nivel neutru sau de non-angajament. Deși discursul invită la consens, acesta rămâne o poziție politică generală (constructive_politics=positional) fără a propune un mecanism de mediere specific. Argumentele opoziției sunt menționate, dar nu sunt tratate cu rigoare analitică, ci respinse prin apel la legitimitatea guvernului. Profilul este unul de retorică politică standard, cu un efort vizibil de a ridica miza la nivelul binelui comun.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [
+        "Rom‚nia are nevoie, mai mult ca oric‚nd, nu de aruncarea anatemei de la un partid la altul, ci de dialog. Rom‚nia are nevoie de consens na˛ional, Ón acest an 2004, an electoral, dar ∫i an hot„r‚tor prin dimensiunile lui politice privind Óndeplinirea condi˛iilor de integrare Ón Uniunea European„.",
+        "Tot opoziția conduce tirul aproape cu pietre spre bugetul ˛„rii din 2004, c„ ar fi un buget electoral, uit‚nd c„ el este parte a Programului de guvernare socialdemocrat"
+      ],
+      "parse_repaired": false,
+      "tokens_in": 14099,
+      "tokens_in_breakdown": {
+        "fresh": 14099,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1407,
+      "cost_usd": null,
+      "latency_ms": 5425,
+      "retries_used": 0
+    }
+  }
+}

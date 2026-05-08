@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2005/II/175#agenda-2#act-28",
+  "tier": "calibration",
+  "speaker": {
+    "id": "vacaroiu-nicolae",
+    "name": "Nicolae V„c„roiu",
+    "raw": "Domnul Nicolae V„c„roiu",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": null,
+    "year": 2005,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2005/II/175#agenda-2#act-28",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 1.0,
+        "markers": [],
+        "rationale": "Discursul este pur procedural, constând în anunțarea programului de lucru al Parlamentului și enumerarea unor proiecte de lege depuse pentru informarea colegilor. Nu există nicio urmă de retorică populistă, cadru maniheist sau invocare a unei voințe populare în opoziție cu instituțiile. Vorbitorul se limitează strict la atribuțiile administrative ale funcției sale. Hawkins=0 cu încredere maximă."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 1.0,\n  \"markers\": [],\n  \"rationale\": \"Discursul este pur procedural, constând în anunțarea programului de lucru al Parlamentului și enumerarea unor proiecte de lege depuse pentru informarea colegilor. Nu există nicio urmă de retorică populistă, cadru maniheist sau invocare a unei voințe populare în opoziție cu instituțiile. Vorbitorul se limitează strict la atribuțiile administrative ale funcției sale. Hawkins=0 cu încredere maximă.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 14800,
+      "tokens_in_breakdown": {
+        "fresh": 14800,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 165,
+      "cost_usd": null,
+      "latency_ms": 1968,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2005/II/175#agenda-2#act-28",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.45,
+        "level_of_justification": 0,
+        "content_of_justification": "none",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 0,
+            "evidence": {
+              "text": "Trecem acum, stima˛i colegi, la programul legislativ."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Discursul este pur procedural, fără nicio justificare pentru vreo poziție politică."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "none",
+            "evidence": {
+              "text": "Trecem acum, stima˛i colegi, la programul legislativ."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Nicio justificare oferită; conținutul este nedefinit."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Stima˛i colegi"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Adresare convențională, neutră."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "V„ rog, dac„ se mai sus˛ine?"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Intervenție procedurală neutră, fără angajament cu cereri politice."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "V„ rog, dac„ se mai sus˛ine?"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Nu există contraargumente adresate; discursul este pur administrativ."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Trecem acum, stima˛i colegi, la programul legislativ."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Discursul este pur procedural, fără propuneri alternative sau mediere."
+          }
+        ],
+        "rationale": "Acest discurs este pur procedural și administrativ, având rolul de a organiza agenda parlamentară și de a informa membrii despre depunerea unor proiecte de lege. Nu conține nicio argumentație substanțială, justificare sau dezbatere politică, fiind un exemplu clasic de intervenție de tip 'housekeeping'. Din acest motiv, toate dimensiunile DQI sunt codate la valorile lor implicite (neutru/pozițional/fără justificare). Framework_confidence este scăzut deoarece discursul nu este deliberativ prin natura sa, fiind în afara domeniului de aplicare al indicelui de calitate a discursului."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.45,\n  \"level_of_justification\": 0,\n  \"content_of_justification\": \"none\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 0,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 0,\n      \"evidence\": { \"text\": \"Trecem acum, stima˛i colegi, la programul legislativ.\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Discursul este pur procedural, fără nicio justificare pentru vreo poziție politică.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"none\",\n      \"evidence\": { \"text\": \"Trecem acum, stima˛i colegi, la programul legislativ.\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Nicio justificare oferită; conținutul este nedefinit.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": { \"text\": \"Stima˛i colegi\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Adresare convențională, neutră.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": { \"text\": \"V„ rog, dac„ se mai sus˛ine?\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Intervenție procedurală neutră, fără angajament cu cereri politice.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 0,\n      \"evidence\": { \"text\": \"V„ rog, dac„ se mai sus˛ine?\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Nu există contraargumente adresate; discursul este pur administrativ.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": { \"text\": \"Trecem acum, stima˛i colegi, la programul legislativ.\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Discursul este pur procedural, fără propuneri alternative sau mediere.\"\n    }\n  ],\n  \"rationale\": \"Acest discurs este pur procedural și administrativ, având rolul de a organiza agenda parlamentară și de a informa membrii despre depunerea unor proiecte de lege. Nu conține nicio argumentație substanțială, justificare sau dezbatere politică, fiind un exemplu clasic de intervenție de tip 'housekeeping'. Din acest motiv, toate dimensiunile DQI sunt codate la valorile lor implicite (neutru/pozițional/fără justificare). Framework_confidence este scăzut deoarece discursul nu este deliberativ prin natura sa, fiind în afara domeniului de aplicare al indicelui de calitate a discursului.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13601,
+      "tokens_in_breakdown": {
+        "fresh": 13601,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1015,
+      "cost_usd": null,
+      "latency_ms": 3879,
+      "retries_used": 0
+    }
+  }
+}

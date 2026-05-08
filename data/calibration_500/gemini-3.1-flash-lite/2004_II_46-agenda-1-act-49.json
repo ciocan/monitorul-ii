@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2004/II/46#agenda-1#act-49",
+  "tier": "calibration",
+  "speaker": {
+    "id": "nicolaescu-sergiu",
+    "name": "Sergiu Nicolaescu",
+    "raw": "Domnul Sergiu Nicolaescu",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": null,
+    "year": 2004,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2004/II/46#agenda-1#act-49",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul reprezintă un raport tehnic al unei comisii parlamentare privind o cerere de reexaminare a unui proiect de lege. Argumentația se bazează pe proceduri legislative, conformitatea cu Constituția și reglementările internaționale, fără a utiliza un cadru populist. Nu există nicio referire la un conflict maniheist între popor și elită, nicio invocare a unei voințe populare omogene și nicio retorică de criză sau moralizatoare. Discursul rămâne strict în registrul procedural și juridic, fiind un exemplu clar de scor 0."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul reprezintă un raport tehnic al unei comisii parlamentare privind o cerere de reexaminare a unui proiect de lege. Argumentația se bazează pe proceduri legislative, conformitatea cu Constituția și reglementările internaționale, fără a utiliza un cadru populist. Nu există nicio referire la un conflict maniheist între popor și elită, nicio invocare a unei voințe populare omogene și nicio retorică de criză sau moralizatoare. Discursul rămâne strict în registrul procedural și juridic, fiind un exemplu clar de scor 0.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13989,
+      "tokens_in_breakdown": {
+        "fresh": 13989,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 198,
+      "cost_usd": null,
+      "latency_ms": 1905,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2004/II/46#agenda-1#act-49",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.92,
+        "level_of_justification": 2,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "Aprecierea se bazeaz„ ∫i pe reglement„rile interna˛ionale Ón materie care prev„d expres ∫i limitativ persoanele ce pot beneficia de pa∫apoarte diplomatice."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.94,
+            "rationale_short": "Justificare bazată pe reglementări internaționale specifice și limitative."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "acordarea de pa∫apoarte diplomatice fo∫tilor parlamentari, precum ∫i membrilor de familie ai acestora, este neconstitu˛ional„"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.92,
+            "rationale_short": "Apel la constituționalitate și egalitate de tratament, vizând binele comun."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "fo∫tilor parlamentari"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.9,
+            "rationale_short": "Referință neutră la o categorie de foști demnitari în contextul unei analize juridice."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Comisia juridic„, de numiri, disciplin„, imunit„˛i ∫i valid„ri ∫i Comisia pentru politic„ extern„ au avizat favorabil cererea de reexaminare."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.88,
+            "rationale_short": "Raportare procedurală a avizelor, fără angajament direct cu cererile opoziției."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "motivele invocate sunt Óntemeiate, Ón raport cu prevederile Constitu˛iei"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.89,
+            "rationale_short": "Recunoașterea temeiniciei motivelor președintelui, fără o dezbatere contradictorie extinsă."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "s„ adopte raport de admitere."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.91,
+            "rationale_short": "Adoptarea unei poziții oficiale de admitere a cererii de reexaminare."
+          }
+        ],
+        "rationale": "Discursul reprezintă un raport oficial de comisie, caracterizat printr-o justificare calificată (level_of_justification=2) bazată pe norme constituționale și reglementări internaționale. Apelul la binele comun este evident prin invocarea principiului egalității și a constituționalității. Respectul pentru grupuri și cereri este neutru, fiind o prezentare tehnică a avizelor și a concluziilor comisiei. Deși discursul este constructiv în sensul soluționării cererii de reexaminare, acesta rămâne pozițional în cadrul procedurii parlamentare. Calitatea deliberativă este ridicată pentru un raport de comisie, oferind argumente clare pentru decizia luată."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.92,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"Aprecierea se bazeaz„ ∫i pe reglement„rile interna˛ionale Ón materie care prev„d expres ∫i limitativ persoanele ce pot beneficia de pa∫apoarte diplomatice.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.94,\n      \"rationale_short\": \"Justificare bazată pe reglementări internaționale specifice și limitative.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"acordarea de pa∫apoarte diplomatice fo∫tilor parlamentari, precum ∫i membrilor de familie ai acestora, este neconstitu˛ional„\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Apel la constituționalitate și egalitate de tratament, vizând binele comun.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"fo∫tilor parlamentari\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Referință neutră la o categorie de foști demnitari în contextul unei analize juridice.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Comisia juridic„, de numiri, disciplin„, imunit„˛i ∫i valid„ri ∫i Comisia pentru politic„ extern„ au avizat favorabil cererea de reexaminare.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Raportare procedurală a avizelor, fără angajament direct cu cererile opoziției.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"motivele invocate sunt Óntemeiate, Ón raport cu prevederile Constitu˛iei\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.89,\n      \"rationale_short\": \"Recunoașterea temeiniciei motivelor președintelui, fără o dezbatere contradictorie extinsă.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"s„ adopte raport de admitere.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.91,\n      \"rationale_short\": \"Adoptarea unei poziții oficiale de admitere a cererii de reexaminare.\"\n    }\n  ],\n  \"rationale\": \"Discursul reprezintă un raport oficial de comisie, caracterizat printr-o justificare calificată (level_of_justification=2) bazată pe norme constituționale și reglementări internaționale. Apelul la binele comun este evident prin invocarea principiului egalității și a constituționalității. Respectul pentru grupuri și cereri este neutru, fiind o prezentare tehnică a avizelor și a concluziilor comisiei. Deși discursul este constructiv în sensul soluționării cererii de reexaminare, acesta rămâne pozițional în cadrul procedurii parlamentare. Calitatea deliberativă este ridicată pentru un raport de comisie, oferind argumente clare pentru decizia luată.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12790,
+      "tokens_in_breakdown": {
+        "fresh": 12790,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1176,
+      "cost_usd": null,
+      "latency_ms": 4374,
+      "retries_used": 0
+    }
+  }
+}

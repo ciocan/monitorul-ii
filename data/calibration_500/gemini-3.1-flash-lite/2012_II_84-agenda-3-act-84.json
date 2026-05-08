@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2012/II/84#agenda-3#act-84",
+  "tier": "calibration",
+  "speaker": {
+    "id": "zoltan-cseke-attila",
+    "name": "Cseke Attila Zoltán",
+    "raw": "Domnul Cseke Attila Zoltán",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": "2012-09-18",
+    "year": 2012,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2012/II/84#agenda-3#act-84",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul este unul pur procedural, axat pe amendamente tehnice la un proiect de lege privind reducerea cheltuielilor publice. Vorbitorul critică absența unui secretar de stat relevant și solicită clarificări privind consultarea structurilor asociative ale autorităților locale, folosind un limbaj parlamentar standard. Nu există nicio tentativă de a construi un cadru maniheist popor-vs-elită, nicio invocare a unei voințe populare omogene ca forță suverană și nicio retorică populistă. Discursul rămâne strict în registrul dezbaterii de politici publice."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul este unul pur procedural, axat pe amendamente tehnice la un proiect de lege privind reducerea cheltuielilor publice. Vorbitorul critică absența unui secretar de stat relevant și solicită clarificări privind consultarea structurilor asociative ale autorităților locale, folosind un limbaj parlamentar standard. Nu există nicio tentativă de a construi un cadru maniheist popor-vs-elită, nicio invocare a unei voințe populare omogene ca forță suverană și nicio retorică populistă. Discursul rămâne strict în registrul dezbaterii de politici publice.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13960,
+      "tokens_in_breakdown": {
+        "fresh": 13960,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 208,
+      "cost_usd": null,
+      "latency_ms": 2006,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2012/II/84#agenda-3#act-84",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.82,
+        "level_of_justification": 2,
+        "content_of_justification": "group_interest",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "alternative_proposal",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "nu sunt de acord – și amendamentele vizează acest lucru – cu a restrânge posibilitatea autorităților locale de a elabora sau de a întocmi, a contracta studii de fezabilitate."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Vorbitorul oferă un motiv specific pentru opoziția sa față de reducerea cheltuielilor: impactul negativ asupra capacității administrative locale."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "group_interest",
+            "evidence": {
+              "text": "nu sunt de acord – și amendamentele vizează acest lucru – cu a restrânge posibilitatea autorităților locale de a elabora sau de a întocmi, a contracta studii de fezabilitate."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.89,
+            "rationale_short": "Justificarea se concentrează pe interesele specifice ale autorităților administrației publice locale."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Ne mândrim cu autoritățile administrației publice locale"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.85,
+            "rationale_short": "Referință neutră și funcțională la autoritățile locale; nicio derogare sau respect explicit de out-group."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "aș vrea să vă întreb care a fost răspunsul acestor autorități locale"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.96,
+            "marker_confidence": 0.82,
+            "rationale_short": "Vorbitorul solicită informații despre consultări, dar nu angajează legitimitatea cererilor adverse."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "pentru că în expunerea de motive se regăsește faptul că, conform legii, au fost consultate structurile asociative"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.88,
+            "rationale_short": "Menționează argumentul din expunerea de motive fără a-l combate substanțial, limitându-se la a pune o întrebare."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "alternative_proposal",
+            "evidence": {
+              "text": "și amendamentele vizează acest lucru – cu a restrânge posibilitatea autorităților locale de a elabora sau de a întocmi, a contracta studii de fezabilitate."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.94,
+            "rationale_short": "Vorbitorul propune amendamente concrete ca alternativă la prevederile proiectului de lege."
+          }
+        ],
+        "rationale": "Discursul prezintă o calitate deliberativă moderată, caracterizată prin oferirea unei justificări calificate (level_of_justification=2) pentru amendamentele propuse, ancorată în interesul autorităților locale (group_interest). Vorbitorul adoptă o poziție constructivă prin depunerea de amendamente (alternative_proposal), însă respectul pentru cererile și argumentele opoziției rămâne la un nivel neutru (1), limitându-se la interpelări procedurale și solicitări de clarificare. Nu există derogări explicite, dar nici un efort de a recunoaște legitimitatea poziției adverse. Profilul este cel al unui parlamentar care apără interesele unui grup specific prin mecanisme legislative formale."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.82,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"group_interest\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"alternative_proposal\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"nu sunt de acord – și amendamentele vizează acest lucru – cu a restrânge posibilitatea autorităților locale de a elabora sau de a întocmi, a contracta studii de fezabilitate.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Vorbitorul oferă un motiv specific pentru opoziția sa față de reducerea cheltuielilor: impactul negativ asupra capacității administrative locale.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"group_interest\",\n      \"evidence\": {\n        \"text\": \"nu sunt de acord – și amendamentele vizează acest lucru – cu a restrânge posibilitatea autorităților locale de a elabora sau de a întocmi, a contracta studii de fezabilitate.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.89,\n      \"rationale_short\": \"Justificarea se concentrează pe interesele specifice ale autorităților administrației publice locale.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Ne mândrim cu autoritățile administrației publice locale\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Referință neutră și funcțională la autoritățile locale; nicio derogare sau respect explicit de out-group.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"aș vrea să vă întreb care a fost răspunsul acestor autorități locale\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.96,\n      \"marker_confidence\": 0.82,\n      \"rationale_short\": \"Vorbitorul solicită informații despre consultări, dar nu angajează legitimitatea cererilor adverse.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"pentru că în expunerea de motive se regăsește faptul că, conform legii, au fost consultate structurile asociative\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Menționează argumentul din expunerea de motive fără a-l combate substanțial, limitându-se la a pune o întrebare.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"alternative_proposal\",\n      \"evidence\": {\n        \"text\": \"și amendamentele vizează acest lucru – cu a restrânge posibilitatea autorităților locale de a elabora sau de a întocmi, a contracta studii de fezabilitate.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.94,\n      \"rationale_short\": \"Vorbitorul propune amendamente concrete ca alternativă la prevederile proiectului de lege.\"\n    }\n  ],\n  \"rationale\": \"Discursul prezintă o calitate deliberativă moderată, caracterizată prin oferirea unei justificări calificate (level_of_justification=2) pentru amendamentele propuse, ancorată în interesul autorităților locale (group_interest). Vorbitorul adoptă o poziție constructivă prin depunerea de amendamente (alternative_proposal), însă respectul pentru cererile și argumentele opoziției rămâne la un nivel neutru (1), limitându-se la interpelări procedurale și solicitări de clarificare. Nu există derogări explicite, dar nici un efort de a recunoaște legitimitatea poziției adverse. Profilul este cel al unui parlamentar care apără interesele unui grup specific prin mecanisme legislative formale.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12761,
+      "tokens_in_breakdown": {
+        "fresh": 12761,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1255,
+      "cost_usd": null,
+      "latency_ms": 4308,
+      "retries_used": 0
+    }
+  }
+}

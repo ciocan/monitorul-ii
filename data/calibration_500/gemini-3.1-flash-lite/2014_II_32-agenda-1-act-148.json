@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2014/II/32#agenda-1#act-148",
+  "tier": "calibration",
+  "speaker": {
+    "id": "ratoi-neculai",
+    "name": "Neculai Rățoi",
+    "raw": "Domnul Neculai Rățoi",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2014-03-18",
+    "year": 2014,
+    "legislature": "VII",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2014/II/32#agenda-1#act-148",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul se concentrează pe o problemă tehnică și administrativă specifică: siguranța alimentară și eficiența controalelor efectuate de instituții precum ANPC și ANSVSA. Deși vorbitorul folosește un ton ferm și critic la adresa „lăcomiei” unor afaceriști, acesta nu construiește un cadru manihean popor-vs-elită, ci propune soluții legislative concrete și procedurale (modificarea legislației, interdicții pe codul numeric personal). Nu există invocarea unei voințe populare omogene sau a unei elite politice malefice ca structură de bază a discursului. Este un discurs de politică publică, nu unul populist."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul se concentrează pe o problemă tehnică și administrativă specifică: siguranța alimentară și eficiența controalelor efectuate de instituții precum ANPC și ANSVSA. Deși vorbitorul folosește un ton ferm și critic la adresa „lăcomiei” unor afaceriști, acesta nu construiește un cadru manihean popor-vs-elită, ci propune soluții legislative concrete și procedurale (modificarea legislației, interdicții pe codul numeric personal). Nu există invocarea unei voințe populare omogene sau a unei elite politice malefice ca structură de bază a discursului. Este un discurs de politică publică, nu unul populist.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 14119,
+      "tokens_in_breakdown": {
+        "fresh": 14119,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 231,
+      "cost_usd": null,
+      "latency_ms": 2115,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2014/II/32#agenda-1#act-148",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.85,
+        "level_of_justification": 2,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "alternative_proposal",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "va trebui să modificăm legislația, astfel încât să se ajungă, în astfel de situații, de la desființarea firmei până la interzicerea ca persoanele implicate să mai poată face afaceri pe teritoriul României."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Vorbitorul propune un mecanism legislativ specific (interdicții pe CNP) pentru a preveni riscurile de sănătate publică."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "dacă se ajunge la astfel de situații periculose pentru sănătatea semenilor tăi, atunci e mai mult decât normal ca aceștia să fie în posesia tuturor informațiilor pentru protecția lor."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Justificarea se bazează pe protecția sănătății publice, un interes universalizabil."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "unii afaceriști pot pune în primejdie chiar viața omului"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.85,
+            "rationale_short": "Referință critică la un grup de actori economici, dar fără a depăși limitele discursului politic funcțional."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "nu sunt suficiente simplele controale"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.88,
+            "rationale_short": "Vorbitorul ignoră cererile sau pozițiile altor actori, concentrându-se pe propria propunere legislativă."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "nu sunt suficiente simplele controale, indiferent de unde vin ele"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Vorbitorul nu abordează argumente contrare, ci doar afirmă insuficiența măsurilor actuale."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "alternative_proposal",
+            "evidence": {
+              "text": "va trebui să modificăm legislația, astfel încât să se ajungă, în astfel de situații, de la desființarea firmei până la interzicerea ca persoanele implicate să mai poată face afaceri"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.94,
+            "rationale_short": "Vorbitorul propune o modificare legislativă concretă ca alternativă la simplul control instituțional."
+          }
+        ],
+        "rationale": "Discursul prezintă o calitate deliberativă moderată, fiind centrat pe o propunere legislativă concretă (alternative_proposal) pentru a completa măsurile de control existente. Justificarea este calificată (level_of_justification=2) prin legarea măsurilor propuse de protecția sănătății publice (common_good). Totuși, discursul nu angajează contraargumente sau cereri opuse (respect_for_counterarguments=0, respect_for_demands=1), limitându-se la a-și susține propria viziune. Respectul pentru grupuri este neutru, vizând comportamentele unor afaceriști fără a recurge la derogări inacceptabile. Profilul este unul constructiv, dar unilateral în argumentare."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.85,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 0,\n  \"constructive_politics\": \"alternative_proposal\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"va trebui să modificăm legislația, astfel încât să se ajungă, în astfel de situații, de la desființarea firmei până la interzicerea ca persoanele implicate să mai poată face afaceri pe teritoriul României.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Vorbitorul propune un mecanism legislativ specific (interdicții pe CNP) pentru a preveni riscurile de sănătate publică.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"dacă se ajunge la astfel de situații periculose pentru sănătatea semenilor tăi, atunci e mai mult decât normal ca aceștia să fie în posesia tuturor informațiilor pentru protecția lor.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Justificarea se bazează pe protecția sănătății publice, un interes universalizabil.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"unii afaceriști pot pune în primejdie chiar viața omului\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Referință critică la un grup de actori economici, dar fără a depăși limitele discursului politic funcțional.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"nu sunt suficiente simplele controale\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Vorbitorul ignoră cererile sau pozițiile altor actori, concentrându-se pe propria propunere legislativă.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"nu sunt suficiente simplele controale, indiferent de unde vin ele\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.90,\n      \"rationale_short\": \"Vorbitorul nu abordează argumente contrare, ci doar afirmă insuficiența măsurilor actuale.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"alternative_proposal\",\n      \"evidence\": {\n        \"text\": \"va trebui să modificăm legislația, astfel încât să se ajungă, în astfel de situații, de la desființarea firmei până la interzicerea ca persoanele implicate să mai poată face afaceri\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.94,\n      \"rationale_short\": \"Vorbitorul propune o modificare legislativă concretă ca alternativă la simplul control instituțional.\"\n    }\n  ],\n  \"rationale\": \"Discursul prezintă o calitate deliberativă moderată, fiind centrat pe o propunere legislativă concretă (alternative_proposal) pentru a completa măsurile de control existente. Justificarea este calificată (level_of_justification=2) prin legarea măsurilor propuse de protecția sănătății publice (common_good). Totuși, discursul nu angajează contraargumente sau cereri opuse (respect_for_counterarguments=0, respect_for_demands=1), limitându-se la a-și susține propria viziune. Respectul pentru grupuri este neutru, vizând comportamentele unor afaceriști fără a recurge la derogări inacceptabile. Profilul este unul constructiv, dar unilateral în argumentare.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12920,
+      "tokens_in_breakdown": {
+        "fresh": 12920,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1261,
+      "cost_usd": null,
+      "latency_ms": 4345,
+      "retries_used": 0
+    }
+  }
+}

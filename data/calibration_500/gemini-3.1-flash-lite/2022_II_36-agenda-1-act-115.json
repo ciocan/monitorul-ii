@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2022/II/36#agenda-1#act-115",
+  "tier": "calibration",
+  "speaker": {
+    "id": "oprea-stefan-radu",
+    "name": "Ștefan-Radu Oprea",
+    "raw": "Domnul Ștefan-Radu Oprea",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": "2022-03-07",
+    "year": 2022,
+    "legislature": "IX",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2022/II/36#agenda-1#act-115",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.95,
+        "markers": [],
+        "rationale": "Discursul se înscrie într-un registru procedural și critic-politic, vizând comportamentul parlamentar al colegilor din opoziție (USR) și responsabilitatea acestora în fața electoratului. Deși vorbitorul menționează „cetățenii României” și „electoratul”, o face în contextul unei dezbateri despre încrederea în instituții și performanța politică, fără a construi un cadru maniheist popor-vs-elită sau a invoca o voință populară omogenă care să prevaleze asupra procedurilor. Nu există elemente de populism în sensul rubricii Hawkins, discursul fiind o critică de tip parlamentar-partizan. Scor 0 cu încredere ridicată."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.95,\n  \"markers\": [],\n  \"rationale\": \"Discursul se înscrie într-un registru procedural și critic-politic, vizând comportamentul parlamentar al colegilor din opoziție (USR) și responsabilitatea acestora în fața electoratului. Deși vorbitorul menționează „cetățenii României” și „electoratul”, o face în contextul unei dezbateri despre încrederea în instituții și performanța politică, fără a construi un cadru maniheist popor-vs-elită sau a invoca o voință populară omogenă care să prevaleze asupra procedurilor. Nu există elemente de populism în sensul rubricii Hawkins, discursul fiind o critică de tip parlamentar-partizan. Scor 0 cu încredere ridicată.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13747,
+      "tokens_in_breakdown": {
+        "fresh": 13747,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 242,
+      "cost_usd": null,
+      "latency_ms": 2126,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2022/II/36#agenda-1#act-115",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.78,
+        "level_of_justification": 0,
+        "content_of_justification": "none",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 0,
+            "evidence": {
+              "text": "Când este vorba despre vot, ar trebui să faceți altceva, ca politicieni, și ar trebui să vă uitați cu mare atenție în oglindă"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Vorbitorul oferă sfaturi morale în loc de o justificare cauzală sau principială pentru o poziție politică."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "none",
+            "evidence": {
+              "text": "Când este vorba despre vot, ar trebui să faceți altceva"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Nicio justificare substanțială oferită; conținutul justificării este nedefinit."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "cei de la USR"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Referință neutră la un grup politic; nicio derogare explicită sau respect demonstrat."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Unul dintre ei vorbea despre măsuri coercitive, alții vorbeau despre a veni și a oferi facilități."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.88,
+            "rationale_short": "Vorbitorul menționează cererile opoziției fără a le angaja sau a le recunoaște legitimitatea."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "N-aș fi avut această intervenție dacă nu constatam că cei de la USR au avut intervenții care pe mine m-au pierdut."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.82,
+            "rationale_short": "Vorbitorul menționează existența argumentelor opoziției, dar le respinge subiectiv fără a le combate logic."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "ar trebui să vă gândiți ce trebuie să faceți mai bine"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Discursul este pur pozițional, axat pe critică morală fără a propune o alternativă politică concretă."
+          }
+        ],
+        "rationale": "Discursul este predominant critic și moralizator, lipsit de o justificare substanțială pentru o poziție politică specifică (level_of_justification=0). Vorbitorul menționează intervențiile opoziției (USR), dar nu le angajează raționamentul, limitându-se la o respingere subiectivă (respect_for_counterarguments=1). Nu există nicio propunere alternativă sau mediere, discursul fiind pur pozițional (constructive_politics=positional). Respectul pentru grupuri și cereri rămâne neutru, deoarece vorbitorul nu folosește un limbaj derogatoriu, dar nici nu recunoaște legitimitatea pozițiilor adverse. Calitatea deliberativă este scăzută, fiind un exemplu de retorică de confruntare fără substanță argumentativă."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.78,\n  \"level_of_justification\": 0,\n  \"content_of_justification\": \"none\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"Când este vorba despre vot, ar trebui să faceți altceva, ca politicieni, și ar trebui să vă uitați cu mare atenție în oglindă\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Vorbitorul oferă sfaturi morale în loc de o justificare cauzală sau principială pentru o poziție politică.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"none\",\n      \"evidence\": {\n        \"text\": \"Când este vorba despre vot, ar trebui să faceți altceva\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Nicio justificare substanțială oferită; conținutul justificării este nedefinit.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"cei de la USR\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Referință neutră la un grup politic; nicio derogare explicită sau respect demonstrat.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Unul dintre ei vorbea despre măsuri coercitive, alții vorbeau despre a veni și a oferi facilități.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Vorbitorul menționează cererile opoziției fără a le angaja sau a le recunoaște legitimitatea.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"N-aș fi avut această intervenție dacă nu constatam că cei de la USR au avut intervenții care pe mine m-au pierdut.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.82,\n      \"rationale_short\": \"Vorbitorul menționează existența argumentelor opoziției, dar le respinge subiectiv fără a le combate logic.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"ar trebui să vă gândiți ce trebuie să faceți mai bine\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Discursul este pur pozițional, axat pe critică morală fără a propune o alternativă politică concretă.\"\n    }\n  ],\n  \"rationale\": \"Discursul este predominant critic și moralizator, lipsit de o justificare substanțială pentru o poziție politică specifică (level_of_justification=0). Vorbitorul menționează intervențiile opoziției (USR), dar nu le angajează raționamentul, limitându-se la o respingere subiectivă (respect_for_counterarguments=1). Nu există nicio propunere alternativă sau mediere, discursul fiind pur pozițional (constructive_politics=positional). Respectul pentru grupuri și cereri rămâne neutru, deoarece vorbitorul nu folosește un limbaj derogatoriu, dar nici nu recunoaște legitimitatea pozițiilor adverse. Calitatea deliberativă este scăzută, fiind un exemplu de retorică de confruntare fără substanță argumentativă.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12548,
+      "tokens_in_breakdown": {
+        "fresh": 12548,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1196,
+      "cost_usd": null,
+      "latency_ms": 4365,
+      "retries_used": 0
+    }
+  }
+}

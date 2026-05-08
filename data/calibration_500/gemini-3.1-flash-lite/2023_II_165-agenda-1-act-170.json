@@ -1,0 +1,192 @@
+{
+  "speech_id": "mo://2023/II/165#agenda-1#act-170",
+  "tier": "calibration",
+  "speaker": {
+    "id": "andrusceac-antonio",
+    "name": "Antonio Andrușceac",
+    "raw": "Domnul Antonio Andrușceac",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2023-12-05",
+    "year": 2023,
+    "legislature": "IX",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2023/II/165#agenda-1#act-170",
+      "output": {
+        "score": 1,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.85,
+        "markers": [
+          {
+            "kind": "evil_elite",
+            "evidence": {
+              "text": "asta se întâmplă când încercați să faceți reorganizări fără cap, creați un haos instituțional și, din acest punct de vedere, nu are de câștigat nimeni. Doar de suferit au și românii, și instituțiile, iar în cazul de față sportivii din România."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.82,
+            "rationale_short": "Elita politică este acuzată de incompetență deliberată și haos, cauzând suferință directă poporului și sportivilor."
+          }
+        ],
+        "rationale": "Discursul combină critica tehnică a reorganizării ministeriale și a subfinanțării sportului cu un moment populist spre final, unde vorbitorul acuză clasa politică de incompetență și haos instituțional care afectează direct cetățenii. Deși discursul conține detalii administrative (buget, sedii, active), pivotul retoric către „suferința românilor” cauzată de „reorganizări fără cap” introduce un element de elită-malefică. Totuși, cadrul nu este pervaziv, iar argumentația rămâne ancorată în probleme de gestiune publică, justificând scorul 1. Nu există un maniheism moralist sau o invocare a voinței populare ca forță suverană, limitând astfel scorul la nivelul de populism episodic."
+      },
+      "raw_response": "{\n  \"score\": 1,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.85,\n  \"markers\": [\n    {\n      \"kind\": \"evil_elite\",\n      \"evidence\": {\n        \"text\": \"asta se întâmplă când încercați să faceți reorganizări fără cap, creați un haos instituțional și, din acest punct de vedere, nu are de câștigat nimeni. Doar de suferit au și românii, și instituțiile, iar în cazul de față sportivii din România.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.82,\n      \"rationale_short\": \"Elita politică este acuzată de incompetență deliberată și haos, cauzând suferință directă poporului și sportivilor.\"\n    }\n  ],\n  \"rationale\": \"Discursul combină critica tehnică a reorganizării ministeriale și a subfinanțării sportului cu un moment populist spre final, unde vorbitorul acuză clasa politică de incompetență și haos instituțional care afectează direct cetățenii. Deși discursul conține detalii administrative (buget, sedii, active), pivotul retoric către „suferința românilor” cauzată de „reorganizări fără cap” introduce un element de elită-malefică. Totuși, cadrul nu este pervaziv, iar argumentația rămâne ancorată în probleme de gestiune publică, justificând scorul 1. Nu există un maniheism moralist sau o invocare a voinței populare ca forță suverană, limitând astfel scorul la nivelul de populism episodic.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 14168,
+      "tokens_in_breakdown": {
+        "fresh": 14168,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 449,
+      "cost_usd": null,
+      "latency_ms": 2931,
+      "retries_used": 0
+    },
+    "voice": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "voice",
+      "speech_id": "mo://2023/II/165#agenda-1#act-170",
+      "output": {
+        "classifications": [
+          {
+            "marker_id": "m_0",
+            "voice": "speaker_first_person",
+            "voice_confidence": 0.95,
+            "voice_evidence": null,
+            "attributed_to": null,
+            "rationale_short": "Afirmație directă a vorbitorului, fără indicii de citare, raportare sau disclaimer; vorbitorul își asumă criticile aduse guvernării."
+          }
+        ]
+      },
+      "raw_response": "{\n  \"classifications\": [\n    {\n      \"marker_id\": \"m_0\",\n      \"voice\": \"speaker_first_person\",\n      \"voice_confidence\": 0.95,\n      \"voice_evidence\": null,\n      \"attributed_to\": null,\n      \"rationale_short\": \"Afirmație directă a vorbitorului, fără indicii de citare, raportare sau disclaimer; vorbitorul își asumă criticile aduse guvernării.\"\n    }\n  ]\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 11774,
+      "tokens_in_breakdown": {
+        "fresh": 11774,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 120,
+      "cost_usd": null,
+      "latency_ms": 1122,
+      "retries_used": 0
+    },
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2023/II/165#agenda-1#act-170",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.82,
+        "level_of_justification": 2,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "în momentul de față știți că sunt probleme majore în tot ce înseamnă deconcentrate, practic, direcțiile județene din teritoriu, unde în momentul de față nu se poate face separarea celor două direcții, respectiv de tineret și de sport."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.88,
+            "rationale_short": "Vorbitorul oferă o justificare bazată pe un mecanism cauzal specific (problemele de subfinanțare și descentralizare a direcțiilor județene)."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "Doar de suferit au și românii, și instituțiile, iar în cazul de față sportivii din România."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Justificarea se ancorează în interesul general al cetățenilor și al sportivilor, nu în interese de grup politic."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Stimați colegi"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.99,
+            "marker_confidence": 0.95,
+            "rationale_short": "Adresare convențională; nu există derogări sau recunoașteri explicite ale out-group-urilor."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Sper să nu fie doar un exercițiu politic această intenție de reducere a numărului de ministere."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.85,
+            "rationale_short": "Vorbitorul exprimă scepticism față de intenția guvernului, dar nu angajează legitimitatea cererii în mod explicit."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "Iar cel mai mare datornic, cea mai mare datorie pe care trebuia s-o plătească Agenția Națională pentru Sport a fost tocmai către o casă de pariuri"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.82,
+            "rationale_short": "Vorbitorul menționează date din interpelări pentru a contesta eficiența reorganizării, fără a angaja direct un argument opus."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Noi vom vota pentru desființarea acestui minister"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.99,
+            "marker_confidence": 0.94,
+            "rationale_short": "Poziție declarată de vot; nu este oferită o alternativă legislativă sau o mediere."
+          }
+        ],
+        "rationale": "Discursul prezintă o calitate deliberativă medie, caracterizată printr-o justificare calificată (level_of_justification=2) bazată pe problemele concrete ale subfinanțării sportului. Vorbitorul apelează la binele comun (interesul sportivilor și al cetățenilor) pentru a-și susține poziția. Deși discursul este critic, respectul pentru grupuri și cereri rămâne neutru (1), evitând atacurile directe, dar și fără a recunoaște legitimitatea adversarilor. Constructivitatea este limitată la o poziție de vot (positional), fără a propune o alternativă legislativă concretă. Profilul este cel al unei opoziții critice, dar argumentate, care evită retorica disprețuitoare."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.82,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"în momentul de față știți că sunt probleme majore în tot ce înseamnă deconcentrate, practic, direcțiile județene din teritoriu, unde în momentul de față nu se poate face separarea celor două direcții, respectiv de tineret și de sport.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Vorbitorul oferă o justificare bazată pe un mecanism cauzal specific (problemele de subfinanțare și descentralizare a direcțiilor județene).\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"Doar de suferit au și românii, și instituțiile, iar în cazul de față sportivii din România.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Justificarea se ancorează în interesul general al cetățenilor și al sportivilor, nu în interese de grup politic.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Stimați colegi\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.99,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Adresare convențională; nu există derogări sau recunoașteri explicite ale out-group-urilor.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Sper să nu fie doar un exercițiu politic această intenție de reducere a numărului de ministere.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Vorbitorul exprimă scepticism față de intenția guvernului, dar nu angajează legitimitatea cererii în mod explicit.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Iar cel mai mare datornic, cea mai mare datorie pe care trebuia s-o plătească Agenția Națională pentru Sport a fost tocmai către o casă de pariuri\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.82,\n      \"rationale_short\": \"Vorbitorul menționează date din interpelări pentru a contesta eficiența reorganizării, fără a angaja direct un argument opus.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"Noi vom vota pentru desființarea acestui minister\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.99,\n      \"marker_confidence\": 0.94,\n      \"rationale_short\": \"Poziție declarată de vot; nu este oferită o alternativă legislativă sau o mediere.\"\n    }\n  ],\n  \"rationale\": \"Discursul prezintă o calitate deliberativă medie, caracterizată printr-o justificare calificată (level_of_justification=2) bazată pe problemele concrete ale subfinanțării sportului. Vorbitorul apelează la binele comun (interesul sportivilor și al cetățenilor) pentru a-și susține poziția. Deși discursul este critic, respectul pentru grupuri și cereri rămâne neutru (1), evitând atacurile directe, dar și fără a recunoaște legitimitatea adversarilor. Constructivitatea este limitată la o poziție de vot (positional), fără a propune o alternativă legislativă concretă. Profilul este cel al unei opoziții critice, dar argumentate, care evită retorica disprețuitoare.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12969,
+      "tokens_in_breakdown": {
+        "fresh": 12969,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1260,
+      "cost_usd": null,
+      "latency_ms": 5082,
+      "retries_used": 0
+    }
+  }
+}

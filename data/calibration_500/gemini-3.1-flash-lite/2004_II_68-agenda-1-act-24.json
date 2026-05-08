@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2004/II/68#agenda-1#act-24",
+  "tier": "calibration",
+  "speaker": {
+    "id": "paunescu-adrian",
+    "name": "Adrian P„unescu",
+    "raw": "Domnul Adrian P„unescu",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": null,
+    "year": 2004,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2004/II/68#agenda-1#act-24",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul este o relatare personală, de tip anecdotă, despre dificultățile întâmpinate de un profesor în sistemul de repartiție și examen. Vorbitorul folosește acest caz particular pentru a ilustra o problemă administrativă, fără a construi un cadru maniheist popor-vs-elită, fără a invoca o voință populară omogenă și fără a ataca o elită malefică. Discursul rămâne în registrul experienței individuale și al criticii procedurale, neîndeplinind criteriile pentru un worldview populist. Hawkins=0 cu încredere ridicată."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul este o relatare personală, de tip anecdotă, despre dificultățile întâmpinate de un profesor în sistemul de repartiție și examen. Vorbitorul folosește acest caz particular pentru a ilustra o problemă administrativă, fără a construi un cadru maniheist popor-vs-elită, fără a invoca o voință populară omogenă și fără a ataca o elită malefică. Discursul rămâne în registrul experienței individuale și al criticii procedurale, neîndeplinind criteriile pentru un worldview populist. Hawkins=0 cu încredere ridicată.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13946,
+      "tokens_in_breakdown": {
+        "fresh": 13946,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 208,
+      "cost_usd": null,
+      "latency_ms": 1979,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2004/II/68#agenda-1#act-24",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.72,
+        "level_of_justification": 1,
+        "content_of_justification": "none",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 1,
+            "evidence": {
+              "text": "A∫ vrea s„ spun ceva interesant legat de neputin˛a marcat„, chiar dramatic„, de a te afirma Ón Rom‚nia la nivelul meritului pe care-l consideri important."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.85,
+            "rationale_short": "Vorbitorul prezintă o anecdotă personală ca ilustrare, dar lipsește un raționament cauzal sau principial."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "none",
+            "evidence": {
+              "text": "A∫ vrea s„ spun ceva interesant legat de neputin˛a marcat„"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.9,
+            "rationale_short": "Nicio justificare substanțială oferită; conținutul justificării este nedefinit."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "profesorul Nicola"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.8,
+            "rationale_short": "Referință neutră la un individ; nicio derogare sau respect explicit pentru un grup."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "i-am spus c„ nu o s„-l pot ajuta pentru c„ nu este voie."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.75,
+            "rationale_short": "Vorbitorul relatează o interacțiune procedurală fără a angaja cereri politice adverse."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "i-am spus c„ nu o s„-l pot ajuta pentru c„ nu este voie."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.8,
+            "rationale_short": "Nicio contraargumentare prezentă; discursul este pur narativ."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "A∫ vrea s„ spun ceva interesant legat de neputin˛a marcat„"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.85,
+            "rationale_short": "Discursul este o relatare a unei experiențe personale, fără a propune o alternativă politică."
+          }
+        ],
+        "rationale": "Discursul este o relatare narativă a unei experiențe personale a unui profesor, utilizată pentru a ilustra o problemă sistemică, dar fără a oferi o justificare deliberativă sau o propunere constructivă. Nivelul de justificare este scăzut (1), deoarece se bazează pe un exemplu anecdotic fără a conecta poziția la un principiu sau mecanism cauzal. Nu există respect pentru grupuri sau cereri adverse, deoarece discursul nu angajează un dialog politic, ci relatează o interacțiune administrativă. Caracterul discursului este pur pozițional, fără a oferi alternative sau medieri. Calitatea deliberativă este limitată de natura narativă a intervenției."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.72,\n  \"level_of_justification\": 1,\n  \"content_of_justification\": \"none\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 0,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"A∫ vrea s„ spun ceva interesant legat de neputin˛a marcat„, chiar dramatic„, de a te afirma Ón Rom‚nia la nivelul meritului pe care-l consideri important.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Vorbitorul prezintă o anecdotă personală ca ilustrare, dar lipsește un raționament cauzal sau principial.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"none\",\n      \"evidence\": {\n        \"text\": \"A∫ vrea s„ spun ceva interesant legat de neputin˛a marcat„\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Nicio justificare substanțială oferită; conținutul justificării este nedefinit.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"profesorul Nicola\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.8,\n      \"rationale_short\": \"Referință neutră la un individ; nicio derogare sau respect explicit pentru un grup.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"i-am spus c„ nu o s„-l pot ajuta pentru c„ nu este voie.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.75,\n      \"rationale_short\": \"Vorbitorul relatează o interacțiune procedurală fără a angaja cereri politice adverse.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"i-am spus c„ nu o s„-l pot ajuta pentru c„ nu este voie.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.8,\n      \"rationale_short\": \"Nicio contraargumentare prezentă; discursul este pur narativ.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"A∫ vrea s„ spun ceva interesant legat de neputin˛a marcat„\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Discursul este o relatare a unei experiențe personale, fără a propune o alternativă politică.\"\n    }\n  ],\n  \"rationale\": \"Discursul este o relatare narativă a unei experiențe personale a unui profesor, utilizată pentru a ilustra o problemă sistemică, dar fără a oferi o justificare deliberativă sau o propunere constructivă. Nivelul de justificare este scăzut (1), deoarece se bazează pe un exemplu anecdotic fără a conecta poziția la un principiu sau mecanism cauzal. Nu există respect pentru grupuri sau cereri adverse, deoarece discursul nu angajează un dialog politic, ci relatează o interacțiune administrativă. Caracterul discursului este pur pozițional, fără a oferi alternative sau medieri. Calitatea deliberativă este limitată de natura narativă a intervenției.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12747,
+      "tokens_in_breakdown": {
+        "fresh": 12747,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1151,
+      "cost_usd": null,
+      "latency_ms": 4575,
+      "retries_used": 0
+    }
+  }
+}

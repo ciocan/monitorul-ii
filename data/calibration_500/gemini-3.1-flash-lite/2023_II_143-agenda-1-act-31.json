@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2023/II/143#agenda-1#act-31",
+  "tier": "calibration",
+  "speaker": {
+    "id": "zisopol-dragos-gabriel",
+    "name": "Dragoș-Gabriel Zisopol",
+    "raw": "Domnul Dragoș-Gabriel Zisopol",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2023-10-24",
+    "year": 2023,
+    "legislature": "IX",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2023/II/143#agenda-1#act-31",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul este o alocuțiune comemorativă dedicată Zilei Demnității Naționale a Greciei, având un caracter istoric și omagial. Deși textul conține referiri la „poporul elen” și la „lupta împotriva regimurilor totalitare”, acestea sunt utilizate în contextul descrierii evenimentelor din cel de-al Doilea Război Mondial și al omagierii eroilor, nu ca parte a unui cadru populist maniheist. Nu există nicio tentativă de a opune un popor omogen unei elite corupte în politica internă actuală, discursul fiind unul de celebrare a valorilor democratice și a prieteniei româno-elene. Hawkins=0 cu încredere ridicată."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul este o alocuțiune comemorativă dedicată Zilei Demnității Naționale a Greciei, având un caracter istoric și omagial. Deși textul conține referiri la „poporul elen” și la „lupta împotriva regimurilor totalitare”, acestea sunt utilizate în contextul descrierii evenimentelor din cel de-al Doilea Război Mondial și al omagierii eroilor, nu ca parte a unui cadru populist maniheist. Nu există nicio tentativă de a opune un popor omogen unei elite corupte în politica internă actuală, discursul fiind unul de celebrare a valorilor democratice și a prieteniei româno-elene. Hawkins=0 cu încredere ridicată.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 14819,
+      "tokens_in_breakdown": {
+        "fresh": 14819,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 245,
+      "cost_usd": null,
+      "latency_ms": 2128,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2023/II/143#agenda-1#act-31",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.65,
+        "level_of_justification": 1,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 1,
+            "evidence": {
+              "text": "Ziua de 28 octombrie 1940 pentru grecii și filoelenii de pretutindeni simbolizează valorile și idealurile după care societatea de astăzi se ghidează: respectul față de om, prețuirea democrației și a demnității naționale"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Discursul este predominant comemorativ și declarativ, oferind valori generale fără un lanț cauzal sau argumentativ complex."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "respectul față de om, prețuirea democrației și a demnității naționale, refuzul la oprimare și respingerea categorică a regimurilor totalitare"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Apelul este la principii universale și valori democratice, specifice binelui comun."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "membrii Uniunii Elene din România se alătură grecilor și filoelenilor de pretutindeni"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Referință neutră și incluzivă la grupuri, fără conotații derogatorii sau elogii excepționale."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "La 28 octombrie 1940, ca urmare a „Marelui NU” spus de poporul grec"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.88,
+            "rationale_short": "Discursul relatează evenimente istorice; nu există cereri politice adverse în dezbatere care să necesite angajament."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "Dacă grecii ar fi cedat fără luptă în fața atacurilor Axei, nimeni nu ar fi avut dreptul să o învinovățească."
+            },
+            "preliminary_voice": "quoted",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.82,
+            "rationale_short": "Citatul istoric menționează o ipoteză contrară, dar vorbitorul nu angajează un contraargument politic actual."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Glorie lor! Glorie eroilor!"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Discursul este o declarație comemorativă, nu o propunere de politică publică sau mediere."
+          }
+        ],
+        "rationale": "Discursul este o alocuțiune comemorativă dedicată Zilei Oxi, având un caracter predominant narativ și omagial. Deși conține citate istorice valoroase, acestea servesc la susținerea unei poziții morale și istorice, nu la o dezbatere deliberativă pe politici publice. Justificarea este de nivel 1, bazată pe valori universale (binele comun), dar fără a construi un argument cauzal sau o propunere legislativă. Respectul pentru grupuri și cereri este neutru, deoarece contextul este unul de celebrare, nu de confruntare politică. Calitatea deliberativă este limitată de natura genului discursiv, care nu vizează medierea sau propunerea de alternative."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.65,\n  \"level_of_justification\": 1,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Ziua de 28 octombrie 1940 pentru grecii și filoelenii de pretutindeni simbolizează valorile și idealurile după care societatea de astăzi se ghidează: respectul față de om, prețuirea democrației și a demnității naționale\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Discursul este predominant comemorativ și declarativ, oferind valori generale fără un lanț cauzal sau argumentativ complex.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"respectul față de om, prețuirea democrației și a demnității naționale, refuzul la oprimare și respingerea categorică a regimurilor totalitare\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Apelul este la principii universale și valori democratice, specifice binelui comun.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"membrii Uniunii Elene din România se alătură grecilor și filoelenilor de pretutindeni\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Referință neutră și incluzivă la grupuri, fără conotații derogatorii sau elogii excepționale.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"La 28 octombrie 1940, ca urmare a „Marelui NU” spus de poporul grec\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Discursul relatează evenimente istorice; nu există cereri politice adverse în dezbatere care să necesite angajament.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Dacă grecii ar fi cedat fără luptă în fața atacurilor Axei, nimeni nu ar fi avut dreptul să o învinovățească.\"\n      },\n      \"preliminary_voice\": \"quoted\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.82,\n      \"rationale_short\": \"Citatul istoric menționează o ipoteză contrară, dar vorbitorul nu angajează un contraargument politic actual.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"Glorie lor! Glorie eroilor!\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Discursul este o declarație comemorativă, nu o propunere de politică publică sau mediere.\"\n    }\n  ],\n  \"rationale\": \"Discursul este o alocuțiune comemorativă dedicată Zilei Oxi, având un caracter predominant narativ și omagial. Deși conține citate istorice valoroase, acestea servesc la susținerea unei poziții morale și istorice, nu la o dezbatere deliberativă pe politici publice. Justificarea este de nivel 1, bazată pe valori universale (binele comun), dar fără a construi un argument cauzal sau o propunere legislativă. Respectul pentru grupuri și cereri este neutru, deoarece contextul este unul de celebrare, nu de confruntare politică. Calitatea deliberativă este limitată de natura genului discursiv, care nu vizează medierea sau propunerea de alternative.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13620,
+      "tokens_in_breakdown": {
+        "fresh": 13620,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1255,
+      "cost_usd": null,
+      "latency_ms": 5410,
+      "retries_used": 0
+    }
+  }
+}

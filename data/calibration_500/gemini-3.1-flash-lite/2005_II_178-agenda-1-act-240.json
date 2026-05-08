@@ -1,0 +1,152 @@
+{
+  "speech_id": "mo://2005/II/178#agenda-1#act-240",
+  "tier": "calibration",
+  "speaker": {
+    "id": "stanciu-anghel",
+    "name": "Anghel Stanciu",
+    "raw": "Domnul Anghel Stanciu",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": null,
+    "year": 2005,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2005/II/178#agenda-1#act-240",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.95,
+        "markers": [],
+        "rationale": "Discursul este unul pur procedural, axat pe amendarea unui articol din buget și pe discuții tehnice despre transparența acordării publicității de stat. Deși vorbitorul menționează „mass-media” și „opozitia”, el o face în contextul unei dezbateri parlamentare standard, fără a construi un cadru maniheist popor-vs-elită sau a invoca o voință populară omogenă ca forță suverană. Nu există niciun marker populist prezent, iar tonul este unul de negociere politică obișnuită. Hawkins=0 cu încredere ridicată."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.95,\n  \"markers\": [],\n  \"rationale\": \"Discursul este unul pur procedural, axat pe amendarea unui articol din buget și pe discuții tehnice despre transparența acordării publicității de stat. Deși vorbitorul menționează „mass-media” și „opozitia”, el o face în contextul unei dezbateri parlamentare standard, fără a construi un cadru maniheist popor-vs-elită sau a invoca o voință populară omogenă ca forță suverană. Nu există niciun marker populist prezent, iar tonul este unul de negociere politică obișnuită. Hawkins=0 cu încredere ridicată.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 14086,
+      "tokens_in_breakdown": {
+        "fresh": 14086,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 208,
+      "cost_usd": null,
+      "latency_ms": 2084,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2005/II/178#agenda-1#act-240",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.82,
+        "level_of_justification": 2,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "alternative_proposal",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "De aceea, ori dori˛i s„ p„stra˛i formularea care a fost Ón vechiul regim, cu mass-media inclus„, ∫i s„ fi˛i acuza˛i, peste un num„r de ani, c„ ∫i dumneavoastr„ a˛i cump„rat mass-media, ori — Ón spiritul transparen˛ei pe care a˛i invocat-o ∫i a˛i modificat modul de acordare a publicit„˛ii — scoate˛i aceast„ sintagm„ de aici ∫i se va face chestiunea public„, f„r„ s„ mai aib„ acoperire."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Vorbitorul oferă un raționament cauzal clar: eliminarea sintagmei previne acuzațiile viitoare de corupție și asigură transparența."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "Ón spiritul transparen˛ei pe care a˛i invocat-o"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Justificarea se bazează pe principiul universal al transparenței în cheltuirea banului public."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Stima˛i colegi."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.99,
+            "marker_confidence": 0.85,
+            "rationale_short": "Adresare convențională; nu există derogări sau recunoașteri explicite ale unor grupuri."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Sper„m Ón un prim vot pozitiv ∫i nu un vot negativ, Ón sensul c„ este impus„ aceast„ amendare de c„tre colegii din opozi˛ie."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.88,
+            "rationale_short": "Vorbitorul menționează cererea opoziției fără a o respinge sau a o valida explicit; atitudine neutră."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "S„ ∫ti˛i c„ domnul ministru Sebastian Vl„descu are dreptate, nu prea s-a schimbat disketa aceea, s-au schimbat numai cifrele."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.89,
+            "rationale_short": "Recunoaște parțial argumentul ministrului, dar nu îl angajează într-o dezbatere substanțială."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "alternative_proposal",
+            "evidence": {
+              "text": "scoate˛i aceast„ sintagm„ de aici ∫i se va face chestiunea public„, f„r„ s„ mai aib„ acoperire."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.93,
+            "rationale_short": "Vorbitorul propune o modificare concretă a textului legislativ pentru a rezolva problema transparenței."
+          }
+        ],
+        "rationale": "Discursul prezintă o calitate deliberativă medie-ridicată, fiind structurat în jurul unei propuneri concrete de modificare a unui articol legislativ (constructive_politics=alternative_proposal). Vorbitorul oferă o justificare logică bazată pe prevenirea riscurilor de imagine și pe principiul transparenței (level_of_justification=2, content_of_justification=common_good). Deși menționează poziția ministrului și a opoziției, nu angajează un dialog substanțial cu argumentele acestora, limitându-se la o recunoaștere superficială (respect_for_counterarguments=1). Tonul este politicos și procedural, fără a depăși normele de curtoazie parlamentară (respect_for_groups=1). Per ansamblu, discursul este orientat spre soluționarea unei probleme tehnice prin argumente raționale."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.82,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"alternative_proposal\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"De aceea, ori dori˛i s„ p„stra˛i formularea care a fost Ón vechiul regim, cu mass-media inclus„, ∫i s„ fi˛i acuza˛i, peste un num„r de ani, c„ ∫i dumneavoastr„ a˛i cump„rat mass-media, ori — Ón spiritul transparen˛ei pe care a˛i invocat-o ∫i a˛i modificat modul de acordare a publicit„˛ii — scoate˛i aceast„ sintagm„ de aici ∫i se va face chestiunea public„, f„r„ s„ mai aib„ acoperire.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Vorbitorul oferă un raționament cauzal clar: eliminarea sintagmei previne acuzațiile viitoare de corupție și asigură transparența.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"Ón spiritul transparen˛ei pe care a˛i invocat-o\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.90,\n      \"rationale_short\": \"Justificarea se bazează pe principiul universal al transparenței în cheltuirea banului public.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Stima˛i colegi.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.99,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Adresare convențională; nu există derogări sau recunoașteri explicite ale unor grupuri.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Sper„m Ón un prim vot pozitiv ∫i nu un vot negativ, Ón sensul c„ este impus„ aceast„ amendare de c„tre colegii din opozi˛ie.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Vorbitorul menționează cererea opoziției fără a o respinge sau a o valida explicit; atitudine neutră.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"S„ ∫ti˛i c„ domnul ministru Sebastian Vl„descu are dreptate, nu prea s-a schimbat disketa aceea, s-au schimbat numai cifrele.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.89,\n      \"rationale_short\": \"Recunoaște parțial argumentul ministrului, dar nu îl angajează într-o dezbatere substanțială.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"alternative_proposal\",\n      \"evidence\": {\n        \"text\": \"scoate˛i aceast„ sintagm„ de aici ∫i se va face chestiunea public„, f„r„ s„ mai aib„ acoperire.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.93,\n      \"rationale_short\": \"Vorbitorul propune o modificare concretă a textului legislativ pentru a rezolva problema transparenței.\"\n    }\n  ],\n  \"rationale\": \"Discursul prezintă o calitate deliberativă medie-ridicată, fiind structurat în jurul unei propuneri concrete de modificare a unui articol legislativ (constructive_politics=alternative_proposal). Vorbitorul oferă o justificare logică bazată pe prevenirea riscurilor de imagine și pe principiul transparenței (level_of_justification=2, content_of_justification=common_good). Deși menționează poziția ministrului și a opoziției, nu angajează un dialog substanțial cu argumentele acestora, limitându-se la o recunoaștere superficială (respect_for_counterarguments=1). Tonul este politicos și procedural, fără a depăși normele de curtoazie parlamentară (respect_for_groups=1). Per ansamblu, discursul este orientat spre soluționarea unei probleme tehnice prin argumente raționale.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [
+        "Sper„m Ón un prim vot pozitiv ∫i nu un vot negativ, Ón sensul c„ este impus„ aceast„ amendare de c„tre colegii din opozi˛ie."
+      ],
+      "parse_repaired": false,
+      "tokens_in": 12887,
+      "tokens_in_breakdown": {
+        "fresh": 12887,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1384,
+      "cost_usd": null,
+      "latency_ms": 5357,
+      "retries_used": 0
+    }
+  }
+}

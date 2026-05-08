@@ -1,0 +1,134 @@
+{
+  "gold": "opus",
+  "candidate": "gemini-3.1-flash-lite",
+  "n_paired": 30,
+  "missing_in_gold": [],
+  "missing_in_candidate": [],
+  "hawkins_agreement": {
+    "metric": "hawkins_score",
+    "n_pairs_compared": 30,
+    "n_pairs_with_null": 0,
+    "matches": 29,
+    "exact_match_rate": 0.9666666666666667,
+    "cumulative_abs_delta": 1,
+    "mean_abs_delta": 0.03333333333333333
+  },
+  "dqi_agreement": {
+    "metric": "dqi_level_of_justification",
+    "n_pairs_compared": 30,
+    "n_pairs_with_null": 0,
+    "matches": 25,
+    "exact_match_rate": 0.8333333333333334,
+    "cumulative_abs_delta": 5,
+    "mean_abs_delta": 0.16666666666666666
+  },
+  "hawkins_distribution_gold": {
+    "1": 7,
+    "2": 5,
+    "0": 18
+  },
+  "hawkins_distribution_candidate": {
+    "1": 6,
+    "2": 6,
+    "0": 18
+  },
+  "dqi_distribution_gold": {
+    "1": 16,
+    "2": 7,
+    "0": 7
+  },
+  "dqi_distribution_candidate": {
+    "1": 15,
+    "2": 6,
+    "0": 9
+  },
+  "operational_totals_gold": {
+    "calls": 72,
+    "latency_ms": 1653433,
+    "tokens_in": 7427805,
+    "tokens_out": 75653,
+    "errors": 0,
+    "retries": 0,
+    "repairs": 1,
+    "fragments_missed": 1,
+    "markers_emitted": 273
+  },
+  "operational_totals_candidate": {
+    "calls": 72,
+    "latency_ms": 245847,
+    "tokens_in": 941620,
+    "tokens_out": 51044,
+    "errors": 0,
+    "retries": 0,
+    "repairs": 0,
+    "fragments_missed": 8,
+    "markers_emitted": 257
+  },
+  "voice_distribution_gold": {
+    "speaker_first_person": 42,
+    "quoted": 1,
+    "hypothetical": 3
+  },
+  "voice_distribution_candidate": {
+    "reported": 2,
+    "speaker_first_person": 32,
+    "hypothetical": 3,
+    "quoted": 1
+  },
+  "hawkins_disagreements": [
+    {
+      "speech_id": "mo://2024/II/83#agenda-1#act-24",
+      "year": 2024,
+      "tier": "populist",
+      "speaker": "Diana Iovanovici-Șoșoacă",
+      "gold": 1,
+      "candidate": 2,
+      "gold_confidence": 0.68,
+      "candidate_confidence": 0.95,
+      "gold_marker_count": 3,
+      "candidate_marker_count": 4
+    }
+  ],
+  "dqi_disagreements": [
+    {
+      "speech_id": "mo://2023/II/35#agenda-2#act-107",
+      "year": 2023,
+      "tier": "populist",
+      "speaker": "Diana Iovanovici-Șoșoacă",
+      "gold": 1,
+      "candidate": 0
+    },
+    {
+      "speech_id": "mo://2024/II/105#agenda-6#act-84",
+      "year": 2024,
+      "tier": "populist",
+      "speaker": "George-Nicolae Simion",
+      "gold": 1,
+      "candidate": 0
+    },
+    {
+      "speech_id": "mo://2021/II/79#agenda-1#act-48",
+      "year": 2021,
+      "tier": "populist",
+      "speaker": "George-Nicolae Simion",
+      "gold": 2,
+      "candidate": 1
+    },
+    {
+      "speech_id": "mo://2023/II/29#agenda-2#act-42",
+      "year": 2023,
+      "tier": "populist",
+      "speaker": "Ringo Dămureanu",
+      "gold": 2,
+      "candidate": 1
+    },
+    {
+      "speech_id": "mo://2017/II/167#agenda-1#act-16",
+      "year": 2017,
+      "tier": "register_shift",
+      "speaker": "Traian Băsescu",
+      "gold": 1,
+      "candidate": 2
+    }
+  ]
+}

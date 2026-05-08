@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2018/II/101#agenda-1#act-386",
+  "tier": "calibration",
+  "speaker": {
+    "id": "cupsa-ioan",
+    "name": "Ioan Cupșa",
+    "raw": "Domnul Ioan Cupșa",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2018-06-18",
+    "year": 2018,
+    "legislature": "VIII",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2018/II/101#agenda-1#act-386",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul este unul pur procedural, axat pe modificarea competenței juridice a Curții de Apel în ceea ce privește infracțiunile săvârșite de lucrătorii din poliția judiciară. Vorbitorul argumentează tehnic, invocând necesitatea specializării și a poziției în sistemul judiciar, fără a utiliza nicio retorică populistă. Nu există nicio referire la un cadru popor-vs-elită, maniheism moral sau invocarea unei voințe populare omogene. Discursul se încadrează perfect în registrul dezbaterii legislative standard."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul este unul pur procedural, axat pe modificarea competenței juridice a Curții de Apel în ceea ce privește infracțiunile săvârșite de lucrătorii din poliția judiciară. Vorbitorul argumentează tehnic, invocând necesitatea specializării și a poziției în sistemul judiciar, fără a utiliza nicio retorică populistă. Nu există nicio referire la un cadru popor-vs-elită, maniheism moral sau invocarea unei voințe populare omogene. Discursul se încadrează perfect în registrul dezbaterii legislative standard.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13646,
+      "tokens_in_breakdown": {
+        "fresh": 13646,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 206,
+      "cost_usd": null,
+      "latency_ms": 1967,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2018/II/101#agenda-1#act-386",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.85,
+        "level_of_justification": 2,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "alternative_proposal",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "datorită strictei specializări, datorită poziției pe care o au în sistemul judiciar aceste persoane"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Vorbitorul oferă un raționament cauzal specific bazat pe specializarea și poziția în sistemul judiciar."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "datorită strictei specializări, datorită poziției pe care o au în sistemul judiciar aceste persoane"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.88,
+            "rationale_short": "Justificarea se referă la eficiența sistemului judiciar, un obiectiv universalizabil de bine comun."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "lucrători din cadrul organelor de cercetare penală ale poliției judiciare"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Grupul profesional este menționat funcțional, fără conotații de respect sau dispreț."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Competența după calitatea persoanei cred că ar trebui modificată"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Vorbitorul își susține propunerea fără a aborda cererile opoziției; non-angajament."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "Cred că ar fi de dorit ca această competență, după calitatea persoanei, să aparțină Curții de Apel."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Nu există nicio referire la argumentele contrare; vorbitorul ignoră complet opoziția."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "alternative_proposal",
+            "evidence": {
+              "text": "Competența după calitatea persoanei cred că ar trebui modificată, în așa fel încât și infracțiunile săvârșite de către lucrători din cadrul organelor de cercetare penală ale poliției judiciare sau ale organelor de cercetare penală specială să fie judecate în primă instanță de către Curtea de Apel"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Vorbitorul propune o modificare concretă a competenței judiciare, constituind o propunere alternativă."
+          }
+        ],
+        "rationale": "Discursul este o intervenție tehnică de amendare a competenței judiciare. Vorbitorul oferă o justificare calificată (level_of_justification=2) bazată pe rațiuni de specializare și poziție în sistemul judiciar, apelând la binele comun al eficienței actului de justiție. Deși propunerea este constructivă (alternative_proposal), discursul nu angajează deloc opoziția sau contraargumentele (respect_for_counterarguments=0), concentrându-se exclusiv pe propria logică. Respectul pentru grupurile vizate este neutru, fiind o referință pur funcțională. Profilul este cel al unui expert sau raportor care urmărește o modificare tehnică, fără a intra în dezbatere deliberativă cu ceilalți actori parlamentari."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.85,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 0,\n  \"constructive_politics\": \"alternative_proposal\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"datorită strictei specializări, datorită poziției pe care o au în sistemul judiciar aceste persoane\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Vorbitorul oferă un raționament cauzal specific bazat pe specializarea și poziția în sistemul judiciar.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"datorită strictei specializări, datorită poziției pe care o au în sistemul judiciar aceste persoane\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Justificarea se referă la eficiența sistemului judiciar, un obiectiv universalizabil de bine comun.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"lucrători din cadrul organelor de cercetare penală ale poliției judiciare\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Grupul profesional este menționat funcțional, fără conotații de respect sau dispreț.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Competența după calitatea persoanei cred că ar trebui modificată\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Vorbitorul își susține propunerea fără a aborda cererile opoziției; non-angajament.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"Cred că ar fi de dorit ca această competență, după calitatea persoanei, să aparțină Curții de Apel.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Nu există nicio referire la argumentele contrare; vorbitorul ignoră complet opoziția.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"alternative_proposal\",\n      \"evidence\": {\n        \"text\": \"Competența după calitatea persoanei cred că ar trebui modificată, în așa fel încât și infracțiunile săvârșite de către lucrători din cadrul organelor de cercetare penală ale poliției judiciare sau ale organelor de cercetare penală specială să fie judecate în primă instanță de către Curtea de Apel\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Vorbitorul propune o modificare concretă a competenței judiciare, constituind o propunere alternativă.\"\n    }\n  ],\n  \"rationale\": \"Discursul este o intervenție tehnică de amendare a competenței judiciare. Vorbitorul oferă o justificare calificată (level_of_justification=2) bazată pe rațiuni de specializare și poziție în sistemul judiciar, apelând la binele comun al eficienței actului de justiție. Deși propunerea este constructivă (alternative_proposal), discursul nu angajează deloc opoziția sau contraargumentele (respect_for_counterarguments=0), concentrându-se exclusiv pe propria logică. Respectul pentru grupurile vizate este neutru, fiind o referință pur funcțională. Profilul este cel al unui expert sau raportor care urmărește o modificare tehnică, fără a intra în dezbatere deliberativă cu ceilalți actori parlamentari.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12447,
+      "tokens_in_breakdown": {
+        "fresh": 12447,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1260,
+      "cost_usd": null,
+      "latency_ms": 5037,
+      "retries_used": 0
+    }
+  }
+}

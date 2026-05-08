@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2017/II/128#agenda-2#act-138",
+  "tier": "calibration",
+  "speaker": {
+    "id": "iancu-iulian",
+    "name": "Iulian Iancu",
+    "raw": "Domnul Iulian Iancu",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2017-09-19",
+    "year": 2017,
+    "legislature": "VIII",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2017/II/128#agenda-2#act-138",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul este pur procedural și tehnic, concentrându-se pe avizele instituționale (Consiliul Legislativ, Guvern, Senat, comisii) și pe cadrul legislativ european și național existent (Regulamentul CE nr. 1.272/2008, Legea nr. 360). Nu există nicio urmă de cadru popor-vs-elită, maniheism moral sau invocare a unei voințe populare omogene. Vorbitorul se limitează la argumentarea respingerii unei inițiative legislative pe baza redundanței juridice, încadrându-se perfect în registrul non-populist."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul este pur procedural și tehnic, concentrându-se pe avizele instituționale (Consiliul Legislativ, Guvern, Senat, comisii) și pe cadrul legislativ european și național existent (Regulamentul CE nr. 1.272/2008, Legea nr. 360). Nu există nicio urmă de cadru popor-vs-elită, maniheism moral sau invocare a unei voințe populare omogene. Vorbitorul se limitează la argumentarea respingerii unei inițiative legislative pe baza redundanței juridice, încadrându-se perfect în registrul non-populist.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13724,
+      "tokens_in_breakdown": {
+        "fresh": 13724,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 216,
+      "cost_usd": null,
+      "latency_ms": 1856,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2017/II/128#agenda-2#act-138",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.92,
+        "level_of_justification": 2,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "Pentru că obiectul este deja reglementat prin Regulamentul Comisiei Europene nr. 1.272 din 2008 al Parlamentului European și al Consiliului din 16 decembrie 2008 privind clasificarea, etichetarea și ambalarea substanțelor și amestecurilor, conform Legii nr. 360"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Justificare calificată prin referință la reglementări europene și naționale specifice."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "obiectul este deja reglementat prin Regulamentul Comisiei Europene"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Apelul la conformitatea legislativă și evitarea redundanței servește interesului general al ordinii juridice."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Stimați colegi"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.99,
+            "marker_confidence": 0.95,
+            "rationale_short": "Adresare convențională neutră; niciun grup vizat sau derogatoriu."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "comisia noastră propune plenului respingerea inițiativei legislative"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Poziție procedurală neutră; nu există un angajament explicit cu legitimitatea cererii opoziției."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "Proiectul de lege menționat are aviz negativ de la Consiliul Legislativ, din partea Guvernului, este respins de Senat și are aviz negativ de la comisiile de specialitate"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Menționează avizele negative ca argumente, dar nu angajează substanțial raționamentul opoziției."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "comisia noastră propune plenului respingerea inițiativei legislative"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.94,
+            "rationale_short": "Poziție clară de respingere bazată pe redundanță legislativă; nu propune o alternativă sau mediere."
+          }
+        ],
+        "rationale": "Discursul este o intervenție de raportor care prezintă o justificare calificată (level_of_justification=2) prin invocarea unor surse legislative concrete (Regulamentul UE 1.272/2008, Legea 360). Justificarea este orientată către binele comun (evitarea suprapunerii legislative). Respectul pentru grupuri și cereri este neutru, limitându-se la cadrul procedural. Deși menționează avizele negative, nu există un angajament substanțial cu raționamentul opoziției (respect_for_counterarguments=1). Discursul este pozițional, fiind o recomandare de respingere a unei inițiative redundante. Calitatea deliberativă este solidă pentru un discurs de raportor, fiind clar, documentat și procedural."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.92,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"Pentru că obiectul este deja reglementat prin Regulamentul Comisiei Europene nr. 1.272 din 2008 al Parlamentului European și al Consiliului din 16 decembrie 2008 privind clasificarea, etichetarea și ambalarea substanțelor și amestecurilor, conform Legii nr. 360\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Justificare calificată prin referință la reglementări europene și naționale specifice.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"obiectul este deja reglementat prin Regulamentul Comisiei Europene\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Apelul la conformitatea legislativă și evitarea redundanței servește interesului general al ordinii juridice.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Stimați colegi\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.99,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Adresare convențională neutră; niciun grup vizat sau derogatoriu.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"comisia noastră propune plenului respingerea inițiativei legislative\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.90,\n      \"rationale_short\": \"Poziție procedurală neutră; nu există un angajament explicit cu legitimitatea cererii opoziției.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Proiectul de lege menționat are aviz negativ de la Consiliul Legislativ, din partea Guvernului, este respins de Senat și are aviz negativ de la comisiile de specialitate\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Menționează avizele negative ca argumente, dar nu angajează substanțial raționamentul opoziției.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"comisia noastră propune plenului respingerea inițiativei legislative\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.94,\n      \"rationale_short\": \"Poziție clară de respingere bazată pe redundanță legislativă; nu propune o alternativă sau mediere.\"\n    }\n  ],\n  \"rationale\": \"Discursul este o intervenție de raportor care prezintă o justificare calificată (level_of_justification=2) prin invocarea unor surse legislative concrete (Regulamentul UE 1.272/2008, Legea 360). Justificarea este orientată către binele comun (evitarea suprapunerii legislative). Respectul pentru grupuri și cereri este neutru, limitându-se la cadrul procedural. Deși menționează avizele negative, nu există un angajament substanțial cu raționamentul opoziției (respect_for_counterarguments=1). Discursul este pozițional, fiind o recomandare de respingere a unei inițiative redundante. Calitatea deliberativă este solidă pentru un discurs de raportor, fiind clar, documentat și procedural.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12525,
+      "tokens_in_breakdown": {
+        "fresh": 12525,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1239,
+      "cost_usd": null,
+      "latency_ms": 4775,
+      "retries_used": 0
+    }
+  }
+}

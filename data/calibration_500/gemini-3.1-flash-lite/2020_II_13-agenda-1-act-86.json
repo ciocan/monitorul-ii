@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2020/II/13#agenda-1#act-86",
+  "tier": "calibration",
+  "speaker": {
+    "id": "iliescu-catalin-lucian",
+    "name": "Cătălin Lucian Iliescu",
+    "raw": "Domnul Cătălin Lucian Iliescu",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": "2020-02-03",
+    "year": 2020,
+    "legislature": "VIII",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2020/II/13#agenda-1#act-86",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul se înscrie într-un registru procedural și de politici publice, axat pe o problemă socială concretă (alocațiile pentru copii) și pe o poziție tehnică față de o ordonanță de urgență. Vorbitorul nu utilizează un cadru maniheist popor-vs-elită, nu invocă o voință populară omogenă ca forță politică suverană și nu recurge la retorică populistă pentru a structura argumentația. Deși menționează „românii” și „țara”, acestea sunt utilizate în contextul unei dezbateri parlamentare standard, fără a construi o dihotomie morală. Hawkins=0 cu încredere ridicată."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul se înscrie într-un registru procedural și de politici publice, axat pe o problemă socială concretă (alocațiile pentru copii) și pe o poziție tehnică față de o ordonanță de urgență. Vorbitorul nu utilizează un cadru maniheist popor-vs-elită, nu invocă o voință populară omogenă ca forță politică suverană și nu recurge la retorică populistă pentru a structura argumentația. Deși menționează „românii” și „țara”, acestea sunt utilizate în contextul unei dezbateri parlamentare standard, fără a construi o dihotomie morală. Hawkins=0 cu încredere ridicată.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13694,
+      "tokens_in_breakdown": {
+        "fresh": 13694,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 233,
+      "cost_usd": null,
+      "latency_ms": 1910,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2020/II/13#agenda-1#act-86",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.72,
+        "level_of_justification": 1,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 1,
+            "evidence": {
+              "text": "Trebuie să facem ceva în sensul creșterii natalității în țară."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Vorbitorul invocă necesitatea creșterii natalității ca motiv, dar fără a oferi un mecanism cauzal sau dovezi."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "Trebuie să facem ceva în sensul creșterii natalității în țară."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.88,
+            "rationale_short": "Apelul la creșterea natalității este universalizabil și vizează interesul general al țării."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "familiile să-și trimită copiii la școală"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Referință neutră la familii; nicio derogare sau respect explicit."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Eu sunt pentru a respinge această ordonanță de urgență."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Vorbitorul își exprimă poziția fără a se angaja cu cererile sau argumentele opoziției."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "Nu-mi dau seama, mărirea... dublarea alocației, dacă este o soluție."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.82,
+            "rationale_short": "Vorbitorul ignoră raționamentul din spatele dublării alocației, tratându-l ca pe o incertitudine personală."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Sunt pentru respingerea ordonanței de urgență a Guvernului."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Vorbitorul își declară poziția de respingere fără a propune o alternativă concretă sau un compromis."
+          }
+        ],
+        "rationale": "Discursul prezintă o calitate deliberativă limitată, fiind centrat pe o poziție personală și o justificare vagă. Deși vorbitorul invocă binele comun (natalitatea), raționamentul rămâne la nivelul 1, lipsind legăturile cauzale sau dovezile necesare pentru o justificare calificată. Nu există un angajament substanțial cu argumentele opoziției, iar discursul este pur pozițional, fără a oferi alternative concrete. Respectul pentru grupuri și cereri este neutru, reflectând o postură mai degrabă reflexivă decât deliberativă. În ansamblu, discursul este un exemplu tipic de intervenție bazată pe experiența personală, cu o densitate argumentativă scăzută."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.72,\n  \"level_of_justification\": 1,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 0,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Trebuie să facem ceva în sensul creșterii natalității în țară.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Vorbitorul invocă necesitatea creșterii natalității ca motiv, dar fără a oferi un mecanism cauzal sau dovezi.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"Trebuie să facem ceva în sensul creșterii natalității în țară.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Apelul la creșterea natalității este universalizabil și vizează interesul general al țării.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"familiile să-și trimită copiii la școală\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Referință neutră la familii; nicio derogare sau respect explicit.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Eu sunt pentru a respinge această ordonanță de urgență.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Vorbitorul își exprimă poziția fără a se angaja cu cererile sau argumentele opoziției.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"Nu-mi dau seama, mărirea... dublarea alocației, dacă este o soluție.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.82,\n      \"rationale_short\": \"Vorbitorul ignoră raționamentul din spatele dublării alocației, tratându-l ca pe o incertitudine personală.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"Sunt pentru respingerea ordonanței de urgență a Guvernului.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Vorbitorul își declară poziția de respingere fără a propune o alternativă concretă sau un compromis.\"\n    }\n  ],\n  \"rationale\": \"Discursul prezintă o calitate deliberativă limitată, fiind centrat pe o poziție personală și o justificare vagă. Deși vorbitorul invocă binele comun (natalitatea), raționamentul rămâne la nivelul 1, lipsind legăturile cauzale sau dovezile necesare pentru o justificare calificată. Nu există un angajament substanțial cu argumentele opoziției, iar discursul este pur pozițional, fără a oferi alternative concrete. Respectul pentru grupuri și cereri este neutru, reflectând o postură mai degrabă reflexivă decât deliberativă. În ansamblu, discursul este un exemplu tipic de intervenție bazată pe experiența personală, cu o densitate argumentativă scăzută.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12495,
+      "tokens_in_breakdown": {
+        "fresh": 12495,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1158,
+      "cost_usd": null,
+      "latency_ms": 5174,
+      "retries_used": 0
+    }
+  }
+}

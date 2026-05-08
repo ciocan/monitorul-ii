@@ -1,0 +1,52 @@
+{
+  "speech_id": "mo://2015/II/8#agenda-1#act-24",
+  "tier": "calibration",
+  "speaker": {
+    "id": "bogdanici-camelia-margareta",
+    "name": "Camelia Margareta Bogdănici",
+    "raw": "Doamna Camelia Margareta Bogdănici",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2015-02-03",
+    "year": 2015,
+    "legislature": "VII",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": null,
+    "voice": null,
+    "dqi": null,
+    "vparty": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "vparty",
+      "speech_id": "mo://2015/II/8#agenda-1#act-24",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "vparty@2020 + vdem-attacks-on@v13",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul este o intervenție parlamentară de tip declarație politică axată pe o problemă locală specifică: finanțarea și reabilitarea Filarmonicii din Iași. Vorbitorul critică Guvernul pentru nealocarea fondurilor necesare, ceea ce reprezintă o formă legitimă de opoziție politică și control parlamentar. Nu există nicio delegitimizare a instituțiilor democratice, a presei, a opoziției, a minorităților sau a normelor constituționale. Discursul rămâne în limitele registrului democratic-procedural, fără a exprima un worldview anti-pluralist."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"vparty@2020 + vdem-attacks-on@v13\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul este o intervenție parlamentară de tip declarație politică axată pe o problemă locală specifică: finanțarea și reabilitarea Filarmonicii din Iași. Vorbitorul critică Guvernul pentru nealocarea fondurilor necesare, ceea ce reprezintă o formă legitimă de opoziție politică și control parlamentar. Nu există nicio delegitimizare a instituțiilor democratice, a presei, a opoziției, a minorităților sau a normelor constituționale. Discursul rămâne în limitele registrului democratic-procedural, fără a exprima un worldview anti-pluralist.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 14191,
+      "tokens_in_breakdown": {
+        "fresh": 14191,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 221,
+      "cost_usd": null,
+      "latency_ms": 1787,
+      "retries_used": 0
+    }
+  }
+}

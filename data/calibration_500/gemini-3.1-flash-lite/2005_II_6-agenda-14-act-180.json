@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2005/II/6#agenda-14#act-180",
+  "tier": "calibration",
+  "speaker": {
+    "id": "cindrea-ioan",
+    "name": "Ioan Cindrea",
+    "raw": "Domnul Ioan Cindrea",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": null,
+    "session_date": null,
+    "year": 2005,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2005/II/6#agenda-14#act-180",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul este o interpelare parlamentară standard, axată pe o problemă tehnică de politici publice: indexarea pensiilor în raport cu inflația și recalcularea acestora. Vorbitorul utilizează date statistice (6,2 milioane de pensionari, inflație de 7%, majorare de 3,2%) pentru a susține o solicitare administrativă către ministrul muncii. Nu există nicio tentativă de a construi un cadru maniheist popor-vs-elită, nicio invocare a unei voințe populare omogene ca forță suverană și nicio retorică populistă. Discursul rămâne în limitele procedurale ale activității parlamentare."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul este o interpelare parlamentară standard, axată pe o problemă tehnică de politici publice: indexarea pensiilor în raport cu inflația și recalcularea acestora. Vorbitorul utilizează date statistice (6,2 milioane de pensionari, inflație de 7%, majorare de 3,2%) pentru a susține o solicitare administrativă către ministrul muncii. Nu există nicio tentativă de a construi un cadru maniheist popor-vs-elită, nicio invocare a unei voințe populare omogene ca forță suverană și nicio retorică populistă. Discursul rămâne în limitele procedurale ale activității parlamentare.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13756,
+      "tokens_in_breakdown": {
+        "fresh": 13756,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 227,
+      "cost_usd": null,
+      "latency_ms": 1894,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2005/II/6#agenda-14#act-180",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.85,
+        "level_of_justification": 2,
+        "content_of_justification": "group_interest",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "Datorit„ acestei decizii ∫i infla˛iei de minimum 7%, care va avea loc Ón acest an, prognozat„ pentru acest an, se va conduce la sc„derea drastic„ a puterii de cump„rare a celor peste 6,2 milioane de pensionari din Rom‚nia"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Vorbitorul leagă decizia de indexare de un mecanism cauzal (inflație vs. creștere pensie) care afectează puterea de cumpărare."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "group_interest",
+            "evidence": {
+              "text": "sc„derea drastic„ a puterii de cump„rare a celor peste 6,2 milioane de pensionari din Rom‚nia"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Justificarea este ancorată explicit în interesele unui grup specific (pensionarii)."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "domnului ministru Gheorghe Barbu"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Referință funcțională la ministru; niciun semn de derogare sau respect explicit."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Solicit ministrului muncii s„ ne r„spund„ Ón acest sens, scris ∫i verbal."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.88,
+            "rationale_short": "Vorbitorul își formulează propria cerere fără a angaja legitimitatea cererilor adverse."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "ministrul muncii, domnul Gheorghe Barbu, spune c„ p‚n„ la finalizarea procesului de recalculare a pensiilor nu se vor indexa pensiile"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Argumentul ministrului este menționat, dar nu este angajat substanțial prin contra-argumentare."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Solicit ministrului muncii s„ ne r„spund„ Ón acest sens"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Interpelarea este o poziție de solicitare a unui răspuns, fără a propune o alternativă de politică publică."
+          }
+        ],
+        "rationale": "Discursul este o interpelare parlamentară standard, caracterizată printr-o justificare calificată (level_of_justification=2) bazată pe un mecanism cauzal clar între inflație și puterea de cumpărare a pensionarilor. Justificarea este orientată către interesul unui grup specific (content_of_justification=group_interest). Vorbitorul menționează poziția ministrului, dar nu o angajează substanțial (respect_for_counterarguments=1), limitându-se la a solicita un răspuns (constructive_politics=positional). Respectul pentru grupuri și cereri rămâne neutru, fiind o comunicare procedurală. Calitatea deliberativă este medie, fiind un discurs de control parlamentar tipic."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.85,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"group_interest\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"Datorit„ acestei decizii ∫i infla˛iei de minimum 7%, care va avea loc Ón acest an, prognozat„ pentru acest an, se va conduce la sc„derea drastic„ a puterii de cump„rare a celor peste 6,2 milioane de pensionari din Rom‚nia\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Vorbitorul leagă decizia de indexare de un mecanism cauzal (inflație vs. creștere pensie) care afectează puterea de cumpărare.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"group_interest\",\n      \"evidence\": {\n        \"text\": \"sc„derea drastic„ a puterii de cump„rare a celor peste 6,2 milioane de pensionari din Rom‚nia\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Justificarea este ancorată explicit în interesele unui grup specific (pensionarii).\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"domnului ministru Gheorghe Barbu\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Referință funcțională la ministru; niciun semn de derogare sau respect explicit.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Solicit ministrului muncii s„ ne r„spund„ Ón acest sens, scris ∫i verbal.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Vorbitorul își formulează propria cerere fără a angaja legitimitatea cererilor adverse.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"ministrul muncii, domnul Gheorghe Barbu, spune c„ p‚n„ la finalizarea procesului de recalculare a pensiilor nu se vor indexa pensiile\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Argumentul ministrului este menționat, dar nu este angajat substanțial prin contra-argumentare.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"Solicit ministrului muncii s„ ne r„spund„ Ón acest sens\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Interpelarea este o poziție de solicitare a unui răspuns, fără a propune o alternativă de politică publică.\"\n    }\n  ],\n  \"rationale\": \"Discursul este o interpelare parlamentară standard, caracterizată printr-o justificare calificată (level_of_justification=2) bazată pe un mecanism cauzal clar între inflație și puterea de cumpărare a pensionarilor. Justificarea este orientată către interesul unui grup specific (content_of_justification=group_interest). Vorbitorul menționează poziția ministrului, dar nu o angajează substanțial (respect_for_counterarguments=1), limitându-se la a solicita un răspuns (constructive_politics=positional). Respectul pentru grupuri și cereri rămâne neutru, fiind o comunicare procedurală. Calitatea deliberativă este medie, fiind un discurs de control parlamentar tipic.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12557,
+      "tokens_in_breakdown": {
+        "fresh": 12557,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1243,
+      "cost_usd": null,
+      "latency_ms": 4333,
+      "retries_used": 0
+    }
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "speech_id": "mo://2008/II/90#agenda-1#act-49",
+  "tier": "calibration",
+  "speaker": {
+    "id": "tudor-constantin",
+    "name": "Constantin Tudor",
+    "raw": "Domnul Constantin Tudor",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2008-09-30",
+    "year": 2008,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": null,
+    "voice": null,
+    "dqi": null,
+    "vparty": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "vparty",
+      "speech_id": "mo://2008/II/90#agenda-1#act-49",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "vparty@2020 + vdem-attacks-on@v13",
+        "framework_confidence": 0.95,
+        "markers": [],
+        "rationale": "Discursul prezintă două secțiuni distincte de analiză administrativă și politică locală. Prima parte critică întârzierea distribuirii ajutoarelor alimentare, interpretând-o ca pe o manevră electorală, iar a doua parte detaliază nereguli în construcțiile din Parcul Dumbrava și critică toleranța primarului față de încălcarea legii. Acestea sunt critici politice și administrative legitime, care nu delegitimizează instituțiile democratice ca clasă, ci vizează performanța și integritatea unor actori specifici. Nu există elemente de anti-pluralism, atacuri la adresa justiției, presei, minorităților sau a normelor democratice fundamentale. Discursul rămâne în limitele contestării politice democratice."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"vparty@2020 + vdem-attacks-on@v13\",\n  \"framework_confidence\": 0.95,\n  \"markers\": [],\n  \"rationale\": \"Discursul prezintă două secțiuni distincte de analiză administrativă și politică locală. Prima parte critică întârzierea distribuirii ajutoarelor alimentare, interpretând-o ca pe o manevră electorală, iar a doua parte detaliază nereguli în construcțiile din Parcul Dumbrava și critică toleranța primarului față de încălcarea legii. Acestea sunt critici politice și administrative legitime, care nu delegitimizează instituțiile democratice ca clasă, ci vizează performanța și integritatea unor actori specifici. Nu există elemente de anti-pluralism, atacuri la adresa justiției, presei, minorităților sau a normelor democratice fundamentale. Discursul rămâne în limitele contestării politice democratice.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13974,
+      "tokens_in_breakdown": {
+        "fresh": 13974,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 257,
+      "cost_usd": null,
+      "latency_ms": 2303,
+      "retries_used": 0
+    }
+  }
+}

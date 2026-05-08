@@ -1,0 +1,52 @@
+{
+  "speech_id": "mo://2010/II/69#agenda-1#act-51",
+  "tier": "calibration",
+  "speaker": {
+    "id": "movila-petru",
+    "name": "Petru Movilă",
+    "raw": "Domnul Petru Movilă",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2010-05-03",
+    "year": 2010,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": null,
+    "voice": null,
+    "dqi": null,
+    "vparty": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "vparty",
+      "speech_id": "mo://2010/II/69#agenda-1#act-51",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "vparty@2020 + vdem-attacks-on@v13",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul este unul pur procedural și legislativ, concentrat pe aprobarea unei ordonanțe de urgență și coordonarea cu alte inițiative parlamentare. Vorbitorul nu atacă nicio instituție democratică, nu delegitimează opoziția și nu folosește retorică anti-pluralistă. Critica sau menționarea proceselor legislative se încadrează în registrul normal al dezbaterii parlamentare. Scor 0 cu încredere ridicată."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"vparty@2020 + vdem-attacks-on@v13\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul este unul pur procedural și legislativ, concentrat pe aprobarea unei ordonanțe de urgență și coordonarea cu alte inițiative parlamentare. Vorbitorul nu atacă nicio instituție democratică, nu delegitimează opoziția și nu folosește retorică anti-pluralistă. Critica sau menționarea proceselor legislative se încadrează în registrul normal al dezbaterii parlamentare. Scor 0 cu încredere ridicată.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12920,
+      "tokens_in_breakdown": {
+        "fresh": 12920,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 187,
+      "cost_usd": null,
+      "latency_ms": 1805,
+      "retries_used": 0
+    }
+  }
+}

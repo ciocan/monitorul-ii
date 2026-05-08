@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2007/II/11#agenda-1#act-133",
+  "tier": "calibration",
+  "speaker": {
+    "id": "puskas-valentin-zoltan",
+    "name": "Puskás Valentin Zoltán",
+    "raw": "Domnul Puskás Valentin Zoltán",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": null,
+    "year": 2007,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2007/II/11#agenda-1#act-133",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul este unul tehnic și procedural, axat pe o inițiativă legislativă specifică privind protecția chiriașilor din imobilele retrocedate. Vorbitorul prezintă argumente bazate pe istoricul legislativ, consultări cu partidele și deficiențele actelor normative existente (OUG 68/2006), fără a construi un cadru manihean popor-vs-elită. Deși menționează „grupuri de interese” și „oameni în vârstă”, acestea sunt folosite în contextul unei dezbateri de politici publice, nu ca elemente ale unei viziuni populiste. Nu există invocarea unei voințe populare omogene, a unei elite malefice sau a unei crize existențiale. Hawkins=0 cu încredere ridicată."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul este unul tehnic și procedural, axat pe o inițiativă legislativă specifică privind protecția chiriașilor din imobilele retrocedate. Vorbitorul prezintă argumente bazate pe istoricul legislativ, consultări cu partidele și deficiențele actelor normative existente (OUG 68/2006), fără a construi un cadru manihean popor-vs-elită. Deși menționează „grupuri de interese” și „oameni în vârstă”, acestea sunt folosite în contextul unei dezbateri de politici publice, nu ca elemente ale unei viziuni populiste. Nu există invocarea unei voințe populare omogene, a unei elite malefice sau a unei crize existențiale. Hawkins=0 cu încredere ridicată.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 14345,
+      "tokens_in_breakdown": {
+        "fresh": 14345,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 253,
+      "cost_usd": null,
+      "latency_ms": 2174,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2007/II/11#agenda-1#act-133",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.82,
+        "level_of_justification": 2,
+        "content_of_justification": "group_interest",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "alternative_proposal",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "Rezolvarea ar fi acordarea de locuin˛e din fondul de stat pentru ace∫ti oameni ∫i, atunci c‚nd se vor elibera aceste locuin˛e, bineÓn˛eles, acestea se vor putea acorda ∫i altor categorii de chiria∫i."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.88,
+            "rationale_short": "Vorbitorul propune un mecanism specific (fondul de stat) pentru a rezolva problema chiriașilor evacuați."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "group_interest",
+            "evidence": {
+              "text": "v„ rog foarte mult s„ sprijinim acest grup de interese ∫i s„ vot„m aceast„ ini˛iativ„ legislativ„ care este Ón favoarea acestor oameni."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.99,
+            "marker_confidence": 0.95,
+            "rationale_short": "Justificarea este explicit ancorată în interesul unui grup specific (chiriașii evacuați)."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "foarte mul˛i proprietari recurg la anumite metode. De exemplu, desfiin˛eaz„ contractele de utilit„˛i"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.85,
+            "rationale_short": "Referință critică la acțiunile proprietarilor, dar fără a deroga demnitatea grupului ca atare."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Guvernul, Ón mod evident, sus˛ine c„ nu este nevoie de o asemenea propunere legislativ„"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.96,
+            "marker_confidence": 0.82,
+            "rationale_short": "Menționează poziția Guvernului fără a o angaja sau a-i recunoaște legitimitatea."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "Guvernul, Ón mod evident, sus˛ine c„ nu este nevoie de o asemenea propunere legislativ„ ∫i Ón∫ir„, Óntr-adev„r, o serie de acte normative care prelungesc contractele"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.84,
+            "rationale_short": "Recunoaște argumentul Guvernului (prelungirea contractelor), dar nu îl combate substanțial."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "alternative_proposal",
+            "evidence": {
+              "text": "Rezolvarea ar fi acordarea de locuin˛e din fondul de stat pentru ace∫ti oameni"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Vorbitorul propune o soluție alternativă concretă la măsurile guvernamentale curente."
+          }
+        ],
+        "rationale": "Discursul prezintă o calitate deliberativă medie, caracterizată prin oferirea unei justificări calificate (level_of_justification=2) bazate pe un mecanism specific de protecție socială, deși apelul este orientat către un grup de interese definit (group_interest). Vorbitorul adoptă o postură constructivă prin propunerea unei alternative concrete la politicile guvernamentale (alternative_proposal). Respectul pentru grupuri și pentru cererile adverse rămâne la un nivel neutru (1), deoarece vorbitorul critică acțiunile proprietarilor și poziția Guvernului fără a le deroga explicit, dar nici fără a le recunoaște legitimitatea. Angajamentul cu contraargumentele este limitat la o menționare a măsurilor guvernamentale, fără o respingere logică detaliată. Profilul este cel al unui discurs de advocacy pentru un grup vulnerabil, cu un grad rezonabil de argumentare tehnică."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.82,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"group_interest\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"alternative_proposal\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"Rezolvarea ar fi acordarea de locuin˛e din fondul de stat pentru ace∫ti oameni ∫i, atunci c‚nd se vor elibera aceste locuin˛e, bineÓn˛eles, acestea se vor putea acorda ∫i altor categorii de chiria∫i.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Vorbitorul propune un mecanism specific (fondul de stat) pentru a rezolva problema chiriașilor evacuați.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"group_interest\",\n      \"evidence\": {\n        \"text\": \"v„ rog foarte mult s„ sprijinim acest grup de interese ∫i s„ vot„m aceast„ ini˛iativ„ legislativ„ care este Ón favoarea acestor oameni.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.99,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Justificarea este explicit ancorată în interesul unui grup specific (chiriașii evacuați).\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"foarte mul˛i proprietari recurg la anumite metode. De exemplu, desfiin˛eaz„ contractele de utilit„˛i\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Referință critică la acțiunile proprietarilor, dar fără a deroga demnitatea grupului ca atare.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Guvernul, Ón mod evident, sus˛ine c„ nu este nevoie de o asemenea propunere legislativ„\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.96,\n      \"marker_confidence\": 0.82,\n      \"rationale_short\": \"Menționează poziția Guvernului fără a o angaja sau a-i recunoaște legitimitatea.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Guvernul, Ón mod evident, sus˛ine c„ nu este nevoie de o asemenea propunere legislativ„ ∫i Ón∫ir„, Óntr-adev„r, o serie de acte normative care prelungesc contractele\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"marker_confidence\": 0.84,\n      \"rationale_short\": \"Recunoaște argumentul Guvernului (prelungirea contractelor), dar nu îl combate substanțial.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"alternative_proposal\",\n      \"evidence\": {\n        \"text\": \"Rezolvarea ar fi acordarea de locuin˛e din fondul de stat pentru ace∫ti oameni\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Vorbitorul propune o soluție alternativă concretă la măsurile guvernamentale curente.\"\n    }\n  ],\n  \"rationale\": \"Discursul prezintă o calitate deliberativă medie, caracterizată prin oferirea unei justificări calificate (level_of_justification=2) bazate pe un mecanism specific de protecție socială, deși apelul este orientat către un grup de interese definit (group_interest). Vorbitorul adoptă o postură constructivă prin propunerea unei alternative concrete la politicile guvernamentale (alternative_proposal). Respectul pentru grupuri și pentru cererile adverse rămâne la un nivel neutru (1), deoarece vorbitorul critică acțiunile proprietarilor și poziția Guvernului fără a le deroga explicit, dar nici fără a le recunoaște legitimitatea. Angajamentul cu contraargumentele este limitat la o menționare a măsurilor guvernamentale, fără o respingere logică detaliată. Profilul este cel al unui discurs de advocacy pentru un grup vulnerabil, cu un grad rezonabil de argumentare tehnică.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13146,
+      "tokens_in_breakdown": {
+        "fresh": 13146,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1343,
+      "cost_usd": null,
+      "latency_ms": 4814,
+      "retries_used": 0
+    }
+  }
+}

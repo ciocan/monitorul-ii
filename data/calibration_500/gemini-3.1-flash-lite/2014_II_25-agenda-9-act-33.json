@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2014/II/25#agenda-9#act-33",
+  "tier": "calibration",
+  "speaker": {
+    "id": "pop-gheorghe",
+    "name": "Gheorghe Pop",
+    "raw": "Domnul Gheorghe Pop",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": "2014-03-10",
+    "year": 2014,
+    "legislature": "VII",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2014/II/25#agenda-9#act-33",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 1.0,
+        "markers": [],
+        "rationale": "Discursul este o interpelare parlamentară standard, tehnică și procedurală, adresată unui ministru cu privire la o problemă specifică de plan-cadru școlar și situația profesională a unui cadru didactic. Nu există nicio urmă de cadru popor-vs-elită, maniheism moral, invocare a unei voințe populare omogene sau orice alt marker populist. Discursul se înscrie în registrul administrativ-parlamentar, fiind un exemplu clar de scor 0."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 1.0,\n  \"markers\": [],\n  \"rationale\": \"Discursul este o interpelare parlamentară standard, tehnică și procedurală, adresată unui ministru cu privire la o problemă specifică de plan-cadru școlar și situația profesională a unui cadru didactic. Nu există nicio urmă de cadru popor-vs-elită, maniheism moral, invocare a unei voințe populare omogene sau orice alt marker populist. Discursul se înscrie în registrul administrativ-parlamentar, fiind un exemplu clar de scor 0.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13758,
+      "tokens_in_breakdown": {
+        "fresh": 13758,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 183,
+      "cost_usd": null,
+      "latency_ms": 1976,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2014/II/25#agenda-9#act-33",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.85,
+        "level_of_justification": 2,
+        "content_of_justification": "group_interest",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "Doamna profesor spune că, deși a obținut medii necesare titularizării, nu a devenit titulară pe post la gimnaziu deoarece disciplina TIC nu este cuprinsă în trunchiul comun ca disciplină obligatorie la ciclul secundar inferior."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.92,
+            "rationale_short": "Vorbitorul oferă un mecanism cauzal clar: lipsa disciplinei din trunchiul comun împiedică titularizarea profesorilor."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "group_interest",
+            "evidence": {
+              "text": "La nivel național, în situația doamnei Ciupe Carmen se regăsesc sute de profesori care nu pot profesa decât ca suplinitori"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.9,
+            "rationale_short": "Justificarea se concentrează pe interesele specifice ale unei categorii profesionale (profesorii de informatică)."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "sute de profesori"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.9,
+            "rationale_short": "Grupul profesional este menționat într-o manieră neutră, fără derogare sau laudă explicită."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "vă întreb, domnule ministru, când veți proceda la întocmirea unui nou plan-cadru"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.85,
+            "rationale_short": "Interpelarea este o cerere procedurală; nu există angajament cu cereri adverse."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "vă întreb, domnule ministru, când veți proceda la întocmirea unui nou plan-cadru"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.85,
+            "rationale_short": "Nu există contraargumente adresate; discursul este o interpelare unilaterală."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "vă întreb, domnule ministru, când veți proceda la întocmirea unui nou plan-cadru"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.9,
+            "rationale_short": "Discursul solicită o acțiune ministerială fără a propune o alternativă legislativă proprie."
+          }
+        ],
+        "rationale": "Discursul este o interpelare parlamentară standard, caracterizată printr-o justificare calificată (level_of_justification=2) bazată pe un mecanism cauzal clar legat de situația profesională a profesorilor de informatică. Justificarea este orientată către interesul unui grup profesional specific (content_of_justification=group_interest). Deoarece este o interpelare, nu există angajament cu contraargumente sau cereri adverse, ceea ce duce la scoruri neutre sau de ignorare pe dimensiunile de respect. Discursul rămâne pozițional, solicitând o acțiune executivă fără a oferi o alternativă legislativă proprie. Calitatea deliberativă este medie, fiind adecvată genului de interpelare."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.85,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"group_interest\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 0,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"Doamna profesor spune că, deși a obținut medii necesare titularizării, nu a devenit titulară pe post la gimnaziu deoarece disciplina TIC nu este cuprinsă în trunchiul comun ca disciplină obligatorie la ciclul secundar inferior.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Vorbitorul oferă un mecanism cauzal clar: lipsa disciplinei din trunchiul comun împiedică titularizarea profesorilor.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"group_interest\",\n      \"evidence\": {\n        \"text\": \"La nivel național, în situația doamnei Ciupe Carmen se regăsesc sute de profesori care nu pot profesa decât ca suplinitori\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Justificarea se concentrează pe interesele specifice ale unei categorii profesionale (profesorii de informatică).\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"sute de profesori\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Grupul profesional este menționat într-o manieră neutră, fără derogare sau laudă explicită.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"vă întreb, domnule ministru, când veți proceda la întocmirea unui nou plan-cadru\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Interpelarea este o cerere procedurală; nu există angajament cu cereri adverse.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"vă întreb, domnule ministru, când veți proceda la întocmirea unui nou plan-cadru\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Nu există contraargumente adresate; discursul este o interpelare unilaterală.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"vă întreb, domnule ministru, când veți proceda la întocmirea unui nou plan-cadru\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Discursul solicită o acțiune ministerială fără a propune o alternativă legislativă proprie.\"\n    }\n  ],\n  \"rationale\": \"Discursul este o interpelare parlamentară standard, caracterizată printr-o justificare calificată (level_of_justification=2) bazată pe un mecanism cauzal clar legat de situația profesională a profesorilor de informatică. Justificarea este orientată către interesul unui grup profesional specific (content_of_justification=group_interest). Deoarece este o interpelare, nu există angajament cu contraargumente sau cereri adverse, ceea ce duce la scoruri neutre sau de ignorare pe dimensiunile de respect. Discursul rămâne pozițional, solicitând o acțiune executivă fără a oferi o alternativă legislativă proprie. Calitatea deliberativă este medie, fiind adecvată genului de interpelare.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12559,
+      "tokens_in_breakdown": {
+        "fresh": 12559,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1211,
+      "cost_usd": null,
+      "latency_ms": 4323,
+      "retries_used": 0
+    }
+  }
+}

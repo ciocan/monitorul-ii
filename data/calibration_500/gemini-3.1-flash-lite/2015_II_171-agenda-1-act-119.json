@@ -1,0 +1,152 @@
+{
+  "speech_id": "mo://2015/II/171#agenda-1#act-119",
+  "tier": "calibration",
+  "speaker": {
+    "id": "mitu-augustin-constantin",
+    "name": "Augustin Constantin Mitu",
+    "raw": "Domnul Augustin Constantin Mitu",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": "2015-10-06",
+    "year": 2015,
+    "legislature": "VII",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2015/II/171#agenda-1#act-119",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul secretarului de stat este unul pur tehnic și procedural, axat pe prezentarea unei ordonanțe de urgență privind înființarea Gărzilor forestiere. Deși menționează „situația alarmantă” a tăierilor ilegale și impactul asupra mediului, aceste referințe sunt fundamentate pe date statistice (Institutul de Cercetări și Amenajări Silvice) și pe argumente de politici publice (buget, siguranță publică, inundații). Nu există nicio tentativă de a construi un cadru maniheist popor-vs-elită, nicio invocare a unei voințe populare omogene și nicio retorică populistă. Discursul rămâne în limitele registrului administrativ-tehnocratic."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul secretarului de stat este unul pur tehnic și procedural, axat pe prezentarea unei ordonanțe de urgență privind înființarea Gărzilor forestiere. Deși menționează „situația alarmantă” a tăierilor ilegale și impactul asupra mediului, aceste referințe sunt fundamentate pe date statistice (Institutul de Cercetări și Amenajări Silvice) și pe argumente de politici publice (buget, siguranță publică, inundații). Nu există nicio tentativă de a construi un cadru maniheist popor-vs-elită, nicio invocare a unei voințe populare omogene și nicio retorică populistă. Discursul rămâne în limitele registrului administrativ-tehnocratic.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 14056,
+      "tokens_in_breakdown": {
+        "fresh": 14056,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 248,
+      "cost_usd": null,
+      "latency_ms": 2934,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2015/II/171#agenda-1#act-119",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.92,
+        "level_of_justification": 2,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "conform datelor puse la dispoziție de către Institutul de Cercetări și Amenajări Silvice București, Serviciul inventarul forestier național, volumul mediu anual de lemn recoltat ilegal în perioada 2008–2014 din păduri este estimat la 8,79 de milioane de metri cubi."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Justificare calificată prin citarea datelor oficiale ale ICAS pentru a susține necesitatea măsurii."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "cantitatea de masă lemnoasă recoltată în mod ilegal pune în pericol siguranța publică, în primul rând prin destructurarea arboreturilor, care nu-și pot realiza rolul reglator privind factorii climatici"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.94,
+            "rationale_short": "Apelul este la siguranța publică și la protecția mediului, valori universale (binele comun)."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Doamnelor și domnilor senatori,"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.99,
+            "marker_confidence": 0.95,
+            "rationale_short": "Adresare formală standard; niciun grup vizat pentru respect sau derogare."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Vă supunem spre aprobare, prin lege, Ordonanța de urgență a Guvernului nr. 32/2015"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Discursul prezintă o inițiativă guvernamentală fără a aborda cereri opuse; neutru."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "problematică a fost în analiza Consiliului de Apărare a Țării, organizat în data de 9.06.2015, unde s-a evidențiat necesitatea soluționării acestei problematici"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Menționează analiza CSAT ca sursă de consens, fără a angaja contraargumente specifice."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Vă supunem spre aprobare, prin lege, Ordonanța de urgență a Guvernului nr. 32/2015"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.96,
+            "rationale_short": "Vorbitorul susține adoptarea ordonanței; poziție clară, fără propuneri alternative."
+          }
+        ],
+        "rationale": "Discursul secretarului de stat prezintă o justificare calificată (level_of_justification=2) prin utilizarea datelor statistice de la ICAS și argumente cauzale privind siguranța publică. Apelul este orientat către binele comun (protecția mediului și siguranța cetățenilor). Respectul pentru grupuri și cereri este neutru, fiind un discurs de prezentare a unei inițiative guvernamentale. Nu există un angajament substanțial cu contraargumente, ci doar o referință la consensul CSAT. Discursul este pozițional, având scopul de a susține aprobarea ordonanței. Calitatea deliberativă este solidă pentru un discurs de prezentare tehnică."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.92,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"conform datelor puse la dispoziție de către Institutul de Cercetări și Amenajări Silvice București, Serviciul inventarul forestier național, volumul mediu anual de lemn recoltat ilegal în perioada 2008–2014 din păduri este estimat la 8,79 de milioane de metri cubi.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Justificare calificată prin citarea datelor oficiale ale ICAS pentru a susține necesitatea măsurii.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"cantitatea de masă lemnoasă recoltată în mod ilegal pune în pericol siguranța publică, în primul rând prin destructurarea arboreturilor, care nu-și pot realiza rolul reglator privind factorii climatici\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.94,\n      \"rationale_short\": \"Apelul este la siguranța publică și la protecția mediului, valori universale (binele comun).\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Doamnelor și domnilor senatori,\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.99,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Adresare formală standard; niciun grup vizat pentru respect sau derogare.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Vă supunem spre aprobare, prin lege, Ordonanța de urgență a Guvernului nr. 32/2015\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Discursul prezintă o inițiativă guvernamentală fără a aborda cereri opuse; neutru.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"problematică a fost în analiza Consiliului de Apărare a Țării, organizat în data de 9.06.2015, unde s-a evidențiat necesitatea soluționării acestei problematici\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.90,\n      \"rationale_short\": \"Menționează analiza CSAT ca sursă de consens, fără a angaja contraargumente specifice.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"Vă supunem spre aprobare, prin lege, Ordonanța de urgență a Guvernului nr. 32/2015\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.96,\n      \"rationale_short\": \"Vorbitorul susține adoptarea ordonanței; poziție clară, fără propuneri alternative.\"\n    }\n  ],\n  \"rationale\": \"Discursul secretarului de stat prezintă o justificare calificată (level_of_justification=2) prin utilizarea datelor statistice de la ICAS și argumente cauzale privind siguranța publică. Apelul este orientat către binele comun (protecția mediului și siguranța cetățenilor). Respectul pentru grupuri și cereri este neutru, fiind un discurs de prezentare a unei inițiative guvernamentale. Nu există un angajament substanțial cu contraargumente, ci doar o referință la consensul CSAT. Discursul este pozițional, având scopul de a susține aprobarea ordonanței. Calitatea deliberativă este solidă pentru un discurs de prezentare tehnică.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [
+        "problematică a fost în analiza Consiliului de Apărare a Țării, organizat în data de 9.06.2015, unde s-a evidențiat necesitatea soluționării acestei problematici"
+      ],
+      "parse_repaired": false,
+      "tokens_in": 12857,
+      "tokens_in_breakdown": {
+        "fresh": 12857,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1296,
+      "cost_usd": null,
+      "latency_ms": 4352,
+      "retries_used": 0
+    }
+  }
+}

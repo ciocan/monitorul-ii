@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2015/II/25#agenda-1#act-220",
+  "tier": "calibration",
+  "speaker": {
+    "id": "dumitrescu-cristian-sorin",
+    "name": "Cristian Sorin Dumitrescu",
+    "raw": "Domnul Cristian Sorin Dumitrescu",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": "2015-02-25",
+    "year": 2015,
+    "legislature": "VII",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2015/II/25#agenda-1#act-220",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 1.0,
+        "markers": [],
+        "rationale": "Discursul este pur procedural, concentrat pe gestionarea timpului în plen, respectarea ordinii de zi și coordonarea fluxului legislativ. Nu există nicio urmă de cadru popor-vs-elită, maniheism moral sau invocare a unei voințe populare suverane. Vorbitorul acționează în calitate de moderator al ședinței, menținând un registru tehnic și administrativ. Hawkins=0 cu încredere maximă."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 1.0,\n  \"markers\": [],\n  \"rationale\": \"Discursul este pur procedural, concentrat pe gestionarea timpului în plen, respectarea ordinii de zi și coordonarea fluxului legislativ. Nu există nicio urmă de cadru popor-vs-elită, maniheism moral sau invocare a unei voințe populare suverane. Vorbitorul acționează în calitate de moderator al ședinței, menținând un registru tehnic și administrativ. Hawkins=0 cu încredere maximă.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13738,
+      "tokens_in_breakdown": {
+        "fresh": 13738,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 171,
+      "cost_usd": null,
+      "latency_ms": 2064,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2015/II/25#agenda-1#act-220",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.55,
+        "level_of_justification": 0,
+        "content_of_justification": "none",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 0,
+            "evidence": {
+              "text": "Vă rog frumos să încercăm, așa..., să ne autocenzurăm intervențiile"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Intervenție procedurală de gestionare a timpului, fără justificare substanțială a unei poziții politice."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "none",
+            "evidence": {
+              "text": "Vă rog frumos să încercăm, așa..., să ne autocenzurăm intervențiile"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Nicio justificare oferită; conținutul justificării este nedefinit."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Doamnelor și domnilor colegi"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.99,
+            "marker_confidence": 0.9,
+            "rationale_short": "Adresare convențională în plen; atitudine neutră, fără derogări sau respect explicit."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "să ne autocenzurăm intervențiile"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Apel procedural la disciplină, fără angajament cu cereri politice adverse."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "suntem de aproape o oră și un sfert în plen"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Observație despre durata ședinței, fără a aborda argumente opuse."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "să ne autocenzurăm intervențiile"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Intervenție procedurală de tip pozițional pentru eficientizarea ordinii de zi."
+          }
+        ],
+        "rationale": "Acest fragment reprezintă o intervenție procedurală de gestionare a timpului și a disciplinei în plen, nu o dezbatere deliberativă pe fondul unei propuneri legislative. Vorbitorul nu oferă nicio justificare pentru poziția sa (level_of_justification=0), ci doar un apel la autocenzură pentru a respecta ordinea de zi. Respectul pentru grupuri și cereri este neutru, fiind limitat la convenții de adresare și procedură. Nu există angajament cu contraargumente, deoarece nu există o dispută substanțială în acest segment. Calitatea deliberativă este scăzută, fiind un discurs pur procedural, motiv pentru care framework_confidence este moderat."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.55,\n  \"level_of_justification\": 0,\n  \"content_of_justification\": \"none\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"Vă rog frumos să încercăm, așa..., să ne autocenzurăm intervențiile\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Intervenție procedurală de gestionare a timpului, fără justificare substanțială a unei poziții politice.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"none\",\n      \"evidence\": {\n        \"text\": \"Vă rog frumos să încercăm, așa..., să ne autocenzurăm intervențiile\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Nicio justificare oferită; conținutul justificării este nedefinit.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Doamnelor și domnilor colegi\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.99,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Adresare convențională în plen; atitudine neutră, fără derogări sau respect explicit.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"să ne autocenzurăm intervențiile\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Apel procedural la disciplină, fără angajament cu cereri politice adverse.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"suntem de aproape o oră și un sfert în plen\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Observație despre durata ședinței, fără a aborda argumente opuse.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"să ne autocenzurăm intervențiile\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Intervenție procedurală de tip pozițional pentru eficientizarea ordinii de zi.\"\n    }\n  ],\n  \"rationale\": \"Acest fragment reprezintă o intervenție procedurală de gestionare a timpului și a disciplinei în plen, nu o dezbatere deliberativă pe fondul unei propuneri legislative. Vorbitorul nu oferă nicio justificare pentru poziția sa (level_of_justification=0), ci doar un apel la autocenzură pentru a respecta ordinea de zi. Respectul pentru grupuri și cereri este neutru, fiind limitat la convenții de adresare și procedură. Nu există angajament cu contraargumente, deoarece nu există o dispută substanțială în acest segment. Calitatea deliberativă este scăzută, fiind un discurs pur procedural, motiv pentru care framework_confidence este moderat.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12539,
+      "tokens_in_breakdown": {
+        "fresh": 12539,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1081,
+      "cost_usd": null,
+      "latency_ms": 4647,
+      "retries_used": 0
+    }
+  }
+}

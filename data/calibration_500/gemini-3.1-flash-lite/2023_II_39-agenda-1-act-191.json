@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2023/II/39#agenda-1#act-191",
+  "tier": "calibration",
+  "speaker": {
+    "id": "serban-ciprian-constantin",
+    "name": "Ciprian-Constantin Șerban",
+    "raw": "Domnul Ciprian-Constantin Șerban",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2023-03-14",
+    "year": 2023,
+    "legislature": "IX",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2023/II/39#agenda-1#act-191",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 1.0,
+        "markers": [],
+        "rationale": "Discursul este unul pur tehnic și procedural, vizând transpunerea unei directive europene în legislația națională privind combaterea traficului de droguri. Nu există nicio urmă de cadru popor-vs-elită, maniheism moral sau invocare a unei voințe populare omogene. Vorbitorul se limitează la argumente de armonizare legislativă și conformitate cu normele UE, încadrându-se perfect în registrul non-populist. Hawkins=0 cu încredere maximă."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 1.0,\n  \"markers\": [],\n  \"rationale\": \"Discursul este unul pur tehnic și procedural, vizând transpunerea unei directive europene în legislația națională privind combaterea traficului de droguri. Nu există nicio urmă de cadru popor-vs-elită, maniheism moral sau invocare a unei voințe populare omogene. Vorbitorul se limitează la argumente de armonizare legislativă și conformitate cu normele UE, încadrându-se perfect în registrul non-populist. Hawkins=0 cu încredere maximă.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13951,
+      "tokens_in_breakdown": {
+        "fresh": 13951,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 184,
+      "cost_usd": null,
+      "latency_ms": 1881,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2023/II/39#agenda-1#act-191",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.88,
+        "level_of_justification": 2,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "Prin proiectul de lege supus dezbaterii se urmărește transpunerea în legislația națională a Directivei delegate (UE) 2022/1.326 a Comisiei de modificare a anexei la Decizia-cadru 2004/757/JAI"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Justificare calificată prin invocarea unei directive UE specifice ca temei legal pentru armonizarea legislației."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "în vederea armonizării dispozițiilor naționale cu legislația europeană în domeniu"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Apelul la armonizarea legislativă europeană vizează interesul general al statului de drept, nu un grup specific."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Doamnelor și domnilor deputați"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.99,
+            "marker_confidence": 0.95,
+            "rationale_short": "Adresare protocolară standard; nu există referințe la out-group-uri care să necesite evaluare de respect."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Vă rugăm să adoptați Proiectul de lege"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Discursul este de natură tehnică/administrativă; nu există cereri adverse de abordat."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "în forma propusă de comisiile de specialitate ale Camerei Deputaților"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Referință neutră la activitatea comisiilor; nu există contraargumente de angajat."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Vă rugăm să adoptați Proiectul de lege"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Vorbitorul susține adoptarea proiectului în forma primită; poziție standard de susținere guvernamentală."
+          }
+        ],
+        "rationale": "Discursul secretarului de stat este unul tehnic, axat pe transpunerea unei directive europene. Justificarea este de nivel 2, deoarece conectează necesitatea legii la un cadru normativ extern specific (Directiva UE 2022/1.326). Apelul este la binele comun (armonizarea legislației naționale), iar tonul este neutru și procedural. Deoarece nu există opoziție sau contraargumente în acest context de prezentare, dimensiunile de respect și constructivitate rămân la valorile lor implicite (neutru/pozițional). Calitatea deliberativă este adecvată pentru un discurs de prezentare a unui proiect guvernamental."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.88,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"Prin proiectul de lege supus dezbaterii se urmărește transpunerea în legislația națională a Directivei delegate (UE) 2022/1.326 a Comisiei de modificare a anexei la Decizia-cadru 2004/757/JAI\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Justificare calificată prin invocarea unei directive UE specifice ca temei legal pentru armonizarea legislației.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"în vederea armonizării dispozițiilor naționale cu legislația europeană în domeniu\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Apelul la armonizarea legislativă europeană vizează interesul general al statului de drept, nu un grup specific.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Doamnelor și domnilor deputați\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.99,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Adresare protocolară standard; nu există referințe la out-group-uri care să necesite evaluare de respect.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Vă rugăm să adoptați Proiectul de lege\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.90,\n      \"rationale_short\": \"Discursul este de natură tehnică/administrativă; nu există cereri adverse de abordat.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"în forma propusă de comisiile de specialitate ale Camerei Deputaților\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.90,\n      \"rationale_short\": \"Referință neutră la activitatea comisiilor; nu există contraargumente de angajat.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"Vă rugăm să adoptați Proiectul de lege\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Vorbitorul susține adoptarea proiectului în forma primită; poziție standard de susținere guvernamentală.\"\n    }\n  ],\n  \"rationale\": \"Discursul secretarului de stat este unul tehnic, axat pe transpunerea unei directive europene. Justificarea este de nivel 2, deoarece conectează necesitatea legii la un cadru normativ extern specific (Directiva UE 2022/1.326). Apelul este la binele comun (armonizarea legislației naționale), iar tonul este neutru și procedural. Deoarece nu există opoziție sau contraargumente în acest context de prezentare, dimensiunile de respect și constructivitate rămân la valorile lor implicite (neutru/pozițional). Calitatea deliberativă este adecvată pentru un discurs de prezentare a unui proiect guvernamental.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12752,
+      "tokens_in_breakdown": {
+        "fresh": 12752,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1183,
+      "cost_usd": null,
+      "latency_ms": 4827,
+      "retries_used": 0
+    }
+  }
+}

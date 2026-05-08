@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2007/II/8#agenda-10#act-169",
+  "tier": "calibration",
+  "speaker": {
+    "id": "tabara-valeriu",
+    "name": "Valeriu Tab„r„",
+    "raw": "Domnul Valeriu Tab„r„",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": null,
+    "session_date": null,
+    "year": 2007,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2007/II/8#agenda-10#act-169",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 1.0,
+        "markers": [],
+        "rationale": "Discursul este un raport tehnic standard prezentat în cadrul unei comisii parlamentare, referitor la o propunere legislativă privind activitatea veterinară. Textul se limitează la menționarea procedurilor regulamentare, a obiectului legii și a motivului tehnic pentru respingerea acesteia (specificul urban). Nu există nicio urmă de cadru populist, maniheism sau invocare a unei voințe populare, discursul fiind pur procedural și administrativ."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 1.0,\n  \"markers\": [],\n  \"rationale\": \"Discursul este un raport tehnic standard prezentat în cadrul unei comisii parlamentare, referitor la o propunere legislativă privind activitatea veterinară. Textul se limitează la menționarea procedurilor regulamentare, a obiectului legii și a motivului tehnic pentru respingerea acesteia (specificul urban). Nu există nicio urmă de cadru populist, maniheism sau invocare a unei voințe populare, discursul fiind pur procedural și administrativ.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13967,
+      "tokens_in_breakdown": {
+        "fresh": 13967,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 173,
+      "cost_usd": null,
+      "latency_ms": 1759,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2007/II/8#agenda-10#act-169",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.92,
+        "level_of_justification": 2,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "Propunerea legislativ„ a fost respins„, Ón unanimitate, Ón ∫edin˛a din 13 decembrie 2006, din urm„torul motiv: specificul ora∫elor rom‚ne∫ti nu ar permite aplicarea reglement„rii propuse."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Raportorul oferă un motiv specific și cauzal pentru respingerea propunerii legislative."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "specificul ora∫elor rom‚ne∫ti nu ar permite aplicarea reglement„rii propuse"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Justificarea se referă la aplicabilitatea generală a legii în mediul urban, vizând interesul public."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Domnule pre∫edinte, Stima˛i colegi"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.99,
+            "marker_confidence": 0.95,
+            "rationale_short": "Adresare formală standard, fără referințe derogatorii sau laudative la adresa unor grupuri."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Propunerea legislativ„ a fost respins„"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Raportul prezintă decizia comisiei fără a angaja explicit legitimitatea cererii inițiale."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "din urm„torul motiv: specificul ora∫elor rom‚ne∫ti nu ar permite aplicarea reglement„rii propuse."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.88,
+            "rationale_short": "Menționează motivul respingerii, dar nu angajează un dialog cu argumentele susținătorilor."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Propunerea legislativ„ a fost respins„"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.94,
+            "rationale_short": "Raportul comunică o decizie de respingere, fără a propune o alternativă sau mediere."
+          }
+        ],
+        "rationale": "Acesta este un discurs procedural de prezentare a unui raport de comisie. Raportorul oferă o justificare calificată pentru respingerea propunerii, invocând specificul urban ca motiv cauzal (level_of_justification=2), ceea ce indică o orientare către binele comun (content_of_justification=common_good). Respectul pentru grupuri și cereri este neutru, fiind limitat la cadrul formal al raportului. Deși raportul menționează motivul respingerii, nu există un angajament deliberativ cu argumentele opuse, iar natura discursului este pur pozițională (constructive_politics=positional). Calitatea deliberativă este adecvată pentru un raport tehnic, dar nu atinge idealul deliberativ din cauza lipsei de angajament cu contraargumentele."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.92,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"Propunerea legislativ„ a fost respins„, Ón unanimitate, Ón ∫edin˛a din 13 decembrie 2006, din urm„torul motiv: specificul ora∫elor rom‚ne∫ti nu ar permite aplicarea reglement„rii propuse.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Raportorul oferă un motiv specific și cauzal pentru respingerea propunerii legislative.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"specificul ora∫elor rom‚ne∫ti nu ar permite aplicarea reglement„rii propuse\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Justificarea se referă la aplicabilitatea generală a legii în mediul urban, vizând interesul public.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Domnule pre∫edinte, Stima˛i colegi\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.99,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Adresare formală standard, fără referințe derogatorii sau laudative la adresa unor grupuri.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Propunerea legislativ„ a fost respins„\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.90,\n      \"rationale_short\": \"Raportul prezintă decizia comisiei fără a angaja explicit legitimitatea cererii inițiale.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"din urm„torul motiv: specificul ora∫elor rom‚ne∫ti nu ar permite aplicarea reglement„rii propuse.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Menționează motivul respingerii, dar nu angajează un dialog cu argumentele susținătorilor.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"Propunerea legislativ„ a fost respins„\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.94,\n      \"rationale_short\": \"Raportul comunică o decizie de respingere, fără a propune o alternativă sau mediere.\"\n    }\n  ],\n  \"rationale\": \"Acesta este un discurs procedural de prezentare a unui raport de comisie. Raportorul oferă o justificare calificată pentru respingerea propunerii, invocând specificul urban ca motiv cauzal (level_of_justification=2), ceea ce indică o orientare către binele comun (content_of_justification=common_good). Respectul pentru grupuri și cereri este neutru, fiind limitat la cadrul formal al raportului. Deși raportul menționează motivul respingerii, nu există un angajament deliberativ cu argumentele opuse, iar natura discursului este pur pozițională (constructive_politics=positional). Calitatea deliberativă este adecvată pentru un raport tehnic, dar nu atinge idealul deliberativ din cauza lipsei de angajament cu contraargumentele.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12768,
+      "tokens_in_breakdown": {
+        "fresh": 12768,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1199,
+      "cost_usd": null,
+      "latency_ms": 4204,
+      "retries_used": 0
+    }
+  }
+}

@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2017/II/107#agenda-1#act-34",
+  "tier": "calibration",
+  "speaker": {
+    "id": "denes-ioan",
+    "name": "Ioan Deneș",
+    "raw": "Domnul Ioan Deneș",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": "2017-06-27",
+    "year": 2017,
+    "legislature": "VIII",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2017/II/107#agenda-1#act-34",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 1.0,
+        "markers": [],
+        "rationale": "Discursul este pur procedural, vizând exclusiv organizarea ordinii de zi a ședinței parlamentare (suplimentarea cu proiecte legislative, renumerotarea punctelor). Nu există nicio referire la un cadru popor-vs-elită, nicio invocare a unei voințe populare sau a unei crize existențiale. Vorbitorul se limitează strict la sarcini administrative, fără a utiliza retorică populistă. Hawkins=0 cu încredere maximă."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 1.0,\n  \"markers\": [],\n  \"rationale\": \"Discursul este pur procedural, vizând exclusiv organizarea ordinii de zi a ședinței parlamentare (suplimentarea cu proiecte legislative, renumerotarea punctelor). Nu există nicio referire la un cadru popor-vs-elită, nicio invocare a unei voințe populare sau a unei crize existențiale. Vorbitorul se limitează strict la sarcini administrative, fără a utiliza retorică populistă. Hawkins=0 cu încredere maximă.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13674,
+      "tokens_in_breakdown": {
+        "fresh": 13674,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 176,
+      "cost_usd": null,
+      "latency_ms": 2022,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2017/II/107#agenda-1#act-34",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.55,
+        "level_of_justification": 0,
+        "content_of_justification": "none",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 0,
+            "evidence": {
+              "text": "Propun suplimentarea ordinii de zi cu două puncte"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Intervenție pur procedurală fără nicio justificare argumentativă."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "none",
+            "evidence": {
+              "text": "Propun suplimentarea ordinii de zi"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Nicio justificare oferită; conținutul este nedefinit."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Stimați colegi"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Adresare convențională, neutră."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Propun suplimentarea ordinii de zi"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Intervenție procedurală fără angajament cu cereri adverse."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "Propun suplimentarea ordinii de zi"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Nicio contraargumentare prezentă; neutru procedural."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Propun suplimentarea ordinii de zi cu două puncte"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Propunere procedurală de organizare a ordinii de zi, nu o poziție politică deliberativă."
+          }
+        ],
+        "rationale": "Acest discurs este o intervenție pur procedurală privind organizarea ordinii de zi a ședinței parlamentare. Nu conține nicio justificare, argumentație sau angajament cu poziții adverse, fiind o chestiune de rutină administrativă. Din acest motiv, toate dimensiunile DQI sunt codate la valorile lor implicite (neutru/pozițional). Framework_confidence este scăzut deoarece discursul nu reprezintă o deliberare politică, ci o simplă solicitare tehnică de procedură."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.55,\n  \"level_of_justification\": 0,\n  \"content_of_justification\": \"none\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 0,\n      \"evidence\": { \"text\": \"Propun suplimentarea ordinii de zi cu două puncte\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Intervenție pur procedurală fără nicio justificare argumentativă.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"none\",\n      \"evidence\": { \"text\": \"Propun suplimentarea ordinii de zi\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Nicio justificare oferită; conținutul este nedefinit.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": { \"text\": \"Stimați colegi\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Adresare convențională, neutră.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": { \"text\": \"Propun suplimentarea ordinii de zi\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Intervenție procedurală fără angajament cu cereri adverse.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": { \"text\": \"Propun suplimentarea ordinii de zi\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Nicio contraargumentare prezentă; neutru procedural.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": { \"text\": \"Propun suplimentarea ordinii de zi cu două puncte\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Propunere procedurală de organizare a ordinii de zi, nu o poziție politică deliberativă.\"\n    }\n  ],\n  \"rationale\": \"Acest discurs este o intervenție pur procedurală privind organizarea ordinii de zi a ședinței parlamentare. Nu conține nicio justificare, argumentație sau angajament cu poziții adverse, fiind o chestiune de rutină administrativă. Din acest motiv, toate dimensiunile DQI sunt codate la valorile lor implicite (neutru/pozițional). Framework_confidence este scăzut deoarece discursul nu reprezintă o deliberare politică, ci o simplă solicitare tehnică de procedură.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12475,
+      "tokens_in_breakdown": {
+        "fresh": 12475,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 959,
+      "cost_usd": null,
+      "latency_ms": 4352,
+      "retries_used": 0
+    }
+  }
+}

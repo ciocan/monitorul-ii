@@ -1,0 +1,152 @@
+{
+  "speech_id": "mo://2015/II/17#agenda-5#act-121",
+  "tier": "calibration",
+  "speaker": {
+    "id": "iliescu-valentin-adrian",
+    "name": "Valentin Adrian Iliescu",
+    "raw": "Domnul Valentin Adrian Iliescu",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": "2015-02-17",
+    "year": 2015,
+    "legislature": "VII",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2015/II/17#agenda-5#act-121",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul este unul pur tehnic și procedural, axat pe argumente economice și juridice privind cotele de TVA. Vorbitorul prezintă poziția Guvernului prin referințe la legislația comunitară (Directiva 2006/112/CE) și la impactul bugetar, fără a utiliza nicio retorică populistă. Nu există nicio invocare a unui conflict între popor și elită, nicio moralizare maniheistă și nicio apelare la o voință populară suverană. Discursul se încadrează complet în registrul tehnocratic, primind scorul 0 cu încredere maximă."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul este unul pur tehnic și procedural, axat pe argumente economice și juridice privind cotele de TVA. Vorbitorul prezintă poziția Guvernului prin referințe la legislația comunitară (Directiva 2006/112/CE) și la impactul bugetar, fără a utiliza nicio retorică populistă. Nu există nicio invocare a unui conflict între popor și elită, nicio moralizare maniheistă și nicio apelare la o voință populară suverană. Discursul se încadrează complet în registrul tehnocratic, primind scorul 0 cu încredere maximă.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13761,
+      "tokens_in_breakdown": {
+        "fresh": 13761,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 217,
+      "cost_usd": null,
+      "latency_ms": 1938,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2015/II/17#agenda-5#act-121",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.85,
+        "level_of_justification": 2,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "Guvernul nu este de acord și din cauza consecințelor financiare asupra veniturilor bugetului de stat cu această soluție."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Vorbitorul oferă un motiv cauzal specific (impactul asupra veniturilor bugetare) pentru respingerea propunerii."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "consecințelor financiare asupra veniturilor bugetului de stat"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Justificarea se bazează pe interesul bugetului public, un bun comun universalizabil."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "inițiatorul"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Referință neutră și funcțională la inițiatorul legii; nicio derogare sau respect explicit."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Guvernul nu este de acord cu reducerea cotei pentru laptele de consum, legumele și fructele proaspete."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.88,
+            "rationale_short": "Vorbitorul își exprimă dezacordul fără a angaja legitimitatea cererii opoziției; non-angajament."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "Există, într-adevăr, conform legislației comunitare... o listă, o anexă cu produsele care pot avea cote reduse de TVA."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Recunoaște existența cadrului legal invocat de inițiator, dar nu îl combate sau integrează substanțial."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Guvernul va veni, și în ideea de stabilitate, cu un nou Cod fiscal"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Menționează o intenție viitoare a Guvernului, dar nu oferă o alternativă sau mediere pentru proiectul curent."
+          }
+        ],
+        "rationale": "Discursul reprezintă o poziție guvernamentală standard, caracterizată printr-o justificare calificată (level_of_justification=2) bazată pe impactul bugetar (common_good). Vorbitorul menționează cadrul legal european (respect_for_counterarguments=1) fără a intra într-o dezbatere tehnică aprofundată. Respectul pentru grupuri și cereri rămâne neutru, fiind o abordare funcțională a respingerii inițiativei. Deși menționează un viitor Cod fiscal, aceasta nu constituie o alternativă sau mediere pentru proiectul actual, menținând discursul în zona pozițională. Calitatea deliberativă este medie, fiind un discurs tehnic, dar lipsit de angajament deliberativ profund."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.85,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"Guvernul nu este de acord și din cauza consecințelor financiare asupra veniturilor bugetului de stat cu această soluție.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Vorbitorul oferă un motiv cauzal specific (impactul asupra veniturilor bugetare) pentru respingerea propunerii.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"consecințelor financiare asupra veniturilor bugetului de stat\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Justificarea se bazează pe interesul bugetului public, un bun comun universalizabil.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"inițiatorul\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Referință neutră și funcțională la inițiatorul legii; nicio derogare sau respect explicit.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Guvernul nu este de acord cu reducerea cotei pentru laptele de consum, legumele și fructele proaspete.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Vorbitorul își exprimă dezacordul fără a angaja legitimitatea cererii opoziției; non-angajament.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Există, într-adevăr, conform legislației comunitare... o listă, o anexă cu produsele care pot avea cote reduse de TVA.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Recunoaște existența cadrului legal invocat de inițiator, dar nu îl combate sau integrează substanțial.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"Guvernul va veni, și în ideea de stabilitate, cu un nou Cod fiscal\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Menționează o intenție viitoare a Guvernului, dar nu oferă o alternativă sau mediere pentru proiectul curent.\"\n    }\n  ],\n  \"rationale\": \"Discursul reprezintă o poziție guvernamentală standard, caracterizată printr-o justificare calificată (level_of_justification=2) bazată pe impactul bugetar (common_good). Vorbitorul menționează cadrul legal european (respect_for_counterarguments=1) fără a intra într-o dezbatere tehnică aprofundată. Respectul pentru grupuri și cereri rămâne neutru, fiind o abordare funcțională a respingerii inițiativei. Deși menționează un viitor Cod fiscal, aceasta nu constituie o alternativă sau mediere pentru proiectul actual, menținând discursul în zona pozițională. Calitatea deliberativă este medie, fiind un discurs tehnic, dar lipsit de angajament deliberativ profund.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [
+        "Există, într-adevăr, conform legislației comunitare... o listă, o anexă cu produsele care pot avea cote reduse de TVA."
+      ],
+      "parse_repaired": false,
+      "tokens_in": 12562,
+      "tokens_in_breakdown": {
+        "fresh": 12562,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1191,
+      "cost_usd": null,
+      "latency_ms": 3948,
+      "retries_used": 0
+    }
+  }
+}

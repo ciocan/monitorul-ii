@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2005/II/136#agenda-3#act-64",
+  "tier": "populist",
+  "speaker": {
+    "id": "tudor-corneliu-vadim",
+    "name": "Corneliu Vadim Tudor",
+    "raw": "Domnul Corneliu Vadim Tudor",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": null,
+    "year": 2005,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "kimi-k2.6",
+  "model_label": "kimi-k2.6",
+  "results": {
+    "hawkins": {
+      "model_key": "kimi-k2.6",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2005/II/136#agenda-3#act-64",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.94,
+        "markers": [],
+        "rationale": "Discursul este o intervenție procedurală centrată pe criticarea votului electronic și pe propunerea unui vot nominal după strigarea catalogului, cu referiri la prezența miniștrilor și la efortul Senatului. Menționarea «câtorva sute de oameni amărâți, de pensionari» și a prețurilor ca «problemă de viață și de moarte a românilor» constituie un moment retoric izolat, nesustenat de un cadru structural popor-vs-elită sau de un maniheism moral. Vorbitorul nu invocă o voință populară omogenă, nu desemnează o elită malefică și nu cere supremația voinței populare asupra instituțiilor. Absența unui cadru populist pervaziv și caracterul predominant procedural justifică scorul 0."
+      },
+      "raw_response": " {\"score\":0,\"score_unit\":\"ordinal_0_2\",\"framework_version\":\"hawkins@2018\",\"framework_confidence\":0.94,\"markers\":[],\"rationale\":\"Discursul este o intervenție procedurală centrată pe criticarea votului electronic și pe propunerea unui vot nominal după strigarea catalogului, cu referiri la prezența miniștrilor și la efortul Senatului. Menționarea «câtorva sute de oameni amărâți, de pensionari» și a prețurilor ca «problemă de viață și de moarte a românilor» constituie un moment retoric izolat, nesustenat de un cadru structural popor-vs-elită sau de un maniheism moral. Vorbitorul nu invocă o voință populară omogenă, nu desemnează o elită malefică și nu cere supremația voinței populare asupra instituțiilor. Absența unui cadru populist pervaziv și caracterul predominant procedural justifică scorul 0.\"}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13899,
+      "tokens_in_breakdown": {
+        "fresh": 13899,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 9644,
+      "cost_usd": null,
+      "latency_ms": 188335,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "kimi-k2.6",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2005/II/136#agenda-3#act-64",
+      "output": {
+        "constructive_politics": "alternative_proposal",
+        "content_of_justification": "common_good",
+        "framework_confidence": 0.76,
+        "framework_version": "steiner-bachtiger@2017",
+        "level_of_justification": 2,
+        "markers": [
+          {
+            "evidence": {
+              "text": "Au spus c„ ei au votat Óntr-un anumit fel, dar pe lista electronic„ a ap„rut altfel. De unde avem noi garan˛ia c„ nu se va repeta aceast„ eroare?"
+            },
+            "kind": "level_of_justification",
+            "marker_confidence": 0.82,
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.96,
+            "rationale_short": "Ancorare empirică în erorile raportate ale votului electronic și apel la garanție procedurală pentru votul nominal.",
+            "value": 2
+          },
+          {
+            "evidence": {
+              "text": "Hai s„ vedem ∫i noi care e raportul adev„rat de for˛e, dac„ tot se spunea c„ nu asta este realitatea societ„˛ii rom‚ne∫ti."
+            },
+            "kind": "content_of_justification",
+            "marker_confidence": 0.88,
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "rationale_short": "Apel la transparența procedurală și la «raportul adevărat de forțe», principii universalizabile, nu interese de grup.",
+            "value": "common_good"
+          },
+          {
+            "evidence": {
+              "text": "c‚˛iva colegi de la Alian˛a P.N.L.-P.D."
+            },
+            "kind": "respect_for_groups",
+            "marker_confidence": 0.8,
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "rationale_short": "Referințe funcționale la coaliția majoritară și la pensionari, fără recunoaștere explicită a demnității vreunui out-group.",
+            "value": 1
+          },
+          {
+            "evidence": {
+              "text": "Ne scumpim la t„r‚˛e? Dureaz„ o jum„tate de or„."
+            },
+            "kind": "respect_for_demands",
+            "marker_confidence": 0.9,
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "rationale_short": "Respinge cererea de a economisi efortul Senatului ca fiind meschină («Ne scumpim la tărâțe?»), fără a-i recunoaște legitimitatea.",
+            "value": 0
+          },
+          {
+            "evidence": {
+              "text": "Cine se teme de un vot nominal dup„ strigarea catalogului, din moment ce s-a depus at‚ta efort?"
+            },
+            "kind": "respect_for_counterarguments",
+            "marker_confidence": 0.85,
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.96,
+            "rationale_short": "Aluzionează la obiecția privind efortul și «teama» de vot nominal, dar fără a angaja substanțial raționamentul majorității.",
+            "value": 1
+          },
+          {
+            "evidence": {
+              "text": "Cine se teme de un vot nominal dup„ strigarea catalogului, din moment ce s-a depus at‚ta efort?"
+            },
+            "kind": "constructive_politics",
+            "marker_confidence": 0.84,
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.96,
+            "rationale_short": "Propune explicit votul nominal după strigarea catalogului ca alternativă concretă la votul electronic defectuos.",
+            "value": "alternative_proposal"
+          }
+        ],
+        "rationale": "Discurs de opoziție procedurală cu justificare calificată dar agresivă retoric. Vorbitorul ancorează poziția într-un argument empiric specific (discrepanțele din votul electronic raportate de colegi) și într-o critică a infrastructurii digitale, propunând votul nominal ca alternativă concretă (level_of_justification=2, constructive_politics=alternative_proposal). Apelul la «raportul adevărat de forțe» și la garanția procedurală indică o justificare orientată spre binele comun al transparenței parlamentare. Totuși, vorbitorul respinge cererea adversă de a economisi timp și efort ca fiind meschină («Ne scumpim la tărâțe?»), fără a recunoaște legitimitatea acesteia (respect_for_demands=0). Counterargumentele majorității sunt doar aluzionate, nu angajate substanțial (respect_for_counterarguments=1). Referințele la grupuri sunt funcționale sau retorice, fără recunoaștere explicită a demnității acestora (respect_for_groups=1). Profil deliberativ mixt: argumentație substanțială pe fond, dar ton disprețuitor și refuz de a legitima preocupările adverse.",
+        "respect_for_counterarguments": 1,
+        "respect_for_demands": 0,
+        "respect_for_groups": 1,
+        "score_unit": "dqi_multi"
+      },
+      "raw_response": " {\"constructive_politics\":\"alternative_proposal\",\"content_of_justification\":\"common_good\",\"framework_confidence\":0.76,\"framework_version\":\"steiner-bachtiger@2017\",\"level_of_justification\":2,\"markers\":[{\"evidence\":{\"text\":\"Au spus c„ ei au votat Óntr-un anumit fel, dar pe lista electronic„ a ap„rut altfel. De unde avem noi garan˛ia c„ nu se va repeta aceast„ eroare?\"},\"kind\":\"level_of_justification\",\"marker_confidence\":0.82,\"preliminary_voice\":\"speaker_first_person\",\"preliminary_voice_confidence\":0.96,\"rationale_short\":\"Ancorare empirică în erorile raportate ale votului electronic și apel la garanție procedurală pentru votul nominal.\",\"value\":2},{\"evidence\":{\"text\":\"Hai s„ vedem ∫i noi care e raportul adev„rat de for˛e, dac„ tot se spunea c„ nu asta este realitatea societ„˛ii rom‚ne∫ti.\"},\"kind\":\"content_of_justification\",\"marker_confidence\":0.88,\"preliminary_voice\":\"speaker_first_person\",\"preliminary_voice_confidence\":0.95,\"rationale_short\":\"Apel la transparența procedurală și la «raportul adevărat de forțe», principii universalizabile, nu interese de grup.\",\"value\":\"common_good\"},{\"evidence\":{\"text\":\"c‚˛iva colegi de la Alian˛a P.N.L.-P.D.\"},\"kind\":\"respect_for_groups\",\"marker_confidence\":0.8,\"preliminary_voice\":\"speaker_first_person\",\"preliminary_voice_confidence\":0.95,\"rationale_short\":\"Referințe funcționale la coaliția majoritară și la pensionari, fără recunoaștere explicită a demnității vreunui out-group.\",\"value\":1},{\"evidence\":{\"text\":\"Ne scumpim la t„r‚˛e? Dureaz„ o jum„tate de or„.\"},\"kind\":\"respect_for_demands\",\"marker_confidence\":0.9,\"preliminary_voice\":\"speaker_first_person\",\"preliminary_voice_confidence\":0.97,\"rationale_short\":\"Respinge cererea de a economisi efortul Senatului ca fiind meschină («Ne scumpim la tărâțe?»), fără a-i recunoaște legitimitatea.\",\"value\":0},{\"evidence\":{\"text\":\"Cine se teme de un vot nominal dup„ strigarea catalogului, din moment ce s-a depus at‚ta efort?\"},\"kind\":\"respect_for_counterarguments\",\"marker_confidence\":0.85,\"preliminary_voice\":\"speaker_first_person\",\"preliminary_voice_confidence\":0.96,\"rationale_short\":\"Aluzionează la obiecția privind efortul și «teama» de vot nominal, dar fără a angaja substanțial raționamentul majorității.\",\"value\":1},{\"evidence\":{\"text\":\"Cine se teme de un vot nominal dup„ strigarea catalogului, din moment ce s-a depus at‚ta efort?\"},\"kind\":\"constructive_politics\",\"marker_confidence\":0.84,\"preliminary_voice\":\"speaker_first_person\",\"preliminary_voice_confidence\":0.96,\"rationale_short\":\"Propune explicit votul nominal după strigarea catalogului ca alternativă concretă la votul electronic defectuos.\",\"value\":\"alternative_proposal\"}],\"rationale\":\"Discurs de opoziție procedurală cu justificare calificată dar agresivă retoric. Vorbitorul ancorează poziția într-un argument empiric specific (discrepanțele din votul electronic raportate de colegi) și într-o critică a infrastructurii digitale, propunând votul nominal ca alternativă concretă (level_of_justification=2, constructive_politics=alternative_proposal). Apelul la «raportul adevărat de forțe» și la garanția procedurală indică o justificare orientată spre binele comun al transparenței parlamentare. Totuși, vorbitorul respinge cererea adversă de a economisi timp și efort ca fiind meschină («Ne scumpim la tărâțe?»), fără a recunoaște legitimitatea acesteia (respect_for_demands=0). Counterargumentele majorității sunt doar aluzionate, nu angajate substanțial (respect_for_counterarguments=1). Referințele la grupuri sunt funcționale sau retorice, fără recunoaștere explicită a demnității acestora (respect_for_groups=1). Profil deliberativ mixt: argumentație substanțială pe fond, dar ton disprețuitor și refuz de a legitima preocupările adverse.\",\"respect_for_counterarguments\":1,\"respect_for_demands\":0,\"respect_for_groups\":1,\"score_unit\":\"dqi_multi\"}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12218,
+      "tokens_in_breakdown": {
+        "fresh": 12218,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 13462,
+      "cost_usd": null,
+      "latency_ms": 392317,
+      "retries_used": 0
+    }
+  }
+}

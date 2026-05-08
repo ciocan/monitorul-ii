@@ -1,0 +1,197 @@
+{
+  "speech_id": "mo://2005/II/208#agenda-7#act-49",
+  "tier": "calibration",
+  "speaker": {
+    "id": "timofte-alexandru-radu",
+    "name": "Alexandru Radu Timofte",
+    "raw": "Domnul Alexandru Radu Timofte",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": null,
+    "year": 2005,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2005/II/208#agenda-7#act-49",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.95,
+        "markers": [
+          {
+            "kind": "evil_elite",
+            "evidence": {
+              "text": "îMafia p„m‚ntului“"
+            },
+            "preliminary_voice": "quoted",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.85,
+            "rationale_short": "Termenul este citat ca titlu al unei teme de discuție, nu ca o acuzație directă a vorbitorului."
+          }
+        ],
+        "rationale": "Discursul este unul de natură instituțională și procedurală, axat pe raportul de activitate al SRI și pe necesitatea reglementărilor legislative în domeniul securității naționale. Vorbitorul adoptă un ton tehnic și cooperant, mulțumind membrilor comisiei și subliniind importanța cadrului legal pentru normalitatea activității ofițerilor. Mențiunea „Mafia pământului” este preluată ca titlu al unei teme de discuție, fără a fi integrată într-un cadru maniheist popor-vs-elită. Nu există elemente de populism pervaziv, astfel că discursul primește scorul 0."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.95,\n  \"markers\": [\n    {\n      \"kind\": \"evil_elite\",\n      \"evidence\": {\n        \"text\": \"îMafia p„m‚ntului“\"\n      },\n      \"preliminary_voice\": \"quoted\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Termenul este citat ca titlu al unei teme de discuție, nu ca o acuzație directă a vorbitorului.\"\n    }\n  ],\n  \"rationale\": \"Discursul este unul de natură instituțională și procedurală, axat pe raportul de activitate al SRI și pe necesitatea reglementărilor legislative în domeniul securității naționale. Vorbitorul adoptă un ton tehnic și cooperant, mulțumind membrilor comisiei și subliniind importanța cadrului legal pentru normalitatea activității ofițerilor. Mențiunea „Mafia pământului” este preluată ca titlu al unei teme de discuție, fără a fi integrată într-un cadru maniheist popor-vs-elită. Nu există elemente de populism pervaziv, astfel că discursul primește scorul 0.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 14150,
+      "tokens_in_breakdown": {
+        "fresh": 14150,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 348,
+      "cost_usd": null,
+      "latency_ms": 2444,
+      "retries_used": 0
+    },
+    "voice": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "voice",
+      "speech_id": "mo://2005/II/208#agenda-7#act-49",
+      "output": {
+        "classifications": [
+          {
+            "marker_id": "m_0",
+            "voice": "quoted",
+            "voice_confidence": 0.95,
+            "voice_evidence": {
+              "text": "a∫a cum a˛i intitulat-o, îMafia p„m‚ntului“"
+            },
+            "attributed_to": {
+              "raw": "a˛i",
+              "kind": "individual"
+            },
+            "rationale_short": "Vorbitorul citează titlul dat de interlocutori (a˛i intitulat-o), folosind ghilimele pentru a marca preluarea exactă a termenului."
+          }
+        ]
+      },
+      "raw_response": "{\n  \"classifications\": [\n    {\n      \"marker_id\": \"m_0\",\n      \"voice\": \"quoted\",\n      \"voice_confidence\": 0.95,\n      \"voice_evidence\": {\n        \"text\": \"a∫a cum a˛i intitulat-o, îMafia p„m‚ntului“\"\n      },\n      \"attributed_to\": {\n        \"raw\": \"a˛i\",\n        \"kind\": \"individual\"\n      },\n      \"rationale_short\": \"Vorbitorul citează titlul dat de interlocutori (a˛i intitulat-o), folosind ghilimele pentru a marca preluarea exactă a termenului.\"\n    }\n  ]\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 11681,
+      "tokens_in_breakdown": {
+        "fresh": 11681,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 170,
+      "cost_usd": null,
+      "latency_ms": 1231,
+      "retries_used": 0
+    },
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2005/II/208#agenda-7#act-49",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.82,
+        "level_of_justification": 2,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "oric‚nd un ofi˛er operativ al unui serviciu de informa˛ii poate fi chemat Ón instan˛„ ∫i, dac„ nu poate invoca o lege, sigur, soarta lui este sau poate fi Ón m‚na unui procuror sau a unui judec„tor. De aceea, nevoia de legi este mai acut„ dec‚t oric‚nd"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Vorbitorul oferă un raționament cauzal clar privind riscurile juridice ale ofițerilor în absența unei reglementări."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "nevoia de legi este mai acut„ dec‚t oric‚nd Ón ceea ce prive∫te abordarea legilor securit„˛ii na˛ionale"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Apelul la normalitatea legislativă și protecția juridică a sistemului de securitate națională vizează binele comun."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "mul˛umesc ∫i membrilor Comisiei comune permanente"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Mulțumiri formale adresate membrilor comisiei; atitudine neutră, convențională."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Referitor la Óntreb„rile puse de domnul deputat Valeriu Tab„r„, vi le transmit Ón scris"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.88,
+            "rationale_short": "Vorbitorul răspunde procedural la cereri fără a le evalua legitimitatea; non-angajament."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "Nu voi comenta acest lucru, decizia este politic„"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Vorbitorul recunoaște existența dezbaterii politice dar refuză angajamentul substanțial."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "nevoia de legi este mai acut„ dec‚t oric‚nd"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Susține o poziție generală privind necesitatea legiferării, fără a propune un mecanism alternativ specific."
+          }
+        ],
+        "rationale": "Discursul prezintă o calitate deliberativă moderată, caracterizată printr-o justificare calificată (level_of_justification=2) a necesității reglementării legislative, bazată pe riscurile juridice ale ofițerilor. Apelul este orientat către binele comun (securitatea națională și normalitatea legislativă). Respectul pentru grupuri și cereri rămâne la un nivel neutru, procedural, iar vorbitorul evită angajamentul substanțial cu contraargumentele politice, delegând decizia către Parlament. Deși discursul este constructiv în ton, acesta rămâne pozițional, fără a oferi amendamente sau soluții de mediere specifice. Calitatea deliberativă este solidă pentru un raportor, dar limitată de natura procedurală a intervenției."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.82,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"oric‚nd un ofi˛er operativ al unui serviciu de informa˛ii poate fi chemat Ón instan˛„ ∫i, dac„ nu poate invoca o lege, sigur, soarta lui este sau poate fi Ón m‚na unui procuror sau a unui judec„tor. De aceea, nevoia de legi este mai acut„ dec‚t oric‚nd\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Vorbitorul oferă un raționament cauzal clar privind riscurile juridice ale ofițerilor în absența unei reglementări.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"nevoia de legi este mai acut„ dec‚t oric‚nd Ón ceea ce prive∫te abordarea legilor securit„˛ii na˛ionale\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Apelul la normalitatea legislativă și protecția juridică a sistemului de securitate națională vizează binele comun.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"mul˛umesc ∫i membrilor Comisiei comune permanente\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Mulțumiri formale adresate membrilor comisiei; atitudine neutră, convențională.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Referitor la Óntreb„rile puse de domnul deputat Valeriu Tab„r„, vi le transmit Ón scris\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Vorbitorul răspunde procedural la cereri fără a le evalua legitimitatea; non-angajament.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Nu voi comenta acest lucru, decizia este politic„\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Vorbitorul recunoaște existența dezbaterii politice dar refuză angajamentul substanțial.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"nevoia de legi este mai acut„ dec‚t oric‚nd\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Susține o poziție generală privind necesitatea legiferării, fără a propune un mecanism alternativ specific.\"\n    }\n  ],\n  \"rationale\": \"Discursul prezintă o calitate deliberativă moderată, caracterizată printr-o justificare calificată (level_of_justification=2) a necesității reglementării legislative, bazată pe riscurile juridice ale ofițerilor. Apelul este orientat către binele comun (securitatea națională și normalitatea legislativă). Respectul pentru grupuri și cereri rămâne la un nivel neutru, procedural, iar vorbitorul evită angajamentul substanțial cu contraargumentele politice, delegând decizia către Parlament. Deși discursul este constructiv în ton, acesta rămâne pozițional, fără a oferi amendamente sau soluții de mediere specifice. Calitatea deliberativă este solidă pentru un raportor, dar limitată de natura procedurală a intervenției.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12951,
+      "tokens_in_breakdown": {
+        "fresh": 12951,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1259,
+      "cost_usd": null,
+      "latency_ms": 4920,
+      "retries_used": 0
+    }
+  }
+}

@@ -1,0 +1,152 @@
+{
+  "speech_id": "mo://2024/II/6#agenda-2#act-80",
+  "tier": "calibration",
+  "speaker": {
+    "id": "vulpescu-ioan",
+    "name": "Ioan Vulpescu",
+    "raw": "Domnul Ioan Vulpescu",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2023-12-19",
+    "year": 2024,
+    "legislature": "IX",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2024/II/6#agenda-2#act-80",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul este un raport tehnic și procedural despre investiții medicale specifice în județul Dâmbovița (achiziția unui RMN, mamograf și angiograf). Vorbitorul se concentrează pe cifre bugetare, detalii administrative și beneficii concrete pentru pacienți, fără a utiliza nicio retorică populistă. Nu există nicio încercare de a construi un cadru maniheist popor-vs-elită, nicio invocare a unei voințe populare omogene și nicio critică moralizatoare la adresa unei elite maligne. Discursul rămâne ferm în registrul politicilor publice și al managementului administrativ."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul este un raport tehnic și procedural despre investiții medicale specifice în județul Dâmbovița (achiziția unui RMN, mamograf și angiograf). Vorbitorul se concentrează pe cifre bugetare, detalii administrative și beneficii concrete pentru pacienți, fără a utiliza nicio retorică populistă. Nu există nicio încercare de a construi un cadru maniheist popor-vs-elită, nicio invocare a unei voințe populare omogene și nicio critică moralizatoare la adresa unei elite maligne. Discursul rămâne ferm în registrul politicilor publice și al managementului administrativ.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13991,
+      "tokens_in_breakdown": {
+        "fresh": 13991,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 215,
+      "cost_usd": null,
+      "latency_ms": 2188,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2024/II/6#agenda-2#act-80",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.85,
+        "level_of_justification": 2,
+        "content_of_justification": "group_interest",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "alternative_proposal",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "Am depus un amendament la bugetul de stat pentru anul 2024 prin care solicităm finanțarea achiziției unui aparat RMN și a unui mamograf pentru Spitalul Județean Dâmbovița. Valoarea totală a acestor echipamente esențiale se ridică la 7 milioane de lei, din care jumătate va fi suportată de Consiliul Județean Dâmbovița."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Justificare calificată prin propunerea unui amendament specific cu detalii financiare și mecanism de co-finanțare."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "group_interest",
+            "evidence": {
+              "text": "această inițiativă se înscrie într-un context mai larg de investiții în sănătatea dâmbovițenilor."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.9,
+            "rationale_short": "Justificarea este ancorată explicit în interesul specific al locuitorilor județului Dâmbovița."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "sănătatea cetățenilor noștri pe primul loc"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Referință neutră la cetățeni; nicio derogare sau respect explicit pentru out-group-uri."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Am depus un amendament la bugetul de stat"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.8,
+            "rationale_short": "Vorbitorul își urmărește propria agendă fără a menționa sau angaja cererile opoziției."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "Prin aceste demersuri, demonstrăm angajamentul nostru ferm față de îmbunătățirea continuă a serviciilor medicale în județul Dâmbovița"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Discursul ignoră complet orice contraargumente, concentrându-se exclusiv pe prezentarea propriilor realizări."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "alternative_proposal",
+            "evidence": {
+              "text": "Am depus un amendament la bugetul de stat pentru anul 2024 prin care solicităm finanțarea achiziției unui aparat RMN și a unui mamograf"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Vorbitorul propune o alternativă concretă prin depunerea unui amendament bugetar."
+          }
+        ],
+        "rationale": "Discursul prezintă o calitate deliberativă moderată, caracterizată prin propunerea unei soluții concrete (amendament bugetar) și o justificare bazată pe date financiare și nevoi locale (level_of_justification=2). Conținutul justificării este orientat către interesul grupului (cetățenii din Dâmbovița). Discursul este însă pur pozițional în ceea ce privește interacțiunea cu ceilalți actori politici, ignorând complet contraargumentele și cererile opoziției (respect_for_counterarguments=0). Nu există elemente de dispreț, dar nici de respect explicit pentru out-group-uri, menținând o postură neutră. Profilul este cel al unui discurs de promovare a unei inițiative locale, constructiv prin natura propunerii, dar izolat deliberativ."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.85,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"group_interest\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 0,\n  \"constructive_politics\": \"alternative_proposal\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"Am depus un amendament la bugetul de stat pentru anul 2024 prin care solicităm finanțarea achiziției unui aparat RMN și a unui mamograf pentru Spitalul Județean Dâmbovița. Valoarea totală a acestor echipamente esențiale se ridică la 7 milioane de lei, din care jumătate va fi suportată de Consiliul Județean Dâmbovița.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Justificare calificată prin propunerea unui amendament specific cu detalii financiare și mecanism de co-finanțare.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"group_interest\",\n      \"evidence\": {\n        \"text\": \"această inițiativă se înscrie într-un context mai larg de investiții în sănătatea dâmbovițenilor.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Justificarea este ancorată explicit în interesul specific al locuitorilor județului Dâmbovița.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"sănătatea cetățenilor noștri pe primul loc\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Referință neutră la cetățeni; nicio derogare sau respect explicit pentru out-group-uri.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Am depus un amendament la bugetul de stat\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.8,\n      \"rationale_short\": \"Vorbitorul își urmărește propria agendă fără a menționa sau angaja cererile opoziției.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"Prin aceste demersuri, demonstrăm angajamentul nostru ferm față de îmbunătățirea continuă a serviciilor medicale în județul Dâmbovița\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Discursul ignoră complet orice contraargumente, concentrându-se exclusiv pe prezentarea propriilor realizări.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"alternative_proposal\",\n      \"evidence\": {\n        \"text\": \"Am depus un amendament la bugetul de stat pentru anul 2024 prin care solicităm finanțarea achiziției unui aparat RMN și a unui mamograf\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Vorbitorul propune o alternativă concretă prin depunerea unui amendament bugetar.\"\n    }\n  ],\n  \"rationale\": \"Discursul prezintă o calitate deliberativă moderată, caracterizată prin propunerea unei soluții concrete (amendament bugetar) și o justificare bazată pe date financiare și nevoi locale (level_of_justification=2). Conținutul justificării este orientat către interesul grupului (cetățenii din Dâmbovița). Discursul este însă pur pozițional în ceea ce privește interacțiunea cu ceilalți actori politici, ignorând complet contraargumentele și cererile opoziției (respect_for_counterarguments=0). Nu există elemente de dispreț, dar nici de respect explicit pentru out-group-uri, menținând o postură neutră. Profilul este cel al unui discurs de promovare a unei inițiative locale, constructiv prin natura propunerii, dar izolat deliberativ.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [
+        "această inițiativă se înscrie într-un context mai larg de investiții în sănătatea dâmbovițenilor."
+      ],
+      "parse_repaired": false,
+      "tokens_in": 12792,
+      "tokens_in_breakdown": {
+        "fresh": 12792,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1285,
+      "cost_usd": null,
+      "latency_ms": 5202,
+      "retries_used": 0
+    }
+  }
+}

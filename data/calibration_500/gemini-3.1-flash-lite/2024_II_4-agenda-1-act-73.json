@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2024/II/4#agenda-1#act-73",
+  "tier": "calibration",
+  "speaker": {
+    "id": "negoi-eugen-remus",
+    "name": "Eugen-Remus Negoi",
+    "raw": "Domnul Eugen-Remus Negoi",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": "2023-12-04",
+    "year": 2024,
+    "legislature": "IX",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2024/II/4#agenda-1#act-73",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul este unul pur tehnic și procedural, vizând o inițiativă legislativă specifică privind împrejmuirea terenurilor intravilane. Nu există nicio urmă de cadru popor-vs-elită, maniheism moral sau invocare a unei voințe populare omogene. Vorbitorul se concentrează pe soluționarea unei probleme administrative concrete, fără a utiliza retorică populistă. Hawkins=0 cu încredere ridicată."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul este unul pur tehnic și procedural, vizând o inițiativă legislativă specifică privind împrejmuirea terenurilor intravilane. Nu există nicio urmă de cadru popor-vs-elită, maniheism moral sau invocare a unei voințe populare omogene. Vorbitorul se concentrează pe soluționarea unei probleme administrative concrete, fără a utiliza retorică populistă. Hawkins=0 cu încredere ridicată.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13683,
+      "tokens_in_breakdown": {
+        "fresh": 13683,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 170,
+      "cost_usd": null,
+      "latency_ms": 1929,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2024/II/4#agenda-1#act-73",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.85,
+        "level_of_justification": 2,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "alternative_proposal",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "prin această inițiativă noi ne dorim ca de la început până la momentul finalizării construcției respective să existe o împrejmuire, care să nu necesite o astfel de autorizație de construire, o împrejmuire provizorie, în așa fel încât terenurile respective să nu devină, practic, niște locuri în care se depozitează, eu știu?, gunoaie sau alte lucruri de genul acesta."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Vorbitorul explică mecanismul cauzal al propunerii (evitarea depozitării de gunoaie prin împrejmuire provizorie fără autorizație)."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "terenurile respective să nu devină, practic, niște locuri în care se depozitează, eu știu?, gunoaie sau alte lucruri de genul acesta."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.88,
+            "rationale_short": "Apelul la curățenia urbană și estetica municipiilor este un interes universalizabil, nu unul de grup."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "nu cred că ar fi nicio problemă să o votăm cu toții"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.85,
+            "rationale_short": "Referință neutră la colegi; nicio derogare sau respect explicit."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "nu cred că ar fi nicio problemă să o votăm cu toții"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.82,
+            "rationale_short": "Nu există cereri adverse specifice în acest context; atitudine neutră."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "E o chestiune foarte simplă și nu cred că ar fi nicio problemă să o votăm cu toții."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.88,
+            "rationale_short": "Vorbitorul ignoră posibile contraargumente, tratând propunerea ca fiind evident benefică."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "alternative_proposal",
+            "evidence": {
+              "text": "prin această inițiativă noi ne dorim ca de la început până la momentul finalizării construcției respective să existe o împrejmuire, care să nu necesite o astfel de autorizație de construire"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Vorbitorul propune o soluție legislativă concretă pentru o problemă de reglementare."
+          }
+        ],
+        "rationale": "Discursul prezintă o propunere legislativă clară, justificată printr-un mecanism cauzal specific (prevenirea depozitării deșeurilor pe terenuri neîmprejmuite). Justificarea este ancorată în binele comun (igiena și estetica urbană). Deși discursul este constructiv (propunere alternativă de reglementare), acesta nu angajează contraargumente, presupunând un consens implicit. Respectul pentru grupuri și cereri este neutru, neexistând tensiuni politice evidente în acest fragment. Calitatea deliberativă este solidă pentru o inițiativă tehnică, deși îi lipsește profunzimea angajamentului cu opoziția."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.85,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 0,\n  \"constructive_politics\": \"alternative_proposal\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"prin această inițiativă noi ne dorim ca de la început până la momentul finalizării construcției respective să existe o împrejmuire, care să nu necesite o astfel de autorizație de construire, o împrejmuire provizorie, în așa fel încât terenurile respective să nu devină, practic, niște locuri în care se depozitează, eu știu?, gunoaie sau alte lucruri de genul acesta.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Vorbitorul explică mecanismul cauzal al propunerii (evitarea depozitării de gunoaie prin împrejmuire provizorie fără autorizație).\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"terenurile respective să nu devină, practic, niște locuri în care se depozitează, eu știu?, gunoaie sau alte lucruri de genul acesta.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Apelul la curățenia urbană și estetica municipiilor este un interes universalizabil, nu unul de grup.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"nu cred că ar fi nicio problemă să o votăm cu toții\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Referință neutră la colegi; nicio derogare sau respect explicit.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"nu cred că ar fi nicio problemă să o votăm cu toții\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"marker_confidence\": 0.82,\n      \"rationale_short\": \"Nu există cereri adverse specifice în acest context; atitudine neutră.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"E o chestiune foarte simplă și nu cred că ar fi nicio problemă să o votăm cu toții.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Vorbitorul ignoră posibile contraargumente, tratând propunerea ca fiind evident benefică.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"alternative_proposal\",\n      \"evidence\": {\n        \"text\": \"prin această inițiativă noi ne dorim ca de la început până la momentul finalizării construcției respective să existe o împrejmuire, care să nu necesite o astfel de autorizație de construire\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Vorbitorul propune o soluție legislativă concretă pentru o problemă de reglementare.\"\n    }\n  ],\n  \"rationale\": \"Discursul prezintă o propunere legislativă clară, justificată printr-un mecanism cauzal specific (prevenirea depozitării deșeurilor pe terenuri neîmprejmuite). Justificarea este ancorată în binele comun (igiena și estetica urbană). Deși discursul este constructiv (propunere alternativă de reglementare), acesta nu angajează contraargumente, presupunând un consens implicit. Respectul pentru grupuri și cereri este neutru, neexistând tensiuni politice evidente în acest fragment. Calitatea deliberativă este solidă pentru o inițiativă tehnică, deși îi lipsește profunzimea angajamentului cu opoziția.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12484,
+      "tokens_in_breakdown": {
+        "fresh": 12484,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1279,
+      "cost_usd": null,
+      "latency_ms": 5302,
+      "retries_used": 0
+    }
+  }
+}

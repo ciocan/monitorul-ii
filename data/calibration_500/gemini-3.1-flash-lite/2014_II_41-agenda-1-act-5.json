@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2014/II/41#agenda-1#act-5",
+  "tier": "calibration",
+  "speaker": {
+    "id": "zgonea-valeriu-stefan",
+    "name": "Valeriu Ștefan Zgonea",
+    "raw": "Domnul Valeriu Ștefan Zgonea",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2014-04-01",
+    "year": 2014,
+    "legislature": "VII",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2014/II/41#agenda-1#act-5",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 1.0,
+        "markers": [],
+        "rationale": "Discursul este unul pur ceremonial, marcat de un registru instituțional și omagial, dedicat aniversării apartenenței României la NATO. Nu există nicio urmă de cadru popor-vs-elită, maniheism moral sau invocare a unei voințe populare suverane care să conteste procedurile democratice. Vorbitorul se limitează la exprimarea recunoștinței față de militari și familiile acestora, într-un ton solemn și incluziv, specific discursului oficial de stat. Hawkins=0 cu încredere maximă."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 1.0,\n  \"markers\": [],\n  \"rationale\": \"Discursul este unul pur ceremonial, marcat de un registru instituțional și omagial, dedicat aniversării apartenenței României la NATO. Nu există nicio urmă de cadru popor-vs-elită, maniheism moral sau invocare a unei voințe populare suverane care să conteste procedurile democratice. Vorbitorul se limitează la exprimarea recunoștinței față de militari și familiile acestora, într-un ton solemn și incluziv, specific discursului oficial de stat. Hawkins=0 cu încredere maximă.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13776,
+      "tokens_in_breakdown": {
+        "fresh": 13776,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 194,
+      "cost_usd": null,
+      "latency_ms": 2123,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2014/II/41#agenda-1#act-5",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.55,
+        "level_of_justification": 0,
+        "content_of_justification": "none",
+        "respect_for_groups": 2,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 0,
+            "evidence": {
+              "text": "Ne-am reunit astăzi sub cupola Parlamentului pentru a celebra un moment de răscruce al istoriei României"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Discursul este unul ceremonial și comemorativ, fără a avansa o poziție politică ce necesită justificare."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "none",
+            "evidence": {
+              "text": "Ne-am reunit astăzi sub cupola Parlamentului pentru a celebra un moment de răscruce"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Nicio justificare oferită; conținutul justificării este nedefinit."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 2,
+            "evidence": {
+              "text": "aș dori să exprim profunda noastră recunoștință familiilor militarilor căzuți la datorie"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.96,
+            "rationale_short": "Vorbitorul exprimă recunoștință explicită și respect pentru familiile militarilor, recunoscând demnitatea acestora."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Ne-am reunit astăzi sub cupola Parlamentului pentru a celebra un moment de răscruce"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Nu există cereri politice adverse în acest discurs ceremonial; atitudinea este neutră."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "Ne-am reunit astăzi sub cupola Parlamentului pentru a celebra un moment de răscruce"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Discursul nu conține argumente politice, deci nu există contraargumente de adresat."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Ne-am reunit astăzi sub cupola Parlamentului pentru a celebra un moment de răscruce"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.94,
+            "rationale_short": "Discursul este pur ceremonial, fără a propune politici sau alternative."
+          }
+        ],
+        "rationale": "Acest discurs este unul pur ceremonial și comemorativ, marcat de un ton solemn și omagial, ceea ce îl plasează în afara sferei deliberative obișnuite. Deoarece nu există o poziție politică sau o propunere legislativă, dimensiunile de justificare, contraargumentare și constructivitate sunt fie nule, fie poziționale prin default. Totuși, vorbitorul manifestă un respect explicit și profund față de familiile militarilor căzuți la datorie, ceea ce justifică un scor de 2 pentru respect_for_groups. Framework_confidence este moderat deoarece, deși discursul este clar în intenția sa, el nu îndeplinește criteriile de argumentare necesare pentru o analiză DQI completă."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.55,\n  \"level_of_justification\": 0,\n  \"content_of_justification\": \"none\",\n  \"respect_for_groups\": 2,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 0,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"Ne-am reunit astăzi sub cupola Parlamentului pentru a celebra un moment de răscruce al istoriei României\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Discursul este unul ceremonial și comemorativ, fără a avansa o poziție politică ce necesită justificare.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"none\",\n      \"evidence\": {\n        \"text\": \"Ne-am reunit astăzi sub cupola Parlamentului pentru a celebra un moment de răscruce\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Nicio justificare oferită; conținutul justificării este nedefinit.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"aș dori să exprim profunda noastră recunoștință familiilor militarilor căzuți la datorie\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.96,\n      \"rationale_short\": \"Vorbitorul exprimă recunoștință explicită și respect pentru familiile militarilor, recunoscând demnitatea acestora.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Ne-am reunit astăzi sub cupola Parlamentului pentru a celebra un moment de răscruce\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Nu există cereri politice adverse în acest discurs ceremonial; atitudinea este neutră.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"Ne-am reunit astăzi sub cupola Parlamentului pentru a celebra un moment de răscruce\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Discursul nu conține argumente politice, deci nu există contraargumente de adresat.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"Ne-am reunit astăzi sub cupola Parlamentului pentru a celebra un moment de răscruce\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.94,\n      \"rationale_short\": \"Discursul este pur ceremonial, fără a propune politici sau alternative.\"\n    }\n  ],\n  \"rationale\": \"Acest discurs este unul pur ceremonial și comemorativ, marcat de un ton solemn și omagial, ceea ce îl plasează în afara sferei deliberative obișnuite. Deoarece nu există o poziție politică sau o propunere legislativă, dimensiunile de justificare, contraargumentare și constructivitate sunt fie nule, fie poziționale prin default. Totuși, vorbitorul manifestă un respect explicit și profund față de familiile militarilor căzuți la datorie, ceea ce justifică un scor de 2 pentru respect_for_groups. Framework_confidence este moderat deoarece, deși discursul este clar în intenția sa, el nu îndeplinește criteriile de argumentare necesare pentru o analiză DQI completă.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12577,
+      "tokens_in_breakdown": {
+        "fresh": 12577,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1156,
+      "cost_usd": null,
+      "latency_ms": 4549,
+      "retries_used": 0
+    }
+  }
+}

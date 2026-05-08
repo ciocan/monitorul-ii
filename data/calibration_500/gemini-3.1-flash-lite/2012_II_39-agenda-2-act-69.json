@@ -1,0 +1,152 @@
+{
+  "speech_id": "mo://2012/II/39#agenda-2#act-69",
+  "tier": "calibration",
+  "speaker": {
+    "id": "david-gheorghe",
+    "name": "Gheorghe David",
+    "raw": "Domnul Gheorghe David",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2012-05-07",
+    "year": 2012,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2012/II/39#agenda-2#act-69",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 1.0,
+        "markers": [],
+        "rationale": "Fragmentul reprezintă o procedură parlamentară standard de verificare a prezenței și de numărare a voturilor pentru învestirea Guvernului. Discursul este pur tehnic, administrativ și procedural, fără nicio tentativă de a construi un cadru politic, moral sau populist. Nu există nicio referire la un conflict între popor și elită, nicio invocare a unei voințe populare omogene sau a unei crize existențiale. Hawkins=0 cu încredere maximă."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 1.0,\n  \"markers\": [],\n  \"rationale\": \"Fragmentul reprezintă o procedură parlamentară standard de verificare a prezenței și de numărare a voturilor pentru învestirea Guvernului. Discursul este pur tehnic, administrativ și procedural, fără nicio tentativă de a construi un cadru politic, moral sau populist. Nu există nicio referire la un conflict între popor și elită, nicio invocare a unei voințe populare omogene sau a unei crize existențiale. Hawkins=0 cu încredere maximă.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 15074,
+      "tokens_in_breakdown": {
+        "fresh": 15074,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 178,
+      "cost_usd": null,
+      "latency_ms": 2210,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2012/II/39#agenda-2#act-69",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.45,
+        "level_of_justification": 0,
+        "content_of_justification": "none",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 0,
+            "evidence": {
+              "text": "Domnule David, toată lumea a votat?"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.95,
+            "rationale_short": "Intervenție procedurală de verificare a cvorumului; nicio justificare oferită."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "none",
+            "evidence": {
+              "text": "Domnule David, toată lumea a votat?"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.95,
+            "rationale_short": "Nicio justificare prezentă; conținut nedefinit."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Domnule David"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.9,
+            "rationale_short": "Adresare procedurală neutră."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Vă rog, domnii chestori."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.9,
+            "rationale_short": "Intervenție procedurală fără angajament cu cereri politice."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "Vom relua lucrările în plen după constatarea votului"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.9,
+            "rationale_short": "Discurs pur procedural; nicio contraargumentare prezentă."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "invit membrii Birourilor permanente ale celor două Camere să se întrunească"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.9,
+            "rationale_short": "Instrucțiune procedurală; nu reprezintă o poziție politică sau alternativă."
+          }
+        ],
+        "rationale": "Fragmentul reprezintă o intervenție pur procedurală a președintelui de ședință pentru gestionarea votului și a procedurilor administrative. Nu există argumentație, justificare sau angajament cu cereri politice, deoarece discursul se limitează la organizarea activității parlamentare. Calitatea deliberativă este inerent scăzută, fiind un discurs de tip administrativ. framework_confidence este sub 0.5 deoarece DQI nu este conceput pentru a evalua intervenții de procedură pură, care nu conțin substanță deliberativă."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.45,\n  \"level_of_justification\": 0,\n  \"content_of_justification\": \"none\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 0,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"Domnule David, toată lumea a votat?\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Intervenție procedurală de verificare a cvorumului; nicio justificare oferită.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"none\",\n      \"evidence\": {\n        \"text\": \"Domnule David, toată lumea a votat?\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Nicio justificare prezentă; conținut nedefinit.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Domnule David\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Adresare procedurală neutră.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Vă rog, domnii chestori.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Intervenție procedurală fără angajament cu cereri politice.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"Vom relua lucrările în plen după constatarea votului\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Discurs pur procedural; nicio contraargumentare prezentă.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"invit membrii Birourilor permanente ale celor două Camere să se întrunească\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Instrucțiune procedurală; nu reprezintă o poziție politică sau alternativă.\"\n    }\n  ],\n  \"rationale\": \"Fragmentul reprezintă o intervenție pur procedurală a președintelui de ședință pentru gestionarea votului și a procedurilor administrative. Nu există argumentație, justificare sau angajament cu cereri politice, deoarece discursul se limitează la organizarea activității parlamentare. Calitatea deliberativă este inerent scăzută, fiind un discurs de tip administrativ. framework_confidence este sub 0.5 deoarece DQI nu este conceput pentru a evalua intervenții de procedură pură, care nu conțin substanță deliberativă.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [
+        "invit membrii Birourilor permanente ale celor două Camere să se întrunească"
+      ],
+      "parse_repaired": false,
+      "tokens_in": 13875,
+      "tokens_in_breakdown": {
+        "fresh": 13875,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 997,
+      "cost_usd": null,
+      "latency_ms": 3625,
+      "retries_used": 0
+    }
+  }
+}

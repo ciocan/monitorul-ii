@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2015/II/17#agenda-5#act-192",
+  "tier": "calibration",
+  "speaker": {
+    "id": "dinca-marinica",
+    "name": "Mărinică Dincă",
+    "raw": "Domnul Mărinică Dincă",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": "2015-02-17",
+    "year": 2015,
+    "legislature": "VII",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2015/II/17#agenda-5#act-192",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.95,
+        "markers": [],
+        "rationale": "Discursul este un schimb tehnic și procedural despre buget, TVA și Codul silvic, concentrat pe cifre, alocări bugetare și responsabilitatea guvernamentală. Deși vorbitorul folosește un ton critic și partizan, acesta nu construiește un cadru maniheist popor-vs-elită, nu invocă o voință populară omogenă și nu recurge la retorică populistă pentru a-și susține argumentele. Referințele la „înțelepciunea românească” sunt folosite ca un instrument retoric convențional, nu ca un marker populist. Discursul rămâne în limitele dezbaterii parlamentare standard, motiv pentru care scorul este 0."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.95,\n  \"markers\": [],\n  \"rationale\": \"Discursul este un schimb tehnic și procedural despre buget, TVA și Codul silvic, concentrat pe cifre, alocări bugetare și responsabilitatea guvernamentală. Deși vorbitorul folosește un ton critic și partizan, acesta nu construiește un cadru maniheist popor-vs-elită, nu invocă o voință populară omogenă și nu recurge la retorică populistă pentru a-și susține argumentele. Referințele la „înțelepciunea românească” sunt folosite ca un instrument retoric convențional, nu ca un marker populist. Discursul rămâne în limitele dezbaterii parlamentare standard, motiv pentru care scorul este 0.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 14067,
+      "tokens_in_breakdown": {
+        "fresh": 14067,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 229,
+      "cost_usd": null,
+      "latency_ms": 2247,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2015/II/17#agenda-5#act-192",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.78,
+        "level_of_justification": 2,
+        "content_of_justification": "mixed",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "Trei ani de zile a constatat și Guvernul Ponta că încasările la TVA, deși sunt 24%, sunt mici și foarte mici. Ba, din contră, a înregistrat și un regres de mai bine de un miliard de lei, pe anul trecut, la TVA."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Vorbitorul oferă o justificare bazată pe date empirice privind încasările TVA pentru a susține argumentul său."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "mixed",
+            "evidence": {
+              "text": "precizați-ne de unde să luăm banii pentru a susține această diferență de TVA"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.82,
+            "rationale_short": "Apelul combină interesul bugetar (grup/guvern) cu preocuparea pentru sustenabilitatea fiscală a statului (binele comun)."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "domnule Sârbu, erați în acel Guvern ministrul agriculturii"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Referință funcțională la un fost ministru; tonul este critic, dar nu derogatoriu."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Așa ni se spune, de cel puțin doi ani de zile: „Și voi ați greșit. Drept urmare, avem tot dreptul să greșim și noi, ba, mai mult decât voi.”"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.88,
+            "rationale_short": "Vorbitorul citează cererea/argumentul advers fără a-i recunoaște legitimitatea, rămânând în non-angajament."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "Așa ni se spune, de cel puțin doi ani de zile: „Și voi ați greșit. Drept urmare, avem tot dreptul să greșim și noi, ba, mai mult decât voi.”"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.85,
+            "rationale_short": "Argumentul opoziției este menționat, dar nu este supus unei analize sau rebutări substanțiale."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "precizați-ne de unde să luăm banii pentru a susține această diferență de TVA"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Vorbitorul solicită clarificări și critică poziția guvernului fără a propune o alternativă concretă."
+          }
+        ],
+        "rationale": "Discursul prezintă o calitate deliberativă mixtă. Vorbitorul utilizează date empirice pentru a justifica criticile aduse politicii fiscale a guvernului (level_of_justification=2), apelând la o combinație de interese bugetare și binele comun (content_of_justification=mixed). Totuși, respectul pentru cererile și argumentele opoziției rămâne la un nivel neutru (1), deoarece acestea sunt citate doar pentru a fi respinse prin ironie, fără un angajament substanțial. Discursul este predominant pozițional, concentrându-se pe solicitarea de explicații și pe criticarea trecutului politic, fără a oferi o alternativă legislativă sau o mediere. Tonul este critic, dar rămâne în limitele formale ale dezbaterii parlamentare."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.78,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"mixed\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"Trei ani de zile a constatat și Guvernul Ponta că încasările la TVA, deși sunt 24%, sunt mici și foarte mici. Ba, din contră, a înregistrat și un regres de mai bine de un miliard de lei, pe anul trecut, la TVA.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Vorbitorul oferă o justificare bazată pe date empirice privind încasările TVA pentru a susține argumentul său.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"mixed\",\n      \"evidence\": {\n        \"text\": \"precizați-ne de unde să luăm banii pentru a susține această diferență de TVA\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.82,\n      \"rationale_short\": \"Apelul combină interesul bugetar (grup/guvern) cu preocuparea pentru sustenabilitatea fiscală a statului (binele comun).\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"domnule Sârbu, erați în acel Guvern ministrul agriculturii\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Referință funcțională la un fost ministru; tonul este critic, dar nu derogatoriu.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Așa ni se spune, de cel puțin doi ani de zile: „Și voi ați greșit. Drept urmare, avem tot dreptul să greșim și noi, ba, mai mult decât voi.”\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Vorbitorul citează cererea/argumentul advers fără a-i recunoaște legitimitatea, rămânând în non-angajament.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Așa ni se spune, de cel puțin doi ani de zile: „Și voi ați greșit. Drept urmare, avem tot dreptul să greșim și noi, ba, mai mult decât voi.”\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Argumentul opoziției este menționat, dar nu este supus unei analize sau rebutări substanțiale.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"precizați-ne de unde să luăm banii pentru a susține această diferență de TVA\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Vorbitorul solicită clarificări și critică poziția guvernului fără a propune o alternativă concretă.\"\n    }\n  ],\n  \"rationale\": \"Discursul prezintă o calitate deliberativă mixtă. Vorbitorul utilizează date empirice pentru a justifica criticile aduse politicii fiscale a guvernului (level_of_justification=2), apelând la o combinație de interese bugetare și binele comun (content_of_justification=mixed). Totuși, respectul pentru cererile și argumentele opoziției rămâne la un nivel neutru (1), deoarece acestea sunt citate doar pentru a fi respinse prin ironie, fără un angajament substanțial. Discursul este predominant pozițional, concentrându-se pe solicitarea de explicații și pe criticarea trecutului politic, fără a oferi o alternativă legislativă sau o mediere. Tonul este critic, dar rămâne în limitele formale ale dezbaterii parlamentare.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12868,
+      "tokens_in_breakdown": {
+        "fresh": 12868,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1296,
+      "cost_usd": null,
+      "latency_ms": 4632,
+      "retries_used": 0
+    }
+  }
+}

@@ -1,0 +1,210 @@
+{
+  "speech_id": "mo://2010/II/83#agenda-1#act-193",
+  "tier": "calibration",
+  "speaker": {
+    "id": "postolachi-florin",
+    "name": "Florin Postolachi",
+    "raw": "Domnul Florin Postolachi",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2010-05-19",
+    "year": 2010,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2010/II/83#agenda-1#act-193",
+      "output": {
+        "score": 1,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.85,
+        "markers": [
+          {
+            "kind": "evil_elite",
+            "evidence": {
+              "text": "vă aduc aminte de Ristea Priboi un pic, ne aducem aminte de fostul deputat Faina, tot de la dumneavoastră plecat"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.85,
+            "rationale_short": "Identifică membri ai elitei politice prin acțiuni reprobabile din trecut, marcând un cadru de elită malefică."
+          },
+          {
+            "kind": "evil_elite",
+            "evidence": {
+              "text": "A bătut un muncitor brașovean în ’87."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.88,
+            "rationale_short": "Subliniază natura violentă și abuzivă a unui membru al elitei politice, întărind caracterul malign al acesteia."
+          }
+        ],
+        "rationale": "Discursul conține elemente de critică politică acerbă, axată pe trecutul unor figuri politice specifice (Ristea Priboi, Faina) și pe necesitatea Legii lustrației. Deși vorbitorul folosește un registru moralizator și identifică figuri ale elitei ca fiind malefice, discursul nu construiește un cadru manihean pervaziv care să opună un popor omogen unei elite corupte în mod structural. Populismul este prezent episodic prin atacul la adresa elitei, dar argumentația rămâne ancorată în experiența personală a vorbitorului și în dezbaterea legislativă specifică. Scor 1 cu încredere ridicată, reflectând natura parțială a cadrului populist."
+      },
+      "raw_response": "{\n  \"score\": 1,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.85,\n  \"markers\": [\n    {\n      \"kind\": \"evil_elite\",\n      \"evidence\": {\n        \"text\": \"vă aduc aminte de Ristea Priboi un pic, ne aducem aminte de fostul deputat Faina, tot de la dumneavoastră plecat\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Identifică membri ai elitei politice prin acțiuni reprobabile din trecut, marcând un cadru de elită malefică.\"\n    },\n    {\n      \"kind\": \"evil_elite\",\n      \"evidence\": {\n        \"text\": \"A bătut un muncitor brașovean în ’87.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Subliniază natura violentă și abuzivă a unui membru al elitei politice, întărind caracterul malign al acesteia.\"\n    }\n  ],\n  \"rationale\": \"Discursul conține elemente de critică politică acerbă, axată pe trecutul unor figuri politice specifice (Ristea Priboi, Faina) și pe necesitatea Legii lustrației. Deși vorbitorul folosește un registru moralizator și identifică figuri ale elitei ca fiind malefice, discursul nu construiește un cadru manihean pervaziv care să opună un popor omogen unei elite corupte în mod structural. Populismul este prezent episodic prin atacul la adresa elitei, dar argumentația rămâne ancorată în experiența personală a vorbitorului și în dezbaterea legislativă specifică. Scor 1 cu încredere ridicată, reflectând natura parțială a cadrului populist.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13814,
+      "tokens_in_breakdown": {
+        "fresh": 13814,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 533,
+      "cost_usd": null,
+      "latency_ms": 2915,
+      "retries_used": 0
+    },
+    "voice": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "voice",
+      "speech_id": "mo://2010/II/83#agenda-1#act-193",
+      "output": {
+        "classifications": [
+          {
+            "marker_id": "m_0",
+            "voice": "speaker_first_person",
+            "voice_confidence": 0.95,
+            "voice_evidence": null,
+            "attributed_to": null,
+            "rationale_short": "Vorbitorul face o afirmație directă la persoana întâi, enumerând fapte din propria experiență și cunoștință, fără a cita sau raporta o sursă externă."
+          },
+          {
+            "marker_id": "m_1",
+            "voice": "speaker_first_person",
+            "voice_confidence": 0.95,
+            "voice_evidence": null,
+            "attributed_to": null,
+            "rationale_short": "Vorbitorul relatează un fapt istoric ca parte a argumentației sale directe, fără a atribui afirmația unei terțe părți sau a folosi un cadru de citare."
+          }
+        ]
+      },
+      "raw_response": "{\n  \"classifications\": [\n    {\n      \"marker_id\": \"m_0\",\n      \"voice\": \"speaker_first_person\",\n      \"voice_confidence\": 0.95,\n      \"voice_evidence\": null,\n      \"attributed_to\": null,\n      \"rationale_short\": \"Vorbitorul face o afirmație directă la persoana întâi, enumerând fapte din propria experiență și cunoștință, fără a cita sau raporta o sursă externă.\"\n    },\n    {\n      \"marker_id\": \"m_1\",\n      \"voice\": \"speaker_first_person\",\n      \"voice_confidence\": 0.95,\n      \"voice_evidence\": null,\n      \"attributed_to\": null,\n      \"rationale_short\": \"Vorbitorul relatează un fapt istoric ca parte a argumentației sale directe, fără a atribui afirmația unei terțe părți sau a folosi un cadru de citare.\"\n    }\n  ]\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 11438,
+      "tokens_in_breakdown": {
+        "fresh": 11438,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 239,
+      "cost_usd": null,
+      "latency_ms": 1369,
+      "retries_used": 0
+    },
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2010/II/83#agenda-1#act-193",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.65,
+        "level_of_justification": 1,
+        "content_of_justification": "group_interest",
+        "respect_for_groups": 0,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 1,
+            "evidence": {
+              "text": "Acesta este motivul pentru care vrem Legea lustrației."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Justificarea este circulară, bazată pe experiențe personale și loialitate de grup, fără un raționament cauzal."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "group_interest",
+            "evidence": {
+              "text": "Acesta este motivul pentru care vrem Legea lustrației."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.88,
+            "rationale_short": "Apelul este orientat către interesele foștilor deținuți politici și o agendă de grup specifică."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 0,
+            "evidence": {
+              "text": "vă aduc aminte de Ristea Priboi un pic, ne aducem aminte de fostul deputat Faina"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.92,
+            "rationale_short": "Vorbitorul folosește referințe la persoane specifice din PSD pentru a stigmatiza întregul grup politic."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Să ne uităm fiecare în curtea lui și să analizăm."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.96,
+            "marker_confidence": 0.75,
+            "rationale_short": "Cererile sau pozițiile adverse nu sunt abordate direct, ci ignorate în favoarea atacului retoric."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "vă aduc aminte de Ristea Priboi un pic"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.9,
+            "rationale_short": "Vorbitorul evită orice angajament cu argumentele opoziției, preferând atacul la persoană."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Acesta este motivul pentru care vrem Legea lustrației."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Discursul este pur pozițional, susținând o inițiativă fără a propune alternative sau compromisuri."
+          }
+        ],
+        "rationale": "Discursul prezintă o calitate deliberativă scăzută, fiind dominat de retorică de confruntare și atacuri la persoană. Justificarea este de nivel 1, bazându-se pe experiențe personale și loialitate de grup, fără a oferi un raționament substanțial pentru Legea lustrației. Respectul pentru grupuri este absent (scor 0), vorbitorul folosind exemple individuale pentru a discredita adversarii politici. Nu există un angajament cu contraargumentele sau cererile opoziției, iar discursul rămâne strict pozițional. Deși vorbitorul menționează un context moral, acesta este utilizat pentru a valida propria agendă de grup, nu pentru a contribui la un dialog constructiv."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.65,\n  \"level_of_justification\": 1,\n  \"content_of_justification\": \"group_interest\",\n  \"respect_for_groups\": 0,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 0,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 1,\n      \"evidence\": { \"text\": \"Acesta este motivul pentru care vrem Legea lustrației.\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Justificarea este circulară, bazată pe experiențe personale și loialitate de grup, fără un raționament cauzal.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"group_interest\",\n      \"evidence\": { \"text\": \"Acesta este motivul pentru care vrem Legea lustrației.\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Apelul este orientat către interesele foștilor deținuți politici și o agendă de grup specifică.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 0,\n      \"evidence\": { \"text\": \"vă aduc aminte de Ristea Priboi un pic, ne aducem aminte de fostul deputat Faina\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Vorbitorul folosește referințe la persoane specifice din PSD pentru a stigmatiza întregul grup politic.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": { \"text\": \"Să ne uităm fiecare în curtea lui și să analizăm.\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.96,\n      \"marker_confidence\": 0.75,\n      \"rationale_short\": \"Cererile sau pozițiile adverse nu sunt abordate direct, ci ignorate în favoarea atacului retoric.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 0,\n      \"evidence\": { \"text\": \"vă aduc aminte de Ristea Priboi un pic\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.90,\n      \"rationale_short\": \"Vorbitorul evită orice angajament cu argumentele opoziției, preferând atacul la persoană.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": { \"text\": \"Acesta este motivul pentru care vrem Legea lustrației.\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Discursul este pur pozițional, susținând o inițiativă fără a propune alternative sau compromisuri.\"\n    }\n  ],\n  \"rationale\": \"Discursul prezintă o calitate deliberativă scăzută, fiind dominat de retorică de confruntare și atacuri la persoană. Justificarea este de nivel 1, bazându-se pe experiențe personale și loialitate de grup, fără a oferi un raționament substanțial pentru Legea lustrației. Respectul pentru grupuri este absent (scor 0), vorbitorul folosind exemple individuale pentru a discredita adversarii politici. Nu există un angajament cu contraargumentele sau cererile opoziției, iar discursul rămâne strict pozițional. Deși vorbitorul menționează un context moral, acesta este utilizat pentru a valida propria agendă de grup, nu pentru a contribui la un dialog constructiv.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12615,
+      "tokens_in_breakdown": {
+        "fresh": 12615,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1132,
+      "cost_usd": null,
+      "latency_ms": 7617,
+      "retries_used": 0
+    }
+  }
+}

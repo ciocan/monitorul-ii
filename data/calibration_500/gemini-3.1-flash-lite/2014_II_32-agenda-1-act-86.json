@@ -1,0 +1,243 @@
+{
+  "speech_id": "mo://2014/II/32#agenda-1#act-86",
+  "tier": "calibration",
+  "speaker": {
+    "id": "buicu-corneliu-florin",
+    "name": "Corneliu Florin Buicu",
+    "raw": "Domnul Corneliu Florin Buicu",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2014-03-18",
+    "year": 2014,
+    "legislature": "VII",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2014/II/32#agenda-1#act-86",
+      "output": {
+        "score": 2,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.95,
+        "markers": [
+          {
+            "kind": "people_vs_elite",
+            "evidence": {
+              "text": "De aproape un sfert de secol maghiarii din Ardeal sunt păcăliți de Tökés și de „iredenta” ungară, aceștia le vor voturile, sunt avizi de bani și de putere."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Opoziție între maghiarii de rând (păcăliți) și elita politică (Tökés/iredenta) descrisă ca avidă de putere."
+          },
+          {
+            "kind": "evil_elite",
+            "evidence": {
+              "text": "László Tökés, cel care și-a schimbat sutana de popă tocmai pentru ca să poată să acționeze, prin toate mijloacele, împotriva țării în care s-a născut și al cărei cetățean este, nu reușește să se împace cu ideea că este un trădător de neam?"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.96,
+            "rationale_short": "Elita (Tökés) este portretizată ca un trădător de neam care acționează malign împotriva propriei țări."
+          },
+          {
+            "kind": "homogeneous_people",
+            "evidence": {
+              "text": "sperând că se va putea trece în Ardeal peste capul a șase milioane de români în favoarea unui milion de maghiari ardeleni"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.92,
+            "rationale_short": "Invocă „șase milioane de români” ca un bloc unitar și omogen a cărui voință este ignorată de elite."
+          },
+          {
+            "kind": "moralistic_manichaeism",
+            "evidence": {
+              "text": "Această luptă nu este politică — este lupta dintre România și cei care vor să o distrugă."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.97,
+            "rationale_short": "Conflictul este redus la un binar moral absolut: România vs cei care vor să o distrugă."
+          }
+        ],
+        "rationale": "Discursul este un manifest populist coerent care utilizează un cadru maniheist pentru a structura întreaga argumentație. Vorbitorul construiește o dihotomie clară între poporul român (omogenizat) și o elită politică (Tökés și iredenta) descrisă ca fiind malignă, trădătoare și parazitară. Această viziune pervade textul, transformând o problemă politică regională într-o luptă existențială pentru supraviețuirea națiunii. Deoarece cadrul popor-vs-elită și cel moralist-maniheist sunt structurale și susținute de multiple exemple de elită-malefică, discursul se încadrează la scorul 2."
+      },
+      "raw_response": "{\n  \"score\": 2,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.95,\n  \"markers\": [\n    {\n      \"kind\": \"people_vs_elite\",\n      \"evidence\": {\n        \"text\": \"De aproape un sfert de secol maghiarii din Ardeal sunt păcăliți de Tökés și de „iredenta” ungară, aceștia le vor voturile, sunt avizi de bani și de putere.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Opoziție între maghiarii de rând (păcăliți) și elita politică (Tökés/iredenta) descrisă ca avidă de putere.\"\n    },\n    {\n      \"kind\": \"evil_elite\",\n      \"evidence\": {\n        \"text\": \"László Tökés, cel care și-a schimbat sutana de popă tocmai pentru ca să poată să acționeze, prin toate mijloacele, împotriva țării în care s-a născut și al cărei cetățean este, nu reușește să se împace cu ideea că este un trădător de neam?\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"marker_confidence\": 0.96,\n      \"rationale_short\": \"Elita (Tökés) este portretizată ca un trădător de neam care acționează malign împotriva propriei țări.\"\n    },\n    {\n      \"kind\": \"homogeneous_people\",\n      \"evidence\": {\n        \"text\": \"sperând că se va putea trece în Ardeal peste capul a șase milioane de români în favoarea unui milion de maghiari ardeleni\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Invocă „șase milioane de români” ca un bloc unitar și omogen a cărui voință este ignorată de elite.\"\n    },\n    {\n      \"kind\": \"moralistic_manichaeism\",\n      \"evidence\": {\n        \"text\": \"Această luptă nu este politică — este lupta dintre România și cei care vor să o distrugă.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.97,\n      \"rationale_short\": \"Conflictul este redus la un binar moral absolut: România vs cei care vor să o distrugă.\"\n    }\n  ],\n  \"rationale\": \"Discursul este un manifest populist coerent care utilizează un cadru maniheist pentru a structura întreaga argumentație. Vorbitorul construiește o dihotomie clară între poporul român (omogenizat) și o elită politică (Tökés și iredenta) descrisă ca fiind malignă, trădătoare și parazitară. Această viziune pervade textul, transformând o problemă politică regională într-o luptă existențială pentru supraviețuirea națiunii. Deoarece cadrul popor-vs-elită și cel moralist-maniheist sunt structurale și susținute de multiple exemple de elită-malefică, discursul se încadrează la scorul 2.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [
+        "Această luptă nu este politică — este lupta dintre România și cei care vor să o distrugă."
+      ],
+      "parse_repaired": false,
+      "tokens_in": 14488,
+      "tokens_in_breakdown": {
+        "fresh": 14488,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 918,
+      "cost_usd": null,
+      "latency_ms": 4233,
+      "retries_used": 0
+    },
+    "voice": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "voice",
+      "speech_id": "mo://2014/II/32#agenda-1#act-86",
+      "output": {
+        "classifications": [
+          {
+            "marker_id": "m_0",
+            "voice": "speaker_first_person",
+            "voice_confidence": 0.95,
+            "voice_evidence": null,
+            "attributed_to": null,
+            "rationale_short": "Afirmație directă a vorbitorului, fără indicii de citare, raportare sau disclaimer; vorbitorul își asumă responsabilitatea pentru acest enunț."
+          },
+          {
+            "marker_id": "m_1",
+            "voice": "speaker_first_person",
+            "voice_confidence": 0.95,
+            "voice_evidence": null,
+            "attributed_to": null,
+            "rationale_short": "Afirmație directă a vorbitorului în cadrul unui discurs critic; nu există nicio structură de citare sau raportare care să distanțeze vorbitorul de acest atac."
+          },
+          {
+            "marker_id": "m_2",
+            "voice": "speaker_first_person",
+            "voice_confidence": 0.95,
+            "voice_evidence": null,
+            "attributed_to": null,
+            "rationale_short": "Enunț asumat direct de vorbitor în cadrul argumentației sale; nu este o raportare a unei opinii terțe, ci o interpretare proprie a intențiilor."
+          }
+        ]
+      },
+      "raw_response": "{\n  \"classifications\": [\n    {\n      \"marker_id\": \"m_0\",\n      \"voice\": \"speaker_first_person\",\n      \"voice_confidence\": 0.95,\n      \"voice_evidence\": null,\n      \"attributed_to\": null,\n      \"rationale_short\": \"Afirmație directă a vorbitorului, fără indicii de citare, raportare sau disclaimer; vorbitorul își asumă responsabilitatea pentru acest enunț.\"\n    },\n    {\n      \"marker_id\": \"m_1\",\n      \"voice\": \"speaker_first_person\",\n      \"voice_confidence\": 0.95,\n      \"voice_evidence\": null,\n      \"attributed_to\": null,\n      \"rationale_short\": \"Afirmație directă a vorbitorului în cadrul unui discurs critic; nu există nicio structură de citare sau raportare care să distanțeze vorbitorul de acest atac.\"\n    },\n    {\n      \"marker_id\": \"m_2\",\n      \"voice\": \"speaker_first_person\",\n      \"voice_confidence\": 0.95,\n      \"voice_evidence\": null,\n      \"attributed_to\": null,\n      \"rationale_short\": \"Enunț asumat direct de vorbitor în cadrul argumentației sale; nu este o raportare a unei opinii terțe, ci o interpretare proprie a intențiilor.\"\n    }\n  ]\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12278,
+      "tokens_in_breakdown": {
+        "fresh": 12278,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 343,
+      "cost_usd": null,
+      "latency_ms": 1634,
+      "retries_used": 0
+    },
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2014/II/32#agenda-1#act-86",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.75,
+        "level_of_justification": 1,
+        "content_of_justification": "group_interest",
+        "respect_for_groups": 0,
+        "respect_for_demands": 0,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 1,
+            "evidence": {
+              "text": "Nu înțeleg de ce tot încearcă să radicalizee o populație care este finanțată și protejată de statul român pe banii românilor"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Justificarea se bazează pe o retorică de tip „noi vs. ei” și loialitate de grup, fără un raționament cauzal substanțial."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "group_interest",
+            "evidence": {
+              "text": "sperând că se va putea trece în Ardeal peste capul a șase milioane de români în favoarea unui milion de maghiari ardeleni"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Apelul este explicit la interesele unui grup etnic majoritar în opoziție cu un grup minoritar."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 0,
+            "evidence": {
+              "text": "remarcându-se prin discursuri xenofobe și rasiste... liderii „marșului secuilor”... László Tökés... trădător de neam"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.96,
+            "rationale_short": "Discursul conține etichetări denigratoare și atacuri la adresa identității și loialității grupului vizat."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 0,
+            "evidence": {
+              "text": "autonomia obsesiv cerută"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.94,
+            "rationale_short": "Cererea de autonomie este respinsă prin caracterizarea ei drept „obsesivă”, refuzând legitimitatea dezbaterii."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "Îmi spun în fiecare an că nu ar trebui să iau în seamă toată mascarada aceasta"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Vorbitorul refuză explicit să se angajeze în argumentația adversă, catalogând-o drept „mascaradă”."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Le doresc răzvrătire plăcută și succes în alegeri!"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Discursul este pur pozițional, fără nicio propunere alternativă sau tentativă de mediere."
+          }
+        ],
+        "rationale": "Discursul prezintă o calitate deliberativă scăzută, fiind marcat de un ton ostil și de o lipsă totală de angajament constructiv. Justificarea este de nivel 1, bazându-se pe apeluri la interesul de grup și pe o retorică populistă, fără a oferi argumente cauzale sau principiale universale. Respectul pentru grupuri și pentru cererile opoziției este absent, discursul recurgând la etichetări denigratoare (ex. „trădător de neam”) și la respingerea a priori a oricărei contraargumentații. Nu există nicio tentativă de mediere sau propunere alternativă, vorbitorul limitându-se la o poziție de confruntare. Profilul deliberativ este unul de tip polemic-agresiv, incompatibil cu standardele de deliberare parlamentară."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.75,\n  \"level_of_justification\": 1,\n  \"content_of_justification\": \"group_interest\",\n  \"respect_for_groups\": 0,\n  \"respect_for_demands\": 0,\n  \"respect_for_counterarguments\": 0,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Nu înțeleg de ce tot încearcă să radicalizee o populație care este finanțată și protejată de statul român pe banii românilor\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Justificarea se bazează pe o retorică de tip „noi vs. ei” și loialitate de grup, fără un raționament cauzal substanțial.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"group_interest\",\n      \"evidence\": {\n        \"text\": \"sperând că se va putea trece în Ardeal peste capul a șase milioane de români în favoarea unui milion de maghiari ardeleni\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Apelul este explicit la interesele unui grup etnic majoritar în opoziție cu un grup minoritar.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"remarcându-se prin discursuri xenofobe și rasiste... liderii „marșului secuilor”... László Tökés... trădător de neam\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.96,\n      \"rationale_short\": \"Discursul conține etichetări denigratoare și atacuri la adresa identității și loialității grupului vizat.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"autonomia obsesiv cerută\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.94,\n      \"rationale_short\": \"Cererea de autonomie este respinsă prin caracterizarea ei drept „obsesivă”, refuzând legitimitatea dezbaterii.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"Îmi spun în fiecare an că nu ar trebui să iau în seamă toată mascarada aceasta\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Vorbitorul refuză explicit să se angajeze în argumentația adversă, catalogând-o drept „mascaradă”.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"Le doresc răzvrătire plăcută și succes în alegeri!\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Discursul este pur pozițional, fără nicio propunere alternativă sau tentativă de mediere.\"\n    }\n  ],\n  \"rationale\": \"Discursul prezintă o calitate deliberativă scăzută, fiind marcat de un ton ostil și de o lipsă totală de angajament constructiv. Justificarea este de nivel 1, bazându-se pe apeluri la interesul de grup și pe o retorică populistă, fără a oferi argumente cauzale sau principiale universale. Respectul pentru grupuri și pentru cererile opoziției este absent, discursul recurgând la etichetări denigratoare (ex. „trădător de neam”) și la respingerea a priori a oricărei contraargumentații. Nu există nicio tentativă de mediere sau propunere alternativă, vorbitorul limitându-se la o poziție de confruntare. Profilul deliberativ este unul de tip polemic-agresiv, incompatibil cu standardele de deliberare parlamentară.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [
+        "Nu înțeleg de ce tot încearcă să radicalizee o populație care este finanțată și protejată de statul român pe banii românilor",
+        "remarcându-se prin discursuri xenofobe și rasiste... liderii „marșului secuilor”... László Tökés... trădător de neam"
+      ],
+      "parse_repaired": false,
+      "tokens_in": 13289,
+      "tokens_in_breakdown": {
+        "fresh": 13289,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1259,
+      "cost_usd": null,
+      "latency_ms": 4896,
+      "retries_used": 0
+    }
+  }
+}

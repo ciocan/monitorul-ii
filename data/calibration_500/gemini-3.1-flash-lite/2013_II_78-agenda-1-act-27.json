@@ -1,0 +1,152 @@
+{
+  "speech_id": "mo://2013/II/78#agenda-1#act-27",
+  "tier": "calibration",
+  "speaker": {
+    "id": "surdu-raluca",
+    "name": "Raluca Surdu",
+    "raw": "Doamna Raluca Surdu",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2013-06-05",
+    "year": 2013,
+    "legislature": "VII",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2013/II/78#agenda-1#act-27",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 1.0,
+        "markers": [],
+        "rationale": "Discursul este un raport tehnic, procedural, privind reexaminarea unui proiect de lege în comisiile parlamentare. Textul se limitează la citarea articolelor din regulament, a avizelor primite și a procedurilor administrative urmate, fără a conține nicio referire la un cadru populist, maniheist sau la o confruntare între popor și elită. Nu există niciun marker populist prezent, discursul fiind pur tehnic și administrativ."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 1.0,\n  \"markers\": [],\n  \"rationale\": \"Discursul este un raport tehnic, procedural, privind reexaminarea unui proiect de lege în comisiile parlamentare. Textul se limitează la citarea articolelor din regulament, a avizelor primite și a procedurilor administrative urmate, fără a conține nicio referire la un cadru populist, maniheist sau la o confruntare între popor și elită. Nu există niciun marker populist prezent, discursul fiind pur tehnic și administrativ.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 14317,
+      "tokens_in_breakdown": {
+        "fresh": 14317,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 170,
+      "cost_usd": null,
+      "latency_ms": 2038,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2013/II/78#agenda-1#act-27",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.45,
+        "level_of_justification": 0,
+        "content_of_justification": "none",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 0,
+            "evidence": {
+              "text": "s-a hotărât, cu unanimitate de voturi, menținerea raportului comun"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.95,
+            "rationale_short": "Discursul este pur procedural, prezentând decizia comisiei fără a oferi o justificare argumentativă proprie."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "none",
+            "evidence": {
+              "text": "s-a hotărât, cu unanimitate de voturi, menținerea raportului comun"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.95,
+            "rationale_short": "Nicio justificare oferită; conținutul justificării este nedefinit."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Stimați colegi"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Adresare convențională neutră; niciun grup vizat explicit."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "s-a hotărât retrimiterea către Comisia pentru administrație publică"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.9,
+            "rationale_short": "Procedură administrativă fără angajament cu cereri politice adverse."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "comisiile au avut în vedere avizul favorabil al Consiliului Legislativ"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.9,
+            "rationale_short": "Menționarea avizelor este o procedură tehnică, nu un angajament cu contraargumente."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "s-a hotărât, cu unanimitate de voturi, menținerea raportului comun"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.95,
+            "rationale_short": "Prezentarea unei decizii administrative; nu este o propunere alternativă sau de mediere."
+          }
+        ],
+        "rationale": "Acest discurs este un raport procedural standard prezentat de un raportor de comisie, având un caracter pur tehnic și administrativ. Nu conține argumentație deliberativă, justificare a poziției sau angajament cu contraargumente, fiind limitat la expunerea cronologiei și a avizelor primite. Deoarece discursul nu reprezintă o dezbatere deliberativă, ci o informare procedurală, scorurile sunt setate la valorile implicite de bază. Încrederea în framework este scăzută, deoarece acest tip de intervenție nu se pretează la analiza calității deliberative conform rubricii Steiner & Bächtiger."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.45,\n  \"level_of_justification\": 0,\n  \"content_of_justification\": \"none\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 0,\n      \"evidence\": { \"text\": \"s-a hotărât, cu unanimitate de voturi, menținerea raportului comun\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Discursul este pur procedural, prezentând decizia comisiei fără a oferi o justificare argumentativă proprie.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"none\",\n      \"evidence\": { \"text\": \"s-a hotărât, cu unanimitate de voturi, menținerea raportului comun\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Nicio justificare oferită; conținutul justificării este nedefinit.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": { \"text\": \"Stimați colegi\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Adresare convențională neutră; niciun grup vizat explicit.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": { \"text\": \"s-a hotărât retrimiterea către Comisia pentru administrație publică\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Procedură administrativă fără angajament cu cereri politice adverse.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": { \"text\": \"comisiile au avut în vedere avizul favorabil al Consiliului Legislativ\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Menționarea avizelor este o procedură tehnică, nu un angajament cu contraargumente.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": { \"text\": \"s-a hotărât, cu unanimitate de voturi, menținerea raportului comun\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Prezentarea unei decizii administrative; nu este o propunere alternativă sau de mediere.\"\n    }\n  ],\n  \"rationale\": \"Acest discurs este un raport procedural standard prezentat de un raportor de comisie, având un caracter pur tehnic și administrativ. Nu conține argumentație deliberativă, justificare a poziției sau angajament cu contraargumente, fiind limitat la expunerea cronologiei și a avizelor primite. Deoarece discursul nu reprezintă o dezbatere deliberativă, ci o informare procedurală, scorurile sunt setate la valorile implicite de bază. Încrederea în framework este scăzută, deoarece acest tip de intervenție nu se pretează la analiza calității deliberative conform rubricii Steiner & Bächtiger.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [
+        "s-a hotărât retrimiterea către Comisia pentru administrație publică"
+      ],
+      "parse_repaired": false,
+      "tokens_in": 13118,
+      "tokens_in_breakdown": {
+        "fresh": 13118,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1062,
+      "cost_usd": null,
+      "latency_ms": 3922,
+      "retries_used": 0
+    }
+  }
+}

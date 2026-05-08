@@ -1,0 +1,246 @@
+{
+  "speech_id": "mo://2006/II/32#agenda-1#act-42",
+  "tier": "calibration",
+  "speaker": {
+    "id": "moldovan-emil-radu",
+    "name": "Emil Radu Moldovan",
+    "raw": "Domnul Emil Radu Moldovan",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": null,
+    "session_date": null,
+    "year": 2006,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2006/II/32#agenda-1#act-42",
+      "output": {
+        "score": 1,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.85,
+        "markers": [
+          {
+            "kind": "people_vs_elite",
+            "evidence": {
+              "text": "z‚mbetul cinic este singurul semn dat unui popor s„tul de cinism"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.85,
+            "rationale_short": "Contrapune un popor sătul de cinism unei elite guvernamentale cinice."
+          },
+          {
+            "kind": "evil_elite",
+            "evidence": {
+              "text": "Grija pentru distrugerea opozi˛iei a devenit, mai nou, singura lui ra˛iune de a tr„i"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.92,
+            "marker_confidence": 0.88,
+            "rationale_short": "Elita guvernamentală este portretizată ca fiind obsedată de distrugerea opoziției, nu de guvernare."
+          },
+          {
+            "kind": "homogeneous_people",
+            "evidence": {
+              "text": "milioane de rom‚ni a∫teapt„ o altfel de guvernare"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.94,
+            "marker_confidence": 0.82,
+            "rationale_short": "Invocă „milioane de români” ca un subiect colectiv unitar cu o dorință comună."
+          },
+          {
+            "kind": "evil_elite",
+            "evidence": {
+              "text": "incompeten˛a unui personaj f„r„ caracter ∫i coloan„ vertebral„"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.96,
+            "marker_confidence": 0.85,
+            "rationale_short": "Atac direct la caracterul moral al liderului elitei, descris ca lipsit de coloană vertebrală."
+          }
+        ],
+        "rationale": "Discursul conține elemente populiste clare, precum opoziția dintre un popor sătul de cinism și o elită guvernamentală preocupată doar de distrugerea opoziției, însă nu atinge pragul de scor 2 deoarece cadrul populist nu este singura coloană vertebrală a argumentației. Vorbitorul alternează între atacuri populiste și critici punctuale la adresa activității parlamentare și a politicilor economice (cota unică, pensii). Deși markerii de elită malefică și popor omogen sunt prezenți, discursul păstrează o notă de critică politică partizană care nu se transformă într-un manifest maniheist total. Scor 1 cu încredere ridicată."
+      },
+      "raw_response": "{\n  \"score\": 1,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.85,\n  \"markers\": [\n    {\n      \"kind\": \"people_vs_elite\",\n      \"evidence\": {\n        \"text\": \"z‚mbetul cinic este singurul semn dat unui popor s„tul de cinism\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Contrapune un popor sătul de cinism unei elite guvernamentale cinice.\"\n    },\n    {\n      \"kind\": \"evil_elite\",\n      \"evidence\": {\n        \"text\": \"Grija pentru distrugerea opozi˛iei a devenit, mai nou, singura lui ra˛iune de a tr„i\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.92,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Elita guvernamentală este portretizată ca fiind obsedată de distrugerea opoziției, nu de guvernare.\"\n    },\n    {\n      \"kind\": \"homogeneous_people\",\n      \"evidence\": {\n        \"text\": \"milioane de rom‚ni a∫teapt„ o altfel de guvernare\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.94,\n      \"marker_confidence\": 0.82,\n      \"rationale_short\": \"Invocă „milioane de români” ca un subiect colectiv unitar cu o dorință comună.\"\n    },\n    {\n      \"kind\": \"evil_elite\",\n      \"evidence\": {\n        \"text\": \"incompeten˛a unui personaj f„r„ caracter ∫i coloan„ vertebral„\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.96,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Atac direct la caracterul moral al liderului elitei, descris ca lipsit de coloană vertebrală.\"\n    }\n  ],\n  \"rationale\": \"Discursul conține elemente populiste clare, precum opoziția dintre un popor sătul de cinism și o elită guvernamentală preocupată doar de distrugerea opoziției, însă nu atinge pragul de scor 2 deoarece cadrul populist nu este singura coloană vertebrală a argumentației. Vorbitorul alternează între atacuri populiste și critici punctuale la adresa activității parlamentare și a politicilor economice (cota unică, pensii). Deși markerii de elită malefică și popor omogen sunt prezenți, discursul păstrează o notă de critică politică partizană care nu se transformă într-un manifest maniheist total. Scor 1 cu încredere ridicată.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 14693,
+      "tokens_in_breakdown": {
+        "fresh": 14693,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 779,
+      "cost_usd": null,
+      "latency_ms": 3775,
+      "retries_used": 0
+    },
+    "voice": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "voice",
+      "speech_id": "mo://2006/II/32#agenda-1#act-42",
+      "output": {
+        "classifications": [
+          {
+            "marker_id": "m_0",
+            "voice": "speaker_first_person",
+            "voice_confidence": 0.95,
+            "voice_evidence": null,
+            "attributed_to": null,
+            "rationale_short": "Afirmație directă a vorbitorului, fără indicii de citare, raportare sau alte cadre retorice."
+          },
+          {
+            "marker_id": "m_1",
+            "voice": "speaker_first_person",
+            "voice_confidence": 0.95,
+            "voice_evidence": null,
+            "attributed_to": null,
+            "rationale_short": "Afirmație directă a vorbitorului, fără indicii de citare, raportare sau alte cadre retorice."
+          },
+          {
+            "marker_id": "m_2",
+            "voice": "speaker_first_person",
+            "voice_confidence": 0.95,
+            "voice_evidence": null,
+            "attributed_to": null,
+            "rationale_short": "Afirmație directă a vorbitorului, fără indicii de citare, raportare sau alte cadre retorice."
+          },
+          {
+            "marker_id": "m_3",
+            "voice": "speaker_first_person",
+            "voice_confidence": 0.95,
+            "voice_evidence": null,
+            "attributed_to": null,
+            "rationale_short": "Afirmație directă a vorbitorului, fără indicii de citare, raportare sau alte cadre retorice."
+          }
+        ]
+      },
+      "raw_response": "{\n  \"classifications\": [\n    {\n      \"marker_id\": \"m_0\",\n      \"voice\": \"speaker_first_person\",\n      \"voice_confidence\": 0.95,\n      \"voice_evidence\": null,\n      \"attributed_to\": null,\n      \"rationale_short\": \"Afirmație directă a vorbitorului, fără indicii de citare, raportare sau alte cadre retorice.\"\n    },\n    {\n      \"marker_id\": \"m_1\",\n      \"voice\": \"speaker_first_person\",\n      \"voice_confidence\": 0.95,\n      \"voice_evidence\": null,\n      \"attributed_to\": null,\n      \"rationale_short\": \"Afirmație directă a vorbitorului, fără indicii de citare, raportare sau alte cadre retorice.\"\n    },\n    {\n      \"marker_id\": \"m_2\",\n      \"voice\": \"speaker_first_person\",\n      \"voice_confidence\": 0.95,\n      \"voice_evidence\": null,\n      \"attributed_to\": null,\n      \"rationale_short\": \"Afirmație directă a vorbitorului, fără indicii de citare, raportare sau alte cadre retorice.\"\n    },\n    {\n      \"marker_id\": \"m_3\",\n      \"voice\": \"speaker_first_person\",\n      \"voice_confidence\": 0.95,\n      \"voice_evidence\": null,\n      \"attributed_to\": null,\n      \"rationale_short\": \"Afirmație directă a vorbitorului, fără indicii de citare, raportare sau alte cadre retorice.\"\n    }\n  ]\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12469,
+      "tokens_in_breakdown": {
+        "fresh": 12469,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 397,
+      "cost_usd": null,
+      "latency_ms": 1844,
+      "retries_used": 0
+    },
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2006/II/32#agenda-1#act-42",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.85,
+        "level_of_justification": 0,
+        "content_of_justification": "none",
+        "respect_for_groups": 0,
+        "respect_for_demands": 0,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 0,
+            "evidence": {
+              "text": "Faptele de p‚n„ acum v„ descalific„ ∫i m„ Óndoiesc c„ ve˛i mai reu∫i vreodat„ s„ rec‚∫tiga˛i Óncrederea popula˛iei."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Discursul conține atacuri la persoană și acuzații, fără a oferi o justificare cauzală pentru poziția luată."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "none",
+            "evidence": {
+              "text": "A venit timpul s„ renun˛a˛i la ipocrizia ∫i masca sub care vedem cu to˛ii c„ se ascunde incompeten˛a unui personaj f„r„ caracter ∫i coloan„ vertebral„."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Nicio justificare oferită; conținutul justificării este nedefinit."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 0,
+            "evidence": {
+              "text": "incompeten˛a unui personaj f„r„ caracter ∫i coloan„ vertebral„"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.96,
+            "rationale_short": "Vorbitorul folosește termeni denigratori la adresa prim-ministrului, manifestând lipsă de respect."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 0,
+            "evidence": {
+              "text": "Nu ne intereseaz„ ∫i nu intereseaz„ pe nimeni frustr„rile pe care le ave˛i vizavi de opozi˛ie"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.94,
+            "rationale_short": "Cererile și preocupările adversarului sunt respinse explicit ca fiind irelevante și frustrări personale."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "Nu mai avem nici compasiune, nici r„bdare s„ ascult„m lament„ri sau neputin˛e!"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Vorbitorul refuză orice angajament cu argumentele opoziției, etichetându-le drept lamentări."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "A˛i putea, totu∫i, s„ Óncepe˛i s„ v„ face˛i cu adev„rat treaba Ón cealalt„ jum„tate de mandat care v-a mai r„mas."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Discursul este pur pozițional, fără a propune alternative concrete sau mecanisme de mediere."
+          }
+        ],
+        "rationale": "Discursul este un atac politic virulent, caracterizat prin absența totală a justificărilor substanțiale (level_of_justification=0) și a conținutului deliberativ (content_of_justification=none). Vorbitorul utilizează un limbaj denigrator la adresa prim-ministrului (respect_for_groups=0) și respinge categoric orice cerere sau argument al acestuia (respect_for_demands=0, respect_for_counterarguments=0). Discursul rămâne strict pozițional, fără a oferi soluții alternative sau propuneri de mediere (constructive_politics=positional). Calitatea deliberativă este minimă, discursul fiind orientat exclusiv către discreditarea adversarului politic."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.85,\n  \"level_of_justification\": 0,\n  \"content_of_justification\": \"none\",\n  \"respect_for_groups\": 0,\n  \"respect_for_demands\": 0,\n  \"respect_for_counterarguments\": 0,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"Faptele de p‚n„ acum v„ descalific„ ∫i m„ Óndoiesc c„ ve˛i mai reu∫i vreodat„ s„ rec‚∫tiga˛i Óncrederea popula˛iei.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Discursul conține atacuri la persoană și acuzații, fără a oferi o justificare cauzală pentru poziția luată.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"none\",\n      \"evidence\": {\n        \"text\": \"A venit timpul s„ renun˛a˛i la ipocrizia ∫i masca sub care vedem cu to˛ii c„ se ascunde incompeten˛a unui personaj f„r„ caracter ∫i coloan„ vertebral„.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Nicio justificare oferită; conținutul justificării este nedefinit.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"incompeten˛a unui personaj f„r„ caracter ∫i coloan„ vertebral„\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.96,\n      \"rationale_short\": \"Vorbitorul folosește termeni denigratori la adresa prim-ministrului, manifestând lipsă de respect.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"Nu ne intereseaz„ ∫i nu intereseaz„ pe nimeni frustr„rile pe care le ave˛i vizavi de opozi˛ie\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.94,\n      \"rationale_short\": \"Cererile și preocupările adversarului sunt respinse explicit ca fiind irelevante și frustrări personale.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"Nu mai avem nici compasiune, nici r„bdare s„ ascult„m lament„ri sau neputin˛e!\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Vorbitorul refuză orice angajament cu argumentele opoziției, etichetându-le drept lamentări.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"A˛i putea, totu∫i, s„ Óncepe˛i s„ v„ face˛i cu adev„rat treaba Ón cealalt„ jum„tate de mandat care v-a mai r„mas.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Discursul este pur pozițional, fără a propune alternative concrete sau mecanisme de mediere.\"\n    }\n  ],\n  \"rationale\": \"Discursul este un atac politic virulent, caracterizat prin absența totală a justificărilor substanțiale (level_of_justification=0) și a conținutului deliberativ (content_of_justification=none). Vorbitorul utilizează un limbaj denigrator la adresa prim-ministrului (respect_for_groups=0) și respinge categoric orice cerere sau argument al acestuia (respect_for_demands=0, respect_for_counterarguments=0). Discursul rămâne strict pozițional, fără a oferi soluții alternative sau propuneri de mediere (constructive_politics=positional). Calitatea deliberativă este minimă, discursul fiind orientat exclusiv către discreditarea adversarului politic.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13494,
+      "tokens_in_breakdown": {
+        "fresh": 13494,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1281,
+      "cost_usd": null,
+      "latency_ms": 4995,
+      "retries_used": 0
+    }
+  }
+}

@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2015/II/50#agenda-1#act-171",
+  "tier": "calibration",
+  "speaker": {
+    "id": "gheorghe-tinel",
+    "name": "Tinel Gheorghe",
+    "raw": "Domnul Tinel Gheorghe",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2015-03-25",
+    "year": 2015,
+    "legislature": "VII",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2015/II/50#agenda-1#act-171",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.95,
+        "markers": [],
+        "rationale": "Discursul este un demers procedural tipic parlamentar, axat pe critica modului de lucru al majorității (PSD) în cadrul Comisiei pentru regulament și pe argumente tehnice privind modificările aduse articolelor din Regulamentul Camerei Deputaților. Deși vorbitorul folosește un ton critic și acuzator la adresa adversarilor politici, acesta rămâne în registrul dezbaterii parlamentare, fără a invoca un cadru maniheist popor-vs-elită, fără a apela la o voință populară omogenă și fără a ridica mizele la un nivel existențial sau cosmic. Critica este orientată către proceduri și consens, nu către o viziune populistă pervazivă. Hawkins=0 cu încredere ridicată."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.95,\n  \"markers\": [],\n  \"rationale\": \"Discursul este un demers procedural tipic parlamentar, axat pe critica modului de lucru al majorității (PSD) în cadrul Comisiei pentru regulament și pe argumente tehnice privind modificările aduse articolelor din Regulamentul Camerei Deputaților. Deși vorbitorul folosește un ton critic și acuzator la adresa adversarilor politici, acesta rămâne în registrul dezbaterii parlamentare, fără a invoca un cadru maniheist popor-vs-elită, fără a apela la o voință populară omogenă și fără a ridica mizele la un nivel existențial sau cosmic. Critica este orientată către proceduri și consens, nu către o viziune populistă pervazivă. Hawkins=0 cu încredere ridicată.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 14473,
+      "tokens_in_breakdown": {
+        "fresh": 14473,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 244,
+      "cost_usd": null,
+      "latency_ms": 2532,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2015/II/50#agenda-1#act-171",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.82,
+        "level_of_justification": 1,
+        "content_of_justification": "group_interest",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 1,
+            "evidence": {
+              "text": "regulamentul acesta sau propunerea de nou Regulament al Camerei Deputaților e, cam ca în gimnastică, așa, la impuse; la impuse de către PSD."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Justificare bazată pe metafore politice și acuzații de arbitrar, fără un raționament cauzal sau dovezi specifice."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "group_interest",
+            "evidence": {
+              "text": "Grupul parlamentar al PNL s-a retras de la dezbateri și nu și-a însușit nici raportul"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.88,
+            "rationale_short": "Justificarea se concentrează pe acțiunile și interesele grupului parlamentar PNL."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "la impuse de către PSD"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.82,
+            "rationale_short": "Referință critică la PSD, dar în limitele retoricii parlamentare standard; nu constituie derogare explicită."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Acolo unde nu ne-am înțeles, a venit PSD și a spus: facem așa!"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.8,
+            "rationale_short": "Vorbitorul descrie lipsa de consens fără a angaja legitimitatea cererilor adverse; non-angajament."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "Mai sunt și alte aspecte pe care sunt ferm convins că le vor aduce la cunoștința plenului Camerei Deputaților ceilalți vorbitori"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.75,
+            "rationale_short": "Recunoaște existența altor argumente, dar le pasează altor vorbitori fără a le analiza."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Grupul parlamentar al Partidului Național Liberal nu va vota forma propusă de PSD pentru noul regulament."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Poziție clară de opoziție fără propunerea unei alternative concrete sau a unei medieri."
+          }
+        ],
+        "rationale": "Discursul reprezintă o poziție tipică de opoziție parlamentară, marcată de un nivel scăzut de justificare (level_of_justification=1), bazându-se pe acuzații de arbitrar politic mai degrabă decât pe argumente tehnice sau principiale. Conținutul justificării este orientat către interesul grupului (PNL), iar respectul pentru grupuri și cereri rămâne la un nivel neutru, caracteristic retoricii de confruntare. Vorbitorul nu se angajează substanțial cu contraargumentele, delegând această sarcină altor colegi, și nu oferă o alternativă constructivă, limitându-se la anunțarea votului negativ. Profilul deliberativ este unul pozițional, cu o calitate analitică redusă."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.82,\n  \"level_of_justification\": 1,\n  \"content_of_justification\": \"group_interest\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 1,\n      \"evidence\": { \"text\": \"regulamentul acesta sau propunerea de nou Regulament al Camerei Deputaților e, cam ca în gimnastică, așa, la impuse; la impuse de către PSD.\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Justificare bazată pe metafore politice și acuzații de arbitrar, fără un raționament cauzal sau dovezi specifice.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"group_interest\",\n      \"evidence\": { \"text\": \"Grupul parlamentar al PNL s-a retras de la dezbateri și nu și-a însușit nici raportul\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Justificarea se concentrează pe acțiunile și interesele grupului parlamentar PNL.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": { \"text\": \"la impuse de către PSD\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.82,\n      \"rationale_short\": \"Referință critică la PSD, dar în limitele retoricii parlamentare standard; nu constituie derogare explicită.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": { \"text\": \"Acolo unde nu ne-am înțeles, a venit PSD și a spus: facem așa!\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.80,\n      \"rationale_short\": \"Vorbitorul descrie lipsa de consens fără a angaja legitimitatea cererilor adverse; non-angajament.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": { \"text\": \"Mai sunt și alte aspecte pe care sunt ferm convins că le vor aduce la cunoștința plenului Camerei Deputaților ceilalți vorbitori\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.75,\n      \"rationale_short\": \"Recunoaște existența altor argumente, dar le pasează altor vorbitori fără a le analiza.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": { \"text\": \"Grupul parlamentar al Partidului Național Liberal nu va vota forma propusă de PSD pentru noul regulament.\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Poziție clară de opoziție fără propunerea unei alternative concrete sau a unei medieri.\"\n    }\n  ],\n  \"rationale\": \"Discursul reprezintă o poziție tipică de opoziție parlamentară, marcată de un nivel scăzut de justificare (level_of_justification=1), bazându-se pe acuzații de arbitrar politic mai degrabă decât pe argumente tehnice sau principiale. Conținutul justificării este orientat către interesul grupului (PNL), iar respectul pentru grupuri și cereri rămâne la un nivel neutru, caracteristic retoricii de confruntare. Vorbitorul nu se angajează substanțial cu contraargumentele, delegând această sarcină altor colegi, și nu oferă o alternativă constructivă, limitându-se la anunțarea votului negativ. Profilul deliberativ este unul pozițional, cu o calitate analitică redusă.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13274,
+      "tokens_in_breakdown": {
+        "fresh": 13274,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1194,
+      "cost_usd": null,
+      "latency_ms": 4101,
+      "retries_used": 0
+    }
+  }
+}

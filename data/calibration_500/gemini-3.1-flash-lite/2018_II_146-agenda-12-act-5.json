@@ -1,0 +1,153 @@
+{
+  "speech_id": "mo://2018/II/146#agenda-12#act-5",
+  "tier": "calibration",
+  "speaker": {
+    "id": "simion-lucian-eduard",
+    "name": "Lucian Eduard Simion",
+    "raw": "Domnul Lucian Eduard Simion",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2018-10-10",
+    "year": 2018,
+    "legislature": "VIII",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2018/II/146#agenda-12#act-5",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul este unul pur tehnic și procedural, axat pe transpunerea unei directive europene în legislația națională și pe ajustarea politicilor de ocupare a forței de muncă. Deși vorbitorul menționează o „criză pe piața forței de muncă”, aceasta este tratată ca o problemă economică concretă, nu ca un cadru populist de mobilizare. Nu există nicio tentativă de a construi un binar popor-vs-elită, nicio retorică maniheistă și nicio invocare a unei voințe populare suverane care să ignore procedurile parlamentare. Discursul se încadrează în registrul dezbaterii de politici publice, motiv pentru care scorul este 0."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul este unul pur tehnic și procedural, axat pe transpunerea unei directive europene în legislația națională și pe ajustarea politicilor de ocupare a forței de muncă. Deși vorbitorul menționează o „criză pe piața forței de muncă”, aceasta este tratată ca o problemă economică concretă, nu ca un cadru populist de mobilizare. Nu există nicio tentativă de a construi un binar popor-vs-elită, nicio retorică maniheistă și nicio invocare a unei voințe populare suverane care să ignore procedurile parlamentare. Discursul se încadrează în registrul dezbaterii de politici publice, motiv pentru care scorul este 0.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 14560,
+      "tokens_in_breakdown": {
+        "fresh": 14560,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 239,
+      "cost_usd": null,
+      "latency_ms": 2052,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2018/II/146#agenda-12#act-5",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.88,
+        "level_of_justification": 2,
+        "content_of_justification": "mixed",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "alternative_proposal",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "alături de colegii mei din Comisia pentru muncă, sunt inițiatitor la amendamentele care coboară salariul de încadrare al lucrătorului străin, necalificat, de la salariul mediu brut la salariul minim brut, iar pentru lucrătorii înalt calificați, de la patru salarii medii brute la două salarii medii brute."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Vorbitorul oferă o justificare bazată pe mecanisme economice și amendamente specifice pentru a corecta discriminarea salarială."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "mixed",
+            "evidence": {
+              "text": "Consider că această propunere legislativă va aduce beneficii economiei românești și va crea oportunități de colaborare mai strânse, în special cu statele vecine, constituind o mare oportunitate pentru populația de etnie română din Moldova, Ucraina și Serbia."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.89,
+            "rationale_short": "Justificarea combină interesul economic general al României cu interesele specifice ale populației de etnie română din statele vecine."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Firmele de construcții se plâng că nu mai există forță de muncă. Agricultorii se plâng că nu mai pot angaja zilieri."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.85,
+            "rationale_short": "Grupurile profesionale sunt menționate funcțional pentru a ilustra criza forței de muncă; atitudine neutră."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Proiectul de lege rezolvă, alături de implementarea măsurilor adoptate la nivelul Uniunii Europene, și unele probleme care țin de piața actuală a forței de muncă românești, răspunzând cerințelor angajatorilor."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.88,
+            "rationale_short": "Cerințele angajatorilor sunt menționate ca fiind adresate, dar fără o recunoaștere explicită a legitimității unor cereri opuse."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "România are legiferat, în momentul de față, de patru ori salariul mediu anual brut și condiția de salariu mediu brut impus tuturor celorlalte categorii de lucrători – indiferent..., sezonieri, transfrontalieri, cu contract pe perioadă determinată, nedeterminată – ține de politica statului."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.96,
+            "marker_confidence": 0.85,
+            "rationale_short": "Vorbitorul recunoaște cadrul legislativ existent, dar nu angajează substanțial un contraargument specific al opoziției."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "alternative_proposal",
+            "evidence": {
+              "text": "sunt inițiatitor la amendamentele care coboară salariul de încadrare al lucrătorului străin, necalificat, de la salariul mediu brut la salariul minim brut"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Vorbitorul propune amendamente concrete pentru a modifica pragurile salariale, oferind o alternativă la legislația actuală."
+          }
+        ],
+        "rationale": "Discursul prezintă o calitate deliberativă solidă, caracterizată prin justificări calificate (level_of_justification=2) care leagă modificările legislative de nevoile pieței muncii și de directivele europene. Vorbitorul adoptă o poziție constructivă prin propunerea unor amendamente specifice (constructive_politics=alternative_proposal), demonstrând o abordare orientată spre soluții. Justificarea este mixtă, apelând atât la binele comun (economia națională), cât și la interesele specifice ale minorităților etnice române din regiune. Respectul pentru grupuri și cereri rămâne neutru (1), deoarece vorbitorul se concentrează pe argumentarea propriei soluții fără a angaja direct sau a respinge opoziția. Discursul este coerent și bine structurat, reflectând o abordare tehnică și pragmatică a problemei forței de muncă."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.88,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"mixed\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"alternative_proposal\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"alături de colegii mei din Comisia pentru muncă, sunt inițiatitor la amendamentele care coboară salariul de încadrare al lucrătorului străin, necalificat, de la salariul mediu brut la salariul minim brut, iar pentru lucrătorii înalt calificați, de la patru salarii medii brute la două salarii medii brute.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Vorbitorul oferă o justificare bazată pe mecanisme economice și amendamente specifice pentru a corecta discriminarea salarială.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"mixed\",\n      \"evidence\": {\n        \"text\": \"Consider că această propunere legislativă va aduce beneficii economiei românești și va crea oportunități de colaborare mai strânse, în special cu statele vecine, constituind o mare oportunitate pentru populația de etnie română din Moldova, Ucraina și Serbia.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.89,\n      \"rationale_short\": \"Justificarea combină interesul economic general al României cu interesele specifice ale populației de etnie română din statele vecine.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Firmele de construcții se plâng că nu mai există forță de muncă. Agricultorii se plâng că nu mai pot angaja zilieri.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Grupurile profesionale sunt menționate funcțional pentru a ilustra criza forței de muncă; atitudine neutră.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Proiectul de lege rezolvă, alături de implementarea măsurilor adoptate la nivelul Uniunii Europene, și unele probleme care țin de piața actuală a forței de muncă românești, răspunzând cerințelor angajatorilor.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Cerințele angajatorilor sunt menționate ca fiind adresate, dar fără o recunoaștere explicită a legitimității unor cereri opuse.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"România are legiferat, în momentul de față, de patru ori salariul mediu anual brut și condiția de salariu mediu brut impus tuturor celorlalte categorii de lucrători – indiferent..., sezonieri, transfrontalieri, cu contract pe perioadă determinată, nedeterminată – ține de politica statului.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.96,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Vorbitorul recunoaște cadrul legislativ existent, dar nu angajează substanțial un contraargument specific al opoziției.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"alternative_proposal\",\n      \"evidence\": {\n        \"text\": \"sunt inițiatitor la amendamentele care coboară salariul de încadrare al lucrătorului străin, necalificat, de la salariul mediu brut la salariul minim brut\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Vorbitorul propune amendamente concrete pentru a modifica pragurile salariale, oferind o alternativă la legislația actuală.\"\n    }\n  ],\n  \"rationale\": \"Discursul prezintă o calitate deliberativă solidă, caracterizată prin justificări calificate (level_of_justification=2) care leagă modificările legislative de nevoile pieței muncii și de directivele europene. Vorbitorul adoptă o poziție constructivă prin propunerea unor amendamente specifice (constructive_politics=alternative_proposal), demonstrând o abordare orientată spre soluții. Justificarea este mixtă, apelând atât la binele comun (economia națională), cât și la interesele specifice ale minorităților etnice române din regiune. Respectul pentru grupuri și cereri rămâne neutru (1), deoarece vorbitorul se concentrează pe argumentarea propriei soluții fără a angaja direct sau a respinge opoziția. Discursul este coerent și bine structurat, reflectând o abordare tehnică și pragmatică a problemei forței de muncă.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [
+        "alături de colegii mei din Comisia pentru muncă, sunt inițiatitor la amendamentele care coboară salariul de încadrare al lucrătorului străin, necalificat, de la salariul mediu brut la salariul minim brut, iar pentru lucrătorii înalt calificați, de la patru salarii medii brute la două salarii medii brute.",
+        "sunt inițiatitor la amendamentele care coboară salariul de încadrare al lucrătorului străin, necalificat, de la salariul mediu brut la salariul minim brut"
+      ],
+      "parse_repaired": false,
+      "tokens_in": 13361,
+      "tokens_in_breakdown": {
+        "fresh": 13361,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1481,
+      "cost_usd": null,
+      "latency_ms": 5490,
+      "retries_used": 0
+    }
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "speech_id": "mo://2024/II/119#agenda-1#act-134",
+  "tier": "populist",
+  "speaker": {
+    "id": "simion-george-nicolae",
+    "name": "George-Nicolae Simion",
+    "raw": "Domnul George-Nicolae Simion",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2024-10-15",
+    "year": 2024,
+    "legislature": "IX",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": null,
+    "voice": null,
+    "dqi": null,
+    "vparty": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "vparty",
+      "speech_id": "mo://2024/II/119#agenda-1#act-134",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "vparty@2020 + vdem-attacks-on@v13",
+        "framework_confidence": 0.95,
+        "markers": [],
+        "rationale": "Discursul conține atacuri politice virulente la adresa opoziției și o referință batjocoritoare la adresa ANRP, numită „Agenția Națională pentru Hoție”. Conform rubricii v2, ANRP este o agenție administrativă, nu o instituție judiciară, deci atacul nu declanșează markerul 'judiciary_attack'. Restul discursului se concentrează pe critici de fond privind gestionarea fondului funciar și subvențiile agricole, fără a delegitima instituțiile democratice ca clasă sau a respinge pluralismul. Scor 0, deoarece retorica agresivă rămâne în limitele contestării politice partizane."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"vparty@2020 + vdem-attacks-on@v13\",\n  \"framework_confidence\": 0.95,\n  \"markers\": [],\n  \"rationale\": \"Discursul conține atacuri politice virulente la adresa opoziției și o referință batjocoritoare la adresa ANRP, numită „Agenția Națională pentru Hoție”. Conform rubricii v2, ANRP este o agenție administrativă, nu o instituție judiciară, deci atacul nu declanșează markerul 'judiciary_attack'. Restul discursului se concentrează pe critici de fond privind gestionarea fondului funciar și subvențiile agricole, fără a delegitima instituțiile democratice ca clasă sau a respinge pluralismul. Scor 0, deoarece retorica agresivă rămâne în limitele contestării politice partizane.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13187,
+      "tokens_in_breakdown": {
+        "fresh": 13187,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 234,
+      "cost_usd": null,
+      "latency_ms": 1976,
+      "retries_used": 0
+    }
+  }
+}

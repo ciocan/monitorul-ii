@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2002/II/132#agenda-9#act-69",
+  "tier": "calibration",
+  "speaker": {
+    "id": "petrescu-cameliu-ovidiu",
+    "name": "Ovidiu Cameliu Petrescu",
+    "raw": "Domnul Ovidiu Cameliu Petrescu",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": null,
+    "year": 2002,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2002/II/132#agenda-9#act-69",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 1.0,
+        "markers": [],
+        "rationale": "Discursul este un răspuns tehnic, administrativ, la o interpelare parlamentară, concentrat exclusiv pe detalii de asistență socială, metodologii de calcul, hotărâri de guvern și indici de inflație. Nu există nicio urmă de cadru popor-vs-elită, maniheism moral sau invocare a unei voințe populare suverane. Vorbitorul se limitează la prezentarea unor date factuale și procedurale, încadrându-se perfect în registrul tehnic-administrativ. Hawkins=0 cu încredere maximă."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 1.0,\n  \"markers\": [],\n  \"rationale\": \"Discursul este un răspuns tehnic, administrativ, la o interpelare parlamentară, concentrat exclusiv pe detalii de asistență socială, metodologii de calcul, hotărâri de guvern și indici de inflație. Nu există nicio urmă de cadru popor-vs-elită, maniheism moral sau invocare a unei voințe populare suverane. Vorbitorul se limitează la prezentarea unor date factuale și procedurale, încadrându-se perfect în registrul tehnic-administrativ. Hawkins=0 cu încredere maximă.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 14784,
+      "tokens_in_breakdown": {
+        "fresh": 14784,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 197,
+      "cost_usd": null,
+      "latency_ms": 1944,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2002/II/132#agenda-9#act-69",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.92,
+        "level_of_justification": 2,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "În prezent, din luna iunie 2002, nivelul costului mediu lunar de întreþinere este de 1.500.000 lei/lunã, faþã de 900.000 lei/lunã, care era pânã în luna mai 2002, ºi este aprobat prin Ordinul ministrului muncii ºi solidaritãþii sociale nr. 252/2002."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Vorbitorul oferă date empirice concrete și citează surse normative (Ordinul 252/2002) pentru a justifica nivelul costurilor."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "Majorarea este de aproximativ 60% faþã de nivelurile anterioare ºi cuprinde inflaþia înregistratã la nivelul anului 2001"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Justificarea se bazează pe indicatori economici universali (inflația) în interesul beneficiarilor sistemului public."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "cãminele pentru persoanele vârstnice"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Grupul țintă este menționat funcțional, fără conotații derogatorii sau de respect explicit."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "La interpelarea adresatã de domnul deputat Iulian Mincu"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Interpelarea este tratată ca o sarcină administrativă, fără angajament deliberativ cu cererea."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "La interpelarea adresatã de domnul deputat Iulian Mincu, ministrul muncii ºi solidaritãþii sociale, domnul Marian Sârbu, formuleazã urmãtorul rãspuns"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.94,
+            "rationale_short": "Răspunsul este pur informativ, fără a aborda critic sau a dezbate argumente opuse."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "formuleazã urmãtorul rãspuns"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.96,
+            "rationale_short": "Discursul este un raport tehnic de informare, nu o propunere de politică alternativă sau mediere."
+          }
+        ],
+        "rationale": "Acest discurs reprezintă un răspuns tehnic la o interpelare parlamentară, caracterizat printr-o justificare calificată (level_of_justification=2) bazată pe date financiare și acte normative. Vorbitorul apelează la binele comun prin referirea la inflație și metodologii de calcul standardizate. Deși discursul este informativ și precis, acesta rămâne pozițional (constructive_politics=positional) și nu angajează deliberativ cererile sau contraargumentele opoziției, limitându-se la prezentarea datelor. Respectul pentru grupuri și cereri este neutru, fiind un discurs de tip administrativ-tehnic. Calitatea deliberativă este ridicată în ceea ce privește rigoarea justificării, dar scăzută în ceea ce privește interacțiunea discursivă."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.92,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"În prezent, din luna iunie 2002, nivelul costului mediu lunar de întreþinere este de 1.500.000 lei/lunã, faþã de 900.000 lei/lunã, care era pânã în luna mai 2002, ºi este aprobat prin Ordinul ministrului muncii ºi solidaritãþii sociale nr. 252/2002.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Vorbitorul oferă date empirice concrete și citează surse normative (Ordinul 252/2002) pentru a justifica nivelul costurilor.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"Majorarea este de aproximativ 60% faþã de nivelurile anterioare ºi cuprinde inflaþia înregistratã la nivelul anului 2001\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Justificarea se bazează pe indicatori economici universali (inflația) în interesul beneficiarilor sistemului public.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"cãminele pentru persoanele vârstnice\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Grupul țintă este menționat funcțional, fără conotații derogatorii sau de respect explicit.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"La interpelarea adresatã de domnul deputat Iulian Mincu\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Interpelarea este tratată ca o sarcină administrativă, fără angajament deliberativ cu cererea.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"La interpelarea adresatã de domnul deputat Iulian Mincu, ministrul muncii ºi solidaritãþii sociale, domnul Marian Sârbu, formuleazã urmãtorul rãspuns\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.94,\n      \"rationale_short\": \"Răspunsul este pur informativ, fără a aborda critic sau a dezbate argumente opuse.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"formuleazã urmãtorul rãspuns\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.96,\n      \"rationale_short\": \"Discursul este un raport tehnic de informare, nu o propunere de politică alternativă sau mediere.\"\n    }\n  ],\n  \"rationale\": \"Acest discurs reprezintă un răspuns tehnic la o interpelare parlamentară, caracterizat printr-o justificare calificată (level_of_justification=2) bazată pe date financiare și acte normative. Vorbitorul apelează la binele comun prin referirea la inflație și metodologii de calcul standardizate. Deși discursul este informativ și precis, acesta rămâne pozițional (constructive_politics=positional) și nu angajează deliberativ cererile sau contraargumentele opoziției, limitându-se la prezentarea datelor. Respectul pentru grupuri și cereri este neutru, fiind un discurs de tip administrativ-tehnic. Calitatea deliberativă este ridicată în ceea ce privește rigoarea justificării, dar scăzută în ceea ce privește interacțiunea discursivă.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13585,
+      "tokens_in_breakdown": {
+        "fresh": 13585,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1319,
+      "cost_usd": null,
+      "latency_ms": 5227,
+      "retries_used": 0
+    }
+  }
+}

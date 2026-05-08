@@ -1,0 +1,226 @@
+{
+  "speech_id": "mo://2003/II/52#agenda-1#act-8",
+  "tier": "calibration",
+  "speaker": {
+    "id": "petre-maria",
+    "name": "Maria Petre",
+    "raw": "Doamna Maria Petre",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": null,
+    "year": 2003,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2003/II/52#agenda-1#act-8",
+      "output": {
+        "score": 1,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.85,
+        "markers": [
+          {
+            "kind": "evil_elite",
+            "evidence": {
+              "text": "aceastã hotãrâre de guvern... avea o singurã menire, aceea de a rãstigni democraþia româneascã"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.85,
+            "rationale_short": "Guvernul este acuzat de o acțiune deliberată și malignă de a „răstigni democrația”."
+          },
+          {
+            "kind": "evil_elite",
+            "evidence": {
+              "text": "pesederizarea României se face începând cu talpa þãrii, cu amãrâþii de þãrani"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.88,
+            "rationale_short": "Elita politică (PSD) este descrisă ca acționând parazitar asupra țării și a oamenilor simpli."
+          },
+          {
+            "kind": "homogeneous_people",
+            "evidence": {
+              "text": "poporul ãsta de care vã bateþi joc, domnule Cozmâncã ºi domnule Nãstase, nu poate fi prostit la nesfârºit"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.9,
+            "rationale_short": "Poporul este invocat ca un subiect colectiv unitar care suferă din cauza elitei."
+          }
+        ],
+        "rationale": "Discursul conține elemente populiste clare, precum portretizarea elitei guvernamentale ca fiind malignă (răstignirea democrației, pesederizarea țării) și invocarea poporului ca victimă colectivă a acestor acțiuni. Totuși, discursul rămâne ancorat în detalii procedurale și administrative specifice (bugetul local, Corpul de Control, sesizarea Biroului Electoral), ceea ce împiedică viziunea populistă să devină structura unică a întregii intervenții. Deși markerii de elită malefică și popor omogen sunt prezenți și susțin un ton combativ, discursul nu atinge pragul de 'pervazivitate' necesar pentru scorul 2, fiind mai degrabă un discurs de opoziție care utilizează retorica populistă pentru a amplifica o critică administrativă."
+      },
+      "raw_response": "{\n  \"score\": 1,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.85,\n  \"markers\": [\n    {\n      \"kind\": \"evil_elite\",\n      \"evidence\": {\n        \"text\": \"aceastã hotãrâre de guvern... avea o singurã menire, aceea de a rãstigni democraþia româneascã\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Guvernul este acuzat de o acțiune deliberată și malignă de a „răstigni democrația”.\"\n    },\n    {\n      \"kind\": \"evil_elite\",\n      \"evidence\": {\n        \"text\": \"pesederizarea României se face începând cu talpa þãrii, cu amãrâþii de þãrani\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Elita politică (PSD) este descrisă ca acționând parazitar asupra țării și a oamenilor simpli.\"\n    },\n    {\n      \"kind\": \"homogeneous_people\",\n      \"evidence\": {\n        \"text\": \"poporul ãsta de care vã bateþi joc, domnule Cozmâncã ºi domnule Nãstase, nu poate fi prostit la nesfârºit\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Poporul este invocat ca un subiect colectiv unitar care suferă din cauza elitei.\"\n    }\n  ],\n  \"rationale\": \"Discursul conține elemente populiste clare, precum portretizarea elitei guvernamentale ca fiind malignă (răstignirea democrației, pesederizarea țării) și invocarea poporului ca victimă colectivă a acestor acțiuni. Totuși, discursul rămâne ancorat în detalii procedurale și administrative specifice (bugetul local, Corpul de Control, sesizarea Biroului Electoral), ceea ce împiedică viziunea populistă să devină structura unică a întregii intervenții. Deși markerii de elită malefică și popor omogen sunt prezenți și susțin un ton combativ, discursul nu atinge pragul de 'pervazivitate' necesar pentru scorul 2, fiind mai degrabă un discurs de opoziție care utilizează retorica populistă pentru a amplifica o critică administrativă.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [
+        "aceastã hotãrâre de guvern... avea o singurã menire, aceea de a rãstigni democraþia româneascã"
+      ],
+      "parse_repaired": false,
+      "tokens_in": 14833,
+      "tokens_in_breakdown": {
+        "fresh": 14833,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 720,
+      "cost_usd": null,
+      "latency_ms": 3824,
+      "retries_used": 0
+    },
+    "voice": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "voice",
+      "speech_id": "mo://2003/II/52#agenda-1#act-8",
+      "output": {
+        "classifications": [
+          {
+            "marker_id": "m_1",
+            "voice": "speaker_first_person",
+            "voice_confidence": 0.98,
+            "voice_evidence": null,
+            "attributed_to": null,
+            "rationale_short": "Afirmație directă a vorbitorului, fără indicii de citare, raportare sau disclaimer; vorbitorul își asumă responsabilitatea pentru această critică politică."
+          },
+          {
+            "marker_id": "m_2",
+            "voice": "speaker_first_person",
+            "voice_confidence": 0.98,
+            "voice_evidence": null,
+            "attributed_to": null,
+            "rationale_short": "Afirmație directă la persoana întâi, adresată direct adversarilor politici; vorbitorul își asumă poziția critică fără a o atribui altcuiva."
+          }
+        ]
+      },
+      "raw_response": "{\n  \"classifications\": [\n    {\n      \"marker_id\": \"m_1\",\n      \"voice\": \"speaker_first_person\",\n      \"voice_confidence\": 0.98,\n      \"voice_evidence\": null,\n      \"attributed_to\": null,\n      \"rationale_short\": \"Afirmație directă a vorbitorului, fără indicii de citare, raportare sau disclaimer; vorbitorul își asumă responsabilitatea pentru această critică politică.\"\n    },\n    {\n      \"marker_id\": \"m_2\",\n      \"voice\": \"speaker_first_person\",\n      \"voice_confidence\": 0.98,\n      \"voice_evidence\": null,\n      \"attributed_to\": null,\n      \"rationale_short\": \"Afirmație directă la persoana întâi, adresată direct adversarilor politici; vorbitorul își asumă poziția critică fără a o atribui altcuiva.\"\n    }\n  ]\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12498,
+      "tokens_in_breakdown": {
+        "fresh": 12498,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 232,
+      "cost_usd": null,
+      "latency_ms": 1561,
+      "retries_used": 0
+    },
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2003/II/52#agenda-1#act-8",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.82,
+        "level_of_justification": 2,
+        "content_of_justification": "mixed",
+        "respect_for_groups": 0,
+        "respect_for_demands": 0,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "fondul de rezervã bugetarã la dispoziþia Guvernului se foloseºte pentru finanþarea, aºa cum spune Legea bugetului, în fiecare an, unor cheltuieli urgente sau neprevãzute apãrute în timpul exerciþiului bugetar. La Dridu nu poate fi vorba nici de una, nici de alta."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Vorbitoarea invocă Legea bugetului pentru a argumenta caracterul ilegal al alocării, oferind o justificare calificată."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "mixed",
+            "evidence": {
+              "text": "pesederizarea României se face începând cu talpa þãrii, cu amãrãþii de þãrani. [...] fondul de rezervã bugetarã la dispoziþia Guvernului se foloseºte pentru finanþarea [...] unor cheltuieli urgente"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.85,
+            "rationale_short": "Justificarea combină apelul la interesul de grup (þăranii) cu apelul la binele comun (legalitatea bugetară)."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 0,
+            "evidence": {
+              "text": "candidatul P.S.D., care este o biatã marionetã a baronului ialomiþean Savu"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.96,
+            "marker_confidence": 0.95,
+            "rationale_short": "Utilizarea termenului „marionetă” pentru a descrie un candidat politic constituie o formă de derogare."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 0,
+            "evidence": {
+              "text": "aceastã hotãrâre de guvern [...] avea o singurã menire, aceea de a rãstigni democraþia româneascã."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.91,
+            "rationale_short": "Cererile și acțiunile guvernului sunt respinse ca fiind un atac la adresa democrației."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "nu mai era nevoie de încã o nãzbâtie."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.96,
+            "marker_confidence": 0.88,
+            "rationale_short": "Vorbitoarea ignoră raționamentul guvernului, etichetând acțiunile acestuia drept „năzbâtii”."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Cer Ministerului Administraþiei Publice [...] sã lãmureascã public [...] Cer Guvernului sã verifice [...] Voi cere judecãtorului [...] o anchetã"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Discursul este pozițional, solicitând acțiuni de control și anchetă fără a propune o alternativă legislativă."
+          }
+        ],
+        "rationale": "Discursul Mariei Petre prezintă un profil deliberativ mixt, caracterizat printr-o justificare calificată (level_of_justification=2) bazată pe prevederile Legii bugetului, dar marcat de un respect scăzut pentru adversarii politici. Vorbitoarea utilizează un limbaj derogatoriu (respect_for_groups=0) și respinge acțiunile guvernului fără a se angaja în raționamentul acestora (respect_for_counterarguments=0). Deși oferă o justificare mixtă (common_good și group_interest), discursul rămâne în sfera pozițională, solicitând măsuri de control și anchetă în loc să propună alternative legislative constructive. Calitatea deliberativă este limitată de tonul polemic și de absența angajamentului substanțial cu argumentele opoziției."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.82,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"mixed\",\n  \"respect_for_groups\": 0,\n  \"respect_for_demands\": 0,\n  \"respect_for_counterarguments\": 0,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"fondul de rezervã bugetarã la dispoziþia Guvernului se foloseºte pentru finanþarea, aºa cum spune Legea bugetului, în fiecare an, unor cheltuieli urgente sau neprevãzute apãrute în timpul exerciþiului bugetar. La Dridu nu poate fi vorba nici de una, nici de alta.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Vorbitoarea invocă Legea bugetului pentru a argumenta caracterul ilegal al alocării, oferind o justificare calificată.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"mixed\",\n      \"evidence\": {\n        \"text\": \"pesederizarea României se face începând cu talpa þãrii, cu amãrãþii de þãrani. [...] fondul de rezervã bugetarã la dispoziþia Guvernului se foloseºte pentru finanþarea [...] unor cheltuieli urgente\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Justificarea combină apelul la interesul de grup (þăranii) cu apelul la binele comun (legalitatea bugetară).\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"candidatul P.S.D., care este o biatã marionetã a baronului ialomiþean Savu\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.96,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Utilizarea termenului „marionetă” pentru a descrie un candidat politic constituie o formă de derogare.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"aceastã hotãrâre de guvern [...] avea o singurã menire, aceea de a rãstigni democraþia româneascã.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"marker_confidence\": 0.91,\n      \"rationale_short\": \"Cererile și acțiunile guvernului sunt respinse ca fiind un atac la adresa democrației.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"nu mai era nevoie de încã o nãzbâtie.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.96,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Vorbitoarea ignoră raționamentul guvernului, etichetând acțiunile acestuia drept „năzbâtii”.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"Cer Ministerului Administraþiei Publice [...] sã lãmureascã public [...] Cer Guvernului sã verifice [...] Voi cere judecãtorului [...] o anchetã\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.90,\n      \"rationale_short\": \"Discursul este pozițional, solicitând acțiuni de control și anchetă fără a propune o alternativă legislativă.\"\n    }\n  ],\n  \"rationale\": \"Discursul Mariei Petre prezintă un profil deliberativ mixt, caracterizat printr-o justificare calificată (level_of_justification=2) bazată pe prevederile Legii bugetului, dar marcat de un respect scăzut pentru adversarii politici. Vorbitoarea utilizează un limbaj derogatoriu (respect_for_groups=0) și respinge acțiunile guvernului fără a se angaja în raționamentul acestora (respect_for_counterarguments=0). Deși oferă o justificare mixtă (common_good și group_interest), discursul rămâne în sfera pozițională, solicitând măsuri de control și anchetă în loc să propună alternative legislative constructive. Calitatea deliberativă este limitată de tonul polemic și de absența angajamentului substanțial cu argumentele opoziției.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [
+        "pesederizarea României se face începând cu talpa þãrii, cu amãrãþii de þãrani. [...] fondul de rezervã bugetarã la dispoziþia Guvernului se foloseºte pentru finanþarea [...] unor cheltuieli urgente",
+        "aceastã hotãrâre de guvern [...] avea o singurã menire, aceea de a rãstigni democraþia româneascã.",
+        "Cer Ministerului Administraþiei Publice [...] sã lãmureascã public [...] Cer Guvernului sã verifice [...] Voi cere judecãtorului [...] o anchetã"
+      ],
+      "parse_repaired": false,
+      "tokens_in": 13634,
+      "tokens_in_breakdown": {
+        "fresh": 13634,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1343,
+      "cost_usd": null,
+      "latency_ms": 5274,
+      "retries_used": 0
+    }
+  }
+}

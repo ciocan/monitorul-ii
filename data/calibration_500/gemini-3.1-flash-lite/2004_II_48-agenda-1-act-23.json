@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2004/II/48#agenda-1#act-23",
+  "tier": "calibration",
+  "speaker": {
+    "id": "ionescu-quintus-mircea",
+    "name": "Mircea Ionescu-Quintus",
+    "raw": "Domnul Mircea Ionescu-Quintus",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": null,
+    "year": 2004,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2004/II/48#agenda-1#act-23",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul este pur procedural, concentrându-se pe terminologia juridică a unei legi (diferența dintre „instituire” și „proclamare”). Nu există nicio urmă de cadru popor-vs-elită, maniheism moral sau invocare a unei voințe populare omogene. Vorbitorul se limitează la o intervenție tehnică de redactare legislativă, specifică activității parlamentare de rutină. Hawkins=0 cu încredere ridicată."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul este pur procedural, concentrându-se pe terminologia juridică a unei legi (diferența dintre „instituire” și „proclamare”). Nu există nicio urmă de cadru popor-vs-elită, maniheism moral sau invocare a unei voințe populare omogene. Vorbitorul se limitează la o intervenție tehnică de redactare legislativă, specifică activității parlamentare de rutină. Hawkins=0 cu încredere ridicată.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13704,
+      "tokens_in_breakdown": {
+        "fresh": 13704,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 179,
+      "cost_usd": null,
+      "latency_ms": 1650,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2004/II/48#agenda-1#act-23",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.85,
+        "level_of_justification": 2,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 2,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "alternative_proposal",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "E o diferen˛„ Óntre îinstituire“ ∫i îproclamare“ ∫i cred c„ termenul cel mai potrivit este de îinstituire“, ∫i nu de îproclamare“."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Vorbitorul oferă un raționament semantic și tehnic pentru alegerea terminologiei legislative."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "pentru aceast„ lege trebuie p„strat titlul ∫i Ón art. 1, s„ se spun„ îse instituie“."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Justificarea vizează coerența și calitatea tehnică a legii, un interes general al procesului legislativ."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 2,
+            "evidence": {
+              "text": "Este un merit pe care presa Ól are ∫i pe care trebuie s„-l recunoa∫tem."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Vorbitorul recunoaște explicit meritul presei, demonstrând respect pentru un grup extern."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "toate grupurile parlamentare sus˛in, evident, instituirea acestei zile."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Recunoaștere a consensului parlamentar fără a fi o cerere disputată; atitudine neutră."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "Cred, Óns„, c„, din punct de vedere tehnic, exist„ diferen˛„ Óntre titlul legii ∫i primul articol."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.88,
+            "rationale_short": "Vorbitorul introduce o nuanță tehnică fără a fi o confruntare directă cu un argument opus."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "alternative_proposal",
+            "evidence": {
+              "text": "pentru aceast„ lege trebuie p„strat titlul ∫i Ón art. 1, s„ se spun„ îse instituie“."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.93,
+            "rationale_short": "Vorbitorul propune o modificare tehnică specifică pentru a îmbunătăți textul legislativ."
+          }
+        ],
+        "rationale": "Discursul prezintă o calitate deliberativă ridicată, fiind axat pe clarificarea tehnică a unui proiect legislativ. Vorbitorul oferă o justificare logică pentru alegerea terminologiei (instituire vs. proclamare), ancorată în binele comun al calității legii. Se remarcă un respect explicit pentru rolul presei, depășind curtoazia formală. Deși nu există o confruntare cu un contraargument, vorbitorul propune o corecție constructivă a textului, demonstrând o abordare orientată spre soluții. Profilul este unul tehnic-constructiv, cu un nivel de justificare calificat și o atitudine respectuoasă față de actorii implicați."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.85,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 2,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"alternative_proposal\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"E o diferen˛„ Óntre îinstituire“ ∫i îproclamare“ ∫i cred c„ termenul cel mai potrivit este de îinstituire“, ∫i nu de îproclamare“.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Vorbitorul oferă un raționament semantic și tehnic pentru alegerea terminologiei legislative.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"pentru aceast„ lege trebuie p„strat titlul ∫i Ón art. 1, s„ se spun„ îse instituie“.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.90,\n      \"rationale_short\": \"Justificarea vizează coerența și calitatea tehnică a legii, un interes general al procesului legislativ.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"Este un merit pe care presa Ól are ∫i pe care trebuie s„-l recunoa∫tem.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Vorbitorul recunoaște explicit meritul presei, demonstrând respect pentru un grup extern.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"toate grupurile parlamentare sus˛in, evident, instituirea acestei zile.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Recunoaștere a consensului parlamentar fără a fi o cerere disputată; atitudine neutră.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Cred, Óns„, c„, din punct de vedere tehnic, exist„ diferen˛„ Óntre titlul legii ∫i primul articol.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Vorbitorul introduce o nuanță tehnică fără a fi o confruntare directă cu un argument opus.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"alternative_proposal\",\n      \"evidence\": {\n        \"text\": \"pentru aceast„ lege trebuie p„strat titlul ∫i Ón art. 1, s„ se spun„ îse instituie“.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.93,\n      \"rationale_short\": \"Vorbitorul propune o modificare tehnică specifică pentru a îmbunătăți textul legislativ.\"\n    }\n  ],\n  \"rationale\": \"Discursul prezintă o calitate deliberativă ridicată, fiind axat pe clarificarea tehnică a unui proiect legislativ. Vorbitorul oferă o justificare logică pentru alegerea terminologiei (instituire vs. proclamare), ancorată în binele comun al calității legii. Se remarcă un respect explicit pentru rolul presei, depășind curtoazia formală. Deși nu există o confruntare cu un contraargument, vorbitorul propune o corecție constructivă a textului, demonstrând o abordare orientată spre soluții. Profilul este unul tehnic-constructiv, cu un nivel de justificare calificat și o atitudine respectuoasă față de actorii implicați.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12505,
+      "tokens_in_breakdown": {
+        "fresh": 12505,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1219,
+      "cost_usd": null,
+      "latency_ms": 4479,
+      "retries_used": 0
+    }
+  }
+}

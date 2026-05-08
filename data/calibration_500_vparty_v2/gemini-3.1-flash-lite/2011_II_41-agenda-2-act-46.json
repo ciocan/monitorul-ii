@@ -1,0 +1,52 @@
+{
+  "speech_id": "mo://2011/II/41#agenda-2#act-46",
+  "tier": "calibration",
+  "speaker": {
+    "id": "tilvar-angel",
+    "name": "Angel Tîlvăr",
+    "raw": "Domnul Angel Tîlvăr",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2011-04-12",
+    "year": 2011,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": null,
+    "voice": null,
+    "dqi": null,
+    "vparty": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "vparty",
+      "speech_id": "mo://2011/II/41#agenda-2#act-46",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "vparty@2020 + vdem-attacks-on@v13",
+        "framework_confidence": 0.95,
+        "markers": [],
+        "rationale": "Discursul reprezintă o critică politică dură la adresa unei măsuri guvernamentale (desființarea spitalelor), bazată pe argumente de procedură, legalitate și impact social. Deși vorbitorul folosește un ton acuzator și menționează „încălcarea principiilor statului de drept”, acesta se referă la respectarea legilor și a procedurilor parlamentare/guvernamentale, nu la delegitimarea instituțiilor democratice ca atare. Nu există atacuri la adresa judecătorilor, presei, ONG-urilor sau minorităților, iar critica opoziției față de guvern rămâne în limitele contestării politice legitime. Scor 0, deoarece discursul nu exprimă o viziune anti-pluralistă, ci o opoziție parlamentară standard."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"vparty@2020 + vdem-attacks-on@v13\",\n  \"framework_confidence\": 0.95,\n  \"markers\": [],\n  \"rationale\": \"Discursul reprezintă o critică politică dură la adresa unei măsuri guvernamentale (desființarea spitalelor), bazată pe argumente de procedură, legalitate și impact social. Deși vorbitorul folosește un ton acuzator și menționează „încălcarea principiilor statului de drept”, acesta se referă la respectarea legilor și a procedurilor parlamentare/guvernamentale, nu la delegitimarea instituțiilor democratice ca atare. Nu există atacuri la adresa judecătorilor, presei, ONG-urilor sau minorităților, iar critica opoziției față de guvern rămâne în limitele contestării politice legitime. Scor 0, deoarece discursul nu exprimă o viziune anti-pluralistă, ci o opoziție parlamentară standard.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 14084,
+      "tokens_in_breakdown": {
+        "fresh": 14084,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 267,
+      "cost_usd": null,
+      "latency_ms": 2026,
+      "retries_used": 0
+    }
+  }
+}

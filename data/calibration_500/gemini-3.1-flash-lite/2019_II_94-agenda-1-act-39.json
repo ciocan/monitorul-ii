@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2019/II/94#agenda-1#act-39",
+  "tier": "calibration",
+  "speaker": {
+    "id": "ciofu-tamara-dorina",
+    "name": "Tamara Dorina Ciofu",
+    "raw": "Doamna Tamara Dorina Ciofu",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2019-09-04",
+    "year": 2019,
+    "legislature": "VIII",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2019/II/94#agenda-1#act-39",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul este o intervenție tehnică și constructivă axată pe politici publice în domeniul educației incluzive pentru tinerii cu nevoi speciale. Vorbitoarea propune soluții concrete, precum adaptarea programei școlare, profesionalizarea facilitatorilor și dezvoltarea infrastructurii, fără a utiliza un cadru maniheist popor-vs-elită. Nu există invocări ale unei voințe populare omogene sau ale unei elite malefice, discursul rămânând în registrul procedural și administrativ. Hawkins=0 cu încredere ridicată."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul este o intervenție tehnică și constructivă axată pe politici publice în domeniul educației incluzive pentru tinerii cu nevoi speciale. Vorbitoarea propune soluții concrete, precum adaptarea programei școlare, profesionalizarea facilitatorilor și dezvoltarea infrastructurii, fără a utiliza un cadru maniheist popor-vs-elită. Nu există invocări ale unei voințe populare omogene sau ale unei elite malefice, discursul rămânând în registrul procedural și administrativ. Hawkins=0 cu încredere ridicată.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 14487,
+      "tokens_in_breakdown": {
+        "fresh": 14487,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 194,
+      "cost_usd": null,
+      "latency_ms": 1961,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2019/II/94#agenda-1#act-39",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.88,
+        "level_of_justification": 2,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "alternative_proposal",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "Copiii cu dizabilități neuropsihice fac parte dintr-o categorie defavorizată, sistemul nu le oferă suficient personal de suport, școlile speciale nu îi pregătesc pentru viață și, deși pot avea abilități deosebite, nu au acces la învățământ de calitate și, pe cale de consecință, la integrare pe piața muncii."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Vorbitorul oferă o justificare cauzală clară care leagă lipsa suportului de eșecul integrării pe piața muncii."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "Stadiul de dezvoltare al societății se reflectă, pe lângă nivelul economic și social, și în modul prin care fiecare stat își tratează membrii săi cei mai vulnerabili."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Apelul este universalizabil, vizând responsabilitatea statului față de membrii vulnerabili ai societății."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Copiii cu dizabilități neuropsihice fac parte dintr-o categorie defavorizată"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Grupul este menționat într-un context descriptiv și empatic, fără a fi derogatoriu sau explicit lăudat."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "În acest sens, consider că trebuie să avem în vedere următoarele aspecte"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Vorbitorul își prezintă propriile propuneri fără a aborda explicit cererile opoziției."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "În acest sens, consider că trebuie să avem în vedere următoarele aspecte"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.88,
+            "rationale_short": "Discursul este o expunere de măsuri fără a menționa sau a răspunde la contraargumente."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "alternative_proposal",
+            "evidence": {
+              "text": "Incluziune reală, astfel încât fiecare unitate de învățământ să fie obligată să integreze între 5% și 10% copii cu CES"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.94,
+            "rationale_short": "Vorbitorul propune o serie de măsuri concrete și alternative pentru îmbunătățirea sistemului educațional."
+          }
+        ],
+        "rationale": "Discursul prezintă o calitate deliberativă solidă prin oferirea unor justificări cauzale clare (level_of_justification=2) și ancorarea în binele comun (content_of_justification=common_good). Vorbitorul propune o serie de soluții concrete și alternative (constructive_politics=alternative_proposal) pentru integrarea tinerilor cu nevoi speciale, demonstrând o abordare constructivă. Totuși, discursul nu angajează contraargumente sau cereri opuse, rămânând într-o zonă de expunere a propriei agende (respect_for_counterarguments=0). Respectul pentru grupuri este neutru, fiind tratat cu empatie dar fără a depăși cadrul discursiv standard. În ansamblu, este un discurs bine structurat și orientat spre politici publice, deși îi lipsește dimensiunea interactivă a dezbaterii parlamentare."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.88,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 0,\n  \"constructive_politics\": \"alternative_proposal\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"Copiii cu dizabilități neuropsihice fac parte dintr-o categorie defavorizată, sistemul nu le oferă suficient personal de suport, școlile speciale nu îi pregătesc pentru viață și, deși pot avea abilități deosebite, nu au acces la învățământ de calitate și, pe cale de consecință, la integrare pe piața muncii.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Vorbitorul oferă o justificare cauzală clară care leagă lipsa suportului de eșecul integrării pe piața muncii.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"Stadiul de dezvoltare al societății se reflectă, pe lângă nivelul economic și social, și în modul prin care fiecare stat își tratează membrii săi cei mai vulnerabili.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Apelul este universalizabil, vizând responsabilitatea statului față de membrii vulnerabili ai societății.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Copiii cu dizabilități neuropsihice fac parte dintr-o categorie defavorizată\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Grupul este menționat într-un context descriptiv și empatic, fără a fi derogatoriu sau explicit lăudat.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"În acest sens, consider că trebuie să avem în vedere următoarele aspecte\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Vorbitorul își prezintă propriile propuneri fără a aborda explicit cererile opoziției.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"În acest sens, consider că trebuie să avem în vedere următoarele aspecte\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Discursul este o expunere de măsuri fără a menționa sau a răspunde la contraargumente.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"alternative_proposal\",\n      \"evidence\": {\n        \"text\": \"Incluziune reală, astfel încât fiecare unitate de învățământ să fie obligată să integreze între 5% și 10% copii cu CES\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.94,\n      \"rationale_short\": \"Vorbitorul propune o serie de măsuri concrete și alternative pentru îmbunătățirea sistemului educațional.\"\n    }\n  ],\n  \"rationale\": \"Discursul prezintă o calitate deliberativă solidă prin oferirea unor justificări cauzale clare (level_of_justification=2) și ancorarea în binele comun (content_of_justification=common_good). Vorbitorul propune o serie de soluții concrete și alternative (constructive_politics=alternative_proposal) pentru integrarea tinerilor cu nevoi speciale, demonstrând o abordare constructivă. Totuși, discursul nu angajează contraargumente sau cereri opuse, rămânând într-o zonă de expunere a propriei agende (respect_for_counterarguments=0). Respectul pentru grupuri este neutru, fiind tratat cu empatie dar fără a depăși cadrul discursiv standard. În ansamblu, este un discurs bine structurat și orientat spre politici publice, deși îi lipsește dimensiunea interactivă a dezbaterii parlamentare.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13288,
+      "tokens_in_breakdown": {
+        "fresh": 13288,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1323,
+      "cost_usd": null,
+      "latency_ms": 5284,
+      "retries_used": 0
+    }
+  }
+}

@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2005/II/136#agenda-3#act-64",
+  "tier": "populist",
+  "speaker": {
+    "id": "tudor-corneliu-vadim",
+    "name": "Corneliu Vadim Tudor",
+    "raw": "Domnul Corneliu Vadim Tudor",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": null,
+    "year": 2005,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "sonnet",
+  "model_label": "claude-sonnet-4.6",
+  "results": {
+    "hawkins": {
+      "model_key": "sonnet",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2005/II/136#agenda-3#act-64",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.82,
+        "markers": [],
+        "rationale": "Discursul este predominant procedural — critica vizează sistemul deficitar de vot electronic și pledează pentru un vot nominal după strigarea catalogului, cu referiri concrete la prezența membrilor Cabinetului Tăriceanu și la efortul Senatului. Singurul moment cu aparentă rezonanță populistă este invocarea unor 'oameni amărâți' și 'pensionari' ca public virtual al ședinței, dar acesta apare în registru ipotetic ('era bine să fie o ședință cu public și să vină...'), nu ca afirmație la persoana întâi a vorbitorului. Vorbitorul utilizează chiar termenul 'populism' ca posibilă etichetă pe care o contestă — el apără relevanța problemei prețurilor față de o potențială acuzație de demagogie, nu lansează un apel mobilizator în registrul populist. Nu se identifică niciun cadru pervaziv popor-vs-elită, niciun maniheism moral, nicio supremație a voinței populare și niciun marker de criză retorică la persoana întâi. Hawkins=0 cu încredere ridicată."
+      },
+      "raw_response": "```json\n{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.82,\n  \"markers\": [],\n  \"rationale\": \"Discursul este predominant procedural — critica vizează sistemul deficitar de vot electronic și pledează pentru un vot nominal după strigarea catalogului, cu referiri concrete la prezența membrilor Cabinetului Tăriceanu și la efortul Senatului. Singurul moment cu aparentă rezonanță populistă este invocarea unor 'oameni amărâți' și 'pensionari' ca public virtual al ședinței, dar acesta apare în registru ipotetic ('era bine să fie o ședință cu public și să vină...'), nu ca afirmație la persoana întâi a vorbitorului. Vorbitorul utilizează chiar termenul 'populism' ca posibilă etichetă pe care o contestă — el apără relevanța problemei prețurilor față de o potențială acuzație de demagogie, nu lansează un apel mobilizator în registrul populist. Nu se identifică niciun cadru pervaziv popor-vs-elită, niciun maniheism moral, nicio supremație a voinței populare și niciun marker de criză retorică la persoana întâi. Hawkins=0 cu încredere ridicată.\"\n}\n```",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 73989,
+      "tokens_in_breakdown": {
+        "fresh": 2,
+        "cache_creation": 60841,
+        "cache_read": 13146
+      },
+      "tokens_out": 8329,
+      "cost_usd": 0.35703854999999995,
+      "latency_ms": 134522,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "sonnet",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2005/II/136#agenda-3#act-64",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.76,
+        "level_of_justification": 1,
+        "content_of_justification": "mixed",
+        "respect_for_groups": 1,
+        "respect_for_demands": 0,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "alternative_proposal",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 1,
+            "evidence": {
+              "text": "am v„zut pe toate posturile centrale de televiziune c‚˛iva colegi de la Alian˛a P.N.L.-P.D. care acuzau sistemul deficitar de vot, votul electronic, ∫i se mirau, sincer sau ipocrit, de rezultatul votului. Au spus c„ ei au votat Óntr-un anumit fel, dar pe lista electronic„ a ap„rut altfel. De unde avem noi garan˛ia c„ nu se va repeta aceast„ eroare?"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.93,
+            "marker_confidence": 0.77,
+            "rationale_short": "Motive date (rapoarte TV despre erori la vot), fără surse formale; „nu suntem japonezi\" e opinie pură — justificare inferioară, nu calificată."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "mixed",
+            "evidence": {
+              "text": "Hai s„ vedem ∫i noi care e raportul adev„rat de for˛e, dac„ tot se spunea c„ nu asta este realitatea societ„˛ii rom‚ne∫ti"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.93,
+            "marker_confidence": 0.71,
+            "rationale_short": "Apel mixt: interes partizan („raportul adevărat de forțe\") și bine comun (legitimitatea procesului de vot, situația pensionarilor)."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "c‚teva sute de oameni am„r‚˛i, c‚teva sute de pensionari, s„ vedem ∫i noi dac„ pre˛urile sunt o demagogie ∫i o dovad„ de populism sau sunt cumva o problem„ de via˛„ ∫i de moarte a rom‚nilor"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.93,
+            "marker_confidence": 0.7,
+            "rationale_short": "Grupurile sociale afectate (pensionari, cetățeni obișnuiți) sunt menționate descriptiv, fără derogare explicită și fără recunoaștere formală — neutru."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 0,
+            "evidence": {
+              "text": "∫i se mirau, sincer sau ipocrit, de rezultatul votului"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.83,
+            "rationale_short": "Sintagma „sincer sau ipocrit\" pune sub semnul întrebării buna-credință a cererilor opoziției — respingere implicită a legitimității lor.\""
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "Cine se teme de un vot nominal dup„ strigarea catalogului, din moment ce s-a depus at‚ta efort?"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.94,
+            "marker_confidence": 0.8,
+            "rationale_short": "Argumentele celor care apără votul electronic nu sunt menționate sau contracarate; discursul procedează în mod pur pozițional."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "alternative_proposal",
+            "evidence": {
+              "text": "Cine se teme de un vot nominal dup„ strigarea catalogului, din moment ce s-a depus at‚ta efort?"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.94,
+            "marker_confidence": 0.82,
+            "rationale_short": "Propunere concretă alternativă: vot nominal prin strigarea catalogului, cu durată estimată (o jumătate de oră), în locul votului electronic contestat."
+          }
+        ],
+        "rationale": "Intervenție procedurală cu profil DQI moderat-scăzut. Vorbitorul susține organizarea unui vot nominal după strigarea catalogului, în locul votului electronic contestat, și oferă motive — rapoarte TV despre erori de înregistrare, efortul miniștrilor prezenți, durata scurtă a procedurii alternative — dar justificarea rămâne inferioară (nivel 1): argumentele sunt retorice și bazate pe surse neverificate, iar afirmații precum „nu suntem japonezi, nu suntem nemți\" sunt opinii pure fără mecanism cauzal. Conținutul justificării este mixt: apelul la „raportul adevărat de forțe\" reflectă interes partizan, în timp ce referința la pensionari și prețuri evocă binele comun. Respectul față de cereri este scăzut (0): sintagma „sincer sau ipocrit\" pune explicit sub semnul întrebării buna-credință a plângerilor adversarilor, ceea ce constituie o respingere implicită a legitimității lor, nu o recunoaștere. Argumentele celor care apără votul electronic sunt complet ignorate (respect_for_counterarguments=0); discursul avansează o poziție fără să contracareze raționamentul opus. Dimensiunea constructivă rămâne totuși pozitivă: propunerea de vot nominal reprezintă o alternativă concretă, nu doar o poziție în termeni de pro/contra. Respectul față de grupurile sociale este neutru — referința la pensionari și cetățeni amărâți este descriptiv-simpatetică, fără derogare, dar și fără recunoaștere explicită a legitimității lor.\""
+      },
+      "raw_response": "```json\n{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.76,\n  \"level_of_justification\": 1,\n  \"content_of_justification\": \"mixed\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 0,\n  \"respect_for_counterarguments\": 0,\n  \"constructive_politics\": \"alternative_proposal\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"am v„zut pe toate posturile centrale de televiziune c‚˛iva colegi de la Alian˛a P.N.L.-P.D. care acuzau sistemul deficitar de vot, votul electronic, ∫i se mirau, sincer sau ipocrit, de rezultatul votului. Au spus c„ ei au votat Óntr-un anumit fel, dar pe lista electronic„ a ap„rut altfel. De unde avem noi garan˛ia c„ nu se va repeta aceast„ eroare?\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.93,\n      \"marker_confidence\": 0.77,\n      \"rationale_short\": \"Motive date (rapoarte TV despre erori la vot), fără surse formale; „nu suntem japonezi\" e opinie pură — justificare inferioară, nu calificată.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"mixed\",\n      \"evidence\": {\n        \"text\": \"Hai s„ vedem ∫i noi care e raportul adev„rat de for˛e, dac„ tot se spunea c„ nu asta este realitatea societ„˛ii rom‚ne∫ti\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.93,\n      \"marker_confidence\": 0.71,\n      \"rationale_short\": \"Apel mixt: interes partizan („raportul adevărat de forțe\\\") și bine comun (legitimitatea procesului de vot, situația pensionarilor).\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"c‚teva sute de oameni am„r‚˛i, c‚teva sute de pensionari, s„ vedem ∫i noi dac„ pre˛urile sunt o demagogie ∫i o dovad„ de populism sau sunt cumva o problem„ de via˛„ ∫i de moarte a rom‚nilor\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.93,\n      \"marker_confidence\": 0.70,\n      \"rationale_short\": \"Grupurile sociale afectate (pensionari, cetățeni obișnuiți) sunt menționate descriptiv, fără derogare explicită și fără recunoaștere formală — neutru.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"∫i se mirau, sincer sau ipocrit, de rezultatul votului\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.83,\n      \"rationale_short\": \"Sintagma „sincer sau ipocrit\" pune sub semnul întrebării buna-credință a cererilor opoziției — respingere implicită a legitimității lor.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"Cine se teme de un vot nominal dup„ strigarea catalogului, din moment ce s-a depus at‚ta efort?\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.94,\n      \"marker_confidence\": 0.80,\n      \"rationale_short\": \"Argumentele celor care apără votul electronic nu sunt menționate sau contracarate; discursul procedează în mod pur pozițional.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"alternative_proposal\",\n      \"evidence\": {\n        \"text\": \"Cine se teme de un vot nominal dup„ strigarea catalogului, din moment ce s-a depus at‚ta efort?\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.94,\n      \"marker_confidence\": 0.82,\n      \"rationale_short\": \"Propunere concretă alternativă: vot nominal prin strigarea catalogului, cu durată estimată (o jumătate de oră), în locul votului electronic contestat.\"\n    }\n  ],\n  \"rationale\": \"Intervenție procedurală cu profil DQI moderat-scăzut. Vorbitorul susține organizarea unui vot nominal după strigarea catalogului, în locul votului electronic contestat, și oferă motive — rapoarte TV despre erori de înregistrare, efortul miniștrilor prezenți, durata scurtă a procedurii alternative — dar justificarea rămâne inferioară (nivel 1): argumentele sunt retorice și bazate pe surse neverificate, iar afirmații precum „nu suntem japonezi, nu suntem nemți\" sunt opinii pure fără mecanism cauzal. Conținutul justificării este mixt: apelul la „raportul adevărat de forțe\" reflectă interes partizan, în timp ce referința la pensionari și prețuri evocă binele comun. Respectul față de cereri este scăzut (0): sintagma „sincer sau ipocrit\" pune explicit sub semnul întrebării buna-credință a plângerilor adversarilor, ceea ce constituie o respingere implicită a legitimității lor, nu o recunoaștere. Argumentele celor care apără votul electronic sunt complet ignorate (respect_for_counterarguments=0); discursul avansează o poziție fără să contracareze raționamentul opus. Dimensiunea constructivă rămâne totuși pozitivă: propunerea de vot nominal reprezintă o alternativă concretă, nu doar o poziție în termeni de pro/contra. Respectul față de grupurile sociale este neutru — referința la pensionari și cetățeni amărâți este descriptiv-simpatetică, fără derogare, dar și fără recunoaștere explicită a legitimității lor.\"\n}\n```",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": true,
+      "tokens_in": 72620,
+      "tokens_in_breakdown": {
+        "fresh": 2,
+        "cache_creation": 59472,
+        "cache_read": 13146
+      },
+      "tokens_out": 9343,
+      "cost_usd": 0.3671148,
+      "latency_ms": 131938,
+      "retries_used": 0
+    }
+  }
+}

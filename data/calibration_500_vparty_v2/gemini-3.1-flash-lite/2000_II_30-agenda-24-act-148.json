@@ -1,0 +1,52 @@
+{
+  "speech_id": "mo://2000/II/30#agenda-24#act-148",
+  "tier": "calibration",
+  "speaker": {
+    "id": "lupu-vasile",
+    "name": "Vasile Lupu",
+    "raw": "Domnul Vasile Lupu",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": null,
+    "year": 2000,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": null,
+    "voice": null,
+    "dqi": null,
+    "vparty": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "vparty",
+      "speech_id": "mo://2000/II/30#agenda-24#act-148",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "vparty@2020 + vdem-attacks-on@v13",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul este pur procedural, concentrându-se pe interpretarea regulamentului Parlamentului privind procedurile de numire și vot. Vorbitorul citează articole din regulament și propune o interpretare tehnică a acestora, fără a ataca instituțiile democratice, opoziția, presa sau alte grupuri. Nu există nicio urmă de delegitimizare a normelor democratice sau a instituțiilor statului. Discursul se încadrează perfect în registrul parlamentar normal."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"vparty@2020 + vdem-attacks-on@v13\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul este pur procedural, concentrându-se pe interpretarea regulamentului Parlamentului privind procedurile de numire și vot. Vorbitorul citează articole din regulament și propune o interpretare tehnică a acestora, fără a ataca instituțiile democratice, opoziția, presa sau alte grupuri. Nu există nicio urmă de delegitimizare a normelor democratice sau a instituțiilor statului. Discursul se încadrează perfect în registrul parlamentar normal.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12980,
+      "tokens_in_breakdown": {
+        "fresh": 12980,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 189,
+      "cost_usd": null,
+      "latency_ms": 1717,
+      "retries_used": 0
+    }
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "speech_id": "mo://2000/II/131#agenda-1#act-58",
+  "tier": "calibration",
+  "speaker": {
+    "id": "moisin-ioan",
+    "name": "Ioan Moisin",
+    "raw": "Domnul Ioan Moisin",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": null,
+    "year": 2000,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": null,
+    "voice": null,
+    "dqi": null,
+    "vparty": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "vparty",
+      "speech_id": "mo://2000/II/131#agenda-1#act-58",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "vparty@2020 + vdem-attacks-on@v13",
+        "framework_confidence": 0.95,
+        "markers": [],
+        "rationale": "Discursul prezintă o retorică populistă clasică, criticând clasa politică din ultimele cinci secole ca fiind o „nenorocire pentru popor” și „ploconită în fața străinilor”. Cu toate acestea, discursul nu atacă instituții democratice specifice (judiciar, presă, ONG-uri, minorități) și nu respinge normele democratice sau procesul electoral. Critica este îndreptată către o entitate abstractă și istorică, nu către instituțiile statului de drept, încadrându-se în registrul discursului politic legitim, deși critic. V-Party=0 cu încredere ridicată."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"vparty@2020 + vdem-attacks-on@v13\",\n  \"framework_confidence\": 0.95,\n  \"markers\": [],\n  \"rationale\": \"Discursul prezintă o retorică populistă clasică, criticând clasa politică din ultimele cinci secole ca fiind o „nenorocire pentru popor” și „ploconită în fața străinilor”. Cu toate acestea, discursul nu atacă instituții democratice specifice (judiciar, presă, ONG-uri, minorități) și nu respinge normele democratice sau procesul electoral. Critica este îndreptată către o entitate abstractă și istorică, nu către instituțiile statului de drept, încadrându-se în registrul discursului politic legitim, deși critic. V-Party=0 cu încredere ridicată.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13150,
+      "tokens_in_breakdown": {
+        "fresh": 13150,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 228,
+      "cost_usd": null,
+      "latency_ms": 1978,
+      "retries_used": 0
+    }
+  }
+}

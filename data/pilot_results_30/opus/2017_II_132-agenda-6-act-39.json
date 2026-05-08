@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2017/II/132#agenda-6#act-39",
+  "tier": "register_shift",
+  "speaker": {
+    "id": "basescu-traian",
+    "name": "Traian Băsescu",
+    "raw": "Domnul Traian Băsescu",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": "2017-09-25",
+    "year": 2017,
+    "legislature": "VIII",
+    "delivery_mode": null
+  },
+  "model_key": "opus",
+  "model_label": "claude-opus-4.7",
+  "results": {
+    "hawkins": {
+      "model_key": "opus",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2017/II/132#agenda-6#act-39",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.94,
+        "markers": [],
+        "rationale": "Discurs procedural în registru parlamentar standard, axat pe susținerea unui amendament în favoarea persoanelor cu handicap și pe critica adresată grupului PSD–ALDE pentru respingerea amendamentelor. Vorbitorul folosește un ton conciliant („rugăminte\", „fac un apel la dumneavoastră\") și aritmetică parlamentară concretă („doi-trei parlamentari mai mult\"), fără cadru popor-vs-elită, fără maniheism moralizator, fără invocarea unei voințe populare omogene supreme deasupra instituțiilor. Referirea la „cei mai ghinioniști dintre români, oameni cu handicap\" este o categorie socială specifică, nu „poporul\" ca subiect singular populist. Fără markeri populiști — Hawkins=0 cu încredere ridicată."
+      },
+      "raw_response": "{\"score\":0,\"score_unit\":\"ordinal_0_2\",\"framework_version\":\"hawkins@2018\",\"framework_confidence\":0.94,\"markers\":[],\"rationale\":\"Discurs procedural în registru parlamentar standard, axat pe susținerea unui amendament în favoarea persoanelor cu handicap și pe critica adresată grupului PSD–ALDE pentru respingerea amendamentelor. Vorbitorul folosește un ton conciliant („rugăminte\\\", „fac un apel la dumneavoastră\\\") și aritmetică parlamentară concretă („doi-trei parlamentari mai mult\\\"), fără cadru popor-vs-elită, fără maniheism moralizator, fără invocarea unei voințe populare omogene supreme deasupra instituțiilor. Referirea la „cei mai ghinioniști dintre români, oameni cu handicap\\\" este o categorie socială specifică, nu „poporul\\\" ca subiect singular populist. Fără markeri populiști — Hawkins=0 cu încredere ridicată.\"}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 104134,
+      "tokens_in_breakdown": {
+        "fresh": 5,
+        "cache_creation": 85776,
+        "cache_read": 18353
+      },
+      "tokens_out": 359,
+      "cost_usd": 0.5542765000000001,
+      "latency_ms": 12638,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "opus",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2017/II/132#agenda-6#act-39",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.78,
+        "level_of_justification": 1,
+        "content_of_justification": "group_interest",
+        "respect_for_groups": 2,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 1,
+            "evidence": {
+              "text": "sunt amendamente în favoarea celor mai ghinioniști dintre români, oameni cu handicap"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.78,
+            "rationale_short": "Justificare prezentă dar de tip apel emoțional la categoria beneficiarilor; lipsește un mecanism cauzal sau o sursă concretă."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "group_interest",
+            "evidence": {
+              "text": "în favoarea celor mai ghinioniști dintre români, oameni cu handicap"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.82,
+            "rationale_short": "Apelul invocă explicit interesul unui grup definit (persoanele cu handicap) ca beneficiar al amendamentului."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 2,
+            "evidence": {
+              "text": "am dat de un om care știe problemele persoanelor cu handicap"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.94,
+            "marker_confidence": 0.74,
+            "rationale_short": "Recunoaștere explicită a competenței unui coleg, plus afirmare a demnității grupului vulnerabil vizat de amendament."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Este al patrulea amendament rațional pe care îl auzim. Cred că toate și-ar fi găsit locul în lege"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.7,
+            "rationale_short": "Vorbitorul caracterizează amendamentele drept „raționale\" dar nu angajează cererile concrete ale majorității care le respinge."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "doar faptul că Grupul PSD–ALDE este astăzi cu doi-trei parlamentari mai mult, sincer, nu justifică respingerea acestor amendamente"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.76,
+            "rationale_short": "Aluzie la motivul respingerii (raportul de forțe) fără a reformula sau combate substanțial vreun argument de fond al majorității."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Fac un apel la dumneavoastră să adoptăm acest amendament, să nu mai trecem structurile care au astfel de angajați prin procese de reautorizare"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.96,
+            "marker_confidence": 0.85,
+            "rationale_short": "Susține adoptarea unui amendament existent fără a oferi o alternativă proprie sau o mediere între poziții."
+          }
+        ],
+        "rationale": "Discurs scurt de pledoarie pentru un amendament al opoziției, cu profil deliberativ moderat-scăzut. Justificarea este prezentă dar slabă (level_of_justification=1): apelul se sprijină pe identitatea beneficiarilor („cei mai ghinioniști dintre români\") și nu pe un mecanism, un principiu juridic sau o sursă specifică, iar conținutul justificării este predominant orientat pe interesul unui grup definit (persoanele cu handicap). Respectul pentru grupuri urcă la 2 prin recunoașterea explicită a competenței colegului care a propus amendamentul și prin afirmarea demnității grupului vulnerabil. Cererile și contraargumentele majorității sunt doar atinse implicit — vorbitorul aluzionează la raportul de forțe ca explicație a respingerii, fără a reformula sau combate substanțial argumente de fond. Politica este pur pozițională: speakerul cere adoptarea amendamentului existent, fără a propune o alternativă sau o mediere. framework_confidence ~0.78 — dimensiunile sunt clare, dar fragmentul scurt și registrul de apel emoțional limitează precizia pe respect_for_demands și respect_for_counterarguments."
+      },
+      "raw_response": "{\"framework_version\":\"steiner-bachtiger@2017\",\"score_unit\":\"dqi_multi\",\"framework_confidence\":0.78,\"level_of_justification\":1,\"content_of_justification\":\"group_interest\",\"respect_for_groups\":2,\"respect_for_demands\":1,\"respect_for_counterarguments\":1,\"constructive_politics\":\"positional\",\"markers\":[{\"kind\":\"level_of_justification\",\"value\":1,\"evidence\":{\"text\":\"sunt amendamente în favoarea celor mai ghinioniști dintre români, oameni cu handicap\"},\"preliminary_voice\":\"speaker_first_person\",\"preliminary_voice_confidence\":0.95,\"marker_confidence\":0.78,\"rationale_short\":\"Justificare prezentă dar de tip apel emoțional la categoria beneficiarilor; lipsește un mecanism cauzal sau o sursă concretă.\"},{\"kind\":\"content_of_justification\",\"value\":\"group_interest\",\"evidence\":{\"text\":\"în favoarea celor mai ghinioniști dintre români, oameni cu handicap\"},\"preliminary_voice\":\"speaker_first_person\",\"preliminary_voice_confidence\":0.95,\"marker_confidence\":0.82,\"rationale_short\":\"Apelul invocă explicit interesul unui grup definit (persoanele cu handicap) ca beneficiar al amendamentului.\"},{\"kind\":\"respect_for_groups\",\"value\":2,\"evidence\":{\"text\":\"am dat de un om care știe problemele persoanelor cu handicap\"},\"preliminary_voice\":\"speaker_first_person\",\"preliminary_voice_confidence\":0.94,\"marker_confidence\":0.74,\"rationale_short\":\"Recunoaștere explicită a competenței unui coleg, plus afirmare a demnității grupului vulnerabil vizat de amendament.\"},{\"kind\":\"respect_for_demands\",\"value\":1,\"evidence\":{\"text\":\"Este al patrulea amendament rațional pe care îl auzim. Cred că toate și-ar fi găsit locul în lege\"},\"preliminary_voice\":\"speaker_first_person\",\"preliminary_voice_confidence\":0.95,\"marker_confidence\":0.7,\"rationale_short\":\"Vorbitorul caracterizează amendamentele drept „raționale\\\" dar nu angajează cererile concrete ale majorității care le respinge.\"},{\"kind\":\"respect_for_counterarguments\",\"value\":1,\"evidence\":{\"text\":\"doar faptul că Grupul PSD–ALDE este astăzi cu doi-trei parlamentari mai mult, sincer, nu justifică respingerea acestor amendamente\"},\"preliminary_voice\":\"speaker_first_person\",\"preliminary_voice_confidence\":0.95,\"marker_confidence\":0.76,\"rationale_short\":\"Aluzie la motivul respingerii (raportul de forțe) fără a reformula sau combate substanțial vreun argument de fond al majorității.\"},{\"kind\":\"constructive_politics\",\"value\":\"positional\",\"evidence\":{\"text\":\"Fac un apel la dumneavoastră să adoptăm acest amendament, să nu mai trecem structurile care au astfel de angajați prin procese de reautorizare\"},\"preliminary_voice\":\"speaker_first_person\",\"preliminary_voice_confidence\":0.96,\"marker_confidence\":0.85,\"rationale_short\":\"Susține adoptarea unui amendament existent fără a oferi o alternativă proprie sau o mediere între poziții.\"}],\"rationale\":\"Discurs scurt de pledoarie pentru un amendament al opoziției, cu profil deliberativ moderat-scăzut. Justificarea este prezentă dar slabă (level_of_justification=1): apelul se sprijină pe identitatea beneficiarilor („cei mai ghinioniști dintre români\\\") și nu pe un mecanism, un principiu juridic sau o sursă specifică, iar conținutul justificării este predominant orientat pe interesul unui grup definit (persoanele cu handicap). Respectul pentru grupuri urcă la 2 prin recunoașterea explicită a competenței colegului care a propus amendamentul și prin afirmarea demnității grupului vulnerabil. Cererile și contraargumentele majorității sunt doar atinse implicit — vorbitorul aluzionează la raportul de forțe ca explicație a respingerii, fără a reformula sau combate substanțial argumente de fond. Politica este pur pozițională: speakerul cere adoptarea amendamentului existent, fără a propune o alternativă sau o mediere. framework_confidence ~0.78 — dimensiunile sunt clare, dar fragmentul scurt și registrul de apel emoțional limitează precizia pe respect_for_demands și respect_for_counterarguments.\"}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 102125,
+      "tokens_in_breakdown": {
+        "fresh": 5,
+        "cache_creation": 83767,
+        "cache_read": 18353
+      },
+      "tokens_out": 1608,
+      "cost_usd": 0.57294525,
+      "latency_ms": 26898,
+      "retries_used": 0
+    }
+  }
+}

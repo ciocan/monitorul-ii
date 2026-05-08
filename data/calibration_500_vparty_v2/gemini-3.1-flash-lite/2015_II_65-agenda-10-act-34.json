@@ -1,0 +1,52 @@
+{
+  "speech_id": "mo://2015/II/65#agenda-10#act-34",
+  "tier": "calibration",
+  "speaker": {
+    "id": "motoc-octavian",
+    "name": "Octavian Motoc",
+    "raw": "Domnul Octavian Motoc",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": "2015-04-15",
+    "year": 2015,
+    "legislature": "VII",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": null,
+    "voice": null,
+    "dqi": null,
+    "vparty": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "vparty",
+      "speech_id": "mo://2015/II/65#agenda-10#act-34",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "vparty@2020 + vdem-attacks-on@v13",
+        "framework_confidence": 1.0,
+        "markers": [],
+        "rationale": "Discursul este unul de natură legislativă și umanitară, concentrat pe îmbunătățirea accesibilității instituțiilor publice pentru persoanele cu dizabilități. Vorbitorul propune soluții concrete și constructive, fără a ataca nicio instituție democratică, grup social sau normă constituțională. Nu există nicio urmă de delegitimizare a opoziției, presei, justiției sau a altor actori democratici. Discursul respectă pe deplin normele pluraliste și se încadrează în registrul parlamentar standard."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"vparty@2020 + vdem-attacks-on@v13\",\n  \"framework_confidence\": 1.0,\n  \"markers\": [],\n  \"rationale\": \"Discursul este unul de natură legislativă și umanitară, concentrat pe îmbunătățirea accesibilității instituțiilor publice pentru persoanele cu dizabilități. Vorbitorul propune soluții concrete și constructive, fără a ataca nicio instituție democratică, grup social sau normă constituțională. Nu există nicio urmă de delegitimizare a opoziției, presei, justiției sau a altor actori democratici. Discursul respectă pe deplin normele pluraliste și se încadrează în registrul parlamentar standard.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13066,
+      "tokens_in_breakdown": {
+        "fresh": 13066,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 203,
+      "cost_usd": null,
+      "latency_ms": 1696,
+      "retries_used": 0
+    }
+  }
+}

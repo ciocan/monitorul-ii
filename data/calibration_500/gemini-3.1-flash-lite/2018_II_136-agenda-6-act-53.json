@@ -1,0 +1,194 @@
+{
+  "speech_id": "mo://2018/II/136#agenda-6#act-53",
+  "tier": "calibration",
+  "speaker": {
+    "id": "arcan-emilia",
+    "name": "Emilia Arcan",
+    "raw": "Doamna Emilia Arcan",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": "2018-09-24",
+    "year": 2018,
+    "legislature": "VIII",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2018/II/136#agenda-6#act-53",
+      "output": {
+        "score": 1,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.85,
+        "markers": [
+          {
+            "kind": "evil_elite",
+            "evidence": {
+              "text": "comportamentului său arbitrar, contrar deontologiei magistraților și obedient tacit unei părți a puterii și autorității instituționale"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.85,
+            "rationale_short": "Procurorul general este descris ca fiind obedient față de o parte a puterii, sugerând o elită coruptă și subordonată politic."
+          }
+        ],
+        "rationale": "Discursul este în mare parte o interpelare procedurală adresată ministrului justiției, însă conține un element populist prin descrierea procurorului general ca fiind obedient față de o parte a puterii și acționând arbitrar. Deși limbajul este tehnic, această caracterizare a unui înalt magistrat ca fiind un instrument al unei elite oculte/politice constituie un marker de tip 'evil_elite'. Totuși, discursul nu susține un cadru manihean pervaziv, ci se concentrează pe o procedură administrativă specifică, motiv pentru care scorul este 1. Nu există o invocare a poporului ca actor moral sau o viziune de criză existențială, limitând astfel populismul la un episod critic la adresa elitei judiciare."
+      },
+      "raw_response": "{\n  \"score\": 1,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.85,\n  \"markers\": [\n    {\n      \"kind\": \"evil_elite\",\n      \"evidence\": {\n        \"text\": \"comportamentului său arbitrar, contrar deontologiei magistraților și obedient tacit unei părți a puterii și autorității instituționale\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Procurorul general este descris ca fiind obedient față de o parte a puterii, sugerând o elită coruptă și subordonată politic.\"\n    }\n  ],\n  \"rationale\": \"Discursul este în mare parte o interpelare procedurală adresată ministrului justiției, însă conține un element populist prin descrierea procurorului general ca fiind obedient față de o parte a puterii și acționând arbitrar. Deși limbajul este tehnic, această caracterizare a unui înalt magistrat ca fiind un instrument al unei elite oculte/politice constituie un marker de tip 'evil_elite'. Totuși, discursul nu susține un cadru manihean pervaziv, ci se concentrează pe o procedură administrativă specifică, motiv pentru care scorul este 1. Nu există o invocare a poporului ca actor moral sau o viziune de criză existențială, limitând astfel populismul la un episod critic la adresa elitei judiciare.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13876,
+      "tokens_in_breakdown": {
+        "fresh": 13876,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 402,
+      "cost_usd": null,
+      "latency_ms": 2732,
+      "retries_used": 0
+    },
+    "voice": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "voice",
+      "speech_id": "mo://2018/II/136#agenda-6#act-53",
+      "output": {
+        "classifications": [
+          {
+            "marker_id": "m_0",
+            "voice": "speaker_first_person",
+            "voice_confidence": 0.95,
+            "voice_evidence": null,
+            "attributed_to": null,
+            "rationale_short": "Vorbitorul își exprimă direct opinia despre comportamentul magistratului, fără a cita sau raporta o sursă externă."
+          }
+        ]
+      },
+      "raw_response": "{\n  \"classifications\": [\n    {\n      \"marker_id\": \"m_0\",\n      \"voice\": \"speaker_first_person\",\n      \"voice_confidence\": 0.95,\n      \"voice_evidence\": null,\n      \"attributed_to\": null,\n      \"rationale_short\": \"Vorbitorul își exprimă direct opinia despre comportamentul magistratului, fără a cita sau raporta o sursă externă.\"\n    }\n  ]\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 11432,
+      "tokens_in_breakdown": {
+        "fresh": 11432,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 113,
+      "cost_usd": null,
+      "latency_ms": 1039,
+      "retries_used": 0
+    },
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2018/II/136#agenda-6#act-53",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.72,
+        "level_of_justification": 1,
+        "content_of_justification": "group_interest",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 1,
+            "evidence": {
+              "text": "Aceasta explică, cel puțin din..., partea comportamentului său arbitrar, contrar deontologiei magistraților și obedient tacit unei părți a puterii și autorității instituționale."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.85,
+            "rationale_short": "Justificarea se bazează pe acuzații de obediență și comportament arbitrar, fără a oferi dovezi factuale sau mecanisme cauzale specifice."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "group_interest",
+            "evidence": {
+              "text": "Aceasta explică, cel puțin din..., partea comportamentului său arbitrar, contrar deontologiei magistraților și obedient tacit unei părți a puterii și autorității instituționale."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.8,
+            "rationale_short": "Apelul este orientat către interesele politice ale coaliției, vizând discreditarea unor magistrați specifici."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "domnul Augustin Lazăr, procurorul general al Parchetului de pe lângă Înalta Curte de Casație și Justiție"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Magistrații sunt menționați în contextul unei critici politice, fără a recurge la un limbaj derogatoriu explicit."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Informația conform căreia domnul Augustin Lazăr... nu a fost niciodată evaluat a fost de natură a surprinde opinia publică"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.85,
+            "rationale_short": "Vorbitorul își susține propria agendă de evaluare fără a aborda cererile sau perspectivele opoziției."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "în ciuda tuturor contestatarilor de atunci."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.88,
+            "rationale_short": "Contestatarii sunt menționați doar pentru a fi ignorați, fără a se angaja în raționamentul lor."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "doresc o informare succintă din partea ministerului pe care dumneavoastră îl conduceți privitoare la finalizarea procedurilor de evaluare"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.96,
+            "marker_confidence": 0.92,
+            "rationale_short": "Discursul este o interpelare politică ce urmărește o poziție de control, fără a propune alternative legislative."
+          }
+        ],
+        "rationale": "Discursul reprezintă o interpelare politică tipică, caracterizată printr-o justificare de nivel inferior (level_of_justification=1) care se bazează pe acuzații de obediență politică mai degrabă decât pe argumente factuale. Conținutul justificării este orientat spre interesul de grup (group_interest), susținând agenda coaliției împotriva unor magistrați. Respectul pentru grupuri și cereri este neutru, iar respectul pentru contraargumente este absent (0), deoarece contestatarii sunt menționați doar pentru a fi marginalizați. Discursul este pur pozițional, nefiind oferite alternative sau medieri. Calitatea deliberativă este limitată de natura interpelării, care servește drept instrument de presiune politică."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.72,\n  \"level_of_justification\": 1,\n  \"content_of_justification\": \"group_interest\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 0,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 1,\n      \"evidence\": { \"text\": \"Aceasta explică, cel puțin din..., partea comportamentului său arbitrar, contrar deontologiei magistraților și obedient tacit unei părți a puterii și autorității instituționale.\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Justificarea se bazează pe acuzații de obediență și comportament arbitrar, fără a oferi dovezi factuale sau mecanisme cauzale specifice.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"group_interest\",\n      \"evidence\": { \"text\": \"Aceasta explică, cel puțin din..., partea comportamentului său arbitrar, contrar deontologiei magistraților și obedient tacit unei părți a puterii și autorității instituționale.\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.80,\n      \"rationale_short\": \"Apelul este orientat către interesele politice ale coaliției, vizând discreditarea unor magistrați specifici.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": { \"text\": \"domnul Augustin Lazăr, procurorul general al Parchetului de pe lângă Înalta Curte de Casație și Justiție\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.90,\n      \"rationale_short\": \"Magistrații sunt menționați în contextul unei critici politice, fără a recurge la un limbaj derogatoriu explicit.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": { \"text\": \"Informația conform căreia domnul Augustin Lazăr... nu a fost niciodată evaluat a fost de natură a surprinde opinia publică\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Vorbitorul își susține propria agendă de evaluare fără a aborda cererile sau perspectivele opoziției.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 0,\n      \"evidence\": { \"text\": \"în ciuda tuturor contestatarilor de atunci.\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Contestatarii sunt menționați doar pentru a fi ignorați, fără a se angaja în raționamentul lor.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": { \"text\": \"doresc o informare succintă din partea ministerului pe care dumneavoastră îl conduceți privitoare la finalizarea procedurilor de evaluare\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.96,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Discursul este o interpelare politică ce urmărește o poziție de control, fără a propune alternative legislative.\"\n    }\n  ],\n  \"rationale\": \"Discursul reprezintă o interpelare politică tipică, caracterizată printr-o justificare de nivel inferior (level_of_justification=1) care se bazează pe acuzații de obediență politică mai degrabă decât pe argumente factuale. Conținutul justificării este orientat spre interesul de grup (group_interest), susținând agenda coaliției împotriva unor magistrați. Respectul pentru grupuri și cereri este neutru, iar respectul pentru contraargumente este absent (0), deoarece contestatarii sunt menționați doar pentru a fi marginalizați. Discursul este pur pozițional, nefiind oferite alternative sau medieri. Calitatea deliberativă este limitată de natura interpelării, care servește drept instrument de presiune politică.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [
+        "Informația conform căreia domnul Augustin Lazăr... nu a fost niciodată evaluat a fost de natură a surprinde opinia publică"
+      ],
+      "parse_repaired": false,
+      "tokens_in": 12677,
+      "tokens_in_breakdown": {
+        "fresh": 12677,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1244,
+      "cost_usd": null,
+      "latency_ms": 4889,
+      "retries_used": 0
+    }
+  }
+}

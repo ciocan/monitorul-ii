@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2010/II/100#agenda-2#act-15",
+  "tier": "calibration",
+  "speaker": {
+    "id": "geoana-mircea",
+    "name": "Mircea Dan Geoană",
+    "raw": "Domnul Mircea Dan Geoană",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": "2010-06-14",
+    "year": 2010,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2010/II/100#agenda-2#act-15",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 1.0,
+        "markers": [],
+        "rationale": "Discursul reprezintă o intervenție pur procedurală și administrativă, constând în citirea listei senatorilor care au depus declarații politice și invitarea acestora la microfon. Nu există nicio urmă de retorică populistă, cadru maniheist sau invocare a unei voințe populare. Discursul se înscrie strict în registrul organizatoric al ședinței de Senat, fiind un exemplu clar de scor 0."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 1.0,\n  \"markers\": [],\n  \"rationale\": \"Discursul reprezintă o intervenție pur procedurală și administrativă, constând în citirea listei senatorilor care au depus declarații politice și invitarea acestora la microfon. Nu există nicio urmă de retorică populistă, cadru maniheist sau invocare a unei voințe populare. Discursul se înscrie strict în registrul organizatoric al ședinței de Senat, fiind un exemplu clar de scor 0.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13815,
+      "tokens_in_breakdown": {
+        "fresh": 13815,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 166,
+      "cost_usd": null,
+      "latency_ms": 1919,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2010/II/100#agenda-2#act-15",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.45,
+        "level_of_justification": 0,
+        "content_of_justification": "none",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 0,
+            "evidence": {
+              "text": "Dați-mi voie să dau citire listei colegelor și colegilor care au depus declarațiile politice de astăzi"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Discurs pur procedural de administrare a listei de vorbitori; nicio justificare oferită."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "none",
+            "evidence": {
+              "text": "Dați-mi voie să dau citire listei"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Nicio justificare prezentă; conținut nedefinit."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "colegelor și colegilor"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Referință neutră și convențională la colegii parlamentari."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "dacă printre cei pe care îi voi menționa există în continuare interes pentru susținerea de la tribuna Senatului"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Gestionare neutră a cererilor de cuvânt; nicio evaluare a legitimității acestora."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "Dați-mi voie să dau citire listei"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Discursul nu conține argumente sau contraargumente; angajamentul este inexistent."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "vă încurajez să o faceți"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Intervenție procedurală de rutină; nicio propunere politică alternativă."
+          }
+        ],
+        "rationale": "Acest discurs este o intervenție pur procedurală de administrare a ordinii de zi și a listei de vorbitori în Senat. Nu conține nicio formă de argumentare, justificare sau dezbatere politică, fiind un act administrativ de rutină. Prin urmare, toate dimensiunile DQI sunt codate la valorile lor implicite (neutru/pozițional/fără justificare). Deoarece discursul nu este deliberativ prin natura sa, framework_confidence este scăzut, semnalând că acest fragment nu susține o analiză de calitate deliberativă."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.45,\n  \"level_of_justification\": 0,\n  \"content_of_justification\": \"none\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 0,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 0,\n      \"evidence\": { \"text\": \"Dați-mi voie să dau citire listei colegelor și colegilor care au depus declarațiile politice de astăzi\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Discurs pur procedural de administrare a listei de vorbitori; nicio justificare oferită.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"none\",\n      \"evidence\": { \"text\": \"Dați-mi voie să dau citire listei\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Nicio justificare prezentă; conținut nedefinit.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": { \"text\": \"colegelor și colegilor\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Referință neutră și convențională la colegii parlamentari.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": { \"text\": \"dacă printre cei pe care îi voi menționa există în continuare interes pentru susținerea de la tribuna Senatului\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Gestionare neutră a cererilor de cuvânt; nicio evaluare a legitimității acestora.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 0,\n      \"evidence\": { \"text\": \"Dați-mi voie să dau citire listei\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Discursul nu conține argumente sau contraargumente; angajamentul este inexistent.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": { \"text\": \"vă încurajez să o faceți\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Intervenție procedurală de rutină; nicio propunere politică alternativă.\"\n    }\n  ],\n  \"rationale\": \"Acest discurs este o intervenție pur procedurală de administrare a ordinii de zi și a listei de vorbitori în Senat. Nu conține nicio formă de argumentare, justificare sau dezbatere politică, fiind un act administrativ de rutină. Prin urmare, toate dimensiunile DQI sunt codate la valorile lor implicite (neutru/pozițional/fără justificare). Deoarece discursul nu este deliberativ prin natura sa, framework_confidence este scăzut, semnalând că acest fragment nu susține o analiză de calitate deliberativă.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12616,
+      "tokens_in_breakdown": {
+        "fresh": 12616,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1032,
+      "cost_usd": null,
+      "latency_ms": 4052,
+      "retries_used": 0
+    }
+  }
+}

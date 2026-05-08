@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2025/II/74#agenda-1#act-25",
+  "tier": "calibration",
+  "speaker": {
+    "id": "ciuca-liviu-bogdan",
+    "name": "Liviu-Bogdan Ciucă",
+    "raw": "Domnul Liviu-Bogdan Ciucă",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2025-06-02",
+    "year": 2025,
+    "legislature": "X",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2025/II/74#agenda-1#act-25",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 1.0,
+        "markers": [],
+        "rationale": "Discursul este unul pur procedural, limitat la prezentarea raportului unei comisii parlamentare pentru un proiect de lege. Vorbitorul enumeră avizele instituționale (Consiliul Legislativ, CES, CSM) și procedura de adoptare, fără a utiliza nicio retorică populistă. Nu există nicio referire la un cadru popor-vs-elită, maniheism moral sau invocarea unei voințe populare suverane. Discursul se încadrează perfect în registrul tehnic-administrativ al activității parlamentare."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 1.0,\n  \"markers\": [],\n  \"rationale\": \"Discursul este unul pur procedural, limitat la prezentarea raportului unei comisii parlamentare pentru un proiect de lege. Vorbitorul enumeră avizele instituționale (Consiliul Legislativ, CES, CSM) și procedura de adoptare, fără a utiliza nicio retorică populistă. Nu există nicio referire la un cadru popor-vs-elită, maniheism moral sau invocarea unei voințe populare suverane. Discursul se încadrează perfect în registrul tehnic-administrativ al activității parlamentare.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13721,
+      "tokens_in_breakdown": {
+        "fresh": 13721,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 189,
+      "cost_usd": null,
+      "latency_ms": 1919,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2025/II/74#agenda-1#act-25",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.85,
+        "level_of_justification": 1,
+        "content_of_justification": "none",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 1,
+            "evidence": {
+              "text": "membrii Comisiei juridice, de disciplină și imunități au hotărât, cu majoritate de voturi, să transmită plenului Camerei Deputaților un raport de adoptare a acestui proiect de lege"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Raport procedural; justificarea este pur instituțională, fără argumente cauzale sau principiale."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "none",
+            "evidence": {
+              "text": "În urma dezbaterilor, membrii Comisiei juridice, de disciplină și imunități au hotărât, cu majoritate de voturi, să transmită plenului Camerei Deputaților un raport de adoptare"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Nicio justificare substanțială oferită; conținutul este nedefinit."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Doamnelor și domnilor colegi"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.99,
+            "marker_confidence": 0.95,
+            "rationale_short": "Adresare convențională; niciun grup vizat explicit."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Senatul, în calitate de primă Cameră sesizată, a adoptat acest proiect de lege."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Referință neutră la parcursul legislativ; nicio cerere adversă angajată."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "Consiliul Legislativ a avizat favorabil."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Enumerare de avize favorabile fără angajament cu argumente contrare."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "să transmită plenului Camerei Deputaților un raport de adoptare a acestui proiect de lege"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Prezentarea unui raport procedural; poziție de adoptare fără propuneri alternative."
+          }
+        ],
+        "rationale": "Acesta este un discurs procedural tipic pentru un raportor de comisie, axat pe prezentarea formală a parcursului legislativ și a avizelor primite. Nu conține argumentație deliberativă, ci doar enumerări de fapte instituționale, ceea ce duce la un nivel de justificare scăzut (1) și o natură pozițională a discursului. Nu există angajament cu contraargumente sau cereri adverse, deoarece rolul vorbitorului este de a prezenta consensul comisiei, nu de a dezbate. Respectul pentru grupuri și cereri rămâne neutru, fiind o comunicare formală. Calitatea deliberativă este limitată de natura tehnică a intervenției."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.85,\n  \"level_of_justification\": 1,\n  \"content_of_justification\": \"none\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"membrii Comisiei juridice, de disciplină și imunități au hotărât, cu majoritate de voturi, să transmită plenului Camerei Deputaților un raport de adoptare a acestui proiect de lege\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Raport procedural; justificarea este pur instituțională, fără argumente cauzale sau principiale.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"none\",\n      \"evidence\": {\n        \"text\": \"În urma dezbaterilor, membrii Comisiei juridice, de disciplină și imunități au hotărât, cu majoritate de voturi, să transmită plenului Camerei Deputaților un raport de adoptare\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Nicio justificare substanțială oferită; conținutul este nedefinit.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Doamnelor și domnilor colegi\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.99,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Adresare convențională; niciun grup vizat explicit.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Senatul, în calitate de primă Cameră sesizată, a adoptat acest proiect de lege.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Referință neutră la parcursul legislativ; nicio cerere adversă angajată.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Consiliul Legislativ a avizat favorabil.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Enumerare de avize favorabile fără angajament cu argumente contrare.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"să transmită plenului Camerei Deputaților un raport de adoptare a acestui proiect de lege\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Prezentarea unui raport procedural; poziție de adoptare fără propuneri alternative.\"\n    }\n  ],\n  \"rationale\": \"Acesta este un discurs procedural tipic pentru un raportor de comisie, axat pe prezentarea formală a parcursului legislativ și a avizelor primite. Nu conține argumentație deliberativă, ci doar enumerări de fapte instituționale, ceea ce duce la un nivel de justificare scăzut (1) și o natură pozițională a discursului. Nu există angajament cu contraargumente sau cereri adverse, deoarece rolul vorbitorului este de a prezenta consensul comisiei, nu de a dezbate. Respectul pentru grupuri și cereri rămâne neutru, fiind o comunicare formală. Calitatea deliberativă este limitată de natura tehnică a intervenției.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12522,
+      "tokens_in_breakdown": {
+        "fresh": 12522,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1154,
+      "cost_usd": null,
+      "latency_ms": 4520,
+      "retries_used": 0
+    }
+  }
+}

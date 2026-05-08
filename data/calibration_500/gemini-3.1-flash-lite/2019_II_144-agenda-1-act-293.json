@@ -1,0 +1,197 @@
+{
+  "speech_id": "mo://2019/II/144#agenda-1#act-293",
+  "tier": "calibration",
+  "speaker": {
+    "id": "roman-florin-claudiu",
+    "name": "Florin Claudiu Roman",
+    "raw": "Domnul Florin Claudiu Roman",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2019-12-18",
+    "year": 2019,
+    "legislature": "VIII",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2019/II/144#agenda-1#act-293",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.95,
+        "markers": [
+          {
+            "kind": "evil_elite",
+            "evidence": {
+              "text": "cei care conduc astăzi partidul să spună: „Vedeți, vă lăsăm să candidați în continuare într-un singur tur și pe voi, baronilor, vă iubim și nu vă lăsăm din brațe.”"
+            },
+            "preliminary_voice": "quoted",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.85,
+            "rationale_short": "Vorbitorul citează o presupusă retorică a elitei PSD pentru a o critica, folosind termenul „baronilor” într-un context citat."
+          }
+        ],
+        "rationale": "Discursul este unul procedural, axat pe tactici parlamentare, negocieri între lideri de grup (Simonis, PNL) și impactul bugetar al unor proiecte legislative. Deși vorbitorul folosește un ton combativ și critică dur acțiunile PSD, acesta rămâne în registrul luptei politice convenționale și al criticii de politici publice. Referințele la „baroni” și la „jocul de imagine” al PSD sunt folosite pentru a descrie manevrele politice ale adversarului, nu pentru a construi un cadru maniheist popor-vs-elită. Nu există o invocare a unei voințe populare omogene sau a unei crize existențiale, discursul fiind ancorat în proceduri parlamentare și calcule electorale. Hawkins=0 cu încredere ridicată."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.95,\n  \"markers\": [\n    {\n      \"kind\": \"evil_elite\",\n      \"evidence\": {\n        \"text\": \"cei care conduc astăzi partidul să spună: „Vedeți, vă lăsăm să candidați în continuare într-un singur tur și pe voi, baronilor, vă iubim și nu vă lăsăm din brațe.”\"\n      },\n      \"preliminary_voice\": \"quoted\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Vorbitorul citează o presupusă retorică a elitei PSD pentru a o critica, folosind termenul „baronilor” într-un context citat.\"\n    }\n  ],\n  \"rationale\": \"Discursul este unul procedural, axat pe tactici parlamentare, negocieri între lideri de grup (Simonis, PNL) și impactul bugetar al unor proiecte legislative. Deși vorbitorul folosește un ton combativ și critică dur acțiunile PSD, acesta rămâne în registrul luptei politice convenționale și al criticii de politici publice. Referințele la „baroni” și la „jocul de imagine” al PSD sunt folosite pentru a descrie manevrele politice ale adversarului, nu pentru a construi un cadru maniheist popor-vs-elită. Nu există o invocare a unei voințe populare omogene sau a unei crize existențiale, discursul fiind ancorat în proceduri parlamentare și calcule electorale. Hawkins=0 cu încredere ridicată.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 14219,
+      "tokens_in_breakdown": {
+        "fresh": 14219,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 432,
+      "cost_usd": null,
+      "latency_ms": 2859,
+      "retries_used": 0
+    },
+    "voice": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "voice",
+      "speech_id": "mo://2019/II/144#agenda-1#act-293",
+      "output": {
+        "classifications": [
+          {
+            "marker_id": "m_0",
+            "voice": "quoted",
+            "voice_confidence": 0.98,
+            "voice_evidence": {
+              "text": "cei care conduc astăzi partidul să spună:"
+            },
+            "attributed_to": {
+              "raw": "cei care conduc astăzi partidul",
+              "kind": "collective"
+            },
+            "rationale_short": "Vorbitorul citează direct o declarație ipotetică a conducerii partidului, marcată prin două puncte și ghilimele."
+          }
+        ]
+      },
+      "raw_response": "{\n  \"classifications\": [\n    {\n      \"marker_id\": \"m_0\",\n      \"voice\": \"quoted\",\n      \"voice_confidence\": 0.98,\n      \"voice_evidence\": {\n        \"text\": \"cei care conduc astăzi partidul să spună:\"\n      },\n      \"attributed_to\": {\n        \"raw\": \"cei care conduc astăzi partidul\",\n        \"kind\": \"collective\"\n      },\n      \"rationale_short\": \"Vorbitorul citează direct o declarație ipotetică a conducerii partidului, marcată prin două puncte și ghilimele.\"\n    }\n  ]\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 11805,
+      "tokens_in_breakdown": {
+        "fresh": 11805,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 154,
+      "cost_usd": null,
+      "latency_ms": 1284,
+      "retries_used": 0
+    },
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2019/II/144#agenda-1#act-293",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.78,
+        "level_of_justification": 1,
+        "content_of_justification": "group_interest",
+        "respect_for_groups": 0,
+        "respect_for_demands": 0,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 1,
+            "evidence": {
+              "text": "nu este o răzbunare pe PNL, ci este pur și simplu o aruncare iresponsabilă în aer a finanțelor țării."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Justificarea este circulară și bazată pe etichetări politice, fără a oferi o analiză cauzală detaliată."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "group_interest",
+            "evidence": {
+              "text": "s-a răzbunat pe Partidul Național Liberal pentru că a refuzat trocul discuției pe președinții de consilii județene"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Apelul este centrat pe interesele și conflictele dintre partide (PNL vs PSD)."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 0,
+            "evidence": {
+              "text": "cei care conduc astăzi partidul să spună: „Vedeți, vă lăsăm să candidați în continuare într-un singur tur și pe voi, baronilor, vă iubim și nu vă lăsăm din brațe.”"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.94,
+            "rationale_short": "Utilizarea termenului peiorativ „baronilor” constituie o derogare explicită a unui grup politic."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 0,
+            "evidence": {
+              "text": "totul este doar un joc de imagine"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.91,
+            "rationale_short": "Cererile și acțiunile opoziției sunt respinse ca fiind simple jocuri de imagine, fără legitimitate."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "s-a răzbunat pe Partidul Național Liberal pentru că a refuzat trocul discuției pe președinții de consilii județene"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.89,
+            "rationale_short": "Vorbitorul ignoră argumentele substanțiale ale opoziției, reducând totul la o răzbunare politică."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Solicit includerea pe ordinea de zi, la poziția 4, a PL-x 349/2019"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.99,
+            "marker_confidence": 0.95,
+            "rationale_short": "Discursul este pur pozițional, axat pe solicitarea procedurală și atacul politic."
+          }
+        ],
+        "rationale": "Discursul prezintă o calitate deliberativă scăzută, fiind dominat de retorică conflictuală și atacuri la persoană. Justificarea este superficială (level_of_justification=1), bazându-se pe acuzații de răzbunare politică mai degrabă decât pe argumente de fond. Respectul pentru grupuri este absent, fiind utilizate etichete derogatorii precum „baronilor” (respect_for_groups=0). Cererile opoziției sunt respinse ca fiind „jocuri de imagine” (respect_for_demands=0), iar raționamentele acestora nu sunt angajate substanțial (respect_for_counterarguments=0). Discursul rămâne strict pozițional, fără a oferi alternative constructive sau medieri, reflectând o dinamică de confruntare partizană."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.78,\n  \"level_of_justification\": 1,\n  \"content_of_justification\": \"group_interest\",\n  \"respect_for_groups\": 0,\n  \"respect_for_demands\": 0,\n  \"respect_for_counterarguments\": 0,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"nu este o răzbunare pe PNL, ci este pur și simplu o aruncare iresponsabilă în aer a finanțelor țării.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Justificarea este circulară și bazată pe etichetări politice, fără a oferi o analiză cauzală detaliată.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"group_interest\",\n      \"evidence\": {\n        \"text\": \"s-a răzbunat pe Partidul Național Liberal pentru că a refuzat trocul discuției pe președinții de consilii județene\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Apelul este centrat pe interesele și conflictele dintre partide (PNL vs PSD).\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"cei care conduc astăzi partidul să spună: „Vedeți, vă lăsăm să candidați în continuare într-un singur tur și pe voi, baronilor, vă iubim și nu vă lăsăm din brațe.”\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.94,\n      \"rationale_short\": \"Utilizarea termenului peiorativ „baronilor” constituie o derogare explicită a unui grup politic.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"totul este doar un joc de imagine\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.91,\n      \"rationale_short\": \"Cererile și acțiunile opoziției sunt respinse ca fiind simple jocuri de imagine, fără legitimitate.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"s-a răzbunat pe Partidul Național Liberal pentru că a refuzat trocul discuției pe președinții de consilii județene\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.89,\n      \"rationale_short\": \"Vorbitorul ignoră argumentele substanțiale ale opoziției, reducând totul la o răzbunare politică.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"Solicit includerea pe ordinea de zi, la poziția 4, a PL-x 349/2019\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.99,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Discursul este pur pozițional, axat pe solicitarea procedurală și atacul politic.\"\n    }\n  ],\n  \"rationale\": \"Discursul prezintă o calitate deliberativă scăzută, fiind dominat de retorică conflictuală și atacuri la persoană. Justificarea este superficială (level_of_justification=1), bazându-se pe acuzații de răzbunare politică mai degrabă decât pe argumente de fond. Respectul pentru grupuri este absent, fiind utilizate etichete derogatorii precum „baronilor” (respect_for_groups=0). Cererile opoziției sunt respinse ca fiind „jocuri de imagine” (respect_for_demands=0), iar raționamentele acestora nu sunt angajate substanțial (respect_for_counterarguments=0). Discursul rămâne strict pozițional, fără a oferi alternative constructive sau medieri, reflectând o dinamică de confruntare partizană.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13020,
+      "tokens_in_breakdown": {
+        "fresh": 13020,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1268,
+      "cost_usd": null,
+      "latency_ms": 4941,
+      "retries_used": 0
+    }
+  }
+}

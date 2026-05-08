@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2025/II/40#agenda-1#act-251",
+  "tier": "calibration",
+  "speaker": {
+    "id": "cojocaru-petru-bogdan",
+    "name": "Petru-Bogdan Cojocaru",
+    "raw": "Domnul Petru-Bogdan Cojocaru",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2025-03-24",
+    "year": 2025,
+    "legislature": "X",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2025/II/40#agenda-1#act-251",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 1.0,
+        "markers": [],
+        "rationale": "Discursul este o interpelare parlamentară tehnică, axată pe un proiect de infrastructură specific (Amenajarea Hidroenergetică Pașcani). Vorbitorul solicită informații administrative despre stadiul lucrărilor, exproprieri și calendarul de finalizare, utilizând un registru procedural și factual. Nu există nicio urmă de cadru popor-vs-elită, maniheism moral sau invocare a unei voințe populare omogene. Discursul se înscrie în activitatea parlamentară de control al executivului, fără nicio componentă populistă."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 1.0,\n  \"markers\": [],\n  \"rationale\": \"Discursul este o interpelare parlamentară tehnică, axată pe un proiect de infrastructură specific (Amenajarea Hidroenergetică Pașcani). Vorbitorul solicită informații administrative despre stadiul lucrărilor, exproprieri și calendarul de finalizare, utilizând un registru procedural și factual. Nu există nicio urmă de cadru popor-vs-elită, maniheism moral sau invocare a unei voințe populare omogene. Discursul se înscrie în activitatea parlamentară de control al executivului, fără nicio componentă populistă.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 14033,
+      "tokens_in_breakdown": {
+        "fresh": 14033,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 200,
+      "cost_usd": null,
+      "latency_ms": 1845,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2025/II/40#agenda-1#act-251",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.85,
+        "level_of_justification": 1,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 1,
+            "evidence": {
+              "text": "De-a lungul timpului, au fost efectuate numeroase demersuri din partea autorităților locale pentru finalizarea acestui obiectiv de investiții."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Vorbitorul invocă demersuri anterioare ca justificare, dar fără a oferi un raționament cauzal sau principial detaliat."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "creșterea ponderii producției de energie electrică din surse regenerabile"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Justificarea se bazează pe interesul public (energie regenerabilă), un obiectiv universalizabil."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "proprietarilor de terenuri din zona de amenajare a barajului Lunca – Pașcani"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Grupul este menționat în contextul procedurilor de expropriere într-o manieră neutră și factuală."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "vă rog să precizați care sunt pașii următori pentru terminarea lucrărilor și care este calendarul de timp asociat acestora."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Interpelarea este o cerere de informații; nu există cereri adverse angajate sau respinse."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "Interpelarea de astăzi este adresată Ministerului Mediului, Apelor și Pădurilor"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Discursul este o interpelare procedurală; nu există contraargumente de angajat."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "vă rog să precizați care sunt pașii următori pentru terminarea lucrărilor și care este calendarul de timp asociat acestora."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Vorbitorul solicită informații (interpelare), ceea ce constituie o poziție procedurală, nu o propunere alternativă de politică."
+          }
+        ],
+        "rationale": "Acest discurs este o interpelare parlamentară standard, având un caracter procedural și informativ. Nivelul de justificare este 1, deoarece vorbitorul invocă istoricul proiectului și demersurile locale fără a construi un argument cauzal complex. Conținutul justificării vizează binele comun (energie regenerabilă). Deoarece este o interpelare, nu există contraargumente sau cereri adverse de angajat, ceea ce duce la scoruri neutre pe dimensiunile de respect. Discursul este pozițional, fiind o solicitare de clarificări administrative. Calitatea deliberativă este limitată de natura procedurală a intervenției, dar discursul este coerent și respectuos."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.85,\n  \"level_of_justification\": 1,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"De-a lungul timpului, au fost efectuate numeroase demersuri din partea autorităților locale pentru finalizarea acestui obiectiv de investiții.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Vorbitorul invocă demersuri anterioare ca justificare, dar fără a oferi un raționament cauzal sau principial detaliat.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"creșterea ponderii producției de energie electrică din surse regenerabile\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Justificarea se bazează pe interesul public (energie regenerabilă), un obiectiv universalizabil.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"proprietarilor de terenuri din zona de amenajare a barajului Lunca – Pașcani\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Grupul este menționat în contextul procedurilor de expropriere într-o manieră neutră și factuală.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"vă rog să precizați care sunt pașii următori pentru terminarea lucrărilor și care este calendarul de timp asociat acestora.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Interpelarea este o cerere de informații; nu există cereri adverse angajate sau respinse.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Interpelarea de astăzi este adresată Ministerului Mediului, Apelor și Pădurilor\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Discursul este o interpelare procedurală; nu există contraargumente de angajat.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"vă rog să precizați care sunt pașii următori pentru terminarea lucrărilor și care este calendarul de timp asociat acestora.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Vorbitorul solicită informații (interpelare), ceea ce constituie o poziție procedurală, nu o propunere alternativă de politică.\"\n    }\n  ],\n  \"rationale\": \"Acest discurs este o interpelare parlamentară standard, având un caracter procedural și informativ. Nivelul de justificare este 1, deoarece vorbitorul invocă istoricul proiectului și demersurile locale fără a construi un argument cauzal complex. Conținutul justificării vizează binele comun (energie regenerabilă). Deoarece este o interpelare, nu există contraargumente sau cereri adverse de angajat, ceea ce duce la scoruri neutre pe dimensiunile de respect. Discursul este pozițional, fiind o solicitare de clarificări administrative. Calitatea deliberativă este limitată de natura procedurală a intervenției, dar discursul este coerent și respectuos.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12834,
+      "tokens_in_breakdown": {
+        "fresh": 12834,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1197,
+      "cost_usd": null,
+      "latency_ms": 5702,
+      "retries_used": 0
+    }
+  }
+}

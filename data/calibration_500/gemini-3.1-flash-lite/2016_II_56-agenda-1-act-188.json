@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2016/II/56#agenda-1#act-188",
+  "tier": "calibration",
+  "speaker": {
+    "id": "motoc-octavian",
+    "name": "Octavian Motoc",
+    "raw": "Domnul Octavian Motoc",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": "2016-03-29",
+    "year": 2016,
+    "legislature": "VII",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2016/II/56#agenda-1#act-188",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul este unul pur tehnic, axat pe probleme de achiziții publice, garanții de bună execuție și riscuri economice asociate contractelor de construcții. Vorbitorul analizează o problemă de procedură administrativă și propune o abordare pragmatică pentru a evita pierderile de fonduri publice. Nu există nicio referire la un cadru maniheist popor-vs-elită, nicio invocare a unei voințe populare omogene și niciun element de retorică populistă. Discursul se încadrează perfect în registrul procedural parlamentar, primind scorul 0 cu încredere maximă."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul este unul pur tehnic, axat pe probleme de achiziții publice, garanții de bună execuție și riscuri economice asociate contractelor de construcții. Vorbitorul analizează o problemă de procedură administrativă și propune o abordare pragmatică pentru a evita pierderile de fonduri publice. Nu există nicio referire la un cadru maniheist popor-vs-elită, nicio invocare a unei voințe populare omogene și niciun element de retorică populistă. Discursul se încadrează perfect în registrul procedural parlamentar, primind scorul 0 cu încredere maximă.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13761,
+      "tokens_in_breakdown": {
+        "fresh": 13761,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 216,
+      "cost_usd": null,
+      "latency_ms": 1987,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2016/II/56#agenda-1#act-188",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.88,
+        "level_of_justification": 2,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "atunci când se evaluează un contract de achiziție publică, este luată în calcul și această durată de garanție, care, uneori, încă din start, este pusă foarte mare și este asumată de constructor, deși se știe că el nu va respecta această durată, pentru că, după doi-trei ani, un SRL, de exemplu, care vine să câștige un contract de execuție lucrări, dispare din peisajul economic local."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Vorbitorul explică un mecanism cauzal specific (insolvența SRL-urilor) care subminează eficiența garanțiilor lungi."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "e în dauna beneficiarilor, de cele mai multe ori consilii locale, care nu au dreptul pe perioada garanției date de constructor să facă niciun fel de intervenții cu fondurile publice pe care le au la dispoziție."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Justificarea se concentrează pe protejarea fondurilor publice și a intereselor consiliilor locale."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "un SRL, de exemplu, care vine să câștige un contract de execuție lucrări, dispare din peisajul economic local"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Referință funcțională la un grup economic; nu există derogare sau respect explicit."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Este clar că era nevoie de stabilirea unei durate minime de garanție pentru toate tipurile de lucrări în construcții"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.88,
+            "rationale_short": "Recunoaștere implicită a necesității reglementării, dar fără angajament cu cereri opuse specifice."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "Este clar că era nevoie de stabilirea unei durate minime de garanție pentru toate tipurile de lucrări în construcții, însă există un efect pervers"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Menționează argumentul pro-garanție, dar trece rapid la contra-argumentul propriu fără a-l dezbate."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Este o chestiune care trebuie luată în calcul, în așa fel încât astfel de efecte perverse să nu se întâmple"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.89,
+            "rationale_short": "Vorbitorul semnalează o problemă, dar nu propune un amendament sau o soluție legislativă concretă."
+          }
+        ],
+        "rationale": "Discursul prezintă o calitate deliberativă medie, fiind marcat de o justificare calificată (level_of_justification=2) bazată pe un mecanism cauzal observat în practică. Vorbitorul apelează la binele comun (protejarea fondurilor publice ale consiliilor locale) pentru a-și susține argumentul. Deși recunoaște necesitatea reglementării, nu se angajează substanțial cu contraargumente sau cereri opuse, rămânând la o postură critică (respect_for_counterarguments=1). Discursul este pozițional, semnalând o problemă fără a oferi o alternativă legislativă concretă. Respectul pentru grupuri și cereri rămâne neutru, fiind o analiză tehnică a unor efecte perverse în achizițiile publice."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.88,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"atunci când se evaluează un contract de achiziție publică, este luată în calcul și această durată de garanție, care, uneori, încă din start, este pusă foarte mare și este asumată de constructor, deși se știe că el nu va respecta această durată, pentru că, după doi-trei ani, un SRL, de exemplu, care vine să câștige un contract de execuție lucrări, dispare din peisajul economic local.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Vorbitorul explică un mecanism cauzal specific (insolvența SRL-urilor) care subminează eficiența garanțiilor lungi.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"e în dauna beneficiarilor, de cele mai multe ori consilii locale, care nu au dreptul pe perioada garanției date de constructor să facă niciun fel de intervenții cu fondurile publice pe care le au la dispoziție.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.90,\n      \"rationale_short\": \"Justificarea se concentrează pe protejarea fondurilor publice și a intereselor consiliilor locale.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"un SRL, de exemplu, care vine să câștige un contract de execuție lucrări, dispare din peisajul economic local\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Referință funcțională la un grup economic; nu există derogare sau respect explicit.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Este clar că era nevoie de stabilirea unei durate minime de garanție pentru toate tipurile de lucrări în construcții\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Recunoaștere implicită a necesității reglementării, dar fără angajament cu cereri opuse specifice.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Este clar că era nevoie de stabilirea unei durate minime de garanție pentru toate tipurile de lucrări în construcții, însă există un efect pervers\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Menționează argumentul pro-garanție, dar trece rapid la contra-argumentul propriu fără a-l dezbate.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"Este o chestiune care trebuie luată în calcul, în așa fel încât astfel de efecte perverse să nu se întâmple\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.89,\n      \"rationale_short\": \"Vorbitorul semnalează o problemă, dar nu propune un amendament sau o soluție legislativă concretă.\"\n    }\n  ],\n  \"rationale\": \"Discursul prezintă o calitate deliberativă medie, fiind marcat de o justificare calificată (level_of_justification=2) bazată pe un mecanism cauzal observat în practică. Vorbitorul apelează la binele comun (protejarea fondurilor publice ale consiliilor locale) pentru a-și susține argumentul. Deși recunoaște necesitatea reglementării, nu se angajează substanțial cu contraargumente sau cereri opuse, rămânând la o postură critică (respect_for_counterarguments=1). Discursul este pozițional, semnalând o problemă fără a oferi o alternativă legislativă concretă. Respectul pentru grupuri și cereri rămâne neutru, fiind o analiză tehnică a unor efecte perverse în achizițiile publice.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12562,
+      "tokens_in_breakdown": {
+        "fresh": 12562,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1346,
+      "cost_usd": null,
+      "latency_ms": 5377,
+      "retries_used": 0
+    }
+  }
+}

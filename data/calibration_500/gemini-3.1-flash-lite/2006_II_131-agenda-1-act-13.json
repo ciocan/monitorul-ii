@@ -1,0 +1,157 @@
+{
+  "speech_id": "mo://2006/II/131#agenda-1#act-13",
+  "tier": "calibration",
+  "speaker": {
+    "id": "ardelean-aurel",
+    "name": "Aurel Ardelean",
+    "raw": "Domnul Aurel Ardelean",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": null,
+    "year": 2006,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2006/II/131#agenda-1#act-13",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul este unul tehnic, bazat pe date statistice concrete furnizate de autoritățile sanitare din județele Iași, Vrancea și Brăila privind starea infrastructurii școlare. Vorbitorul solicită Guvernului soluții pentru remedierea deficiențelor, folosind un registru procedural și administrativ, fără a construi un cadru maniheist popor-vs-elită sau a invoca o voință populară omogenă. Deși tonul este critic la adresa lipsei de acțiune a Ministerului Educației, acesta rămâne în limitele dezbaterii parlamentare de politici publice. Hawkins=0 cu încredere ridicată."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul este unul tehnic, bazat pe date statistice concrete furnizate de autoritățile sanitare din județele Iași, Vrancea și Brăila privind starea infrastructurii școlare. Vorbitorul solicită Guvernului soluții pentru remedierea deficiențelor, folosind un registru procedural și administrativ, fără a construi un cadru maniheist popor-vs-elită sau a invoca o voință populară omogenă. Deși tonul este critic la adresa lipsei de acțiune a Ministerului Educației, acesta rămâne în limitele dezbaterii parlamentare de politici publice. Hawkins=0 cu încredere ridicată.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13911,
+      "tokens_in_breakdown": {
+        "fresh": 13911,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 221,
+      "cost_usd": null,
+      "latency_ms": 2239,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2006/II/131#agenda-1#act-13",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.88,
+        "level_of_justification": 2,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "din datele publicate de Autoritatea Sanitară a Județului Iași, în 335 de unități de învățământ din județ copiii beau apă direct din fântână, iar în 344 de unități de învățământ elevii își fac nevoile în fose sau gropi simple."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Vorbitorul oferă date empirice specifice din surse oficiale pentru a justifica necesitatea intervenției."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "inexistența avizelor medicale de funcționare este o mare eroare a Ministerului Educației."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Apelul vizează sănătatea publică și siguranța elevilor, un interes universalizabil al întregii societăți."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Doamnelor și domnilor,"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.99,
+            "marker_confidence": 0.95,
+            "rationale_short": "Adresare formală standard; nu există referiri derogatorii sau de respect explicit către grupuri."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "solicit în mod public reprezentanților Guvernului să prezinte în fața Parlamentului țării situația concretă"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Vorbitorul își formulează propria cerere fără a angaja sau respinge cererile opoziției."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "Nu trebuie doar să ne orientăm după faptul că pot să apară epidemii."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Vorbitorul ignoră argumentele contrare și nu abordează nicio poziție opusă în discurs."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "solicit în mod public reprezentanților Guvernului să prezinte în fața Parlamentului țării situația concretă și, totodată, să ofere și soluții"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Vorbitorul solicită acțiune, dar nu propune o alternativă legislativă sau un compromis specific."
+          }
+        ],
+        "rationale": "Discursul prezintă o calitate deliberativă medie, marcată de o justificare bazată pe date empirice concrete (level_of_justification=2), ceea ce îi conferă o bază factuală solidă. Apelul la binele comun (sănătatea elevilor) este clar, însă discursul rămâne pozițional, solicitând acțiune din partea Guvernului fără a oferi o alternativă legislativă proprie. Nu există un angajament cu contraargumente sau cereri adverse, ceea ce limitează scorurile pe dimensiunile de respect. Tonul este sobru și formal, fără a cădea în dispreț, dar nici fără a manifesta respect explicit pentru out-group-uri. Este un discurs de tip interpelare, eficient în expunerea problemei, dar limitat în dimensiunea deliberativă de tip dialogic."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.88,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 0,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"din datele publicate de Autoritatea Sanitară a Județului Iași, în 335 de unități de învățământ din județ copiii beau apă direct din fântână, iar în 344 de unități de învățământ elevii își fac nevoile în fose sau gropi simple.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Vorbitorul oferă date empirice specifice din surse oficiale pentru a justifica necesitatea intervenției.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"inexistența avizelor medicale de funcționare este o mare eroare a Ministerului Educației.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Apelul vizează sănătatea publică și siguranța elevilor, un interes universalizabil al întregii societăți.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Doamnelor și domnilor,\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.99,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Adresare formală standard; nu există referiri derogatorii sau de respect explicit către grupuri.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"solicit în mod public reprezentanților Guvernului să prezinte în fața Parlamentului țării situația concretă\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Vorbitorul își formulează propria cerere fără a angaja sau respinge cererile opoziției.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"Nu trebuie doar să ne orientăm după faptul că pot să apară epidemii.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.90,\n      \"rationale_short\": \"Vorbitorul ignoră argumentele contrare și nu abordează nicio poziție opusă în discurs.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"solicit în mod public reprezentanților Guvernului să prezinte în fața Parlamentului țării situația concretă și, totodată, să ofere și soluții\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Vorbitorul solicită acțiune, dar nu propune o alternativă legislativă sau un compromis specific.\"\n    }\n  ],\n  \"rationale\": \"Discursul prezintă o calitate deliberativă medie, marcată de o justificare bazată pe date empirice concrete (level_of_justification=2), ceea ce îi conferă o bază factuală solidă. Apelul la binele comun (sănătatea elevilor) este clar, însă discursul rămâne pozițional, solicitând acțiune din partea Guvernului fără a oferi o alternativă legislativă proprie. Nu există un angajament cu contraargumente sau cereri adverse, ceea ce limitează scorurile pe dimensiunile de respect. Tonul este sobru și formal, fără a cădea în dispreț, dar nici fără a manifesta respect explicit pentru out-group-uri. Este un discurs de tip interpelare, eficient în expunerea problemei, dar limitat în dimensiunea deliberativă de tip dialogic.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [
+        "din datele publicate de Autoritatea Sanitară a Județului Iași, în 335 de unități de învățământ din județ copiii beau apă direct din fântână, iar în 344 de unități de învățământ elevii își fac nevoile în fose sau gropi simple.",
+        "inexistența avizelor medicale de funcționare este o mare eroare a Ministerului Educației.",
+        "Doamnelor și domnilor,",
+        "solicit în mod public reprezentanților Guvernului să prezinte în fața Parlamentului țării situația concretă",
+        "Nu trebuie doar să ne orientăm după faptul că pot să apară epidemii.",
+        "solicit în mod public reprezentanților Guvernului să prezinte în fața Parlamentului țării situația concretă și, totodată, să ofere și soluții"
+      ],
+      "parse_repaired": false,
+      "tokens_in": 12712,
+      "tokens_in_breakdown": {
+        "fresh": 12712,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1250,
+      "cost_usd": null,
+      "latency_ms": 5044,
+      "retries_used": 0
+    }
+  }
+}

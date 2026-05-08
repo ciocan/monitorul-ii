@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2026/II/25#agenda-1#act-13",
+  "tier": "calibration",
+  "speaker": {
+    "id": "buzatu-oana-constantina",
+    "name": "Oana-Constantina Buzatu",
+    "raw": "Doamna Oana-Constantina Buzatu",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": "2026-03-02",
+    "year": 2026,
+    "legislature": "X",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2026/II/25#agenda-1#act-13",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.95,
+        "markers": [],
+        "rationale": "Discursul este un exercițiu de apărare instituțională și procedurală în contextul unei moțiuni simple, caracterizat prin apelul la argumente juridice, administrative și la respectarea statului de drept. Deși vorbitorul menționează acuzațiile opoziției, el o face pentru a le respinge ca fiind retorică populistă, nu pentru a-și însuși cadrul maniheist. Nu există nicio invocare a unei voințe populare omogene sau a unei elite malefice ca spine structural al argumentației. Discursul rămâne ancorat în registrul dezbaterii parlamentare tehnocratice, motiv pentru care scorul este 0."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.95,\n  \"markers\": [],\n  \"rationale\": \"Discursul este un exercițiu de apărare instituțională și procedurală în contextul unei moțiuni simple, caracterizat prin apelul la argumente juridice, administrative și la respectarea statului de drept. Deși vorbitorul menționează acuzațiile opoziției, el o face pentru a le respinge ca fiind retorică populistă, nu pentru a-și însuși cadrul maniheist. Nu există nicio invocare a unei voințe populare omogene sau a unei elite malefice ca spine structural al argumentației. Discursul rămâne ancorat în registrul dezbaterii parlamentare tehnocratice, motiv pentru care scorul este 0.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 14699,
+      "tokens_in_breakdown": {
+        "fresh": 14699,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 218,
+      "cost_usd": null,
+      "latency_ms": 2239,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2026/II/25#agenda-1#act-13",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.88,
+        "level_of_justification": 2,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 2,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "nu a existat niciun proiect de desființare arbitrară, în sensul anulării rolului științific și profesional al instituției, ci o analiză privind eficientizarea administrativă și integrarea unor funcții pentru a reduce suprapunerile și blocajele."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Vorbitorul oferă o justificare bazată pe un mecanism administrativ specific pentru a contracara acuzația de desființare."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "Cultura română are nevoie nu doar de simboluri și declarații, ci și de infrastructură, digitalizare, restaurare, finanțări sustenabile și politici publice coerente."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Apelul este la interesul general al culturii naționale și la politici publice coerente, nu la interese de grup."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Grupul AUR"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.99,
+            "marker_confidence": 0.9,
+            "rationale_short": "Referință neutră la grupul parlamentar care a depus moțiunea; nicio derogare sau respect explicit."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Este legitim ca artiștii, sindicatele, managerii culturali să critice, la fel cum este legitim ca și opoziția să depună moțiuni."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Recunoaște legitimitatea dreptului de a critica, dar nu angajează cererile specifice ale moțiunii ca fiind legitime."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 2,
+            "evidence": {
+              "text": "A invoca paralelele istorice, cu desființări din perioada regimului comunist, înseamnă a deturna dezbaterea de la realitate la retorică."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.91,
+            "rationale_short": "Identifică și respinge argumentul opoziției privind paralelele istorice prin contrastul cu realitatea administrativă."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Grupul PSD va vota împotriva moțiunii simple."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.99,
+            "marker_confidence": 0.95,
+            "rationale_short": "Discursul apără poziția guvernului și respinge moțiunea fără a propune o alternativă sau mediere."
+          }
+        ],
+        "rationale": "Discursul prezintă o calitate deliberativă medie-ridicată, caracterizată prin justificări calificate (level_of_justification=2) și un angajament substanțial cu argumentele opoziției (respect_for_counterarguments=2). Vorbitorul evită atacurile la persoană, menținând un ton neutru față de grupurile politice (respect_for_groups=1). Deși recunoaște legitimitatea dreptului la critică, nu oferă o alternativă sau o mediere, rămânând într-o postură pozițională (constructive_politics=positional). Justificările sunt ancorate în binele comun (content_of_justification=common_good), subliniind necesitatea infrastructurii și a politicilor coerente. Per total, discursul este un exemplu de apărare guvernamentală articulată, care respectă normele de dezbatere parlamentară fără a depăși pragul de mediere."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.88,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 2,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"nu a existat niciun proiect de desființare arbitrară, în sensul anulării rolului științific și profesional al instituției, ci o analiză privind eficientizarea administrativă și integrarea unor funcții pentru a reduce suprapunerile și blocajele.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Vorbitorul oferă o justificare bazată pe un mecanism administrativ specific pentru a contracara acuzația de desființare.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"Cultura română are nevoie nu doar de simboluri și declarații, ci și de infrastructură, digitalizare, restaurare, finanțări sustenabile și politici publice coerente.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Apelul este la interesul general al culturii naționale și la politici publice coerente, nu la interese de grup.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Grupul AUR\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.99,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Referință neutră la grupul parlamentar care a depus moțiunea; nicio derogare sau respect explicit.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Este legitim ca artiștii, sindicatele, managerii culturali să critice, la fel cum este legitim ca și opoziția să depună moțiuni.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Recunoaște legitimitatea dreptului de a critica, dar nu angajează cererile specifice ale moțiunii ca fiind legitime.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"A invoca paralelele istorice, cu desființări din perioada regimului comunist, înseamnă a deturna dezbaterea de la realitate la retorică.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.91,\n      \"rationale_short\": \"Identifică și respinge argumentul opoziției privind paralelele istorice prin contrastul cu realitatea administrativă.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"Grupul PSD va vota împotriva moțiunii simple.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.99,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Discursul apără poziția guvernului și respinge moțiunea fără a propune o alternativă sau mediere.\"\n    }\n  ],\n  \"rationale\": \"Discursul prezintă o calitate deliberativă medie-ridicată, caracterizată prin justificări calificate (level_of_justification=2) și un angajament substanțial cu argumentele opoziției (respect_for_counterarguments=2). Vorbitorul evită atacurile la persoană, menținând un ton neutru față de grupurile politice (respect_for_groups=1). Deși recunoaște legitimitatea dreptului la critică, nu oferă o alternativă sau o mediere, rămânând într-o postură pozițională (constructive_politics=positional). Justificările sunt ancorate în binele comun (content_of_justification=common_good), subliniind necesitatea infrastructurii și a politicilor coerente. Per total, discursul este un exemplu de apărare guvernamentală articulată, care respectă normele de dezbatere parlamentară fără a depăși pragul de mediere.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13500,
+      "tokens_in_breakdown": {
+        "fresh": 13500,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1307,
+      "cost_usd": null,
+      "latency_ms": 4885,
+      "retries_used": 0
+    }
+  }
+}

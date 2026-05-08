@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2014/II/109#agenda-1#act-1",
+  "tier": "calibration",
+  "speaker": {
+    "id": "zgonea-valeriu-stefan",
+    "name": "Valeriu Ștefan Zgonea",
+    "raw": "Domnul Valeriu Ștefan Zgonea",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2014-10-13",
+    "year": 2014,
+    "legislature": "VII",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2014/II/109#agenda-1#act-1",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 1.0,
+        "markers": [],
+        "rationale": "Discursul reprezintă o intervenție pur procedurală și administrativă a președintelui de ședință, Valeriu Ștefan Zgonea. Acesta se limitează la anunțarea cvorumului, prezentarea ordinii de zi și a procedurilor parlamentare pentru dezbaterea unei cereri de urmărire penală. Nu există nicio urmă de retorică populistă, maniheism moral sau invocare a unei voințe populare omogene. Discursul este un exemplu clasic de registru instituțional neutru, scorul 0 fiind cert."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 1.0,\n  \"markers\": [],\n  \"rationale\": \"Discursul reprezintă o intervenție pur procedurală și administrativă a președintelui de ședință, Valeriu Ștefan Zgonea. Acesta se limitează la anunțarea cvorumului, prezentarea ordinii de zi și a procedurilor parlamentare pentru dezbaterea unei cereri de urmărire penală. Nu există nicio urmă de retorică populistă, maniheism moral sau invocare a unei voințe populare omogene. Discursul este un exemplu clasic de registru instituțional neutru, scorul 0 fiind cert.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 14169,
+      "tokens_in_breakdown": {
+        "fresh": 14169,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 192,
+      "cost_usd": null,
+      "latency_ms": 1836,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2014/II/109#agenda-1#act-1",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.45,
+        "level_of_justification": 0,
+        "content_of_justification": "none",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 0,
+            "evidence": {
+              "text": "Începem dezbaterea punctului 2 al ordinii de zi"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Discursul este pur procedural, fără nicio justificare sau argumentație."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "none",
+            "evidence": {
+              "text": "Începem dezbaterea punctului 2 al ordinii de zi"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Nicio justificare oferită; conținutul este nedefinit."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Doamnelor și domnilor"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Adresare convențională, neutră."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Biroul permanent și Comitetul liderilor grupurilor parlamentare propun următoarea procedură"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Prezentarea procedurii este neutră, fără angajament cu cereri politice."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "Domnul deputat Valerian Vreme, conform regulamentului, trebuie să-și exprime punctul său de vedere"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Vorbitorul enunță regulamentul, nu angajează contraargumente."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Biroul permanent și Comitetul liderilor grupurilor parlamentare propun următoarea procedură"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Procedura este o poziție administrativă, nu o propunere politică alternativă."
+          }
+        ],
+        "rationale": "Acest discurs este pur procedural, având rolul de a organiza ordinea de zi și de a stabili pașii pentru dezbaterea cererii de urmărire penală. Nu conține nicio argumentație substanțială, justificare sau angajament cu contraargumente, fiind un discurs de tip administrativ-organizatoric. Din acest motiv, scorurile pe dimensiunile deliberative sunt la nivelul minim sau neutru. Framework_confidence este scăzut deoarece discursul nu reprezintă o deliberare politică, ci o intervenție de gestionare a ședinței, ceea ce îl face necodabil pentru DQI în sensul său normativ."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.45,\n  \"level_of_justification\": 0,\n  \"content_of_justification\": \"none\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 0,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 0,\n      \"evidence\": { \"text\": \"Începem dezbaterea punctului 2 al ordinii de zi\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Discursul este pur procedural, fără nicio justificare sau argumentație.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"none\",\n      \"evidence\": { \"text\": \"Începem dezbaterea punctului 2 al ordinii de zi\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Nicio justificare oferită; conținutul este nedefinit.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": { \"text\": \"Doamnelor și domnilor\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Adresare convențională, neutră.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": { \"text\": \"Biroul permanent și Comitetul liderilor grupurilor parlamentare propun următoarea procedură\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Prezentarea procedurii este neutră, fără angajament cu cereri politice.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 0,\n      \"evidence\": { \"text\": \"Domnul deputat Valerian Vreme, conform regulamentului, trebuie să-și exprime punctul său de vedere\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Vorbitorul enunță regulamentul, nu angajează contraargumente.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": { \"text\": \"Biroul permanent și Comitetul liderilor grupurilor parlamentare propun următoarea procedură\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Procedura este o poziție administrativă, nu o propunere politică alternativă.\"\n    }\n  ],\n  \"rationale\": \"Acest discurs este pur procedural, având rolul de a organiza ordinea de zi și de a stabili pașii pentru dezbaterea cererii de urmărire penală. Nu conține nicio argumentație substanțială, justificare sau angajament cu contraargumente, fiind un discurs de tip administrativ-organizatoric. Din acest motiv, scorurile pe dimensiunile deliberative sunt la nivelul minim sau neutru. Framework_confidence este scăzut deoarece discursul nu reprezintă o deliberare politică, ci o intervenție de gestionare a ședinței, ceea ce îl face necodabil pentru DQI în sensul său normativ.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12970,
+      "tokens_in_breakdown": {
+        "fresh": 12970,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1045,
+      "cost_usd": null,
+      "latency_ms": 3795,
+      "retries_used": 0
+    }
+  }
+}

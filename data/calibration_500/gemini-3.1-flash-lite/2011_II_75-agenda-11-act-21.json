@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2011/II/75#agenda-11#act-21",
+  "tier": "calibration",
+  "speaker": {
+    "id": "alecu-valeriu",
+    "name": "Valeriu Alecu",
+    "raw": "Domnul Valeriu Alecu",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2011-06-07",
+    "year": 2011,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2011/II/75#agenda-11#act-21",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul este unul tehnic și informativ, axat pe politici publice privind etichetarea alimentelor și siguranța consumatorului. Vorbitorul prezintă contextul istoric al politicii agricole europene, evenimentele recente (cazul E.coli) și stadiul legislativ al proiectului în Parlamentul României, fără a utiliza un cadru maniheist popor-vs-elită. Nu există apeluri la o voință populară omogenă care să se opună instituțiilor, nici retorică de criză existențială sau moralism binar. Discursul se înscrie în registrul dezbaterii parlamentare constructive și tehnocratice, primind astfel scorul 0."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul este unul tehnic și informativ, axat pe politici publice privind etichetarea alimentelor și siguranța consumatorului. Vorbitorul prezintă contextul istoric al politicii agricole europene, evenimentele recente (cazul E.coli) și stadiul legislativ al proiectului în Parlamentul României, fără a utiliza un cadru maniheist popor-vs-elită. Nu există apeluri la o voință populară omogenă care să se opună instituțiilor, nici retorică de criză existențială sau moralism binar. Discursul se înscrie în registrul dezbaterii parlamentare constructive și tehnocratice, primind astfel scorul 0.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 14094,
+      "tokens_in_breakdown": {
+        "fresh": 14094,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 228,
+      "cost_usd": null,
+      "latency_ms": 2218,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2011/II/75#agenda-11#act-21",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.82,
+        "level_of_justification": 2,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "Cred că etichetarea produselor alimentare va influența considerabil decizia cumpărătorului pentru o alimentație cât mai sănătoasă"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Vorbitorul leagă propunerea de un mecanism cauzal clar: informarea consumatorului duce la alegeri mai sănătoase."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "pentru a asigura populației europene, greu încercată de foametea războiului, alimente din abundență"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.9,
+            "rationale_short": "Justificarea se bazează pe sănătatea publică și securitatea alimentară, valori universale pentru binele comun."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Majoritatea medicilor și a cercetătorilor sunt de părere"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.96,
+            "marker_confidence": 0.9,
+            "rationale_short": "Referință neutră la experți; nicio derogare sau respect explicit pentru out-group-uri."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "s-a demarat dezbaterea publică și consultarea tuturor factorilor implicați"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.8,
+            "rationale_short": "Menționarea consultărilor este procedurală; nu există un angajament cu cereri opuse specifice."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "în ciuda unor puternice contestări la adresa Ministerului Agriculturii"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.85,
+            "rationale_short": "Vorbitorul recunoaște existența contestărilor, dar nu le abordează substanțial."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "probabil ne vom conforma și vom găsi o soluție cât mai accesibilă consumatorului din România"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.96,
+            "marker_confidence": 0.88,
+            "rationale_short": "Vorbitorul susține o poziție generală de conformare, fără a propune un amendament sau o mediere specifică."
+          }
+        ],
+        "rationale": "Discursul prezintă o calitate deliberativă moderată, fiind bine structurat și justificat prin apel la sănătatea publică (level_of_justification=2, content=common_good). Vorbitorul explică necesitatea etichetării prin mecanismul informării consumatorului, însă discursul rămâne în mare parte pozițional, fără a oferi o alternativă legislativă concretă sau a media între punctele de vedere divergente. Respectul pentru grupuri și cereri este neutru, menționând consultările și contestările într-o manieră descriptivă, fără a angaja substanțial argumentele opoziției. Profilul este unul de susținere a unei politici publice, caracterizat prin argumentare logică, dar cu un angajament deliberativ limitat la nivelul dezbaterii parlamentare."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.82,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"Cred că etichetarea produselor alimentare va influența considerabil decizia cumpărătorului pentru o alimentație cât mai sănătoasă\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Vorbitorul leagă propunerea de un mecanism cauzal clar: informarea consumatorului duce la alegeri mai sănătoase.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"pentru a asigura populației europene, greu încercată de foametea războiului, alimente din abundență\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Justificarea se bazează pe sănătatea publică și securitatea alimentară, valori universale pentru binele comun.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Majoritatea medicilor și a cercetătorilor sunt de părere\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.96,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Referință neutră la experți; nicio derogare sau respect explicit pentru out-group-uri.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"s-a demarat dezbaterea publică și consultarea tuturor factorilor implicați\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.8,\n      \"rationale_short\": \"Menționarea consultărilor este procedurală; nu există un angajament cu cereri opuse specifice.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"în ciuda unor puternice contestări la adresa Ministerului Agriculturii\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Vorbitorul recunoaște existența contestărilor, dar nu le abordează substanțial.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"probabil ne vom conforma și vom găsi o soluție cât mai accesibilă consumatorului din România\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.96,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Vorbitorul susține o poziție generală de conformare, fără a propune un amendament sau o mediere specifică.\"\n    }\n  ],\n  \"rationale\": \"Discursul prezintă o calitate deliberativă moderată, fiind bine structurat și justificat prin apel la sănătatea publică (level_of_justification=2, content=common_good). Vorbitorul explică necesitatea etichetării prin mecanismul informării consumatorului, însă discursul rămâne în mare parte pozițional, fără a oferi o alternativă legislativă concretă sau a media între punctele de vedere divergente. Respectul pentru grupuri și cereri este neutru, menționând consultările și contestările într-o manieră descriptivă, fără a angaja substanțial argumentele opoziției. Profilul este unul de susținere a unei politici publice, caracterizat prin argumentare logică, dar cu un angajament deliberativ limitat la nivelul dezbaterii parlamentare.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12895,
+      "tokens_in_breakdown": {
+        "fresh": 12895,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1201,
+      "cost_usd": null,
+      "latency_ms": 4138,
+      "retries_used": 0
+    }
+  }
+}

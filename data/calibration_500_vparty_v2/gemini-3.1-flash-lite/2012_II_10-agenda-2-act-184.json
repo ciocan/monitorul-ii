@@ -1,0 +1,52 @@
+{
+  "speech_id": "mo://2012/II/10#agenda-2#act-184",
+  "tier": "calibration",
+  "speaker": {
+    "id": "anastase-roberta",
+    "name": "Roberta Alma Anastase",
+    "raw": "Doamna Roberta Alma Anastase",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2012-02-21",
+    "year": 2012,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": null,
+    "voice": null,
+    "dqi": null,
+    "vparty": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "vparty",
+      "speech_id": "mo://2012/II/10#agenda-2#act-184",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "vparty@2020 + vdem-attacks-on@v13",
+        "framework_confidence": 1.0,
+        "markers": [],
+        "rationale": "Discursul este unul pur tehnic și procedural, vizând o propunere legislativă privind impozitarea succesiunilor. Vorbitorul prezintă punctul de vedere al Guvernului într-o manieră neutră, fără a ataca instituții, opoziția, presa sau alte grupuri sociale. Nu există niciun element de anti-pluralism sau delegitimizare a normelor democratice. Discursul se încadrează perfect în registrul parlamentar standard."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"vparty@2020 + vdem-attacks-on@v13\",\n  \"framework_confidence\": 1.0,\n  \"markers\": [],\n  \"rationale\": \"Discursul este unul pur tehnic și procedural, vizând o propunere legislativă privind impozitarea succesiunilor. Vorbitorul prezintă punctul de vedere al Guvernului într-o manieră neutră, fără a ataca instituții, opoziția, presa sau alte grupuri sociale. Nu există niciun element de anti-pluralism sau delegitimizare a normelor democratice. Discursul se încadrează perfect în registrul parlamentar standard.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12963,
+      "tokens_in_breakdown": {
+        "fresh": 12963,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 183,
+      "cost_usd": null,
+      "latency_ms": 1569,
+      "retries_used": 0
+    }
+  }
+}

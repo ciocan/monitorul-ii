@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2004/II/100#agenda-1#act-5",
+  "tier": "calibration",
+  "speaker": {
+    "id": "taracila-doru-ioan",
+    "name": "Doru Ioan T„r„cil„",
+    "raw": "Domnul Doru Ioan T„r„cil„",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": null,
+    "year": 2004,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2004/II/100#agenda-1#act-5",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 1.0,
+        "markers": [],
+        "rationale": "Discursul este pur procedural, concentrându-se pe organizarea programului de lucru al Senatului, stabilirea ordinii de zi și validarea unor mandate. Nu există nicio urmă de cadru popor-vs-elită, maniheism moral sau invocare a unei voințe populare omogene. Limbajul este tehnic și administrativ, specific activității parlamentare curente. Hawkins=0 cu încredere maximă."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 1.0,\n  \"markers\": [],\n  \"rationale\": \"Discursul este pur procedural, concentrându-se pe organizarea programului de lucru al Senatului, stabilirea ordinii de zi și validarea unor mandate. Nu există nicio urmă de cadru popor-vs-elită, maniheism moral sau invocare a unei voințe populare omogene. Limbajul este tehnic și administrativ, specific activității parlamentare curente. Hawkins=0 cu încredere maximă.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 14145,
+      "tokens_in_breakdown": {
+        "fresh": 14145,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 163,
+      "cost_usd": null,
+      "latency_ms": 1690,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2004/II/100#agenda-1#act-5",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.55,
+        "level_of_justification": 0,
+        "content_of_justification": "none",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 0,
+            "evidence": {
+              "text": "Ave˛i observa˛ii Ón leg„tur„ cu programul de lucru?"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Discursul este pur procedural, fără nicio justificare pentru o poziție politică."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "none",
+            "evidence": {
+              "text": "Ave˛i observa˛ii Ón leg„tur„ cu programul de lucru?"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Nicio justificare oferită; conținutul este nedefinit."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "V„ rog s„ prezenta˛i rapoartele"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Interacțiune procedurală neutră cu colegii parlamentari."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Ave˛i alte observa˛ii?"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Nicio cerere politică adresată; interacțiune procedurală standard."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "Apreciez bunele dumneavoastr„ inten˛ii, dar este imposibil s„-l introducem pe ordinea de zi"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Recunoaștere formală a intențiilor fără angajament substanțial cu argumente."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "este imposibil s„-l introducem pe ordinea de zi"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Poziție procedurală de respingere a unei cereri, fără propunere alternativă."
+          }
+        ],
+        "rationale": "Acest fragment reprezintă un discurs pur procedural de conducere a ședinței de plen, caracterizat prin gestionarea ordinii de zi și a programului de lucru. Deoarece discursul nu conține argumentație politică sau dezbatere pe fond, nivelul de justificare este zero, iar conținutul justificării este nedefinit. Respectul pentru grupuri și cereri rămâne la un nivel neutru, fiind limitat la convenții procedurale. Deși vorbitorul menționează intențiile colegilor, nu există un angajament substanțial cu contraargumente, ci doar o respingere procedurală. Calitatea deliberativă este scăzută, fiind un discurs de administrare a ședinței, nu de deliberare parlamentară."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.55,\n  \"level_of_justification\": 0,\n  \"content_of_justification\": \"none\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 0,\n      \"evidence\": { \"text\": \"Ave˛i observa˛ii Ón leg„tur„ cu programul de lucru?\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Discursul este pur procedural, fără nicio justificare pentru o poziție politică.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"none\",\n      \"evidence\": { \"text\": \"Ave˛i observa˛ii Ón leg„tur„ cu programul de lucru?\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Nicio justificare oferită; conținutul este nedefinit.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": { \"text\": \"V„ rog s„ prezenta˛i rapoartele\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Interacțiune procedurală neutră cu colegii parlamentari.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": { \"text\": \"Ave˛i alte observa˛ii?\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Nicio cerere politică adresată; interacțiune procedurală standard.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": { \"text\": \"Apreciez bunele dumneavoastr„ inten˛ii, dar este imposibil s„-l introducem pe ordinea de zi\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Recunoaștere formală a intențiilor fără angajament substanțial cu argumente.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": { \"text\": \"este imposibil s„-l introducem pe ordinea de zi\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Poziție procedurală de respingere a unei cereri, fără propunere alternativă.\"\n    }\n  ],\n  \"rationale\": \"Acest fragment reprezintă un discurs pur procedural de conducere a ședinței de plen, caracterizat prin gestionarea ordinii de zi și a programului de lucru. Deoarece discursul nu conține argumentație politică sau dezbatere pe fond, nivelul de justificare este zero, iar conținutul justificării este nedefinit. Respectul pentru grupuri și cereri rămâne la un nivel neutru, fiind limitat la convenții procedurale. Deși vorbitorul menționează intențiile colegilor, nu există un angajament substanțial cu contraargumente, ci doar o respingere procedurală. Calitatea deliberativă este scăzută, fiind un discurs de administrare a ședinței, nu de deliberare parlamentară.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12946,
+      "tokens_in_breakdown": {
+        "fresh": 12946,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1073,
+      "cost_usd": null,
+      "latency_ms": 3949,
+      "retries_used": 0
+    }
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "speech_id": "mo://2000/II/91#agenda-10#act-62",
+  "tier": "calibration",
+  "speaker": {
+    "id": "popescu-emil-teodor",
+    "name": "Emil-Teodor Popescu",
+    "raw": "Domnul Emil-Teodor Popescu",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": null,
+    "year": 2000,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": null,
+    "voice": null,
+    "dqi": null,
+    "vparty": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "vparty",
+      "speech_id": "mo://2000/II/91#agenda-10#act-62",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "vparty@2020 + vdem-attacks-on@v13",
+        "framework_confidence": 1.0,
+        "markers": [],
+        "rationale": "Discursul este unul pur tehnic și procedural, vizând reglementarea profesiei de consilier juridic și organizarea Uniunii Naționale a Consilierilor Juridici din România. Nu există nicio referire la instituții democratice în termeni de delegitimizare, nici atacuri la adresa opoziției, presei, societății civile sau a minorităților. Limbajul este neutru, administrativ și respectă normele democratice de dezbatere parlamentară. Scor 0 cu încredere maximă."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"vparty@2020 + vdem-attacks-on@v13\",\n  \"framework_confidence\": 1.0,\n  \"markers\": [],\n  \"rationale\": \"Discursul este unul pur tehnic și procedural, vizând reglementarea profesiei de consilier juridic și organizarea Uniunii Naționale a Consilierilor Juridici din România. Nu există nicio referire la instituții democratice în termeni de delegitimizare, nici atacuri la adresa opoziției, presei, societății civile sau a minorităților. Limbajul este neutru, administrativ și respectă normele democratice de dezbatere parlamentară. Scor 0 cu încredere maximă.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13142,
+      "tokens_in_breakdown": {
+        "fresh": 13142,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 195,
+      "cost_usd": null,
+      "latency_ms": 1650,
+      "retries_used": 0
+    }
+  }
+}

@@ -1,0 +1,153 @@
+{
+  "speech_id": "mo://2003/II/138#agenda-1#act-55",
+  "tier": "calibration",
+  "speaker": {
+    "id": "selaru-rodica",
+    "name": "Rodica ™elaru",
+    "raw": "Doamna Rodica ™elaru",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": null,
+    "year": 2003,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2003/II/138#agenda-1#act-55",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul este unul pur procedural, axat pe respectarea termenelor legale de depunere a proiectelor de buget și pe analiza tehnică a acestora. Nu există nicio urmă de cadru popor-vs-elită, maniheism moral sau invocare a unei voințe populare omogene. Vorbitorul se limitează la un registru parlamentar convențional, fără a utiliza tropi populiști. Hawkins=0 cu încredere ridicată."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul este unul pur procedural, axat pe respectarea termenelor legale de depunere a proiectelor de buget și pe analiza tehnică a acestora. Nu există nicio urmă de cadru popor-vs-elită, maniheism moral sau invocare a unei voințe populare omogene. Vorbitorul se limitează la un registru parlamentar convențional, fără a utiliza tropi populiști. Hawkins=0 cu încredere ridicată.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13672,
+      "tokens_in_breakdown": {
+        "fresh": 13672,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 171,
+      "cost_usd": null,
+      "latency_ms": 2965,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2003/II/138#agenda-1#act-55",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.72,
+        "level_of_justification": 1,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 1,
+            "evidence": {
+              "text": "Proiectul bugetului de stat, ca ∫i cel al asigur„rilor sociale pentru anul 2004 reflect„ angajamentul asumat de Guvern prin programul de guvernare."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.85,
+            "rationale_short": "Afirmația că bugetul reflectă programul de guvernare este o justificare circulară, bazată pe loialitate politică, nu pe un mecanism cauzal."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "din respect pentru lege, pentru noi ∫i nu Ón ultimul r‚nd pentru cet„˛enii acestei ˛„ri"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.88,
+            "rationale_short": "Apelul la respectul pentru lege și cetățeni este universalizabil, vizând binele comun."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Domnule pre∫edinte, Doamnelor ∫i domnilor senatori"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Adresare formală standard; nu există referințe derogatorii sau de respect explicit către grupuri."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Dup„ o minim„ analiz„ a celor dou„ proiecte, cu care sunt sesiza˛i"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.82,
+            "rationale_short": "Vorbitorul nu abordează cererile opoziției, menținând o postură neutră de non-angajament."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "trei sunt concluziile la care ajunge oricine are bun„-credin˛„"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.88,
+            "rationale_short": "Vorbitorul ignoră complet contraargumentele, sugerând că doar cei de bună-credință pot fi de acord cu el."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Proiectul bugetului de stat, ca ∫i cel al asigur„rilor sociale pentru anul 2004 reflect„ angajamentul asumat de Guvern"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.92,
+            "rationale_short": "Discursul susține poziția Guvernului fără a propune alternative sau mecanisme de mediere."
+          }
+        ],
+        "rationale": "Discursul prezintă o calitate deliberativă limitată, fiind în esență o susținere a programului guvernamental. Justificarea este de nivel 1, bazându-se pe conformitatea cu programul de guvernare, ceea ce reprezintă o raționalizare politică mai degrabă decât o argumentare cauzală. Deși invocă binele comun prin referirea la cetățeni, vorbitorul nu angajează contraargumente, ignorându-le prin apelul la 'bună-credință'. Nu există propuneri alternative sau de mediere, iar respectul pentru grupuri și cereri rămâne la nivelul convențional, neutru. Profilul este unul pozițional, tipic pentru discursurile de susținere a bugetului."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.72,\n  \"level_of_justification\": 1,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 0,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Proiectul bugetului de stat, ca ∫i cel al asigur„rilor sociale pentru anul 2004 reflect„ angajamentul asumat de Guvern prin programul de guvernare.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Afirmația că bugetul reflectă programul de guvernare este o justificare circulară, bazată pe loialitate politică, nu pe un mecanism cauzal.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"din respect pentru lege, pentru noi ∫i nu Ón ultimul r‚nd pentru cet„˛enii acestei ˛„ri\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Apelul la respectul pentru lege și cetățeni este universalizabil, vizând binele comun.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Domnule pre∫edinte, Doamnelor ∫i domnilor senatori\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Adresare formală standard; nu există referințe derogatorii sau de respect explicit către grupuri.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Dup„ o minim„ analiz„ a celor dou„ proiecte, cu care sunt sesiza˛i\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.82,\n      \"rationale_short\": \"Vorbitorul nu abordează cererile opoziției, menținând o postură neutră de non-angajament.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"trei sunt concluziile la care ajunge oricine are bun„-credin˛„\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Vorbitorul ignoră complet contraargumentele, sugerând că doar cei de bună-credință pot fi de acord cu el.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"Proiectul bugetului de stat, ca ∫i cel al asigur„rilor sociale pentru anul 2004 reflect„ angajamentul asumat de Guvern\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Discursul susține poziția Guvernului fără a propune alternative sau mecanisme de mediere.\"\n    }\n  ],\n  \"rationale\": \"Discursul prezintă o calitate deliberativă limitată, fiind în esență o susținere a programului guvernamental. Justificarea este de nivel 1, bazându-se pe conformitatea cu programul de guvernare, ceea ce reprezintă o raționalizare politică mai degrabă decât o argumentare cauzală. Deși invocă binele comun prin referirea la cetățeni, vorbitorul nu angajează contraargumente, ignorându-le prin apelul la 'bună-credință'. Nu există propuneri alternative sau de mediere, iar respectul pentru grupuri și cereri rămâne la nivelul convențional, neutru. Profilul este unul pozițional, tipic pentru discursurile de susținere a bugetului.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [
+        "Domnule pre∫edinte, Doamnelor ∫i domnilor senatori",
+        "Dup„ o minim„ analiz„ a celor dou„ proiecte, cu care sunt sesiza˛i"
+      ],
+      "parse_repaired": false,
+      "tokens_in": 12473,
+      "tokens_in_breakdown": {
+        "fresh": 12473,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1227,
+      "cost_usd": null,
+      "latency_ms": 4838,
+      "retries_used": 0
+    }
+  }
+}

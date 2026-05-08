@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2001/II/176#agenda-1#act-150",
+  "tier": "calibration",
+  "speaker": {
+    "id": "flesariu-ionel",
+    "name": "Ionel Fleºariu",
+    "raw": "Domnul Ionel Fleºariu",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": null,
+    "year": 2001,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2001/II/176#agenda-1#act-150",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 1.0,
+        "markers": [],
+        "rationale": "Discursul este pur procedural și tehnic, concentrându-se pe clarificarea statutului juridic al Consiliului General al Municipiului București în raport cu consiliile județene. Vorbitorul utilizează argumente administrative și juridice (personalitate juridică, delegație permanentă) pentru a clarifica o chestiune de organizare administrativă. Nu există nicio urmă de cadru popor-vs-elită, maniheism moral sau invocare a unei voințe populare, discursul fiind complet lipsit de elemente populiste. Hawkins=0 cu încredere maximă."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 1.0,\n  \"markers\": [],\n  \"rationale\": \"Discursul este pur procedural și tehnic, concentrându-se pe clarificarea statutului juridic al Consiliului General al Municipiului București în raport cu consiliile județene. Vorbitorul utilizează argumente administrative și juridice (personalitate juridică, delegație permanentă) pentru a clarifica o chestiune de organizare administrativă. Nu există nicio urmă de cadru popor-vs-elită, maniheism moral sau invocare a unei voințe populare, discursul fiind complet lipsit de elemente populiste. Hawkins=0 cu încredere maximă.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13696,
+      "tokens_in_breakdown": {
+        "fresh": 13696,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 201,
+      "cost_usd": null,
+      "latency_ms": 1840,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2001/II/176#agenda-1#act-150",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.85,
+        "level_of_justification": 2,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "consiliul judeþean are o delegaþie permanentã, Consiliul General al Municipiului Bucureºti nu are o delegaþie permanentã. De ce? Pentru cã este un consiliu local."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Vorbitorul oferă un argument cauzal bazat pe diferențe structurale și funcționale pentru a-și susține poziția."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "municipiul Bucureºti este o unitate administrativ-teritorialã numitã ”municipiuÒ, care se împarte în mai multe pãrþi componente"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Justificarea se bazează pe interpretarea cadrului legal administrativ, vizând claritatea normativă a instituției."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "municipiul Bucureºti sau Consiliul General al Municipiului Bucureºti"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Referințe neutre la entități administrative; nicio derogare sau respect explicit."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Vreau sã precizez urmãtorul lucru"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.88,
+            "rationale_short": "Vorbitorul își expune punctul de vedere fără a aborda cereri opuse specifice."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "Deci Consiliul Municipiului Bucureºti nu este un consiliu judeþean ºi nu este asimilat cu consiliul judeþean"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Vorbitorul respinge implicit o asimilare eronată, dar fără a cita un argument specific al opoziției."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Deci Consiliul Municipiului Bucureºti nu este un consiliu judeþean"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Vorbitorul susține o poziție clarificatoare fără a propune o alternativă sau o mediere."
+          }
+        ],
+        "rationale": "Discursul domnului Fleșariu este o intervenție tehnică de clarificare a statutului juridic al Consiliului General al Municipiului București. Vorbitorul oferă o justificare calificată (level_of_justification=2) prin utilizarea unor exemple structurale (delegația permanentă) pentru a susține distincția față de consiliile județene. Justificarea este ancorată în cadrul legal, vizând binele comun al clarității administrative (content_of_justification=common_good). Nu există un angajament explicit cu cereri sau contraargumente specifice ale opoziției, ci mai degrabă o corecție a unei interpretări, ceea ce menține respectul pentru demersuri și contraargumente la nivel neutru (1). Discursul este pozițional, nefiind o propunere de politică publică, ci o precizare de natură juridică."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.85,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"consiliul judeþean are o delegaþie permanentã, Consiliul General al Municipiului Bucureºti nu are o delegaþie permanentã. De ce? Pentru cã este un consiliu local.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Vorbitorul oferă un argument cauzal bazat pe diferențe structurale și funcționale pentru a-și susține poziția.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"municipiul Bucureºti este o unitate administrativ-teritorialã numitã ”municipiuÒ, care se împarte în mai multe pãrþi componente\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Justificarea se bazează pe interpretarea cadrului legal administrativ, vizând claritatea normativă a instituției.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"municipiul Bucureºti sau Consiliul General al Municipiului Bucureºti\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Referințe neutre la entități administrative; nicio derogare sau respect explicit.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Vreau sã precizez urmãtorul lucru\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Vorbitorul își expune punctul de vedere fără a aborda cereri opuse specifice.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Deci Consiliul Municipiului Bucureºti nu este un consiliu judeþean ºi nu este asimilat cu consiliul judeþean\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Vorbitorul respinge implicit o asimilare eronată, dar fără a cita un argument specific al opoziției.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"Deci Consiliul Municipiului Bucureºti nu este un consiliu judeþean\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Vorbitorul susține o poziție clarificatoare fără a propune o alternativă sau o mediere.\"\n    }\n  ],\n  \"rationale\": \"Discursul domnului Fleșariu este o intervenție tehnică de clarificare a statutului juridic al Consiliului General al Municipiului București. Vorbitorul oferă o justificare calificată (level_of_justification=2) prin utilizarea unor exemple structurale (delegația permanentă) pentru a susține distincția față de consiliile județene. Justificarea este ancorată în cadrul legal, vizând binele comun al clarității administrative (content_of_justification=common_good). Nu există un angajament explicit cu cereri sau contraargumente specifice ale opoziției, ci mai degrabă o corecție a unei interpretări, ceea ce menține respectul pentru demersuri și contraargumente la nivel neutru (1). Discursul este pozițional, nefiind o propunere de politică publică, ci o precizare de natură juridică.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12497,
+      "tokens_in_breakdown": {
+        "fresh": 12497,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1253,
+      "cost_usd": null,
+      "latency_ms": 4561,
+      "retries_used": 0
+    }
+  }
+}

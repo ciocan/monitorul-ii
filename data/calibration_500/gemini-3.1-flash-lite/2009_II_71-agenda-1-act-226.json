@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2009/II/71#agenda-1#act-226",
+  "tier": "calibration",
+  "speaker": {
+    "id": "oltean-ioan",
+    "name": "Ioan Oltean",
+    "raw": "Domnul Ioan Oltean",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2009-05-19",
+    "year": 2009,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2009/II/71#agenda-1#act-226",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 1.0,
+        "markers": [],
+        "rationale": "Discursul este pur procedural și tehnic, concentrat pe organizarea internă a instituțiilor statului (AVAS, OPSPI) și pe aprobarea unei ordonanțe de urgență privind transferul unor sume de bani. Nu există nicio urmă de retorică populistă, nicio invocare a unui conflict între popor și elită, niciun maniheism moral sau apel la o voință populară suverană. Vorbitorul se limitează strict la prezentarea obiectului de reglementare și a contextului administrativ, încadrându-se perfect în registrul parlamentar standard. Hawkins=0 cu încredere maximă."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 1.0,\n  \"markers\": [],\n  \"rationale\": \"Discursul este pur procedural și tehnic, concentrat pe organizarea internă a instituțiilor statului (AVAS, OPSPI) și pe aprobarea unei ordonanțe de urgență privind transferul unor sume de bani. Nu există nicio urmă de retorică populistă, nicio invocare a unui conflict între popor și elită, niciun maniheism moral sau apel la o voință populară suverană. Vorbitorul se limitează strict la prezentarea obiectului de reglementare și a contextului administrativ, încadrându-se perfect în registrul parlamentar standard. Hawkins=0 cu încredere maximă.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 14141,
+      "tokens_in_breakdown": {
+        "fresh": 14141,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 208,
+      "cost_usd": null,
+      "latency_ms": 3896,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2009/II/71#agenda-1#act-226",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.88,
+        "level_of_justification": 2,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "Transferarea sumei este necesară începerii activității OPSPI pentru cheltuieli administrative și de personal."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Vorbitorul oferă un mecanism cauzal clar pentru necesitatea transferului de fonduri."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "Proiectul de lege are ca obiect de reglementare crearea temeiului legal pentru restituirea"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Justificarea vizează funcționarea instituțională și legalitatea, aspecte de interes public general."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Ministerul Economiei și Finanțelor s-a divizat în Ministerul Finanțelor Publice și Ministerul Economiei."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Referințe instituționale neutre; nicio mențiune a unor grupuri sociale sau politice."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "propunem plenului Camerei Deputaților adoptarea proiectului de lege"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Discursul este de natură tehnică și nu abordează cereri opoziționale; neutru implicit."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "Proiectul de lege are ca obiect de reglementare crearea temeiului legal"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.88,
+            "rationale_short": "Nu există contraargumente invocate în acest discurs tehnic; non-angajament implicit."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "propunem plenului Camerei Deputaților adoptarea proiectului de lege"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Vorbitorul susține adoptarea proiectului fără a propune alternative sau medieri."
+          }
+        ],
+        "rationale": "Discursul domnului secretar de stat Lucian Șova este unul tehnic, specific rolului de inițiator guvernamental. Justificarea este calificată (level_of_justification=2) deoarece explică clar necesitatea transferului de fonduri pentru cheltuieli administrative, ancorându-se în binele comun al funcționării instituționale (content_of_justification=common_good). Respectul pentru grupuri și cereri este neutru, discursul fiind lipsit de conotații politice sau polemice. Nu există contraargumente adresate, ceea ce este tipic pentru prezentarea unui proiect de lege în absența unei opoziții active în acel moment. Poziția este constructivă în sensul susținerii proiectului, dar rămâne positională, nefiind o propunere de mediere sau o alternativă la o altă inițiativă."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.88,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"Transferarea sumei este necesară începerii activității OPSPI pentru cheltuieli administrative și de personal.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Vorbitorul oferă un mecanism cauzal clar pentru necesitatea transferului de fonduri.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"Proiectul de lege are ca obiect de reglementare crearea temeiului legal pentru restituirea\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Justificarea vizează funcționarea instituțională și legalitatea, aspecte de interes public general.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Ministerul Economiei și Finanțelor s-a divizat în Ministerul Finanțelor Publice și Ministerul Economiei.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Referințe instituționale neutre; nicio mențiune a unor grupuri sociale sau politice.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"propunem plenului Camerei Deputaților adoptarea proiectului de lege\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.90,\n      \"rationale_short\": \"Discursul este de natură tehnică și nu abordează cereri opoziționale; neutru implicit.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Proiectul de lege are ca obiect de reglementare crearea temeiului legal\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Nu există contraargumente invocate în acest discurs tehnic; non-angajament implicit.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"propunem plenului Camerei Deputaților adoptarea proiectului de lege\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Vorbitorul susține adoptarea proiectului fără a propune alternative sau medieri.\"\n    }\n  ],\n  \"rationale\": \"Discursul domnului secretar de stat Lucian Șova este unul tehnic, specific rolului de inițiator guvernamental. Justificarea este calificată (level_of_justification=2) deoarece explică clar necesitatea transferului de fonduri pentru cheltuieli administrative, ancorându-se în binele comun al funcționării instituționale (content_of_justification=common_good). Respectul pentru grupuri și cereri este neutru, discursul fiind lipsit de conotații politice sau polemice. Nu există contraargumente adresate, ceea ce este tipic pentru prezentarea unui proiect de lege în absența unei opoziții active în acel moment. Poziția este constructivă în sensul susținerii proiectului, dar rămâne positională, nefiind o propunere de mediere sau o alternativă la o altă inițiativă.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12942,
+      "tokens_in_breakdown": {
+        "fresh": 12942,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1177,
+      "cost_usd": null,
+      "latency_ms": 4550,
+      "retries_used": 0
+    }
+  }
+}

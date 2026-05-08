@@ -1,0 +1,83 @@
+{
+  "speech_id": "mo://2007/II/9#agenda-8#act-62",
+  "tier": "populist",
+  "speaker": {
+    "id": "tudor-corneliu-vadim",
+    "name": "Corneliu Vadim Tudor",
+    "raw": "Domnul Corneliu Vadim Tudor",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": null,
+    "year": 2007,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": null,
+    "voice": null,
+    "dqi": null,
+    "vparty": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "vparty",
+      "speech_id": "mo://2007/II/9#agenda-8#act-62",
+      "output": {
+        "score": 2,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "vparty@2020 + vdem-attacks-on@v13",
+        "framework_confidence": 0.95,
+        "markers": [
+          {
+            "kind": "judiciary_attack",
+            "evidence": {
+              "text": "D.N.A. a devenit un organ de constr‚ngere Ón m‚na mafiei aflate la putere"
+            },
+            "preliminary_voice": "quoted",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "DNA este delegitimizat ca organ de constrângere al mafiei politice."
+          },
+          {
+            "kind": "judiciary_attack",
+            "evidence": {
+              "text": "Doamna Macovei prime∫te ordine direct de la domnul B„sescu, a∫a c„ s„ nu ne vorbeasc„ nou„ de independen˛a justi˛iei"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.92,
+            "rationale_short": "Justiția este prezentată ca fiind complet subordonată politic, negându-i-se independența instituțională."
+          },
+          {
+            "kind": "judiciary_attack",
+            "evidence": {
+              "text": "Asta nu e imixtiune Ón actul de justi˛ie, doamna Macovei?"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.9,
+            "rationale_short": "Acuzație directă de imixtiune politică sistemică în actul de justiție."
+          }
+        ],
+        "rationale": "Discursul lui Corneliu Vadim Tudor construiește o viziune în care justiția (DNA și Parchetul) este complet capturată de interese politice și mafiote. Deși o parte din atacuri sunt prezentate sub formă de citat, vorbitorul își asumă pe deplin cadrul interpretativ, acuzând direct ministrul justiției și președintele de subordonarea totală a magistraților. Delegitimarea instituțiilor judiciare ca fiind instrumente de represiune politică este coloana vertebrală a discursului, justificând astfel scorul 2. Deși discursul conține elemente de retorică parlamentară, atacul sistemic asupra independenței justiției depășește critica punctuală și devine o negare a legitimității instituționale."
+      },
+      "raw_response": "{\n  \"score\": 2,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"vparty@2020 + vdem-attacks-on@v13\",\n  \"framework_confidence\": 0.95,\n  \"markers\": [\n    {\n      \"kind\": \"judiciary_attack\",\n      \"evidence\": {\n        \"text\": \"D.N.A. a devenit un organ de constr‚ngere Ón m‚na mafiei aflate la putere\"\n      },\n      \"preliminary_voice\": \"quoted\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"DNA este delegitimizat ca organ de constrângere al mafiei politice.\"\n    },\n    {\n      \"kind\": \"judiciary_attack\",\n      \"evidence\": {\n        \"text\": \"Doamna Macovei prime∫te ordine direct de la domnul B„sescu, a∫a c„ s„ nu ne vorbeasc„ nou„ de independen˛a justi˛iei\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Justiția este prezentată ca fiind complet subordonată politic, negându-i-se independența instituțională.\"\n    },\n    {\n      \"kind\": \"judiciary_attack\",\n      \"evidence\": {\n        \"text\": \"Asta nu e imixtiune Ón actul de justi˛ie, doamna Macovei?\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.90,\n      \"rationale_short\": \"Acuzație directă de imixtiune politică sistemică în actul de justiție.\"\n    }\n  ],\n  \"rationale\": \"Discursul lui Corneliu Vadim Tudor construiește o viziune în care justiția (DNA și Parchetul) este complet capturată de interese politice și mafiote. Deși o parte din atacuri sunt prezentate sub formă de citat, vorbitorul își asumă pe deplin cadrul interpretativ, acuzând direct ministrul justiției și președintele de subordonarea totală a magistraților. Delegitimarea instituțiilor judiciare ca fiind instrumente de represiune politică este coloana vertebrală a discursului, justificând astfel scorul 2. Deși discursul conține elemente de retorică parlamentară, atacul sistemic asupra independenței justiției depășește critica punctuală și devine o negare a legitimității instituționale.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13336,
+      "tokens_in_breakdown": {
+        "fresh": 13336,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 689,
+      "cost_usd": null,
+      "latency_ms": 3154,
+      "retries_used": 0
+    }
+  }
+}

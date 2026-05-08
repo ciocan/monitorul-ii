@@ -1,0 +1,52 @@
+{
+  "speech_id": "mo://2017/II/119#agenda-1#act-128",
+  "tier": "calibration",
+  "speaker": {
+    "id": "chereches-florica",
+    "name": "Florica Cherecheș",
+    "raw": "Doamna Florica Cherecheș",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2017-09-05",
+    "year": 2017,
+    "legislature": "VIII",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": null,
+    "voice": null,
+    "dqi": null,
+    "vparty": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "vparty",
+      "speech_id": "mo://2017/II/119#agenda-1#act-128",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "vparty@2020 + vdem-attacks-on@v13",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul reprezintă o critică parlamentară standard la adresa managementului guvernamental și a procedurilor legislative. Vorbitorul atacă ineficiența administrativă și incoerența decizională a Guvernului, fără a delegitima instituțiile democratice ca atare. Referințele la instituții precum Ministerul Sănătății sau Autoritatea Națională pentru Cercetare Științifică și Inovare sunt critici de politică publică, nu atacuri anti-pluraliste. Nu există elemente de delegitimare a opoziției, presei, justiției, ONG-urilor sau minorităților, discursul încadrându-se în registrul democratic normal."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"vparty@2020 + vdem-attacks-on@v13\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul reprezintă o critică parlamentară standard la adresa managementului guvernamental și a procedurilor legislative. Vorbitorul atacă ineficiența administrativă și incoerența decizională a Guvernului, fără a delegitima instituțiile democratice ca atare. Referințele la instituții precum Ministerul Sănătății sau Autoritatea Națională pentru Cercetare Științifică și Inovare sunt critici de politică publică, nu atacuri anti-pluraliste. Nu există elemente de delegitimare a opoziției, presei, justiției, ONG-urilor sau minorităților, discursul încadrându-se în registrul democratic normal.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13235,
+      "tokens_in_breakdown": {
+        "fresh": 13235,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 233,
+      "cost_usd": null,
+      "latency_ms": 1902,
+      "retries_used": 0
+    }
+  }
+}

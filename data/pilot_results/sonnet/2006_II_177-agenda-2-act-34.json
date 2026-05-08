@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2006/II/177#agenda-2#act-34",
+  "tier": "register_shift",
+  "speaker": {
+    "id": "ponta-victor-viorel",
+    "name": "Victor Viorel Ponta",
+    "raw": "Domnul Victor Viorel Ponta",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": null,
+    "session_date": null,
+    "year": 2006,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "sonnet",
+  "model_label": "claude-sonnet-4.6",
+  "results": {
+    "hawkins": {
+      "model_key": "sonnet",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2006/II/177#agenda-2#act-34",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul este o sesiune procedurală de adoptare punct cu punct a amendamentelor unui proiect de lege — 22 de puncte consecutive, fiecare urmat de formula stereotipă „Obiecțiuni? Nu sunt. Adoptat.\" Fără niciun cadru popor-vs-elită, fără maniheism moralist, fără invocare a unui popor omogen, fără criză retorică și fără trimitere la proporții civilizaționale. A doua parte prezintă un nou proiect legislativ (OUG 48/2006 privind comitetul european de întreprindere) în registru procedural tehnic. Niciun marker populist nu se aprinde; Hawkins=0 cu încredere maximă.\""
+      },
+      "raw_response": "```json\n{\"score\":0,\"score_unit\":\"ordinal_0_2\",\"framework_version\":\"hawkins@2018\",\"framework_confidence\":0.98,\"markers\":[],\"rationale\":\"Discursul este o sesiune procedurală de adoptare punct cu punct a amendamentelor unui proiect de lege — 22 de puncte consecutive, fiecare urmat de formula stereotipă „Obiecțiuni? Nu sunt. Adoptat.\" Fără niciun cadru popor-vs-elită, fără maniheism moralist, fără invocare a unui popor omogen, fără criză retorică și fără trimitere la proporții civilizaționale. A doua parte prezintă un nou proiect legislativ (OUG 48/2006 privind comitetul european de întreprindere) în registru procedural tehnic. Niciun marker populist nu se aprinde; Hawkins=0 cu încredere maximă.\"}\n```",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": true,
+      "tokens_in": 74480,
+      "tokens_in_breakdown": {
+        "fresh": 2,
+        "cache_creation": 61332,
+        "cache_read": 13146
+      },
+      "tokens_out": 625,
+      "cost_usd": 0.2433198,
+      "latency_ms": 19584,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "sonnet",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2006/II/177#agenda-2#act-34",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.31,
+        "level_of_justification": 0,
+        "content_of_justification": "none",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 0,
+            "evidence": {
+              "text": "Obiec˛iuni? Nu exist„. Adoptat."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.91,
+            "marker_confidence": 0.88,
+            "rationale_short": "Șirul repetitiv „Obiecțiuni? Nu există. Adoptat.\" nu conține nicio poziție proprie sau raționament — este conduită procedurală pură.\""
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "none",
+            "evidence": {
+              "text": "Obiec˛iuni? Nu exist„. Adoptat."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.91,
+            "marker_confidence": 0.87,
+            "rationale_short": "Nicio justificare oferită în niciun punct al discursului; conținutul justificării este prin urmare nedefinit."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "V„ mul˛umesc, domnule deputat."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.9,
+            "marker_confidence": 0.62,
+            "rationale_short": "Adresare convențională de sală; niciun grup social sau politic nu este angajat — neutru implicit."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Alte opinii din partea colegilor? Nu sunt."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.89,
+            "marker_confidence": 0.6,
+            "rationale_short": "Președintele solicită opinii procedural, dar nu angajează nicio cerere adversă și nici nu respinge una — neutru prin absența obiectului."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "Obiec˛iuni? Nu exist„. Adoptat."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.91,
+            "marker_confidence": 0.72,
+            "rationale_short": "Niciun contraargument nu este formulat în cadrul discursului, iar vorbitorul nu menționează, recunoaște sau combate niciun raționament advers."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Urmeaz„ s„ fie supus„ votului final."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.9,
+            "marker_confidence": 0.81,
+            "rationale_short": "Vorbitorul conduce adoptarea articolelor pe rând; nu propune nicio alternativă sau mediere — conduită procedurală, nu politică constructivă."
+          }
+        ],
+        "rationale": "Fragmentul nu este un discurs deliberativ în sensul DQI, ci transcrierea unui președinte de comisie care conduce adoptarea articol cu articol a unui proiect de lege, în procedură de urgență, fără nicio opoziție înregistrată. Vorbitorul nu ia o poziție proprie, nu oferă nicio justificare (level_of_justification=0, content=none), nu angajează cereri adverse (respect_for_demands=1, neutru prin absența obiectului), nu menționează și nu combate niciun contraargument (respect_for_counterarguments=0 — nu pentru că le ignoră deliberat, ci pentru că niciun contraargument nu a fost ridicat), și nu propune nicio alternativă sau mediere (constructive_politics=positional). Respectul pentru grupuri este neutru implicit — niciun grup nu este invocat în niciun mod. framework_confidence este scăzut (0.31) deoarece DQI presupune că vorbitorul argumentează o poziție; un discurs de conduită procedurală pur nu poate fi codat în mod semnificativ pe nicio dimensiune deliberativă, iar valorile raportate reflectă valorile implicite, nu o evaluare substantivă. Consumatorii care filtrează după framework_confidence > 0.50 vor exclude corect acest fragment."
+      },
+      "raw_response": "```json\n{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.31,\n  \"level_of_justification\": 0,\n  \"content_of_justification\": \"none\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 0,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 0,\n      \"evidence\": { \"text\": \"Obiec˛iuni? Nu exist„. Adoptat.\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.91,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Șirul repetitiv „Obiecțiuni? Nu există. Adoptat.\" nu conține nicio poziție proprie sau raționament — este conduită procedurală pură.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"none\",\n      \"evidence\": { \"text\": \"Obiec˛iuni? Nu exist„. Adoptat.\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.91,\n      \"marker_confidence\": 0.87,\n      \"rationale_short\": \"Nicio justificare oferită în niciun punct al discursului; conținutul justificării este prin urmare nedefinit.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": { \"text\": \"V„ mul˛umesc, domnule deputat.\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.90,\n      \"marker_confidence\": 0.62,\n      \"rationale_short\": \"Adresare convențională de sală; niciun grup social sau politic nu este angajat — neutru implicit.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": { \"text\": \"Alte opinii din partea colegilor? Nu sunt.\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.89,\n      \"marker_confidence\": 0.60,\n      \"rationale_short\": \"Președintele solicită opinii procedural, dar nu angajează nicio cerere adversă și nici nu respinge una — neutru prin absența obiectului.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 0,\n      \"evidence\": { \"text\": \"Obiec˛iuni? Nu exist„. Adoptat.\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.91,\n      \"marker_confidence\": 0.72,\n      \"rationale_short\": \"Niciun contraargument nu este formulat în cadrul discursului, iar vorbitorul nu menționează, recunoaște sau combate niciun raționament advers.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": { \"text\": \"Urmeaz„ s„ fie supus„ votului final.\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.90,\n      \"marker_confidence\": 0.81,\n      \"rationale_short\": \"Vorbitorul conduce adoptarea articolelor pe rând; nu propune nicio alternativă sau mediere — conduită procedurală, nu politică constructivă.\"\n    }\n  ],\n  \"rationale\": \"Fragmentul nu este un discurs deliberativ în sensul DQI, ci transcrierea unui președinte de comisie care conduce adoptarea articol cu articol a unui proiect de lege, în procedură de urgență, fără nicio opoziție înregistrată. Vorbitorul nu ia o poziție proprie, nu oferă nicio justificare (level_of_justification=0, content=none), nu angajează cereri adverse (respect_for_demands=1, neutru prin absența obiectului), nu menționează și nu combate niciun contraargument (respect_for_counterarguments=0 — nu pentru că le ignoră deliberat, ci pentru că niciun contraargument nu a fost ridicat), și nu propune nicio alternativă sau mediere (constructive_politics=positional). Respectul pentru grupuri este neutru implicit — niciun grup nu este invocat în niciun mod. framework_confidence este scăzut (0.31) deoarece DQI presupune că vorbitorul argumentează o poziție; un discurs de conduită procedurală pur nu poate fi codat în mod semnificativ pe nicio dimensiune deliberativă, iar valorile raportate reflectă valorile implicite, nu o evaluare substantivă. Consumatorii care filtrează după framework_confidence > 0.50 vor exclude corect acest fragment.\"\n}\n```",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": true,
+      "tokens_in": 73111,
+      "tokens_in_breakdown": {
+        "fresh": 2,
+        "cache_creation": 59963,
+        "cache_read": 13146
+      },
+      "tokens_out": 3456,
+      "cost_usd": 0.28065105,
+      "latency_ms": 70298,
+      "retries_used": 0
+    }
+  }
+}

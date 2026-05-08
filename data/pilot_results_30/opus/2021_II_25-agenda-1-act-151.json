@@ -1,0 +1,192 @@
+{
+  "speech_id": "mo://2021/II/25#agenda-1#act-151",
+  "tier": "moderate",
+  "speaker": {
+    "id": "orban-ludovic",
+    "name": "Ludovic Orban",
+    "raw": "Domnul Ludovic Orban",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2021-02-17",
+    "year": 2021,
+    "legislature": "IX",
+    "delivery_mode": null
+  },
+  "model_key": "opus",
+  "model_label": "claude-opus-4.7",
+  "results": {
+    "hawkins": {
+      "model_key": "opus",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2021/II/25#agenda-1#act-151",
+      "output": {
+        "score": 1,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.7,
+        "markers": [
+          {
+            "kind": "people_vs_elite",
+            "evidence": {
+              "text": "nu este drept ca parlamentarii României să-și dea pensii speciale, în timp ce milioane de români sunt la pensie și trăiesc din pensie de contributivitate"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.9,
+            "marker_confidence": 0.72,
+            "rationale_short": "Contrastează parlamentarii (care își acordă pensii speciale) cu milioanele de români obișnuiți care trăiesc din contributivitate — cadru popor-vs-elită moderat."
+          }
+        ],
+        "rationale": "Discursul are o structură mixtă: deschide cu un registru civic-instituțional („sănătatea democrației\", „să-i reprezentăm onest pe cetățeni\") și denunță explicit populismul și demagogia ca pericole, ceea ce ar trage scorul către 0. Pivotează însă într-un cadru moderat popor-vs-elită prin contrastul direct dintre parlamentari care își acordă pensii speciale și milioanele de români care trăiesc din pensie de contributivitate, susținut moralizator („nu este drept\", „așa este corect și normal\"). Nu apare însă elită-malefică, voință populară supremă peste instituții, popor omogen invocat ca subiect singular sau cadru de criză existențială; argumentul rămâne ancorat în corectitudine procedurală și echitate distributivă, nu într-o viziune manihiană pervazivă. Un singur marker la persoana întâi într-un discurs care explicit își propune să respingă populismul — Hawkins=1 la limita inferioară, cu încredere moderată; un cititor rezonabil ar putea apăra și scorul 0 dat fiind autodisclaimerul anti-populist."
+      },
+      "raw_response": "{\"score\":1,\"score_unit\":\"ordinal_0_2\",\"framework_version\":\"hawkins@2018\",\"framework_confidence\":0.7,\"markers\":[{\"kind\":\"people_vs_elite\",\"evidence\":{\"text\":\"nu este drept ca parlamentarii României să-și dea pensii speciale, în timp ce milioane de români sunt la pensie și trăiesc din pensie de contributivitate\"},\"preliminary_voice\":\"speaker_first_person\",\"preliminary_voice_confidence\":0.9,\"marker_confidence\":0.72,\"rationale_short\":\"Contrastează parlamentarii (care își acordă pensii speciale) cu milioanele de români obișnuiți care trăiesc din contributivitate — cadru popor-vs-elită moderat.\"}],\"rationale\":\"Discursul are o structură mixtă: deschide cu un registru civic-instituțional („sănătatea democrației\\\", „să-i reprezentăm onest pe cetățeni\\\") și denunță explicit populismul și demagogia ca pericole, ceea ce ar trage scorul către 0. Pivotează însă într-un cadru moderat popor-vs-elită prin contrastul direct dintre parlamentari care își acordă pensii speciale și milioanele de români care trăiesc din pensie de contributivitate, susținut moralizator („nu este drept\\\", „așa este corect și normal\\\"). Nu apare însă elită-malefică, voință populară supremă peste instituții, popor omogen invocat ca subiect singular sau cadru de criză existențială; argumentul rămâne ancorat în corectitudine procedurală și echitate distributivă, nu într-o viziune manihiană pervazivă. Un singur marker la persoana întâi într-un discurs care explicit își propune să respingă populismul — Hawkins=1 la limita inferioară, cu încredere moderată; un cititor rezonabil ar putea apăra și scorul 0 dat fiind autodisclaimerul anti-populist.\"}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 104100,
+      "tokens_in_breakdown": {
+        "fresh": 5,
+        "cache_creation": 85742,
+        "cache_read": 18353
+      },
+      "tokens_out": 672,
+      "cost_usd": 0.561889,
+      "latency_ms": 23880,
+      "retries_used": 0
+    },
+    "voice": {
+      "model_key": "opus",
+      "prompt_kind": "voice",
+      "speech_id": "mo://2021/II/25#agenda-1#act-151",
+      "output": {
+        "classifications": [
+          {
+            "marker_id": "m_0",
+            "voice": "speaker_first_person",
+            "voice_confidence": 0.95,
+            "voice_evidence": null,
+            "attributed_to": null,
+            "rationale_short": "Afirmație directă la persoana întâi plural („Noi trebuie să votăm... că nu este drept\"); fără citat, raport, negație sau disclaimer; vorbitorul își asumă afirmația."
+          }
+        ]
+      },
+      "raw_response": "{\"classifications\":[{\"marker_id\":\"m_0\",\"voice\":\"speaker_first_person\",\"voice_confidence\":0.95,\"voice_evidence\":null,\"attributed_to\":null,\"rationale_short\":\"Afirmație directă la persoana întâi plural („Noi trebuie să votăm... că nu este drept\\\"); fără citat, raport, negație sau disclaimer; vorbitorul își asumă afirmația.\"}]}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 100539,
+      "tokens_in_breakdown": {
+        "fresh": 5,
+        "cache_creation": 82181,
+        "cache_read": 18353
+      },
+      "tokens_out": 147,
+      "cost_usd": 0.5265077499999999,
+      "latency_ms": 9091,
+      "retries_used": 0
+    },
+    "dqi": {
+      "model_key": "opus",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2021/II/25#agenda-1#act-151",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.78,
+        "level_of_justification": 1,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 0,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 1,
+            "evidence": {
+              "text": "nu este drept ca parlamentarii României să-și dea pensii speciale, în timp ce milioane de români sunt la pensie și trăiesc din pensie de contributivitate, pentru că așa este corect și normal"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.96,
+            "marker_confidence": 0.84,
+            "rationale_short": "Apel la corectitudine prin contrast parlamentari/contributivitate, dar închis circular cu „așa este corect și normal\" — justificare inferioară."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "Sănătatea democrației românești depinde de capacitatea noastră de a-i reprezenta în mod onest, cinstit, corect pe cetățenii români"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.83,
+            "rationale_short": "Apel la principii universalizabile (sănătatea democrației, reprezentarea onestă a tuturor cetățenilor), nu la interes de grup."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 0,
+            "evidence": {
+              "text": "Depinde de capacitatea noastră de a lăsa populismul, demagogia, egoismul partinic, dorința de a obține câștiguri electorale ieftine"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.93,
+            "marker_confidence": 0.71,
+            "rationale_short": "Caracterizează colegii prin „populism\", „demagogie\", „egoism partinic\", „câștiguri electorale ieftine\" — derogare a in-group-ului parlamentar."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Am acceptat pentru că erați gata să blocați adoptarea acestui act normativ"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.94,
+            "marker_confidence": 0.7,
+            "rationale_short": "Recunoaște existența cererii adverse (blocajul) și o acomodează tactic, dar fără a-i recunoaște explicit legitimitatea."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "Am acceptat pentru că erați gata să blocați adoptarea acestui act normativ"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.94,
+            "marker_confidence": 0.78,
+            "rationale_short": "Raționamentul opoziției nu este reformulat sau combătut substanțial; este redus la o amenințare procedurală."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Noi trebuie să votăm desființarea pensiilor speciale pentru parlamentari"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.96,
+            "marker_confidence": 0.85,
+            "rationale_short": "Poziție declarată („trebuie să votăm desființarea\"); nicio alternativă concretă sau mediere bridge între poziții opuse."
+          }
+        ],
+        "rationale": "Discurs de retorică morală în registru de revendicare populistă-anti-elită aplicată propriei clase parlamentare. Vorbitorul oferă o justificare inferioară (level_of_justification=1): apelul la corectitudine prin contrastul parlamentari-cu-pensii-speciale vs. milioane-de-români-cu-pensie-de-contributivitate aduce un fragment de raționament substanțial, dar argumentul se închide circular cu „așa este corect și normal\". Conținutul justificării este common_good — sănătatea democrației, reprezentarea onestă a tuturor cetățenilor. Respectul pentru grupuri scade la 0 prin caracterizarea colegilor parlamentari drept practicând „populism, demagogie, egoism partinic, câștiguri electorale ieftine\" — derogare directă a in-group-ului. Cererile adverse sunt recunoscute tactic („Am acceptat pentru că erați gata să blocați\") fără recunoașterea legitimității lor (respect_for_demands=1). Raționamentul opoziției nu este reformulat sau combătut substanțial, ci redus la o amenințare procedurală (respect_for_counterarguments=0). Politica este pur pozițională — declară ce „trebuie să votăm\" fără alternativă sau mediere. Profil deliberativ scăzut spre mediu, cu ironia că discursul anti-populist folosește el însuși denigrare moralizatoare drept principal mecanism retoric."
+      },
+      "raw_response": "{\"framework_version\":\"steiner-bachtiger@2017\",\"score_unit\":\"dqi_multi\",\"framework_confidence\":0.78,\"level_of_justification\":1,\"content_of_justification\":\"common_good\",\"respect_for_groups\":0,\"respect_for_demands\":1,\"respect_for_counterarguments\":0,\"constructive_politics\":\"positional\",\"markers\":[{\"kind\":\"level_of_justification\",\"value\":1,\"evidence\":{\"text\":\"nu este drept ca parlamentarii României să-și dea pensii speciale, în timp ce milioane de români sunt la pensie și trăiesc din pensie de contributivitate, pentru că așa este corect și normal\"},\"preliminary_voice\":\"speaker_first_person\",\"preliminary_voice_confidence\":0.96,\"marker_confidence\":0.84,\"rationale_short\":\"Apel la corectitudine prin contrast parlamentari/contributivitate, dar închis circular cu „așa este corect și normal\\\" — justificare inferioară.\"},{\"kind\":\"content_of_justification\",\"value\":\"common_good\",\"evidence\":{\"text\":\"Sănătatea democrației românești depinde de capacitatea noastră de a-i reprezenta în mod onest, cinstit, corect pe cetățenii români\"},\"preliminary_voice\":\"speaker_first_person\",\"preliminary_voice_confidence\":0.95,\"marker_confidence\":0.83,\"rationale_short\":\"Apel la principii universalizabile (sănătatea democrației, reprezentarea onestă a tuturor cetățenilor), nu la interes de grup.\"},{\"kind\":\"respect_for_groups\",\"value\":0,\"evidence\":{\"text\":\"Depinde de capacitatea noastră de a lăsa populismul, demagogia, egoismul partinic, dorința de a obține câștiguri electorale ieftine\"},\"preliminary_voice\":\"speaker_first_person\",\"preliminary_voice_confidence\":0.93,\"marker_confidence\":0.71,\"rationale_short\":\"Caracterizează colegii prin „populism\\\", „demagogie\\\", „egoism partinic\\\", „câștiguri electorale ieftine\\\" — derogare a in-group-ului parlamentar.\"},{\"kind\":\"respect_for_demands\",\"value\":1,\"evidence\":{\"text\":\"Am acceptat pentru că erați gata să blocați adoptarea acestui act normativ\"},\"preliminary_voice\":\"speaker_first_person\",\"preliminary_voice_confidence\":0.94,\"marker_confidence\":0.7,\"rationale_short\":\"Recunoaște existența cererii adverse (blocajul) și o acomodează tactic, dar fără a-i recunoaște explicit legitimitatea.\"},{\"kind\":\"respect_for_counterarguments\",\"value\":0,\"evidence\":{\"text\":\"Am acceptat pentru că erați gata să blocați adoptarea acestui act normativ\"},\"preliminary_voice\":\"speaker_first_person\",\"preliminary_voice_confidence\":0.94,\"marker_confidence\":0.78,\"rationale_short\":\"Raționamentul opoziției nu este reformulat sau combătut substanțial; este redus la o amenințare procedurală.\"},{\"kind\":\"constructive_politics\",\"value\":\"positional\",\"evidence\":{\"text\":\"Noi trebuie să votăm desființarea pensiilor speciale pentru parlamentari\"},\"preliminary_voice\":\"speaker_first_person\",\"preliminary_voice_confidence\":0.96,\"marker_confidence\":0.85,\"rationale_short\":\"Poziție declarată („trebuie să votăm desființarea\\\"); nicio alternativă concretă sau mediere bridge între poziții opuse.\"}],\"rationale\":\"Discurs de retorică morală în registru de revendicare populistă-anti-elită aplicată propriei clase parlamentare. Vorbitorul oferă o justificare inferioară (level_of_justification=1): apelul la corectitudine prin contrastul parlamentari-cu-pensii-speciale vs. milioane-de-români-cu-pensie-de-contributivitate aduce un fragment de raționament substanțial, dar argumentul se închide circular cu „așa este corect și normal\\\". Conținutul justificării este common_good — sănătatea democrației, reprezentarea onestă a tuturor cetățenilor. Respectul pentru grupuri scade la 0 prin caracterizarea colegilor parlamentari drept practicând „populism, demagogie, egoism partinic, câștiguri electorale ieftine\\\" — derogare directă a in-group-ului. Cererile adverse sunt recunoscute tactic („Am acceptat pentru că erați gata să blocați\\\") fără recunoașterea legitimității lor (respect_for_demands=1). Raționamentul opoziției nu este reformulat sau combătut substanțial, ci redus la o amenințare procedurală (respect_for_counterarguments=0). Politica este pur pozițională — declară ce „trebuie să votăm\\\" fără alternativă sau mediere. Profil deliberativ scăzut spre mediu, cu ironia că discursul anti-populist folosește el însuși denigrare moralizatoare drept principal mecanism retoric.\"}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 102091,
+      "tokens_in_breakdown": {
+        "fresh": 5,
+        "cache_creation": 83733,
+        "cache_read": 18353
+      },
+      "tokens_out": 1736,
+      "cost_usd": 0.57593275,
+      "latency_ms": 32672,
+      "retries_used": 0
+    }
+  }
+}

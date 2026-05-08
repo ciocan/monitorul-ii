@@ -1,0 +1,152 @@
+{
+  "speech_id": "mo://2023/II/150#agenda-1#act-76",
+  "tier": "populist",
+  "speaker": {
+    "id": "sosoaca-diana",
+    "name": "Diana Iovanovici-Șoșoacă",
+    "raw": "Doamna Diana Iovanovici-Șoșoacă",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": "2023-10-30",
+    "year": 2023,
+    "legislature": "IX",
+    "delivery_mode": null
+  },
+  "model_key": "sonnet",
+  "model_label": "claude-sonnet-4.6",
+  "results": {
+    "hawkins": {
+      "model_key": "sonnet",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2023/II/150#agenda-1#act-76",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.89,
+        "markers": [],
+        "rationale": "Discursul este construit în registru tehnico-juridic și de mărturie profesională: vorbitoarea critică specific judecătorii care refuzau emiterea ordinelor de protecție și polițiștii nepregătiți, și ridică obiecții concrete față de formularea literei e) — „orice act de hărțuire online\" — pe motive de imposibilitate practică de aplicare. Invocarea experiențelor personale (amenințări la adresa sa și a copilului) funcționează ca probă empirică pentru argumentul juridic, nu ca mobilizare a unui popor omogen împotriva unei elite malefice. Fără cadru popor-vs-elită structural, fără maniheism moralizator, fără invocare a voinței populare ca suverană deasupra instituțiilor; critica instituțională rămâne specifică și remediabilă, iar vorbitoarea conchide că legea „este foarte bună\" în ansamblul ei. Hawkins=0 cu încredere ridicată.\""
+      },
+      "raw_response": "```json\n{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.89,\n  \"markers\": [],\n  \"rationale\": \"Discursul este construit în registru tehnico-juridic și de mărturie profesională: vorbitoarea critică specific judecătorii care refuzau emiterea ordinelor de protecție și polițiștii nepregătiți, și ridică obiecții concrete față de formularea literei e) — „orice act de hărțuire online\\\" — pe motive de imposibilitate practică de aplicare. Invocarea experiențelor personale (amenințări la adresa sa și a copilului) funcționează ca probă empirică pentru argumentul juridic, nu ca mobilizare a unui popor omogen împotriva unei elite malefice. Fără cadru popor-vs-elită structural, fără maniheism moralizator, fără invocare a voinței populare ca suverană deasupra instituțiilor; critica instituțională rămâne specifică și remediabilă, iar vorbitoarea conchide că legea „este foarte bună\" în ansamblul ei. Hawkins=0 cu încredere ridicată.\"\n}\n```",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": true,
+      "tokens_in": 74231,
+      "tokens_in_breakdown": {
+        "fresh": 2,
+        "cache_creation": 61083,
+        "cache_read": 13146
+      },
+      "tokens_out": 1528,
+      "cost_usd": 0.25593105,
+      "latency_ms": 37706,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "sonnet",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2023/II/150#agenda-1#act-76",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.79,
+        "level_of_justification": 2,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 2,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "Nu poți să spui „orice act de hărțuire online"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.83,
+            "rationale_short": "Justificare calificată: identifică un defect definitional specific (lit. e) și articulează mecanismul cauzal — definiție largă → supraîncărcare poliție → amenințări reale neanchetate."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "Pierdem timpul cu anumite lucruri superflue sau ne axăm, efectiv, pe adevăratele amenințări care nici măcar acum nu sunt anchetate?"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.81,
+            "rationale_short": "Argumentul vizează eficiența legii pentru toți cetățenii (amenințări reale neanchetate), nu interesul unui grup partizan specific."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "polițiștii nu sunt pregătiți"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.94,
+            "marker_confidence": 0.72,
+            "rationale_short": "Critica la adresa polițiștilor este funcțională și institutțională, nu derogativă față de un grup social; niciun out-group nu este recunoscut explicit."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 2,
+            "evidence": {
+              "text": "În rest este o lege foarte bună și este normal să se extindă de la domeniul familial la cel, normal, în viața de zi cu zi, social."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.96,
+            "marker_confidence": 0.88,
+            "rationale_short": "Vorbitoarea recunoaște explicit legitimitatea inițiativei legislative („este o lege foarte bună\"), susținând cererea de principiu chiar dacă obiectează la o prevedere."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "pe lângă cea ridicată de predecesorul meu"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.93,
+            "marker_confidence": 0.69,
+            "rationale_short": "Vorbitoarea recunoaște că există un argument anterior în dezbatere, dar nu îl reformulează și nu îi răspunde substanțial — recunoaștere fără angajament."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Atenție la aceste lucruri care pot duce la ineficiența legii"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.84,
+            "rationale_short": "Vorbitoarea semnalează o problemă cu lit. e) și avertizează, dar nu propune un text alternativ concret sau o formulare de compromis."
+          }
+        ],
+        "rationale": "Discurs de practician-avocat cu expertiză directă în ordinele de protecție, structurat în jurul unui obiect specific: definiția prea largă a hărțuirii online de la lit. e). Justificarea este calificată (level_of_justification=2): vorbitoarea articulează un mecanism cauzal coerent — formulare vagă → supraîncărcare capacitate polițienească → amenințări reale rămase neanchetate — și îl susține cu referire la probleme concrete de aplicare observate din proprie experiență profesională. Conținutul apelează la bunul comun (eficiența legii pentru cetățeni în general), nu la un interes de grup partizan. Respectul față de cereri este ridicat (=2): vorbitoarea recunoaște explicit că legea este bună în ansamblu, legitimând inițiativa celor care o susțin. Angajamentul față de contraargumente rămâne slab (=1): există o referire la „predecesorul\" care a ridicat altceva, dar fără reformulare sau rebuttal al vreunui argument pro-lege. Politica constructivă este pozițională — problema este identificată clar, dar nicio formulare alternativă a lit. e) nu este propusă. Profilul deliberativ: expert-practician bine ancorat în realitate, cu justificare meritorie și recunoaștere generoasă a legitimității legii, dar fără mișcare constructivă concretă."
+      },
+      "raw_response": "```json\n{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.79,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 2,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"Nu poți să spui „orice act de hărțuire online\", pentru că hărțuirea asta poate să fie, într-adevăr, o critică sau poate să fie, evident, un mesaj de amenințare.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.83,\n      \"rationale_short\": \"Justificare calificată: identifică un defect definitional specific (lit. e) și articulează mecanismul cauzal — definiție largă → supraîncărcare poliție → amenințări reale neanchetate.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"Pierdem timpul cu anumite lucruri superflue sau ne axăm, efectiv, pe adevăratele amenințări care nici măcar acum nu sunt anchetate?\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.81,\n      \"rationale_short\": \"Argumentul vizează eficiența legii pentru toți cetățenii (amenințări reale neanchetate), nu interesul unui grup partizan specific.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"polițiștii nu sunt pregătiți\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.94,\n      \"marker_confidence\": 0.72,\n      \"rationale_short\": \"Critica la adresa polițiștilor este funcțională și institutțională, nu derogativă față de un grup social; niciun out-group nu este recunoscut explicit.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"În rest este o lege foarte bună și este normal să se extindă de la domeniul familial la cel, normal, în viața de zi cu zi, social.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.96,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Vorbitoarea recunoaște explicit legitimitatea inițiativei legislative („este o lege foarte bună\\\"), susținând cererea de principiu chiar dacă obiectează la o prevedere.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"pe lângă cea ridicată de predecesorul meu\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.93,\n      \"marker_confidence\": 0.69,\n      \"rationale_short\": \"Vorbitoarea recunoaște că există un argument anterior în dezbatere, dar nu îl reformulează și nu îi răspunde substanțial — recunoaștere fără angajament.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"Atenție la aceste lucruri care pot duce la ineficiența legii\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.84,\n      \"rationale_short\": \"Vorbitoarea semnalează o problemă cu lit. e) și avertizează, dar nu propune un text alternativ concret sau o formulare de compromis.\"\n    }\n  ],\n  \"rationale\": \"Discurs de practician-avocat cu expertiză directă în ordinele de protecție, structurat în jurul unui obiect specific: definiția prea largă a hărțuirii online de la lit. e). Justificarea este calificată (level_of_justification=2): vorbitoarea articulează un mecanism cauzal coerent — formulare vagă → supraîncărcare capacitate polițienească → amenințări reale rămase neanchetate — și îl susține cu referire la probleme concrete de aplicare observate din proprie experiență profesională. Conținutul apelează la bunul comun (eficiența legii pentru cetățeni în general), nu la un interes de grup partizan. Respectul față de cereri este ridicat (=2): vorbitoarea recunoaște explicit că legea este bună în ansamblu, legitimând inițiativa celor care o susțin. Angajamentul față de contraargumente rămâne slab (=1): există o referire la „predecesorul\\\" care a ridicat altceva, dar fără reformulare sau rebuttal al vreunui argument pro-lege. Politica constructivă este pozițională — problema este identificată clar, dar nicio formulare alternativă a lit. e) nu este propusă. Profilul deliberativ: expert-practician bine ancorat în realitate, cu justificare meritorie și recunoaștere generoasă a legitimității legii, dar fără mișcare constructivă concretă.\"\n}\n```",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [
+        "Atenție la aceste lucruri care pot duce la ineficiența legii"
+      ],
+      "parse_repaired": true,
+      "tokens_in": 72862,
+      "tokens_in_breakdown": {
+        "fresh": 2,
+        "cache_creation": 59714,
+        "cache_read": 13146
+      },
+      "tokens_out": 3989,
+      "cost_usd": 0.28771230000000003,
+      "latency_ms": 76306,
+      "retries_used": 0
+    }
+  }
+}

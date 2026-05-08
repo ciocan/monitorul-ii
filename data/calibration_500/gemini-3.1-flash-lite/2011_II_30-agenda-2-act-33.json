@@ -1,0 +1,152 @@
+{
+  "speech_id": "mo://2011/II/30#agenda-2#act-33",
+  "tier": "calibration",
+  "speaker": {
+    "id": "filip-petru",
+    "name": "Petru Filip",
+    "raw": "Domnul Petru Filip",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": "2011-03-23",
+    "year": 2011,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2011/II/30#agenda-2#act-33",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul domnului Petru Filip este un exemplu tipic de intervenție procedurală și tehnică în cadrul unei dezbateri parlamentare pe marginea unui proiect de lege privind sănătatea publică. Vorbitorul se concentrează pe aspecte concrete: finanțarea spitalelor, diferențele dintre serviciile realizate și cele decontate de CNAS, precum și implicațiile juridice ale transferului de responsabilitate către administrațiile locale. Nu există nicio tentativă de a construi un cadru maniheist popor-vs-elită, nicio invocare a unei voințe populare omogene și nicio retorică populistă. Discursul rămâne ancorat în registrul tehnic și procedural, fiind un discurs non-populist clar."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul domnului Petru Filip este un exemplu tipic de intervenție procedurală și tehnică în cadrul unei dezbateri parlamentare pe marginea unui proiect de lege privind sănătatea publică. Vorbitorul se concentrează pe aspecte concrete: finanțarea spitalelor, diferențele dintre serviciile realizate și cele decontate de CNAS, precum și implicațiile juridice ale transferului de responsabilitate către administrațiile locale. Nu există nicio tentativă de a construi un cadru maniheist popor-vs-elită, nicio invocare a unei voințe populare omogene și nicio retorică populistă. Discursul rămâne ancorat în registrul tehnic și procedural, fiind un discurs non-populist clar.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 14261,
+      "tokens_in_breakdown": {
+        "fresh": 14261,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 239,
+      "cost_usd": null,
+      "latency_ms": 1952,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2011/II/30#agenda-2#act-33",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.88,
+        "level_of_justification": 2,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "la art. 189, modificat, se introduce art. 189[1] alin. (1), care spune: „Veniturile realizate de unitățile sanitare publice în baza contractelor de servicii medicale încheiate cu casele de asigurări de sănătate nu pot fi utilizate pentru: a) investiții în infrastructură; b) dotarea cu echipamente medicale; c) acoperirea cheltuielilor de personal peste limita prevăzută în art. 197 alin. (2)”."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Vorbitorul ancorează argumentul în prevederi legale specifice (art. 189, 197) pentru a evidenția o problemă de finanțare."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "discutăm din punctul de vedere al celui care devine, mă rog, mai mult sau mai puțin conștient, mai mult sau mai puțin voit, răspunzător pentru modul de desfășurare a serviciului de sănătate publică în spitale"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.85,
+            "rationale_short": "Justificarea se concentrează pe responsabilitatea față de serviciul de sănătate publică, un interes universalizabil."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "administrațiile publice locale"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Referință funcțională la administrațiile locale; niciun semn de derogare sau respect explicit."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "ce se va întâmpla – poate că domnul secretar de stat o să-mi poată răspunde"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.88,
+            "rationale_short": "Vorbitorul adresează o întrebare tehnică, fără a angaja cereri politice adverse."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "poate că este bine de explicat"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Vorbitorul invită la explicații, dar nu angajează un contraargument specific al opoziției."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Întrebarea mea justă este: în condițiile în care aceste diferențe vor exista, pentru că până la urmă nu poți să planifici câți bolnavi ai, le vor suporta administrațiile locale?"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Vorbitorul ridică o problemă critică, dar nu propune o alternativă sau o mediere concretă."
+          }
+        ],
+        "rationale": "Discursul prezintă o calitate deliberativă moderată, caracterizată printr-o justificare calificată (level_of_justification=2) bazată pe analiza textului legislativ (art. 189, 197). Vorbitorul se concentrează pe binele comun (serviciul de sănătate publică) și evită atacurile la persoană, menținând un ton neutru față de grupuri (respect_for_groups=1). Deși ridică întrebări pertinente despre sustenabilitatea financiară, discursul rămâne în zona pozițională (constructive_politics=positional), fără a oferi o soluție alternativă sau un mecanism de mediere. Angajamentul față de contraargumente este limitat la solicitarea de clarificări, ceea ce reflectă o abordare interogativă mai degrabă decât una de dezbatere contradictorie."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.88,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"la art. 189, modificat, se introduce art. 189[1] alin. (1), care spune: „Veniturile realizate de unitățile sanitare publice în baza contractelor de servicii medicale încheiate cu casele de asigurări de sănătate nu pot fi utilizate pentru: a) investiții în infrastructură; b) dotarea cu echipamente medicale; c) acoperirea cheltuielilor de personal peste limita prevăzută în art. 197 alin. (2)”.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Vorbitorul ancorează argumentul în prevederi legale specifice (art. 189, 197) pentru a evidenția o problemă de finanțare.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"discutăm din punctul de vedere al celui care devine, mă rog, mai mult sau mai puțin conștient, mai mult sau mai puțin voit, răspunzător pentru modul de desfășurare a serviciului de sănătate publică în spitale\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Justificarea se concentrează pe responsabilitatea față de serviciul de sănătate publică, un interes universalizabil.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"administrațiile publice locale\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Referință funcțională la administrațiile locale; niciun semn de derogare sau respect explicit.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"ce se va întâmpla – poate că domnul secretar de stat o să-mi poată răspunde\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Vorbitorul adresează o întrebare tehnică, fără a angaja cereri politice adverse.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"poate că este bine de explicat\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Vorbitorul invită la explicații, dar nu angajează un contraargument specific al opoziției.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"Întrebarea mea justă este: în condițiile în care aceste diferențe vor exista, pentru că până la urmă nu poți să planifici câți bolnavi ai, le vor suporta administrațiile locale?\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Vorbitorul ridică o problemă critică, dar nu propune o alternativă sau o mediere concretă.\"\n    }\n  ],\n  \"rationale\": \"Discursul prezintă o calitate deliberativă moderată, caracterizată printr-o justificare calificată (level_of_justification=2) bazată pe analiza textului legislativ (art. 189, 197). Vorbitorul se concentrează pe binele comun (serviciul de sănătate publică) și evită atacurile la persoană, menținând un ton neutru față de grupuri (respect_for_groups=1). Deși ridică întrebări pertinente despre sustenabilitatea financiară, discursul rămâne în zona pozițională (constructive_politics=positional), fără a oferi o soluție alternativă sau un mecanism de mediere. Angajamentul față de contraargumente este limitat la solicitarea de clarificări, ceea ce reflectă o abordare interogativă mai degrabă decât una de dezbatere contradictorie.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [
+        "la art. 189, modificat, se introduce art. 189[1] alin. (1), care spune: „Veniturile realizate de unitățile sanitare publice în baza contractelor de servicii medicale încheiate cu casele de asigurări de sănătate nu pot fi utilizate pentru: a) investiții în infrastructură; b) dotarea cu echipamente medicale; c) acoperirea cheltuielilor de personal peste limita prevăzută în art. 197 alin. (2)”."
+      ],
+      "parse_repaired": false,
+      "tokens_in": 13062,
+      "tokens_in_breakdown": {
+        "fresh": 13062,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1341,
+      "cost_usd": null,
+      "latency_ms": 7708,
+      "retries_used": 0
+    }
+  }
+}

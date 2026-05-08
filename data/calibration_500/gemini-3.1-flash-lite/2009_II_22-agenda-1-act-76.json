@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2009/II/22#agenda-1#act-76",
+  "tier": "calibration",
+  "speaker": {
+    "id": "anastase-roberta",
+    "name": "Roberta Alma Anastase",
+    "raw": "Doamna Roberta Alma Anastase",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2009-03-02",
+    "year": 2009,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2009/II/22#agenda-1#act-76",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 1.0,
+        "markers": [],
+        "rationale": "Discursul este pur procedural și tehnic, vizând aprobarea unei ordonanțe guvernamentale pentru alinierea la regulamentele europene. Vorbitoarea explică modificări de ordin tehnic, redefiniri de bugete și categorii de beneficiari, fără a utiliza nicio retorică populistă. Nu există nicio referire la un cadru popor-vs-elită, maniheism moral sau invocarea unei voințe populare suverane. Discursul se încadrează perfect în registrul administrativ-parlamentar standard, primind scorul 0 cu încredere maximă."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 1.0,\n  \"markers\": [],\n  \"rationale\": \"Discursul este pur procedural și tehnic, vizând aprobarea unei ordonanțe guvernamentale pentru alinierea la regulamentele europene. Vorbitoarea explică modificări de ordin tehnic, redefiniri de bugete și categorii de beneficiari, fără a utiliza nicio retorică populistă. Nu există nicio referire la un cadru popor-vs-elită, maniheism moral sau invocarea unei voințe populare suverane. Discursul se încadrează perfect în registrul administrativ-parlamentar standard, primind scorul 0 cu încredere maximă.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13947,
+      "tokens_in_breakdown": {
+        "fresh": 13947,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 205,
+      "cost_usd": null,
+      "latency_ms": 2718,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2009/II/22#agenda-1#act-76",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.85,
+        "level_of_justification": 2,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "aceste modificări sunt modificări de ordin tehnic, modificări necesare alinierii cu cerințele regulamentelor europene."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Justificare bazată pe necesitatea tehnică de aliniere la regulamentele europene."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "necesare alinierii cu cerințele regulamentelor europene"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Apelul la conformitatea cu normele europene vizează interesul general al statului."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Doamnelor și domnilor deputați"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.99,
+            "marker_confidence": 0.95,
+            "rationale_short": "Adresare formală neutră, fără referințe la grupuri specifice."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "aceste modificări sunt modificări de ordin tehnic"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Prezentare tehnică fără angajament cu cereri opuse."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "aceste modificări sunt modificări de ordin tehnic"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Nu există contraargumente invocate în acest context tehnic."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "aceste modificări sunt modificări de ordin tehnic"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Vorbitorul explică natura tehnică a proiectului fără a propune alternative."
+          }
+        ],
+        "rationale": "Intervenția secretarului de stat este un discurs tehnic, tipic pentru prezentarea proiectelor de lege în comisie sau plen. Vorbitorul oferă o justificare calificată (level_of_justification=2) prin ancorarea necesității modificărilor în cerințele regulamentelor europene, apelând astfel la binele comun (content_of_justification=common_good). Deoarece discursul este pur informativ și tehnic, nu există un angajament cu contraargumente sau cereri opuse, ceea ce duce la scoruri neutre pe dimensiunile de respect. Politica este pozițională, deoarece scopul este explicarea tehnică a proiectului, nu negocierea sau medierea. Calitatea deliberativă este adecvată contextului administrativ."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.85,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"aceste modificări sunt modificări de ordin tehnic, modificări necesare alinierii cu cerințele regulamentelor europene.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Justificare bazată pe necesitatea tehnică de aliniere la regulamentele europene.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"necesare alinierii cu cerințele regulamentelor europene\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Apelul la conformitatea cu normele europene vizează interesul general al statului.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Doamnelor și domnilor deputați\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.99,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Adresare formală neutră, fără referințe la grupuri specifice.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"aceste modificări sunt modificări de ordin tehnic\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Prezentare tehnică fără angajament cu cereri opuse.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"aceste modificări sunt modificări de ordin tehnic\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Nu există contraargumente invocate în acest context tehnic.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"aceste modificări sunt modificări de ordin tehnic\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Vorbitorul explică natura tehnică a proiectului fără a propune alternative.\"\n    }\n  ],\n  \"rationale\": \"Intervenția secretarului de stat este un discurs tehnic, tipic pentru prezentarea proiectelor de lege în comisie sau plen. Vorbitorul oferă o justificare calificată (level_of_justification=2) prin ancorarea necesității modificărilor în cerințele regulamentelor europene, apelând astfel la binele comun (content_of_justification=common_good). Deoarece discursul este pur informativ și tehnic, nu există un angajament cu contraargumente sau cereri opuse, ceea ce duce la scoruri neutre pe dimensiunile de respect. Politica este pozițională, deoarece scopul este explicarea tehnică a proiectului, nu negocierea sau medierea. Calitatea deliberativă este adecvată contextului administrativ.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12748,
+      "tokens_in_breakdown": {
+        "fresh": 12748,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1094,
+      "cost_usd": null,
+      "latency_ms": 3963,
+      "retries_used": 0
+    }
+  }
+}

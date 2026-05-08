@@ -1,0 +1,152 @@
+{
+  "speech_id": "mo://2009/II/88#agenda-3#act-1",
+  "tier": "calibration",
+  "speaker": {
+    "id": "cristian-horia",
+    "name": "Horia Cristian",
+    "raw": "Domnul Horia Cristian",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2009-06-23",
+    "year": 2009,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2009/II/88#agenda-3#act-1",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.95,
+        "markers": [],
+        "rationale": "Discursul este o interpelare parlamentară specifică, axată pe o problemă administrativă concretă (programul de reabilitare termică din Timișoara) și pe un conflict instituțional legat de un comunicat de presă. Deși vorbitorul folosește un ton critic și acuzator la adresa liderilor PD-L și a funcționarilor publici, acesta rămâne în registrul disputei politice parlamentare, invocând legi și proceduri administrative. Nu există un cadru maniheist popor-vs-elită, nicio invocare a unei voințe populare omogene ca forță suverană, și nicio retorică de criză existențială. Discursul este un exemplu tipic de opoziție parlamentară procedurală, nu de populism."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.95,\n  \"markers\": [],\n  \"rationale\": \"Discursul este o interpelare parlamentară specifică, axată pe o problemă administrativă concretă (programul de reabilitare termică din Timișoara) și pe un conflict instituțional legat de un comunicat de presă. Deși vorbitorul folosește un ton critic și acuzator la adresa liderilor PD-L și a funcționarilor publici, acesta rămâne în registrul disputei politice parlamentare, invocând legi și proceduri administrative. Nu există un cadru maniheist popor-vs-elită, nicio invocare a unei voințe populare omogene ca forță suverană, și nicio retorică de criză existențială. Discursul este un exemplu tipic de opoziție parlamentară procedurală, nu de populism.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 14045,
+      "tokens_in_breakdown": {
+        "fresh": 14045,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 250,
+      "cost_usd": null,
+      "latency_ms": 2141,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2009/II/88#agenda-3#act-1",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.82,
+        "level_of_justification": 2,
+        "content_of_justification": "mixed",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "Timișoara se află pe locul 66 din 69 de localități, într-un top sui generis publicat pe același site."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Vorbitorul oferă date empirice specifice (locul 66 din 69) pentru a susține afirmația privind eșecul programului."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "mixed",
+            "evidence": {
+              "text": "funcționarii publici, și chiar o instituție publică se implică în campania electorală, emițând comunicate de presă calomnioase la adresa parlamentarilor opoziției, în timpul unei campanii electorale. Acest lucru este imoral și ilegal, fiind expres interzis de Legea funcționarului public."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.88,
+            "rationale_short": "Justificarea combină interesul grupului (parlamentarii opoziției) cu apelul la binele comun (legalitatea instituțiilor publice)."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "în buna tradiție a liderilor PD-L, înțelegeți ca dezbaterile, polemicile să fie duse cu injurii"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.96,
+            "marker_confidence": 0.85,
+            "rationale_short": "Critica la adresa liderilor PD-L este aspră, dar nu atinge pragul de derogare sau dehumanizare."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Aștept o reacție din partea dumneavoastră, alta decât una electorală."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.82,
+            "rationale_short": "Vorbitorul ignoră cererile ministerului, concentrându-se pe propria agendă de control parlamentar."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "în afirmațiile mele nu este niciun neadevăr, așa cum în mod fals prezentați în comunicat"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.89,
+            "rationale_short": "Vorbitorul menționează argumentul advers (acuzația de neadevăr), dar îl respinge fără o contra-argumentare substanțială."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "vă solicit public să declanșați o anchetă administrativă, să îmi prezentați numele persoanei care m-a calomniat"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.96,
+            "marker_confidence": 0.91,
+            "rationale_short": "Solicitarea unei anchete este o acțiune de control, nu o alternativă la politica publică dezbătută."
+          }
+        ],
+        "rationale": "Discursul prezintă o calitate deliberativă mixtă. Vorbitorul oferă o justificare calificată (level_of_justification=2) prin utilizarea datelor empirice privind clasamentul localităților și referințe legale (Legea funcționarului public). Conținutul justificării este mixt, împletind apărarea interesului opoziției cu apelul la principiul legalității instituționale. Respectul pentru grupuri și cereri rămâne neutru, fiind marcat de o retorică de confruntare politică, dar fără a cădea în discurs de ură. Angajamentul față de contraargumente este limitat la o negare a acuzațiilor, fără o dezbatere substanțială a raționamentului ministerului. În final, discursul este pozițional, concentrându-se pe solicitarea unei anchete administrative mai degrabă decât pe propunerea unei alternative de politică publică."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.82,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"mixed\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"Timișoara se află pe locul 66 din 69 de localități, într-un top sui generis publicat pe același site.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Vorbitorul oferă date empirice specifice (locul 66 din 69) pentru a susține afirmația privind eșecul programului.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"mixed\",\n      \"evidence\": {\n        \"text\": \"funcționarii publici, și chiar o instituție publică se implică în campania electorală, emițând comunicate de presă calomnioase la adresa parlamentarilor opoziției, în timpul unei campanii electorale. Acest lucru este imoral și ilegal, fiind expres interzis de Legea funcționarului public.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Justificarea combină interesul grupului (parlamentarii opoziției) cu apelul la binele comun (legalitatea instituțiilor publice).\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"în buna tradiție a liderilor PD-L, înțelegeți ca dezbaterile, polemicile să fie duse cu injurii\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.96,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Critica la adresa liderilor PD-L este aspră, dar nu atinge pragul de derogare sau dehumanizare.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Aștept o reacție din partea dumneavoastră, alta decât una electorală.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.82,\n      \"rationale_short\": \"Vorbitorul ignoră cererile ministerului, concentrându-se pe propria agendă de control parlamentar.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"în afirmațiile mele nu este niciun neadevăr, așa cum în mod fals prezentați în comunicat\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"marker_confidence\": 0.89,\n      \"rationale_short\": \"Vorbitorul menționează argumentul advers (acuzația de neadevăr), dar îl respinge fără o contra-argumentare substanțială.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"vă solicit public să declanșați o anchetă administrativă, să îmi prezentați numele persoanei care m-a calomniat\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.96,\n      \"marker_confidence\": 0.91,\n      \"rationale_short\": \"Solicitarea unei anchete este o acțiune de control, nu o alternativă la politica publică dezbătută.\"\n    }\n  ],\n  \"rationale\": \"Discursul prezintă o calitate deliberativă mixtă. Vorbitorul oferă o justificare calificată (level_of_justification=2) prin utilizarea datelor empirice privind clasamentul localităților și referințe legale (Legea funcționarului public). Conținutul justificării este mixt, împletind apărarea interesului opoziției cu apelul la principiul legalității instituționale. Respectul pentru grupuri și cereri rămâne neutru, fiind marcat de o retorică de confruntare politică, dar fără a cădea în discurs de ură. Angajamentul față de contraargumente este limitat la o negare a acuzațiilor, fără o dezbatere substanțială a raționamentului ministerului. În final, discursul este pozițional, concentrându-se pe solicitarea unei anchete administrative mai degrabă decât pe propunerea unei alternative de politică publică.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [
+        "Timișoara se află pe locul 66 din 69 de localități, într-un top sui generis publicat pe același site."
+      ],
+      "parse_repaired": false,
+      "tokens_in": 12846,
+      "tokens_in_breakdown": {
+        "fresh": 12846,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1332,
+      "cost_usd": null,
+      "latency_ms": 4870,
+      "retries_used": 0
+    }
+  }
+}

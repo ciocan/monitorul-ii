@@ -1,0 +1,153 @@
+{
+  "speech_id": "mo://2026/II/16#agenda-1#act-173",
+  "tier": "calibration",
+  "speaker": {
+    "id": "antal-istvan-lorant",
+    "name": "Antal István-Loránt",
+    "raw": "Domnul Antal István-Loránt",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": "2026-02-11",
+    "year": 2026,
+    "legislature": "X",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2026/II/16#agenda-1#act-173",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul este unul pur tehnic și procedural, axat pe clarificări legislative privind sectorul energetic, prorogarea termenelor pentru capacitățile pe cărbune și securitatea energetică națională. Vorbitorul utilizează un registru pragmatic, bazat pe argumente de politică publică și dialog instituțional cu Comisia Europeană, fără a recurge la cadre maniheiste, populiste sau la invocarea unei voințe populare omogene împotriva elitelor. Apelul la „stimați colegi” pentru a evita politizarea și ideologizarea confirmă orientarea non-populistă a discursului. Hawkins=0 cu încredere ridicată."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul este unul pur tehnic și procedural, axat pe clarificări legislative privind sectorul energetic, prorogarea termenelor pentru capacitățile pe cărbune și securitatea energetică națională. Vorbitorul utilizează un registru pragmatic, bazat pe argumente de politică publică și dialog instituțional cu Comisia Europeană, fără a recurge la cadre maniheiste, populiste sau la invocarea unei voințe populare omogene împotriva elitelor. Apelul la „stimați colegi” pentru a evita politizarea și ideologizarea confirmă orientarea non-populistă a discursului. Hawkins=0 cu încredere ridicată.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 14181,
+      "tokens_in_breakdown": {
+        "fresh": 14181,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 219,
+      "cost_usd": null,
+      "latency_ms": 1930,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2026/II/16#agenda-1#act-173",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.88,
+        "level_of_justification": 2,
+        "content_of_justification": "mixed",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 2,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "am modificat legea – Ordonanța de urgență nr. 108, în care, practic, am introdus un articol extrem de important, prin care am spus că, într-o situație în care se dorește scoaterea unei capacități de producere a energiei electrice, să nu se poată face fără acordul Dispecerului Energetic Național."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Vorbitorul oferă o justificare bazată pe mecanisme legislative specifice (OUG 108) și rolul DEN."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "mixed",
+            "evidence": {
+              "text": "Legat de Green Deal... am spus clar că trebuie să regândim această înverzire forțată a Uniunii Europene și, dacă vrem să avem o economie în continuare competitivă, trebuie să menținem capacități de producere de energie electrică în bandă"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.85,
+            "rationale_short": "Justificarea combină interesele specifice ale grupului (UDMR) cu argumente despre competitivitatea economică generală."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "stimați colegi"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.99,
+            "marker_confidence": 0.95,
+            "rationale_short": "Adresare convențională; nu există derogări sau recunoașteri explicite ale out-group-urilor."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "haideți să nu politizăm și să ideologizăm această chestiune"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.96,
+            "marker_confidence": 0.88,
+            "rationale_short": "Vorbitorul ignoră cererile politice adverse, preferând o abordare tehnică fără a le valida legitimitatea."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 2,
+            "evidence": {
+              "text": "Acum o replică scurtă la intervenția colegului meu. Totuși, anul acesta... două capacități importante o să fie puse în funcțiune. Vorbim de Mintia... și Iernutul"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.91,
+            "rationale_short": "Vorbitorul identifică intervenția colegului și răspunde cu date concrete despre capacitățile energetice pentru a infirma îngrijorările."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "aprobăm prorogarea termenelor, deci nu scoatem din funcțiune capacități de producere de energie electrică."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.9,
+            "rationale_short": "Discursul susține o poziție legislativă existentă (prorogarea) fără a propune o alternativă sau mediere nouă."
+          }
+        ],
+        "rationale": "Discursul prezintă o calitate deliberativă medie-ridicată, caracterizată prin justificări tehnice solide (OUG 108, rolul DEN) și un angajament substanțial cu argumentele opoziției privind securitatea energetică. Vorbitorul reușește să combine interesele specifice ale grupului său cu argumente de bine comun (competitivitatea economică), menținând un ton neutru față de colegi. Deși respectul pentru cererile politice este limitat (evitarea politizării), respectul pentru contraargumente este ridicat prin oferirea de date concrete despre Mintia și Iernut. Discursul rămâne însă în sfera pozițională, susținând o măsură guvernamentală existentă fără a introduce amendamente noi. Profilul este cel al unui vorbitor care prioritizează expertiza tehnică în detrimentul dezbaterii ideologice."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.88,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"mixed\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 2,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"am modificat legea – Ordonanța de urgență nr. 108, în care, practic, am introdus un articol extrem de important, prin care am spus că, într-o situație în care se dorește scoaterea unei capacități de producere a energiei electrice, să nu se poată face fără acordul Dispecerului Energetic Național.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Vorbitorul oferă o justificare bazată pe mecanisme legislative specifice (OUG 108) și rolul DEN.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"mixed\",\n      \"evidence\": {\n        \"text\": \"Legat de Green Deal... am spus clar că trebuie să regândim această înverzire forțată a Uniunii Europene și, dacă vrem să avem o economie în continuare competitivă, trebuie să menținem capacități de producere de energie electrică în bandă\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Justificarea combină interesele specifice ale grupului (UDMR) cu argumente despre competitivitatea economică generală.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"stimați colegi\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.99,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Adresare convențională; nu există derogări sau recunoașteri explicite ale out-group-urilor.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"haideți să nu politizăm și să ideologizăm această chestiune\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.96,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Vorbitorul ignoră cererile politice adverse, preferând o abordare tehnică fără a le valida legitimitatea.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"Acum o replică scurtă la intervenția colegului meu. Totuși, anul acesta... două capacități importante o să fie puse în funcțiune. Vorbim de Mintia... și Iernutul\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.91,\n      \"rationale_short\": \"Vorbitorul identifică intervenția colegului și răspunde cu date concrete despre capacitățile energetice pentru a infirma îngrijorările.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"aprobăm prorogarea termenelor, deci nu scoatem din funcțiune capacități de producere de energie electrică.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"marker_confidence\": 0.90,\n      \"rationale_short\": \"Discursul susține o poziție legislativă existentă (prorogarea) fără a propune o alternativă sau mediere nouă.\"\n    }\n  ],\n  \"rationale\": \"Discursul prezintă o calitate deliberativă medie-ridicată, caracterizată prin justificări tehnice solide (OUG 108, rolul DEN) și un angajament substanțial cu argumentele opoziției privind securitatea energetică. Vorbitorul reușește să combine interesele specifice ale grupului său cu argumente de bine comun (competitivitatea economică), menținând un ton neutru față de colegi. Deși respectul pentru cererile politice este limitat (evitarea politizării), respectul pentru contraargumente este ridicat prin oferirea de date concrete despre Mintia și Iernut. Discursul rămâne însă în sfera pozițională, susținând o măsură guvernamentală existentă fără a introduce amendamente noi. Profilul este cel al unui vorbitor care prioritizează expertiza tehnică în detrimentul dezbaterii ideologice.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [
+        "Legat de Green Deal... am spus clar că trebuie să regândim această înverzire forțată a Uniunii Europene și, dacă vrem să avem o economie în continuare competitivă, trebuie să menținem capacități de producere de energie electrică în bandă",
+        "Acum o replică scurtă la intervenția colegului meu. Totuși, anul acesta... două capacități importante o să fie puse în funcțiune. Vorbim de Mintia... și Iernutul"
+      ],
+      "parse_repaired": false,
+      "tokens_in": 12982,
+      "tokens_in_breakdown": {
+        "fresh": 12982,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1338,
+      "cost_usd": null,
+      "latency_ms": 4974,
+      "retries_used": 0
+    }
+  }
+}

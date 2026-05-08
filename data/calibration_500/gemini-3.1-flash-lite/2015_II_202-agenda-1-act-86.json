@@ -1,0 +1,212 @@
+{
+  "speech_id": "mo://2015/II/202#agenda-1#act-86",
+  "tier": "calibration",
+  "speaker": {
+    "id": "mihailescu-petru-serban",
+    "name": "Petru Șerban Mihăilescu",
+    "raw": "Domnul Petru Șerban Mihăilescu",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": "2015-11-10",
+    "year": 2015,
+    "legislature": "VII",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2015/II/202#agenda-1#act-86",
+      "output": {
+        "score": 1,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.85,
+        "markers": [
+          {
+            "kind": "people_vs_elite",
+            "evidence": {
+              "text": "Toată lumea în statul ăsta e superioară, toți iau decizii! Când vine... politicienii sunt ultimii oameni!"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.85,
+            "rationale_short": "Vorbitorul creează o dihotomie între „toată lumea” (elitele tehnocrate) și „politicieni” (ca ultimii oameni), marcând un cadru de tip popor-vs-elită."
+          },
+          {
+            "kind": "evil_elite",
+            "evidence": {
+              "text": "Toate instituțiile mari – că aici am vrut să ajungem – Banca Națională, Ministerul de Finanțe, se ascund în spatele acestor comitete."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.92,
+            "marker_confidence": 0.8,
+            "rationale_short": "Instituțiile sunt prezentate ca fiind malițioase, folosind comitetele ca paravan pentru a evita responsabilitatea."
+          }
+        ],
+        "rationale": "Discursul conține elemente populiste clare, în special prin dihotomia dintre elitele tehnocrate care se ascund în spatele comitetelor și politicieni, însă argumentația rămâne ancorată în critica procedurală a eficienței instituționale. Deși vorbitorul folosește un ton agresiv și retorică de tip 'noi vs ei', discursul nu atinge nivelul de pervazivitate necesar pentru scorul 2, lipsind un maniheism moral absolut sau o invocare a unei voințe populare omogene ca forță suverană. Este un discurs de tip scor 1, unde elementele populiste apar ca momente de frustrare în cadrul unei critici administrative."
+      },
+      "raw_response": "{\n  \"score\": 1,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.85,\n  \"markers\": [\n    {\n      \"kind\": \"people_vs_elite\",\n      \"evidence\": {\n        \"text\": \"Toată lumea în statul ăsta e superioară, toți iau decizii! Când vine... politicienii sunt ultimii oameni!\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Vorbitorul creează o dihotomie între „toată lumea” (elitele tehnocrate) și „politicieni” (ca ultimii oameni), marcând un cadru de tip popor-vs-elită.\"\n    },\n    {\n      \"kind\": \"evil_elite\",\n      \"evidence\": {\n        \"text\": \"Toate instituțiile mari – că aici am vrut să ajungem – Banca Națională, Ministerul de Finanțe, se ascund în spatele acestor comitete.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.92,\n      \"marker_confidence\": 0.8,\n      \"rationale_short\": \"Instituțiile sunt prezentate ca fiind malițioase, folosind comitetele ca paravan pentru a evita responsabilitatea.\"\n    }\n  ],\n  \"rationale\": \"Discursul conține elemente populiste clare, în special prin dihotomia dintre elitele tehnocrate care se ascund în spatele comitetelor și politicieni, însă argumentația rămâne ancorată în critica procedurală a eficienței instituționale. Deși vorbitorul folosește un ton agresiv și retorică de tip 'noi vs ei', discursul nu atinge nivelul de pervazivitate necesar pentru scorul 2, lipsind un maniheism moral absolut sau o invocare a unei voințe populare omogene ca forță suverană. Este un discurs de tip scor 1, unde elementele populiste apar ca momente de frustrare în cadrul unei critici administrative.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 14217,
+      "tokens_in_breakdown": {
+        "fresh": 14217,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 552,
+      "cost_usd": null,
+      "latency_ms": 3164,
+      "retries_used": 0
+    },
+    "voice": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "voice",
+      "speech_id": "mo://2015/II/202#agenda-1#act-86",
+      "output": {
+        "classifications": [
+          {
+            "marker_id": "m_0",
+            "voice": "speaker_first_person",
+            "voice_confidence": 0.95,
+            "voice_evidence": null,
+            "attributed_to": null,
+            "rationale_short": "Afirmație directă a vorbitorului, fără indicii de citare, raportare sau disclaimer; exprimă opinia personală a acestuia."
+          },
+          {
+            "marker_id": "m_1",
+            "voice": "speaker_first_person",
+            "voice_confidence": 0.95,
+            "voice_evidence": null,
+            "attributed_to": null,
+            "rationale_short": "Vorbitorul își asumă direct afirmația despre instituțiile statului, fără a o atribui unei surse externe sau a folosi un cadru de distanțare."
+          }
+        ]
+      },
+      "raw_response": "{\n  \"classifications\": [\n    {\n      \"marker_id\": \"m_0\",\n      \"voice\": \"speaker_first_person\",\n      \"voice_confidence\": 0.95,\n      \"voice_evidence\": null,\n      \"attributed_to\": null,\n      \"rationale_short\": \"Afirmație directă a vorbitorului, fără indicii de citare, raportare sau disclaimer; exprimă opinia personală a acestuia.\"\n    },\n    {\n      \"marker_id\": \"m_1\",\n      \"voice\": \"speaker_first_person\",\n      \"voice_confidence\": 0.95,\n      \"voice_evidence\": null,\n      \"attributed_to\": null,\n      \"rationale_short\": \"Vorbitorul își asumă direct afirmația despre instituțiile statului, fără a o atribui unei surse externe sau a folosi un cadru de distanțare.\"\n    }\n  ]\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 11866,
+      "tokens_in_breakdown": {
+        "fresh": 11866,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 224,
+      "cost_usd": null,
+      "latency_ms": 1634,
+      "retries_used": 0
+    },
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2015/II/202#agenda-1#act-86",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.78,
+        "level_of_justification": 1,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 1,
+            "evidence": {
+              "text": "Eu personal am rețineri majore în a forma asemenea comitete fără răspundere"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Vorbitorul își exprimă reținerile bazate pe experiența anterioară, dar fără a oferi o justificare cauzală detaliată."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "Fiecare instituție să-și asume răspunderea."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.82,
+            "rationale_short": "Apelul la responsabilitatea instituțională este un principiu universalizabil, orientat către binele comun."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "politicienii sunt ultimii oameni!"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.96,
+            "marker_confidence": 0.75,
+            "rationale_short": "Referință critică la clasa politică, dar în contextul unei auto-reflexii, nu a unei derogări de out-group."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "A venit cineva care a spus o enormitate – bine că n-a mai venit!"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.8,
+            "rationale_short": "Vorbitorul respinge retoric o cerere anterioară fără a o analiza în mod substanțial."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "A venit cineva care a spus o enormitate – bine că n-a mai venit!"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.78,
+            "rationale_short": "Menționează argumentul advers, dar îl etichetează drept enormitate fără a-l combate logic."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Eu personal am rețineri majore în a forma asemenea comitete"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Discursul este predominant pozițional, exprimând opoziția față de înființarea comitetului."
+          }
+        ],
+        "rationale": "Discursul reflectă o poziție critică față de proliferarea comitetelor tehnocrate, bazată pe experiența istorică a vorbitorului. Justificarea este de nivel 1, deoarece se bazează pe observații empirice subiective și experiențe trecute, fără a oferi o analiză cauzală riguroasă. Apelul la responsabilitatea instituțională indică o orientare către binele comun. Respectul pentru grupuri și cereri este neutru, cu nuanțe de respingere retorică a argumentelor adverse, fără a le angaja substanțial. Discursul rămâne pozițional, fără a propune o alternativă concretă sau o mediere, încadrându-se într-un profil de opoziție sceptică."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.78,\n  \"level_of_justification\": 1,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Eu personal am rețineri majore în a forma asemenea comitete fără răspundere\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Vorbitorul își exprimă reținerile bazate pe experiența anterioară, dar fără a oferi o justificare cauzală detaliată.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"Fiecare instituție să-și asume răspunderea.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"marker_confidence\": 0.82,\n      \"rationale_short\": \"Apelul la responsabilitatea instituțională este un principiu universalizabil, orientat către binele comun.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"politicienii sunt ultimii oameni!\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.96,\n      \"marker_confidence\": 0.75,\n      \"rationale_short\": \"Referință critică la clasa politică, dar în contextul unei auto-reflexii, nu a unei derogări de out-group.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"A venit cineva care a spus o enormitate – bine că n-a mai venit!\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.80,\n      \"rationale_short\": \"Vorbitorul respinge retoric o cerere anterioară fără a o analiza în mod substanțial.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"A venit cineva care a spus o enormitate – bine că n-a mai venit!\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.78,\n      \"rationale_short\": \"Menționează argumentul advers, dar îl etichetează drept enormitate fără a-l combate logic.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"Eu personal am rețineri majore în a forma asemenea comitete\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Discursul este predominant pozițional, exprimând opoziția față de înființarea comitetului.\"\n    }\n  ],\n  \"rationale\": \"Discursul reflectă o poziție critică față de proliferarea comitetelor tehnocrate, bazată pe experiența istorică a vorbitorului. Justificarea este de nivel 1, deoarece se bazează pe observații empirice subiective și experiențe trecute, fără a oferi o analiză cauzală riguroasă. Apelul la responsabilitatea instituțională indică o orientare către binele comun. Respectul pentru grupuri și cereri este neutru, cu nuanțe de respingere retorică a argumentelor adverse, fără a le angaja substanțial. Discursul rămâne pozițional, fără a propune o alternativă concretă sau o mediere, încadrându-se într-un profil de opoziție sceptică.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [
+        "Fiecare instituție să-și asume răspunderea."
+      ],
+      "parse_repaired": false,
+      "tokens_in": 13018,
+      "tokens_in_breakdown": {
+        "fresh": 13018,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1159,
+      "cost_usd": null,
+      "latency_ms": 4071,
+      "retries_used": 0
+    }
+  }
+}

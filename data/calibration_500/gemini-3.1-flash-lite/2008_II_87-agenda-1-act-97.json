@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2008/II/87#agenda-1#act-97",
+  "tier": "calibration",
+  "speaker": {
+    "id": "iorga-nicolae-marian",
+    "name": "Nicolae Marian Iorga",
+    "raw": "Domnul Nicolae Marian Iorga",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": "2008-09-24",
+    "year": 2008,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2008/II/87#agenda-1#act-97",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.95,
+        "markers": [],
+        "rationale": "Discursul este unul procedural, axat pe înființarea unei comisii de anchetă parlamentare pentru verificarea activității și a bugetului Institutului Cultural Român. Deși limbajul conține critici la adresa instituției (ex. „toacă o grămadă de bani”, „nu are niciun Dumnezeu”), acestea sunt formulate în contextul unei proceduri parlamentare de control și supraveghere, nu ca parte a unui cadru manihean popor-vs-elită. Nu există invocarea unei voințe populare omogene sau a unei lupte existențiale între bine și rău. Discursul rămâne în registrul tehnic-administrativ, motiv pentru care scorul este 0."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.95,\n  \"markers\": [],\n  \"rationale\": \"Discursul este unul procedural, axat pe înființarea unei comisii de anchetă parlamentare pentru verificarea activității și a bugetului Institutului Cultural Român. Deși limbajul conține critici la adresa instituției (ex. „toacă o grămadă de bani”, „nu are niciun Dumnezeu”), acestea sunt formulate în contextul unei proceduri parlamentare de control și supraveghere, nu ca parte a unui cadru manihean popor-vs-elită. Nu există invocarea unei voințe populare omogene sau a unei lupte existențiale între bine și rău. Discursul rămâne în registrul tehnic-administrativ, motiv pentru care scorul este 0.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13859,
+      "tokens_in_breakdown": {
+        "fresh": 13859,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 226,
+      "cost_usd": null,
+      "latency_ms": 1972,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2008/II/87#agenda-1#act-97",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.82,
+        "level_of_justification": 1,
+        "content_of_justification": "group_interest",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 1,
+            "evidence": {
+              "text": "toacă o grămadă de bani și, din păcate, îi toacă pe kitschuri, nu pe probleme serioase"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Justificarea este bazată pe opinii subiective și generalizări, fără a oferi dovezi sau mecanisme cauzale clare."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "group_interest",
+            "evidence": {
+              "text": "toacă o grămadă de bani și, din păcate, îi toacă pe kitschuri"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.82,
+            "rationale_short": "Apelul vizează gestionarea resurselor publice, dar este formulat prin prisma unei nemulțumiri față de activitatea unei instituții specifice."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Institutul Cultural Român"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Referința la instituție este critică, dar nu constituie o derogare sau un atac la demnitatea unui grup social."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Această comisie de anchetă se cere a fi înființată"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.88,
+            "rationale_short": "Vorbitorul își susține propria inițiativă fără a aborda cererile sau pozițiile opuse."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "prea nu are niciun Dumnezeu Institutul acesta, nu are nici cine să-l controleze"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Vorbitorul ignoră complet orice argumente contrare, folosind un limbaj retoric pentru a-și justifica poziția."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "se dorește înființarea unei Comisii, având drept scop investigarea activității Institutului Cultural Român"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Discursul este pur pozițional, vizând înființarea unei comisii fără a propune o alternativă de politică publică."
+          }
+        ],
+        "rationale": "Discursul prezintă o calitate deliberativă scăzută, fiind centrat pe justificarea înființării unei comisii de anchetă prin critici subiective la adresa ICR. Justificarea este de nivel 1, bazându-se pe afirmații despre risipa banilor publici fără a oferi date concrete sau mecanisme de control. Nu există un angajament față de contraargumente, iar respectul pentru grupuri și cereri rămâne neutru, fiind mai degrabă o critică instituțională decât una deliberativă. Discursul este pur pozițional, concentrându-se pe procedura de înființare a comisiei. Lipsa unei argumentări sofisticate și a deschiderii către dialog reflectă un profil deliberativ limitat."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.82,\n  \"level_of_justification\": 1,\n  \"content_of_justification\": \"group_interest\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 0,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"toacă o grămadă de bani și, din păcate, îi toacă pe kitschuri, nu pe probleme serioase\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Justificarea este bazată pe opinii subiective și generalizări, fără a oferi dovezi sau mecanisme cauzale clare.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"group_interest\",\n      \"evidence\": {\n        \"text\": \"toacă o grămadă de bani și, din păcate, îi toacă pe kitschuri\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.82,\n      \"rationale_short\": \"Apelul vizează gestionarea resurselor publice, dar este formulat prin prisma unei nemulțumiri față de activitatea unei instituții specifice.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Institutul Cultural Român\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Referința la instituție este critică, dar nu constituie o derogare sau un atac la demnitatea unui grup social.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Această comisie de anchetă se cere a fi înființată\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Vorbitorul își susține propria inițiativă fără a aborda cererile sau pozițiile opuse.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"prea nu are niciun Dumnezeu Institutul acesta, nu are nici cine să-l controleze\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Vorbitorul ignoră complet orice argumente contrare, folosind un limbaj retoric pentru a-și justifica poziția.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"se dorește înființarea unei Comisii, având drept scop investigarea activității Institutului Cultural Român\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Discursul este pur pozițional, vizând înființarea unei comisii fără a propune o alternativă de politică publică.\"\n    }\n  ],\n  \"rationale\": \"Discursul prezintă o calitate deliberativă scăzută, fiind centrat pe justificarea înființării unei comisii de anchetă prin critici subiective la adresa ICR. Justificarea este de nivel 1, bazându-se pe afirmații despre risipa banilor publici fără a oferi date concrete sau mecanisme de control. Nu există un angajament față de contraargumente, iar respectul pentru grupuri și cereri rămâne neutru, fiind mai degrabă o critică instituțională decât una deliberativă. Discursul este pur pozițional, concentrându-se pe procedura de înființare a comisiei. Lipsa unei argumentări sofisticate și a deschiderii către dialog reflectă un profil deliberativ limitat.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12660,
+      "tokens_in_breakdown": {
+        "fresh": 12660,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1196,
+      "cost_usd": null,
+      "latency_ms": 5007,
+      "retries_used": 0
+    }
+  }
+}

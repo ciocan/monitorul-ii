@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2020/II/132#agenda-1#act-17",
+  "tier": "calibration",
+  "speaker": {
+    "id": "citu-florin",
+    "name": "Florin-Vasile Cîțu",
+    "raw": "Domnul Florin-Vasile Cîțu",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2020-12-23",
+    "year": 2020,
+    "legislature": "IX",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2020/II/132#agenda-1#act-17",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul este unul de natură procedurală și guvernamentală, axat pe obiective de politică publică (gestionarea crizei sanitare, redresarea economică, investiții). Deși menționează „criza COVID-19\", aceasta este tratată ca o provocare tehnică și administrativă, nu ca un instrument de mobilizare populistă. Nu există nicio tentativă de a crea un cadru maniheist popor-vs-elită, nicio invocare a unei voințe populare omogene care să prevaleze asupra instituțiilor și nicio retorică moralizatoare. Discursul se înscrie în registrul pluralist și tehnocratic standard, motiv pentru care scorul este 0."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul este unul de natură procedurală și guvernamentală, axat pe obiective de politică publică (gestionarea crizei sanitare, redresarea economică, investiții). Deși menționează „criza COVID-19\\\", aceasta este tratată ca o provocare tehnică și administrativă, nu ca un instrument de mobilizare populistă. Nu există nicio tentativă de a crea un cadru maniheist popor-vs-elită, nicio invocare a unei voințe populare omogene care să prevaleze asupra instituțiilor și nicio retorică moralizatoare. Discursul se înscrie în registrul pluralist și tehnocratic standard, motiv pentru care scorul este 0.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13775,
+      "tokens_in_breakdown": {
+        "fresh": 13775,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 229,
+      "cost_usd": null,
+      "latency_ms": 2115,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2020/II/132#agenda-1#act-17",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.78,
+        "level_of_justification": 1,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 1,
+            "evidence": {
+              "text": "Criza COVID-19 a evidențiat necesitatea aplicării unui nou model de guvernare publică și dezvoltare economică și socială."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Afirmația necesității unui nou model este o poziție generală, fără a detalia mecanismul cauzal specific."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "ne vom face datoria față de toți cetățenii României"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Apelul este universalizabil, vizând toți cetățenii României, nu un grup de interes specific."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "indiferent dacă ne-au votat sau nu"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.88,
+            "rationale_short": "Referință neutră la electorat; nu există derogare sau respect explicit pentru un out-group."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "sunt sigur că toate partidele politice sunt de acord"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.82,
+            "rationale_short": "Presupunerea consensului evită angajamentul cu cereri opuse; non-angajament."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "Noul model de dezvoltare economică și socială are în prim-plan investițiile"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Discursul ignoră complet orice contraargumente, prezentând programul ca o certitudine."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "coaliția de centru-dreapta propune un program de guvernare"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Prezentarea programului propriu este o poziție politică, nu o alternativă sau mediere."
+          }
+        ],
+        "rationale": "Discursul prezintă un profil deliberativ de tip programatic, caracterizat prin generalități și absența unei argumentații cauzale detaliate (level_of_justification=1). Vorbitorul apelează la binele comun, vizând toți cetățenii, dar nu oferă dovezi sau mecanisme specifice pentru obiectivele enunțate. Respectul pentru grupuri și cereri este neutru, bazându-se pe o retorică de consens forțat care evită angajamentul cu opoziția (respect_for_counterarguments=0). Constructivitatea este limitată la prezentarea poziției proprii (positional), fără a propune alternative sau medieri concrete. Calitatea deliberativă este moderată, fiind un discurs de intenție politică mai degrabă decât unul de dezbatere parlamentară substanțială."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.78,\n  \"level_of_justification\": 1,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 0,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 1,\n      \"evidence\": { \"text\": \"Criza COVID-19 a evidențiat necesitatea aplicării unui nou model de guvernare publică și dezvoltare economică și socială.\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Afirmația necesității unui nou model este o poziție generală, fără a detalia mecanismul cauzal specific.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": { \"text\": \"ne vom face datoria față de toți cetățenii României\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Apelul este universalizabil, vizând toți cetățenii României, nu un grup de interes specific.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": { \"text\": \"indiferent dacă ne-au votat sau nu\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Referință neutră la electorat; nu există derogare sau respect explicit pentru un out-group.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": { \"text\": \"sunt sigur că toate partidele politice sunt de acord\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.82,\n      \"rationale_short\": \"Presupunerea consensului evită angajamentul cu cereri opuse; non-angajament.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 0,\n      \"evidence\": { \"text\": \"Noul model de dezvoltare economică și socială are în prim-plan investițiile\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Discursul ignoră complet orice contraargumente, prezentând programul ca o certitudine.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": { \"text\": \"coaliția de centru-dreapta propune un program de guvernare\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.90,\n      \"rationale_short\": \"Prezentarea programului propriu este o poziție politică, nu o alternativă sau mediere.\"\n    }\n  ],\n  \"rationale\": \"Discursul prezintă un profil deliberativ de tip programatic, caracterizat prin generalități și absența unei argumentații cauzale detaliate (level_of_justification=1). Vorbitorul apelează la binele comun, vizând toți cetățenii, dar nu oferă dovezi sau mecanisme specifice pentru obiectivele enunțate. Respectul pentru grupuri și cereri este neutru, bazându-se pe o retorică de consens forțat care evită angajamentul cu opoziția (respect_for_counterarguments=0). Constructivitatea este limitată la prezentarea poziției proprii (positional), fără a propune alternative sau medieri concrete. Calitatea deliberativă este moderată, fiind un discurs de intenție politică mai degrabă decât unul de dezbatere parlamentară substanțială.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12576,
+      "tokens_in_breakdown": {
+        "fresh": 12576,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1142,
+      "cost_usd": null,
+      "latency_ms": 4319,
+      "retries_used": 0
+    }
+  }
+}

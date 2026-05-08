@@ -1,0 +1,52 @@
+{
+  "speech_id": "mo://2004/II/68#agenda-1#act-24",
+  "tier": "calibration",
+  "speaker": {
+    "id": "paunescu-adrian",
+    "name": "Adrian P„unescu",
+    "raw": "Domnul Adrian P„unescu",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": null,
+    "year": 2004,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": null,
+    "voice": null,
+    "dqi": null,
+    "vparty": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "vparty",
+      "speech_id": "mo://2004/II/68#agenda-1#act-24",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "vparty@2020 + vdem-attacks-on@v13",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul prezintă o anecdotă personală despre dificultățile birocratice și sistemul de repartiție a cadrelor didactice în România. Vorbitorul critică un sistem administrativ rigid și ineficient, dar nu delegitimează nicio instituție democratică, nu atacă opoziția, presa, ONG-urile sau minoritățile și nu respinge normele democratice. Este un discurs despre problemele de sistem din educație, încadrat în registrul parlamentar normal. Nu există niciun element de anti-pluralism."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"vparty@2020 + vdem-attacks-on@v13\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul prezintă o anecdotă personală despre dificultățile birocratice și sistemul de repartiție a cadrelor didactice în România. Vorbitorul critică un sistem administrativ rigid și ineficient, dar nu delegitimează nicio instituție democratică, nu atacă opoziția, presa, ONG-urile sau minoritățile și nu respinge normele democratice. Este un discurs despre problemele de sistem din educație, încadrat în registrul parlamentar normal. Nu există niciun element de anti-pluralism.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13228,
+      "tokens_in_breakdown": {
+        "fresh": 13228,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 203,
+      "cost_usd": null,
+      "latency_ms": 1886,
+      "retries_used": 0
+    }
+  }
+}

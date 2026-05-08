@@ -1,0 +1,152 @@
+{
+  "speech_id": "mo://2019/II/27#agenda-1#act-171",
+  "tier": "calibration",
+  "speaker": {
+    "id": "dancila-vasilica-viorica",
+    "name": "Vasilica Viorica Dăncilă",
+    "raw": "Doamna Vasilica Viorica Dăncilă",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2019-03-04",
+    "year": 2019,
+    "legislature": "VIII",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2019/II/27#agenda-1#act-171",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.95,
+        "markers": [],
+        "rationale": "Discursul este unul de natură partizană, axat pe schimburi de replici între parlamentari și referințe la istoricul guvernărilor anterioare. Deși tonul este combativ și critic, acesta rămâne în limitele dezbaterii politice convenționale, fără a invoca un cadru maniheist popor-vs-elită sau alte tropi populiste. Nu există nicio referire la o voință populară omogenă sau la o elită malefică structurală, discursul fiind centrat pe argumente de tip „guvernare vs opoziție”. Prin urmare, discursul nu exprimă o viziune populistă, încadrându-se la scorul 0."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.95,\n  \"markers\": [],\n  \"rationale\": \"Discursul este unul de natură partizană, axat pe schimburi de replici între parlamentari și referințe la istoricul guvernărilor anterioare. Deși tonul este combativ și critic, acesta rămâne în limitele dezbaterii politice convenționale, fără a invoca un cadru maniheist popor-vs-elită sau alte tropi populiste. Nu există nicio referire la o voință populară omogenă sau la o elită malefică structurală, discursul fiind centrat pe argumente de tip „guvernare vs opoziție”. Prin urmare, discursul nu exprimă o viziune populistă, încadrându-se la scorul 0.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13724,
+      "tokens_in_breakdown": {
+        "fresh": 13724,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 227,
+      "cost_usd": null,
+      "latency_ms": 2188,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2019/II/27#agenda-1#act-171",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.72,
+        "level_of_justification": 0,
+        "content_of_justification": "none",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 0,
+            "evidence": {
+              "text": "cred că atunci când v-ați referit la deficit ați luat datele din altă parte, nu din datele statistice ale României."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Vorbitorul respinge datele opoziției fără a oferi dovezi sau raționamente proprii."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "none",
+            "evidence": {
+              "text": "cred că atunci când v-ați referit la deficit ați luat datele din altă parte"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Nicio justificare substanțială oferită; conținutul justificării este nedefinit."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Domnule Todoran"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.99,
+            "marker_confidence": 0.95,
+            "rationale_short": "Adresare convențională; niciun grup social sau politic nu este vizat prin derogare sau respect explicit."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Știu că vă va fi greu, știu că vă este greu să acceptați acest lucru"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.85,
+            "rationale_short": "Vorbitorul ignoră cererile opoziției, concentrându-se pe atacuri retorice."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "Faceți o comparație a guvernării din care ați făcut parte, când ați învățat să conjugați verbele „a tăia” pensii, salarii, „a demola” spitale"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.94,
+            "rationale_short": "Vorbitorul recurge la atacuri ad hominem și retorică politică în loc să angajeze argumentele opoziției."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "diferența este foarte mare."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.96,
+            "rationale_short": "Discursul este pur pozițional, axat pe contrastul între guvernări fără a propune alternative."
+          }
+        ],
+        "rationale": "Discursul se încadrează într-un profil pozițional-agresiv, caracterizat prin absența justificărilor substanțiale (level_of_justification=0) și utilizarea retoricii de confruntare. Vorbitorul evită angajamentul cu argumentele opoziției, preferând atacuri asupra guvernărilor trecute (respect_for_counterarguments=0). Deși există o tentativă de a menține un ton de colegialitate la final, aceasta nu se traduce în respect pentru cererile sau argumentele opoziției. Nu sunt oferite alternative sau propuneri de mediere, discursul rămânând strict în sfera poziționării politice. Calitatea deliberativă este scăzută, fiind dominată de retorică partizană."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.72,\n  \"level_of_justification\": 0,\n  \"content_of_justification\": \"none\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 0,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"cred că atunci când v-ați referit la deficit ați luat datele din altă parte, nu din datele statistice ale României.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Vorbitorul respinge datele opoziției fără a oferi dovezi sau raționamente proprii.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"none\",\n      \"evidence\": {\n        \"text\": \"cred că atunci când v-ați referit la deficit ați luat datele din altă parte\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Nicio justificare substanțială oferită; conținutul justificării este nedefinit.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Domnule Todoran\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.99,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Adresare convențională; niciun grup social sau politic nu este vizat prin derogare sau respect explicit.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Știu că vă va fi greu, știu că vă este greu să acceptați acest lucru\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Vorbitorul ignoră cererile opoziției, concentrându-se pe atacuri retorice.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"Faceți o comparație a guvernării din care ați făcut parte, când ați învățat să conjugați verbele „a tăia” pensii, salarii, „a demola” spitale\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.94,\n      \"rationale_short\": \"Vorbitorul recurge la atacuri ad hominem și retorică politică în loc să angajeze argumentele opoziției.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"diferența este foarte mare.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.96,\n      \"rationale_short\": \"Discursul este pur pozițional, axat pe contrastul între guvernări fără a propune alternative.\"\n    }\n  ],\n  \"rationale\": \"Discursul se încadrează într-un profil pozițional-agresiv, caracterizat prin absența justificărilor substanțiale (level_of_justification=0) și utilizarea retoricii de confruntare. Vorbitorul evită angajamentul cu argumentele opoziției, preferând atacuri asupra guvernărilor trecute (respect_for_counterarguments=0). Deși există o tentativă de a menține un ton de colegialitate la final, aceasta nu se traduce în respect pentru cererile sau argumentele opoziției. Nu sunt oferite alternative sau propuneri de mediere, discursul rămânând strict în sfera poziționării politice. Calitatea deliberativă este scăzută, fiind dominată de retorică partizană.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [
+        "Faceți o comparație a guvernării din care ați făcut parte, când ați învățat să conjugați verbele „a tăia” pensii, salarii, „a demola” spitale"
+      ],
+      "parse_repaired": false,
+      "tokens_in": 12525,
+      "tokens_in_breakdown": {
+        "fresh": 12525,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1179,
+      "cost_usd": null,
+      "latency_ms": 4679,
+      "retries_used": 0
+    }
+  }
+}

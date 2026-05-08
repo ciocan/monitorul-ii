@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2023/II/121#agenda-1#act-59",
+  "tier": "calibration",
+  "speaker": {
+    "id": "boanca-rodica",
+    "name": "Rodica Boancă",
+    "raw": "Doamna Rodica Boancă",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": "2023-09-13",
+    "year": 2023,
+    "legislature": "IX",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2023/II/121#agenda-1#act-59",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.95,
+        "markers": [],
+        "rationale": "Discursul este unul procedural, axat pe absența reprezentanților ministerelor de la dezbaterea unei inițiative legislative și pe critica unor decizii instituționale (Ministerul Sănătății, CNAS, Colegiul Medicilor). Deși vorbitorul invocă obligații morale și „decența în viața acestor oameni\", discursul nu construiește un cadru maniheist popor-vs-elită, nu invocă o voință populară omogenă și nu încadrează conflictul în termeni existențiali sau de criză. Este o critică parlamentară standard privind lipsa de transparență și responsabilitate instituțională, fără a atinge pragul unei viziuni populiste."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.95,\n  \"markers\": [],\n  \"rationale\": \"Discursul este unul procedural, axat pe absența reprezentanților ministerelor de la dezbaterea unei inițiative legislative și pe critica unor decizii instituționale (Ministerul Sănătății, CNAS, Colegiul Medicilor). Deși vorbitorul invocă obligații morale și „decența în viața acestor oameni\\\", discursul nu construiește un cadru maniheist popor-vs-elită, nu invocă o voință populară omogenă și nu încadrează conflictul în termeni existențiali sau de criză. Este o critică parlamentară standard privind lipsa de transparență și responsabilitate instituțională, fără a atinge pragul unei viziuni populiste.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13723,
+      "tokens_in_breakdown": {
+        "fresh": 13723,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 229,
+      "cost_usd": null,
+      "latency_ms": 1943,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2023/II/121#agenda-1#act-59",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.78,
+        "level_of_justification": 1,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 1,
+            "evidence": {
+              "text": "care ar aduce un plus de normalitate, repet, într-un serviciu medical"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Vorbitorul invocă „normalitatea” ca argument, dar fără a oferi o legătură cauzală sau dovezi specifice."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "pentru o minimă decență în viața acestor oameni"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.88,
+            "rationale_short": "Apelul este la decența umană universală, un principiu al binelui comun."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Ministerul Sănătății"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Referințele la instituții sunt funcționale, fără a fi derogatorii sau explicit respectuoase."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "De ce Casa Națională de Asigurări de Sănătate nu susține?"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Vorbitorul chestionează lipsa de susținere, dar nu angajează legitimitatea cererilor adverse."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "Pentru că implică, cumva, niște costuri?"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.82,
+            "rationale_short": "Menționează ipotetic argumentul costurilor, dar nu îl tratează substanțial."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Ar fi de așteptat să se rezolve această problemă"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Vorbitorul susține o poziție, dar nu oferă o alternativă concretă sau un mecanism de mediere."
+          }
+        ],
+        "rationale": "Discursul se concentrează pe criticarea absenței reprezentanților ministeriali și pe lipsa de susținere a inițiativei, fără a oferi o justificare substanțială (level_of_justification=1). Apelul la „decență” indică o orientare către binele comun, dar argumentația rămâne la nivel de retorică. Respectul pentru grupuri și cereri este neutru, fiind mai degrabă o interpelare procedurală decât un angajament deliberativ. Vorbitorul nu oferă o alternativă sau o mediere, menținându-se într-o postură pozițională. Calitatea deliberativă este limitată de caracterul interogativ și de absența unei analize aprofundate a contraargumentelor."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.78,\n  \"level_of_justification\": 1,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"care ar aduce un plus de normalitate, repet, într-un serviciu medical\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Vorbitorul invocă „normalitatea” ca argument, dar fără a oferi o legătură cauzală sau dovezi specifice.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"pentru o minimă decență în viața acestor oameni\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Apelul este la decența umană universală, un principiu al binelui comun.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Ministerul Sănătății\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Referințele la instituții sunt funcționale, fără a fi derogatorii sau explicit respectuoase.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"De ce Casa Națională de Asigurări de Sănătate nu susține?\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Vorbitorul chestionează lipsa de susținere, dar nu angajează legitimitatea cererilor adverse.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Pentru că implică, cumva, niște costuri?\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.82,\n      \"rationale_short\": \"Menționează ipotetic argumentul costurilor, dar nu îl tratează substanțial.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"Ar fi de așteptat să se rezolve această problemă\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Vorbitorul susține o poziție, dar nu oferă o alternativă concretă sau un mecanism de mediere.\"\n    }\n  ],\n  \"rationale\": \"Discursul se concentrează pe criticarea absenței reprezentanților ministeriali și pe lipsa de susținere a inițiativei, fără a oferi o justificare substanțială (level_of_justification=1). Apelul la „decență” indică o orientare către binele comun, dar argumentația rămâne la nivel de retorică. Respectul pentru grupuri și cereri este neutru, fiind mai degrabă o interpelare procedurală decât un angajament deliberativ. Vorbitorul nu oferă o alternativă sau o mediere, menținându-se într-o postură pozițională. Calitatea deliberativă este limitată de caracterul interogativ și de absența unei analize aprofundate a contraargumentelor.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12524,
+      "tokens_in_breakdown": {
+        "fresh": 12524,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1129,
+      "cost_usd": null,
+      "latency_ms": 4445,
+      "retries_used": 0
+    }
+  }
+}

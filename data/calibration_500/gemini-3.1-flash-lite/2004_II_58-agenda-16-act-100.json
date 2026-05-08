@@ -1,0 +1,152 @@
+{
+  "speech_id": "mo://2004/II/58#agenda-16#act-100",
+  "tier": "calibration",
+  "speaker": {
+    "id": null,
+    "name": "Marian Ionescu",
+    "raw": "Domnul Marian Ionescu",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": null,
+    "session_date": null,
+    "year": 2004,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2004/II/58#agenda-16#act-100",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul reprezintă o interpelare parlamentară standard, axată pe o problemă administrativă specifică (tăieri ilegale de copaci în județul Dâmbovița) și pe nerespectarea procedurilor de comunicare de către o instituție locală. Vorbitorul solicită aplicarea legii și a normelor administrative, fără a invoca un cadru maniheist popor-vs-elită, fără a apela la o voință populară omogenă și fără a folosi retorică populistă. Discursul rămâne strict în registrul procedural și tehnic, fiind un exemplu clar de discurs non-populist."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul reprezintă o interpelare parlamentară standard, axată pe o problemă administrativă specifică (tăieri ilegale de copaci în județul Dâmbovița) și pe nerespectarea procedurilor de comunicare de către o instituție locală. Vorbitorul solicită aplicarea legii și a normelor administrative, fără a invoca un cadru maniheist popor-vs-elită, fără a apela la o voință populară omogenă și fără a folosi retorică populistă. Discursul rămâne strict în registrul procedural și tehnic, fiind un exemplu clar de discurs non-populist.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13983,
+      "tokens_in_breakdown": {
+        "fresh": 13983,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 213,
+      "cost_usd": null,
+      "latency_ms": 2060,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2004/II/58#agenda-16#act-100",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.85,
+        "level_of_justification": 2,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "v„ rog, domnule ministru, s„ dispune˛i urgent verificarea celor sesizate, urm‚nd ca Ón termenul prev„zut de Legea nr. 233/2002, art. 8 alin. 1"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Justificare calificată prin invocarea specifică a cadrului legal (Legea nr. 233/2002, art. 8 alin. 1)."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "t„ierile masive de copaci, care sunt proteja˛i, din P„durea Bolovan˛i"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.88,
+            "rationale_short": "Apelul vizează protecția mediului și respectarea legii, valori universale de interes public."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "conducerea Direc˛iei silvice D‚mbovi˛a"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Referință funcțională la o instituție; critică administrativă fără derogare sau respect explicit."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "nu am primit nici p‚n„ acum, p‚n„ la aceast„ dat„, r„spunsuri clarificator"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.82,
+            "rationale_short": "Vorbitorul își expune propria cerere neîmplinită; nu există angajament cu cereri adverse."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "conducerea Direc˛iei silvice D‚mbovi˛a eludeaz„ legile"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.89,
+            "rationale_short": "Vorbitorul acuză eludarea legii fără a prezenta sau angaja un contraargument al instituției."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "V„ rog, domnule ministru, s„ dispune˛i urgent verificarea celor sesizate"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.91,
+            "rationale_short": "Intervenția este o solicitare de control administrativ, nu o propunere de politică publică alternativă."
+          }
+        ],
+        "rationale": "Discursul este o interpelare parlamentară standard, caracterizată printr-o justificare calificată (level_of_justification=2) bazată pe prevederi legale specifice (Legea 233/2002). Conținutul justificării vizează binele comun (protecția mediului și legalitatea). Respectul pentru grupuri și cereri este neutru, fiind o critică administrativă punctuală. Nu există angajament cu contraargumente, deoarece vorbitorul acuză lipsa de răspuns a instituției. Politica este pozițională, vizând o acțiune de control administrativ. Calitatea deliberativă este medie, specifică genului de interpelare."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.85,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 0,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"v„ rog, domnule ministru, s„ dispune˛i urgent verificarea celor sesizate, urm‚nd ca Ón termenul prev„zut de Legea nr. 233/2002, art. 8 alin. 1\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Justificare calificată prin invocarea specifică a cadrului legal (Legea nr. 233/2002, art. 8 alin. 1).\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"t„ierile masive de copaci, care sunt proteja˛i, din P„durea Bolovan˛i\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Apelul vizează protecția mediului și respectarea legii, valori universale de interes public.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"conducerea Direc˛iei silvice D‚mbovi˛a\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Referință funcțională la o instituție; critică administrativă fără derogare sau respect explicit.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"nu am primit nici p‚n„ acum, p‚n„ la aceast„ dat„, r„spunsuri clarificator\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.82,\n      \"rationale_short\": \"Vorbitorul își expune propria cerere neîmplinită; nu există angajament cu cereri adverse.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"conducerea Direc˛iei silvice D‚mbovi˛a eludeaz„ legile\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.89,\n      \"rationale_short\": \"Vorbitorul acuză eludarea legii fără a prezenta sau angaja un contraargument al instituției.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"V„ rog, domnule ministru, s„ dispune˛i urgent verificarea celor sesizate\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.91,\n      \"rationale_short\": \"Intervenția este o solicitare de control administrativ, nu o propunere de politică publică alternativă.\"\n    }\n  ],\n  \"rationale\": \"Discursul este o interpelare parlamentară standard, caracterizată printr-o justificare calificată (level_of_justification=2) bazată pe prevederi legale specifice (Legea 233/2002). Conținutul justificării vizează binele comun (protecția mediului și legalitatea). Respectul pentru grupuri și cereri este neutru, fiind o critică administrativă punctuală. Nu există angajament cu contraargumente, deoarece vorbitorul acuză lipsa de răspuns a instituției. Politica este pozițională, vizând o acțiune de control administrativ. Calitatea deliberativă este medie, specifică genului de interpelare.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [
+        "v„ rog, domnule ministru, s„ dispune˛i urgent verificarea celor sesizate, urm‚nd ca Ón termenul prev„zut de Legea nr. 233/2002, art. 8 alin. 1"
+      ],
+      "parse_repaired": false,
+      "tokens_in": 12784,
+      "tokens_in_breakdown": {
+        "fresh": 12784,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1215,
+      "cost_usd": null,
+      "latency_ms": 4687,
+      "retries_used": 0
+    }
+  }
+}

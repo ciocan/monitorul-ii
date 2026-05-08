@@ -1,0 +1,153 @@
+{
+  "speech_id": "mo://2000/II/9#agenda-1#act-199",
+  "tier": "calibration",
+  "speaker": {
+    "id": "radulescu-zoner-constantin-serban",
+    "name": "Constantin ªerban Rãdulescu-Zoner",
+    "raw": "Domnul Constantin ªerban Rãdulescu-Zoner",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": null,
+    "year": 2000,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2000/II/9#agenda-1#act-199",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul este unul pur procedural, axat pe detalii tehnice ale unei inițiative legislative privind accesul la arhive (termene de desecretizare, avizele comisiilor, proceduri parlamentare). Vorbitorul folosește un registru constructiv, orientat către consens și colaborare instituțională, fără a invoca un cadru manihean popor-vs-elită. Deși menționează „secretomania”, aceasta este utilizată în contextul unei dezbateri tehnice despre transparență, nu ca parte a unei retorici populiste. Nu există niciun marker populist prezent, discursul fiind un exemplu clasic de activitate parlamentară non-populistă."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul este unul pur procedural, axat pe detalii tehnice ale unei inițiative legislative privind accesul la arhive (termene de desecretizare, avizele comisiilor, proceduri parlamentare). Vorbitorul folosește un registru constructiv, orientat către consens și colaborare instituțională, fără a invoca un cadru manihean popor-vs-elită. Deși menționează „secretomania”, aceasta este utilizată în contextul unei dezbateri tehnice despre transparență, nu ca parte a unei retorici populiste. Nu există niciun marker populist prezent, discursul fiind un exemplu clasic de activitate parlamentară non-populistă.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 14696,
+      "tokens_in_breakdown": {
+        "fresh": 14696,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 220,
+      "cost_usd": null,
+      "latency_ms": 2022,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2000/II/9#agenda-1#act-199",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.82,
+        "level_of_justification": 2,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 2,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "alternative_proposal",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "Principiul de la care a pornit aceastã iniþiativã legislativã a noastrã este dreptul cetãþeanului la informaþie, prevãzut în Constituþie."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Justificarea este ancorată în principiul constituțional al dreptului la informare."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "dreptul cetãþeanului la informaþie, prevãzut în Constituþie"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Apelul este universalizabil, vizând dreptul cetățenilor la cunoașterea trecutului."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Doamnelor ºi domnilor"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.99,
+            "marker_confidence": 0.85,
+            "rationale_short": "Adresare convențională; nu există derogări sau recunoașteri explicite ale out-group-urilor."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 2,
+            "evidence": {
+              "text": "Comisia pentru apãrare, ordine publicã ºi siguranþã naþionalã a venit cu unele modificãri ca sã treacã, în sfârºit, aceastã lege. Noi, în principiu, acceptãm, mergem pe varianta comisiei"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.88,
+            "rationale_short": "Vorbitorul recunoaște legitimitatea cererilor comisiei și acceptă varianta propusă de aceștia."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "existã o anexã, anexa nr. 6, pe care vã rog sã o urmãriþi cu atenþie, ºi iarãºi începe secretomania"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.96,
+            "marker_confidence": 0.82,
+            "rationale_short": "Menționează argumentul advers privind secretomania, dar nu îl combate printr-o contra-argumentare substanțială."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "alternative_proposal",
+            "evidence": {
+              "text": "Noi, în principiu, acceptãm, mergem pe varianta comisiei"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Vorbitorul propune adoptarea variantei modificate de comisie pentru a debloca inițiativa."
+          }
+        ],
+        "rationale": "Discursul prezintă o calitate deliberativă medie-ridicată, caracterizată prin justificări ancorate în principii constituționale (level_of_justification=2) și orientate către binele comun. Vorbitorul demonstrează o atitudine constructivă prin acceptarea amendamentelor comisiei (constructive_politics=alternative_proposal) și recunoașterea legitimității cererilor acestora (respect_for_demands=2). Deși menționează criticile privind secretomania, nu angajează un contra-argument detaliat, limitându-se la o recunoaștere superficială (respect_for_counterarguments=1). Respectul pentru grupuri rămâne neutru, fiind limitat la convenții de adresare. Per ansamblu, discursul este orientat spre mediere și finalizarea procesului legislativ."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.82,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 2,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"alternative_proposal\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"Principiul de la care a pornit aceastã iniþiativã legislativã a noastrã este dreptul cetãþeanului la informaþie, prevãzut în Constituþie.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Justificarea este ancorată în principiul constituțional al dreptului la informare.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"dreptul cetãþeanului la informaþie, prevãzut în Constituþie\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Apelul este universalizabil, vizând dreptul cetățenilor la cunoașterea trecutului.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Doamnelor ºi domnilor\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.99,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Adresare convențională; nu există derogări sau recunoașteri explicite ale out-group-urilor.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"Comisia pentru apãrare, ordine publicã ºi siguranþã naþionalã a venit cu unele modificãri ca sã treacã, în sfârºit, aceastã lege. Noi, în principiu, acceptãm, mergem pe varianta comisiei\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Vorbitorul recunoaște legitimitatea cererilor comisiei și acceptă varianta propusă de aceștia.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"existã o anexã, anexa nr. 6, pe care vã rog sã o urmãriþi cu atenþie, ºi iarãºi începe secretomania\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.96,\n      \"marker_confidence\": 0.82,\n      \"rationale_short\": \"Menționează argumentul advers privind secretomania, dar nu îl combate printr-o contra-argumentare substanțială.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"alternative_proposal\",\n      \"evidence\": {\n        \"text\": \"Noi, în principiu, acceptãm, mergem pe varianta comisiei\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.90,\n      \"rationale_short\": \"Vorbitorul propune adoptarea variantei modificate de comisie pentru a debloca inițiativa.\"\n    }\n  ],\n  \"rationale\": \"Discursul prezintă o calitate deliberativă medie-ridicată, caracterizată prin justificări ancorate în principii constituționale (level_of_justification=2) și orientate către binele comun. Vorbitorul demonstrează o atitudine constructivă prin acceptarea amendamentelor comisiei (constructive_politics=alternative_proposal) și recunoașterea legitimității cererilor acestora (respect_for_demands=2). Deși menționează criticile privind secretomania, nu angajează un contra-argument detaliat, limitându-se la o recunoaștere superficială (respect_for_counterarguments=1). Respectul pentru grupuri rămâne neutru, fiind limitat la convenții de adresare. Per ansamblu, discursul este orientat spre mediere și finalizarea procesului legislativ.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [
+        "Comisia pentru apãrare, ordine publicã ºi siguranþã naþionalã a venit cu unele modificãri ca sã treacã, în sfârºit, aceastã lege. Noi, în principiu, acceptãm, mergem pe varianta comisiei",
+        "existã o anexã, anexa nr. 6, pe care vã rog sã o urmãriþi cu atenþie, ºi iarãºi începe secretomania"
+      ],
+      "parse_repaired": false,
+      "tokens_in": 13497,
+      "tokens_in_breakdown": {
+        "fresh": 13497,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1266,
+      "cost_usd": null,
+      "latency_ms": 4808,
+      "retries_used": 0
+    }
+  }
+}

@@ -1,0 +1,152 @@
+{
+  "speech_id": "mo://2009/II/161#agenda-2#act-39",
+  "tier": "calibration",
+  "speaker": {
+    "id": "severin-georgica",
+    "name": "Georgică Severin",
+    "raw": "Domnul Georgică Severin",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": "2009-12-16",
+    "year": 2009,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2009/II/161#agenda-2#act-39",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul se înscrie într-un registru tehnocratic și liberal, axat pe politici publice, protecția investitorilor și liberalizarea mediului de afaceri. Deși menționează „condiții de criză\", aceasta este utilizată ca argument economic pentru protejarea mediului de afaceri, nu ca un cadru populist de mobilizare. Nu există nicio structură maniheistă popor-vs-elită, nicio invocare a unei voințe populare omogene și nicio demonizare a unei elite. Discursul este coerent, argumentat și respectă normele dezbaterii parlamentare procedurale."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul se înscrie într-un registru tehnocratic și liberal, axat pe politici publice, protecția investitorilor și liberalizarea mediului de afaceri. Deși menționează „condiții de criză\\\", aceasta este utilizată ca argument economic pentru protejarea mediului de afaceri, nu ca un cadru populist de mobilizare. Nu există nicio structură maniheistă popor-vs-elită, nicio invocare a unei voințe populare omogene și nicio demonizare a unei elite. Discursul este coerent, argumentat și respectă normele dezbaterii parlamentare procedurale.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13859,
+      "tokens_in_breakdown": {
+        "fresh": 13859,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 212,
+      "cost_usd": null,
+      "latency_ms": 3883,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2009/II/161#agenda-2#act-39",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.82,
+        "level_of_justification": 1,
+        "content_of_justification": "mixed",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 1,
+            "evidence": {
+              "text": "Cred că trebuie să ne gândim la o liberalizare a mediului de afaceri, și nu la o intervenție din ce în ce mai cruntă a statului."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Vorbitorul invocă o preferință ideologică (liberalizarea) fără a oferi un mecanism cauzal sau dovezi empirice specifice."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "mixed",
+            "evidence": {
+              "text": "protejarea intereselor investitorilor... și permit întregului sistem bugetar să funcționeze."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.88,
+            "rationale_short": "Justificarea combină interesul unui grup specific (investitorii) cu un argument despre binele comun (funcționarea sistemului bugetar)."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Sunt de acord cu colegul Urban că nu putem să facem legi numai pentru anumite lanțuri de retail."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.96,
+            "marker_confidence": 0.92,
+            "rationale_short": "Referință neutră la un coleg și la un grup economic; nicio derogare sau respect explicit."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Am ascultat cu atenție atât precizările inițiatorilor pe textul de lege, cât și punctul de vedere al Guvernului."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.85,
+            "rationale_short": "Vorbitorul menționează cererile inițiatorilor, dar nu le evaluează legitimitatea, rămânând la o postură neutră."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "Sunt de acord cu colegul Urban că nu putem să facem legi numai pentru anumite lanțuri de retail."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.96,
+            "marker_confidence": 0.89,
+            "rationale_short": "Recunoaște argumentul colegului, dar nu îl angajează substanțial prin contra-argumentare."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Cred că trebuie să ne gândim la o liberalizare a mediului de afaceri"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.94,
+            "rationale_short": "Vorbitorul își exprimă o poziție ideologică fără a propune un amendament sau o soluție de compromis."
+          }
+        ],
+        "rationale": "Discursul prezintă o calitate deliberativă moderată, caracterizată prin apeluri ideologice mai degrabă decât prin argumentație tehnică. Justificarea este de nivel 1, bazându-se pe preferințe politice generale (liberalizare) și pe o combinație de interese de grup și bine comun. Vorbitorul menționează pozițiile altor actori (colegul Urban, inițiatorii), dar nu angajează substanțial raționamentele acestora, limitându-se la o recunoaștere formală. Nu este oferită nicio alternativă concretă sau mediere, discursul rămânând în sfera pozițională. Profilul este cel al unui discurs de opinie politică standard, fără a atinge densitatea deliberativă necesară pentru scoruri superioare."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.82,\n  \"level_of_justification\": 1,\n  \"content_of_justification\": \"mixed\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Cred că trebuie să ne gândim la o liberalizare a mediului de afaceri, și nu la o intervenție din ce în ce mai cruntă a statului.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Vorbitorul invocă o preferință ideologică (liberalizarea) fără a oferi un mecanism cauzal sau dovezi empirice specifice.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"mixed\",\n      \"evidence\": {\n        \"text\": \"protejarea intereselor investitorilor... și permit întregului sistem bugetar să funcționeze.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Justificarea combină interesul unui grup specific (investitorii) cu un argument despre binele comun (funcționarea sistemului bugetar).\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Sunt de acord cu colegul Urban că nu putem să facem legi numai pentru anumite lanțuri de retail.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.96,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Referință neutră la un coleg și la un grup economic; nicio derogare sau respect explicit.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Am ascultat cu atenție atât precizările inițiatorilor pe textul de lege, cât și punctul de vedere al Guvernului.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Vorbitorul menționează cererile inițiatorilor, dar nu le evaluează legitimitatea, rămânând la o postură neutră.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Sunt de acord cu colegul Urban că nu putem să facem legi numai pentru anumite lanțuri de retail.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.96,\n      \"marker_confidence\": 0.89,\n      \"rationale_short\": \"Recunoaște argumentul colegului, dar nu îl angajează substanțial prin contra-argumentare.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"Cred că trebuie să ne gândim la o liberalizare a mediului de afaceri\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.94,\n      \"rationale_short\": \"Vorbitorul își exprimă o poziție ideologică fără a propune un amendament sau o soluție de compromis.\"\n    }\n  ],\n  \"rationale\": \"Discursul prezintă o calitate deliberativă moderată, caracterizată prin apeluri ideologice mai degrabă decât prin argumentație tehnică. Justificarea este de nivel 1, bazându-se pe preferințe politice generale (liberalizare) și pe o combinație de interese de grup și bine comun. Vorbitorul menționează pozițiile altor actori (colegul Urban, inițiatorii), dar nu angajează substanțial raționamentele acestora, limitându-se la o recunoaștere formală. Nu este oferită nicio alternativă concretă sau mediere, discursul rămânând în sfera pozițională. Profilul este cel al unui discurs de opinie politică standard, fără a atinge densitatea deliberativă necesară pentru scoruri superioare.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [
+        "protejarea intereselor investitorilor... și permit întregului sistem bugetar să funcționeze."
+      ],
+      "parse_repaired": false,
+      "tokens_in": 12660,
+      "tokens_in_breakdown": {
+        "fresh": 12660,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1237,
+      "cost_usd": null,
+      "latency_ms": 5059,
+      "retries_used": 0
+    }
+  }
+}

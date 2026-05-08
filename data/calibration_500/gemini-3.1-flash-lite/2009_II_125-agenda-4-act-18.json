@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2009/II/125#agenda-4#act-18",
+  "tier": "calibration",
+  "speaker": {
+    "id": "grosaru-mircea",
+    "name": "Mircea Grosaru",
+    "raw": "Domnul Mircea Grosaru",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2009-10-06",
+    "year": 2009,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2009/II/125#agenda-4#act-18",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul se înscrie într-un registru procedural și tehnic, axat pe analiza legislativă a statutului minorităților naționale și pe eficiența instituțiilor statului (Secretariatul General al Guvernului, Departamentul pentru relații interetnice). Deși menționează „interese politice de moment” și „Comisia de la Veneția”, vorbitorul nu construiește un cadru maniheist popor-vs-elită, nu invocă o voință populară omogenă ca forță suverană și nu utilizează retorica populistă pentru a mobiliza publicul împotriva unei elite malefice. Discursul rămâne în limitele dezbaterii parlamentare constructive, fără a prezenta trăsături ale viziunii populiste."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul se înscrie într-un registru procedural și tehnic, axat pe analiza legislativă a statutului minorităților naționale și pe eficiența instituțiilor statului (Secretariatul General al Guvernului, Departamentul pentru relații interetnice). Deși menționează „interese politice de moment” și „Comisia de la Veneția”, vorbitorul nu construiește un cadru maniheist popor-vs-elită, nu invocă o voință populară omogenă ca forță suverană și nu utilizează retorica populistă pentru a mobiliza publicul împotriva unei elite malefice. Discursul rămâne în limitele dezbaterii parlamentare constructive, fără a prezenta trăsături ale viziunii populiste.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 14062,
+      "tokens_in_breakdown": {
+        "fresh": 14062,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 244,
+      "cost_usd": null,
+      "latency_ms": 2104,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2009/II/125#agenda-4#act-18",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.82,
+        "level_of_justification": 2,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 2,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "Inexistența legii-cadru a creat multe disfuncționalități în multe domenii, a îngreunat activitatea Secretariatului general al Guvernului, a generat interpretări ale prevederilor constituționale în funcție de interese politice de moment"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Vorbitorul oferă o justificare bazată pe un mecanism cauzal specific privind disfuncționalitățile administrative."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "ajungem de fapt la asigurarea respectului față de acest principiu constituțional"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Justificarea se ancorează în respectarea principiilor constituționale, vizând binele comun al statului de drept."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 2,
+            "evidence": {
+              "text": "Dacă privim însă prin prisma avantajelor abordarea problemei minorităților naționale din România ca pe o discriminare pozitivă, și nu ca pe un privilegiu, ajungem de fapt la asigurarea respectului față de acest principiu constituțional."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.88,
+            "rationale_short": "Vorbitorul recunoaște explicit legitimitatea drepturilor minorităților ca formă de discriminare pozitivă necesară."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "toate regimurile democratice succedate până în prezent au promis atât prin Constituție, cât și în diverse ocazii, adoptarea Legii privind statutul minorităților naționale din România."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Menționează cereri istorice fără a le angaja direct în dezbaterea curentă; atitudine neutră."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "Comisia de la Veneția, prin reprezentanți de seamă ai acesteia, și-au manifestat îngrijorarea asupra faptului că nici până în prezent Legea privind statutul minorităților naționale nu a fost adoptată"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Cită îngrijorarea Comisiei de la Veneția ca argument extern, dar fără o dezbatere sau respingere substanțială."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Să nu uităm însă că în România s-a creat cadrul legal de încredere între populația majoritară și minoritară și principiul trebuie sprijinit și pe viitor."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Discursul susține o poziție generală de sprijin, fără a propune un amendament sau o mediere concretă."
+          }
+        ],
+        "rationale": "Discursul prezintă o calitate deliberativă moderată, caracterizată printr-o justificare calificată (level_of_justification=2) care leagă necesitatea legii de disfuncționalități administrative concrete. Vorbitorul demonstrează un respect explicit pentru minorități (respect_for_groups=2), refuzând retorica privilegiului în favoarea discriminării pozitive. Totuși, discursul rămâne în mare parte pozițional (constructive_politics=positional), fără a oferi o soluție legislativă alternativă sau un mecanism de mediere. Angajamentul față de contraargumente este limitat la citarea autorităților externe (Comisia de la Veneția), fără a intra într-un dialog substanțial. Profilul este unul de pledoarie principială, bine argumentată, dar lipsită de un caracter constructiv imediat."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.82,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 2,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"Inexistența legii-cadru a creat multe disfuncționalități în multe domenii, a îngreunat activitatea Secretariatului general al Guvernului, a generat interpretări ale prevederilor constituționale în funcție de interese politice de moment\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Vorbitorul oferă o justificare bazată pe un mecanism cauzal specific privind disfuncționalitățile administrative.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"ajungem de fapt la asigurarea respectului față de acest principiu constituțional\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Justificarea se ancorează în respectarea principiilor constituționale, vizând binele comun al statului de drept.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"Dacă privim însă prin prisma avantajelor abordarea problemei minorităților naționale din România ca pe o discriminare pozitivă, și nu ca pe un privilegiu, ajungem de fapt la asigurarea respectului față de acest principiu constituțional.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Vorbitorul recunoaște explicit legitimitatea drepturilor minorităților ca formă de discriminare pozitivă necesară.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"toate regimurile democratice succedate până în prezent au promis atât prin Constituție, cât și în diverse ocazii, adoptarea Legii privind statutul minorităților naționale din România.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Menționează cereri istorice fără a le angaja direct în dezbaterea curentă; atitudine neutră.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Comisia de la Veneția, prin reprezentanți de seamă ai acesteia, și-au manifestat îngrijorarea asupra faptului că nici până în prezent Legea privind statutul minorităților naționale nu a fost adoptată\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Cită îngrijorarea Comisiei de la Veneția ca argument extern, dar fără o dezbatere sau respingere substanțială.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"Să nu uităm însă că în România s-a creat cadrul legal de încredere între populația majoritară și minoritară și principiul trebuie sprijinit și pe viitor.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Discursul susține o poziție generală de sprijin, fără a propune un amendament sau o mediere concretă.\"\n    }\n  ],\n  \"rationale\": \"Discursul prezintă o calitate deliberativă moderată, caracterizată printr-o justificare calificată (level_of_justification=2) care leagă necesitatea legii de disfuncționalități administrative concrete. Vorbitorul demonstrează un respect explicit pentru minorități (respect_for_groups=2), refuzând retorica privilegiului în favoarea discriminării pozitive. Totuși, discursul rămâne în mare parte pozițional (constructive_politics=positional), fără a oferi o soluție legislativă alternativă sau un mecanism de mediere. Angajamentul față de contraargumente este limitat la citarea autorităților externe (Comisia de la Veneția), fără a intra într-un dialog substanțial. Profilul este unul de pledoarie principială, bine argumentată, dar lipsită de un caracter constructiv imediat.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12863,
+      "tokens_in_breakdown": {
+        "fresh": 12863,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1347,
+      "cost_usd": null,
+      "latency_ms": 4930,
+      "retries_used": 0
+    }
+  }
+}

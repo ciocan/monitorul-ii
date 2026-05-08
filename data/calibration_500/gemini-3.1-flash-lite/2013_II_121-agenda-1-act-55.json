@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2013/II/121#agenda-1#act-55",
+  "tier": "calibration",
+  "speaker": {
+    "id": "sapunaru-nini",
+    "name": "Nini Săpunaru",
+    "raw": "Domnul Nini Săpunaru",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2013-10-08",
+    "year": 2013,
+    "legislature": "VII",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2013/II/121#agenda-1#act-55",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul este un demers tehnic și constructiv axat pe problemele economice ale micilor fermieri și viticultori, propunând soluții concrete precum asocierea și accesarea fondurilor europene prin PNDR. Nu există nicio urmă de cadru maniheist popor-vs-elită, nicio invocare a unei voințe populare omogene ca forță politică suverană și nicio retorică de criză existențială sau moralistă. Vorbitorul se concentrează pe mecanismele Codului fiscal și pe eficiența economică, încadrându-se perfect în registrul dezbaterii de politici publice. Hawkins=0 cu încredere ridicată."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul este un demers tehnic și constructiv axat pe problemele economice ale micilor fermieri și viticultori, propunând soluții concrete precum asocierea și accesarea fondurilor europene prin PNDR. Nu există nicio urmă de cadru maniheist popor-vs-elită, nicio invocare a unei voințe populare omogene ca forță politică suverană și nicio retorică de criză existențială sau moralistă. Vorbitorul se concentrează pe mecanismele Codului fiscal și pe eficiența economică, încadrându-se perfect în registrul dezbaterii de politici publice. Hawkins=0 cu încredere ridicată.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 14489,
+      "tokens_in_breakdown": {
+        "fresh": 14489,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 226,
+      "cost_usd": null,
+      "latency_ms": 2673,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2013/II/121#agenda-1#act-55",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.88,
+        "level_of_justification": 2,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "alternative_proposal",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "Prin asociere, mai mulți mici viticultori ar putea promova proiecte care să fie finanțate 50% cu fonduri europene, iar bugetul național să intervină cu 25–30% din valoarea proiectului, printr-un program complementar și alternativ."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Vorbitorul oferă o justificare bazată pe un mecanism economic specific și surse de finanțare concrete."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "trebuie să facem ceva pentru dezvoltarea acestei categorii de producători."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.85,
+            "rationale_short": "Apelul este la dezvoltarea economică a unei categorii de producători în interesul economiei naționale."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Cei mai afectați sunt micii cultivatori, persoane fizice"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.96,
+            "marker_confidence": 0.9,
+            "rationale_short": "Grupul este menționat într-un context descriptiv, fără atitudini derogatorii sau de respect explicit."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Agricultorii au susținut că s-au aflat în situația în care aproape că nu-și pot acoperi cheltuielile"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.88,
+            "rationale_short": "Vorbitorul raportează cererile fermierilor fără a le angaja direct sau a le evalua legitimitatea."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "Aici intervine o altă problemă reclamată de micii producători, persoane fizice. Potrivit Codului fiscal, pot vinde must sau vin doar producătorii care sunt înregistrați"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.96,
+            "marker_confidence": 0.85,
+            "rationale_short": "Vorbitorul menționează constrângerile legale fără a intra într-un dialog cu argumente opuse."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "alternative_proposal",
+            "evidence": {
+              "text": "Propunerea mea merge mai departe și vizează investiții utilizând fondurile comunitare alocate prin Programul Național de Dezvoltare Rurală 2014–2020."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Vorbitorul propune o soluție concretă de finanțare pentru a rezolva problema valorificării producției."
+          }
+        ],
+        "rationale": "Discursul prezintă o calitate deliberativă solidă, axată pe identificarea unor soluții concrete pentru micii fermieri. Vorbitorul oferă o justificare calificată (level_of_justification=2) prin propunerea unui mecanism de finanțare mixtă, apelând la binele comun al dezvoltării economice. Deși respectul pentru grupuri și cereri rămâne neutru (1), discursul este marcat de un caracter constructiv clar prin propunerea unei alternative de finanțare (constructive_politics=alternative_proposal). Nu există un angajament substanțial cu contraargumente, dar discursul evită tonul polemic, concentrându-se pe soluții tehnice. Profilul este unul de tip constructiv-tehnic, specific intervențiilor de tip raportor sau inițiator de politici."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.88,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"alternative_proposal\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"Prin asociere, mai mulți mici viticultori ar putea promova proiecte care să fie finanțate 50% cu fonduri europene, iar bugetul național să intervină cu 25–30% din valoarea proiectului, printr-un program complementar și alternativ.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Vorbitorul oferă o justificare bazată pe un mecanism economic specific și surse de finanțare concrete.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"trebuie să facem ceva pentru dezvoltarea acestei categorii de producători.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Apelul este la dezvoltarea economică a unei categorii de producători în interesul economiei naționale.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Cei mai afectați sunt micii cultivatori, persoane fizice\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.96,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Grupul este menționat într-un context descriptiv, fără atitudini derogatorii sau de respect explicit.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Agricultorii au susținut că s-au aflat în situația în care aproape că nu-și pot acoperi cheltuielile\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Vorbitorul raportează cererile fermierilor fără a le angaja direct sau a le evalua legitimitatea.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Aici intervine o altă problemă reclamată de micii producători, persoane fizice. Potrivit Codului fiscal, pot vinde must sau vin doar producătorii care sunt înregistrați\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.96,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Vorbitorul menționează constrângerile legale fără a intra într-un dialog cu argumente opuse.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"alternative_proposal\",\n      \"evidence\": {\n        \"text\": \"Propunerea mea merge mai departe și vizează investiții utilizând fondurile comunitare alocate prin Programul Național de Dezvoltare Rurală 2014–2020.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Vorbitorul propune o soluție concretă de finanțare pentru a rezolva problema valorificării producției.\"\n    }\n  ],\n  \"rationale\": \"Discursul prezintă o calitate deliberativă solidă, axată pe identificarea unor soluții concrete pentru micii fermieri. Vorbitorul oferă o justificare calificată (level_of_justification=2) prin propunerea unui mecanism de finanțare mixtă, apelând la binele comun al dezvoltării economice. Deși respectul pentru grupuri și cereri rămâne neutru (1), discursul este marcat de un caracter constructiv clar prin propunerea unei alternative de finanțare (constructive_politics=alternative_proposal). Nu există un angajament substanțial cu contraargumente, dar discursul evită tonul polemic, concentrându-se pe soluții tehnice. Profilul este unul de tip constructiv-tehnic, specific intervențiilor de tip raportor sau inițiator de politici.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13290,
+      "tokens_in_breakdown": {
+        "fresh": 13290,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1282,
+      "cost_usd": null,
+      "latency_ms": 4679,
+      "retries_used": 0
+    }
+  }
+}

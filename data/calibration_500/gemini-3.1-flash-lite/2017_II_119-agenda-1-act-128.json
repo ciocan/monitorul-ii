@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2017/II/119#agenda-1#act-128",
+  "tier": "calibration",
+  "speaker": {
+    "id": "chereches-florica",
+    "name": "Florica Cherecheș",
+    "raw": "Doamna Florica Cherecheș",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2017-09-05",
+    "year": 2017,
+    "legislature": "VIII",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2017/II/119#agenda-1#act-128",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.95,
+        "markers": [],
+        "rationale": "Discursul se concentrează pe o problemă administrativă specifică (managementul Institutului Cantacuzino) și pe erori procedurale (schimbarea subordonării, instituții desființate). Deși vorbitorul folosește un ton critic la adresa Guvernului, acesta rămâne în registrul dezbaterii de politici publice și al criticii administrative, fără a construi un cadru maniheist popor-vs-elită sau a invoca o voință populară omogenă. Referința la „militarizarea” instituțiilor este o ironie politică, nu un marker populist structural. Hawkins=0 cu încredere ridicată."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.95,\n  \"markers\": [],\n  \"rationale\": \"Discursul se concentrează pe o problemă administrativă specifică (managementul Institutului Cantacuzino) și pe erori procedurale (schimbarea subordonării, instituții desființate). Deși vorbitorul folosește un ton critic la adresa Guvernului, acesta rămâne în registrul dezbaterii de politici publice și al criticii administrative, fără a construi un cadru maniheist popor-vs-elită sau a invoca o voință populară omogenă. Referința la „militarizarea” instituțiilor este o ironie politică, nu un marker populist structural. Hawkins=0 cu încredere ridicată.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13953,
+      "tokens_in_breakdown": {
+        "fresh": 13953,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 218,
+      "cost_usd": null,
+      "latency_ms": 4939,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2017/II/119#agenda-1#act-128",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.82,
+        "level_of_justification": 2,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "ni se pare absolut ridicol ca, acum, în 2017, să votăm trecerea Institutului „Cantacuzino” în subordinea Autorității Naționale pentru Cercetare Științifică și Inovare, entitate care nu mai există, s-a desființat între timp."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Justificare calificată prin indicarea unei erori factuale și procedurale concrete în proiectul legislativ."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "cerem, totuși, să luăm în serios această instituție emblematică pentru România, de care avem atât de mare nevoie"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.89,
+            "rationale_short": "Apelul vizează interesul public și sănătatea națională, nu un grup politic specific."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Grupul Partidului Național Liberal"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Referință neutră la grupul politic propriu; nicio derogare sau respect explicit pentru out-group."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Grupul Partidului Național Liberal a cerut retrimiterea la comisie"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.88,
+            "rationale_short": "Vorbitorul își prezintă propria cerere fără a angaja legitimitatea cererilor adverse."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "așa cum spunea și colegul meu înainte"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Mențiune superficială a argumentului anterior fără angajament substanțial sau contra-argumentare."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Cu siguranță vom vota împotrivă"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.94,
+            "rationale_short": "Poziție clară de vot; nicio propunere alternativă sau de mediere oferită în acest discurs."
+          }
+        ],
+        "rationale": "Discursul prezintă o calitate deliberativă medie. Vorbitorul oferă o justificare calificată (level_of_justification=2) prin identificarea unei erori factuale majore în textul legii (entitatea propusă pentru subordonare nu mai există), apelând la binele comun (sănătatea publică). Totuși, discursul rămâne în mare parte pozițional, fără a oferi o alternativă legislativă concretă sau a angaja substanțial argumentele coaliției (respect_for_counterarguments=1). Respectul pentru grupuri și cereri este neutru, limitându-se la mențiuni procedurale. Profilul este cel al unei opoziții critice, dar care nu reușește să depășească stadiul de poziționare politică."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.82,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"ni se pare absolut ridicol ca, acum, în 2017, să votăm trecerea Institutului „Cantacuzino” în subordinea Autorității Naționale pentru Cercetare Științifică și Inovare, entitate care nu mai există, s-a desființat între timp.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Justificare calificată prin indicarea unei erori factuale și procedurale concrete în proiectul legislativ.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"cerem, totuși, să luăm în serios această instituție emblematică pentru România, de care avem atât de mare nevoie\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.89,\n      \"rationale_short\": \"Apelul vizează interesul public și sănătatea națională, nu un grup politic specific.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Grupul Partidului Național Liberal\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Referință neutră la grupul politic propriu; nicio derogare sau respect explicit pentru out-group.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Grupul Partidului Național Liberal a cerut retrimiterea la comisie\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Vorbitorul își prezintă propria cerere fără a angaja legitimitatea cererilor adverse.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"așa cum spunea și colegul meu înainte\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Mențiune superficială a argumentului anterior fără angajament substanțial sau contra-argumentare.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"Cu siguranță vom vota împotrivă\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.94,\n      \"rationale_short\": \"Poziție clară de vot; nicio propunere alternativă sau de mediere oferită în acest discurs.\"\n    }\n  ],\n  \"rationale\": \"Discursul prezintă o calitate deliberativă medie. Vorbitorul oferă o justificare calificată (level_of_justification=2) prin identificarea unei erori factuale majore în textul legii (entitatea propusă pentru subordonare nu mai există), apelând la binele comun (sănătatea publică). Totuși, discursul rămâne în mare parte pozițional, fără a oferi o alternativă legislativă concretă sau a angaja substanțial argumentele coaliției (respect_for_counterarguments=1). Respectul pentru grupuri și cereri este neutru, limitându-se la mențiuni procedurale. Profilul este cel al unei opoziții critice, dar care nu reușește să depășească stadiul de poziționare politică.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12754,
+      "tokens_in_breakdown": {
+        "fresh": 12754,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1195,
+      "cost_usd": null,
+      "latency_ms": 4724,
+      "retries_used": 0
+    }
+  }
+}

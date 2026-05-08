@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2019/II/124#agenda-1#act-55",
+  "tier": "calibration",
+  "speaker": {
+    "id": "nicolae-serban",
+    "name": "Șerban Nicolae",
+    "raw": "Domnul Șerban Nicolae",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": "2019-10-22",
+    "year": 2019,
+    "legislature": "VIII",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2019/II/124#agenda-1#act-55",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 1.0,
+        "markers": [],
+        "rationale": "Discursul este unul pur procedural, axat pe clarificarea unor termeni tehnici din Legea fondului funciar nr. 18/1991 și pe parcursul legislativ al unei propuneri (avize, rapoarte, cereri de reexaminare). Nu există nicio urmă de cadru popor-vs-elită, maniheism moral sau invocare a unei voințe populare omogene. Vorbitorul se limitează strict la competențele tehnice ale comisiilor parlamentare și la procedura de adoptare a legilor organice. Hawkins=0 cu încredere maximă."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 1.0,\n  \"markers\": [],\n  \"rationale\": \"Discursul este unul pur procedural, axat pe clarificarea unor termeni tehnici din Legea fondului funciar nr. 18/1991 și pe parcursul legislativ al unei propuneri (avize, rapoarte, cereri de reexaminare). Nu există nicio urmă de cadru popor-vs-elită, maniheism moral sau invocare a unei voințe populare omogene. Vorbitorul se limitează strict la competențele tehnice ale comisiilor parlamentare și la procedura de adoptare a legilor organice. Hawkins=0 cu încredere maximă.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 14116,
+      "tokens_in_breakdown": {
+        "fresh": 14116,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 205,
+      "cost_usd": null,
+      "latency_ms": 2244,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2019/II/124#agenda-1#act-55",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.92,
+        "level_of_justification": 1,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 1,
+            "evidence": {
+              "text": "Propunerea legislativă introduce o serie de modificări la Legea fondului funciar nr. 18/1991, justificată de clarificarea unor termeni din această lege"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Vorbitorul prezintă o justificare procedurală generală, fără a detalia mecanismul cauzal sau impactul specific."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "justificată de clarificarea unor termeni din această lege, în sensul interpretării și aplicării normei"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Apelul la claritatea normativă și aplicarea legii este un argument universalizabil, orientat către binele comun."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Doamnelor și domnilor senatori"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.99,
+            "marker_confidence": 0.95,
+            "rationale_short": "Adresare formală standard; nu există referințe derogatorii sau de respect explicit către grupuri."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Președintele României a formulat o cerere de reexaminare"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.94,
+            "rationale_short": "Cererea de reexaminare este menționată neutru, ca parte a procesului legislativ, fără angajament substanțial."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "Președintele României a formulat o cerere de reexaminare, arătând că sintagma „terenuri aferente locuinței” reprezintă o sintagmă imprecisă"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.93,
+            "rationale_short": "Argumentul președintelui este citat, dar vorbitorul nu îl combate sau susține direct, limitându-se la raportarea tehnică."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "membrii comisiei au decis, cu majoritatea voturilor celor prezenți, să adopte un raport de admitere"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.96,
+            "rationale_short": "Discursul raportează decizia comisiei și poziția adoptată, fără a propune alternative sau medieri noi."
+          }
+        ],
+        "rationale": "Acest discurs este un raport tehnic de comisie, caracterizat printr-o calitate deliberativă neutră și procedurală. Vorbitorul prezintă justificări de nivel 1, bazate pe clarificarea normativă (binele comun), dar fără a oferi argumente cauzale complexe. Respectul pentru cererile opoziției și contraargumente este de nivel 1, deoarece președintele și cererea de reexaminare sunt menționate doar în scop informativ, fără un angajament deliberativ substanțial. Discursul este pozițional, limitându-se la prezentarea raportului comisiei. Profilul este cel al unui raportor care îndeplinește o funcție administrativă, nu unul care participă la o dezbatere deliberativă deschisă."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.92,\n  \"level_of_justification\": 1,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Propunerea legislativă introduce o serie de modificări la Legea fondului funciar nr. 18/1991, justificată de clarificarea unor termeni din această lege\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Vorbitorul prezintă o justificare procedurală generală, fără a detalia mecanismul cauzal sau impactul specific.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"justificată de clarificarea unor termeni din această lege, în sensul interpretării și aplicării normei\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Apelul la claritatea normativă și aplicarea legii este un argument universalizabil, orientat către binele comun.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Doamnelor și domnilor senatori\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.99,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Adresare formală standard; nu există referințe derogatorii sau de respect explicit către grupuri.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Președintele României a formulat o cerere de reexaminare\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.94,\n      \"rationale_short\": \"Cererea de reexaminare este menționată neutru, ca parte a procesului legislativ, fără angajament substanțial.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Președintele României a formulat o cerere de reexaminare, arătând că sintagma „terenuri aferente locuinței” reprezintă o sintagmă imprecisă\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.93,\n      \"rationale_short\": \"Argumentul președintelui este citat, dar vorbitorul nu îl combate sau susține direct, limitându-se la raportarea tehnică.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"membrii comisiei au decis, cu majoritatea voturilor celor prezenți, să adopte un raport de admitere\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.96,\n      \"rationale_short\": \"Discursul raportează decizia comisiei și poziția adoptată, fără a propune alternative sau medieri noi.\"\n    }\n  ],\n  \"rationale\": \"Acest discurs este un raport tehnic de comisie, caracterizat printr-o calitate deliberativă neutră și procedurală. Vorbitorul prezintă justificări de nivel 1, bazate pe clarificarea normativă (binele comun), dar fără a oferi argumente cauzale complexe. Respectul pentru cererile opoziției și contraargumente este de nivel 1, deoarece președintele și cererea de reexaminare sunt menționate doar în scop informativ, fără un angajament deliberativ substanțial. Discursul este pozițional, limitându-se la prezentarea raportului comisiei. Profilul este cel al unui raportor care îndeplinește o funcție administrativă, nu unul care participă la o dezbatere deliberativă deschisă.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12917,
+      "tokens_in_breakdown": {
+        "fresh": 12917,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1235,
+      "cost_usd": null,
+      "latency_ms": 5014,
+      "retries_used": 0
+    }
+  }
+}

@@ -1,0 +1,152 @@
+{
+  "speech_id": "mo://2023/II/34#agenda-1#act-75",
+  "tier": "calibration",
+  "speaker": {
+    "id": "cozmanciuc-corneliu-mugurel",
+    "name": "Corneliu-Mugurel Cozmanciuc",
+    "raw": "Domnul Corneliu-Mugurel Cozmanciuc",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2023-03-07",
+    "year": 2023,
+    "legislature": "IX",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2023/II/34#agenda-1#act-75",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul este unul tehnic, axat pe reforme legislative în educație, consultări publice și soluții concrete pentru probleme precum analfabetismul funcțional. Deși utilizează termeni precum „societate” sau „viitorul țării”, aceștia sunt folosiți în contextul unei dezbateri de politici publice, nu pentru a construi un cadru maniheist popor-vs-elită. Nu există nicio invocare a unei voințe populare omogene care să se opună instituțiilor, nici o demonizare a unei elite, discursul fiind marcat de un ton constructiv și pluralist. Hawkins=0 cu încredere ridicată."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul este unul tehnic, axat pe reforme legislative în educație, consultări publice și soluții concrete pentru probleme precum analfabetismul funcțional. Deși utilizează termeni precum „societate” sau „viitorul țării”, aceștia sunt folosiți în contextul unei dezbateri de politici publice, nu pentru a construi un cadru maniheist popor-vs-elită. Nu există nicio invocare a unei voințe populare omogene care să se opună instituțiilor, nici o demonizare a unei elite, discursul fiind marcat de un ton constructiv și pluralist. Hawkins=0 cu încredere ridicată.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 14571,
+      "tokens_in_breakdown": {
+        "fresh": 14571,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 217,
+      "cost_usd": null,
+      "latency_ms": 2179,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2023/II/34#agenda-1#act-75",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.85,
+        "level_of_justification": 2,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "alternative_proposal",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "Cauza statu-quoului curent este un cumul de factori, de la nivelul de implicare a cadrelor didactice la discrepanțele sociale care provoacă o segregare în rândul elevilor, la programa deficitară."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Vorbitorul identifică factori cauzali specifici pentru problema analfabetismului funcțional."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "Ne dorim ca legile să treacă cât mai repede de avizarea interministerială, să ajungă în Parlament și, ulterior, să fie puse în aplicare, pentru a începe să vedem rezultate cât mai repede."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Apelul este universalizabil, vizând îmbunătățirea sistemului de învățământ pentru întreaga societate."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "profesorii, elevii și părinții"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Grupurile afectate sunt menționate funcțional, fără a fi derogate sau lăudate explicit."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "integrând multiple îngrijorări din partea studenților cu privire la privilegiile conducerii universităților"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Vorbitorul menționează integrarea îngrijorărilor, dar nu angajează legitimitatea cererilor în mod explicit."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "Cele două legi ale educației au stat o perioadă extinsă în etapa de consultare publică tocmai pentru a putea integra opinia și propunerile cât mai multor părți implicate."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.88,
+            "rationale_short": "Vorbitorul recunoaște existența opiniilor adverse prin consultare, dar nu le angajează substanțial."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "alternative_proposal",
+            "evidence": {
+              "text": "salarizarea progresivă a profesorilor, prin creșterea valorii burselor de merit și a celor pentru olimpici, prin extinderea Programului „Masă caldă în școli”"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.94,
+            "rationale_short": "Vorbitorul propune un set concret de măsuri legislative pentru a combate problemele identificate."
+          }
+        ],
+        "rationale": "Discursul prezintă o calitate deliberativă solidă, caracterizată printr-o justificare calificată (level_of_justification=2) care leagă problemele sistemice (analfabetism funcțional) de soluții concrete (salarizare, burse, masă caldă). Justificarea este orientată către binele comun, vizând viitorul societății. Deși vorbitorul menționează consultările publice și îngrijorările studenților, respectul pentru cereri și contraargumente rămâne la un nivel neutru (1), deoarece nu există o dezbatere substanțială cu opoziția sau o recunoaștere explicită a legitimității unor cereri divergente. Caracterul constructiv este ridicat prin propunerea unor alternative legislative clare. Profilul general este cel al unui discurs de prezentare a unei reforme, echilibrat și orientat spre soluții."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.85,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"alternative_proposal\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"Cauza statu-quoului curent este un cumul de factori, de la nivelul de implicare a cadrelor didactice la discrepanțele sociale care provoacă o segregare în rândul elevilor, la programa deficitară.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Vorbitorul identifică factori cauzali specifici pentru problema analfabetismului funcțional.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"Ne dorim ca legile să treacă cât mai repede de avizarea interministerială, să ajungă în Parlament și, ulterior, să fie puse în aplicare, pentru a începe să vedem rezultate cât mai repede.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Apelul este universalizabil, vizând îmbunătățirea sistemului de învățământ pentru întreaga societate.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"profesorii, elevii și părinții\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Grupurile afectate sunt menționate funcțional, fără a fi derogate sau lăudate explicit.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"integrând multiple îngrijorări din partea studenților cu privire la privilegiile conducerii universităților\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Vorbitorul menționează integrarea îngrijorărilor, dar nu angajează legitimitatea cererilor în mod explicit.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Cele două legi ale educației au stat o perioadă extinsă în etapa de consultare publică tocmai pentru a putea integra opinia și propunerile cât mai multor părți implicate.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Vorbitorul recunoaște existența opiniilor adverse prin consultare, dar nu le angajează substanțial.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"alternative_proposal\",\n      \"evidence\": {\n        \"text\": \"salarizarea progresivă a profesorilor, prin creșterea valorii burselor de merit și a celor pentru olimpici, prin extinderea Programului „Masă caldă în școli”\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.94,\n      \"rationale_short\": \"Vorbitorul propune un set concret de măsuri legislative pentru a combate problemele identificate.\"\n    }\n  ],\n  \"rationale\": \"Discursul prezintă o calitate deliberativă solidă, caracterizată printr-o justificare calificată (level_of_justification=2) care leagă problemele sistemice (analfabetism funcțional) de soluții concrete (salarizare, burse, masă caldă). Justificarea este orientată către binele comun, vizând viitorul societății. Deși vorbitorul menționează consultările publice și îngrijorările studenților, respectul pentru cereri și contraargumente rămâne la un nivel neutru (1), deoarece nu există o dezbatere substanțială cu opoziția sau o recunoaștere explicită a legitimității unor cereri divergente. Caracterul constructiv este ridicat prin propunerea unor alternative legislative clare. Profilul general este cel al unui discurs de prezentare a unei reforme, echilibrat și orientat spre soluții.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [
+        "Cauza statu-quoului curent este un cumul de factori, de la nivelul de implicare a cadrelor didactice la discrepanțele sociale care provoacă o segregare în rândul elevilor, la programa deficitară."
+      ],
+      "parse_repaired": false,
+      "tokens_in": 13372,
+      "tokens_in_breakdown": {
+        "fresh": 13372,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1316,
+      "cost_usd": null,
+      "latency_ms": 4962,
+      "retries_used": 0
+    }
+  }
+}

@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2018/II/1#agenda-1#act-234",
+  "tier": "calibration",
+  "speaker": {
+    "id": "turcescu-robert-nicolae",
+    "name": "Robert Nicolae Turcescu",
+    "raw": "Domnul Robert Nicolae Turcescu",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2017-12-19",
+    "year": 2018,
+    "legislature": "VIII",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2018/II/1#agenda-1#act-234",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul reprezintă o intervenție procedurală axată pe nemulțumiri administrative legate de organizarea ședințelor Comisiei pentru regulament și suprapunerea programului cu Comisia pentru învățământ. Vorbitorul critică modul de lucru al unui coleg, dar nu utilizează un cadru maniheist popor-vs-elită, nu invocă o voință populară omogenă și nu recurge la retorică populistă. Este un discurs de tip „procedural-noise” specific activității parlamentare curente, fără a exprima o viziune populistă. Hawkins=0 cu încredere ridicată."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul reprezintă o intervenție procedurală axată pe nemulțumiri administrative legate de organizarea ședințelor Comisiei pentru regulament și suprapunerea programului cu Comisia pentru învățământ. Vorbitorul critică modul de lucru al unui coleg, dar nu utilizează un cadru maniheist popor-vs-elită, nu invocă o voință populară omogenă și nu recurge la retorică populistă. Este un discurs de tip „procedural-noise” specific activității parlamentare curente, fără a exprima o viziune populistă. Hawkins=0 cu încredere ridicată.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13676,
+      "tokens_in_breakdown": {
+        "fresh": 13676,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 214,
+      "cost_usd": null,
+      "latency_ms": 2453,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2018/II/1#agenda-1#act-234",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.72,
+        "level_of_justification": 1,
+        "content_of_justification": "group_interest",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 1,
+            "evidence": {
+              "text": "O singură dată într-un an de zile..., nici măcar o dată nu am primit ordinea de zi a ședințelor comisiei."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Vorbitorul prezintă o nemulțumire procedurală bazată pe experiența personală, fără a oferi o justificare cauzală sau normativă."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "group_interest",
+            "evidence": {
+              "text": "Să ne spună și nouă domnul Nicolicea"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.75,
+            "rationale_short": "Justificarea se concentrează pe interesul grupului de parlamentari din comisie de a fi informați."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "domnul Nicolicea"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Referința la un alt parlamentar este neutră, fără a fi derogatorie sau respectuoasă."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Când vine vorba de convocarea ședinței Comisiei pentru regulament, primesc telefon de la domnul Nicolicea"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.8,
+            "rationale_short": "Vorbitorul descrie o practică procedurală fără a angaja cereri opuse."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "Nici măcar o dată nu a făcut asta."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Vorbitorul ignoră orice posibilă justificare a modului de lucru al președintelui comisiei."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Cum se întâmplă lucrul acesta?!"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Discursul este o plângere procedurală fără a propune o soluție sau un amendament."
+          }
+        ],
+        "rationale": "Discursul reprezintă o intervenție procedurală axată pe nemulțumirea față de modul de convocare a unei comisii parlamentare. Vorbitorul oferă o justificare de nivel 1, bazată pe experiența personală, fără a conecta situația la principii generale sau mecanisme cauzale complexe. Conținutul justificării este orientat către interesul grupului de membri ai comisiei. Nu există un angajament față de contraargumente sau cereri adverse, iar discursul rămâne strict pozițional, fără a oferi alternative constructive. Respectul pentru ceilalți actori este neutru, limitându-se la descrierea comportamentului acestora."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.72,\n  \"level_of_justification\": 1,\n  \"content_of_justification\": \"group_interest\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 0,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 1,\n      \"evidence\": { \"text\": \"O singură dată într-un an de zile..., nici măcar o dată nu am primit ordinea de zi a ședințelor comisiei.\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Vorbitorul prezintă o nemulțumire procedurală bazată pe experiența personală, fără a oferi o justificare cauzală sau normativă.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"group_interest\",\n      \"evidence\": { \"text\": \"Să ne spună și nouă domnul Nicolicea\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.75,\n      \"rationale_short\": \"Justificarea se concentrează pe interesul grupului de parlamentari din comisie de a fi informați.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": { \"text\": \"domnul Nicolicea\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Referința la un alt parlamentar este neutră, fără a fi derogatorie sau respectuoasă.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": { \"text\": \"Când vine vorba de convocarea ședinței Comisiei pentru regulament, primesc telefon de la domnul Nicolicea\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.8,\n      \"rationale_short\": \"Vorbitorul descrie o practică procedurală fără a angaja cereri opuse.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 0,\n      \"evidence\": { \"text\": \"Nici măcar o dată nu a făcut asta.\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Vorbitorul ignoră orice posibilă justificare a modului de lucru al președintelui comisiei.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": { \"text\": \"Cum se întâmplă lucrul acesta?!\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Discursul este o plângere procedurală fără a propune o soluție sau un amendament.\"\n    }\n  ],\n  \"rationale\": \"Discursul reprezintă o intervenție procedurală axată pe nemulțumirea față de modul de convocare a unei comisii parlamentare. Vorbitorul oferă o justificare de nivel 1, bazată pe experiența personală, fără a conecta situația la principii generale sau mecanisme cauzale complexe. Conținutul justificării este orientat către interesul grupului de membri ai comisiei. Nu există un angajament față de contraargumente sau cereri adverse, iar discursul rămâne strict pozițional, fără a oferi alternative constructive. Respectul pentru ceilalți actori este neutru, limitându-se la descrierea comportamentului acestora.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12477,
+      "tokens_in_breakdown": {
+        "fresh": 12477,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1094,
+      "cost_usd": null,
+      "latency_ms": 4328,
+      "retries_used": 0
+    }
+  }
+}

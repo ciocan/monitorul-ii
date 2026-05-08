@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2015/II/50#agenda-1#act-382",
+  "tier": "calibration",
+  "speaker": {
+    "id": "zgonea-valeriu-stefan",
+    "name": "Valeriu Ștefan Zgonea",
+    "raw": "Domnul Valeriu Ștefan Zgonea",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2015-03-25",
+    "year": 2015,
+    "legislature": "VII",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2015/II/50#agenda-1#act-382",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul este pur procedural și tehnic, concentrându-se pe interpretarea legii, procedurile Curții Constituționale și mecanismele de conciliere între Camere în materia subsidiarității. Nu există nicio urmă de cadru popor-vs-elită, maniheism moral sau invocare a unei voințe populare omogene. Vorbitorul se limitează la argumente juridice și administrative, fără a utiliza retorică populistă. Hawkins=0 cu încredere ridicată."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul este pur procedural și tehnic, concentrându-se pe interpretarea legii, procedurile Curții Constituționale și mecanismele de conciliere între Camere în materia subsidiarității. Nu există nicio urmă de cadru popor-vs-elită, maniheism moral sau invocare a unei voințe populare omogene. Vorbitorul se limitează la argumente juridice și administrative, fără a utiliza retorică populistă. Hawkins=0 cu încredere ridicată.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13630,
+      "tokens_in_breakdown": {
+        "fresh": 13630,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 178,
+      "cost_usd": null,
+      "latency_ms": 1810,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2015/II/50#agenda-1#act-382",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.85,
+        "level_of_justification": 2,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "era declarat neconstituțional, când a fost de două ori verificată de Curtea Constituțională, prima dată articol cu articol"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Vorbitorul justifică poziția prin referință la decizii anterioare ale Curții Constituționale."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "materia afacerilor europene în afara subsidiarității"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.88,
+            "rationale_short": "Justificarea se bazează pe interpretarea normativă a procedurilor parlamentare și constituționale."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "l-am întrebat și pe domnul Mocearov, aici de față"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.9,
+            "rationale_short": "Referință neutră la un coleg pentru validarea punctului de vedere."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Pe subsidiaritate nu putem să facem conciliere."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Poziție fermă asupra imposibilității concilierii, fără a discredita cererile opoziției."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "susține același punct de vedere ca și mine."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.82,
+            "rationale_short": "Recunoașterea implicită a existenței unor puncte de vedere, fără angajament substanțial."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Pe subsidiaritate nu putem să facem conciliere."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Vorbitorul își susține poziția tehnică fără a propune o alternativă sau o mediere."
+          }
+        ],
+        "rationale": "Discursul prezintă o argumentație tehnică bazată pe interpretarea constituțională și procedurală a subsidiarității. Vorbitorul oferă o justificare calificată (level_of_justification=2) prin invocarea deciziilor Curții Constituționale, ancorând argumentul în binele comun al respectării legii (content_of_justification=common_good). Respectul pentru grupuri și cereri este neutru, fiind o intervenție procedurală care nu vizează direct opoziția. Deși menționează un coleg pentru validare, nu există un angajament substanțial cu contraargumente (respect_for_counterarguments=1). Discursul rămâne pozițional, explicând limitele legale ale concilierii în materia subsidiarității."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.85,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"era declarat neconstituțional, când a fost de două ori verificată de Curtea Constituțională, prima dată articol cu articol\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Vorbitorul justifică poziția prin referință la decizii anterioare ale Curții Constituționale.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"materia afacerilor europene în afara subsidiarității\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Justificarea se bazează pe interpretarea normativă a procedurilor parlamentare și constituționale.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"l-am întrebat și pe domnul Mocearov, aici de față\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Referință neutră la un coleg pentru validarea punctului de vedere.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Pe subsidiaritate nu putem să facem conciliere.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Poziție fermă asupra imposibilității concilierii, fără a discredita cererile opoziției.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"susține același punct de vedere ca și mine.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"marker_confidence\": 0.82,\n      \"rationale_short\": \"Recunoașterea implicită a existenței unor puncte de vedere, fără angajament substanțial.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"Pe subsidiaritate nu putem să facem conciliere.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Vorbitorul își susține poziția tehnică fără a propune o alternativă sau o mediere.\"\n    }\n  ],\n  \"rationale\": \"Discursul prezintă o argumentație tehnică bazată pe interpretarea constituțională și procedurală a subsidiarității. Vorbitorul oferă o justificare calificată (level_of_justification=2) prin invocarea deciziilor Curții Constituționale, ancorând argumentul în binele comun al respectării legii (content_of_justification=common_good). Respectul pentru grupuri și cereri este neutru, fiind o intervenție procedurală care nu vizează direct opoziția. Deși menționează un coleg pentru validare, nu există un angajament substanțial cu contraargumente (respect_for_counterarguments=1). Discursul rămâne pozițional, explicând limitele legale ale concilierii în materia subsidiarității.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12431,
+      "tokens_in_breakdown": {
+        "fresh": 12431,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1126,
+      "cost_usd": null,
+      "latency_ms": 6111,
+      "retries_used": 0
+    }
+  }
+}

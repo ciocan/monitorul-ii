@@ -1,0 +1,222 @@
+{
+  "speech_id": "mo://2015/II/37#agenda-1#act-79",
+  "tier": "calibration",
+  "speaker": {
+    "id": "caprar-dorel-gheorghe",
+    "name": "Dorel Gheorghe Căprar",
+    "raw": "Domnul Dorel Gheorghe Căprar",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2015-03-10",
+    "year": 2015,
+    "legislature": "VII",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2015/II/37#agenda-1#act-79",
+      "output": {
+        "score": 1,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.85,
+        "markers": [
+          {
+            "kind": "evil_elite",
+            "evidence": {
+              "text": "clientela politică agățată de gâtul administrațiilor locale avea sporuri peste sporuri"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.85,
+            "rationale_short": "Elita politică (PDL) este descrisă ca o clientelă parazitară care a abuzat de resurse."
+          },
+          {
+            "kind": "evil_elite",
+            "evidence": {
+              "text": "administrația arădeană fiind sufocată de clientela vechiului PDL, oameni de casă ai primarului Falcă"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.88,
+            "rationale_short": "Elita locală este portretizată ca o clică coruptă care sufocă administrația prin clientelism."
+          },
+          {
+            "kind": "homogeneous_people",
+            "evidence": {
+              "text": "oamenii care atunci huzureau și batjocoreau poporul român"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.82,
+            "rationale_short": "Invocă „poporul român\" ca entitate colectivă batjocorită de elita politică."
+          }
+        ],
+        "rationale": "Discursul conține elemente populiste clare, în special prin utilizarea marcatorilor de tip 'evil_elite' (descrierea clientelei politice ca parazitară și coruptă) și 'homogeneous_people' (invocarea poporului ca victimă a batjocurii elitelor). Cu toate acestea, discursul rămâne ancorat într-o dispută politică partizană specifică (PSD vs PNL/PDL) și conține argumente tehnice despre plafoanele salariale și rolul FMI. Deși retorica este agresivă și maniheistă în anumite segmente, ea nu constituie un manifest populist pervaziv care să înlocuiască complet argumentația politică. Prin urmare, discursul se încadrează la scorul 1, fiind un exemplu de populism episodic utilizat în cadrul unei confruntări politice convenționale."
+      },
+      "raw_response": "{\n  \"score\": 1,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.85,\n  \"markers\": [\n    {\n      \"kind\": \"evil_elite\",\n      \"evidence\": {\n        \"text\": \"clientela politică agățată de gâtul administrațiilor locale avea sporuri peste sporuri\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Elita politică (PDL) este descrisă ca o clientelă parazitară care a abuzat de resurse.\"\n    },\n    {\n      \"kind\": \"evil_elite\",\n      \"evidence\": {\n        \"text\": \"administrația arădeană fiind sufocată de clientela vechiului PDL, oameni de casă ai primarului Falcă\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Elita locală este portretizată ca o clică coruptă care sufocă administrația prin clientelism.\"\n    },\n    {\n      \"kind\": \"homogeneous_people\",\n      \"evidence\": {\n        \"text\": \"oamenii care atunci huzureau și batjocoreau poporul român\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.82,\n      \"rationale_short\": \"Invocă „poporul român\\\" ca entitate colectivă batjocorită de elita politică.\"\n    }\n  ],\n  \"rationale\": \"Discursul conține elemente populiste clare, în special prin utilizarea marcatorilor de tip 'evil_elite' (descrierea clientelei politice ca parazitară și coruptă) și 'homogeneous_people' (invocarea poporului ca victimă a batjocurii elitelor). Cu toate acestea, discursul rămâne ancorat într-o dispută politică partizană specifică (PSD vs PNL/PDL) și conține argumente tehnice despre plafoanele salariale și rolul FMI. Deși retorica este agresivă și maniheistă în anumite segmente, ea nu constituie un manifest populist pervaziv care să înlocuiască complet argumentația politică. Prin urmare, discursul se încadrează la scorul 1, fiind un exemplu de populism episodic utilizat în cadrul unei confruntări politice convenționale.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [
+        "oamenii care atunci huzureau și batjocoreau poporul român"
+      ],
+      "parse_repaired": false,
+      "tokens_in": 14129,
+      "tokens_in_breakdown": {
+        "fresh": 14129,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 680,
+      "cost_usd": null,
+      "latency_ms": 3415,
+      "retries_used": 0
+    },
+    "voice": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "voice",
+      "speech_id": "mo://2015/II/37#agenda-1#act-79",
+      "output": {
+        "classifications": [
+          {
+            "marker_id": "m_0",
+            "voice": "speaker_first_person",
+            "voice_confidence": 0.95,
+            "voice_evidence": null,
+            "attributed_to": null,
+            "rationale_short": "Afirmație directă a vorbitorului în cadrul discursului său, fără elemente de citare sau raportare."
+          },
+          {
+            "marker_id": "m_1",
+            "voice": "speaker_first_person",
+            "voice_confidence": 0.95,
+            "voice_evidence": null,
+            "attributed_to": null,
+            "rationale_short": "Afirmație directă a vorbitorului, exprimată ca o constatare proprie în cadrul argumentației sale."
+          }
+        ]
+      },
+      "raw_response": "{\n  \"classifications\": [\n    {\n      \"marker_id\": \"m_0\",\n      \"voice\": \"speaker_first_person\",\n      \"voice_confidence\": 0.95,\n      \"voice_evidence\": null,\n      \"attributed_to\": null,\n      \"rationale_short\": \"Afirmație directă a vorbitorului în cadrul discursului său, fără elemente de citare sau raportare.\"\n    },\n    {\n      \"marker_id\": \"m_1\",\n      \"voice\": \"speaker_first_person\",\n      \"voice_confidence\": 0.95,\n      \"voice_evidence\": null,\n      \"attributed_to\": null,\n      \"rationale_short\": \"Afirmație directă a vorbitorului, exprimată ca o constatare proprie în cadrul argumentației sale.\"\n    }\n  ]\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 11748,
+      "tokens_in_breakdown": {
+        "fresh": 11748,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 205,
+      "cost_usd": null,
+      "latency_ms": 1177,
+      "retries_used": 0
+    },
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2015/II/37#agenda-1#act-79",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.72,
+        "level_of_justification": 1,
+        "content_of_justification": "group_interest",
+        "respect_for_groups": 0,
+        "respect_for_demands": 0,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 1,
+            "evidence": {
+              "text": "problema plafonului pentru salariile din primării nu este o chestiune politică, ci una administrativă"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Vorbitorul oferă o distincție între administrativ și politic, dar fără a furniza un mecanism cauzal sau dovezi empirice detaliate."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "group_interest",
+            "evidence": {
+              "text": "A trebuit să vină guvernarea PSD pentru ca salariile oamenilor să fie reîntregite"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.88,
+            "rationale_short": "Justificarea se bazează pe loialitatea față de partidul propriu (PSD) și interesele electorale ale acestuia."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 0,
+            "evidence": {
+              "text": "clientela politică agățată de gâtul administrațiilor locale"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Utilizarea unor termeni peiorativi precum „clientelă politică” și „clica clientelismului” constituie o formă de derogare a unui grup."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 0,
+            "evidence": {
+              "text": "duplicitatea și mascarada politică jucată oportunist și tendențios de către unii dintre opozanții liberali"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Cererile opoziției sunt respinse ca fiind „mascaradă” și „oportunism”, refuzând orice legitimitate."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "se face că nu pricepe rolul și locul pe care le are plafonul"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Vorbitorul ignoră raționamentul opoziției, atacând în schimb competența și onestitatea adversarului."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "nu ar trebui să constituie calul de bătaie pentru confruntări și vendete politice sterile"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.94,
+            "rationale_short": "Discursul rămâne la nivelul unei poziții critice, fără a propune o alternativă concretă sau un mecanism de mediere."
+          }
+        ],
+        "rationale": "Discursul prezintă o calitate deliberativă scăzută, fiind dominat de retorică partizană și atacuri la persoană. Deși vorbitorul încearcă să încadreze problema plafonului salarial ca fiind una administrativă, argumentația rămâne la nivelul 1, fiind ancorată în loialitatea față de PSD (group_interest). Respectul pentru grupuri și cererile opoziției este absent, fiind înlocuit de termeni peiorativi (respect_for_groups=0, respect_for_demands=0). Nu există un angajament substanțial cu contraargumentele, ci doar o respingere a acestora ca fiind oportuniste. Discursul este pur pozițional, fără a oferi soluții alternative sau propuneri de mediere, reflectând un stil de confruntare politică sterilă."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.72,\n  \"level_of_justification\": 1,\n  \"content_of_justification\": \"group_interest\",\n  \"respect_for_groups\": 0,\n  \"respect_for_demands\": 0,\n  \"respect_for_counterarguments\": 0,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"problema plafonului pentru salariile din primării nu este o chestiune politică, ci una administrativă\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Vorbitorul oferă o distincție între administrativ și politic, dar fără a furniza un mecanism cauzal sau dovezi empirice detaliate.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"group_interest\",\n      \"evidence\": {\n        \"text\": \"A trebuit să vină guvernarea PSD pentru ca salariile oamenilor să fie reîntregite\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Justificarea se bazează pe loialitatea față de partidul propriu (PSD) și interesele electorale ale acestuia.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"clientela politică agățată de gâtul administrațiilor locale\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Utilizarea unor termeni peiorativi precum „clientelă politică” și „clica clientelismului” constituie o formă de derogare a unui grup.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"duplicitatea și mascarada politică jucată oportunist și tendențios de către unii dintre opozanții liberali\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Cererile opoziției sunt respinse ca fiind „mascaradă” și „oportunism”, refuzând orice legitimitate.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"se face că nu pricepe rolul și locul pe care le are plafonul\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.90,\n      \"rationale_short\": \"Vorbitorul ignoră raționamentul opoziției, atacând în schimb competența și onestitatea adversarului.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"nu ar trebui să constituie calul de bătaie pentru confruntări și vendete politice sterile\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.94,\n      \"rationale_short\": \"Discursul rămâne la nivelul unei poziții critice, fără a propune o alternativă concretă sau un mecanism de mediere.\"\n    }\n  ],\n  \"rationale\": \"Discursul prezintă o calitate deliberativă scăzută, fiind dominat de retorică partizană și atacuri la persoană. Deși vorbitorul încearcă să încadreze problema plafonului salarial ca fiind una administrativă, argumentația rămâne la nivelul 1, fiind ancorată în loialitatea față de PSD (group_interest). Respectul pentru grupuri și cererile opoziției este absent, fiind înlocuit de termeni peiorativi (respect_for_groups=0, respect_for_demands=0). Nu există un angajament substanțial cu contraargumentele, ci doar o respingere a acestora ca fiind oportuniste. Discursul este pur pozițional, fără a oferi soluții alternative sau propuneri de mediere, reflectând un stil de confruntare politică sterilă.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12930,
+      "tokens_in_breakdown": {
+        "fresh": 12930,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1240,
+      "cost_usd": null,
+      "latency_ms": 4184,
+      "retries_used": 0
+    }
+  }
+}

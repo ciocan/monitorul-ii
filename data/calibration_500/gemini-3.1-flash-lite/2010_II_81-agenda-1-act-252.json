@@ -1,0 +1,163 @@
+{
+  "speech_id": "mo://2010/II/81#agenda-1#act-252",
+  "tier": "calibration",
+  "speaker": {
+    "id": null,
+    "name": "Kötő Iosif",
+    "raw": "Domnul Kötő Iosif",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2010-05-18",
+    "year": 2010,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2010/II/81#agenda-1#act-252",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [
+          {
+            "kind": "people_vs_elite",
+            "evidence": {
+              "text": "poporul român s-a săturat de această castă politică care a trădat țara"
+            },
+            "preliminary_voice": "quoted",
+            "preliminary_voice_confidence": 0.99,
+            "marker_confidence": 0.95,
+            "rationale_short": "Citat din discursul unui coleg, utilizat pentru a fi infirmat; nu reflectă viziunea vorbitorului."
+          }
+        ],
+        "rationale": "Discursul este unul tehnic și procedural, axat pe argumente educaționale și pedagogice privind predarea în limba maternă. Vorbitorul respinge explicit retorica populistă a unui coleg, citând-o doar pentru a o contrazice prin argumente bazate pe evaluări psihopedagogice și pe textul legii. Nu există nicio urmă de maniheism, cadru popor-vs-elită sau invocare a unei voințe populare suverane în registrul propriu al vorbitorului. Discursul se înscrie în registrul dezbaterii parlamentare constructive, motiv pentru care scorul este 0."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [\n    {\n      \"kind\": \"people_vs_elite\",\n      \"evidence\": {\n        \"text\": \"poporul român s-a săturat de această castă politică care a trădat țara\"\n      },\n      \"preliminary_voice\": \"quoted\",\n      \"preliminary_voice_confidence\": 0.99,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Citat din discursul unui coleg, utilizat pentru a fi infirmat; nu reflectă viziunea vorbitorului.\"\n    }\n  ],\n  \"rationale\": \"Discursul este unul tehnic și procedural, axat pe argumente educaționale și pedagogice privind predarea în limba maternă. Vorbitorul respinge explicit retorica populistă a unui coleg, citând-o doar pentru a o contrazice prin argumente bazate pe evaluări psihopedagogice și pe textul legii. Nu există nicio urmă de maniheism, cadru popor-vs-elită sau invocare a unei voințe populare suverane în registrul propriu al vorbitorului. Discursul se înscrie în registrul dezbaterii parlamentare constructive, motiv pentru care scorul este 0.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [
+        "poporul român s-a săturat de această castă politică care a trădat țara"
+      ],
+      "parse_repaired": false,
+      "tokens_in": 14027,
+      "tokens_in_breakdown": {
+        "fresh": 14027,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 351,
+      "cost_usd": null,
+      "latency_ms": 2227,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2010/II/81#agenda-1#act-252",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.88,
+        "level_of_justification": 2,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 2,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "dacă ne uităm la evaluările psihopedagogice dovedesc că însușirea materialului în limba maternă este mult mai eficientă."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Vorbitorul invocă un mecanism cauzal bazat pe evaluări psihopedagogice pentru a justifica poziția."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "integrarea comunității în circuitul spiritual și economic prin însușirea istoriei și geografiei pământului natal este un interes comun"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Justificarea este ancorată explicit în interesul comun al întregii populații, nu doar al unei minorități."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "comunității maghiare"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Grupul este menționat într-un context funcțional, fără derogare sau laudă explicită."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "propun respingerea amendamentului"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Vorbitorul respinge amendamentul fără a angaja legitimitatea cererii opoziției."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 2,
+            "evidence": {
+              "text": "Domnul coleg a spus, dacă-mi permiteți, domnule coleg, a spus că vom învăța numele lui Ștefan cel Mare ca Nagy István. Nu este adevărat. Dacă vă uitați în text veți vedea că predarea în limbile minorităților naționale, geografia și istoria României se predau în aceste limbi după programe școlare și manuale identice"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.94,
+            "rationale_short": "Vorbitorul reformulează argumentul advers și îl combate prin referință la textul legii."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "eu susțin varianta Guvernului și propun respingerea amendamentului."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Vorbitorul apără poziția Guvernului fără a oferi o alternativă sau o mediere."
+          }
+        ],
+        "rationale": "Discursul prezintă o calitate deliberativă solidă, marcată de o justificare calificată (level_of_justification=2) bazată pe argumente psihopedagogice și un apel la binele comun. Vorbitorul demonstrează un respect ridicat pentru contraargumente (respect_for_counterarguments=2), reformulând și demontând punctual îngrijorarea colegului privind predarea numelor proprii. Deși respinge amendamentul opoziției, o face fără a recurge la atacuri la persoană, menținând un ton neutru față de grupuri. Poziția rămâne însă una de susținere a variantei Guvernului, fără a propune o cale de mijloc, ceea ce o plasează în categoria positional. Profilul este unul de argumentare rațională, orientată spre convingerea auditoriului prin dovezi."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.88,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 2,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"dacă ne uităm la evaluările psihopedagogice dovedesc că însușirea materialului în limba maternă este mult mai eficientă.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Vorbitorul invocă un mecanism cauzal bazat pe evaluări psihopedagogice pentru a justifica poziția.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"integrarea comunității în circuitul spiritual și economic prin însușirea istoriei și geografiei pământului natal este un interes comun\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Justificarea este ancorată explicit în interesul comun al întregii populații, nu doar al unei minorități.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"comunității maghiare\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Grupul este menționat într-un context funcțional, fără derogare sau laudă explicită.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"propun respingerea amendamentului\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Vorbitorul respinge amendamentul fără a angaja legitimitatea cererii opoziției.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"Domnul coleg a spus, dacă-mi permiteți, domnule coleg, a spus că vom învăța numele lui Ștefan cel Mare ca Nagy István. Nu este adevărat. Dacă vă uitați în text veți vedea că predarea în limbile minorităților naționale, geografia și istoria României se predau în aceste limbi după programe școlare și manuale identice\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.94,\n      \"rationale_short\": \"Vorbitorul reformulează argumentul advers și îl combate prin referință la textul legii.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"eu susțin varianta Guvernului și propun respingerea amendamentului.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Vorbitorul apără poziția Guvernului fără a oferi o alternativă sau o mediere.\"\n    }\n  ],\n  \"rationale\": \"Discursul prezintă o calitate deliberativă solidă, marcată de o justificare calificată (level_of_justification=2) bazată pe argumente psihopedagogice și un apel la binele comun. Vorbitorul demonstrează un respect ridicat pentru contraargumente (respect_for_counterarguments=2), reformulând și demontând punctual îngrijorarea colegului privind predarea numelor proprii. Deși respinge amendamentul opoziției, o face fără a recurge la atacuri la persoană, menținând un ton neutru față de grupuri. Poziția rămâne însă una de susținere a variantei Guvernului, fără a propune o cale de mijloc, ceea ce o plasează în categoria positional. Profilul este unul de argumentare rațională, orientată spre convingerea auditoriului prin dovezi.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12828,
+      "tokens_in_breakdown": {
+        "fresh": 12828,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1249,
+      "cost_usd": null,
+      "latency_ms": 4352,
+      "retries_used": 0
+    }
+  }
+}

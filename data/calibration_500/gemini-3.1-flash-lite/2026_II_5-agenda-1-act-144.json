@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2026/II/5#agenda-1#act-144",
+  "tier": "calibration",
+  "speaker": {
+    "id": "paun-ana-cynthia-ioana",
+    "name": "Ana-Cynthia-Ioana Păun",
+    "raw": "Doamna Ana-Cynthia-Ioana Păun",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": "2025-12-17",
+    "year": 2026,
+    "legislature": "X",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2026/II/5#agenda-1#act-144",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul se concentrează pe o critică tehnică și procedurală a modului de ocupare a funcțiilor publice prin detașări succesive, propunând o soluție legislativă concretă (limitarea detașărilor la 6 luni). Deși limbajul este critic la adresa sistemului, acesta nu utilizează un cadru maniheist popor-vs-elită, nu invocă o voință populară omogenă și nu recurge la retorică populistă pentru a susține argumentul. Discursul rămâne în registrul dezbaterii de politici publice, axat pe competență și responsabilitate administrativă, motiv pentru care scorul este 0."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul se concentrează pe o critică tehnică și procedurală a modului de ocupare a funcțiilor publice prin detașări succesive, propunând o soluție legislativă concretă (limitarea detașărilor la 6 luni). Deși limbajul este critic la adresa sistemului, acesta nu utilizează un cadru maniheist popor-vs-elită, nu invocă o voință populară omogenă și nu recurge la retorică populistă pentru a susține argumentul. Discursul rămâne în registrul dezbaterii de politici publice, axat pe competență și responsabilitate administrativă, motiv pentru care scorul este 0.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13845,
+      "tokens_in_breakdown": {
+        "fresh": 13845,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 220,
+      "cost_usd": null,
+      "latency_ms": 1880,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2026/II/5#agenda-1#act-144",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.88,
+        "level_of_justification": 2,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "alternative_proposal",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "Proiectul de lege pe care noi, cei de la USR, îl depunem astăzi nu blochează soluțiile temporare; le pune limite clare și corecte: maximum 6 luni, cu o singură posibilitate de prelungire, de încă 6 luni, doar dacă procedura de concurs este deja pornită."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Vorbitorul oferă o justificare bazată pe un mecanism specific (limitarea la 6 luni) pentru a rezolva problema detașărilor succesive."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "Administrația nu se poate construi pe improvizații permanente; se construiește pe competență, pe concurs și pe responsabilitate."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Apelul este la principii universale de funcționare a statului (competență, responsabilitate), nu la interese de grup."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Avem șefi la stat care sunt temporar de atât de mult timp încât au uitat ce înseamnă un concurs."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.85,
+            "rationale_short": "Referință critică la o categorie profesională, dar fără a depăși pragul de derogare sau dispreț explicit."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "De ce se întâmplă asta? Pentru că detașarea este comodă"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.88,
+            "rationale_short": "Vorbitorul analizează cauzele sistemice fără a angaja direct cererile opoziției; atitudine neutră."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "Asta este, din păcate, realitatea din administrația publică românească."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Vorbitorul ignoră argumentele contrare și se concentrează exclusiv pe propria diagnoză și propunere."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "alternative_proposal",
+            "evidence": {
+              "text": "Proiectul de lege pe care noi, cei de la USR, îl depunem astăzi nu blochează soluțiile temporare; le pune limite clare și corecte"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.96,
+            "rationale_short": "Vorbitorul prezintă o inițiativă legislativă concretă ca alternativă la practica actuală a detașărilor."
+          }
+        ],
+        "rationale": "Discursul prezintă o calitate deliberativă medie-ridicată, fiind centrat pe o propunere legislativă concretă (alternative_proposal). Justificarea este calificată (level_of_justification=2) prin mecanisme clare de limitare a detașărilor, apelând la binele comun (common_good) prin accentul pe competență și responsabilitate. Respectul pentru grupuri și cereri este neutru, vorbitorul criticând sistemul fără a ataca direct persoane sau a angaja cererile opoziției. Lipsa angajamentului cu contraargumentele (respect_for_counterarguments=0) limitează scorul general, discursul fiind mai degrabă o prezentare a propriei soluții decât o dezbatere interactivă. Profilul este unul constructiv, dar unilateral."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.88,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 0,\n  \"constructive_politics\": \"alternative_proposal\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"Proiectul de lege pe care noi, cei de la USR, îl depunem astăzi nu blochează soluțiile temporare; le pune limite clare și corecte: maximum 6 luni, cu o singură posibilitate de prelungire, de încă 6 luni, doar dacă procedura de concurs este deja pornită.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Vorbitorul oferă o justificare bazată pe un mecanism specific (limitarea la 6 luni) pentru a rezolva problema detașărilor succesive.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"Administrația nu se poate construi pe improvizații permanente; se construiește pe competență, pe concurs și pe responsabilitate.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Apelul este la principii universale de funcționare a statului (competență, responsabilitate), nu la interese de grup.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Avem șefi la stat care sunt temporar de atât de mult timp încât au uitat ce înseamnă un concurs.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Referință critică la o categorie profesională, dar fără a depăși pragul de derogare sau dispreț explicit.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"De ce se întâmplă asta? Pentru că detașarea este comodă\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Vorbitorul analizează cauzele sistemice fără a angaja direct cererile opoziției; atitudine neutră.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"Asta este, din păcate, realitatea din administrația publică românească.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.90,\n      \"rationale_short\": \"Vorbitorul ignoră argumentele contrare și se concentrează exclusiv pe propria diagnoză și propunere.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"alternative_proposal\",\n      \"evidence\": {\n        \"text\": \"Proiectul de lege pe care noi, cei de la USR, îl depunem astăzi nu blochează soluțiile temporare; le pune limite clare și corecte\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.96,\n      \"rationale_short\": \"Vorbitorul prezintă o inițiativă legislativă concretă ca alternativă la practica actuală a detașărilor.\"\n    }\n  ],\n  \"rationale\": \"Discursul prezintă o calitate deliberativă medie-ridicată, fiind centrat pe o propunere legislativă concretă (alternative_proposal). Justificarea este calificată (level_of_justification=2) prin mecanisme clare de limitare a detașărilor, apelând la binele comun (common_good) prin accentul pe competență și responsabilitate. Respectul pentru grupuri și cereri este neutru, vorbitorul criticând sistemul fără a ataca direct persoane sau a angaja cererile opoziției. Lipsa angajamentului cu contraargumentele (respect_for_counterarguments=0) limitează scorul general, discursul fiind mai degrabă o prezentare a propriei soluții decât o dezbatere interactivă. Profilul este unul constructiv, dar unilateral.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12646,
+      "tokens_in_breakdown": {
+        "fresh": 12646,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1295,
+      "cost_usd": null,
+      "latency_ms": 5172,
+      "retries_used": 0
+    }
+  }
+}

@@ -1,0 +1,233 @@
+{
+  "speech_id": "mo://2020/II/78#agenda-1#act-9",
+  "tier": "calibration",
+  "speaker": {
+    "id": "iordache-florin",
+    "name": "Florin Iordache",
+    "raw": "Domnul Florin Iordache",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2020-07-14",
+    "year": 2020,
+    "legislature": "VIII",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2020/II/78#agenda-1#act-9",
+      "output": {
+        "score": 1,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.85,
+        "markers": [
+          {
+            "kind": "people_vs_elite",
+            "evidence": {
+              "text": "o provocare a unui David cetățenesc împotriva unui Goliat politic, de 30 de ani de politică veche"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Folosește metafora David vs Goliat pentru a încadra conflictul dintre cetățeni și clasa politică veche."
+          },
+          {
+            "kind": "evil_elite",
+            "evidence": {
+              "text": "ne explica Liviu Dragnea că n-a putut în niște luni de zile să copieze semnăturile, pentru că n-a găsit copiatoare de cărți rare"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.85,
+            "rationale_short": "Portretizează un lider politic ca fiind malițios și disprețuitor față de procedurile democratice."
+          },
+          {
+            "kind": "moralistic_manichaeism",
+            "evidence": {
+              "text": "să facem un pic de dreptate morală acestei țări"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.8,
+            "rationale_short": "Încheie discursul printr-un apel la „dreptate morală”, sugerând o dihotomie între bine și rău."
+          }
+        ],
+        "rationale": "Discursul conține elemente populiste clare, în special prin utilizarea metaforei David vs Goliat pentru a defini conflictul politic și prin portretizarea malițioasă a adversarilor politici. Totuși, cadrul populist nu este pervaziv pe tot parcursul discursului, acesta fiind ancorat într-o inițiativă legislativă specifică și proceduri parlamentare. Deși există accente moralizatoare, discursul păstrează o legătură cu procesul legislativ, ceea ce îl plasează în categoria 1, ca un discurs cu momente populiste episodice, dar nu un manifest populist complet."
+      },
+      "raw_response": "{\n  \"score\": 1,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.85,\n  \"markers\": [\n    {\n      \"kind\": \"people_vs_elite\",\n      \"evidence\": {\n        \"text\": \"o provocare a unui David cetățenesc împotriva unui Goliat politic, de 30 de ani de politică veche\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Folosește metafora David vs Goliat pentru a încadra conflictul dintre cetățeni și clasa politică veche.\"\n    },\n    {\n      \"kind\": \"evil_elite\",\n      \"evidence\": {\n        \"text\": \"ne explica Liviu Dragnea că n-a putut în niște luni de zile să copieze semnăturile, pentru că n-a găsit copiatoare de cărți rare\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Portretizează un lider politic ca fiind malițios și disprețuitor față de procedurile democratice.\"\n    },\n    {\n      \"kind\": \"moralistic_manichaeism\",\n      \"evidence\": {\n        \"text\": \"să facem un pic de dreptate morală acestei țări\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.80,\n      \"rationale_short\": \"Încheie discursul printr-un apel la „dreptate morală”, sugerând o dihotomie între bine și rău.\"\n    }\n  ],\n  \"rationale\": \"Discursul conține elemente populiste clare, în special prin utilizarea metaforei David vs Goliat pentru a defini conflictul politic și prin portretizarea malițioasă a adversarilor politici. Totuși, cadrul populist nu este pervaziv pe tot parcursul discursului, acesta fiind ancorat într-o inițiativă legislativă specifică și proceduri parlamentare. Deși există accente moralizatoare, discursul păstrează o legătură cu procesul legislativ, ceea ce îl plasează în categoria 1, ca un discurs cu momente populiste episodice, dar nu un manifest populist complet.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13809,
+      "tokens_in_breakdown": {
+        "fresh": 13809,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 644,
+      "cost_usd": null,
+      "latency_ms": 3322,
+      "retries_used": 0
+    },
+    "voice": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "voice",
+      "speech_id": "mo://2020/II/78#agenda-1#act-9",
+      "output": {
+        "classifications": [
+          {
+            "marker_id": "m_0",
+            "voice": "speaker_first_person",
+            "voice_confidence": 0.95,
+            "voice_evidence": null,
+            "attributed_to": null,
+            "rationale_short": "Afirmație directă a vorbitorului în nume propriu, fără elemente de citare sau raportare."
+          },
+          {
+            "marker_id": "m_1",
+            "voice": "reported",
+            "voice_confidence": 0.98,
+            "voice_evidence": {
+              "text": "ne explica Liviu Dragnea că"
+            },
+            "attributed_to": {
+              "raw": "Liviu Dragnea",
+              "kind": "individual"
+            },
+            "rationale_short": "Vorbitorul raportează o explicație a lui Liviu Dragnea folosind clauza „ne explica... că”."
+          },
+          {
+            "marker_id": "m_2",
+            "voice": "speaker_first_person",
+            "voice_confidence": 0.95,
+            "voice_evidence": null,
+            "attributed_to": null,
+            "rationale_short": "Vorbitorul își exprimă propria dorință și intenție în cadrul discursului la persoana întâi."
+          }
+        ]
+      },
+      "raw_response": "{\n  \"classifications\": [\n    {\n      \"marker_id\": \"m_0\",\n      \"voice\": \"speaker_first_person\",\n      \"voice_confidence\": 0.95,\n      \"voice_evidence\": null,\n      \"attributed_to\": null,\n      \"rationale_short\": \"Afirmație directă a vorbitorului în nume propriu, fără elemente de citare sau raportare.\"\n    },\n    {\n      \"marker_id\": \"m_1\",\n      \"voice\": \"reported\",\n      \"voice_confidence\": 0.98,\n      \"voice_evidence\": {\n        \"text\": \"ne explica Liviu Dragnea că\"\n      },\n      \"attributed_to\": {\n        \"raw\": \"Liviu Dragnea\",\n        \"kind\": \"individual\"\n      },\n      \"rationale_short\": \"Vorbitorul raportează o explicație a lui Liviu Dragnea folosind clauza „ne explica... că”.\"\n    },\n    {\n      \"marker_id\": \"m_2\",\n      \"voice\": \"speaker_first_person\",\n      \"voice_confidence\": 0.95,\n      \"voice_evidence\": null,\n      \"attributed_to\": null,\n      \"rationale_short\": \"Vorbitorul își exprimă propria dorință și intenție în cadrul discursului la persoana întâi.\"\n    }\n  ]\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 11516,
+      "tokens_in_breakdown": {
+        "fresh": 11516,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 337,
+      "cost_usd": null,
+      "latency_ms": 1779,
+      "retries_used": 0
+    },
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2020/II/78#agenda-1#act-9",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.72,
+        "level_of_justification": 1,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 1,
+            "evidence": {
+              "text": "Ideea de a nu avea condamnați în instituțiile statului este una atât de corectă, încât nu cred că cineva se va putea opune."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Justificarea se bazează pe o afirmație de corectitudine morală auto-evidentă, fără un raționament cauzal sau probatoriu."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "Ideea de a nu avea condamnați în instituțiile statului este una atât de corectă"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Apelul este la un principiu universalizabil de igienă morală a statului, nu la interese de grup."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "întregul Parlament"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.8,
+            "rationale_short": "Referința la Parlament este neutră și funcțională, fără conotații de respect sau dispreț."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "nu avem nicio teamă de a le da șansa cetățenilor să-și exprime acest principiu"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.96,
+            "marker_confidence": 0.75,
+            "rationale_short": "Vorbitorul nu abordează cererile opoziției, ci își afirmă propria poziție; non-angajament."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "nu cred că cineva se va putea opune"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.88,
+            "rationale_short": "Vorbitorul ignoră existența unor contraargumente valide, presupunând că opoziția este imposibilă."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "încurajez întregul Parlament să voteze această inițiativă"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Discursul este o pledoarie pentru susținerea inițiativei, fără a propune alternative sau medieri."
+          }
+        ],
+        "rationale": "Discursul este predominant retoric și pozițional, axat pe mobilizarea votului pentru o inițiativă legislativă. Justificarea este de nivel 1, bazându-se pe apeluri la moralitate („igienă morală”) fără a oferi dovezi sau mecanisme cauzale specifice. Nu există un angajament real cu contraargumentele, vorbitorul presupunând că opoziția este imposibilă, ceea ce duce la un scor de 0 pentru respect_for_counterarguments. Deși tonul este pasional, acesta nu se traduce în respect pentru cererile opoziției, care sunt ignorate. Profilul deliberativ este unul de susținere politică, cu o calitate analitică scăzută, fiind mai degrabă un discurs de campanie decât unul de dezbatere parlamentară."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.72,\n  \"level_of_justification\": 1,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 0,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Ideea de a nu avea condamnați în instituțiile statului este una atât de corectă, încât nu cred că cineva se va putea opune.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Justificarea se bazează pe o afirmație de corectitudine morală auto-evidentă, fără un raționament cauzal sau probatoriu.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"Ideea de a nu avea condamnați în instituțiile statului este una atât de corectă\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Apelul este la un principiu universalizabil de igienă morală a statului, nu la interese de grup.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"întregul Parlament\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.8,\n      \"rationale_short\": \"Referința la Parlament este neutră și funcțională, fără conotații de respect sau dispreț.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"nu avem nicio teamă de a le da șansa cetățenilor să-și exprime acest principiu\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.96,\n      \"marker_confidence\": 0.75,\n      \"rationale_short\": \"Vorbitorul nu abordează cererile opoziției, ci își afirmă propria poziție; non-angajament.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"nu cred că cineva se va putea opune\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Vorbitorul ignoră existența unor contraargumente valide, presupunând că opoziția este imposibilă.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"încurajez întregul Parlament să voteze această inițiativă\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Discursul este o pledoarie pentru susținerea inițiativei, fără a propune alternative sau medieri.\"\n    }\n  ],\n  \"rationale\": \"Discursul este predominant retoric și pozițional, axat pe mobilizarea votului pentru o inițiativă legislativă. Justificarea este de nivel 1, bazându-se pe apeluri la moralitate („igienă morală”) fără a oferi dovezi sau mecanisme cauzale specifice. Nu există un angajament real cu contraargumentele, vorbitorul presupunând că opoziția este imposibilă, ceea ce duce la un scor de 0 pentru respect_for_counterarguments. Deși tonul este pasional, acesta nu se traduce în respect pentru cererile opoziției, care sunt ignorate. Profilul deliberativ este unul de susținere politică, cu o calitate analitică scăzută, fiind mai degrabă un discurs de campanie decât unul de dezbatere parlamentară.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12610,
+      "tokens_in_breakdown": {
+        "fresh": 12610,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1191,
+      "cost_usd": null,
+      "latency_ms": 4847,
+      "retries_used": 0
+    }
+  }
+}

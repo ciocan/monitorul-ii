@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2019/II/124#agenda-1#act-133",
+  "tier": "calibration",
+  "speaker": {
+    "id": "diaconescu-renica-dan",
+    "name": "Renică Diaconescu",
+    "raw": "Domnul Renică Diaconescu",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": "2019-10-22",
+    "year": 2019,
+    "legislature": "VIII",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2019/II/124#agenda-1#act-133",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul este unul procedural și constructiv, axat pe activitatea comisiilor parlamentare și pe soluționarea unei probleme tehnice privind locurile la rezidențiat. Deși vorbitorul folosește termeni precum „elita învățământului”, aceștia sunt utilizați în sensul convențional de excelență academică, nu în cadrul maniheist popor-vs-elită. Nu există nicio invocare a unei voințe populare omogene, a unei elite malefice sau a unei crize existențiale. Discursul reflectă o colaborare inter-partidă și o abordare bazată pe politici publice, încadrându-se clar în scorul 0."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul este unul procedural și constructiv, axat pe activitatea comisiilor parlamentare și pe soluționarea unei probleme tehnice privind locurile la rezidențiat. Deși vorbitorul folosește termeni precum „elita învățământului”, aceștia sunt utilizați în sensul convențional de excelență academică, nu în cadrul maniheist popor-vs-elită. Nu există nicio invocare a unei voințe populare omogene, a unei elite malefice sau a unei crize existențiale. Discursul reflectă o colaborare inter-partidă și o abordare bazată pe politici publice, încadrându-se clar în scorul 0.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13709,
+      "tokens_in_breakdown": {
+        "fresh": 13709,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 223,
+      "cost_usd": null,
+      "latency_ms": 1984,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2019/II/124#agenda-1#act-133",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.82,
+        "level_of_justification": 2,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 2,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "alternative_proposal",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "prin care numărul de locuri la rezidențiat în anul acesta să fie egal cu numărul absolvenților, pentru că din cauza unei legi foarte proaste din trecut absolvenții de Medicină nu rămâneau nici măcar șomeri."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Oferă un mecanism cauzal clar (egalarea locurilor cu absolvenții) pentru a corecta o problemă sistemică."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "elita învățământului românesc și de acești tineri medici"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.88,
+            "rationale_short": "Apelul vizează binele comun prin susținerea elitei educaționale și a viitorului sistemului medical."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 2,
+            "evidence": {
+              "text": "le mulțumesc colegilor de la toate partidele politice. A fost un gest de onoare al parlamentarilor"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.94,
+            "rationale_short": "Vorbitorul recunoaște explicit onoarea și contribuția colegilor din toate partidele politice."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "s-a votat și un amendament"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.96,
+            "marker_confidence": 0.85,
+            "rationale_short": "Cererile sunt tratate funcțional prin consensul comisiei; nu există o opoziție directă de adresat."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "Anul acesta, spre deosebire de ceilalți ani, numărul a scăzut drastic"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.82,
+            "rationale_short": "Recunoaște contextul problematic fără a angaja direct un contraargument specific."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "alternative_proposal",
+            "evidence": {
+              "text": "s-a făcut un amendament, vă spuneam, prin care numărul de locuri la rezidențiat în anul acesta să fie egal cu numărul absolvenților"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Prezintă un amendament concret ca soluție la problema lipsei locurilor de rezidențiat."
+          }
+        ],
+        "rationale": "Discursul prezintă o calitate deliberativă ridicată, marcată de un ton constructiv și respectuos. Vorbitorul oferă o justificare calificată (level_of_justification=2) prin corelarea amendamentului cu necesitatea de a preveni șomajul în rândul medicilor, apelând la binele comun. Se remarcă un respect explicit pentru colegii din toate partidele (respect_for_groups=2), subliniind consensul parlamentar. Deși nu există o opoziție directă de combătut, discursul este constructiv prin propunerea unui amendament specific (alternative_proposal). Profilul este unul de cooperare parlamentară, cu o argumentare clară și orientată spre soluții."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.82,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 2,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"alternative_proposal\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"prin care numărul de locuri la rezidențiat în anul acesta să fie egal cu numărul absolvenților, pentru că din cauza unei legi foarte proaste din trecut absolvenții de Medicină nu rămâneau nici măcar șomeri.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Oferă un mecanism cauzal clar (egalarea locurilor cu absolvenții) pentru a corecta o problemă sistemică.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"elita învățământului românesc și de acești tineri medici\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Apelul vizează binele comun prin susținerea elitei educaționale și a viitorului sistemului medical.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"le mulțumesc colegilor de la toate partidele politice. A fost un gest de onoare al parlamentarilor\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"marker_confidence\": 0.94,\n      \"rationale_short\": \"Vorbitorul recunoaște explicit onoarea și contribuția colegilor din toate partidele politice.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"s-a votat și un amendament\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.96,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Cererile sunt tratate funcțional prin consensul comisiei; nu există o opoziție directă de adresat.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Anul acesta, spre deosebire de ceilalți ani, numărul a scăzut drastic\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.82,\n      \"rationale_short\": \"Recunoaște contextul problematic fără a angaja direct un contraargument specific.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"alternative_proposal\",\n      \"evidence\": {\n        \"text\": \"s-a făcut un amendament, vă spuneam, prin care numărul de locuri la rezidențiat în anul acesta să fie egal cu numărul absolvenților\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Prezintă un amendament concret ca soluție la problema lipsei locurilor de rezidențiat.\"\n    }\n  ],\n  \"rationale\": \"Discursul prezintă o calitate deliberativă ridicată, marcată de un ton constructiv și respectuos. Vorbitorul oferă o justificare calificată (level_of_justification=2) prin corelarea amendamentului cu necesitatea de a preveni șomajul în rândul medicilor, apelând la binele comun. Se remarcă un respect explicit pentru colegii din toate partidele (respect_for_groups=2), subliniind consensul parlamentar. Deși nu există o opoziție directă de combătut, discursul este constructiv prin propunerea unui amendament specific (alternative_proposal). Profilul este unul de cooperare parlamentară, cu o argumentare clară și orientată spre soluții.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12510,
+      "tokens_in_breakdown": {
+        "fresh": 12510,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1209,
+      "cost_usd": null,
+      "latency_ms": 8331,
+      "retries_used": 0
+    }
+  }
+}

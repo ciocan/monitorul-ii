@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2006/II/175#agenda-1#act-87",
+  "tier": "calibration",
+  "speaker": {
+    "id": "melescanu-teodor-viorel",
+    "name": "Teodor Viorel Mele∫canu",
+    "raw": "Domnul Teodor Viorel Mele∫canu",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": null,
+    "year": 2006,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2006/II/175#agenda-1#act-87",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul este pur procedural, concentrându-se pe gestionarea votului pentru o propunere a senatorului Funar și pe respectarea regulamentului parlamentar. Nu există nicio urmă de cadru popor-vs-elită, maniheism moral sau invocare a unei voințe populare suverane. Vorbitorul acționează strict în rolul de președinte de ședință, facilitând procesul legislativ fără a recurge la retorică populistă. Hawkins=0 cu încredere maximă."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul este pur procedural, concentrându-se pe gestionarea votului pentru o propunere a senatorului Funar și pe respectarea regulamentului parlamentar. Nu există nicio urmă de cadru popor-vs-elită, maniheism moral sau invocare a unei voințe populare suverane. Vorbitorul acționează strict în rolul de președinte de ședință, facilitând procesul legislativ fără a recurge la retorică populistă. Hawkins=0 cu încredere maximă.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13737,
+      "tokens_in_breakdown": {
+        "fresh": 13737,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 186,
+      "cost_usd": null,
+      "latency_ms": 1778,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2006/II/175#agenda-1#act-87",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.45,
+        "level_of_justification": 0,
+        "content_of_justification": "none",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 0,
+            "evidence": {
+              "text": "Cine este pentru participarea primului-ministru ∫i a membrilor Guvernului la toate dezbaterile asupra bugetului?"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.95,
+            "rationale_short": "Intervenție pur procedurală de conducere a ședinței; nicio justificare oferită."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "none",
+            "evidence": {
+              "text": "Cine este pentru participarea primului-ministru ∫i a membrilor Guvernului la toate dezbaterile asupra bugetului?"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.95,
+            "rationale_short": "Nicio justificare prezentă; conținut nedefinit."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Domnule Funar"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.9,
+            "rationale_short": "Adresare neutră, convențională, către un alt parlamentar."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Propunerea domnului senator doctor Funar nu a fost acceptat„"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.9,
+            "rationale_short": "Procedură administrativă de constatare a votului; nicio evaluare a legitimității cererii."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "s-au ridicat, Ón acela∫i timp, obiec˛ii pornind de la practica de p‚n„ acum Ón Parlamentul Rom‚niei"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.85,
+            "rationale_short": "Mențiune procedurală a existenței obiecțiilor fără angajament substanțial."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Œn consecin˛„, o s„ v„ supun la vot propunerea domnului Funar."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.95,
+            "rationale_short": "Intervenție de gestionare a procedurii parlamentare; nicio propunere alternativă."
+          }
+        ],
+        "rationale": "Fragmentul reprezintă o intervenție pur procedurală a președintelui de ședință, care gestionează votul asupra unei propuneri. Nu există nicio argumentare sau justificare (level_of_justification=0), deoarece rolul vorbitorului este de a facilita procesul, nu de a dezbate. Respectul pentru grupuri și cereri este neutru, limitându-se la formalități parlamentare. Nu există angajament cu contraargumentele, ci doar o mențiune tehnică a existenței acestora. Calitatea deliberativă este scăzută, fiind un discurs de tip administrativ, motiv pentru care framework_confidence este sub 0.5."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.45,\n  \"level_of_justification\": 0,\n  \"content_of_justification\": \"none\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 0,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 0,\n      \"evidence\": { \"text\": \"Cine este pentru participarea primului-ministru ∫i a membrilor Guvernului la toate dezbaterile asupra bugetului?\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Intervenție pur procedurală de conducere a ședinței; nicio justificare oferită.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"none\",\n      \"evidence\": { \"text\": \"Cine este pentru participarea primului-ministru ∫i a membrilor Guvernului la toate dezbaterile asupra bugetului?\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Nicio justificare prezentă; conținut nedefinit.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": { \"text\": \"Domnule Funar\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Adresare neutră, convențională, către un alt parlamentar.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": { \"text\": \"Propunerea domnului senator doctor Funar nu a fost acceptat„\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Procedură administrativă de constatare a votului; nicio evaluare a legitimității cererii.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 0,\n      \"evidence\": { \"text\": \"s-au ridicat, Ón acela∫i timp, obiec˛ii pornind de la practica de p‚n„ acum Ón Parlamentul Rom‚niei\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Mențiune procedurală a existenței obiecțiilor fără angajament substanțial.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": { \"text\": \"Œn consecin˛„, o s„ v„ supun la vot propunerea domnului Funar.\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Intervenție de gestionare a procedurii parlamentare; nicio propunere alternativă.\"\n    }\n  ],\n  \"rationale\": \"Fragmentul reprezintă o intervenție pur procedurală a președintelui de ședință, care gestionează votul asupra unei propuneri. Nu există nicio argumentare sau justificare (level_of_justification=0), deoarece rolul vorbitorului este de a facilita procesul, nu de a dezbate. Respectul pentru grupuri și cereri este neutru, limitându-se la formalități parlamentare. Nu există angajament cu contraargumentele, ci doar o mențiune tehnică a existenței acestora. Calitatea deliberativă este scăzută, fiind un discurs de tip administrativ, motiv pentru care framework_confidence este sub 0.5.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12538,
+      "tokens_in_breakdown": {
+        "fresh": 12538,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1097,
+      "cost_usd": null,
+      "latency_ms": 4354,
+      "retries_used": 0
+    }
+  }
+}

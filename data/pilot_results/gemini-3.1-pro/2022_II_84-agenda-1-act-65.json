@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2022/II/84#agenda-1#act-65",
+  "tier": "moderate",
+  "speaker": {
+    "id": "citu-florin",
+    "name": "Florin-Vasile Cîțu",
+    "raw": "Domnul Florin-Vasile Cîțu",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": "2022-05-30",
+    "year": 2022,
+    "legislature": "IX",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-pro",
+  "model_label": "gemini-3.1-pro-preview",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-pro",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2022/II/84#agenda-1#act-65",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 1.0,
+        "markers": [],
+        "rationale": "Discurs pur procedural de conducere a ședinței parlamentare. Vorbitorul (președintele de ședință) anunță închiderea și deschiderea dezbaterilor, citește titlul unei propuneri legislative de pe ordinea de zi și gestionează prezența la microfon a inițiatorilor. Nu există niciun element de retorică populistă, cadru popor-vs-elită, maniheism sau invocare a vreunei crize. Hawkins=0 cu încredere maximă."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 1.0,\n  \"markers\": [],\n  \"rationale\": \"Discurs pur procedural de conducere a ședinței parlamentare. Vorbitorul (președintele de ședință) anunță închiderea și deschiderea dezbaterilor, citește titlul unei propuneri legislative de pe ordinea de zi și gestionează prezența la microfon a inițiatorilor. Nu există niciun element de retorică populistă, cadru popor-vs-elită, maniheism sau invocare a vreunei crize. Hawkins=0 cu încredere maximă.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13674,
+      "tokens_in_breakdown": {
+        "fresh": 13674,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1276,
+      "cost_usd": null,
+      "latency_ms": 14436,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-pro",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2022/II/84#agenda-1#act-65",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.45,
+        "level_of_justification": 0,
+        "content_of_justification": "none",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 0,
+            "evidence": {
+              "text": "Declar deschise dezbaterile generale asupra propunerii."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Intervenție pur procedurală de conducere a ședinței; nicio poziție de fond asumată sau justificată."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "none",
+            "evidence": {
+              "text": "Declar deschise dezbaterile generale asupra propunerii."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Nicio justificare oferită; conținutul este nedefinit."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "domnule senator"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Adresare convențională de plen; neutru implicit, fără referiri la grupuri specifice."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Dacă mai sunt alte intervenții?"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Gestionarea procedurală a vorbitorilor, fără angajament cu cereri adverse."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "Dacă mai sunt alte intervenții?"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Niciun contraargument invocat sau combătut; discurs de moderare a ședinței."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Declar deschise dezbaterile generale asupra propunerii."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Nicio propunere alternativă sau de mediere pe fondul vreunei politici; valoare implicită."
+          }
+        ],
+        "rationale": "Discurs pur procedural aparținând președintelui de ședință care gestionează ordinea de zi și acordă cuvântul. Nu există nicio argumentație de fond, nicio justificare (level_of_justification=0) și nicio propunere pe vreo politică publică (constructive_politics=positional). Dimensiunile de respect sunt implicit neutre, reflectând doar politețea convențională a camerei („domnule senator”, „doamnă”). Deoarece intervenția este strict administrativă și nu reprezintă o dezbatere deliberativă în sensul DQI, încrederea cadrului (framework_confidence) este setată la un nivel scăzut (< 0.50), iar valorile reflectă setările implicite pentru acest tip de discurs."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.45,\n  \"level_of_justification\": 0,\n  \"content_of_justification\": \"none\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"Declar deschise dezbaterile generale asupra propunerii.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.90,\n      \"rationale_short\": \"Intervenție pur procedurală de conducere a ședinței; nicio poziție de fond asumată sau justificată.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"none\",\n      \"evidence\": {\n        \"text\": \"Declar deschise dezbaterile generale asupra propunerii.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.90,\n      \"rationale_short\": \"Nicio justificare oferită; conținutul este nedefinit.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"domnule senator\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Adresare convențională de plen; neutru implicit, fără referiri la grupuri specifice.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Dacă mai sunt alte intervenții?\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Gestionarea procedurală a vorbitorilor, fără angajament cu cereri adverse.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Dacă mai sunt alte intervenții?\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Niciun contraargument invocat sau combătut; discurs de moderare a ședinței.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"Declar deschise dezbaterile generale asupra propunerii.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.90,\n      \"rationale_short\": \"Nicio propunere alternativă sau de mediere pe fondul vreunei politici; valoare implicită.\"\n    }\n  ],\n  \"rationale\": \"Discurs pur procedural aparținând președintelui de ședință care gestionează ordinea de zi și acordă cuvântul. Nu există nicio argumentație de fond, nicio justificare (level_of_justification=0) și nicio propunere pe vreo politică publică (constructive_politics=positional). Dimensiunile de respect sunt implicit neutre, reflectând doar politețea convențională a camerei („domnule senator”, „doamnă”). Deoarece intervenția este strict administrativă și nu reprezintă o dezbatere deliberativă în sensul DQI, încrederea cadrului (framework_confidence) este setată la un nivel scăzut (< 0.50), iar valorile reflectă setările implicite pentru acest tip de discurs.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12475,
+      "tokens_in_breakdown": {
+        "fresh": 12475,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 3505,
+      "cost_usd": null,
+      "latency_ms": 27859,
+      "retries_used": 0
+    }
+  }
+}

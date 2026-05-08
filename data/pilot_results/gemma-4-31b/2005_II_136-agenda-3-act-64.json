@@ -1,0 +1,194 @@
+{
+  "speech_id": "mo://2005/II/136#agenda-3#act-64",
+  "tier": "populist",
+  "speaker": {
+    "id": "tudor-corneliu-vadim",
+    "name": "Corneliu Vadim Tudor",
+    "raw": "Domnul Corneliu Vadim Tudor",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": null,
+    "year": 2005,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemma-4-31b",
+  "model_label": "gemma-4-31b-it",
+  "results": {
+    "hawkins": {
+      "model_key": "gemma-4-31b",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2005/II/136#agenda-3#act-64",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.95,
+        "markers": [
+          {
+            "kind": "crisis_invocation",
+            "evidence": {
+              "text": "o problem„ de via˛„ ∫i de moarte a rom‚nilor"
+            },
+            "preliminary_voice": "hypothetical",
+            "preliminary_voice_confidence": 0.92,
+            "marker_confidence": 0.75,
+            "rationale_short": "Invocă o problemă de „viață și de moarte”, dar o face într-un context ipotetic, întrebându-se dacă prețurile sunt o astfel de problemă."
+          }
+        ],
+        "rationale": "Discursul are un caracter predominant procedural și administrativ, concentrându-se pe critici legate de sistemul de vot electronic și prezența membrilor Cabinetului în parlament. Deși vorbitorul menționează „populismul” și „demagogia”, o face pentru a le pune în discuție ca posibile etichete ale unor prețuri, nu pentru a promova o viziune populistă. Singurul marker potențial (crisis_invocation) apare într-un context ipotetic și nu este susținut de un cadru Manichean popor-vs-elită. Nu există elemente care să indice o viziune populistă pervazivă; vorbitorul rămâne în registrul disputei parlamentare tactice. Hawkins=0 cu încredere ridicată."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.95,\n  \"markers\": [\n    {\n      \"kind\": \"crisis_invocation\",\n      \"evidence\": {\n        \"text\": \"o problem„ de via˛„ ∫i de moarte a rom‚nilor\"\n      },\n      \"preliminary_voice\": \"hypothetical\",\n      \"preliminary_voice_confidence\": 0.92,\n      \"marker_confidence\": 0.75,\n      \"rationale_short\": \"Invocă o problemă de „viață și de moarte”, dar o face într-un context ipotetic, întrebându-se dacă prețurile sunt o astfel de problemă.\"\n    }\n  ],\n  \"rationale\": \"Discursul are un caracter predominant procedural și administrativ, concentrându-se pe critici legate de sistemul de vot electronic și prezența membrilor Cabinetului în parlament. Deși vorbitorul menționează „populismul” și „demagogia”, o face pentru a le pune în discuție ca posibile etichete ale unor prețuri, nu pentru a promova o viziune populistă. Singurul marker potențial (crisis_invocation) apare într-un context ipotetic și nu este susținut de un cadru Manichean popor-vs-elită. Nu există elemente care să indice o viziune populistă pervazivă; vorbitorul rămâne în registrul disputei parlamentare tactice. Hawkins=0 cu încredere ridicată.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13941,
+      "tokens_in_breakdown": {
+        "fresh": 13941,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 390,
+      "cost_usd": null,
+      "latency_ms": 35013,
+      "retries_used": 0
+    },
+    "voice": {
+      "model_key": "gemma-4-31b",
+      "prompt_kind": "voice",
+      "speech_id": "mo://2005/II/136#agenda-3#act-64",
+      "output": {
+        "classifications": [
+          {
+            "marker_id": "m_0",
+            "voice": "hypothetical",
+            "voice_confidence": 0.92,
+            "voice_evidence": {
+              "text": "s„ vedem ∫i noi dac„ pre˛urile sunt o demagogie ∫i o dovad„ de populism sau sunt cumva"
+            },
+            "attributed_to": null,
+            "rationale_short": "Markerul este inclus într-un cadru ipotetic/condițional introdus de „s„ vedem ∫i noi dac„”, explorând o posibilitate."
+          }
+        ]
+      },
+      "raw_response": "{\n  \"classifications\": [\n    {\n      \"marker_id\": \"m_0\",\n      \"voice\": \"hypothetical\",\n      \"voice_confidence\": 0.92,\n      \"voice_evidence\": {\n        \"text\": \"s„ vedem ∫i noi dac„ pre˛urile sunt o demagogie ∫i o dovad„ de populism sau sunt cumva\"\n      },\n      \"attributed_to\": null,\n      \"rationale_short\": \"Markerul este inclus într-un cadru ipotetic/condițional introdus de „s„ vedem ∫i noi dac„”, explorând o posibilitate.\"\n    }\n  ]\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 11480,
+      "tokens_in_breakdown": {
+        "fresh": 11480,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 160,
+      "cost_usd": null,
+      "latency_ms": 23744,
+      "retries_used": 0
+    },
+    "dqi": {
+      "model_key": "gemma-4-31b",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2005/II/136#agenda-3#act-64",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.88,
+        "level_of_justification": 1,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 1,
+            "evidence": {
+              "text": "De unde avem noi garan˛ia c„ nu se va repeta aceast„ eroare? Nu suntem japonezi, nu suntem nem˛i, nu suntem americani, suntem Ón preistoria epocii electronice."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Justificare inferioară bazată pe o analogie generală despre stadiul tehnologic al țării, fără a detalia mecanismul erorii."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "suntem Ón preistoria epocii electronice"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.82,
+            "rationale_short": "Apelul se referă la starea generală a infrastructurii naționale, vizând interesul colectiv al statului."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "colegi de la Alian˛a P.N.L.-P.D."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Referința la grupul politic advers este funcțională; nu există derogare explicită, dar nici recunoaștere de legitimitate."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Cine se teme de un vot nominal dup„ strigarea catalogului"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.8,
+            "rationale_short": "Vorbitorul nu abordează cerințele adverse, ci doar pune în dificultate poziția celor care se opun votului nominal."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "Au spus c„ ei au votat Óntr-un anumit fel, dar pe lista electronic„ a ap„rut altfel."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.88,
+            "rationale_short": "Recunoaște existența unui argument advers (eroarea de vot), dar nu îl combate substanțial, ci îl folosește pentru a cere garanții."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Cine se teme de un vot nominal dup„ strigarea catalogului, din moment ce s-a depus at‚ta efort?"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Vorbitorul își susține poziția privind votul nominal fără a propune o alternativă sau o mediere."
+          }
+        ],
+        "rationale": "Discursul prezintă o calitate deliberativă modestă, fiind predominant pozițional. Justificarea este de nivel inferior (level_of_justification=1), bazându-se pe o critică generală a modernizării tehnologice a României („preistoria epocii electronice”) mai degrabă decât pe o analiză tehnică a sistemului de vot. Vorbitorul recunoaște superficial argumentele colegilor privind erorile electronice, dar nu intră într-un dialog substanțial cu aceștia (respect_for_counterarguments=1). Respectul față de grupuri și cereri rămâne neutru, referințele fiind funcționale. Nu există propuneri constructive de mediere, ci doar o solicitare retorică de a reveni la votul nominal. Per ansamblu, discursul este mai mult o critică a procedurii decât o contribuție argumentativă la fondul problemei."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.88,\n  \"level_of_justification\": 1,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"De unde avem noi garan˛ia c„ nu se va repeta aceast„ eroare? Nu suntem japonezi, nu suntem nem˛i, nu suntem americani, suntem Ón preistoria epocii electronice.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Justificare inferioară bazată pe o analogie generală despre stadiul tehnologic al țării, fără a detalia mecanismul erorii.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"suntem Ón preistoria epocii electronice\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.82,\n      \"rationale_short\": \"Apelul se referă la starea generală a infrastructurii naționale, vizând interesul colectiv al statului.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"colegi de la Alian˛a P.N.L.-P.D.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.90,\n      \"rationale_short\": \"Referința la grupul politic advers este funcțională; nu există derogare explicită, dar nici recunoaștere de legitimitate.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Cine se teme de un vot nominal dup„ strigarea catalogului\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.80,\n      \"rationale_short\": \"Vorbitorul nu abordează cerințele adverse, ci doar pune în dificultate poziția celor care se opun votului nominal.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Au spus c„ ei au votat Óntr-un anumit fel, dar pe lista electronic„ a ap„rut altfel.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Recunoaște existența unui argument advers (eroarea de vot), dar nu îl combate substanțial, ci îl folosește pentru a cere garanții.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"Cine se teme de un vot nominal dup„ strigarea catalogului, din moment ce s-a depus at‚ta efort?\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Vorbitorul își susține poziția privind votul nominal fără a propune o alternativă sau o mediere.\"\n    }\n  ],\n  \"rationale\": \"Discursul prezintă o calitate deliberativă modestă, fiind predominant pozițional. Justificarea este de nivel inferior (level_of_justification=1), bazându-se pe o critică generală a modernizării tehnologice a României („preistoria epocii electronice”) mai degrabă decât pe o analiză tehnică a sistemului de vot. Vorbitorul recunoaște superficial argumentele colegilor privind erorile electronice, dar nu intră într-un dialog substanțial cu aceștia (respect_for_counterarguments=1). Respectul față de grupuri și cereri rămâne neutru, referințele fiind funcționale. Nu există propuneri constructive de mediere, ci doar o solicitare retorică de a reveni la votul nominal. Per ansamblu, discursul este mai mult o critică a procedurii decât o contribuție argumentativă la fondul problemei.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12742,
+      "tokens_in_breakdown": {
+        "fresh": 12742,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1277,
+      "cost_usd": null,
+      "latency_ms": 281219,
+      "retries_used": 0
+    }
+  }
+}

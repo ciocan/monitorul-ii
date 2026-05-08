@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2007/II/115#agenda-1#act-146",
+  "tier": "calibration",
+  "speaker": {
+    "id": "nicolicea-eugen",
+    "name": "Eugen Nicolicea",
+    "raw": "Domnul Eugen Nicolicea",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2007-09-10",
+    "year": 2007,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2007/II/115#agenda-1#act-146",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 1.0,
+        "markers": [],
+        "rationale": "Textul furnizat reprezintă o notă editorială și tehnică a Monitorului Oficial, conținând informații administrative despre publicație, preț și date de contact. Nu există niciun discurs politic, nicio argumentație și niciun element de retorică populistă. Clasificarea este 0 cu încredere maximă."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 1.0,\n  \"markers\": [],\n  \"rationale\": \"Textul furnizat reprezintă o notă editorială și tehnică a Monitorului Oficial, conținând informații administrative despre publicație, preț și date de contact. Nu există niciun discurs politic, nicio argumentație și niciun element de retorică populistă. Clasificarea este 0 cu încredere maximă.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13842,
+      "tokens_in_breakdown": {
+        "fresh": 13842,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 140,
+      "cost_usd": null,
+      "latency_ms": 1848,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2007/II/115#agenda-1#act-146",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.1,
+        "level_of_justification": 0,
+        "content_of_justification": "none",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 0,
+            "evidence": {
+              "text": "Monitorul Oficial al României, Partea a II-a, nr. 115/20.IX.2007 conține 20 de pagini."
+            },
+            "preliminary_voice": "reported",
+            "preliminary_voice_confidence": 0.99,
+            "marker_confidence": 0.99,
+            "rationale_short": "Fragmentul reprezintă date tehnice de publicare, nu un discurs deliberativ."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "none",
+            "evidence": {
+              "text": "Monitorul Oficial al României, Partea a II-a, nr. 115/20.IX.2007 conține 20 de pagini."
+            },
+            "preliminary_voice": "reported",
+            "preliminary_voice_confidence": 0.99,
+            "marker_confidence": 0.99,
+            "rationale_short": "Nicio justificare prezentă."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Monitorul Oficial al României"
+            },
+            "preliminary_voice": "reported",
+            "preliminary_voice_confidence": 0.99,
+            "marker_confidence": 0.99,
+            "rationale_short": "Referință neutră la instituție."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Monitorul Oficial al României"
+            },
+            "preliminary_voice": "reported",
+            "preliminary_voice_confidence": 0.99,
+            "marker_confidence": 0.99,
+            "rationale_short": "Nicio cerere politică adresată."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "Monitorul Oficial al României"
+            },
+            "preliminary_voice": "reported",
+            "preliminary_voice_confidence": 0.99,
+            "marker_confidence": 0.99,
+            "rationale_short": "Niciun argument prezent."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Monitorul Oficial al României"
+            },
+            "preliminary_voice": "reported",
+            "preliminary_voice_confidence": 0.99,
+            "marker_confidence": 0.99,
+            "rationale_short": "Textul nu conține nicio propunere politică."
+          }
+        ],
+        "rationale": "Fragmentul furnizat reprezintă datele tehnice de publicare ale Monitorului Oficial și nu constituie un discurs parlamentar sau o intervenție deliberativă. Deoarece nu există nicio argumentație, poziție politică sau interacțiune între actori, cadrul DQI nu este aplicabil. Am setat încrederea la un nivel minim și am atribuit valori implicite pentru a respecta schema de ieșire, conform instrucțiunilor pentru materiale care nu conțin argumentație proprie."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.1,\n  \"level_of_justification\": 0,\n  \"content_of_justification\": \"none\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 0,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 0,\n      \"evidence\": { \"text\": \"Monitorul Oficial al României, Partea a II-a, nr. 115/20.IX.2007 conține 20 de pagini.\" },\n      \"preliminary_voice\": \"reported\",\n      \"preliminary_voice_confidence\": 0.99,\n      \"marker_confidence\": 0.99,\n      \"rationale_short\": \"Fragmentul reprezintă date tehnice de publicare, nu un discurs deliberativ.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"none\",\n      \"evidence\": { \"text\": \"Monitorul Oficial al României, Partea a II-a, nr. 115/20.IX.2007 conține 20 de pagini.\" },\n      \"preliminary_voice\": \"reported\",\n      \"preliminary_voice_confidence\": 0.99,\n      \"marker_confidence\": 0.99,\n      \"rationale_short\": \"Nicio justificare prezentă.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": { \"text\": \"Monitorul Oficial al României\" },\n      \"preliminary_voice\": \"reported\",\n      \"preliminary_voice_confidence\": 0.99,\n      \"marker_confidence\": 0.99,\n      \"rationale_short\": \"Referință neutră la instituție.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": { \"text\": \"Monitorul Oficial al României\" },\n      \"preliminary_voice\": \"reported\",\n      \"preliminary_voice_confidence\": 0.99,\n      \"marker_confidence\": 0.99,\n      \"rationale_short\": \"Nicio cerere politică adresată.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 0,\n      \"evidence\": { \"text\": \"Monitorul Oficial al României\" },\n      \"preliminary_voice\": \"reported\",\n      \"preliminary_voice_confidence\": 0.99,\n      \"marker_confidence\": 0.99,\n      \"rationale_short\": \"Niciun argument prezent.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": { \"text\": \"Monitorul Oficial al României\" },\n      \"preliminary_voice\": \"reported\",\n      \"preliminary_voice_confidence\": 0.99,\n      \"marker_confidence\": 0.99,\n      \"rationale_short\": \"Textul nu conține nicio propunere politică.\"\n    }\n  ],\n  \"rationale\": \"Fragmentul furnizat reprezintă datele tehnice de publicare ale Monitorului Oficial și nu constituie un discurs parlamentar sau o intervenție deliberativă. Deoarece nu există nicio argumentație, poziție politică sau interacțiune între actori, cadrul DQI nu este aplicabil. Am setat încrederea la un nivel minim și am atribuit valori implicite pentru a respecta schema de ieșire, conform instrucțiunilor pentru materiale care nu conțin argumentație proprie.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12643,
+      "tokens_in_breakdown": {
+        "fresh": 12643,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 954,
+      "cost_usd": null,
+      "latency_ms": 3729,
+      "retries_used": 0
+    }
+  }
+}

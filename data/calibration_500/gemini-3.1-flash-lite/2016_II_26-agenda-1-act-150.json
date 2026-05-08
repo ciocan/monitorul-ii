@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2016/II/26#agenda-1#act-150",
+  "tier": "calibration",
+  "speaker": {
+    "id": "neacsu-marian",
+    "name": "Marian Neacșu",
+    "raw": "Domnul Marian Neacșu",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2016-02-24",
+    "year": 2016,
+    "legislature": "VII",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2016/II/26#agenda-1#act-150",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul este unul pur procedural, axat pe respectarea regulamentului parlamentar, a cvorumului și a disciplinei de grup în cadrul ședințelor de vot. Nu există nicio referire la un cadru maniheist popor-vs-elită, nicio invocare a unei voințe populare omogene și nicio retorică populistă. Vorbitorul critică comportamentul colegilor din perspectiva normelor procedurale interne, menținându-se strict în registrul tehnic al activității parlamentare. Hawkins=0 cu încredere ridicată."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul este unul pur procedural, axat pe respectarea regulamentului parlamentar, a cvorumului și a disciplinei de grup în cadrul ședințelor de vot. Nu există nicio referire la un cadru maniheist popor-vs-elită, nicio invocare a unei voințe populare omogene și nicio retorică populistă. Vorbitorul critică comportamentul colegilor din perspectiva normelor procedurale interne, menținându-se strict în registrul tehnic al activității parlamentare. Hawkins=0 cu încredere ridicată.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13679,
+      "tokens_in_breakdown": {
+        "fresh": 13679,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 194,
+      "cost_usd": null,
+      "latency_ms": 1839,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2016/II/26#agenda-1#act-150",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.72,
+        "level_of_justification": 1,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 1,
+            "evidence": {
+              "text": "Nu putem, dacă nu suntem prezenți la începutul – dar... dacă nu înțelegeți lucrul acesta –, la începutul ședinței de vot final, degeaba mai suntem pe parcurs"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.85,
+            "rationale_short": "Vorbitorul invocă o regulă procedurală, dar raționamentul este circular și bazat pe o normă internă, nu pe o justificare substanțială."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "avem o ordine de zi, avem o ședință de vot final, cu o ordine de zi stabilită"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.8,
+            "rationale_short": "Apelul la respectarea ordinii de zi și a regulamentului este universalizabil, vizând buna funcționare a instituției."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "este dreptul dumneavoastră, ca parlamentari, individual, dar, în condițiile în care acesta este un comportament de grup, nu mai cred că este în regulă"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.88,
+            "rationale_short": "Referință critică la comportamentul de grup, dar fără a deroga demnitatea membrilor; rămâne în zona neutră."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Intrăm la votul acela, plecăm la votul celălalt, aceasta ne convine, cealaltă nu ne convine"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.82,
+            "rationale_short": "Vorbitorul descrie acțiunile opoziției fără a angaja legitimitatea cererilor lor; non-angajament."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "în conformitate cu cele precizate anterior de antevorbitorul meu"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.8,
+            "rationale_short": "Menționează antevorbitorul, dar nu angajează substanțial argumentele acestuia, trecând direct la critică."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "nu mai cred că este în regulă"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.9,
+            "rationale_short": "Discursul este o critică a comportamentului procedural, fără a oferi o alternativă sau o mediere."
+          }
+        ],
+        "rationale": "Discursul este o intervenție procedurală axată pe critica comportamentului opoziției în timpul ședințelor de vot. Justificarea este de nivel 1, bazându-se pe regulamentul intern fără a oferi o argumentare cauzală complexă. Vorbitorul apelează la binele comun (funcționarea corectă a Parlamentului), dar nu angajează substanțial contraargumentele sau cererile opoziției, limitându-se la o descriere critică a acțiunilor acestora. Nu există elemente de respect explicit sau derogare, iar caracterul discursului este pur pozițional. Calitatea deliberativă este limitată de natura procedurală a intervenției."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.72,\n  \"level_of_justification\": 1,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Nu putem, dacă nu suntem prezenți la începutul – dar... dacă nu înțelegeți lucrul acesta –, la începutul ședinței de vot final, degeaba mai suntem pe parcurs\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Vorbitorul invocă o regulă procedurală, dar raționamentul este circular și bazat pe o normă internă, nu pe o justificare substanțială.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"avem o ordine de zi, avem o ședință de vot final, cu o ordine de zi stabilită\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.8,\n      \"rationale_short\": \"Apelul la respectarea ordinii de zi și a regulamentului este universalizabil, vizând buna funcționare a instituției.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"este dreptul dumneavoastră, ca parlamentari, individual, dar, în condițiile în care acesta este un comportament de grup, nu mai cred că este în regulă\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Referință critică la comportamentul de grup, dar fără a deroga demnitatea membrilor; rămâne în zona neutră.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Intrăm la votul acela, plecăm la votul celălalt, aceasta ne convine, cealaltă nu ne convine\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.82,\n      \"rationale_short\": \"Vorbitorul descrie acțiunile opoziției fără a angaja legitimitatea cererilor lor; non-angajament.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"în conformitate cu cele precizate anterior de antevorbitorul meu\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.8,\n      \"rationale_short\": \"Menționează antevorbitorul, dar nu angajează substanțial argumentele acestuia, trecând direct la critică.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"nu mai cred că este în regulă\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Discursul este o critică a comportamentului procedural, fără a oferi o alternativă sau o mediere.\"\n    }\n  ],\n  \"rationale\": \"Discursul este o intervenție procedurală axată pe critica comportamentului opoziției în timpul ședințelor de vot. Justificarea este de nivel 1, bazându-se pe regulamentul intern fără a oferi o argumentare cauzală complexă. Vorbitorul apelează la binele comun (funcționarea corectă a Parlamentului), dar nu angajează substanțial contraargumentele sau cererile opoziției, limitându-se la o descriere critică a acțiunilor acestora. Nu există elemente de respect explicit sau derogare, iar caracterul discursului este pur pozițional. Calitatea deliberativă este limitată de natura procedurală a intervenției.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12480,
+      "tokens_in_breakdown": {
+        "fresh": 12480,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1226,
+      "cost_usd": null,
+      "latency_ms": 4501,
+      "retries_used": 0
+    }
+  }
+}

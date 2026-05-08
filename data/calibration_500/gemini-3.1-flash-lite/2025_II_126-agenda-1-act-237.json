@@ -1,0 +1,210 @@
+{
+  "speech_id": "mo://2025/II/126#agenda-1#act-237",
+  "tier": "calibration",
+  "speaker": {
+    "id": "toma-ilie",
+    "name": "Ilie Toma",
+    "raw": "Domnul Ilie Toma",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2025-10-15",
+    "year": 2025,
+    "legislature": "X",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2025/II/126#agenda-1#act-237",
+      "output": {
+        "score": 1,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.85,
+        "markers": [
+          {
+            "kind": "people_vs_elite",
+            "evidence": {
+              "text": "reprezentați-i pe români – e momentul acum –, nu vorbiți din birouri!"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.85,
+            "rationale_short": "Vorbitorul opune politicienii care „vorbesc din birouri” (elita) celor pe care trebuie să-i reprezinte (poporul)."
+          },
+          {
+            "kind": "homogeneous_people",
+            "evidence": {
+              "text": "mai bine încerci să faci ceva pentru români decât să nu faci nimic."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.75,
+            "rationale_short": "Invocă „românii” ca entitate colectivă în beneficiul căreia trebuie acționat, deși într-un context de proiect de lege."
+          }
+        ],
+        "rationale": "Discursul conține elemente de retorică populistă, în special prin apelul la reprezentarea „românilor” împotriva celor care „vorbesc din birouri”, marcând o distincție între clasa politică și popor. Deși discursul se concentrează pe un proiect de infrastructură specific (Jiul, Răstolița), utilizarea acestor tropi la persoana întâi pentru a ataca legitimitatea adversarilor politici plasează discursul în zona de populism moderat (scor 1). Nu atinge pragul de scor 2 deoarece cadrul populist nu este structural-portant pentru întreaga argumentație, care rămâne ancorată în detalii tehnice despre investiții și stadiul execuției."
+      },
+      "raw_response": "{\n  \"score\": 1,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.85,\n  \"markers\": [\n    {\n      \"kind\": \"people_vs_elite\",\n      \"evidence\": {\n        \"text\": \"reprezentați-i pe români – e momentul acum –, nu vorbiți din birouri!\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Vorbitorul opune politicienii care „vorbesc din birouri” (elita) celor pe care trebuie să-i reprezinte (poporul).\"\n    },\n    {\n      \"kind\": \"homogeneous_people\",\n      \"evidence\": {\n        \"text\": \"mai bine încerci să faci ceva pentru români decât să nu faci nimic.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.75,\n      \"rationale_short\": \"Invocă „românii” ca entitate colectivă în beneficiul căreia trebuie acționat, deși într-un context de proiect de lege.\"\n    }\n  ],\n  \"rationale\": \"Discursul conține elemente de retorică populistă, în special prin apelul la reprezentarea „românilor” împotriva celor care „vorbesc din birouri”, marcând o distincție între clasa politică și popor. Deși discursul se concentrează pe un proiect de infrastructură specific (Jiul, Răstolița), utilizarea acestor tropi la persoana întâi pentru a ataca legitimitatea adversarilor politici plasează discursul în zona de populism moderat (scor 1). Nu atinge pragul de scor 2 deoarece cadrul populist nu este structural-portant pentru întreaga argumentație, care rămâne ancorată în detalii tehnice despre investiții și stadiul execuției.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13889,
+      "tokens_in_breakdown": {
+        "fresh": 13889,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 522,
+      "cost_usd": null,
+      "latency_ms": 3308,
+      "retries_used": 0
+    },
+    "voice": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "voice",
+      "speech_id": "mo://2025/II/126#agenda-1#act-237",
+      "output": {
+        "classifications": [
+          {
+            "marker_id": "m_0",
+            "voice": "speaker_first_person",
+            "voice_confidence": 0.95,
+            "voice_evidence": null,
+            "attributed_to": null,
+            "rationale_short": "Vorbitorul se adresează direct opoziției, exprimându-și propria opinie și îndemnând la acțiune; nu există indicii de citare sau raportare."
+          },
+          {
+            "marker_id": "m_1",
+            "voice": "speaker_first_person",
+            "voice_confidence": 0.95,
+            "voice_evidence": null,
+            "attributed_to": null,
+            "rationale_short": "Afirmație directă a vorbitorului despre valoarea proiectului de lege; nu este o citare sau o raportare a unei terțe părți."
+          }
+        ]
+      },
+      "raw_response": "{\n  \"classifications\": [\n    {\n      \"marker_id\": \"m_0\",\n      \"voice\": \"speaker_first_person\",\n      \"voice_confidence\": 0.95,\n      \"voice_evidence\": null,\n      \"attributed_to\": null,\n      \"rationale_short\": \"Vorbitorul se adresează direct opoziției, exprimându-și propria opinie și îndemnând la acțiune; nu există indicii de citare sau raportare.\"\n    },\n    {\n      \"marker_id\": \"m_1\",\n      \"voice\": \"speaker_first_person\",\n      \"voice_confidence\": 0.95,\n      \"voice_evidence\": null,\n      \"attributed_to\": null,\n      \"rationale_short\": \"Afirmație directă a vorbitorului despre valoarea proiectului de lege; nu este o citare sau o raportare a unei terțe părți.\"\n    }\n  ]\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 11508,
+      "tokens_in_breakdown": {
+        "fresh": 11508,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 229,
+      "cost_usd": null,
+      "latency_ms": 1450,
+      "retries_used": 0
+    },
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2025/II/126#agenda-1#act-237",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.72,
+        "level_of_justification": 1,
+        "content_of_justification": "group_interest",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 1,
+            "evidence": {
+              "text": "e un proiect de lege bun, pentru că între a nu face nimic și a face ceva greșit, cum spuneți dumneavoastră, mai bine încerci să faci ceva pentru români decât să nu faci nimic."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Justificarea este circulară și bazată pe o dihotomie simplistă, fără a oferi dovezi sau mecanisme cauzale."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "group_interest",
+            "evidence": {
+              "text": "mai bine încerci să faci ceva pentru români decât să nu faci nimic."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.82,
+            "rationale_short": "Apelul este orientat către interesul generic al cetățenilor, utilizat aici ca retorică de grup."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "cei din stânga pupitrului și cei din dreapta"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Referință funcțională la opoziție; nu există derogare explicită sau respect demonstrat."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "De ce vă deranjează atât de mult?!"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.88,
+            "rationale_short": "Vorbitorul ignoră cererile opoziției, preferând o abordare retorică în loc de angajament."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "Gândiți-vă: acele arii protejate pe care dumneavoastră le elogiați cu atâta avânt au fost proiectate, da!, pe vremea comunismului"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Menționează argumentul opoziției despre ariile protejate, dar nu îl combate substanțial."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Nu-i păcat să nu ducem investițiile astea la capăt?!"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Discursul este pur pozițional, susținând finalizarea investiției fără a propune alternative sau compromisuri."
+          }
+        ],
+        "rationale": "Discursul prezintă o calitate deliberativă scăzută, fiind marcat de o justificare circulară și retorică populistă. Vorbitorul nu oferă argumente tehnice sau principiale, ci se bazează pe apeluri emoționale la interesul cetățenilor. Deși menționează poziția opoziției privind ariile protejate, nu există un angajament substanțial cu raționamentul acestora, ci doar o respingere retorică. Nu sunt oferite alternative concrete sau propuneri de mediere, discursul rămânând strict pozițional. Respectul pentru grupuri și cereri rămâne la un nivel neutru, fără a atinge pragul de respect explicit sau de dispreț deschis."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.72,\n  \"level_of_justification\": 1,\n  \"content_of_justification\": \"group_interest\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"e un proiect de lege bun, pentru că între a nu face nimic și a face ceva greșit, cum spuneți dumneavoastră, mai bine încerci să faci ceva pentru români decât să nu faci nimic.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Justificarea este circulară și bazată pe o dihotomie simplistă, fără a oferi dovezi sau mecanisme cauzale.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"group_interest\",\n      \"evidence\": {\n        \"text\": \"mai bine încerci să faci ceva pentru români decât să nu faci nimic.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.82,\n      \"rationale_short\": \"Apelul este orientat către interesul generic al cetățenilor, utilizat aici ca retorică de grup.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"cei din stânga pupitrului și cei din dreapta\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Referință funcțională la opoziție; nu există derogare explicită sau respect demonstrat.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"De ce vă deranjează atât de mult?!\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Vorbitorul ignoră cererile opoziției, preferând o abordare retorică în loc de angajament.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Gândiți-vă: acele arii protejate pe care dumneavoastră le elogiați cu atâta avânt au fost proiectate, da!, pe vremea comunismului\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Menționează argumentul opoziției despre ariile protejate, dar nu îl combate substanțial.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"Nu-i păcat să nu ducem investițiile astea la capăt?!\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Discursul este pur pozițional, susținând finalizarea investiției fără a propune alternative sau compromisuri.\"\n    }\n  ],\n  \"rationale\": \"Discursul prezintă o calitate deliberativă scăzută, fiind marcat de o justificare circulară și retorică populistă. Vorbitorul nu oferă argumente tehnice sau principiale, ci se bazează pe apeluri emoționale la interesul cetățenilor. Deși menționează poziția opoziției privind ariile protejate, nu există un angajament substanțial cu raționamentul acestora, ci doar o respingere retorică. Nu sunt oferite alternative concrete sau propuneri de mediere, discursul rămânând strict pozițional. Respectul pentru grupuri și cereri rămâne la un nivel neutru, fără a atinge pragul de respect explicit sau de dispreț deschis.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12690,
+      "tokens_in_breakdown": {
+        "fresh": 12690,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1193,
+      "cost_usd": null,
+      "latency_ms": 4754,
+      "retries_used": 0
+    }
+  }
+}

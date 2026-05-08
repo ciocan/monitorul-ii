@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2021/II/66#agenda-1#act-24",
+  "tier": "calibration",
+  "speaker": {
+    "id": "grosaru-andi-gabriel",
+    "name": "Andi-Gabriel Grosaru",
+    "raw": "Domnul Andi-Gabriel Grosaru",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2021-04-27",
+    "year": 2021,
+    "legislature": "IX",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2021/II/66#agenda-1#act-24",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul are un caracter comemorativ și de solidaritate internațională, fără a utiliza un cadru populist. Referințele la „jugul fascist” și la „activități fasciste, xenofobe, antisemite” sunt utilizate în context istoric și normativ, nu ca parte a unei retorici maniheiste popor-vs-elită. Vorbitorul exprimă solidaritate cu poporul armean și cu grupul parlamentar, menținând un ton pluralist și empatic. Nu există niciun marker populist prezent, discursul fiind în afara registrului de mobilizare populistă."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul are un caracter comemorativ și de solidaritate internațională, fără a utiliza un cadru populist. Referințele la „jugul fascist” și la „activități fasciste, xenofobe, antisemite” sunt utilizate în context istoric și normativ, nu ca parte a unei retorici maniheiste popor-vs-elită. Vorbitorul exprimă solidaritate cu poporul armean și cu grupul parlamentar, menținând un ton pluralist și empatic. Nu există niciun marker populist prezent, discursul fiind în afara registrului de mobilizare populistă.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13744,
+      "tokens_in_breakdown": {
+        "fresh": 13744,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 200,
+      "cost_usd": null,
+      "latency_ms": 1934,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2021/II/66#agenda-1#act-24",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.72,
+        "level_of_justification": 1,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 2,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 1,
+            "evidence": {
+              "text": "Cuvântul pe care îl iau survine ca urmare a faptului că nu suntem solidari și nu am solidarizat niciodată cu tot ceea ce înseamnă activități, elemente fasciste, xenofobe, antisemite"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Vorbitorul invocă valori morale generale, dar fără o legătură cauzală sau argumentativă specifică."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "destrămarea, în primul rând, a umanității, a păcii și a liniștii mondiale"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Apelul este universalizabil, vizând pacea și umanitatea ca bine comun."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 2,
+            "evidence": {
+              "text": "Suntem solidari cu poporul armean în aceste clipe"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Vorbitorul exprimă explicit solidaritate și recunoaștere a suferinței unui grup extern."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Mă bucur că suntem un grup compact"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.88,
+            "rationale_short": "Nu există cereri adverse specifice în acest discurs, deci atitudinea este neutră."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "Cuvântul pe care îl iau survine ca urmare a faptului că nu suntem solidari și nu am solidarizat niciodată cu tot ceea ce înseamnă activități, elemente fasciste"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Discursul este o declarație de principii, fără a aborda sau a răspunde vreunui contraargument."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Suntem solidari cu poporul armean în aceste clipe"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.94,
+            "rationale_short": "Discursul exprimă o poziție morală, fără a propune o alternativă politică sau o mediere."
+          }
+        ],
+        "rationale": "Discursul este o declarație de principii cu un caracter moral pronunțat, mai degrabă decât o intervenție deliberativă pe o propunere legislativă. Justificarea este de nivel 1, bazându-se pe valori morale generale (pace, umanitate) fără a construi un lanț cauzal. Vorbitorul manifestă un respect explicit pentru un grup extern (poporul armean), ceea ce ridică scorul pentru respect_for_groups. Totuși, discursul nu angajează contraargumente sau cereri adverse, rămânând într-o zonă pozițională. Calitatea deliberativă este limitată de natura declarativă a intervenției, care nu urmărește medierea sau soluționarea unei dispute politice specifice."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.72,\n  \"level_of_justification\": 1,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 2,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 0,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Cuvântul pe care îl iau survine ca urmare a faptului că nu suntem solidari și nu am solidarizat niciodată cu tot ceea ce înseamnă activități, elemente fasciste, xenofobe, antisemite\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Vorbitorul invocă valori morale generale, dar fără o legătură cauzală sau argumentativă specifică.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"destrămarea, în primul rând, a umanității, a păcii și a liniștii mondiale\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Apelul este universalizabil, vizând pacea și umanitatea ca bine comun.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"Suntem solidari cu poporul armean în aceste clipe\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Vorbitorul exprimă explicit solidaritate și recunoaștere a suferinței unui grup extern.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Mă bucur că suntem un grup compact\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Nu există cereri adverse specifice în acest discurs, deci atitudinea este neutră.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"Cuvântul pe care îl iau survine ca urmare a faptului că nu suntem solidari și nu am solidarizat niciodată cu tot ceea ce înseamnă activități, elemente fasciste\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Discursul este o declarație de principii, fără a aborda sau a răspunde vreunui contraargument.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"Suntem solidari cu poporul armean în aceste clipe\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.94,\n      \"rationale_short\": \"Discursul exprimă o poziție morală, fără a propune o alternativă politică sau o mediere.\"\n    }\n  ],\n  \"rationale\": \"Discursul este o declarație de principii cu un caracter moral pronunțat, mai degrabă decât o intervenție deliberativă pe o propunere legislativă. Justificarea este de nivel 1, bazându-se pe valori morale generale (pace, umanitate) fără a construi un lanț cauzal. Vorbitorul manifestă un respect explicit pentru un grup extern (poporul armean), ceea ce ridică scorul pentru respect_for_groups. Totuși, discursul nu angajează contraargumente sau cereri adverse, rămânând într-o zonă pozițională. Calitatea deliberativă este limitată de natura declarativă a intervenției, care nu urmărește medierea sau soluționarea unei dispute politice specifice.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12545,
+      "tokens_in_breakdown": {
+        "fresh": 12545,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1192,
+      "cost_usd": null,
+      "latency_ms": 4550,
+      "retries_used": 0
+    }
+  }
+}

@@ -1,0 +1,192 @@
+{
+  "speech_id": "mo://2004/II/47#agenda-2#act-42",
+  "tier": "calibration",
+  "speaker": {
+    "id": "lapadat-stefan",
+    "name": "™tefan L„p„dat",
+    "raw": "Domnul ™tefan L„p„dat",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": null,
+    "session_date": null,
+    "year": 2004,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2004/II/47#agenda-2#act-42",
+      "output": {
+        "score": 1,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.85,
+        "markers": [
+          {
+            "kind": "evil_elite",
+            "evidence": {
+              "text": "Mul˛i farmaci∫ti scot profituri semnificative pe seama neaten˛iei pacien˛ilor, b„t‚ndu-∫i joc de s„n„tatea celor mul˛i."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.92,
+            "rationale_short": "Farmaciștii sunt portretizați ca o elită parazitară care își bate joc de sănătatea oamenilor pentru profit."
+          }
+        ],
+        "rationale": "Discursul începe ca o intervenție tehnică privind reglementarea farmaceutică, dar se încheie cu o acuzație moralizatoare la adresa farmaciștilor, descriși ca o elită care profită de pe urma suferinței pacienților. Deși discursul conține elemente de critică a autorităților și a sistemului, acesta nu susține un cadru maniheist pervaziv pe tot parcursul textului. Prezența unui singur marker de tip 'evil_elite' la persoana întâi, într-un context altfel informativ, justifică scorul 1. Nu există o invocare a unei voințe populare omogene sau o criză existențială care să ridice discursul la nivelul de populism total."
+      },
+      "raw_response": "{\n  \"score\": 1,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.85,\n  \"markers\": [\n    {\n      \"kind\": \"evil_elite\",\n      \"evidence\": {\n        \"text\": \"Mul˛i farmaci∫ti scot profituri semnificative pe seama neaten˛iei pacien˛ilor, b„t‚ndu-∫i joc de s„n„tatea celor mul˛i.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Farmaciștii sunt portretizați ca o elită parazitară care își bate joc de sănătatea oamenilor pentru profit.\"\n    }\n  ],\n  \"rationale\": \"Discursul începe ca o intervenție tehnică privind reglementarea farmaceutică, dar se încheie cu o acuzație moralizatoare la adresa farmaciștilor, descriși ca o elită care profită de pe urma suferinței pacienților. Deși discursul conține elemente de critică a autorităților și a sistemului, acesta nu susține un cadru maniheist pervaziv pe tot parcursul textului. Prezența unui singur marker de tip 'evil_elite' la persoana întâi, într-un context altfel informativ, justifică scorul 1. Nu există o invocare a unei voințe populare omogene sau o criză existențială care să ridice discursul la nivelul de populism total.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 14090,
+      "tokens_in_breakdown": {
+        "fresh": 14090,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 410,
+      "cost_usd": null,
+      "latency_ms": 2587,
+      "retries_used": 0
+    },
+    "voice": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "voice",
+      "speech_id": "mo://2004/II/47#agenda-2#act-42",
+      "output": {
+        "classifications": [
+          {
+            "marker_id": "m_0",
+            "voice": "speaker_first_person",
+            "voice_confidence": 0.95,
+            "voice_evidence": null,
+            "attributed_to": null,
+            "rationale_short": "Afirmație directă a vorbitorului, fără indicii de citare, raportare sau alte cadre retorice; vorbitorul își asumă responsabilitatea pentru această critică."
+          }
+        ]
+      },
+      "raw_response": "{\n  \"classifications\": [\n    {\n      \"marker_id\": \"m_0\",\n      \"voice\": \"speaker_first_person\",\n      \"voice_confidence\": 0.95,\n      \"voice_evidence\": null,\n      \"attributed_to\": null,\n      \"rationale_short\": \"Afirmație directă a vorbitorului, fără indicii de citare, raportare sau alte cadre retorice; vorbitorul își asumă responsabilitatea pentru această critică.\"\n    }\n  ]\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 11660,
+      "tokens_in_breakdown": {
+        "fresh": 11660,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 124,
+      "cost_usd": null,
+      "latency_ms": 1136,
+      "retries_used": 0
+    },
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2004/II/47#agenda-2#act-42",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.78,
+        "level_of_justification": 2,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 0,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "Astfel de medicamente, ca Romerganul ∫i Diazepamul, care sunt considerate tranchilizante, fiind consumate Ón cantitate exagerat„ provoac„ o stare de halucina˛ie similar„ cu cea creat„ de heroina injectat„."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Vorbitorul oferă o justificare bazată pe un mecanism cauzal specific (efectele tranchilizantelor) pentru a susține necesitatea reglementării."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "Drogurile eliberate f„r„ re˛et„ din farmacii au dat na∫tere la fenomenul social de îfarmacodependen˛„“"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Apelul este la sănătatea publică și la un fenomen social general, vizând binele comun."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 0,
+            "evidence": {
+              "text": "Mul˛i farmaci∫ti scot profituri semnificative pe seama neaten˛iei pacien˛ilor, b„t‚ndu-∫i joc de s„n„tatea celor mul˛i."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.94,
+            "rationale_short": "Vorbitorul acuză explicit o categorie profesională (farmaciștii) de comportament imoral și batjocură."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "ceea ce nu vor autorit„˛ile s„ recunoasc„ este teama de reac˛ia firmelor produc„toare"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.85,
+            "rationale_short": "Autoritățile sunt menționate critic, dar nu există o cerere specifică a acestora care să fie respinsă sau acceptată."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "ceea ce nu vor autorit„˛ile s„ recunoasc„ este teama de reac˛ia firmelor produc„toare"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.88,
+            "rationale_short": "Vorbitorul ignoră orice argumente contrare, atribuind inacțiunea autorităților fricii de producători."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Declara˛ie cu privire la riscul cump„r„rii f„r„ re˛et„ a unor medicamente."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.99,
+            "marker_confidence": 0.96,
+            "rationale_short": "Discursul este o declarație politică de semnalare a unei probleme, fără a propune un amendament sau o soluție legislativă concretă."
+          }
+        ],
+        "rationale": "Discursul prezintă o calitate deliberativă mixtă. Vorbitorul oferă o justificare calificată (level_of_justification=2) prin explicarea riscurilor medicale și sociale ale consumului de medicamente fără rețetă, apelând la binele comun (sănătatea publică). Totuși, discursul devine disprețuitor la adresa farmaciștilor (respect_for_groups=0), acuzându-i de profituri imorale. Nu există un angajament cu contraargumente sau cereri adverse, iar discursul rămâne pur pozițional, fără a oferi o soluție legislativă alternativă sau un mecanism de mediere. Calitatea deliberativă este limitată de tonul acuzator și de lipsa unei propuneri constructive."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.78,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 0,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 0,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"Astfel de medicamente, ca Romerganul ∫i Diazepamul, care sunt considerate tranchilizante, fiind consumate Ón cantitate exagerat„ provoac„ o stare de halucina˛ie similar„ cu cea creat„ de heroina injectat„.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Vorbitorul oferă o justificare bazată pe un mecanism cauzal specific (efectele tranchilizantelor) pentru a susține necesitatea reglementării.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"Drogurile eliberate f„r„ re˛et„ din farmacii au dat na∫tere la fenomenul social de îfarmacodependen˛„“\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Apelul este la sănătatea publică și la un fenomen social general, vizând binele comun.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"Mul˛i farmaci∫ti scot profituri semnificative pe seama neaten˛iei pacien˛ilor, b„t‚ndu-∫i joc de s„n„tatea celor mul˛i.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.94,\n      \"rationale_short\": \"Vorbitorul acuză explicit o categorie profesională (farmaciștii) de comportament imoral și batjocură.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"ceea ce nu vor autorit„˛ile s„ recunoasc„ este teama de reac˛ia firmelor produc„toare\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Autoritățile sunt menționate critic, dar nu există o cerere specifică a acestora care să fie respinsă sau acceptată.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"ceea ce nu vor autorit„˛ile s„ recunoasc„ este teama de reac˛ia firmelor produc„toare\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Vorbitorul ignoră orice argumente contrare, atribuind inacțiunea autorităților fricii de producători.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"Declara˛ie cu privire la riscul cump„r„rii f„r„ re˛et„ a unor medicamente.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.99,\n      \"marker_confidence\": 0.96,\n      \"rationale_short\": \"Discursul este o declarație politică de semnalare a unei probleme, fără a propune un amendament sau o soluție legislativă concretă.\"\n    }\n  ],\n  \"rationale\": \"Discursul prezintă o calitate deliberativă mixtă. Vorbitorul oferă o justificare calificată (level_of_justification=2) prin explicarea riscurilor medicale și sociale ale consumului de medicamente fără rețetă, apelând la binele comun (sănătatea publică). Totuși, discursul devine disprețuitor la adresa farmaciștilor (respect_for_groups=0), acuzându-i de profituri imorale. Nu există un angajament cu contraargumente sau cereri adverse, iar discursul rămâne pur pozițional, fără a oferi o soluție legislativă alternativă sau un mecanism de mediere. Calitatea deliberativă este limitată de tonul acuzator și de lipsa unei propuneri constructive.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12891,
+      "tokens_in_breakdown": {
+        "fresh": 12891,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1310,
+      "cost_usd": null,
+      "latency_ms": 4871,
+      "retries_used": 0
+    }
+  }
+}

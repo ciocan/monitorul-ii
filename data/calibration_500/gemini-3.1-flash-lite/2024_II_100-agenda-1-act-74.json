@@ -1,0 +1,210 @@
+{
+  "speech_id": "mo://2024/II/100#agenda-1#act-74",
+  "tier": "calibration",
+  "speaker": {
+    "id": "nasui-claudiu-iulius-gavril",
+    "name": "Claudiu-Iulius-Gavril Năsui",
+    "raw": "Domnul Claudiu-Iulius-Gavril Năsui",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2024-09-03",
+    "year": 2024,
+    "legislature": "IX",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2024/II/100#agenda-1#act-74",
+      "output": {
+        "score": 1,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.85,
+        "markers": [
+          {
+            "kind": "people_vs_elite",
+            "evidence": {
+              "text": "statul român, Guvernul României gonește românii din România, făcând munca din România prost plătită în mod artificial"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.88,
+            "rationale_short": "Statul și Guvernul sunt prezentate ca actori maligni care gonește românii, creând un cadru de opoziție între cetățeni și elita politică."
+          },
+          {
+            "kind": "evil_elite",
+            "evidence": {
+              "text": "făcând munca din România prost plătită în mod artificial, din cauza unei taxări a muncii care este aberantă"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.94,
+            "marker_confidence": 0.85,
+            "rationale_short": "Elita politică este acuzată de acțiuni deliberate și malițioase (taxare aberantă, artificială) care dăunează direct cetățenilor."
+          }
+        ],
+        "rationale": "Discursul începe cu o critică tehnică a pensiilor, dar pivotează spre un registru populist în final, folosind un cadru de tip popor-vs-elită și elită-malefică. Vorbitorul acuză statul și guvernul de acțiuni deliberate împotriva cetățenilor, transformând o discuție despre taxe într-o confruntare morală. Deși discursul conține elemente tehnice, cadrul populist devine central în ultima parte, justificând un scor de 1. Nu atinge pragul de 2 deoarece argumentația nu este pervaziv maniheistă pe tot parcursul discursului."
+      },
+      "raw_response": "{\n  \"score\": 1,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.85,\n  \"markers\": [\n    {\n      \"kind\": \"people_vs_elite\",\n      \"evidence\": {\n        \"text\": \"statul român, Guvernul României gonește românii din România, făcând munca din România prost plătită în mod artificial\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Statul și Guvernul sunt prezentate ca actori maligni care gonește românii, creând un cadru de opoziție între cetățeni și elita politică.\"\n    },\n    {\n      \"kind\": \"evil_elite\",\n      \"evidence\": {\n        \"text\": \"făcând munca din România prost plătită în mod artificial, din cauza unei taxări a muncii care este aberantă\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.94,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Elita politică este acuzată de acțiuni deliberate și malițioase (taxare aberantă, artificială) care dăunează direct cetățenilor.\"\n    }\n  ],\n  \"rationale\": \"Discursul începe cu o critică tehnică a pensiilor, dar pivotează spre un registru populist în final, folosind un cadru de tip popor-vs-elită și elită-malefică. Vorbitorul acuză statul și guvernul de acțiuni deliberate împotriva cetățenilor, transformând o discuție despre taxe într-o confruntare morală. Deși discursul conține elemente tehnice, cadrul populist devine central în ultima parte, justificând un scor de 1. Nu atinge pragul de 2 deoarece argumentația nu este pervaziv maniheistă pe tot parcursul discursului.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13844,
+      "tokens_in_breakdown": {
+        "fresh": 13844,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 539,
+      "cost_usd": null,
+      "latency_ms": 3174,
+      "retries_used": 0
+    },
+    "voice": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "voice",
+      "speech_id": "mo://2024/II/100#agenda-1#act-74",
+      "output": {
+        "classifications": [
+          {
+            "marker_id": "m_0",
+            "voice": "speaker_first_person",
+            "voice_confidence": 0.98,
+            "voice_evidence": null,
+            "attributed_to": null,
+            "rationale_short": "Afirmație directă a vorbitorului, fără indicii de citare, raportare sau disclaimer; vorbitorul își asumă responsabilitatea pentru critică."
+          },
+          {
+            "marker_id": "m_1",
+            "voice": "speaker_first_person",
+            "voice_confidence": 0.98,
+            "voice_evidence": null,
+            "attributed_to": null,
+            "rationale_short": "Continuarea argumentației proprii a vorbitorului, exprimată în nume propriu fără nicio formă de distanțare sau atribuire externă."
+          }
+        ]
+      },
+      "raw_response": "{\n  \"classifications\": [\n    {\n      \"marker_id\": \"m_0\",\n      \"voice\": \"speaker_first_person\",\n      \"voice_confidence\": 0.98,\n      \"voice_evidence\": null,\n      \"attributed_to\": null,\n      \"rationale_short\": \"Afirmație directă a vorbitorului, fără indicii de citare, raportare sau disclaimer; vorbitorul își asumă responsabilitatea pentru critică.\"\n    },\n    {\n      \"marker_id\": \"m_1\",\n      \"voice\": \"speaker_first_person\",\n      \"voice_confidence\": 0.98,\n      \"voice_evidence\": null,\n      \"attributed_to\": null,\n      \"rationale_short\": \"Continuarea argumentației proprii a vorbitorului, exprimată în nume propriu fără nicio formă de distanțare sau atribuire externă.\"\n    }\n  ]\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 11481,
+      "tokens_in_breakdown": {
+        "fresh": 11481,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 225,
+      "cost_usd": null,
+      "latency_ms": 1433,
+      "retries_used": 0
+    },
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2024/II/100#agenda-1#act-74",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.85,
+        "level_of_justification": 2,
+        "content_of_justification": "mixed",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "alternative_proposal",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "vor pierde în putere de cumpărare; deci lor le-a scăzut de fapt pensia."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Vorbitorul oferă un raționament cauzal clar privind pierderea puterii de cumpărare prin mecanismul inflației."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "mixed",
+            "evidence": {
+              "text": "România are cele mai mari taxe pe salariile mici din absolut toată Europa. Practic, este un sistem prin care statul român, Guvernul României gonește românii din România"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.88,
+            "rationale_short": "Justificarea combină interesul unui grup specific (angajații cu salarii mici) cu un apel la binele comun (stabilitatea demografică a țării)."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Guvernul României"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Guvernul este menționat funcțional ca actor politic; nu există derogare sau respect explicit."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Am susținut-o și atunci când a fost pragul de 2.000 de lei, o susținem și acum, când e pragul de 3.000 de lei."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Vorbitorul își exprimă propria poziție fără a angaja explicit legitimitatea cererilor opoziției."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "Există o minciună în această lege a pensiilor"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Vorbitorul ignoră argumentele contrare și etichetează poziția adversă drept minciună, fără a o dezbate."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "alternative_proposal",
+            "evidence": {
+              "text": "Haideți să aplicăm aceeași măsură și la salarii!"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.94,
+            "rationale_short": "Vorbitorul propune extinderea pragului neimpozabil de la pensii la salarii ca alternativă concretă."
+          }
+        ],
+        "rationale": "Discursul prezintă o calitate deliberativă mixtă. Vorbitorul oferă o justificare calificată (level_of_justification=2) prin explicarea mecanismului inflației și a pierderii puterii de cumpărare, apelând la o combinație de interese de grup și binele comun. Deși este constructiv prin propunerea extinderii pragului neimpozabil la salarii (alternative_proposal), discursul eșuează în a respecta contraargumentele, etichetând poziția adversă drept „minciună” (respect_for_counterarguments=0). Respectul pentru grupuri și cereri rămâne neutru, fiind axat pe critică politică. Profilul este unul de opoziție activă, care îmbină argumentația tehnică cu retorica de confruntare."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.85,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"mixed\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 0,\n  \"constructive_politics\": \"alternative_proposal\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"vor pierde în putere de cumpărare; deci lor le-a scăzut de fapt pensia.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Vorbitorul oferă un raționament cauzal clar privind pierderea puterii de cumpărare prin mecanismul inflației.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"mixed\",\n      \"evidence\": {\n        \"text\": \"România are cele mai mari taxe pe salariile mici din absolut toată Europa. Practic, este un sistem prin care statul român, Guvernul României gonește românii din România\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Justificarea combină interesul unui grup specific (angajații cu salarii mici) cu un apel la binele comun (stabilitatea demografică a țării).\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Guvernul României\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Guvernul este menționat funcțional ca actor politic; nu există derogare sau respect explicit.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Am susținut-o și atunci când a fost pragul de 2.000 de lei, o susținem și acum, când e pragul de 3.000 de lei.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Vorbitorul își exprimă propria poziție fără a angaja explicit legitimitatea cererilor opoziției.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"Există o minciună în această lege a pensiilor\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.90,\n      \"rationale_short\": \"Vorbitorul ignoră argumentele contrare și etichetează poziția adversă drept minciună, fără a o dezbate.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"alternative_proposal\",\n      \"evidence\": {\n        \"text\": \"Haideți să aplicăm aceeași măsură și la salarii!\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.94,\n      \"rationale_short\": \"Vorbitorul propune extinderea pragului neimpozabil de la pensii la salarii ca alternativă concretă.\"\n    }\n  ],\n  \"rationale\": \"Discursul prezintă o calitate deliberativă mixtă. Vorbitorul oferă o justificare calificată (level_of_justification=2) prin explicarea mecanismului inflației și a pierderii puterii de cumpărare, apelând la o combinație de interese de grup și binele comun. Deși este constructiv prin propunerea extinderii pragului neimpozabil la salarii (alternative_proposal), discursul eșuează în a respecta contraargumentele, etichetând poziția adversă drept „minciună” (respect_for_counterarguments=0). Respectul pentru grupuri și cereri rămâne neutru, fiind axat pe critică politică. Profilul este unul de opoziție activă, care îmbină argumentația tehnică cu retorica de confruntare.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12645,
+      "tokens_in_breakdown": {
+        "fresh": 12645,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1229,
+      "cost_usd": null,
+      "latency_ms": 5130,
+      "retries_used": 0
+    }
+  }
+}

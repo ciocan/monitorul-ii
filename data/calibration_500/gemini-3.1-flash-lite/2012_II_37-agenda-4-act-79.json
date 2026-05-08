@@ -1,0 +1,152 @@
+{
+  "speech_id": "mo://2012/II/37#agenda-4#act-79",
+  "tier": "calibration",
+  "speaker": {
+    "id": "croitoru-catalin",
+    "name": "Cătălin Croitoru",
+    "raw": "Domnul Cătălin Croitoru",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2012-04-27",
+    "year": 2012,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2012/II/37#agenda-4#act-79",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.95,
+        "markers": [],
+        "rationale": "Discursul este unul de natură personală și procedurală, vizând o schimbare de afiliere politică și un apel retoric la conștiința colegilor. Deși limbajul conține referințe la „alegători” și „conștiință”, acestea nu sunt utilizate într-un cadru maniheist popor-vs-elită sau pentru a invoca o voință populară omogenă care să conteste instituțiile. Vorbitorul își justifică decizia de a părăsi grupul parlamentar, fără a construi o viziune populistă pervazivă. Prin urmare, discursul se încadrează în registrul politic convențional, primind scorul 0."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.95,\n  \"markers\": [],\n  \"rationale\": \"Discursul este unul de natură personală și procedurală, vizând o schimbare de afiliere politică și un apel retoric la conștiința colegilor. Deși limbajul conține referințe la „alegători” și „conștiință”, acestea nu sunt utilizate într-un cadru maniheist popor-vs-elită sau pentru a invoca o voință populară omogenă care să conteste instituțiile. Vorbitorul își justifică decizia de a părăsi grupul parlamentar, fără a construi o viziune populistă pervazivă. Prin urmare, discursul se încadrează în registrul politic convențional, primind scorul 0.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13759,
+      "tokens_in_breakdown": {
+        "fresh": 13759,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 226,
+      "cost_usd": null,
+      "latency_ms": 2121,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2012/II/37#agenda-4#act-79",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.85,
+        "level_of_justification": 0,
+        "content_of_justification": "none",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 0,
+            "evidence": {
+              "text": "o să-mi încetez activitatea în cadrul Grupului parlamentar al PDL și de aici încolo voi activa în cadrul Grupului parlamentar al PSD."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Vorbitorul anunță o schimbare de afiliere politică fără a oferi o justificare argumentativă pentru această decizie."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "none",
+            "evidence": {
+              "text": "o să-mi încetez activitatea în cadrul Grupului parlamentar al PDL"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Nicio justificare oferită; conținutul justificării este nedefinit."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "colegii ardeleni"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Referință neutră la un grup regional; nicio derogare sau respect explicit."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "o să-mi încetez activitatea în cadrul Grupului parlamentar al PDL"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Vorbitorul nu abordează cereri ale opoziției, ci își declară propria intenție de schimbare a grupului."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "o să-mi încetez activitatea în cadrul Grupului parlamentar al PDL și de aici încolo voi activa în cadrul Grupului parlamentar al PSD."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Vorbitorul ignoră complet orice contraargumente, concentrându-se exclusiv pe anunțul personal."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "o să-mi încetez activitatea în cadrul Grupului parlamentar al PDL și de aici încolo voi activa în cadrul Grupului parlamentar al PSD."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Anunț de schimbare a grupului parlamentar; nu reprezintă o propunere alternativă sau de mediere."
+          }
+        ],
+        "rationale": "Discursul este un anunț personal de schimbare a afilierii politice, lipsit de substanță deliberativă. Vorbitorul nu oferă nicio justificare pentru decizia sa (level_of_justification=0), concentrându-se pe retorică moralizatoare despre conștiință. Nu există angajament cu cererile sau contraargumentele altor colegi, iar discursul este pur pozițional. Respectul pentru grupuri rămâne neutru, fiind o referință funcțională la colegi. Calitatea deliberativă este minimă, deoarece discursul nu contribuie la dezbaterea unei politici publice, ci la reconfigurarea parlamentară."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.85,\n  \"level_of_justification\": 0,\n  \"content_of_justification\": \"none\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 0,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"o să-mi încetez activitatea în cadrul Grupului parlamentar al PDL și de aici încolo voi activa în cadrul Grupului parlamentar al PSD.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Vorbitorul anunță o schimbare de afiliere politică fără a oferi o justificare argumentativă pentru această decizie.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"none\",\n      \"evidence\": {\n        \"text\": \"o să-mi încetez activitatea în cadrul Grupului parlamentar al PDL\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Nicio justificare oferită; conținutul justificării este nedefinit.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"colegii ardeleni\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Referință neutră la un grup regional; nicio derogare sau respect explicit.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"o să-mi încetez activitatea în cadrul Grupului parlamentar al PDL\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Vorbitorul nu abordează cereri ale opoziției, ci își declară propria intenție de schimbare a grupului.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"o să-mi încetez activitatea în cadrul Grupului parlamentar al PDL și de aici încolo voi activa în cadrul Grupului parlamentar al PSD.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Vorbitorul ignoră complet orice contraargumente, concentrându-se exclusiv pe anunțul personal.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"o să-mi încetez activitatea în cadrul Grupului parlamentar al PDL și de aici încolo voi activa în cadrul Grupului parlamentar al PSD.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Anunț de schimbare a grupului parlamentar; nu reprezintă o propunere alternativă sau de mediere.\"\n    }\n  ],\n  \"rationale\": \"Discursul este un anunț personal de schimbare a afilierii politice, lipsit de substanță deliberativă. Vorbitorul nu oferă nicio justificare pentru decizia sa (level_of_justification=0), concentrându-se pe retorică moralizatoare despre conștiință. Nu există angajament cu cererile sau contraargumentele altor colegi, iar discursul este pur pozițional. Respectul pentru grupuri rămâne neutru, fiind o referință funcțională la colegi. Calitatea deliberativă este minimă, deoarece discursul nu contribuie la dezbaterea unei politici publice, ci la reconfigurarea parlamentară.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [
+        "colegii ardeleni"
+      ],
+      "parse_repaired": false,
+      "tokens_in": 12560,
+      "tokens_in_breakdown": {
+        "fresh": 12560,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1163,
+      "cost_usd": null,
+      "latency_ms": 4019,
+      "retries_used": 0
+    }
+  }
+}

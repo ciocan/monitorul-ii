@@ -1,0 +1,52 @@
+{
+  "speech_id": "mo://2010/II/22#agenda-1#act-18",
+  "tier": "calibration",
+  "speaker": {
+    "id": "korodi-attila",
+    "name": "Korodi Attila",
+    "raw": "Domnul Korodi Attila",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2010-02-23",
+    "year": 2010,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": null,
+    "voice": null,
+    "dqi": null,
+    "vparty": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "vparty",
+      "speech_id": "mo://2010/II/22#agenda-1#act-18",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "vparty@2020 + vdem-attacks-on@v13",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul reprezintă o intervenție politică pe teme de organizare administrativă și regionalizare, argumentată prin criterii tehnice, economice și istorice. Vorbitorul critică structura actuală a regiunilor de dezvoltare și propune o reformă, invocând regulamente europene și principii de eficiență, fără a delegitima instituțiile democratice, opoziția, presa sau minoritățile. Deși discursul menționează regiuni istorice precum 'Secuimea', aceasta este făcută în contextul unei propuneri de reorganizare administrativă, nu ca un atac la adresa normelor democratice sau a statului. Discursul se încadrează în registrul normal al dezbaterii parlamentare."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"vparty@2020 + vdem-attacks-on@v13\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul reprezintă o intervenție politică pe teme de organizare administrativă și regionalizare, argumentată prin criterii tehnice, economice și istorice. Vorbitorul critică structura actuală a regiunilor de dezvoltare și propune o reformă, invocând regulamente europene și principii de eficiență, fără a delegitima instituțiile democratice, opoziția, presa sau minoritățile. Deși discursul menționează regiuni istorice precum 'Secuimea', aceasta este făcută în contextul unei propuneri de reorganizare administrativă, nu ca un atac la adresa normelor democratice sau a statului. Discursul se încadrează în registrul normal al dezbaterii parlamentare.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13904,
+      "tokens_in_breakdown": {
+        "fresh": 13904,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 245,
+      "cost_usd": null,
+      "latency_ms": 1895,
+      "retries_used": 0
+    }
+  }
+}

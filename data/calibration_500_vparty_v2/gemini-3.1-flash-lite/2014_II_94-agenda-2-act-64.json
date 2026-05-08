@@ -1,0 +1,52 @@
+{
+  "speech_id": "mo://2014/II/94#agenda-2#act-64",
+  "tier": "calibration",
+  "speaker": {
+    "id": "chereches-florica",
+    "name": "Florica Cherecheș",
+    "raw": "Doamna Florica Cherecheș",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2014-09-09",
+    "year": 2014,
+    "legislature": "VII",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": null,
+    "voice": null,
+    "dqi": null,
+    "vparty": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "vparty",
+      "speech_id": "mo://2014/II/94#agenda-2#act-64",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "vparty@2020 + vdem-attacks-on@v13",
+        "framework_confidence": 0.95,
+        "markers": [],
+        "rationale": "Discursul reprezintă o critică parlamentară legitimă la adresa excesului de ordonanțe de urgență emise de Guvernul Ponta, invocând nerespectarea rolului Parlamentului și a procedurilor democratice. Deși vorbitorul folosește un ton ironic și critic, acesta nu delegitimează instituțiile ca clasă, ci atacă o practică guvernamentală specifică. Referințele la Avocatul Poporului și la Curtea Constituțională sunt făcute în contextul solicitării de a acționa conform atribuțiilor legale, nu prin delegitimarea acestor instituții. Discursul rămâne în limitele contestării politice democratice, fără a exprima un worldview anti-pluralist."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"vparty@2020 + vdem-attacks-on@v13\",\n  \"framework_confidence\": 0.95,\n  \"markers\": [],\n  \"rationale\": \"Discursul reprezintă o critică parlamentară legitimă la adresa excesului de ordonanțe de urgență emise de Guvernul Ponta, invocând nerespectarea rolului Parlamentului și a procedurilor democratice. Deși vorbitorul folosește un ton ironic și critic, acesta nu delegitimează instituțiile ca clasă, ci atacă o practică guvernamentală specifică. Referințele la Avocatul Poporului și la Curtea Constituțională sunt făcute în contextul solicitării de a acționa conform atribuțiilor legale, nu prin delegitimarea acestor instituții. Discursul rămâne în limitele contestării politice democratice, fără a exprima un worldview anti-pluralist.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13500,
+      "tokens_in_breakdown": {
+        "fresh": 13500,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 238,
+      "cost_usd": null,
+      "latency_ms": 2026,
+      "retries_used": 0
+    }
+  }
+}

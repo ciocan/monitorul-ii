@@ -1,0 +1,152 @@
+{
+  "speech_id": "mo://2013/II/48#agenda-3#act-34",
+  "tier": "calibration",
+  "speaker": {
+    "id": "nicula-vasile-cosmin",
+    "name": "Vasile Cosmin Nicula",
+    "raw": "Domnul Vasile Cosmin Nicula",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": "2013-04-15",
+    "year": 2013,
+    "legislature": "VII",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2013/II/48#agenda-3#act-34",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 1.0,
+        "markers": [],
+        "rationale": "Discursul este un raport procedural standard al unei comisii parlamentare, axat pe aspecte tehnice precum respingerea unei cereri de reexaminare și adoptarea unei legi privind Autoritatea de Supraveghere Financiară. Nu există nicio urmă de retorică populistă, maniheism moral sau invocare a unei voințe populare omogene. Limbajul este strict administrativ, făcând referire la articole din Constituție și din Regulamentul Senatului. Hawkins=0 cu încredere maximă."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 1.0,\n  \"markers\": [],\n  \"rationale\": \"Discursul este un raport procedural standard al unei comisii parlamentare, axat pe aspecte tehnice precum respingerea unei cereri de reexaminare și adoptarea unei legi privind Autoritatea de Supraveghere Financiară. Nu există nicio urmă de retorică populistă, maniheism moral sau invocare a unei voințe populare omogene. Limbajul este strict administrativ, făcând referire la articole din Constituție și din Regulamentul Senatului. Hawkins=0 cu încredere maximă.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13877,
+      "tokens_in_breakdown": {
+        "fresh": 13877,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 182,
+      "cost_usd": null,
+      "latency_ms": 1864,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2013/II/48#agenda-3#act-34",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.65,
+        "level_of_justification": 0,
+        "content_of_justification": "none",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 0,
+            "evidence": {
+              "text": "membrii celor două comisii au hotărât următoarele: 1. Respingerea cererii de reexaminare formulate de Președintele României."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.9,
+            "rationale_short": "Raport procedural care prezintă decizia comisiei fără a oferi argumente sau raționamente proprii."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "none",
+            "evidence": {
+              "text": "membrii celor două comisii au hotărât următoarele"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.9,
+            "rationale_short": "Nicio justificare oferită; conținutul justificării este nedefinit."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Președintele României"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.85,
+            "rationale_short": "Referință instituțională neutră la Președintele României în contextul procedurii de reexaminare."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Respingerea cererii de reexaminare"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.85,
+            "rationale_short": "Cererea este respinsă procedural fără a fi angajată sau discutată substanțial."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "cererii de reexaminare formulate de Președintele României"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.85,
+            "rationale_short": "Cererea este menționată ca obiect al procedurii, dar argumentele din spatele ei nu sunt abordate."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Adoptarea Legii pentru aprobarea Ordonanței de urgență a Guvernului nr. 93/2012"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.9,
+            "rationale_short": "Discursul prezintă o poziție procedurală de adoptare a raportului, fără propuneri alternative sau mediere."
+          }
+        ],
+        "rationale": "Acest discurs este un raport procedural standard prezentat de un raportor de comisie, având un caracter pur administrativ. Nu conține argumentație deliberativă, ci doar expunerea deciziilor luate de comisii (respingerea cererii de reexaminare și adoptarea legii). Din acest motiv, nivelul de justificare este 0, iar dimensiunile de respect sunt neutre, reflectând natura formală a intervenției. Discursul nu oferă alternative sau medieri, fiind strict pozițional în cadrul procedurii parlamentare. Calitatea deliberativă este scăzută deoarece textul nu vizează convingerea prin argumente, ci informarea asupra stadiului legislativ."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.65,\n  \"level_of_justification\": 0,\n  \"content_of_justification\": \"none\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"membrii celor două comisii au hotărât următoarele: 1. Respingerea cererii de reexaminare formulate de Președintele României.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Raport procedural care prezintă decizia comisiei fără a oferi argumente sau raționamente proprii.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"none\",\n      \"evidence\": {\n        \"text\": \"membrii celor două comisii au hotărât următoarele\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Nicio justificare oferită; conținutul justificării este nedefinit.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Președintele României\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Referință instituțională neutră la Președintele României în contextul procedurii de reexaminare.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Respingerea cererii de reexaminare\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Cererea este respinsă procedural fără a fi angajată sau discutată substanțial.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"cererii de reexaminare formulate de Președintele României\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Cererea este menționată ca obiect al procedurii, dar argumentele din spatele ei nu sunt abordate.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"Adoptarea Legii pentru aprobarea Ordonanței de urgență a Guvernului nr. 93/2012\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Discursul prezintă o poziție procedurală de adoptare a raportului, fără propuneri alternative sau mediere.\"\n    }\n  ],\n  \"rationale\": \"Acest discurs este un raport procedural standard prezentat de un raportor de comisie, având un caracter pur administrativ. Nu conține argumentație deliberativă, ci doar expunerea deciziilor luate de comisii (respingerea cererii de reexaminare și adoptarea legii). Din acest motiv, nivelul de justificare este 0, iar dimensiunile de respect sunt neutre, reflectând natura formală a intervenției. Discursul nu oferă alternative sau medieri, fiind strict pozițional în cadrul procedurii parlamentare. Calitatea deliberativă este scăzută deoarece textul nu vizează convingerea prin argumente, ci informarea asupra stadiului legislativ.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [
+        "membrii celor două comisii au hotărât următoarele: 1. Respingerea cererii de reexaminare formulate de Președintele României."
+      ],
+      "parse_repaired": false,
+      "tokens_in": 12678,
+      "tokens_in_breakdown": {
+        "fresh": 12678,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1122,
+      "cost_usd": null,
+      "latency_ms": 4240,
+      "retries_used": 0
+    }
+  }
+}

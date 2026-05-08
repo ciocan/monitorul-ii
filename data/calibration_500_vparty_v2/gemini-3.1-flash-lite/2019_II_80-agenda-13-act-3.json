@@ -1,0 +1,65 @@
+{
+  "speech_id": "mo://2019/II/80#agenda-13#act-3",
+  "tier": "calibration",
+  "speaker": {
+    "id": "plesoianu-liviu-ioan-adrian",
+    "name": "Liviu Ioan Adrian Pleșoianu",
+    "raw": "Domnul Liviu Ioan Adrian Pleșoianu",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2019-06-26",
+    "year": 2019,
+    "legislature": "VIII",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": null,
+    "voice": null,
+    "dqi": null,
+    "vparty": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "vparty",
+      "speech_id": "mo://2019/II/80#agenda-13#act-3",
+      "output": {
+        "score": 1,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "vparty@2020 + vdem-attacks-on@v13",
+        "framework_confidence": 0.85,
+        "markers": [
+          {
+            "kind": "civil_society_attack",
+            "evidence": {
+              "text": "ONG-urile lui Soros"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.9,
+            "rationale_short": "Utilizarea etichetei „ONG-urile lui Soros\" delegitimează sectorul ONG ca fiind subordonat unei agende străine."
+          }
+        ],
+        "rationale": "Discursul conține un moment de delegitimizare a societății civile prin utilizarea etichetei „ONG-urile lui Soros\", care încadrează organizațiile neguvernamentale ca agenți străini. Deși vorbitorul critică și parlamentari ai opoziției, o face în termeni de competență legislativă și cunoaștere a legii, ceea ce rămâne în registrul dezbaterii politice. Deoarece atacul la adresa ONG-urilor este prezent dar nu constituie întreaga coloană vertebrală a discursului, care se concentrează pe un proiect legislativ specific, scorul este 1. Încrederea este ridicată, marcând distincția între critica politică legitimă și delegitimizarea instituțională."
+      },
+      "raw_response": "{\n  \"score\": 1,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"vparty@2020 + vdem-attacks-on@v13\",\n  \"framework_confidence\": 0.85,\n  \"markers\": [\n    {\n      \"kind\": \"civil_society_attack\",\n      \"evidence\": {\n        \"text\": \"ONG-urile lui Soros\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Utilizarea etichetei „ONG-urile lui Soros\\\" delegitimează sectorul ONG ca fiind subordonat unei agende străine.\"\n    }\n  ],\n  \"rationale\": \"Discursul conține un moment de delegitimizare a societății civile prin utilizarea etichetei „ONG-urile lui Soros\\\", care încadrează organizațiile neguvernamentale ca agenți străini. Deși vorbitorul critică și parlamentari ai opoziției, o face în termeni de competență legislativă și cunoaștere a legii, ceea ce rămâne în registrul dezbaterii politice. Deoarece atacul la adresa ONG-urilor este prezent dar nu constituie întreaga coloană vertebrală a discursului, care se concentrează pe un proiect legislativ specific, scorul este 1. Încrederea este ridicată, marcând distincția între critica politică legitimă și delegitimizarea instituțională.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [
+        "ONG-urile lui Soros"
+      ],
+      "parse_repaired": false,
+      "tokens_in": 13227,
+      "tokens_in_breakdown": {
+        "fresh": 13227,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 379,
+      "cost_usd": null,
+      "latency_ms": 2306,
+      "retries_used": 0
+    }
+  }
+}

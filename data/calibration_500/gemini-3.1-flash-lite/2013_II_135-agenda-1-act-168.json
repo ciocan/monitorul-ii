@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2013/II/135#agenda-1#act-168",
+  "tier": "calibration",
+  "speaker": {
+    "id": "alexe-irina",
+    "name": "Irina Alexe",
+    "raw": "Doamna Irina Alexe",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2013-10-29",
+    "year": 2013,
+    "legislature": "VII",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2013/II/135#agenda-1#act-168",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 1.0,
+        "markers": [],
+        "rationale": "Discursul este un raport tehnic și procedural privind reglementarea regimului juridic al apei grele pentru unitățile 3 și 4 de la Cernavodă. Vorbitorul se concentrează exclusiv pe detalii administrative, surse de finanțare bugetară și modificări ale Nomenclatorului produselor rezervă de stat. Nu există nicio urmă de cadru popor-vs-elită, maniheism moral sau invocare a unei voințe populare suverane. Discursul respectă pe deplin registrul tehnocratic parlamentar, fiind un exemplu clar de scor 0."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 1.0,\n  \"markers\": [],\n  \"rationale\": \"Discursul este un raport tehnic și procedural privind reglementarea regimului juridic al apei grele pentru unitățile 3 și 4 de la Cernavodă. Vorbitorul se concentrează exclusiv pe detalii administrative, surse de finanțare bugetară și modificări ale Nomenclatorului produselor rezervă de stat. Nu există nicio urmă de cadru popor-vs-elită, maniheism moral sau invocare a unei voințe populare suverane. Discursul respectă pe deplin registrul tehnocratic parlamentar, fiind un exemplu clar de scor 0.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 14187,
+      "tokens_in_breakdown": {
+        "fresh": 14187,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 204,
+      "cost_usd": null,
+      "latency_ms": 2015,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2013/II/135#agenda-1#act-168",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.85,
+        "level_of_justification": 2,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "alternative_proposal",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "Vreau să mai precizez faptul că toate aceste cantități de apă grea au fost finanțate integral din surse bugetare, adică alocații de la bugetul de stat prin bugetul Ministerului Economiei, Comerțului și Mediului de Afaceri."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Vorbitorul oferă o justificare bazată pe sursa de finanțare bugetară pentru a explica necesitatea reglementării."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "reglementarea regimului juridic al apei grele preluate de către Societatea Națională „Nuclearelectrica“ – SA, prin alocații de la bugetul de stat"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Justificarea se concentrează pe gestionarea resurselor publice și a patrimoniului statului, vizând interesul general."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Doamnelor și domnilor deputați"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.99,
+            "marker_confidence": 0.95,
+            "rationale_short": "Adresare formală standard; nu există referiri la grupuri externe care să fie respectate sau denigrate."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Noi suntem de acord cu adoptarea proiectului în forma propusă de comisie."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.88,
+            "rationale_short": "Vorbitorul susține poziția comisiei fără a aborda explicit cereri opuse; atitudine neutră."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "Noi suntem de acord cu adoptarea proiectului în forma propusă de comisie."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Nu sunt menționate sau combătute argumente contrare; vorbitorul se limitează la susținerea raportului."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "alternative_proposal",
+            "evidence": {
+              "text": "susținem și amendamentul"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Vorbitorul susține un amendament specific, oferind o propunere constructivă în cadrul procesului legislativ."
+          }
+        ],
+        "rationale": "Discursul este unul tehnic, de prezentare a unui proiect de lege, caracterizat printr-o justificare calificată (level_of_justification=2) bazată pe surse bugetare și principii de administrare a patrimoniului public (content_of_justification=common_good). Vorbitorul adoptă o poziție constructivă prin susținerea unui amendament (constructive_politics=alternative_proposal). Respectul pentru grupuri și cereri este neutru, fiind un discurs procedural care nu angajează polemic opoziția. Deși nu există o dezbatere aprinsă, calitatea deliberativă este solidă pentru contextul tehnic al raportului, oferind claritate asupra mecanismelor financiare și administrative propuse."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.85,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"alternative_proposal\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"Vreau să mai precizez faptul că toate aceste cantități de apă grea au fost finanțate integral din surse bugetare, adică alocații de la bugetul de stat prin bugetul Ministerului Economiei, Comerțului și Mediului de Afaceri.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Vorbitorul oferă o justificare bazată pe sursa de finanțare bugetară pentru a explica necesitatea reglementării.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"reglementarea regimului juridic al apei grele preluate de către Societatea Națională „Nuclearelectrica“ – SA, prin alocații de la bugetul de stat\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Justificarea se concentrează pe gestionarea resurselor publice și a patrimoniului statului, vizând interesul general.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Doamnelor și domnilor deputați\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.99,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Adresare formală standard; nu există referiri la grupuri externe care să fie respectate sau denigrate.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Noi suntem de acord cu adoptarea proiectului în forma propusă de comisie.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Vorbitorul susține poziția comisiei fără a aborda explicit cereri opuse; atitudine neutră.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Noi suntem de acord cu adoptarea proiectului în forma propusă de comisie.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Nu sunt menționate sau combătute argumente contrare; vorbitorul se limitează la susținerea raportului.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"alternative_proposal\",\n      \"evidence\": {\n        \"text\": \"susținem și amendamentul\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Vorbitorul susține un amendament specific, oferind o propunere constructivă în cadrul procesului legislativ.\"\n    }\n  ],\n  \"rationale\": \"Discursul este unul tehnic, de prezentare a unui proiect de lege, caracterizat printr-o justificare calificată (level_of_justification=2) bazată pe surse bugetare și principii de administrare a patrimoniului public (content_of_justification=common_good). Vorbitorul adoptă o poziție constructivă prin susținerea unui amendament (constructive_politics=alternative_proposal). Respectul pentru grupuri și cereri este neutru, fiind un discurs procedural care nu angajează polemic opoziția. Deși nu există o dezbatere aprinsă, calitatea deliberativă este solidă pentru contextul tehnic al raportului, oferind claritate asupra mecanismelor financiare și administrative propuse.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12988,
+      "tokens_in_breakdown": {
+        "fresh": 12988,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1211,
+      "cost_usd": null,
+      "latency_ms": 4634,
+      "retries_used": 0
+    }
+  }
+}

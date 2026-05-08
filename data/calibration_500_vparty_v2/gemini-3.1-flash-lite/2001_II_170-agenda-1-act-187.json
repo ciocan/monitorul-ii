@@ -1,0 +1,52 @@
+{
+  "speech_id": "mo://2001/II/170#agenda-1#act-187",
+  "tier": "calibration",
+  "speaker": {
+    "id": "tudor-marcu",
+    "name": "Marcu Tudor",
+    "raw": "Domnul Marcu Tudor",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": null,
+    "year": 2001,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": null,
+    "voice": null,
+    "dqi": null,
+    "vparty": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "vparty",
+      "speech_id": "mo://2001/II/170#agenda-1#act-187",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "vparty@2020 + vdem-attacks-on@v13",
+        "framework_confidence": 0.95,
+        "markers": [],
+        "rationale": "Discursul reprezintă o intervenție procedurală parlamentară în care vorbitorul contestă rezultatul unui vot și acuză un coleg de erori în numărare. Deși tonul este acuzator și conflictual, acesta rămâne în limitele contestării democratice a procedurilor parlamentare și a conduitei unui coleg, fără a delegitima instituția Parlamentului sau a altor instituții democratice ca clasă. Nu există elemente de anti-pluralism, atacuri la adresa justiției, presei, ONG-urilor sau minorităților. Scor 0 cu încredere ridicată."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"vparty@2020 + vdem-attacks-on@v13\",\n  \"framework_confidence\": 0.95,\n  \"markers\": [],\n  \"rationale\": \"Discursul reprezintă o intervenție procedurală parlamentară în care vorbitorul contestă rezultatul unui vot și acuză un coleg de erori în numărare. Deși tonul este acuzator și conflictual, acesta rămâne în limitele contestării democratice a procedurilor parlamentare și a conduitei unui coleg, fără a delegitima instituția Parlamentului sau a altor instituții democratice ca clasă. Nu există elemente de anti-pluralism, atacuri la adresa justiției, presei, ONG-urilor sau minorităților. Scor 0 cu încredere ridicată.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13126,
+      "tokens_in_breakdown": {
+        "fresh": 13126,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 212,
+      "cost_usd": null,
+      "latency_ms": 2108,
+      "retries_used": 0
+    }
+  }
+}

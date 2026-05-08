@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2008/II/107#agenda-1#act-164",
+  "tier": "calibration",
+  "speaker": {
+    "id": "nadudvary-augustin-eugen-gheorghe",
+    "name": "Nádudvary Gheorghe Augustin Eugen",
+    "raw": "Domnul Nádudvary Gheorghe Augustin Eugen",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2008-11-04",
+    "year": 2008,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2008/II/107#agenda-1#act-164",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul se înscrie într-un registru pluralist și conciliant, axat pe exemple de bună practică (Brașov) și pe apelul la înțelegere interetnică. Vorbitorul nu construiește un cadru manihean popor-vs-elită, nu invocă o voință populară omogenă împotriva instituțiilor și nu utilizează retorica crizei sau a elitelor malefice. Deși menționează „realitatea” din județul Covasna, o face într-un context de argumentare bazată pe date și experiență personală, nu pentru a mobiliza un conflict moral. Discursul este un exemplu clar de non-populism."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul se înscrie într-un registru pluralist și conciliant, axat pe exemple de bună practică (Brașov) și pe apelul la înțelegere interetnică. Vorbitorul nu construiește un cadru manihean popor-vs-elită, nu invocă o voință populară omogenă împotriva instituțiilor și nu utilizează retorica crizei sau a elitelor malefice. Deși menționează „realitatea” din județul Covasna, o face într-un context de argumentare bazată pe date și experiență personală, nu pentru a mobiliza un conflict moral. Discursul este un exemplu clar de non-populism.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 14051,
+      "tokens_in_breakdown": {
+        "fresh": 14051,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 227,
+      "cost_usd": null,
+      "latency_ms": 2086,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2008/II/107#agenda-1#act-164",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.65,
+        "level_of_justification": 1,
+        "content_of_justification": "group_interest",
+        "respect_for_groups": 2,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 1,
+            "evidence": {
+              "text": "Realitatea este că oamenii lucrează și progresează, și se poate analiza că în județul Covasna, în funcția de conducere, peste 50% sunt de naționalitate română."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Vorbitorul oferă date empirice despre reprezentarea etnică, dar acestea servesc drept simplă ilustrare, nu ca argument causal pentru o poziție politică."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "group_interest",
+            "evidence": {
+              "text": "Eu, că sunt maghiar nu a depins de mine"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.99,
+            "marker_confidence": 0.9,
+            "rationale_short": "Justificarea se bazează pe identitatea etnică și experiența grupului maghiar, nu pe un principiu universalizabil."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 2,
+            "evidence": {
+              "text": "am fost, și suntem prieteni și în prezent, și spun realitatea care este în județul Covasna"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.88,
+            "rationale_short": "Vorbitorul recunoaște explicit relațiile de prietenie și colaborare cu cetățenii de etnie română, demonstrând respect pentru out-group."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Să luați exemplul Brașovului!"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.8,
+            "rationale_short": "Vorbitorul invită la adoptarea unui model, dar nu angajează cereri opuse specifice; neutru."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "aici am ascultat povești urâte"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.85,
+            "rationale_short": "Vorbitorul respinge discursul anterior ca fiind „povești urâte” fără a aborda substanța argumentelor."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Să luați exemplul Brașovului!"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.85,
+            "rationale_short": "Vorbitorul promovează un model de urmat, dar nu oferă o propunere legislativă alternativă sau un mecanism de mediere."
+          }
+        ],
+        "rationale": "Discursul este marcat de o notă personală și conciliantă, dar suferă din punct de vedere deliberativ. Deși vorbitorul manifestă un respect explicit pentru grupul etnic majoritar (respect_for_groups=2), argumentația sa rămâne la nivelul experienței personale și al ilustrărilor empirice, fără a construi un raționament logic solid (level_of_justification=1). Nu există un angajament substanțial cu contraargumentele, acestea fiind respinse generic ca „povești urâte” (respect_for_counterarguments=0). Discursul este în esență pozițional, invitând la un model de conviețuire fără a propune soluții legislative concrete. Încrederea este moderată din cauza caracterului narativ și a lipsei de rigoare argumentativă."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.65,\n  \"level_of_justification\": 1,\n  \"content_of_justification\": \"group_interest\",\n  \"respect_for_groups\": 2,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 0,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Realitatea este că oamenii lucrează și progresează, și se poate analiza că în județul Covasna, în funcția de conducere, peste 50% sunt de naționalitate română.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Vorbitorul oferă date empirice despre reprezentarea etnică, dar acestea servesc drept simplă ilustrare, nu ca argument causal pentru o poziție politică.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"group_interest\",\n      \"evidence\": {\n        \"text\": \"Eu, că sunt maghiar nu a depins de mine\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.99,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Justificarea se bazează pe identitatea etnică și experiența grupului maghiar, nu pe un principiu universalizabil.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"am fost, și suntem prieteni și în prezent, și spun realitatea care este în județul Covasna\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Vorbitorul recunoaște explicit relațiile de prietenie și colaborare cu cetățenii de etnie română, demonstrând respect pentru out-group.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Să luați exemplul Brașovului!\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.8,\n      \"rationale_short\": \"Vorbitorul invită la adoptarea unui model, dar nu angajează cereri opuse specifice; neutru.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"aici am ascultat povești urâte\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Vorbitorul respinge discursul anterior ca fiind „povești urâte” fără a aborda substanța argumentelor.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"Să luați exemplul Brașovului!\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Vorbitorul promovează un model de urmat, dar nu oferă o propunere legislativă alternativă sau un mecanism de mediere.\"\n    }\n  ],\n  \"rationale\": \"Discursul este marcat de o notă personală și conciliantă, dar suferă din punct de vedere deliberativ. Deși vorbitorul manifestă un respect explicit pentru grupul etnic majoritar (respect_for_groups=2), argumentația sa rămâne la nivelul experienței personale și al ilustrărilor empirice, fără a construi un raționament logic solid (level_of_justification=1). Nu există un angajament substanțial cu contraargumentele, acestea fiind respinse generic ca „povești urâte” (respect_for_counterarguments=0). Discursul este în esență pozițional, invitând la un model de conviețuire fără a propune soluții legislative concrete. Încrederea este moderată din cauza caracterului narativ și a lipsei de rigoare argumentativă.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12852,
+      "tokens_in_breakdown": {
+        "fresh": 12852,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1223,
+      "cost_usd": null,
+      "latency_ms": 4781,
+      "retries_used": 0
+    }
+  }
+}

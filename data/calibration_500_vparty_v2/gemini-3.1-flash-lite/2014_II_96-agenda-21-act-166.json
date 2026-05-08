@@ -1,0 +1,52 @@
+{
+  "speech_id": "mo://2014/II/96#agenda-21#act-166",
+  "tier": "calibration",
+  "speaker": {
+    "id": "federovici-doina-elena",
+    "name": "Doina Elena Federovici",
+    "raw": "Doamna Doina Elena Federovici",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": "2014-09-16",
+    "year": 2014,
+    "legislature": "VII",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": null,
+    "voice": null,
+    "dqi": null,
+    "vparty": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "vparty",
+      "speech_id": "mo://2014/II/96#agenda-21#act-166",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "vparty@2020 + vdem-attacks-on@v13",
+        "framework_confidence": 1.0,
+        "markers": [],
+        "rationale": "Discursul reprezintă o interpelare parlamentară standard, tehnică și procedurală, adresată unei instituții administrative (ANRP) cu privire la aplicarea unei legi specifice. Vorbitorul solicită informații despre stadiul unor plăți și invocă proceduri legale și decizii ale CEDO într-un mod constructiv, fără a delegitima instituția sau a ataca normele democratice. Nu există niciun marker de anti-pluralism prezent; discursul se încadrează perfect în registrul democratic de contestare și supraveghere parlamentară."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"vparty@2020 + vdem-attacks-on@v13\",\n  \"framework_confidence\": 1.0,\n  \"markers\": [],\n  \"rationale\": \"Discursul reprezintă o interpelare parlamentară standard, tehnică și procedurală, adresată unei instituții administrative (ANRP) cu privire la aplicarea unei legi specifice. Vorbitorul solicită informații despre stadiul unor plăți și invocă proceduri legale și decizii ale CEDO într-un mod constructiv, fără a delegitima instituția sau a ataca normele democratice. Nu există niciun marker de anti-pluralism prezent; discursul se încadrează perfect în registrul democratic de contestare și supraveghere parlamentară.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13281,
+      "tokens_in_breakdown": {
+        "fresh": 13281,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 206,
+      "cost_usd": null,
+      "latency_ms": 2002,
+      "retries_used": 0
+    }
+  }
+}

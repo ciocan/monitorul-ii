@@ -1,0 +1,207 @@
+{
+  "speech_id": "mo://2023/II/29#agenda-2#act-42",
+  "tier": "populist",
+  "speaker": {
+    "id": "damureanu-ringo",
+    "name": "Ringo Dămureanu",
+    "raw": "Domnul Ringo Dămureanu",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2023-02-28",
+    "year": 2023,
+    "legislature": "IX",
+    "delivery_mode": null
+  },
+  "model_key": "opus",
+  "model_label": "claude-opus-4.7",
+  "results": {
+    "hawkins": {
+      "model_key": "opus",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2023/II/29#agenda-2#act-42",
+      "output": {
+        "score": 1,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.72,
+        "markers": [
+          {
+            "kind": "evil_elite",
+            "evidence": {
+              "text": "incompetența dovedită a PSD și PNL"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.9,
+            "marker_confidence": 0.7,
+            "rationale_short": "PSD și PNL prezentate ca bloc al cărui defect (incompetența dovedită) îi îndură cetățenii — atribuire morală colectivă a vinei către clasa politică conducătoare."
+          },
+          {
+            "kind": "people_vs_elite",
+            "evidence": {
+              "text": "cât vor mai îndura craiovenii și oltenii incompetența dovedită a PSD și PNL"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.88,
+            "marker_confidence": 0.68,
+            "rationale_short": "Craiovenii și oltenii (cei care îndură) opuși PSD-PNL (cei care provoacă suferința) — cadru popor-vs-elită episodic, în finalul discursului."
+          }
+        ],
+        "rationale": "Discursul este, în cea mai mare parte, o intervenție de tip plângere regională cu detaliu factual considerabil — liste de poduri, accidente feroviare datate, rute rutiere și feroviare nereparate, situații concrete de infrastructură. Registrul dominant este cel al criticii de politici publice, nu al mobilizării populiste. În finalul discursului apare însă un pivot retoric care aprinde două markere la persoana întâi: „craiovenii și oltenii\" sunt opuși blocului „PSD și PNL\" învinuit de „incompetența dovedită\", construcție care funcționează ca un cadru popor-vs-elită cu o notă de elită-malefică („Ați dovedit ceea ce era de dovedit\"). Cadrul nu este pervaziv — restul discursului nu îl susține structural, ci doar îl pregătește prin enumerare. Fără maniheism cosmic, fără supremația-voinței-populare, fără invocare existențială. Hawkins=1 cu încredere moderată, la limita către 0 fiindcă populismul apare doar în paragraful de închidere ca încadrare partizan-electorală a unei plângeri factuale."
+      },
+      "raw_response": "{\"score\":1,\"score_unit\":\"ordinal_0_2\",\"framework_version\":\"hawkins@2018\",\"framework_confidence\":0.72,\"markers\":[{\"kind\":\"evil_elite\",\"evidence\":{\"text\":\"incompetența dovedită a PSD și PNL\"},\"preliminary_voice\":\"speaker_first_person\",\"preliminary_voice_confidence\":0.9,\"marker_confidence\":0.7,\"rationale_short\":\"PSD și PNL prezentate ca bloc al cărui defect (incompetența dovedită) îi îndură cetățenii — atribuire morală colectivă a vinei către clasa politică conducătoare.\"},{\"kind\":\"people_vs_elite\",\"evidence\":{\"text\":\"cât vor mai îndura craiovenii și oltenii incompetența dovedită a PSD și PNL\"},\"preliminary_voice\":\"speaker_first_person\",\"preliminary_voice_confidence\":0.88,\"marker_confidence\":0.68,\"rationale_short\":\"Craiovenii și oltenii (cei care îndură) opuși PSD-PNL (cei care provoacă suferința) — cadru popor-vs-elită episodic, în finalul discursului.\"}],\"rationale\":\"Discursul este, în cea mai mare parte, o intervenție de tip plângere regională cu detaliu factual considerabil — liste de poduri, accidente feroviare datate, rute rutiere și feroviare nereparate, situații concrete de infrastructură. Registrul dominant este cel al criticii de politici publice, nu al mobilizării populiste. În finalul discursului apare însă un pivot retoric care aprinde două markere la persoana întâi: „craiovenii și oltenii\\\" sunt opuși blocului „PSD și PNL\\\" învinuit de „incompetența dovedită\\\", construcție care funcționează ca un cadru popor-vs-elită cu o notă de elită-malefică („Ați dovedit ceea ce era de dovedit\\\"). Cadrul nu este pervaziv — restul discursului nu îl susține structural, ci doar îl pregătește prin enumerare. Fără maniheism cosmic, fără supremația-voinței-populare, fără invocare existențială. Hawkins=1 cu încredere moderată, la limita către 0 fiindcă populismul apare doar în paragraful de închidere ca încadrare partizan-electorală a unei plângeri factuale.\"}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "tokens_in": 105025,
+      "tokens_in_breakdown": {
+        "fresh": 5,
+        "cache_creation": 86667,
+        "cache_read": 18353
+      },
+      "tokens_out": 812,
+      "cost_usd": 0.5711702499999999,
+      "latency_ms": 26041,
+      "retries_used": 0
+    },
+    "voice": {
+      "model_key": "opus",
+      "prompt_kind": "voice",
+      "speech_id": "mo://2023/II/29#agenda-2#act-42",
+      "output": {
+        "classifications": [
+          {
+            "marker_id": "m_0",
+            "voice": "speaker_first_person",
+            "voice_confidence": 0.92,
+            "voice_evidence": null,
+            "attributed_to": null,
+            "rationale_short": "Afirmație directă a vorbitorului care califică drept „dovedită\" incompetența PSD-PNL; fără citat, raport, negație sau disclaimer."
+          },
+          {
+            "marker_id": "m_1",
+            "voice": "speaker_first_person",
+            "voice_confidence": 0.9,
+            "voice_evidence": null,
+            "attributed_to": null,
+            "rationale_short": "Întrebare retorică asumată la persoana întâi plural („Ne întrebăm\"); vorbitorul își asumă premisa despre incompetența PSD-PNL."
+          }
+        ]
+      },
+      "raw_response": "{\"classifications\":[{\"marker_id\":\"m_0\",\"voice\":\"speaker_first_person\",\"voice_confidence\":0.92,\"voice_evidence\":null,\"attributed_to\":null,\"rationale_short\":\"Afirmație directă a vorbitorului care califică drept „dovedită\\\" incompetența PSD-PNL; fără citat, raport, negație sau disclaimer.\"},{\"marker_id\":\"m_1\",\"voice\":\"speaker_first_person\",\"voice_confidence\":0.9,\"voice_evidence\":null,\"attributed_to\":null,\"rationale_short\":\"Întrebare retorică asumată la persoana întâi plural („Ne întrebăm\\\"); vorbitorul își asumă premisa despre incompetența PSD-PNL.\"}]}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "tokens_in": 101547,
+      "tokens_in_breakdown": {
+        "fresh": 5,
+        "cache_creation": 83189,
+        "cache_read": 18353
+      },
+      "tokens_out": 254,
+      "cost_usd": 0.53548275,
+      "latency_ms": 15637,
+      "retries_used": 0
+    },
+    "dqi": {
+      "model_key": "opus",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2023/II/29#agenda-2#act-42",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.82,
+        "level_of_justification": 2,
+        "content_of_justification": "group_interest",
+        "respect_for_groups": 0,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "pe ruta DN 55, către Bechet, spre Bulgaria, cinci poduri zac nerefăcute de peste 8 ani, iar pe drumul european 79, tot către Bulgaria, staționează tiruri pe zeci de kilometri, la Calafat, în vama spre Vidin"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.84,
+            "rationale_short": "Justificare prin enumerare de fapte specifice (drumuri, poduri, accidente feroviare cu date și locații) — substanțial și verificabil."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "group_interest",
+            "evidence": {
+              "text": "Județul Dolj, pe care îl reprezint în Parlament, și, implicit, regiunea Oltenia, par a fi un soi de cenușăreasă"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.96,
+            "marker_confidence": 0.86,
+            "rationale_short": "Apel explicit la interesul unui grup regional definit (Dolj / Oltenia / craioveni), nu la principii universalizabile."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 0,
+            "evidence": {
+              "text": "cât vor mai îndura craiovenii și oltenii incompetența dovedită a PSD și PNL"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.96,
+            "marker_confidence": 0.88,
+            "rationale_short": "Derogare explicită a două grupuri politice prin atribuirea de „incompetență dovedită\"."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Doar speranțele ne țin – că vom avea drum expres, peste nu știm câtă vreme, că va fi centură de sud, peste niște decenii"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.94,
+            "marker_confidence": 0.62,
+            "rationale_short": "Nu se angajează cu cereri adverse specifice; rămâne pe linia propriei revendicări — neutru implicit."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "Ați dovedit ceea ce era de dovedit"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.86,
+            "rationale_short": "Niciun raționament al majorității nu este reformulat sau combătut substanțial; concluzie închisă fără angajament."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "oare cât vor mai avea de așteptat Doljul și Oltenia pentru a se bucura de beneficiile civilizației"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.9,
+            "rationale_short": "Discurs de plângere / acuzare; nicio alternativă concretă sau propunere de mediere oferită."
+          }
+        ],
+        "rationale": "Declarație politică de tip plângere regională cu profil DQI mixt-jos. Vorbitorul oferă o justificare calificată (level_of_justification=2) prin enumerare densă de fapte specifice — drumuri, poduri, accidente feroviare cu date, locații și magnitudini concrete — ceea ce ridică nivelul peste asertiunea pură. Conținutul justificării este însă centrat pe interesul unui grup regional definit (Dolj, Oltenia, craioveni), nu pe principii universalizabile. Respectul pentru grupuri scade la 0 prin derogarea explicită a PSD și PNL ca având „incompetență dovedită\". Cererile adverse nu sunt angajate (neutru implicit), iar raționamentul majorității nu este reformulat sau combătut substanțial — discursul închide cu o sentință („Ați dovedit ceea ce era de dovedit\") fără angajament cu argumentele celuilalt. Constructive_politics este pozițional: nicio alternativă concretă sau mediere propusă, doar listarea problemelor și acuzarea responsabililor. Profil tipic de discurs de opoziție regională — informat factual, dar dispozițional și fără ofertă constructivă."
+      },
+      "raw_response": "{\"framework_version\":\"steiner-bachtiger@2017\",\"score_unit\":\"dqi_multi\",\"framework_confidence\":0.82,\"level_of_justification\":2,\"content_of_justification\":\"group_interest\",\"respect_for_groups\":0,\"respect_for_demands\":1,\"respect_for_counterarguments\":0,\"constructive_politics\":\"positional\",\"markers\":[{\"kind\":\"level_of_justification\",\"value\":2,\"evidence\":{\"text\":\"pe ruta DN 55, către Bechet, spre Bulgaria, cinci poduri zac nerefăcute de peste 8 ani, iar pe drumul european 79, tot către Bulgaria, staționează tiruri pe zeci de kilometri, la Calafat, în vama spre Vidin\"},\"preliminary_voice\":\"speaker_first_person\",\"preliminary_voice_confidence\":0.95,\"marker_confidence\":0.84,\"rationale_short\":\"Justificare prin enumerare de fapte specifice (drumuri, poduri, accidente feroviare cu date și locații) — substanțial și verificabil.\"},{\"kind\":\"content_of_justification\",\"value\":\"group_interest\",\"evidence\":{\"text\":\"Județul Dolj, pe care îl reprezint în Parlament, și, implicit, regiunea Oltenia, par a fi un soi de cenușăreasă\"},\"preliminary_voice\":\"speaker_first_person\",\"preliminary_voice_confidence\":0.96,\"marker_confidence\":0.86,\"rationale_short\":\"Apel explicit la interesul unui grup regional definit (Dolj / Oltenia / craioveni), nu la principii universalizabile.\"},{\"kind\":\"respect_for_groups\",\"value\":0,\"evidence\":{\"text\":\"cât vor mai îndura craiovenii și oltenii incompetența dovedită a PSD și PNL\"},\"preliminary_voice\":\"speaker_first_person\",\"preliminary_voice_confidence\":0.96,\"marker_confidence\":0.88,\"rationale_short\":\"Derogare explicită a două grupuri politice prin atribuirea de „incompetență dovedită\\\".\"},{\"kind\":\"respect_for_demands\",\"value\":1,\"evidence\":{\"text\":\"Doar speranțele ne țin – că vom avea drum expres, peste nu știm câtă vreme, că va fi centură de sud, peste niște decenii\"},\"preliminary_voice\":\"speaker_first_person\",\"preliminary_voice_confidence\":0.94,\"marker_confidence\":0.62,\"rationale_short\":\"Nu se angajează cu cereri adverse specifice; rămâne pe linia propriei revendicări — neutru implicit.\"},{\"kind\":\"respect_for_counterarguments\",\"value\":0,\"evidence\":{\"text\":\"Ați dovedit ceea ce era de dovedit\"},\"preliminary_voice\":\"speaker_first_person\",\"preliminary_voice_confidence\":0.95,\"marker_confidence\":0.86,\"rationale_short\":\"Niciun raționament al majorității nu este reformulat sau combătut substanțial; concluzie închisă fără angajament.\"},{\"kind\":\"constructive_politics\",\"value\":\"positional\",\"evidence\":{\"text\":\"oare cât vor mai avea de așteptat Doljul și Oltenia pentru a se bucura de beneficiile civilizației\"},\"preliminary_voice\":\"speaker_first_person\",\"preliminary_voice_confidence\":0.95,\"marker_confidence\":0.9,\"rationale_short\":\"Discurs de plângere / acuzare; nicio alternativă concretă sau propunere de mediere oferită.\"}],\"rationale\":\"Declarație politică de tip plângere regională cu profil DQI mixt-jos. Vorbitorul oferă o justificare calificată (level_of_justification=2) prin enumerare densă de fapte specifice — drumuri, poduri, accidente feroviare cu date, locații și magnitudini concrete — ceea ce ridică nivelul peste asertiunea pură. Conținutul justificării este însă centrat pe interesul unui grup regional definit (Dolj, Oltenia, craioveni), nu pe principii universalizabile. Respectul pentru grupuri scade la 0 prin derogarea explicită a PSD și PNL ca având „incompetență dovedită\\\". Cererile adverse nu sunt angajate (neutru implicit), iar raționamentul majorității nu este reformulat sau combătut substanțial — discursul închide cu o sentință („Ați dovedit ceea ce era de dovedit\\\") fără angajament cu argumentele celuilalt. Constructive_politics este pozițional: nicio alternativă concretă sau mediere propusă, doar listarea problemelor și acuzarea responsabililor. Profil tipic de discurs de opoziție regională — informat factual, dar dispozițional și fără ofertă constructivă.\"}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "tokens_in": 103016,
+      "tokens_in_breakdown": {
+        "fresh": 5,
+        "cache_creation": 84658,
+        "cache_read": 18353
+      },
+      "tokens_out": 1626,
+      "cost_usd": 0.578964,
+      "latency_ms": 31803,
+      "retries_used": 0
+    }
+  }
+}

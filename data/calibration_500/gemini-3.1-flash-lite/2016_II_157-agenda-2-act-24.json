@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2016/II/157#agenda-2#act-24",
+  "tier": "calibration",
+  "speaker": {
+    "id": "oprea-mario-ovidiu",
+    "name": "Mario Ovidiu Oprea",
+    "raw": "Domnul Mario Ovidiu Oprea",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": "2016-11-01",
+    "year": 2016,
+    "legislature": "VII",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2016/II/157#agenda-2#act-24",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 1.0,
+        "markers": [],
+        "rationale": "Acest fragment reprezintă o procedură administrativă standard de deschidere a ședinței Senatului, incluzând apelul nominal al senatorilor și verificarea cvorumului. Discursul este pur procedural, tehnic și instituțional, fără a conține niciun element de retorică populistă, maniheism sau apeluri la o voință populară omogenă. Nu există nicio tentativă de a construi un cadru popor-vs-elită, discursul fiind un exercițiu de rutină parlamentară. Hawkins=0 cu încredere maximă."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 1.0,\n  \"markers\": [],\n  \"rationale\": \"Acest fragment reprezintă o procedură administrativă standard de deschidere a ședinței Senatului, incluzând apelul nominal al senatorilor și verificarea cvorumului. Discursul este pur procedural, tehnic și instituțional, fără a conține niciun element de retorică populistă, maniheism sau apeluri la o voință populară omogenă. Nu există nicio tentativă de a construi un cadru popor-vs-elită, discursul fiind un exercițiu de rutină parlamentară. Hawkins=0 cu încredere maximă.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 15373,
+      "tokens_in_breakdown": {
+        "fresh": 15373,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 196,
+      "cost_usd": null,
+      "latency_ms": 2062,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2016/II/157#agenda-2#act-24",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.45,
+        "level_of_justification": 0,
+        "content_of_justification": "none",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 0,
+            "evidence": {
+              "text": "Declar deschisă ședința plenului Senatului"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Discurs pur procedural de deschidere a ședinței; nicio argumentare prezentă."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "none",
+            "evidence": {
+              "text": "Declar deschisă ședința plenului Senatului"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Nicio justificare oferită; conținutul este nedefinit."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Stimați colegi"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Adresare convențională neutră; niciun grup vizat."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Sunt completări la ordinea de zi?"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Întrebare procedurală neutră; nicio cerere politică adresată."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "Nu sunt."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Absența oricărui angajament cu argumente opuse; discurs pur administrativ."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "supun aprobării dumneavoastră ordinea"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Acțiune procedurală standard; nu reprezintă o propunere politică alternativă."
+          }
+        ],
+        "rationale": "Acest fragment reprezintă un discurs pur procedural de deschidere a ședinței Senatului, susținut de președintele de ședință. Nu conține nicio formă de argumentare, justificare sau dezbatere politică, fiind limitat la constatarea cvorumului și gestionarea ordinii de zi. Prin urmare, toate dimensiunile DQI sunt codate la valorile lor implicite (neutru/procedural). Calitatea deliberativă nu poate fi evaluată în acest context, deoarece vorbitorul nu participă la o deliberare, ci îndeplinește o funcție administrativă. framework_confidence este scăzut pentru a reflecta natura non-deliberativă a textului."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.45,\n  \"level_of_justification\": 0,\n  \"content_of_justification\": \"none\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 0,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 0,\n      \"evidence\": { \"text\": \"Declar deschisă ședința plenului Senatului\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Discurs pur procedural de deschidere a ședinței; nicio argumentare prezentă.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"none\",\n      \"evidence\": { \"text\": \"Declar deschisă ședința plenului Senatului\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Nicio justificare oferită; conținutul este nedefinit.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": { \"text\": \"Stimați colegi\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Adresare convențională neutră; niciun grup vizat.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": { \"text\": \"Sunt completări la ordinea de zi?\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Întrebare procedurală neutră; nicio cerere politică adresată.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 0,\n      \"evidence\": { \"text\": \"Nu sunt.\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Absența oricărui angajament cu argumente opuse; discurs pur administrativ.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": { \"text\": \"supun aprobării dumneavoastră ordinea\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Acțiune procedurală standard; nu reprezintă o propunere politică alternativă.\"\n    }\n  ],\n  \"rationale\": \"Acest fragment reprezintă un discurs pur procedural de deschidere a ședinței Senatului, susținut de președintele de ședință. Nu conține nicio formă de argumentare, justificare sau dezbatere politică, fiind limitat la constatarea cvorumului și gestionarea ordinii de zi. Prin urmare, toate dimensiunile DQI sunt codate la valorile lor implicite (neutru/procedural). Calitatea deliberativă nu poate fi evaluată în acest context, deoarece vorbitorul nu participă la o deliberare, ci îndeplinește o funcție administrativă. framework_confidence este scăzut pentru a reflecta natura non-deliberativă a textului.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 14174,
+      "tokens_in_breakdown": {
+        "fresh": 14174,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1011,
+      "cost_usd": null,
+      "latency_ms": 3841,
+      "retries_used": 0
+    }
+  }
+}

@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2023/II/78#agenda-1#act-89",
+  "tier": "calibration",
+  "speaker": {
+    "id": "costea-adrian",
+    "name": "Adrian Costea",
+    "raw": "Domnul Adrian Costea",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": "2023-05-15",
+    "year": 2023,
+    "legislature": "IX",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2023/II/78#agenda-1#act-89",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul este unul pur procedural și tehnic, axat pe dezbaterea unui proiect legislativ privind turismul gastronomic. Vorbitorul analizează limitele legii, propune amendamente concrete pentru zona Dunării și argumentează în favoarea liberei inițiative și a afacerilor de familie folosind un registru economic și administrativ. Nu există nicio urmă de cadru popor-vs-elită, maniheism moral sau invocare a unei voințe populare omogene. Discursul respectă normele dezbaterii parlamentare constructive, fiind un exemplu clar de scor 0."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul este unul pur procedural și tehnic, axat pe dezbaterea unui proiect legislativ privind turismul gastronomic. Vorbitorul analizează limitele legii, propune amendamente concrete pentru zona Dunării și argumentează în favoarea liberei inițiative și a afacerilor de familie folosind un registru economic și administrativ. Nu există nicio urmă de cadru popor-vs-elită, maniheism moral sau invocare a unei voințe populare omogene. Discursul respectă normele dezbaterii parlamentare constructive, fiind un exemplu clar de scor 0.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13763,
+      "tokens_in_breakdown": {
+        "fresh": 13763,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 202,
+      "cost_usd": null,
+      "latency_ms": 1947,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2023/II/78#agenda-1#act-89",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.88,
+        "level_of_justification": 2,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 2,
+        "respect_for_counterarguments": 2,
+        "constructive_politics": "alternative_proposal",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "Am prezentat amendamente care au avut în vedere în subsidiar și zona riverană a Dunării și Delta Dunării, una cu o lungime de peste 1.000 km, acolo unde întâlnim și localități urbane, multe dintre ele cu un turism subdezvoltat, implicit un potențial economic neexploatat."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Vorbitorul oferă o justificare bazată pe un mecanism economic specific și date geografice pentru a susține extinderea proiectului."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "acest demers de modificare a legii ar fi în avantajul entităților mici, al afacerilor de familie și, mai ales, al liberei inițiative"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Apelul este la principii universale precum libera inițiativă și dezvoltarea economică, nu la interese de grup restrânse."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Comisiei pentru agricultură"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Referință neutră la comisia de specialitate; nicio derogare sau laudă explicită."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 2,
+            "evidence": {
+              "text": "am constatat bunele intenții în privința dezvoltării turismului gastronomic în zonele rurale."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.91,
+            "rationale_short": "Vorbitorul recunoaște legitimitatea intențiilor inițiale ale proiectului, deși propune extinderea acestuia."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 2,
+            "evidence": {
+              "text": "Pericolul invocat este acela că punctele gastronomice în orașe ar putea concura cu restaurantele și pensiunile. Dintr-o altă perspectivă, acest demers de modificare a legii ar fi în avantajul entităților mici"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.93,
+            "rationale_short": "Vorbitorul identifică argumentul advers (concurența neloială) și îl combate prin argumente economice privind libera inițiativă."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "alternative_proposal",
+            "evidence": {
+              "text": "Am prezentat amendamente care au avut în vedere în subsidiar și zona riverană a Dunării și Delta Dunării"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Vorbitorul propune amendamente concrete pentru a îmbunătăți proiectul legislativ."
+          }
+        ],
+        "rationale": "Discursul prezintă o calitate deliberativă ridicată, caracterizată prin argumentare substanțială și o atitudine constructivă. Vorbitorul oferă o justificare calificată (level_of_justification=2) bazată pe potențialul economic neexploatat al zonelor riverane, apelând la binele comun (libera inițiativă). Respectul pentru cererile și argumentele opoziției este demonstrat prin recunoașterea intențiilor bune ale proiectului și prin combaterea logică a temerilor privind concurența. Caracterul constructiv este evident prin propunerea de amendamente specifice. Profilul este unul de opoziție angajată, care caută să îmbunătățească legislația prin argumente tehnice și principii economice."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.88,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 2,\n  \"respect_for_counterarguments\": 2,\n  \"constructive_politics\": \"alternative_proposal\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"Am prezentat amendamente care au avut în vedere în subsidiar și zona riverană a Dunării și Delta Dunării, una cu o lungime de peste 1.000 km, acolo unde întâlnim și localități urbane, multe dintre ele cu un turism subdezvoltat, implicit un potențial economic neexploatat.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Vorbitorul oferă o justificare bazată pe un mecanism economic specific și date geografice pentru a susține extinderea proiectului.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"acest demers de modificare a legii ar fi în avantajul entităților mici, al afacerilor de familie și, mai ales, al liberei inițiative\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.90,\n      \"rationale_short\": \"Apelul este la principii universale precum libera inițiativă și dezvoltarea economică, nu la interese de grup restrânse.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Comisiei pentru agricultură\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Referință neutră la comisia de specialitate; nicio derogare sau laudă explicită.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"am constatat bunele intenții în privința dezvoltării turismului gastronomic în zonele rurale.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.91,\n      \"rationale_short\": \"Vorbitorul recunoaște legitimitatea intențiilor inițiale ale proiectului, deși propune extinderea acestuia.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"Pericolul invocat este acela că punctele gastronomice în orașe ar putea concura cu restaurantele și pensiunile. Dintr-o altă perspectivă, acest demers de modificare a legii ar fi în avantajul entităților mici\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.93,\n      \"rationale_short\": \"Vorbitorul identifică argumentul advers (concurența neloială) și îl combate prin argumente economice privind libera inițiativă.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"alternative_proposal\",\n      \"evidence\": {\n        \"text\": \"Am prezentat amendamente care au avut în vedere în subsidiar și zona riverană a Dunării și Delta Dunării\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Vorbitorul propune amendamente concrete pentru a îmbunătăți proiectul legislativ.\"\n    }\n  ],\n  \"rationale\": \"Discursul prezintă o calitate deliberativă ridicată, caracterizată prin argumentare substanțială și o atitudine constructivă. Vorbitorul oferă o justificare calificată (level_of_justification=2) bazată pe potențialul economic neexploatat al zonelor riverane, apelând la binele comun (libera inițiativă). Respectul pentru cererile și argumentele opoziției este demonstrat prin recunoașterea intențiilor bune ale proiectului și prin combaterea logică a temerilor privind concurența. Caracterul constructiv este evident prin propunerea de amendamente specifice. Profilul este unul de opoziție angajată, care caută să îmbunătățească legislația prin argumente tehnice și principii economice.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12564,
+      "tokens_in_breakdown": {
+        "fresh": 12564,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1291,
+      "cost_usd": null,
+      "latency_ms": 4760,
+      "retries_used": 0
+    }
+  }
+}

@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2010/II/22#agenda-1#act-18",
+  "tier": "calibration",
+  "speaker": {
+    "id": "korodi-attila",
+    "name": "Korodi Attila",
+    "raw": "Domnul Korodi Attila",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2010-02-23",
+    "year": 2010,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2010/II/22#agenda-1#act-18",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul este o intervenție tehnică și administrativă privind reorganizarea regiunilor de dezvoltare ale României, bazată pe argumente de eficiență, criterii statistice (NUTS 2) și absorbția fondurilor europene. Deși vorbitorul critică structura actuală ca fiind „artificială” și menționează inegalități între județe, acesta nu construiește un cadru maniheist popor-vs-elită, nu invocă o voință populară omogenă ca forță suverană și nu folosește un limbaj moralizator. Discursul rămâne în registrul dezbaterii de politici publice, fără a exprima o viziune populistă. Hawkins=0 cu încredere ridicată."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul este o intervenție tehnică și administrativă privind reorganizarea regiunilor de dezvoltare ale României, bazată pe argumente de eficiență, criterii statistice (NUTS 2) și absorbția fondurilor europene. Deși vorbitorul critică structura actuală ca fiind „artificială” și menționează inegalități între județe, acesta nu construiește un cadru maniheist popor-vs-elită, nu invocă o voință populară omogenă ca forță suverană și nu folosește un limbaj moralizator. Discursul rămâne în registrul dezbaterii de politici publice, fără a exprima o viziune populistă. Hawkins=0 cu încredere ridicată.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 14622,
+      "tokens_in_breakdown": {
+        "fresh": 14622,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 239,
+      "cost_usd": null,
+      "latency_ms": 2186,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2010/II/22#agenda-1#act-18",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.88,
+        "level_of_justification": 2,
+        "content_of_justification": "mixed",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "alternative_proposal",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "Regulamentul Uniunii Europene nr. 1.059/2003 stabilește ca obiectiv formarea unor unități teritoriale cu scop statistic pentru a eficientiza absorbția fondurilor europene de dezvoltare regională."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Vorbitorul ancorează argumentul în reglementări UE specifice și criterii statistice (NUTS 2)."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "mixed",
+            "evidence": {
+              "text": "Trebuie să formăm regiuni de dezvoltare care sunt în interesul nostru și, totodată, sunt firești, în sensul că știm cu toții regiunile care s-au format de-a lungul istoriei: Banatul, Secuimea, Bucovina, Dobrogea, Oltenia și altele."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.89,
+            "rationale_short": "Justificarea combină interesele specifice ale comunităților (grup) cu o viziune istorică universalizabilă (bine comun)."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Stimați colegi,"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.99,
+            "marker_confidence": 0.95,
+            "rationale_short": "Adresare convențională; nu există derogări sau recunoașteri explicite ale out-group-urilor."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Ori de câte ori vrem și căutăm răspunsuri, ele vor fi ceva de genul: asta este cerința Uniunii Europene, nu putem să facem nimic."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.96,
+            "marker_confidence": 0.85,
+            "rationale_short": "Vorbitorul menționează cerințele invocate de alții fără a le angaja legitimitatea; atitudine neutră."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "Ori de câte ori vrem și căutăm răspunsuri, ele vor fi ceva de genul: asta este cerința Uniunii Europene, nu putem să facem nimic. Dar, de fapt, nu este așa."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.96,
+            "marker_confidence": 0.88,
+            "rationale_short": "Menționează argumentul advers (cerința UE) și îl respinge, dar fără o restructurare detaliată a raționamentului opus."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "alternative_proposal",
+            "evidence": {
+              "text": "UDMR a înaintat un proiect de lege în Senat, conform căruia, în locul celor 8 regiuni de dezvoltare existente la momentul actual în România, țara ar trebui să aibă 15 regiuni de dezvoltare"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.94,
+            "rationale_short": "Vorbitorul propune o alternativă legislativă concretă (15 regiuni în loc de 8) pentru a îmbunătăți eficiența."
+          }
+        ],
+        "rationale": "Discursul prezintă o calitate deliberativă solidă, caracterizată printr-o justificare calificată (level_of_justification=2) bazată pe reglementări UE și criterii statistice. Vorbitorul îmbină interesele specifice ale regiunilor cu argumente de bine comun, rezultând o justificare mixtă. Deși respectul pentru grupuri și cereri rămâne neutru (convențional), vorbitorul oferă o alternativă legislativă clară (constructive_politics=alternative_proposal). Angajamentul față de contraargumente este prezent dar limitat la o respingere directă, fără o dezbatere aprofundată a logicii adverse. Per ansamblu, discursul este constructiv și bine fundamentat tehnic."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.88,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"mixed\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"alternative_proposal\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"Regulamentul Uniunii Europene nr. 1.059/2003 stabilește ca obiectiv formarea unor unități teritoriale cu scop statistic pentru a eficientiza absorbția fondurilor europene de dezvoltare regională.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Vorbitorul ancorează argumentul în reglementări UE specifice și criterii statistice (NUTS 2).\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"mixed\",\n      \"evidence\": {\n        \"text\": \"Trebuie să formăm regiuni de dezvoltare care sunt în interesul nostru și, totodată, sunt firești, în sensul că știm cu toții regiunile care s-au format de-a lungul istoriei: Banatul, Secuimea, Bucovina, Dobrogea, Oltenia și altele.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"marker_confidence\": 0.89,\n      \"rationale_short\": \"Justificarea combină interesele specifice ale comunităților (grup) cu o viziune istorică universalizabilă (bine comun).\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Stimați colegi,\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.99,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Adresare convențională; nu există derogări sau recunoașteri explicite ale out-group-urilor.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Ori de câte ori vrem și căutăm răspunsuri, ele vor fi ceva de genul: asta este cerința Uniunii Europene, nu putem să facem nimic.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.96,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Vorbitorul menționează cerințele invocate de alții fără a le angaja legitimitatea; atitudine neutră.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Ori de câte ori vrem și căutăm răspunsuri, ele vor fi ceva de genul: asta este cerința Uniunii Europene, nu putem să facem nimic. Dar, de fapt, nu este așa.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.96,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Menționează argumentul advers (cerința UE) și îl respinge, dar fără o restructurare detaliată a raționamentului opus.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"alternative_proposal\",\n      \"evidence\": {\n        \"text\": \"UDMR a înaintat un proiect de lege în Senat, conform căruia, în locul celor 8 regiuni de dezvoltare existente la momentul actual în România, țara ar trebui să aibă 15 regiuni de dezvoltare\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.94,\n      \"rationale_short\": \"Vorbitorul propune o alternativă legislativă concretă (15 regiuni în loc de 8) pentru a îmbunătăți eficiența.\"\n    }\n  ],\n  \"rationale\": \"Discursul prezintă o calitate deliberativă solidă, caracterizată printr-o justificare calificată (level_of_justification=2) bazată pe reglementări UE și criterii statistice. Vorbitorul îmbină interesele specifice ale regiunilor cu argumente de bine comun, rezultând o justificare mixtă. Deși respectul pentru grupuri și cereri rămâne neutru (convențional), vorbitorul oferă o alternativă legislativă clară (constructive_politics=alternative_proposal). Angajamentul față de contraargumente este prezent dar limitat la o respingere directă, fără o dezbatere aprofundată a logicii adverse. Per ansamblu, discursul este constructiv și bine fundamentat tehnic.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13423,
+      "tokens_in_breakdown": {
+        "fresh": 13423,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1343,
+      "cost_usd": null,
+      "latency_ms": 4992,
+      "retries_used": 0
+    }
+  }
+}

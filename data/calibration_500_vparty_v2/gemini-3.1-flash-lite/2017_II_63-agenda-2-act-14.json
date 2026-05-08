@@ -1,0 +1,52 @@
+{
+  "speech_id": "mo://2017/II/63#agenda-2#act-14",
+  "tier": "calibration",
+  "speaker": {
+    "id": "bichinet-corneliu",
+    "name": "Corneliu Bichineț",
+    "raw": "Domnul Corneliu Bichineț",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2017-04-19",
+    "year": 2017,
+    "legislature": "VIII",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": null,
+    "voice": null,
+    "dqi": null,
+    "vparty": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "vparty",
+      "speech_id": "mo://2017/II/63#agenda-2#act-14",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "vparty@2020 + vdem-attacks-on@v13",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul este un amestec de interpelare politică, critică administrativă și ironie la adresa unor lideri politici (Dragnea, Firea, Grindeanu). Deși tonul este sarcastic și critic, vorbitorul nu delegitimează instituțiile democratice ca clasă, ci atacă performanța administrativă și deciziile politice ale unor actori specifici. Nu există elemente de delegitimizare a justiției, presei, ONG-urilor, minorităților sau a normelor democratice. Discursul rămâne în limitele contestării politice parlamentare standard."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"vparty@2020 + vdem-attacks-on@v13\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul este un amestec de interpelare politică, critică administrativă și ironie la adresa unor lideri politici (Dragnea, Firea, Grindeanu). Deși tonul este sarcastic și critic, vorbitorul nu delegitimează instituțiile democratice ca clasă, ci atacă performanța administrativă și deciziile politice ale unor actori specifici. Nu există elemente de delegitimizare a justiției, presei, ONG-urilor, minorităților sau a normelor democratice. Discursul rămâne în limitele contestării politice parlamentare standard.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13634,
+      "tokens_in_breakdown": {
+        "fresh": 13634,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 212,
+      "cost_usd": null,
+      "latency_ms": 1896,
+      "retries_used": 0
+    }
+  }
+}

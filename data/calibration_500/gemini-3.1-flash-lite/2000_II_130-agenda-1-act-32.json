@@ -1,0 +1,152 @@
+{
+  "speech_id": "mo://2000/II/130#agenda-1#act-32",
+  "tier": "calibration",
+  "speaker": {
+    "id": null,
+    "name": "Liviu Petreu",
+    "raw": "Domnul Liviu Petreu",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": null,
+    "year": 2000,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2000/II/130#agenda-1#act-32",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.95,
+        "markers": [],
+        "rationale": "Discursul este o analiză tehnică și juridică detaliată a erorilor procedurale din procesul soților Ceaușescu. Vorbitorul se concentrează pe nerespectarea Codului de procedură penală, pe nulitatea sentinței și pe consecințele juridice ale acestor omisiuni, folosind un registru profesional și critic la adresa magistraților militari. Deși menționează „publicul asistent” și „democrația originală” într-un context critic, discursul nu construiește un cadru manihean popor-vs-elită, nu invocă o voință populară omogenă și nu folosește retorica populistă ca axă structurală a argumentației. Este un discurs de critică instituțională și juridică, nu unul populist."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.95,\n  \"markers\": [],\n  \"rationale\": \"Discursul este o analiză tehnică și juridică detaliată a erorilor procedurale din procesul soților Ceaușescu. Vorbitorul se concentrează pe nerespectarea Codului de procedură penală, pe nulitatea sentinței și pe consecințele juridice ale acestor omisiuni, folosind un registru profesional și critic la adresa magistraților militari. Deși menționează „publicul asistent” și „democrația originală” într-un context critic, discursul nu construiește un cadru manihean popor-vs-elită, nu invocă o voință populară omogenă și nu folosește retorica populistă ca axă structurală a argumentației. Este un discurs de critică instituțională și juridică, nu unul populist.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 14772,
+      "tokens_in_breakdown": {
+        "fresh": 14772,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 252,
+      "cost_usd": null,
+      "latency_ms": 2198,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2000/II/130#agenda-1#act-32",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.85,
+        "level_of_justification": 2,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "Deoarece acest drept este statuat de Codul de procedurã penalã român în mod imperativ, tot ce întreprinde completul de judecatã, dupã încãlcarea acestui drept fundamental al omului, este lipsit de orice valoare juridicã."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Vorbitorul leagă poziția sa de o normă juridică specifică (Codul de procedură penală) și un principiu fundamental."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "pentru a spulbera perpetuu credibilitatea României"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.88,
+            "rationale_short": "Justificarea se ancorează în interesul general al credibilității statului de drept, nu în interese de grup."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "magistraþii militari ºi avocaþii"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.96,
+            "marker_confidence": 0.85,
+            "rationale_short": "Grupuri profesionale menționate critic, dar fără a recurge la derogare sau dehumanizare explicită."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "ªirul marilor procese politice comuniste începute în 1947 este prelungit astfel"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.82,
+            "rationale_short": "Vorbitorul se concentrează pe propria critică a procesului, fără a aborda cererile opoziției."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "nu a fost relevatã de nimeni"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.9,
+            "rationale_short": "Vorbitorul ignoră orice contraargumente, prezentând propria analiză ca fiind unică și necontestată."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Corect este sã afirmãm cã procesul penal respectiv a încetat ca urmare a constatãrii medicale a decesului"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.94,
+            "rationale_short": "Vorbitorul avansează o interpretare juridică proprie, fără a propune o alternativă politică sau mediere."
+          }
+        ],
+        "rationale": "Discursul prezintă o argumentație juridică densă și bine structurată, justificată prin referințe la Codul de procedură penală și principii constituționale (level_of_justification=2). Apelul este orientat către binele comun (credibilitatea statului de drept), însă discursul rămâne pur pozițional, fără a oferi alternative concrete sau a media între puncte de vedere (constructive_politics=positional). Respectul pentru grupuri este neutru, deși critic, iar respectul pentru contraargumente este absent, vorbitorul ignorând orice perspectivă opusă. Calitatea deliberativă este ridicată în ceea ce privește rigoarea argumentativă, dar scăzută în ceea ce privește deschiderea către dialogul parlamentar."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.85,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 0,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"Deoarece acest drept este statuat de Codul de procedurã penalã român în mod imperativ, tot ce întreprinde completul de judecatã, dupã încãlcarea acestui drept fundamental al omului, este lipsit de orice valoare juridicã.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Vorbitorul leagă poziția sa de o normă juridică specifică (Codul de procedură penală) și un principiu fundamental.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"pentru a spulbera perpetuu credibilitatea României\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Justificarea se ancorează în interesul general al credibilității statului de drept, nu în interese de grup.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"magistraþii militari ºi avocaþii\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.96,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Grupuri profesionale menționate critic, dar fără a recurge la derogare sau dehumanizare explicită.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"ªirul marilor procese politice comuniste începute în 1947 este prelungit astfel\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"marker_confidence\": 0.82,\n      \"rationale_short\": \"Vorbitorul se concentrează pe propria critică a procesului, fără a aborda cererile opoziției.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"nu a fost relevatã de nimeni\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.90,\n      \"rationale_short\": \"Vorbitorul ignoră orice contraargumente, prezentând propria analiză ca fiind unică și necontestată.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"Corect este sã afirmãm cã procesul penal respectiv a încetat ca urmare a constatãrii medicale a decesului\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.94,\n      \"rationale_short\": \"Vorbitorul avansează o interpretare juridică proprie, fără a propune o alternativă politică sau mediere.\"\n    }\n  ],\n  \"rationale\": \"Discursul prezintă o argumentație juridică densă și bine structurată, justificată prin referințe la Codul de procedură penală și principii constituționale (level_of_justification=2). Apelul este orientat către binele comun (credibilitatea statului de drept), însă discursul rămâne pur pozițional, fără a oferi alternative concrete sau a media între puncte de vedere (constructive_politics=positional). Respectul pentru grupuri este neutru, deși critic, iar respectul pentru contraargumente este absent, vorbitorul ignorând orice perspectivă opusă. Calitatea deliberativă este ridicată în ceea ce privește rigoarea argumentativă, dar scăzută în ceea ce privește deschiderea către dialogul parlamentar.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [
+        "pentru a spulbera perpetuu credibilitatea României"
+      ],
+      "parse_repaired": false,
+      "tokens_in": 13573,
+      "tokens_in_breakdown": {
+        "fresh": 13573,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1217,
+      "cost_usd": null,
+      "latency_ms": 4734,
+      "retries_used": 0
+    }
+  }
+}

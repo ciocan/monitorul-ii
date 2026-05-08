@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2003/II/24#agenda-6#act-180",
+  "tier": "calibration",
+  "speaker": {
+    "id": "petrescu-cameliu-ovidiu",
+    "name": "Ovidiu Cameliu Petrescu",
+    "raw": "Domnul Ovidiu Cameliu Petrescu",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": null,
+    "year": 2003,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2003/II/24#agenda-6#act-180",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul este unul pur procedural și tehnic, reprezentând un răspuns oficial al unui secretar de stat la o interpelare parlamentară. Textul se concentrează pe detalii administrative, cum ar fi studiul de fezabilitate, indicatorii tehnico-economici, Legea nr. 500/2002 și sursele de finanțare pentru un proiect de infrastructură. Nu există nicio urmă de retorică populistă, cadru maniheist sau invocare a unei voințe populare omogene. Discursul respectă pe deplin registrul instituțional și tehnic, încadrându-se clar la scorul 0."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul este unul pur procedural și tehnic, reprezentând un răspuns oficial al unui secretar de stat la o interpelare parlamentară. Textul se concentrează pe detalii administrative, cum ar fi studiul de fezabilitate, indicatorii tehnico-economici, Legea nr. 500/2002 și sursele de finanțare pentru un proiect de infrastructură. Nu există nicio urmă de retorică populistă, cadru maniheist sau invocare a unei voințe populare omogene. Discursul respectă pe deplin registrul instituțional și tehnic, încadrându-se clar la scorul 0.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13932,
+      "tokens_in_breakdown": {
+        "fresh": 13932,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 213,
+      "cost_usd": null,
+      "latency_ms": 1985,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2003/II/24#agenda-6#act-180",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.92,
+        "level_of_justification": 2,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "investiþia sus-menþionatã va fi introdusã în programul de investiþii al Ministerului Apelor ºi Protecþiei Mediului, cu începere din trim. I/2004, alocându-se, în acest scop, o sumã de circa 20 miliarde lei"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Justificare calificată prin furnizarea de date concrete (buget, termene) pentru proiectul de investiții."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "În vederea apãrãrii de inundaþii provocate de râul Bistra"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.94,
+            "rationale_short": "Justificarea se bazează pe interesul public general (protecția împotriva inundațiilor)."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Stimatã doamnã deputat Mona Muscã"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.99,
+            "marker_confidence": 0.95,
+            "rationale_short": "Adresare formală, neutră, conformă cu protocolul parlamentar."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Referitor la întrebarea dumneavoastrã privind situaþia comunei Obreja"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Cererea este tratată funcțional prin furnizarea informațiilor solicitate, fără angajament deliberativ."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "vã putem preciza urmãtoarele"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Nu există contraargumente în acest context, doar un răspuns la o interpelare."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "investiþia sus-menþionatã va fi introdusã în programul de investiþii"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.93,
+            "rationale_short": "Vorbitorul prezintă o decizie administrativă; nu este o propunere de mediere sau alternativă."
+          }
+        ],
+        "rationale": "Discursul reprezintă un răspuns tehnic la o interpelare parlamentară, caracterizat printr-o calitate deliberativă funcțională. Vorbitorul oferă o justificare calificată (level_of_justification=2) prin detalii bugetare și termene clare, apelând la binele comun (protecția împotriva inundațiilor). Respectul pentru grupuri și cereri este neutru, limitându-se la curtoazia parlamentară standard și la furnizarea informațiilor solicitate. Deoarece nu există o dezbatere contradictorie, dimensiunile de respect pentru contraargumente și constructivitate politică rămân la niveluri de bază (neutru/pozițional). Discursul este un exemplu tipic de comunicare administrativă în cadrul parlamentar."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.92,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"investiþia sus-menþionatã va fi introdusã în programul de investiþii al Ministerului Apelor ºi Protecþiei Mediului, cu începere din trim. I/2004, alocându-se, în acest scop, o sumã de circa 20 miliarde lei\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Justificare calificată prin furnizarea de date concrete (buget, termene) pentru proiectul de investiții.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"În vederea apãrãrii de inundaþii provocate de râul Bistra\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.94,\n      \"rationale_short\": \"Justificarea se bazează pe interesul public general (protecția împotriva inundațiilor).\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Stimatã doamnã deputat Mona Muscã\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.99,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Adresare formală, neutră, conformă cu protocolul parlamentar.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Referitor la întrebarea dumneavoastrã privind situaþia comunei Obreja\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Cererea este tratată funcțional prin furnizarea informațiilor solicitate, fără angajament deliberativ.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"vã putem preciza urmãtoarele\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.90,\n      \"rationale_short\": \"Nu există contraargumente în acest context, doar un răspuns la o interpelare.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"investiþia sus-menþionatã va fi introdusã în programul de investiþii\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.93,\n      \"rationale_short\": \"Vorbitorul prezintă o decizie administrativă; nu este o propunere de mediere sau alternativă.\"\n    }\n  ],\n  \"rationale\": \"Discursul reprezintă un răspuns tehnic la o interpelare parlamentară, caracterizat printr-o calitate deliberativă funcțională. Vorbitorul oferă o justificare calificată (level_of_justification=2) prin detalii bugetare și termene clare, apelând la binele comun (protecția împotriva inundațiilor). Respectul pentru grupuri și cereri este neutru, limitându-se la curtoazia parlamentară standard și la furnizarea informațiilor solicitate. Deoarece nu există o dezbatere contradictorie, dimensiunile de respect pentru contraargumente și constructivitate politică rămân la niveluri de bază (neutru/pozițional). Discursul este un exemplu tipic de comunicare administrativă în cadrul parlamentar.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12733,
+      "tokens_in_breakdown": {
+        "fresh": 12733,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1182,
+      "cost_usd": null,
+      "latency_ms": 4455,
+      "retries_used": 0
+    }
+  }
+}

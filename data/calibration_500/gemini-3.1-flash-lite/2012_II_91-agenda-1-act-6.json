@@ -1,0 +1,210 @@
+{
+  "speech_id": "mo://2012/II/91#agenda-1#act-6",
+  "tier": "calibration",
+  "speaker": {
+    "id": "pop-gheorghe",
+    "name": "Gheorghe Pop",
+    "raw": "Domnul Gheorghe Pop",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": "2012-10-02",
+    "year": 2012,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2012/II/91#agenda-1#act-6",
+      "output": {
+        "score": 1,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.85,
+        "markers": [
+          {
+            "kind": "evil_elite",
+            "evidence": {
+              "text": "Că Diaconescu în cârdășie cu PDL și-au făcut planuri ca prin aceasta să lovească în guvernarea USL este cât se poate de evident."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.85,
+            "rationale_short": "Acuzația de cârdășie între un actor politic și opoziție pentru a submina guvernarea indică o elită malefică, conspiratoare."
+          },
+          {
+            "kind": "evil_elite",
+            "evidence": {
+              "text": "Ei sunt direct responsabili pentru ce s-a întâmplat la Oltchim în ultimii ani!"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.88,
+            "rationale_short": "Atribuirea responsabilității directe pentru dezastrul economic unei elite politice (PDL) descrise ca fiind distructivă."
+          }
+        ],
+        "rationale": "Discursul conține elemente de retorică populistă, în special prin portretizarea adversarilor politici (PDL) ca o elită malefică responsabilă pentru gestiune frauduloasă și conspirații împotriva guvernării. Totuși, discursul rămâne ancorat în registrul politic partizan și procedural, enumerând măsuri guvernamentale concrete și obiective economice. Deși există accente de tip 'elită malefică', cadrul 'popor-vs-elită' nu este structural-portant pentru întregul discurs, care se concentrează pe apărarea acțiunilor guvernului USL. Scor 1, reflectând prezența unor tropi populiști într-un discurs altfel orientat spre polemică politică și bilanț guvernamental."
+      },
+      "raw_response": "{\n  \"score\": 1,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.85,\n  \"markers\": [\n    {\n      \"kind\": \"evil_elite\",\n      \"evidence\": {\n        \"text\": \"Că Diaconescu în cârdășie cu PDL și-au făcut planuri ca prin aceasta să lovească în guvernarea USL este cât se poate de evident.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Acuzația de cârdășie între un actor politic și opoziție pentru a submina guvernarea indică o elită malefică, conspiratoare.\"\n    },\n    {\n      \"kind\": \"evil_elite\",\n      \"evidence\": {\n        \"text\": \"Ei sunt direct responsabili pentru ce s-a întâmplat la Oltchim în ultimii ani!\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Atribuirea responsabilității directe pentru dezastrul economic unei elite politice (PDL) descrise ca fiind distructivă.\"\n    }\n  ],\n  \"rationale\": \"Discursul conține elemente de retorică populistă, în special prin portretizarea adversarilor politici (PDL) ca o elită malefică responsabilă pentru gestiune frauduloasă și conspirații împotriva guvernării. Totuși, discursul rămâne ancorat în registrul politic partizan și procedural, enumerând măsuri guvernamentale concrete și obiective economice. Deși există accente de tip 'elită malefică', cadrul 'popor-vs-elită' nu este structural-portant pentru întregul discurs, care se concentrează pe apărarea acțiunilor guvernului USL. Scor 1, reflectând prezența unor tropi populiști într-un discurs altfel orientat spre polemică politică și bilanț guvernamental.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 14261,
+      "tokens_in_breakdown": {
+        "fresh": 14261,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 543,
+      "cost_usd": null,
+      "latency_ms": 2760,
+      "retries_used": 0
+    },
+    "voice": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "voice",
+      "speech_id": "mo://2012/II/91#agenda-1#act-6",
+      "output": {
+        "classifications": [
+          {
+            "marker_id": "m_0",
+            "voice": "speaker_first_person",
+            "voice_confidence": 0.95,
+            "voice_evidence": null,
+            "attributed_to": null,
+            "rationale_short": "Afirmație directă a vorbitorului, fără indicii de citare, raportare sau disclaimer; vorbitorul își asumă responsabilitatea pentru această opinie."
+          },
+          {
+            "marker_id": "m_1",
+            "voice": "speaker_first_person",
+            "voice_confidence": 0.95,
+            "voice_evidence": null,
+            "attributed_to": null,
+            "rationale_short": "Afirmație directă la persoana a treia plural, exprimând poziția politică a vorbitorului față de responsabilitatea guvernanților PDL."
+          }
+        ]
+      },
+      "raw_response": "{\n  \"classifications\": [\n    {\n      \"marker_id\": \"m_0\",\n      \"voice\": \"speaker_first_person\",\n      \"voice_confidence\": 0.95,\n      \"voice_evidence\": null,\n      \"attributed_to\": null,\n      \"rationale_short\": \"Afirmație directă a vorbitorului, fără indicii de citare, raportare sau disclaimer; vorbitorul își asumă responsabilitatea pentru această opinie.\"\n    },\n    {\n      \"marker_id\": \"m_1\",\n      \"voice\": \"speaker_first_person\",\n      \"voice_confidence\": 0.95,\n      \"voice_evidence\": null,\n      \"attributed_to\": null,\n      \"rationale_short\": \"Afirmație directă la persoana a treia plural, exprimând poziția politică a vorbitorului față de responsabilitatea guvernanților PDL.\"\n    }\n  ]\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 11898,
+      "tokens_in_breakdown": {
+        "fresh": 11898,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 227,
+      "cost_usd": null,
+      "latency_ms": 2263,
+      "retries_used": 0
+    },
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2012/II/91#agenda-1#act-6",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.72,
+        "level_of_justification": 1,
+        "content_of_justification": "group_interest",
+        "respect_for_groups": 0,
+        "respect_for_demands": 0,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 1,
+            "evidence": {
+              "text": "Păstrarea locurilor de muncă, eficientizarea companiei și eliminarea firmelor-căpușă – iată adevărata miză!"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Justificarea invocă obiective generale, dar fără a oferi un mecanism cauzal sau dovezi specifice."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "group_interest",
+            "evidence": {
+              "text": "Guvernul USL a fost cât se poate de clar: nu-i va abandona pe muncitorii de la Oltchim"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.88,
+            "rationale_short": "Apelul este orientat către interesul unui grup specific (muncitorii de la Oltchim) și loialitatea politică USL."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 0,
+            "evidence": {
+              "text": "indolența unor astfel de indivizi"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.92,
+            "rationale_short": "Utilizarea unor termeni peiorativi la adresa adversarilor politici constituie o formă de nerespect."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 0,
+            "evidence": {
+              "text": "Era imposibil să admitem ca acest circ să mai continue."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Cererile și acțiunile opoziției sunt respinse categoric, fiind etichetate drept „circ”."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "Ei sunt direct responsabili pentru ce s-a întâmplat la Oltchim în ultimii ani!"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.89,
+            "rationale_short": "Vorbitorul ignoră argumentele opoziției, preferând atacul la persoană și acuzațiile politice."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Combinatul va fi salvat!"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.91,
+            "rationale_short": "Discursul este o declarație politică de poziționare, fără a propune soluții alternative concrete."
+          }
+        ],
+        "rationale": "Discursul prezintă o calitate deliberativă scăzută, fiind dominat de retorică populistă și atacuri politice. Justificarea este de nivel 1, bazându-se pe loialitate de grup și obiective generale fără fundamentare tehnică. Respectul pentru grupuri și cereri este absent, vorbitorul folosind un limbaj derogatoriu la adresa adversarilor. Nu există un angajament cu contraargumentele, ci doar o respingere a acestora prin acuzații de responsabilitate. Discursul rămâne strict pozițional, fără a oferi alternative concrete sau medieri, încadrându-se într-un profil de confruntare politică tipică pentru declarațiile de pe holul parlamentului."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.72,\n  \"level_of_justification\": 1,\n  \"content_of_justification\": \"group_interest\",\n  \"respect_for_groups\": 0,\n  \"respect_for_demands\": 0,\n  \"respect_for_counterarguments\": 0,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Păstrarea locurilor de muncă, eficientizarea companiei și eliminarea firmelor-căpușă – iată adevărata miză!\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Justificarea invocă obiective generale, dar fără a oferi un mecanism cauzal sau dovezi specifice.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"group_interest\",\n      \"evidence\": {\n        \"text\": \"Guvernul USL a fost cât se poate de clar: nu-i va abandona pe muncitorii de la Oltchim\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Apelul este orientat către interesul unui grup specific (muncitorii de la Oltchim) și loialitatea politică USL.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"indolența unor astfel de indivizi\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Utilizarea unor termeni peiorativi la adresa adversarilor politici constituie o formă de nerespect.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"Era imposibil să admitem ca acest circ să mai continue.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.90,\n      \"rationale_short\": \"Cererile și acțiunile opoziției sunt respinse categoric, fiind etichetate drept „circ”.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"Ei sunt direct responsabili pentru ce s-a întâmplat la Oltchim în ultimii ani!\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.89,\n      \"rationale_short\": \"Vorbitorul ignoră argumentele opoziției, preferând atacul la persoană și acuzațiile politice.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"Combinatul va fi salvat!\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.91,\n      \"rationale_short\": \"Discursul este o declarație politică de poziționare, fără a propune soluții alternative concrete.\"\n    }\n  ],\n  \"rationale\": \"Discursul prezintă o calitate deliberativă scăzută, fiind dominat de retorică populistă și atacuri politice. Justificarea este de nivel 1, bazându-se pe loialitate de grup și obiective generale fără fundamentare tehnică. Respectul pentru grupuri și cereri este absent, vorbitorul folosind un limbaj derogatoriu la adresa adversarilor. Nu există un angajament cu contraargumentele, ci doar o respingere a acestora prin acuzații de responsabilitate. Discursul rămâne strict pozițional, fără a oferi alternative concrete sau medieri, încadrându-se într-un profil de confruntare politică tipică pentru declarațiile de pe holul parlamentului.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13062,
+      "tokens_in_breakdown": {
+        "fresh": 13062,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1161,
+      "cost_usd": null,
+      "latency_ms": 4351,
+      "retries_used": 0
+    }
+  }
+}

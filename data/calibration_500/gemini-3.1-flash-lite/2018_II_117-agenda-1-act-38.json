@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2018/II/117#agenda-1#act-38",
+  "tier": "calibration",
+  "speaker": {
+    "id": "roman-florin-claudiu",
+    "name": "Florin Claudiu Roman",
+    "raw": "Domnul Florin Claudiu Roman",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2018-07-05",
+    "year": 2018,
+    "legislature": "VIII",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2018/II/117#agenda-1#act-38",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul este unul pur procedural și tehnic, axat pe deblocarea unui proiect legislativ în comisii și pe recunoașterea muncii depuse de colegi. Vorbitorul recunoaște limitările financiare și caracterul gradual al soluției propuse, demonstrând o abordare pragmatică și pluralistă, fără nicio urmă de cadru maniheist popor-vs-elită. Nu există nicio invocare a unei voințe populare omogene sau a unei crize existențiale, discursul fiind ancorat în realitatea administrativă a procesului legislativ. Hawkins=0 cu încredere maximă."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul este unul pur procedural și tehnic, axat pe deblocarea unui proiect legislativ în comisii și pe recunoașterea muncii depuse de colegi. Vorbitorul recunoaște limitările financiare și caracterul gradual al soluției propuse, demonstrând o abordare pragmatică și pluralistă, fără nicio urmă de cadru maniheist popor-vs-elită. Nu există nicio invocare a unei voințe populare omogene sau a unei crize existențiale, discursul fiind ancorat în realitatea administrativă a procesului legislativ. Hawkins=0 cu încredere maximă.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13686,
+      "tokens_in_breakdown": {
+        "fresh": 13686,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 211,
+      "cost_usd": null,
+      "latency_ms": 1958,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2018/II/117#agenda-1#act-38",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.82,
+        "level_of_justification": 1,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 2,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 1,
+            "evidence": {
+              "text": "este un pas înainte și evident că nu putem, la ora actuală, din punct de vedere financiar, să cuprindem în inventariere chiar toate clădirile expuse la riscul seismic, dar este un pas important înainte"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Justificarea este vagă și circulară, invocând limitări financiare nespecificate fără a oferi un mecanism cauzal clar."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "cuprindem în inventariere chiar toate clădirile expuse la riscul seismic"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Apelul la siguranța seismică este un obiectiv universalizabil, orientat către binele comun."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 2,
+            "evidence": {
+              "text": "vreau să le mulțumesc colegilor din Comisia pentru administrație care au lucrat cu seriozitate"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Vorbitorul recunoaște explicit contribuția și seriozitatea colegilor din comisie, depășind curtoazia formală."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "nu se rezolvă toate problemele"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.88,
+            "rationale_short": "Recunoaște existența unor nemulțumiri fără a angaja sau valida cererile specifice ale opoziției."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "nu se rezolvă toate problemele, dar, din punctul nostru de vedere, este un pas înainte"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Vorbitorul ignoră raționamentele critice din spatele nemulțumirilor, trecând direct la propria poziție."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "este un pas înainte"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.94,
+            "rationale_short": "Discursul susține proiectul fără a propune o alternativă sau o mediere concretă."
+          }
+        ],
+        "rationale": "Discursul este unul de susținere a unui proiect legislativ, caracterizat printr-o calitate deliberativă moderată. Justificarea este de nivel 1, fiind mai degrabă o afirmație despre progres decât o argumentare cauzală detaliată. Vorbitorul manifestă un respect explicit pentru colegii din comisie (respect_for_groups=2), dar nu angajează substanțial contraargumentele sau cererile opoziției, limitându-se la o recunoaștere generică a nemulțumirilor. Politica este pozițională, fără a oferi amendamente sau soluții de compromis. Profilul este unul conciliator, dar lipsit de densitate argumentativă."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.82,\n  \"level_of_justification\": 1,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 2,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 0,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 1,\n      \"evidence\": { \"text\": \"este un pas înainte și evident că nu putem, la ora actuală, din punct de vedere financiar, să cuprindem în inventariere chiar toate clădirile expuse la riscul seismic, dar este un pas important înainte\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Justificarea este vagă și circulară, invocând limitări financiare nespecificate fără a oferi un mecanism cauzal clar.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": { \"text\": \"cuprindem în inventariere chiar toate clădirile expuse la riscul seismic\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Apelul la siguranța seismică este un obiectiv universalizabil, orientat către binele comun.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 2,\n      \"evidence\": { \"text\": \"vreau să le mulțumesc colegilor din Comisia pentru administrație care au lucrat cu seriozitate\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Vorbitorul recunoaște explicit contribuția și seriozitatea colegilor din comisie, depășind curtoazia formală.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": { \"text\": \"nu se rezolvă toate problemele\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Recunoaște existența unor nemulțumiri fără a angaja sau valida cererile specifice ale opoziției.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 0,\n      \"evidence\": { \"text\": \"nu se rezolvă toate problemele, dar, din punctul nostru de vedere, este un pas înainte\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.90,\n      \"rationale_short\": \"Vorbitorul ignoră raționamentele critice din spatele nemulțumirilor, trecând direct la propria poziție.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": { \"text\": \"este un pas înainte\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.94,\n      \"rationale_short\": \"Discursul susține proiectul fără a propune o alternativă sau o mediere concretă.\"\n    }\n  ],\n  \"rationale\": \"Discursul este unul de susținere a unui proiect legislativ, caracterizat printr-o calitate deliberativă moderată. Justificarea este de nivel 1, fiind mai degrabă o afirmație despre progres decât o argumentare cauzală detaliată. Vorbitorul manifestă un respect explicit pentru colegii din comisie (respect_for_groups=2), dar nu angajează substanțial contraargumentele sau cererile opoziției, limitându-se la o recunoaștere generică a nemulțumirilor. Politica este pozițională, fără a oferi amendamente sau soluții de compromis. Profilul este unul conciliator, dar lipsit de densitate argumentativă.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12487,
+      "tokens_in_breakdown": {
+        "fresh": 12487,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1154,
+      "cost_usd": null,
+      "latency_ms": 4448,
+      "retries_used": 0
+    }
+  }
+}

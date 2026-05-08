@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2014/II/55#agenda-1#act-132",
+  "tier": "calibration",
+  "speaker": {
+    "id": "dontu-mihai-aurel",
+    "name": "Mihai Aurel Donțu",
+    "raw": "Domnul Mihai Aurel Donțu",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2014-04-23",
+    "year": 2014,
+    "legislature": "VII",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2014/II/55#agenda-1#act-132",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 1.0,
+        "markers": [],
+        "rationale": "Discursul reprezintă o prezentare tehnică, procedurală, a activității unei comisii parlamentare. Vorbitorul se limitează la descrierea parcursului legislativ al unei propuneri (sesizarea comisiei, decizia Senatului, examinarea în ședință) și la anunțarea votului final. Nu există nicio urmă de cadru popor-vs-elită, maniheism moral sau invocare a unei voințe populare suverane. Discursul este pur administrativ, fără nicio componentă populistă."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 1.0,\n  \"markers\": [],\n  \"rationale\": \"Discursul reprezintă o prezentare tehnică, procedurală, a activității unei comisii parlamentare. Vorbitorul se limitează la descrierea parcursului legislativ al unei propuneri (sesizarea comisiei, decizia Senatului, examinarea în ședință) și la anunțarea votului final. Nu există nicio urmă de cadru popor-vs-elită, maniheism moral sau invocare a unei voințe populare suverane. Discursul este pur administrativ, fără nicio componentă populistă.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13729,
+      "tokens_in_breakdown": {
+        "fresh": 13729,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 189,
+      "cost_usd": null,
+      "latency_ms": 2394,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2014/II/55#agenda-1#act-132",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.95,
+        "level_of_justification": 0,
+        "content_of_justification": "none",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 0,
+            "evidence": {
+              "text": "membrii comisiei propun, cu majoritate de voturi, respingerea acesteia."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Raportul prezintă o decizie procedurală fără a oferi argumente sau raționamente substanțiale."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "none",
+            "evidence": {
+              "text": "membrii comisiei propun, cu majoritate de voturi, respingerea acesteia."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Nicio justificare oferită; conținutul justificării este nedefinit."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Stimați colegi"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.99,
+            "marker_confidence": 0.95,
+            "rationale_short": "Adresare convențională neutră; niciun grup vizat explicit."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Senatul, în calitate de primă Cameră sesizată, a respins inițiativa legislativă."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Mențiune neutră a acțiunii Senatului fără angajament cu cererea inițiativei."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "Senatul, în calitate de primă Cameră sesizată, a respins inițiativa legislativă."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Referire la decizia Senatului fără a angaja raționamentul din spatele acesteia."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "membrii comisiei propun, cu majoritate de voturi, respingerea acesteia."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Prezentarea raportului comisiei este o acțiune procedurală, nu o propunere alternativă sau mediere."
+          }
+        ],
+        "rationale": "Acest discurs reprezintă prezentarea formală a unui raport de comisie parlamentară, având un caracter pur procedural și informativ. Vorbitorul nu oferă nicio justificare pentru decizia de respingere, limitându-se la a consemna votul majorității și istoricul legislativ al inițiativei. Nu există elemente de respect sau dispreț față de grupuri sau cereri, deoarece tonul este strict administrativ și neutru. De asemenea, nu se observă nicio încercare de angajament cu argumentele pro sau contra, discursul fiind pozițional prin natura sa de raport oficial. Calitatea deliberativă este scăzută, fiind un exemplu tipic de intervenție procedurală care nu urmărește persuasiunea sau dezbaterea."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.95,\n  \"level_of_justification\": 0,\n  \"content_of_justification\": \"none\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"membrii comisiei propun, cu majoritate de voturi, respingerea acesteia.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Raportul prezintă o decizie procedurală fără a oferi argumente sau raționamente substanțiale.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"none\",\n      \"evidence\": {\n        \"text\": \"membrii comisiei propun, cu majoritate de voturi, respingerea acesteia.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Nicio justificare oferită; conținutul justificării este nedefinit.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Stimați colegi\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.99,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Adresare convențională neutră; niciun grup vizat explicit.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Senatul, în calitate de primă Cameră sesizată, a respins inițiativa legislativă.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Mențiune neutră a acțiunii Senatului fără angajament cu cererea inițiativei.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Senatul, în calitate de primă Cameră sesizată, a respins inițiativa legislativă.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Referire la decizia Senatului fără a angaja raționamentul din spatele acesteia.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"membrii comisiei propun, cu majoritate de voturi, respingerea acesteia.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Prezentarea raportului comisiei este o acțiune procedurală, nu o propunere alternativă sau mediere.\"\n    }\n  ],\n  \"rationale\": \"Acest discurs reprezintă prezentarea formală a unui raport de comisie parlamentară, având un caracter pur procedural și informativ. Vorbitorul nu oferă nicio justificare pentru decizia de respingere, limitându-se la a consemna votul majorității și istoricul legislativ al inițiativei. Nu există elemente de respect sau dispreț față de grupuri sau cereri, deoarece tonul este strict administrativ și neutru. De asemenea, nu se observă nicio încercare de angajament cu argumentele pro sau contra, discursul fiind pozițional prin natura sa de raport oficial. Calitatea deliberativă este scăzută, fiind un exemplu tipic de intervenție procedurală care nu urmărește persuasiunea sau dezbaterea.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12530,
+      "tokens_in_breakdown": {
+        "fresh": 12530,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1132,
+      "cost_usd": null,
+      "latency_ms": 3979,
+      "retries_used": 0
+    }
+  }
+}

@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2001/II/170#agenda-1#act-187",
+  "tier": "calibration",
+  "speaker": {
+    "id": "tudor-marcu",
+    "name": "Marcu Tudor",
+    "raw": "Domnul Marcu Tudor",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": null,
+    "year": 2001,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2001/II/170#agenda-1#act-187",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.95,
+        "markers": [],
+        "rationale": "Discursul este o intervenție procedurală axată pe contestarea unui vot și pe critica modului în care a fost condusă ședința de către domnul Mohora. Deși tonul este agresiv și acuzator, acesta rămâne în limitele disputei parlamentare privind regulamentul și procedurile de vot, fără a invoca un cadru maniheist popor-vs-elită sau o viziune populistă pervazivă. Nu există elemente de moralism binar, invocarea unei voințe populare omogene sau a unei elite malefice în sensul definit de Hawkins. Este un discurs de opoziție parlamentară clasică, scorul 0 fiind cel adecvat."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.95,\n  \"markers\": [],\n  \"rationale\": \"Discursul este o intervenție procedurală axată pe contestarea unui vot și pe critica modului în care a fost condusă ședința de către domnul Mohora. Deși tonul este agresiv și acuzator, acesta rămâne în limitele disputei parlamentare privind regulamentul și procedurile de vot, fără a invoca un cadru maniheist popor-vs-elită sau o viziune populistă pervazivă. Nu există elemente de moralism binar, invocarea unei voințe populare omogene sau a unei elite malefice în sensul definit de Hawkins. Este un discurs de opoziție parlamentară clasică, scorul 0 fiind cel adecvat.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13844,
+      "tokens_in_breakdown": {
+        "fresh": 13844,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 221,
+      "cost_usd": null,
+      "latency_ms": 2377,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2001/II/170#agenda-1#act-187",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.72,
+        "level_of_justification": 0,
+        "content_of_justification": "none",
+        "respect_for_groups": 0,
+        "respect_for_demands": 0,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 0,
+            "evidence": {
+              "text": "Nu e adevãrat. Eu contest întru totul numãrul voturilor"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Vorbitorul contestă rezultatul votului fără a oferi o justificare cauzală sau probatorie."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "none",
+            "evidence": {
+              "text": "Eu contest întru totul numãrul voturilor"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Nicio justificare oferită; conținutul justificării este nedefinit."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 0,
+            "evidence": {
+              "text": "Îl atenþionez, în acest fel, pe domnul Mohora, care a numãrat fals"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.92,
+            "rationale_short": "Acuzație directă de fraudă la adresa unui coleg, depășind cadrul procedural."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 0,
+            "evidence": {
+              "text": "când era evident ºi pentru oricine, rãuvoitor, cã nu era adevãrat!"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.96,
+            "marker_confidence": 0.9,
+            "rationale_short": "Caracterizarea poziției adverse drept rea-voință și neadevăr constituie o respingere."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "Dacã nu aþi înþeles asta, n-aþi înþeles pânã acum mare lucru."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.93,
+            "rationale_short": "Vorbitorul refuză angajamentul substanțial, recurgând la atacuri ad hominem."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Vã rog sã refaceþi votul"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.94,
+            "rationale_short": "Solicitarea refacerii votului este o poziție procedurală, nu o propunere alternativă de politică publică."
+          }
+        ],
+        "rationale": "Discursul este caracterizat printr-o calitate deliberativă scăzută, fiind dominat de acuzații și poziționări conflictuale. Vorbitorul contestă rezultatul votului fără a oferi dovezi sau raționamente (level_of_justification=0), atacând direct integritatea colegului care a numărat voturile (respect_for_groups=0). Nu există nicio încercare de a angaja argumentele opoziției, ci doar o respingere a acestora ca fiind neadevărate (respect_for_counterarguments=0). Deși menționează o propunere a ministrului Stănoiu, vorbitorul nu oferă o alternativă constructivă sau o mediere, ci doar cere refacerea votului (constructive_politics=positional). Tonul este agresiv și procedural, lipsit de elementele necesare unei deliberări parlamentare de calitate."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.72,\n  \"level_of_justification\": 0,\n  \"content_of_justification\": \"none\",\n  \"respect_for_groups\": 0,\n  \"respect_for_demands\": 0,\n  \"respect_for_counterarguments\": 0,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"Nu e adevãrat. Eu contest întru totul numãrul voturilor\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Vorbitorul contestă rezultatul votului fără a oferi o justificare cauzală sau probatorie.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"none\",\n      \"evidence\": {\n        \"text\": \"Eu contest întru totul numãrul voturilor\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Nicio justificare oferită; conținutul justificării este nedefinit.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"Îl atenþionez, în acest fel, pe domnul Mohora, care a numãrat fals\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Acuzație directă de fraudă la adresa unui coleg, depășind cadrul procedural.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"când era evident ºi pentru oricine, rãuvoitor, cã nu era adevãrat!\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.96,\n      \"marker_confidence\": 0.90,\n      \"rationale_short\": \"Caracterizarea poziției adverse drept rea-voință și neadevăr constituie o respingere.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"Dacã nu aþi înþeles asta, n-aþi înþeles pânã acum mare lucru.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"marker_confidence\": 0.93,\n      \"rationale_short\": \"Vorbitorul refuză angajamentul substanțial, recurgând la atacuri ad hominem.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"Vã rog sã refaceþi votul\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.94,\n      \"rationale_short\": \"Solicitarea refacerii votului este o poziție procedurală, nu o propunere alternativă de politică publică.\"\n    }\n  ],\n  \"rationale\": \"Discursul este caracterizat printr-o calitate deliberativă scăzută, fiind dominat de acuzații și poziționări conflictuale. Vorbitorul contestă rezultatul votului fără a oferi dovezi sau raționamente (level_of_justification=0), atacând direct integritatea colegului care a numărat voturile (respect_for_groups=0). Nu există nicio încercare de a angaja argumentele opoziției, ci doar o respingere a acestora ca fiind neadevărate (respect_for_counterarguments=0). Deși menționează o propunere a ministrului Stănoiu, vorbitorul nu oferă o alternativă constructivă sau o mediere, ci doar cere refacerea votului (constructive_politics=positional). Tonul este agresiv și procedural, lipsit de elementele necesare unei deliberări parlamentare de calitate.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12645,
+      "tokens_in_breakdown": {
+        "fresh": 12645,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1177,
+      "cost_usd": null,
+      "latency_ms": 4587,
+      "retries_used": 0
+    }
+  }
+}

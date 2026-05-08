@@ -1,0 +1,52 @@
+{
+  "speech_id": "mo://2021/II/130#agenda-1#act-33",
+  "tier": "calibration",
+  "speaker": {
+    "id": "manea-catalin-zamfir",
+    "name": "Cătălin-Zamfir Manea",
+    "raw": "Domnul Cătălin-Zamfir Manea",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2021-09-07",
+    "year": 2021,
+    "legislature": "IX",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": null,
+    "voice": null,
+    "dqi": null,
+    "vparty": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "vparty",
+      "speech_id": "mo://2021/II/130#agenda-1#act-33",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "vparty@2020 + vdem-attacks-on@v13",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul deputatului Cătălin Manea se încadrează în registrul parlamentar legitim, concentrându-se pe critici de politică publică privind gestionarea educației în contextul pandemiei și pe necesitatea adoptării unei strategii de incluziune pentru minoritatea romă. Vorbitorul critică Guvernul pentru ineficiență și lipsa de pregătire, însă nu delegitimează instituțiile democratice, opoziția, presa sau societatea civilă ca clase. Referințele la drepturile constituționale și la necesitatea unor politici publice sunt formulate în cadrul democratic de contestare și propunere. Nu există elemente de anti-pluralism, scorul fiind 0."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"vparty@2020 + vdem-attacks-on@v13\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul deputatului Cătălin Manea se încadrează în registrul parlamentar legitim, concentrându-se pe critici de politică publică privind gestionarea educației în contextul pandemiei și pe necesitatea adoptării unei strategii de incluziune pentru minoritatea romă. Vorbitorul critică Guvernul pentru ineficiență și lipsa de pregătire, însă nu delegitimează instituțiile democratice, opoziția, presa sau societatea civilă ca clase. Referințele la drepturile constituționale și la necesitatea unor politici publice sunt formulate în cadrul democratic de contestare și propunere. Nu există elemente de anti-pluralism, scorul fiind 0.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13408,
+      "tokens_in_breakdown": {
+        "fresh": 13408,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 234,
+      "cost_usd": null,
+      "latency_ms": 1837,
+      "retries_used": 0
+    }
+  }
+}

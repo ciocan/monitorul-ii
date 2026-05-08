@@ -1,0 +1,152 @@
+{
+  "speech_id": "mo://2007/II/166#agenda-1#act-290",
+  "tier": "calibration",
+  "speaker": {
+    "id": "istvan-toke",
+    "name": "Tőke István",
+    "raw": "Domnul Tőke István",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": "2007-12-03",
+    "year": 2007,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2007/II/166#agenda-1#act-290",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 1.0,
+        "markers": [],
+        "rationale": "Discursul este unul pur tehnic și administrativ, axat pe gestionarea unui focar de pestă porcină. Vorbitorul prezintă date epidemiologice, măsuri de carantină, acțiuni ale autorităților și proceduri de control sanitar-veterinar. Nu există nicio urmă de cadru popor-vs-elită, maniheism moral, invocare a unei voințe populare omogene sau orice altă trăsătură populistă. Discursul se înscrie integral în registrul birocratic-tehnocratic, fiind un exemplu clar de scor 0."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 1.0,\n  \"markers\": [],\n  \"rationale\": \"Discursul este unul pur tehnic și administrativ, axat pe gestionarea unui focar de pestă porcină. Vorbitorul prezintă date epidemiologice, măsuri de carantină, acțiuni ale autorităților și proceduri de control sanitar-veterinar. Nu există nicio urmă de cadru popor-vs-elită, maniheism moral, invocare a unei voințe populare omogene sau orice altă trăsătură populistă. Discursul se înscrie integral în registrul birocratic-tehnocratic, fiind un exemplu clar de scor 0.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 14046,
+      "tokens_in_breakdown": {
+        "fresh": 14046,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 202,
+      "cost_usd": null,
+      "latency_ms": 2121,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2007/II/166#agenda-1#act-290",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.88,
+        "level_of_justification": 2,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "Planul de măsuri prevede sacrificarea și incinerarea unui număr de 2.500 de porci, crearea unor țarcuri destinate prinderii animalelor și instituirea unui număr de opt puncte de trecere"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Vorbitorul oferă o justificare bazată pe un plan de acțiune specific și măsuri concrete de gestionare a crizei."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "realizarea unui program de acțiune pentru lichidarea focarelor"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Justificarea vizează interesul public general de a stopa epidemia, nu un interes de grup specific."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "locuitorilor din zonele limitrofe Bălții Brăilei"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Grupurile afectate sunt menționate într-un context descriptiv, fără conotații de respect sau dispreț."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Situația epidemiologică nou-creată în județul Brăila a fost comunicată de urgență autorităților similare"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Vorbitorul se concentrează pe acțiunile administrative, fără a aborda cereri politice opuse."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "Confirmarea unui caz de pestă porcină clasică la un cadavru de porc semisălbatic în Parcul natural Insula Mică a Brăilei nu corespunde unei epidemii."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.88,
+            "rationale_short": "Vorbitorul clarifică definiția epidemiei, adresând implicit o îngrijorare publică fără a angaja un contraargument specific."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Planul de măsuri prevede sacrificarea și incinerarea unui număr de 2.500 de porci"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Discursul prezintă măsurile luate de autorități, fiind o expunere de poziție administrativă."
+          }
+        ],
+        "rationale": "Discursul are un caracter informativ și administrativ, prezentând măsurile luate de autorități pentru gestionarea pestei porcine. Justificarea este calificată (level_of_justification=2) prin detalierea planului de acțiune și a mecanismelor de control, apelând la binele comun (common_good). Nu există elemente de dispreț sau angajament cu cereri politice opuse, menținând un ton neutru (respect_for_groups=1, respect_for_demands=1). Deși vorbitorul clarifică situația epidemiologică, nu există un angajament substanțial cu contraargumente (respect_for_counterarguments=1). Discursul este pozițional, concentrându-se pe raportarea acțiunilor întreprinse, fără a propune alternative sau medieri."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.88,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"Planul de măsuri prevede sacrificarea și incinerarea unui număr de 2.500 de porci, crearea unor țarcuri destinate prinderii animalelor și instituirea unui număr de opt puncte de trecere\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Vorbitorul oferă o justificare bazată pe un plan de acțiune specific și măsuri concrete de gestionare a crizei.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"realizarea unui program de acțiune pentru lichidarea focarelor\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Justificarea vizează interesul public general de a stopa epidemia, nu un interes de grup specific.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"locuitorilor din zonele limitrofe Bălții Brăilei\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Grupurile afectate sunt menționate într-un context descriptiv, fără conotații de respect sau dispreț.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Situația epidemiologică nou-creată în județul Brăila a fost comunicată de urgență autorităților similare\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Vorbitorul se concentrează pe acțiunile administrative, fără a aborda cereri politice opuse.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Confirmarea unui caz de pestă porcină clasică la un cadavru de porc semisălbatic în Parcul natural Insula Mică a Brăilei nu corespunde unei epidemii.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Vorbitorul clarifică definiția epidemiei, adresând implicit o îngrijorare publică fără a angaja un contraargument specific.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"Planul de măsuri prevede sacrificarea și incinerarea unui număr de 2.500 de porci\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Discursul prezintă măsurile luate de autorități, fiind o expunere de poziție administrativă.\"\n    }\n  ],\n  \"rationale\": \"Discursul are un caracter informativ și administrativ, prezentând măsurile luate de autorități pentru gestionarea pestei porcine. Justificarea este calificată (level_of_justification=2) prin detalierea planului de acțiune și a mecanismelor de control, apelând la binele comun (common_good). Nu există elemente de dispreț sau angajament cu cereri politice opuse, menținând un ton neutru (respect_for_groups=1, respect_for_demands=1). Deși vorbitorul clarifică situația epidemiologică, nu există un angajament substanțial cu contraargumente (respect_for_counterarguments=1). Discursul este pozițional, concentrându-se pe raportarea acțiunilor întreprinse, fără a propune alternative sau medieri.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [
+        "Situația epidemiologică nou-creată în județul Brăila a fost comunicată de urgență autorităților similare"
+      ],
+      "parse_repaired": false,
+      "tokens_in": 12847,
+      "tokens_in_breakdown": {
+        "fresh": 12847,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1264,
+      "cost_usd": null,
+      "latency_ms": 4812,
+      "retries_used": 0
+    }
+  }
+}

@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2003/II/75#agenda-5#act-26",
+  "tier": "calibration",
+  "speaker": {
+    "id": "dorneanu-valer",
+    "name": "Valer Dorneanu",
+    "raw": "Domnul Valer Dorneanu",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": null,
+    "session_date": null,
+    "year": 2003,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2003/II/75#agenda-5#act-26",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul este unul pur tehnic și administrativ, constând în prezentarea datelor financiare, a structurii organizatorice și a situației bugetare a Institutului Inimii din Cluj. Vorbitorul se limitează la raportarea cifrelor, explicarea dificultăților de finanțare și prezentarea măsurilor luate de conducerea instituției, fără a utiliza nicio retorică populistă. Nu există nicio referire la un cadru popor-vs-elită, maniheism moral sau invocarea unei voințe populare omogene. Discursul respectă pe deplin registrul procedural și tehnocratic, fiind un exemplu clar de scor 0."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul este unul pur tehnic și administrativ, constând în prezentarea datelor financiare, a structurii organizatorice și a situației bugetare a Institutului Inimii din Cluj. Vorbitorul se limitează la raportarea cifrelor, explicarea dificultăților de finanțare și prezentarea măsurilor luate de conducerea instituției, fără a utiliza nicio retorică populistă. Nu există nicio referire la un cadru popor-vs-elită, maniheism moral sau invocarea unei voințe populare omogene. Discursul respectă pe deplin registrul procedural și tehnocratic, fiind un exemplu clar de scor 0.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 14628,
+      "tokens_in_breakdown": {
+        "fresh": 14628,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 215,
+      "cost_usd": null,
+      "latency_ms": 1926,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2003/II/75#agenda-5#act-26",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.88,
+        "level_of_justification": 2,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "Pentru 2003 bugetul a fost discutat la urm„toarele valori: un buget total de 174,8 miliarde, fa ˛ „ de 137,7, din care cheltuieli de personal — 55,2 miliarde, cheltuieli materiale ∫i servicii 64,8 miliarde, programe de s„n„tate — 54,8 miliarde."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Vorbitorul oferă date bugetare comparative detaliate pentru a justifica situația financiară a institutului."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "pentru a asigura urgen ˛ ele Ón cadrul sec ˛ iilor de chirurgie cardiac„"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Justificarea se bazează pe necesitatea asigurării urgențelor medicale pentru cetățeni, un interes public universal."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Stima ˛ i domni deputa ˛ i"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.99,
+            "marker_confidence": 0.95,
+            "rationale_short": "Adresare convențională în sală; niciun grup extern nu este vizat sau derogatoriu menționat."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Referitor la interpelarea domnului deputat Miclea"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.99,
+            "marker_confidence": 0.9,
+            "rationale_short": "Vorbitorul răspunde interpelării, dar nu angajează legitimitatea cererii în sine, ci oferă date tehnice."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "Este adev„rat c„ Ón anul 2002 institutul a prestat servicii medicale peste contractul semnat"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.88,
+            "rationale_short": "Recunoaște implicit dificultățile financiare invocate, dar nu angajează un contraargument substanțial."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "astfel Ónc‚t prin modificarea unui act normativ suntem Ón m„sur„ ca p‚n„ la 30 iunie, deci Óncep‚nd cu 1 iulie, s„ fie Óntocmite bugetele"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.9,
+            "rationale_short": "Prezintă soluția administrativă a ministerului fără a propune o alternativă sau mediere între părți."
+          }
+        ],
+        "rationale": "Discursul secretarului de stat este unul tehnic, axat pe furnizarea de date financiare și explicații administrative ca răspuns la o interpelare. Justificarea este de nivel 2, bazată pe cifre comparative și mecanisme bugetare, orientată către binele comun (asigurarea urgențelor medicale). Respectul pentru grupuri și cereri este neutru, limitându-se la politețea procedurală și la furnizarea informațiilor solicitate. Nu există un angajament deliberativ cu contraargumente, ci mai degrabă o expunere a situației. Politica este pozițională, prezentând măsurile luate de minister fără a deschide un spațiu de negociere sau mediere. Calitatea deliberativă este solidă pentru un discurs de informare tehnică."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.88,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"Pentru 2003 bugetul a fost discutat la urm„toarele valori: un buget total de 174,8 miliarde, fa ˛ „ de 137,7, din care cheltuieli de personal — 55,2 miliarde, cheltuieli materiale ∫i servicii 64,8 miliarde, programe de s„n„tate — 54,8 miliarde.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Vorbitorul oferă date bugetare comparative detaliate pentru a justifica situația financiară a institutului.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"pentru a asigura urgen ˛ ele Ón cadrul sec ˛ iilor de chirurgie cardiac„\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Justificarea se bazează pe necesitatea asigurării urgențelor medicale pentru cetățeni, un interes public universal.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Stima ˛ i domni deputa ˛ i\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.99,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Adresare convențională în sală; niciun grup extern nu este vizat sau derogatoriu menționat.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Referitor la interpelarea domnului deputat Miclea\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.99,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Vorbitorul răspunde interpelării, dar nu angajează legitimitatea cererii în sine, ci oferă date tehnice.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Este adev„rat c„ Ón anul 2002 institutul a prestat servicii medicale peste contractul semnat\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Recunoaște implicit dificultățile financiare invocate, dar nu angajează un contraargument substanțial.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"astfel Ónc‚t prin modificarea unui act normativ suntem Ón m„sur„ ca p‚n„ la 30 iunie, deci Óncep‚nd cu 1 iulie, s„ fie Óntocmite bugetele\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Prezintă soluția administrativă a ministerului fără a propune o alternativă sau mediere între părți.\"\n    }\n  ],\n  \"rationale\": \"Discursul secretarului de stat este unul tehnic, axat pe furnizarea de date financiare și explicații administrative ca răspuns la o interpelare. Justificarea este de nivel 2, bazată pe cifre comparative și mecanisme bugetare, orientată către binele comun (asigurarea urgențelor medicale). Respectul pentru grupuri și cereri este neutru, limitându-se la politețea procedurală și la furnizarea informațiilor solicitate. Nu există un angajament deliberativ cu contraargumente, ci mai degrabă o expunere a situației. Politica este pozițională, prezentând măsurile luate de minister fără a deschide un spațiu de negociere sau mediere. Calitatea deliberativă este solidă pentru un discurs de informare tehnică.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13429,
+      "tokens_in_breakdown": {
+        "fresh": 13429,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1284,
+      "cost_usd": null,
+      "latency_ms": 4915,
+      "retries_used": 0
+    }
+  }
+}

@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2019/II/28#agenda-3#act-174",
+  "tier": "calibration",
+  "speaker": {
+    "id": "gotiu-remus-mihai",
+    "name": "Remus Mihai Goțiu",
+    "raw": "Domnul Remus Mihai Goțiu",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": "2019-02-25",
+    "year": 2019,
+    "legislature": "VIII",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2019/II/28#agenda-3#act-174",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul este unul pur procedural și tehnic, concentrat pe clarificarea prevederilor unui proiect legislativ privind incompatibilitățile funcțiilor publice. Vorbitorul răspunde unei critici punctuale a unui coleg (domnul Costoiu) și explică limitele juridice ale propunerii, fără a utiliza nicio retorică populistă. Nu există nicio referire la un cadru popor-vs-elită, nicio invocare a unei voințe populare omogene și niciun element de maniheism moral. Discursul se înscrie în registrul dezbaterii parlamentare standard, motiv pentru care scorul este 0."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul este unul pur procedural și tehnic, concentrat pe clarificarea prevederilor unui proiect legislativ privind incompatibilitățile funcțiilor publice. Vorbitorul răspunde unei critici punctuale a unui coleg (domnul Costoiu) și explică limitele juridice ale propunerii, fără a utiliza nicio retorică populistă. Nu există nicio referire la un cadru popor-vs-elită, nicio invocare a unei voințe populare omogene și niciun element de maniheism moral. Discursul se înscrie în registrul dezbaterii parlamentare standard, motiv pentru care scorul este 0.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13638,
+      "tokens_in_breakdown": {
+        "fresh": 13638,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 212,
+      "cost_usd": null,
+      "latency_ms": 2075,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2019/II/28#agenda-3#act-174",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.85,
+        "level_of_justification": 2,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 2,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "Totul e de a nu face politică la conducerea unei instituții și de a face, în același timp, și politică la conducerea partidului, pentru că aici intervin problemele."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Vorbitorul explică mecanismul cauzal al incompatibilității (conflictul de interese între conducerea instituției și cea a partidului)."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "Totul e de a nu face politică la conducerea unei instituții și de a face, în același timp, și politică la conducerea partidului"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Justificarea se bazează pe principiul integrității instituționale, universalizabil pentru orice instituție publică."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "domnul Costoiu"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Referință neutră la un coleg; nicio derogare sau respect explicit."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "ceea ce spunea domnul Costoiu nu are legătură cu acest proiect legislativ"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.88,
+            "rationale_short": "Vorbitorul ignoră cererea/poziția adversă prin negarea relevanței acesteia, fără a o ataca sau valida."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 2,
+            "evidence": {
+              "text": "ceea ce spunea domnul Costoiu nu are legătură cu acest proiect legislativ și în niciun caz nu se pune problema vreunei interdicții de a face parte sau de a face politică."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Vorbitorul identifică argumentul advers (teama de interdicție politică) și îl combate prin clarificarea domeniului de aplicare al legii."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "acest proiect legislativ nu își propune să interzică cadrelor din învățământul preuniversitar sau universitar să facă parte dintr-un partid."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.94,
+            "rationale_short": "Vorbitorul își apără poziția și clarifică textul legii, fără a propune o alternativă sau o mediere."
+          }
+        ],
+        "rationale": "Discursul prezintă o calitate deliberativă medie-ridicată, caracterizată printr-o justificare clară a mecanismului de incompatibilitate (level_of_justification=2) și un angajament substanțial cu contraargumentul ridicat de opoziție (respect_for_counterarguments=2). Vorbitorul reușește să clarifice confuzia privind interdicția de a face politică, ancorând argumentul în binele comun al integrității instituționale. Deși respectul pentru grupuri și cereri rămâne neutru, discursul evită atacurile personale și se concentrează pe substanța proiectului. Poziția este una defensivă și explicativă, nefiind o propunere alternativă sau de mediere, ceea ce o plasează în categoria 'positional'. Per total, este o intervenție coerentă și argumentată."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.85,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 2,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"Totul e de a nu face politică la conducerea unei instituții și de a face, în același timp, și politică la conducerea partidului, pentru că aici intervin problemele.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Vorbitorul explică mecanismul cauzal al incompatibilității (conflictul de interese între conducerea instituției și cea a partidului).\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"Totul e de a nu face politică la conducerea unei instituții și de a face, în același timp, și politică la conducerea partidului\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.90,\n      \"rationale_short\": \"Justificarea se bazează pe principiul integrității instituționale, universalizabil pentru orice instituție publică.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"domnul Costoiu\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Referință neutră la un coleg; nicio derogare sau respect explicit.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"ceea ce spunea domnul Costoiu nu are legătură cu acest proiect legislativ\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Vorbitorul ignoră cererea/poziția adversă prin negarea relevanței acesteia, fără a o ataca sau valida.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"ceea ce spunea domnul Costoiu nu are legătură cu acest proiect legislativ și în niciun caz nu se pune problema vreunei interdicții de a face parte sau de a face politică.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Vorbitorul identifică argumentul advers (teama de interdicție politică) și îl combate prin clarificarea domeniului de aplicare al legii.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"acest proiect legislativ nu își propune să interzică cadrelor din învățământul preuniversitar sau universitar să facă parte dintr-un partid.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.94,\n      \"rationale_short\": \"Vorbitorul își apără poziția și clarifică textul legii, fără a propune o alternativă sau o mediere.\"\n    }\n  ],\n  \"rationale\": \"Discursul prezintă o calitate deliberativă medie-ridicată, caracterizată printr-o justificare clară a mecanismului de incompatibilitate (level_of_justification=2) și un angajament substanțial cu contraargumentul ridicat de opoziție (respect_for_counterarguments=2). Vorbitorul reușește să clarifice confuzia privind interdicția de a face politică, ancorând argumentul în binele comun al integrității instituționale. Deși respectul pentru grupuri și cereri rămâne neutru, discursul evită atacurile personale și se concentrează pe substanța proiectului. Poziția este una defensivă și explicativă, nefiind o propunere alternativă sau de mediere, ceea ce o plasează în categoria 'positional'. Per total, este o intervenție coerentă și argumentată.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12439,
+      "tokens_in_breakdown": {
+        "fresh": 12439,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1283,
+      "cost_usd": null,
+      "latency_ms": 5043,
+      "retries_used": 0
+    }
+  }
+}

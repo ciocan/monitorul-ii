@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2014/II/8#agenda-2#act-121",
+  "tier": "calibration",
+  "speaker": {
+    "id": "iacoban-sorin-avram",
+    "name": "Sorin Avram Iacoban",
+    "raw": "Domnul Sorin Avram Iacoban",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2014-02-10",
+    "year": 2014,
+    "legislature": "VII",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2014/II/8#agenda-2#act-121",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul este o interpelare parlamentară standard, axată pe probleme administrative și tehnice specifice (finalizarea centurii ocolitoare a Iașiului și utilizarea Sălii Polivalente). Deputatul folosește un registru procedural, solicitând explicații ministeriale și respectarea unor dispoziții administrative, fără a construi un cadru maniheist popor-vs-elită. Deși menționează „interesul național” și „promisiuni electorale”, acestea sunt utilizate în contextul criticilor de politici publice, nu ca elemente ale unei viziuni populiste. Nu există nicio dovadă a unei viziuni populiste pervazive, motiv pentru care scorul este 0."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul este o interpelare parlamentară standard, axată pe probleme administrative și tehnice specifice (finalizarea centurii ocolitoare a Iașiului și utilizarea Sălii Polivalente). Deputatul folosește un registru procedural, solicitând explicații ministeriale și respectarea unor dispoziții administrative, fără a construi un cadru maniheist popor-vs-elită. Deși menționează „interesul național” și „promisiuni electorale”, acestea sunt utilizate în contextul criticilor de politici publice, nu ca elemente ale unei viziuni populiste. Nu există nicio dovadă a unei viziuni populiste pervazive, motiv pentru care scorul este 0.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 14730,
+      "tokens_in_breakdown": {
+        "fresh": 14730,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 229,
+      "cost_usd": null,
+      "latency_ms": 1990,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2014/II/8#agenda-2#act-121",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.85,
+        "level_of_justification": 2,
+        "content_of_justification": "group_interest",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "municipiul Constanța a primit 55,9 milioane de euro, localitățile Deva și Orăștie împreună 73,7 milioane de euro, pentru Bacău s-a asigurat finanțare de 270 de milioane de euro"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Vorbitorul oferă dovezi empirice comparative (alocări bugetare pentru alte orașe) pentru a susține argumentul discriminării."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "group_interest",
+            "evidence": {
+              "text": "Iașiul a fost mereu uitat pe lista de priorități"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Justificarea este ancorată explicit în interesul regional al municipiului Iași."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "domnul Dan Coman Șova"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.99,
+            "marker_confidence": 0.9,
+            "rationale_short": "Referințe funcționale la miniștri; tonul este formal, fără derogare sau respect explicit."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "vă rugăm să aveți amabilitatea să îmi răspundeți la următoarele întrebări"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Interpelare procedurală; nu există cereri adverse de tratat, deci non-angajament."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "răspunsul a fost că nu există fonduri pentru definitivarea lucrării"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.88,
+            "rationale_short": "Menționează argumentul anterior al Guvernului, dar nu îl combate substanțial, ci doar îl contrastează cu alte alocări."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Care este suma alocată de Guvernul României pentru a continua proiectul șoselei de centură a Iașiului"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Discursul este o interpelare de tip cerere de informații, nu o propunere alternativă de politică publică."
+          }
+        ],
+        "rationale": "Discursul reprezintă o interpelare parlamentară standard, caracterizată printr-o justificare calificată (level_of_justification=2) bazată pe date comparative privind alocările bugetare pentru alte orașe. Justificarea este orientată către interesul regional (group_interest). Respectul pentru grupuri și cereri este neutru, fiind un discurs procedural de solicitare a unor răspunsuri oficiale. Vorbitorul menționează argumentul anterior al Guvernului privind lipsa fondurilor, dar nu îl angajează într-o dezbatere, limitându-se la a evidenția discrepanțele de finanțare. Discursul este pozițional, nefiind o propunere de amendament sau mediere, ci o cerere de clarificare a priorităților guvernamentale."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.85,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"group_interest\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"municipiul Constanța a primit 55,9 milioane de euro, localitățile Deva și Orăștie împreună 73,7 milioane de euro, pentru Bacău s-a asigurat finanțare de 270 de milioane de euro\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Vorbitorul oferă dovezi empirice comparative (alocări bugetare pentru alte orașe) pentru a susține argumentul discriminării.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"group_interest\",\n      \"evidence\": {\n        \"text\": \"Iașiul a fost mereu uitat pe lista de priorități\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Justificarea este ancorată explicit în interesul regional al municipiului Iași.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"domnul Dan Coman Șova\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.99,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Referințe funcționale la miniștri; tonul este formal, fără derogare sau respect explicit.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"vă rugăm să aveți amabilitatea să îmi răspundeți la următoarele întrebări\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Interpelare procedurală; nu există cereri adverse de tratat, deci non-angajament.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"răspunsul a fost că nu există fonduri pentru definitivarea lucrării\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Menționează argumentul anterior al Guvernului, dar nu îl combate substanțial, ci doar îl contrastează cu alte alocări.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"Care este suma alocată de Guvernul României pentru a continua proiectul șoselei de centură a Iașiului\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Discursul este o interpelare de tip cerere de informații, nu o propunere alternativă de politică publică.\"\n    }\n  ],\n  \"rationale\": \"Discursul reprezintă o interpelare parlamentară standard, caracterizată printr-o justificare calificată (level_of_justification=2) bazată pe date comparative privind alocările bugetare pentru alte orașe. Justificarea este orientată către interesul regional (group_interest). Respectul pentru grupuri și cereri este neutru, fiind un discurs procedural de solicitare a unor răspunsuri oficiale. Vorbitorul menționează argumentul anterior al Guvernului privind lipsa fondurilor, dar nu îl angajează într-o dezbatere, limitându-se la a evidenția discrepanțele de finanțare. Discursul este pozițional, nefiind o propunere de amendament sau mediere, ci o cerere de clarificare a priorităților guvernamentale.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13531,
+      "tokens_in_breakdown": {
+        "fresh": 13531,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1206,
+      "cost_usd": null,
+      "latency_ms": 4165,
+      "retries_used": 0
+    }
+  }
+}

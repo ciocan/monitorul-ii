@@ -1,0 +1,154 @@
+{
+  "speech_id": "mo://2024/II/66#agenda-5#act-195",
+  "tier": "calibration",
+  "speaker": {
+    "id": "neata-eugen",
+    "name": "Eugen Neață",
+    "raw": "Domnul Eugen Neață",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2024-04-23",
+    "year": 2024,
+    "legislature": "IX",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2024/II/66#agenda-5#act-195",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 1.0,
+        "markers": [],
+        "rationale": "Discursul reprezintă un raport tehnic de comisie parlamentară, prezentând stadiul legislativ al unui proiect de lege privind alocația de stat pentru copii. Textul se limitează la enumerarea avizelor primite, a procedurilor regulamentare și a pașilor procedurali urmați în comisie. Nu există nicio urmă de cadru popor-vs-elită, maniheism moral sau invocare a unei voințe populare omogene. Discursul este pur procedural și tehnic, încadrându-se perfect în registrul non-populist."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 1.0,\n  \"markers\": [],\n  \"rationale\": \"Discursul reprezintă un raport tehnic de comisie parlamentară, prezentând stadiul legislativ al unui proiect de lege privind alocația de stat pentru copii. Textul se limitează la enumerarea avizelor primite, a procedurilor regulamentare și a pașilor procedurali urmați în comisie. Nu există nicio urmă de cadru popor-vs-elită, maniheism moral sau invocare a unei voințe populare omogene. Discursul este pur procedural și tehnic, încadrându-se perfect în registrul non-populist.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 14173,
+      "tokens_in_breakdown": {
+        "fresh": 14173,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 193,
+      "cost_usd": null,
+      "latency_ms": 1853,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2024/II/66#agenda-5#act-195",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.45,
+        "level_of_justification": 0,
+        "content_of_justification": "none",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 0,
+            "evidence": {
+              "text": "membrii comisiei au hotărât să propună plenului Camerei Deputaților prezentul raport de adoptare a proiectului de lege"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.9,
+            "rationale_short": "Discursul este un raport procedural de comisie, fără argumentație substanțială proprie."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "none",
+            "evidence": {
+              "text": "membrii comisiei au hotărât să propună plenului Camerei Deputaților prezentul raport de adoptare"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.9,
+            "rationale_short": "Nicio justificare oferită; conținutul este nedefinit."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Comisia pentru muncă și protecție socială"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.8,
+            "rationale_short": "Referințe neutre la entități instituționale."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "avizul negativ al Consiliului Legislativ"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.8,
+            "rationale_short": "Enumerare neutră a avizelor primite, fără angajament deliberativ."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "avizul negativ al Consiliului Legislativ; avizul negativ al Consiliului Economic și Social"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.8,
+            "rationale_short": "Menționarea avizelor negative fără a le dezbate sau a răspunde argumentelor din ele."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "propune plenului Camerei Deputaților prezentul raport de adoptare a proiectului de lege"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.9,
+            "rationale_short": "Raportul este un act procedural de transmitere a unei decizii, nu o propunere alternativă."
+          }
+        ],
+        "rationale": "Acest discurs reprezintă prezentarea unui raport de comisie parlamentară, fiind un text pur procedural și administrativ. Vorbitorul nu oferă nicio justificare pentru adoptarea legii, limitându-se la enumerarea avizelor și a pașilor procedurali parcurși. Deși sunt menționate avize negative, acestea sunt doar inventariate, fără a fi angajate sau dezbătute, ceea ce duce la scoruri neutre pe dimensiunile de respect. Discursul nu conține nicio propunere alternativă sau mediere, fiind strict o formalitate de raportare. Din cauza naturii procedurale, scorul de încredere este scăzut, deoarece cadrul DQI nu este conceput pentru a evalua rapoarte tehnice de comisie."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.45,\n  \"level_of_justification\": 0,\n  \"content_of_justification\": \"none\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 0,\n      \"evidence\": { \"text\": \"membrii comisiei au hotărât să propună plenului Camerei Deputaților prezentul raport de adoptare a proiectului de lege\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Discursul este un raport procedural de comisie, fără argumentație substanțială proprie.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"none\",\n      \"evidence\": { \"text\": \"membrii comisiei au hotărât să propună plenului Camerei Deputaților prezentul raport de adoptare\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Nicio justificare oferită; conținutul este nedefinit.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": { \"text\": \"Comisia pentru muncă și protecție socială\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.8,\n      \"rationale_short\": \"Referințe neutre la entități instituționale.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": { \"text\": \"avizul negativ al Consiliului Legislativ\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.8,\n      \"rationale_short\": \"Enumerare neutră a avizelor primite, fără angajament deliberativ.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": { \"text\": \"avizul negativ al Consiliului Legislativ; avizul negativ al Consiliului Economic și Social\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.8,\n      \"rationale_short\": \"Menționarea avizelor negative fără a le dezbate sau a răspunde argumentelor din ele.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": { \"text\": \"propune plenului Camerei Deputaților prezentul raport de adoptare a proiectului de lege\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Raportul este un act procedural de transmitere a unei decizii, nu o propunere alternativă.\"\n    }\n  ],\n  \"rationale\": \"Acest discurs reprezintă prezentarea unui raport de comisie parlamentară, fiind un text pur procedural și administrativ. Vorbitorul nu oferă nicio justificare pentru adoptarea legii, limitându-se la enumerarea avizelor și a pașilor procedurali parcurși. Deși sunt menționate avize negative, acestea sunt doar inventariate, fără a fi angajate sau dezbătute, ceea ce duce la scoruri neutre pe dimensiunile de respect. Discursul nu conține nicio propunere alternativă sau mediere, fiind strict o formalitate de raportare. Din cauza naturii procedurale, scorul de încredere este scăzut, deoarece cadrul DQI nu este conceput pentru a evalua rapoarte tehnice de comisie.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [
+        "membrii comisiei au hotărât să propună plenului Camerei Deputaților prezentul raport de adoptare a proiectului de lege",
+        "membrii comisiei au hotărât să propună plenului Camerei Deputaților prezentul raport de adoptare",
+        "propune plenului Camerei Deputaților prezentul raport de adoptare a proiectului de lege"
+      ],
+      "parse_repaired": false,
+      "tokens_in": 12974,
+      "tokens_in_breakdown": {
+        "fresh": 12974,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1092,
+      "cost_usd": null,
+      "latency_ms": 4422,
+      "retries_used": 0
+    }
+  }
+}

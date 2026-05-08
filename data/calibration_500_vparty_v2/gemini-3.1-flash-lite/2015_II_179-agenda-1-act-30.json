@@ -1,0 +1,52 @@
+{
+  "speech_id": "mo://2015/II/179#agenda-1#act-30",
+  "tier": "calibration",
+  "speaker": {
+    "id": "pascan-emil-marius",
+    "name": "Emil Marius Pașcan",
+    "raw": "Domnul Emil Marius Pașcan",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": "2015-10-13",
+    "year": 2015,
+    "legislature": "VII",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": null,
+    "voice": null,
+    "dqi": null,
+    "vparty": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "vparty",
+      "speech_id": "mo://2015/II/179#agenda-1#act-30",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "vparty@2020 + vdem-attacks-on@v13",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul se concentrează pe o critică procedurală și administrativă privind înființarea unei noi comisii parlamentare, argumentând că aceasta este redundantă și ineficientă. Vorbitorul critică ineficiența instituțională și risipa bugetară, dar rămâne în limitele dezbaterii parlamentare legitime, fără a delegitima instituțiile democratice ca atare. Nu există atacuri la adresa justiției, opoziției, presei, ONG-urilor sau minorităților, iar normele democratice sunt respectate. Discursul este un exemplu tipic de critică politică mainstream, fără elemente anti-pluraliste."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"vparty@2020 + vdem-attacks-on@v13\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul se concentrează pe o critică procedurală și administrativă privind înființarea unei noi comisii parlamentare, argumentând că aceasta este redundantă și ineficientă. Vorbitorul critică ineficiența instituțională și risipa bugetară, dar rămâne în limitele dezbaterii parlamentare legitime, fără a delegitima instituțiile democratice ca atare. Nu există atacuri la adresa justiției, opoziției, presei, ONG-urilor sau minorităților, iar normele democratice sunt respectate. Discursul este un exemplu tipic de critică politică mainstream, fără elemente anti-pluraliste.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13315,
+      "tokens_in_breakdown": {
+        "fresh": 13315,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 225,
+      "cost_usd": null,
+      "latency_ms": 1785,
+      "retries_used": 0
+    }
+  }
+}

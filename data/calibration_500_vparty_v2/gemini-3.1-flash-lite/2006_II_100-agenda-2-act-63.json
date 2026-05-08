@@ -1,0 +1,63 @@
+{
+  "speech_id": "mo://2006/II/100#agenda-2#act-63",
+  "tier": "calibration",
+  "speaker": {
+    "id": "magheru-paul",
+    "name": "Paul Magheru",
+    "raw": "Domnul Paul Magheru",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": null,
+    "session_date": null,
+    "year": 2006,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": null,
+    "voice": null,
+    "dqi": null,
+    "vparty": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "vparty",
+      "speech_id": "mo://2006/II/100#agenda-2#act-63",
+      "output": {
+        "score": 1,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "vparty@2020 + vdem-attacks-on@v13",
+        "framework_confidence": 0.85,
+        "markers": [
+          {
+            "kind": "minority_scapegoating",
+            "evidence": {
+              "text": "De altfel, dac„ le putem recunoa∫te ceva maghiarilor, aceasta este dezna˛ionalizarea prin limb„."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.88,
+            "rationale_short": "Minoritatea maghiară este acuzată colectiv de „deznaționalizare” prin limbă, folosind un cadru de vinovăție etnică."
+          }
+        ],
+        "rationale": "Discursul conține un moment clar de scapegoating al minorității maghiare, acuzată colectiv de o agendă de „deznaționalizare” prin limbă, ceea ce depășește cadrul unei dezbateri legitime despre politici educaționale. Deși restul discursului se concentrează pe argumente privind programa școlară și istoria, acest pasaj introduce o notă de delegitimizare a minorității ca entitate amenințătoare. Totuși, discursul nu atacă instituțiile democratice ca atare și nu respinge pluralismul în ansamblu, rămânând în limitele unei retorici naționaliste care nu devine un manifest anti-pluralist structural. Scor 1 cu încredere ridicată."
+      },
+      "raw_response": "{\n  \"score\": 1,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"vparty@2020 + vdem-attacks-on@v13\",\n  \"framework_confidence\": 0.85,\n  \"markers\": [\n    {\n      \"kind\": \"minority_scapegoating\",\n      \"evidence\": {\n        \"text\": \"De altfel, dac„ le putem recunoa∫te ceva maghiarilor, aceasta este dezna˛ionalizarea prin limb„.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Minoritatea maghiară este acuzată colectiv de „deznaționalizare” prin limbă, folosind un cadru de vinovăție etnică.\"\n    }\n  ],\n  \"rationale\": \"Discursul conține un moment clar de scapegoating al minorității maghiare, acuzată colectiv de o agendă de „deznaționalizare” prin limbă, ceea ce depășește cadrul unei dezbateri legitime despre politici educaționale. Deși restul discursului se concentrează pe argumente privind programa școlară și istoria, acest pasaj introduce o notă de delegitimizare a minorității ca entitate amenințătoare. Totuși, discursul nu atacă instituțiile democratice ca atare și nu respinge pluralismul în ansamblu, rămânând în limitele unei retorici naționaliste care nu devine un manifest anti-pluralist structural. Scor 1 cu încredere ridicată.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 14329,
+      "tokens_in_breakdown": {
+        "fresh": 14329,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 405,
+      "cost_usd": null,
+      "latency_ms": 2711,
+      "retries_used": 0
+    }
+  }
+}

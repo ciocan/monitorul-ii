@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2007/II/110#agenda-3#act-10",
+  "tier": "calibration",
+  "speaker": {
+    "id": "mihei-andrian-sirojea",
+    "name": "Andrian Sirojea Mihei",
+    "raw": "Domnul Andrian Sirojea Mihei",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2007-09-04",
+    "year": 2007,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2007/II/110#agenda-3#act-10",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.95,
+        "markers": [],
+        "rationale": "Discursul se înscrie într-un registru procedural și parlamentar standard, concentrându-se pe agenda legislativă a noii sesiuni, prioritățile bugetare și organizarea alegerilor europarlamentare. Deși vorbitorul critică „cancanurile populiste” și „încercările de a confisca agenda publică”, el face acest lucru din perspectiva apărării instituțiilor și a responsabilității politice, nu prin adoptarea unui cadru maniheist popor-vs-elită. Nu există nicio invocare a unei voințe populare omogene ca forță suverană deasupra legii sau a unei elite malefice, discursul rămânând ancorat în logica dezbaterii parlamentare constructive. Hawkins=0 cu încredere ridicată."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.95,\n  \"markers\": [],\n  \"rationale\": \"Discursul se înscrie într-un registru procedural și parlamentar standard, concentrându-se pe agenda legislativă a noii sesiuni, prioritățile bugetare și organizarea alegerilor europarlamentare. Deși vorbitorul critică „cancanurile populiste” și „încercările de a confisca agenda publică”, el face acest lucru din perspectiva apărării instituțiilor și a responsabilității politice, nu prin adoptarea unui cadru maniheist popor-vs-elită. Nu există nicio invocare a unei voințe populare omogene ca forță suverană deasupra legii sau a unei elite malefice, discursul rămânând ancorat în logica dezbaterii parlamentare constructive. Hawkins=0 cu încredere ridicată.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 14507,
+      "tokens_in_breakdown": {
+        "fresh": 14507,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 248,
+      "cost_usd": null,
+      "latency_ms": 5118,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2007/II/110#agenda-3#act-10",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.72,
+        "level_of_justification": 1,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 1,
+            "evidence": {
+              "text": "Este evident că nu există o bună conlucrare și comunicare între Legislativ, Executiv, autoritățile locale și directorii școlilor, și toate aceste aspecte ar trebui să ne dea de gândit"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Identifică o problemă generală, dar nu oferă un mecanism cauzal sau dovezi specifice pentru susținerea poziției."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "să găsim soluția optimă pentru ca elevii, la început de an, să poată intra în școli renovate și curate"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Apelul este universalizabil, vizând interesul elevilor și al sistemului de învățământ ca întreg."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Stimați colegi"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.99,
+            "marker_confidence": 0.95,
+            "rationale_short": "Adresare convențională; nu există derogări sau recunoașteri explicite ale unor grupuri specifice."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Este ușor să nu faci nimic. Am văzut în ultima sesiune cât de ușor le este unora să stea pe margine și să comenteze"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.88,
+            "rationale_short": "Critica este generală și nu se angajează cu cereri specifice ale opoziției; postură neutră/non-angajată."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "să marginalizăm personajele care diminuează importanța muncii pe care o depunem"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.85,
+            "rationale_short": "Vorbitorul ignoră raționamentele opoziției, preferând să le eticheteze drept „cancanuri populiste”."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Fac astfel un apel către dumneavoastră, stimați colegi, să vă aplecați mai mult asupra problemelor serioase"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Discursul este un apel retoric la responsabilitate, fără a propune un amendament sau o soluție legislativă concretă."
+          }
+        ],
+        "rationale": "Discursul prezintă un profil deliberativ de tip retoric-pozițional. Deși vorbitorul invocă binele comun (educația elevilor), nivelul de justificare rămâne inferior (level_of_justification=1), bazându-se pe observații generale fără a oferi dovezi sau mecanisme cauzale detaliate. Respectul pentru grupuri și cereri este neutru, limitându-se la convenții parlamentare, în timp ce respectul pentru contraargumente este absent (0), opoziția fiind respinsă prin etichetări precum „cancanuri populiste”. Discursul nu conține propuneri alternative sau de mediere, fiind încadrat ca pozițional. Calitatea deliberativă este limitată de caracterul general și exhortativ al intervenției."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.72,\n  \"level_of_justification\": 1,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 0,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 1,\n      \"evidence\": { \"text\": \"Este evident că nu există o bună conlucrare și comunicare între Legislativ, Executiv, autoritățile locale și directorii școlilor, și toate aceste aspecte ar trebui să ne dea de gândit\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Identifică o problemă generală, dar nu oferă un mecanism cauzal sau dovezi specifice pentru susținerea poziției.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": { \"text\": \"să găsim soluția optimă pentru ca elevii, la început de an, să poată intra în școli renovate și curate\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Apelul este universalizabil, vizând interesul elevilor și al sistemului de învățământ ca întreg.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": { \"text\": \"Stimați colegi\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.99,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Adresare convențională; nu există derogări sau recunoașteri explicite ale unor grupuri specifice.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": { \"text\": \"Este ușor să nu faci nimic. Am văzut în ultima sesiune cât de ușor le este unora să stea pe margine și să comenteze\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Critica este generală și nu se angajează cu cereri specifice ale opoziției; postură neutră/non-angajată.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 0,\n      \"evidence\": { \"text\": \"să marginalizăm personajele care diminuează importanța muncii pe care o depunem\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Vorbitorul ignoră raționamentele opoziției, preferând să le eticheteze drept „cancanuri populiste”.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": { \"text\": \"Fac astfel un apel către dumneavoastră, stimați colegi, să vă aplecați mai mult asupra problemelor serioase\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.90,\n      \"rationale_short\": \"Discursul este un apel retoric la responsabilitate, fără a propune un amendament sau o soluție legislativă concretă.\"\n    }\n  ],\n  \"rationale\": \"Discursul prezintă un profil deliberativ de tip retoric-pozițional. Deși vorbitorul invocă binele comun (educația elevilor), nivelul de justificare rămâne inferior (level_of_justification=1), bazându-se pe observații generale fără a oferi dovezi sau mecanisme cauzale detaliate. Respectul pentru grupuri și cereri este neutru, limitându-se la convenții parlamentare, în timp ce respectul pentru contraargumente este absent (0), opoziția fiind respinsă prin etichetări precum „cancanuri populiste”. Discursul nu conține propuneri alternative sau de mediere, fiind încadrat ca pozițional. Calitatea deliberativă este limitată de caracterul general și exhortativ al intervenției.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13308,
+      "tokens_in_breakdown": {
+        "fresh": 13308,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1223,
+      "cost_usd": null,
+      "latency_ms": 4786,
+      "retries_used": 0
+    }
+  }
+}

@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2023/II/150#agenda-1#act-76",
+  "tier": "populist",
+  "speaker": {
+    "id": "sosoaca-diana",
+    "name": "Diana Iovanovici-Șoșoacă",
+    "raw": "Doamna Diana Iovanovici-Șoșoacă",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": "2023-10-30",
+    "year": 2023,
+    "legislature": "IX",
+    "delivery_mode": null
+  },
+  "model_key": "haiku",
+  "model_label": "claude-haiku-4.5",
+  "results": {
+    "hawkins": {
+      "model_key": "haiku",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2023/II/150#agenda-1#act-76",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.92,
+        "markers": [],
+        "rationale": "Discursul unui expert juridic care critică o lege cu privire la măsurile de protecție din perspectiva experiență profesionale și operaționale. Vorbitorul identifică o problemă de design (definiția prea largă a „hărțuirii online\") care va dispersa resursele polițienești și va prejudicia investigarea amenințărilor reale. Argumentația este tehnică și procedurală, nu populistă. Vorbitorul invocă instituții ce nu funcționează (judecători, poliție), dar din perspectiva unei critique profesionale de eficiență, nu a unui cadru manihean popor-vs-elită. Explicit, discursul recunoaște meritul legii („este o lege foarte bună\") și nuanța problemei: distincția între amenințări reale, critică și exces de violență verbală nu e simplă. Niciun marker populist la persoana întâi; nicio invocație a voinței populare, nicio framing Manichee, nicio Appeal a poporului omogen ca contragreutate. Register-ul rămâne cel al deliberării de politică publică. Hawkins=0 cu încredere ridicată."
+      },
+      "raw_response": "```json\n{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.92,\n  \"markers\": [],\n  \"rationale\": \"Discursul unui expert juridic care critică o lege cu privire la măsurile de protecție din perspectiva experiență profesionale și operaționale. Vorbitorul identifică o problemă de design (definiția prea largă a „hărțuirii online\") care va dispersa resursele polițienești și va prejudicia investigarea amenințărilor reale. Argumentația este tehnică și procedurală, nu populistă. Vorbitorul invocă instituții ce nu funcționează (judecători, poliție), dar din perspectiva unei critique profesionale de eficiență, nu a unui cadru manihean popor-vs-elită. Explicit, discursul recunoaște meritul legii („este o lege foarte bună\") și nuanța problemei: distincția între amenințări reale, critică și exces de violență verbală nu e simplă. Niciun marker populist la persoana întâi; nicio invocație a voinței populare, nicio framing Manichee, nicio Appeal a poporului omogen ca contragreutate. Register-ul rămâne cel al deliberării de politică publică. Hawkins=0 cu încredere ridicată.\"\n}\n```",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": true,
+      "tokens_in": 117035,
+      "tokens_in_breakdown": {
+        "fresh": 9,
+        "cache_creation": 59389,
+        "cache_read": 57637
+      },
+      "tokens_out": 1571,
+      "cost_usd": 0.08786395,
+      "latency_ms": 23333,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "haiku",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2023/II/150#agenda-1#act-76",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.7,
+        "level_of_justification": 2,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "în momentul în care dați drumul la mediul online, câți polițiști vă trebuie să poată să acceseze? Pentru că sunt milioane de amenințări în mediul online."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.96,
+            "marker_confidence": 0.86,
+            "rationale_short": "Mecanism cauzal explicit: lărgire la mediul online → nevoia de polițiști suplimentari → imposibilitate practică de a distinge amenințări reale de critică."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "Pierdem timpul cu anumite lucruri superflue sau ne axăm, efectiv, pe adevăratele amenințări care nici măcar acum nu sunt anchetate?"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.91,
+            "rationale_short": "Apelul se ancorează pe eficiență publică și protecție reală (binele comun), nu pe interes de grup sau factoral."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "polițiștii nu sunt pregătiți"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.79,
+            "rationale_short": "Referință funcțională la polițiști cu critică asupra capacității; neutru implicit — nici derogare, nici recunoaștere explicită."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "În rest este o lege foarte bună și este normal să se extindă de la domeniul familial la cel, normal, în viața de zi cu zi, social."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.67,
+            "rationale_short": "Recunoaștere implicită a bunului legii de bază, dar fără angajament explicit cu cereri adverse formulate în dezbatere."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "O să ajungem în situația în care, în cazurile, efectiv, în care chiar există o amenințare reală care poate fi transpusă în faptă, polițistul să nu mai poată să ancheteze acel caz și să acționeze imediat din cauza nenumăratelor altor cazuri în care există doar un fel de critică"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.96,
+            "marker_confidence": 0.71,
+            "rationale_short": "Vorbitorul anticipează o obiecție (lărgirea va ajuta victimele) dar o respinge prin efect practic; nici restatement precis, nici angajament cu argument actual."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Dar atenție la aceste lucruri care pot duce la ineficiența legii"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.96,
+            "marker_confidence": 0.88,
+            "rationale_short": "Avertismente asupra implementării; nicio propunere concretă de amendament, de articole alternative sau de mediere."
+          }
+        ],
+        "rationale": "Discurs de avertisment asupra riscurilor implementării unei legi care vorbitorul recunoaște ca bună. Justificarea este calificată, ancorat într-un mecanism cauzal clar (lărgire la online → supraîncărcare polițiștilor → imposibilitate practică), cu apel la binele comun (eficiență și protecție reală, nu interes de partid). Vorbitorul nu recunoaște explicit legitimitatea cererilor adverse și nu angajează substanțial cu raționamentele opoziției — doar anticipează o obiecție potențială. Respectul pentru grupuri și cereri rămâne neutru. Politica este strict pozițională: avertismente și caute, fără alternativă concretă sau mediere. Profil deliberativ modest cu justificare prezentă dar cu angajament limitat cu perspectiva adversă; multiple aprecieri de graniță pe respect_for_demands și respect_for_counterarguments."
+      },
+      "raw_response": "```json\n{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.70,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"în momentul în care dați drumul la mediul online, câți polițiști vă trebuie să poată să acceseze? Pentru că sunt milioane de amenințări în mediul online.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.96,\n      \"marker_confidence\": 0.86,\n      \"rationale_short\": \"Mecanism cauzal explicit: lărgire la mediul online → nevoia de polițiști suplimentari → imposibilitate practică de a distinge amenințări reale de critică.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"Pierdem timpul cu anumite lucruri superflue sau ne axăm, efectiv, pe adevăratele amenințări care nici măcar acum nu sunt anchetate?\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"marker_confidence\": 0.91,\n      \"rationale_short\": \"Apelul se ancorează pe eficiență publică și protecție reală (binele comun), nu pe interes de grup sau factoral.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"polițiștii nu sunt pregătiți\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.79,\n      \"rationale_short\": \"Referință funcțională la polițiști cu critică asupra capacității; neutru implicit — nici derogare, nici recunoaștere explicită.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"În rest este o lege foarte bună și este normal să se extindă de la domeniul familial la cel, normal, în viața de zi cu zi, social.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"marker_confidence\": 0.67,\n      \"rationale_short\": \"Recunoaștere implicită a bunului legii de bază, dar fără angajament explicit cu cereri adverse formulate în dezbatere.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"O să ajungem în situația în care, în cazurile, efectiv, în care chiar există o amenințare reală care poate fi transpusă în faptă, polițistul să nu mai poată să ancheteze acel caz și să acționeze imediat din cauza nenumăratelor altor cazuri în care există doar un fel de critică\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.96,\n      \"marker_confidence\": 0.71,\n      \"rationale_short\": \"Vorbitorul anticipează o obiecție (lărgirea va ajuta victimele) dar o respinge prin efect practic; nici restatement precis, nici angajament cu argument actual.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"Dar atenție la aceste lucruri care pot duce la ineficiența legii\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.96,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Avertismente asupra implementării; nicio propunere concretă de amendament, de articole alternative sau de mediere.\"\n    }\n  ],\n  \"rationale\": \"Discurs de avertisment asupra riscurilor implementării unei legi care vorbitorul recunoaște ca bună. Justificarea este calificată, ancorat într-un mecanism cauzal clar (lărgire la online → supraîncărcare polițiștilor → imposibilitate practică), cu apel la binele comun (eficiență și protecție reală, nu interes de partid). Vorbitorul nu recunoaște explicit legitimitatea cererilor adverse și nu angajează substanțial cu raționamentele opoziției — doar anticipează o obiecție potențială. Respectul pentru grupuri și cereri rămâne neutru. Politica este strict pozițională: avertismente și caute, fără alternativă concretă sau mediere. Profil deliberativ modest cu justificare prezentă dar cu angajament limitat cu perspectiva adversă; multiple aprecieri de graniță pe respect_for_demands și respect_for_counterarguments.\"\n}\n```",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 115666,
+      "tokens_in_breakdown": {
+        "fresh": 9,
+        "cache_creation": 58020,
+        "cache_read": 57637
+      },
+      "tokens_out": 7053,
+      "cost_usd": 0.11356270000000002,
+      "latency_ms": 63535,
+      "retries_used": 0
+    }
+  }
+}

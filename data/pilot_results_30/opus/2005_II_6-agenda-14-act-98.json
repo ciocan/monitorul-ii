@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2005/II/6#agenda-14#act-98",
+  "tier": "moderate",
+  "speaker": {
+    "id": "nastase-adrian",
+    "name": "Adrian N„stase",
+    "raw": "Domnul Adrian N„stase",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": null,
+    "session_date": null,
+    "year": 2005,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "opus",
+  "model_label": "claude-opus-4.7",
+  "results": {
+    "hawkins": {
+      "model_key": "opus",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2005/II/6#agenda-14#act-98",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.96,
+        "markers": [],
+        "rationale": "Discurs procedural, scurt și tehnic, în care vorbitorul comentează absența inițiatorului (domnul Adrian Severin) și constată că propunerea legislativă rămâne la varianta de respingere. Registrul este unul instituțional-european (Consiliul Europei, Tratatul constituțional, statele membre), cu referire la valoarea persoanei și protecția ființei umane ca preocupări firești la nivel european și național. Nu există cadru popor-vs-elită, fără maniheism moralizator, fără invocarea unei voințe populare omogene sau a unei elite malefice, fără criză existențială sau mize cosmice. Niciun marker populist nu se aprinde. Hawkins=0 cu încredere ridicată."
+      },
+      "raw_response": "{\"score\":0,\"score_unit\":\"ordinal_0_2\",\"framework_version\":\"hawkins@2018\",\"framework_confidence\":0.96,\"markers\":[],\"rationale\":\"Discurs procedural, scurt și tehnic, în care vorbitorul comentează absența inițiatorului (domnul Adrian Severin) și constată că propunerea legislativă rămâne la varianta de respingere. Registrul este unul instituțional-european (Consiliul Europei, Tratatul constituțional, statele membre), cu referire la valoarea persoanei și protecția ființei umane ca preocupări firești la nivel european și național. Nu există cadru popor-vs-elită, fără maniheism moralizator, fără invocarea unei voințe populare omogene sau a unei elite malefice, fără criză existențială sau mize cosmice. Niciun marker populist nu se aprinde. Hawkins=0 cu încredere ridicată.\"}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 104194,
+      "tokens_in_breakdown": {
+        "fresh": 5,
+        "cache_creation": 85836,
+        "cache_read": 18353
+      },
+      "tokens_out": 317,
+      "cost_usd": 0.5536015,
+      "latency_ms": 15724,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "opus",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2005/II/6#agenda-14#act-98",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.58,
+        "level_of_justification": 1,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 1,
+            "evidence": {
+              "text": "aceste aspecte care ˛in de valoarea persoanei ∫i nevoia de a proteja fiin˛a uman„, Ón diferite ipostaze ale vie˛ii, Ón societate reprezint„ preocup„ri fire∫ti, nu numai la nivelul Consiliului Europei ∫i la nivelul Tratatului constitu˛ional al Europei, dar ∫i la nivelul fiec„rei ˛„ri membre sau viitoare membre ale uniunii"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.9,
+            "marker_confidence": 0.7,
+            "rationale_short": "Invocă principii generale (valoarea persoanei, protecția ființei umane) și cadre instituționale (CoE, Tratat constituțional UE), dar fără lanț cauzal specific — justificare inferioară."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "valoarea persoanei ∫i nevoia de a proteja fiin˛a uman„"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.9,
+            "marker_confidence": 0.78,
+            "rationale_short": "Apelul este la principii universalizabile (demnitatea persoanei, protecția vieții), nu la interes de grup sau de partid."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Ini˛iatorul acestei propuneri legislative tr„ie∫te ∫i este domnul Adrian Severin"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.9,
+            "marker_confidence": 0.65,
+            "rationale_short": "Referință funcțională la inițiator, fără derogare sau respect explicit; neutru."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "trebuia s„ fie prezent aici pentru a prezenta argumentele Ómpotriva variantei de respingere"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.9,
+            "marker_confidence": 0.6,
+            "rationale_short": "Cererea inițiatorului nu este caracterizată ca ilegitimă, dar nici nu i se recunoaște explicit legitimitatea — non-angajament."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "dac„ dorea s„ se opun„ acestui punct de vedere ∫i dorea s„-l sus˛in„, trebuia s„ fie prezent aici pentru a prezenta argumentele"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.9,
+            "marker_confidence": 0.7,
+            "rationale_short": "Aluzie la existența unor contraargumente posibile ale inițiatorului, dar fără reformulare sau combatere substanțială — recunoaștere ușoară."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Deocamdat„, propunerea este de respingere"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.92,
+            "marker_confidence": 0.85,
+            "rationale_short": "Reafirmă propunerea de respingere; nu oferă alternativă sau mediere."
+          }
+        ],
+        "rationale": "Discurs procedural scurt, în registru tehnic-prezidențial. Vorbitorul justifică poziția de respingere prin invocarea unor principii generale (valoarea persoanei, protecția ființei umane) și a unor cadre instituționale europene (Consiliul Europei, Tratatul constituțional), dar fără lanț cauzal specific care să conecteze aceste principii la respingerea propriu-zisă — justificare inferioară (nivel 1) cu apel la binele comun. Respectul pentru grupuri și cereri rămâne neutru: inițiatorul absent este menționat funcțional, fără derogare, dar și fără recunoaștere explicită a legitimității poziției sale. Există o aluzie la contraargumente potențiale („dac„ dorea s„ se opun„... trebuia s„ fie prezent\"), însă fără reformulare sau combatere substanțială. Politica este pur poziţională — propunerea de respingere este reafirmată, fără alternativă sau mediere. framework_confidence moderat-scăzut (~0.58) reflectă natura procedurală și fragmentar-trunchiată a textului, care limitează ancorarea unor judecăți mai ferme."
+      },
+      "raw_response": "{\"framework_version\":\"steiner-bachtiger@2017\",\"score_unit\":\"dqi_multi\",\"framework_confidence\":0.58,\"level_of_justification\":1,\"content_of_justification\":\"common_good\",\"respect_for_groups\":1,\"respect_for_demands\":1,\"respect_for_counterarguments\":1,\"constructive_politics\":\"positional\",\"markers\":[{\"kind\":\"level_of_justification\",\"value\":1,\"evidence\":{\"text\":\"aceste aspecte care ˛in de valoarea persoanei ∫i nevoia de a proteja fiin˛a uman„, Ón diferite ipostaze ale vie˛ii, Ón societate reprezint„ preocup„ri fire∫ti, nu numai la nivelul Consiliului Europei ∫i la nivelul Tratatului constitu˛ional al Europei, dar ∫i la nivelul fiec„rei ˛„ri membre sau viitoare membre ale uniunii\"},\"preliminary_voice\":\"speaker_first_person\",\"preliminary_voice_confidence\":0.9,\"marker_confidence\":0.7,\"rationale_short\":\"Invocă principii generale (valoarea persoanei, protecția ființei umane) și cadre instituționale (CoE, Tratat constituțional UE), dar fără lanț cauzal specific — justificare inferioară.\"},{\"kind\":\"content_of_justification\",\"value\":\"common_good\",\"evidence\":{\"text\":\"valoarea persoanei ∫i nevoia de a proteja fiin˛a uman„\"},\"preliminary_voice\":\"speaker_first_person\",\"preliminary_voice_confidence\":0.9,\"marker_confidence\":0.78,\"rationale_short\":\"Apelul este la principii universalizabile (demnitatea persoanei, protecția vieții), nu la interes de grup sau de partid.\"},{\"kind\":\"respect_for_groups\",\"value\":1,\"evidence\":{\"text\":\"Ini˛iatorul acestei propuneri legislative tr„ie∫te ∫i este domnul Adrian Severin\"},\"preliminary_voice\":\"speaker_first_person\",\"preliminary_voice_confidence\":0.9,\"marker_confidence\":0.65,\"rationale_short\":\"Referință funcțională la inițiator, fără derogare sau respect explicit; neutru.\"},{\"kind\":\"respect_for_demands\",\"value\":1,\"evidence\":{\"text\":\"trebuia s„ fie prezent aici pentru a prezenta argumentele Ómpotriva variantei de respingere\"},\"preliminary_voice\":\"speaker_first_person\",\"preliminary_voice_confidence\":0.9,\"marker_confidence\":0.6,\"rationale_short\":\"Cererea inițiatorului nu este caracterizată ca ilegitimă, dar nici nu i se recunoaște explicit legitimitatea — non-angajament.\"},{\"kind\":\"respect_for_counterarguments\",\"value\":1,\"evidence\":{\"text\":\"dac„ dorea s„ se opun„ acestui punct de vedere ∫i dorea s„-l sus˛in„, trebuia s„ fie prezent aici pentru a prezenta argumentele\"},\"preliminary_voice\":\"speaker_first_person\",\"preliminary_voice_confidence\":0.9,\"marker_confidence\":0.7,\"rationale_short\":\"Aluzie la existența unor contraargumente posibile ale inițiatorului, dar fără reformulare sau combatere substanțială — recunoaștere ușoară.\"},{\"kind\":\"constructive_politics\",\"value\":\"positional\",\"evidence\":{\"text\":\"Deocamdat„, propunerea este de respingere\"},\"preliminary_voice\":\"speaker_first_person\",\"preliminary_voice_confidence\":0.92,\"marker_confidence\":0.85,\"rationale_short\":\"Reafirmă propunerea de respingere; nu oferă alternativă sau mediere.\"}],\"rationale\":\"Discurs procedural scurt, în registru tehnic-prezidențial. Vorbitorul justifică poziția de respingere prin invocarea unor principii generale (valoarea persoanei, protecția ființei umane) și a unor cadre instituționale europene (Consiliul Europei, Tratatul constituțional), dar fără lanț cauzal specific care să conecteze aceste principii la respingerea propriu-zisă — justificare inferioară (nivel 1) cu apel la binele comun. Respectul pentru grupuri și cereri rămâne neutru: inițiatorul absent este menționat funcțional, fără derogare, dar și fără recunoaștere explicită a legitimității poziției sale. Există o aluzie la contraargumente potențiale („dac„ dorea s„ se opun„... trebuia s„ fie prezent\\\"), însă fără reformulare sau combatere substanțială. Politica este pur poziţională — propunerea de respingere este reafirmată, fără alternativă sau mediere. framework_confidence moderat-scăzut (~0.58) reflectă natura procedurală și fragmentar-trunchiată a textului, care limitează ancorarea unor judecăți mai ferme.\"}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 102185,
+      "tokens_in_breakdown": {
+        "fresh": 5,
+        "cache_creation": 83827,
+        "cache_read": 18353
+      },
+      "tokens_out": 1710,
+      "cost_usd": 0.57587025,
+      "latency_ms": 28578,
+      "retries_used": 0
+    }
+  }
+}

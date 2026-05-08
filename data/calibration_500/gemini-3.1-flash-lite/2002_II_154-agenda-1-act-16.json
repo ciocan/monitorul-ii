@@ -1,0 +1,152 @@
+{
+  "speech_id": "mo://2002/II/154#agenda-1#act-16",
+  "tier": "calibration",
+  "speaker": {
+    "id": "boc-emil",
+    "name": "Emil Boc",
+    "raw": "Domnul Emil Boc",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": null,
+    "year": 2002,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2002/II/154#agenda-1#act-16",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 1.0,
+        "markers": [],
+        "rationale": "Discursul este pur procedural, concentrându-se pe unificarea terminologică între articolul 6 și articolul 12 al unui proiect de lege. Vorbitorul propune înlocuirea unor termeni pentru coerență legislativă, fără a invoca nicio temă populistă, maniheistă sau de mobilizare a poporului împotriva elitelor. Nu există niciun marker populist prezent, iar registrul este strict tehnic și parlamentar."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 1.0,\n  \"markers\": [],\n  \"rationale\": \"Discursul este pur procedural, concentrându-se pe unificarea terminologică între articolul 6 și articolul 12 al unui proiect de lege. Vorbitorul propune înlocuirea unor termeni pentru coerență legislativă, fără a invoca nicio temă populistă, maniheistă sau de mobilizare a poporului împotriva elitelor. Nu există niciun marker populist prezent, iar registrul este strict tehnic și parlamentar.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13792,
+      "tokens_in_breakdown": {
+        "fresh": 13792,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 172,
+      "cost_usd": null,
+      "latency_ms": 1913,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2002/II/154#agenda-1#act-16",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.92,
+        "level_of_justification": 2,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "alternative_proposal",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "Nu putem impune la condiþii o formulã, iar la sancþiuni o altã formulã."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Vorbitorul oferă un argument logic bazat pe coerența terminologică necesară între articolele legii."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "În vederea folosirii ºi la art. 12 a aceleiaºi unitãþi terminologice"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Justificarea vizează claritatea și coerența legii, un obiectiv de interes general pentru calitatea actului normativ."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Domnule preºedinte"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.99,
+            "marker_confidence": 0.95,
+            "rationale_short": "Adresare formală standard; nu există referiri la grupuri sociale sau politice."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "vã propunem ca la lit. b)"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Vorbitorul își prezintă propunerea fără a aborda cereri adverse; atitudine neutră."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "exact cum este la art. 6 pe care noi l-am adoptat"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.88,
+            "rationale_short": "Face referire la o decizie anterioară a camerei pentru a-și susține argumentul, fără a angaja un contraargument."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "alternative_proposal",
+            "evidence": {
+              "text": "vã propunem ca la lit. b) ... sã folosim aceeaºi terminologie ca ºi la art. 6"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.96,
+            "rationale_short": "Vorbitorul oferă o propunere concretă de modificare a textului pentru a asigura coerența terminologică."
+          }
+        ],
+        "rationale": "Discursul este un exemplu clar de intervenție tehnică constructivă în cadrul procesului legislativ. Vorbitorul oferă o justificare calificată (level_of_justification=2) bazată pe necesitatea coerenței terminologice între articolele legii, apelând la binele comun al clarității legislative (content_of_justification=common_good). Deși nu există un conflict direct cu opoziția, vorbitorul propune o modificare concretă a textului (constructive_politics=alternative_proposal), demonstrând o abordare orientată spre soluții. Respectul pentru grupuri și cereri este neutru, fiind un discurs procedural fără încărcătură polemică. Calitatea deliberativă este ridicată pentru acest tip de intervenție, fiind ancorată în logica internă a proiectului de lege."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.92,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"alternative_proposal\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"Nu putem impune la condiþii o formulã, iar la sancþiuni o altã formulã.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Vorbitorul oferă un argument logic bazat pe coerența terminologică necesară între articolele legii.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"În vederea folosirii ºi la art. 12 a aceleiaºi unitãþi terminologice\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Justificarea vizează claritatea și coerența legii, un obiectiv de interes general pentru calitatea actului normativ.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Domnule preºedinte\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.99,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Adresare formală standard; nu există referiri la grupuri sociale sau politice.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"vã propunem ca la lit. b)\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.90,\n      \"rationale_short\": \"Vorbitorul își prezintă propunerea fără a aborda cereri adverse; atitudine neutră.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"exact cum este la art. 6 pe care noi l-am adoptat\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Face referire la o decizie anterioară a camerei pentru a-și susține argumentul, fără a angaja un contraargument.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"alternative_proposal\",\n      \"evidence\": {\n        \"text\": \"vã propunem ca la lit. b) ... sã folosim aceeaºi terminologie ca ºi la art. 6\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.96,\n      \"rationale_short\": \"Vorbitorul oferă o propunere concretă de modificare a textului pentru a asigura coerența terminologică.\"\n    }\n  ],\n  \"rationale\": \"Discursul este un exemplu clar de intervenție tehnică constructivă în cadrul procesului legislativ. Vorbitorul oferă o justificare calificată (level_of_justification=2) bazată pe necesitatea coerenței terminologice între articolele legii, apelând la binele comun al clarității legislative (content_of_justification=common_good). Deși nu există un conflict direct cu opoziția, vorbitorul propune o modificare concretă a textului (constructive_politics=alternative_proposal), demonstrând o abordare orientată spre soluții. Respectul pentru grupuri și cereri este neutru, fiind un discurs procedural fără încărcătură polemică. Calitatea deliberativă este ridicată pentru acest tip de intervenție, fiind ancorată în logica internă a proiectului de lege.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [
+        "vã propunem ca la lit. b) ... sã folosim aceeaºi terminologie ca ºi la art. 6"
+      ],
+      "parse_repaired": false,
+      "tokens_in": 12593,
+      "tokens_in_breakdown": {
+        "fresh": 12593,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1186,
+      "cost_usd": null,
+      "latency_ms": 4520,
+      "retries_used": 0
+    }
+  }
+}

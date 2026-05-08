@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2000/II/101#agenda-1#act-430",
+  "tier": "calibration",
+  "speaker": {
+    "id": "spineanu-ulm-nicolae",
+    "name": "Ulm Nicolae Spineanu",
+    "raw": "Domnul Ulm Nicolae Spineanu",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": null,
+    "year": 2000,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2000/II/101#agenda-1#act-430",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 1.0,
+        "markers": [],
+        "rationale": "Discursul este pur procedural, constând în gestionarea votului pe articolele unui proiect de lege. Nu există nicio referire la un cadru popor-vs-elită, nicio invocare a unei voințe populare omogene și niciun element de maniheism moral. Vorbitorul se limitează la rolul de președinte de ședință, numărând voturile și anunțând rezultatele, fără a exprima nicio viziune politică. Hawkins=0 cu încredere maximă."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 1.0,\n  \"markers\": [],\n  \"rationale\": \"Discursul este pur procedural, constând în gestionarea votului pe articolele unui proiect de lege. Nu există nicio referire la un cadru popor-vs-elită, nicio invocare a unei voințe populare omogene și niciun element de maniheism moral. Vorbitorul se limitează la rolul de președinte de ședință, numărând voturile și anunțând rezultatele, fără a exprima nicio viziune politică. Hawkins=0 cu încredere maximă.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13705,
+      "tokens_in_breakdown": {
+        "fresh": 13705,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 183,
+      "cost_usd": null,
+      "latency_ms": 2124,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2000/II/101#agenda-1#act-430",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.45,
+        "level_of_justification": 0,
+        "content_of_justification": "none",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 0,
+            "evidence": {
+              "text": "Vã rog, votul dumneavoastrã."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.95,
+            "rationale_short": "Intervenție pur procedurală de conducere a ședinței, fără argumentație."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "none",
+            "evidence": {
+              "text": "Vã rog, votul dumneavoastrã."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.95,
+            "rationale_short": "Nicio justificare oferită; conținutul este nedefinit."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Domnilor colegi"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.9,
+            "rationale_short": "Adresare convențională neutră în cadrul ședinței."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "s-a propus eliminarea ºi s-a menþinut punctul de vedere al comisiei"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.85,
+            "rationale_short": "Referire neutră la propunerile procedurale, fără angajament deliberativ."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "s-a propus eliminarea ºi s-a menþinut punctul de vedere al comisiei"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.85,
+            "rationale_short": "Nu există un raționament al opoziției angajat, ci doar raportarea unor decizii procedurale."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "s-a adoptat"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.9,
+            "rationale_short": "Intervenție strict procedurală de constatare a votului, fără propuneri alternative."
+          }
+        ],
+        "rationale": "Fragmentul reprezintă o intervenție pur procedurală a președintelui de ședință, care gestionează votul pe articole. Nu există nicio argumentație substanțială, nicio justificare a pozițiilor și niciun angajament deliberativ cu cererile sau contraargumentele altor deputați. Toate dimensiunile DQI sunt la nivelul minim sau neutru, reflectând natura administrativă a discursului. framework_confidence este scăzut deoarece acest tip de discurs nu conține deliberare politică, fiind în afara domeniului de aplicare al rubricii Steiner & Bächtiger."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.45,\n  \"level_of_justification\": 0,\n  \"content_of_justification\": \"none\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 0,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 0,\n      \"evidence\": { \"text\": \"Vã rog, votul dumneavoastrã.\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Intervenție pur procedurală de conducere a ședinței, fără argumentație.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"none\",\n      \"evidence\": { \"text\": \"Vã rog, votul dumneavoastrã.\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Nicio justificare oferită; conținutul este nedefinit.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": { \"text\": \"Domnilor colegi\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Adresare convențională neutră în cadrul ședinței.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": { \"text\": \"s-a propus eliminarea ºi s-a menþinut punctul de vedere al comisiei\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Referire neutră la propunerile procedurale, fără angajament deliberativ.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 0,\n      \"evidence\": { \"text\": \"s-a propus eliminarea ºi s-a menþinut punctul de vedere al comisiei\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Nu există un raționament al opoziției angajat, ci doar raportarea unor decizii procedurale.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": { \"text\": \"s-a adoptat\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Intervenție strict procedurală de constatare a votului, fără propuneri alternative.\"\n    }\n  ],\n  \"rationale\": \"Fragmentul reprezintă o intervenție pur procedurală a președintelui de ședință, care gestionează votul pe articole. Nu există nicio argumentație substanțială, nicio justificare a pozițiilor și niciun angajament deliberativ cu cererile sau contraargumentele altor deputați. Toate dimensiunile DQI sunt la nivelul minim sau neutru, reflectând natura administrativă a discursului. framework_confidence este scăzut deoarece acest tip de discurs nu conține deliberare politică, fiind în afara domeniului de aplicare al rubricii Steiner & Bächtiger.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12506,
+      "tokens_in_breakdown": {
+        "fresh": 12506,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1020,
+      "cost_usd": null,
+      "latency_ms": 7536,
+      "retries_used": 0
+    }
+  }
+}

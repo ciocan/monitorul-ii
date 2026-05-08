@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2008/II/90#agenda-4#act-69",
+  "tier": "calibration",
+  "speaker": {
+    "id": "kovacs-carol-emil",
+    "name": "Kovacs Carol Emil",
+    "raw": "Domnul Kovacs Carol Emil",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2008-09-30",
+    "year": 2008,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2008/II/90#agenda-4#act-69",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 1.0,
+        "markers": [],
+        "rationale": "Discursul este un text pur tehnic și procedural, axat pe alocarea bugetară pentru proiecte ex-ISPA și reglementarea unor cheltuieli administrative. Nu există nicio urmă de cadru popor-vs-elită, maniheism moral sau invocare a unei voințe populare suverane. Limbajul este specific registrului administrativ-guvernamental, fără nicio componentă populistă. Hawkins=0 cu încredere maximă."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 1.0,\n  \"markers\": [],\n  \"rationale\": \"Discursul este un text pur tehnic și procedural, axat pe alocarea bugetară pentru proiecte ex-ISPA și reglementarea unor cheltuieli administrative. Nu există nicio urmă de cadru popor-vs-elită, maniheism moral sau invocare a unei voințe populare suverane. Limbajul este specific registrului administrativ-guvernamental, fără nicio componentă populistă. Hawkins=0 cu încredere maximă.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13673,
+      "tokens_in_breakdown": {
+        "fresh": 13673,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 169,
+      "cost_usd": null,
+      "latency_ms": 1785,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2008/II/90#agenda-4#act-69",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.85,
+        "level_of_justification": 2,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "Având în vedere că transferul în conturile ISPA a sumelor cheltuite necuvenite trebuie probat cu documente, precum și faptul că există proiecte care se încheie în cursul anului 2008, se impune aprobarea prezentului act normativ."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Vorbitorul oferă o justificare cauzală bazată pe necesitatea probării documentare și pe termenele limită ale proiectelor."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "suportarea de la bugetul de stat a cheltuielilor necesare pentru finanțarea unor echipamente durabile"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Justificarea vizează buna funcționare a proiectelor publice și utilizarea bugetului de stat, un apel la binele comun."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Doamnelor și domnilor deputați"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.99,
+            "marker_confidence": 0.95,
+            "rationale_short": "Adresare formală standard; nu există referințe derogatorii sau de respect explicit către grupuri."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Ministerul Economiei și Finanțelor propune și susține, în numele Guvernului, adoptarea actului normativ."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.88,
+            "rationale_short": "Discursul este pur informativ și procedural, fără a aborda cereri opuse."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "Ministerul Economiei și Finanțelor propune și susține, în numele Guvernului, adoptarea actului normativ."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Nu există nicio mențiune sau angajament față de argumentele opoziției."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Ministerul Economiei și Finanțelor propune și susține, în numele Guvernului, adoptarea actului normativ."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Vorbitorul susține adoptarea actului fără a propune alternative sau medieri."
+          }
+        ],
+        "rationale": "Discursul este o prezentare tehnică a unei ordonanțe de urgență, caracterizată printr-o justificare calificată (level_of_justification=2) bazată pe necesități administrative și termene limită. Apelul este la binele comun (content_of_justification=common_good), vizând finanțarea corectă a proiectelor publice. Discursul rămâne însă pur pozițional (constructive_politics=positional), fără a angaja opoziția sau a oferi alternative, ceea ce este tipic pentru prezentările guvernamentale de acest gen. Respectul pentru grupuri și cereri este neutru, reflectând natura procedurală a intervenției. Calitatea deliberativă este medie, fiind un discurs informativ și justificat, dar lipsit de dimensiunea interactivă a dezbaterii."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.85,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 0,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"Având în vedere că transferul în conturile ISPA a sumelor cheltuite necuvenite trebuie probat cu documente, precum și faptul că există proiecte care se încheie în cursul anului 2008, se impune aprobarea prezentului act normativ.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Vorbitorul oferă o justificare cauzală bazată pe necesitatea probării documentare și pe termenele limită ale proiectelor.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"suportarea de la bugetul de stat a cheltuielilor necesare pentru finanțarea unor echipamente durabile\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.90,\n      \"rationale_short\": \"Justificarea vizează buna funcționare a proiectelor publice și utilizarea bugetului de stat, un apel la binele comun.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Doamnelor și domnilor deputați\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.99,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Adresare formală standard; nu există referințe derogatorii sau de respect explicit către grupuri.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Ministerul Economiei și Finanțelor propune și susține, în numele Guvernului, adoptarea actului normativ.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Discursul este pur informativ și procedural, fără a aborda cereri opuse.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"Ministerul Economiei și Finanțelor propune și susține, în numele Guvernului, adoptarea actului normativ.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.90,\n      \"rationale_short\": \"Nu există nicio mențiune sau angajament față de argumentele opoziției.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"Ministerul Economiei și Finanțelor propune și susține, în numele Guvernului, adoptarea actului normativ.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Vorbitorul susține adoptarea actului fără a propune alternative sau medieri.\"\n    }\n  ],\n  \"rationale\": \"Discursul este o prezentare tehnică a unei ordonanțe de urgență, caracterizată printr-o justificare calificată (level_of_justification=2) bazată pe necesități administrative și termene limită. Apelul este la binele comun (content_of_justification=common_good), vizând finanțarea corectă a proiectelor publice. Discursul rămâne însă pur pozițional (constructive_politics=positional), fără a angaja opoziția sau a oferi alternative, ceea ce este tipic pentru prezentările guvernamentale de acest gen. Respectul pentru grupuri și cereri este neutru, reflectând natura procedurală a intervenției. Calitatea deliberativă este medie, fiind un discurs informativ și justificat, dar lipsit de dimensiunea interactivă a dezbaterii.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12474,
+      "tokens_in_breakdown": {
+        "fresh": 12474,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1235,
+      "cost_usd": null,
+      "latency_ms": 4696,
+      "retries_used": 0
+    }
+  }
+}

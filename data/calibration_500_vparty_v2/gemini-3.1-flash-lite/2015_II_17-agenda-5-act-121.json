@@ -1,0 +1,52 @@
+{
+  "speech_id": "mo://2015/II/17#agenda-5#act-121",
+  "tier": "calibration",
+  "speaker": {
+    "id": "iliescu-valentin-adrian",
+    "name": "Valentin Adrian Iliescu",
+    "raw": "Domnul Valentin Adrian Iliescu",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": "2015-02-17",
+    "year": 2015,
+    "legislature": "VII",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": null,
+    "voice": null,
+    "dqi": null,
+    "vparty": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "vparty",
+      "speech_id": "mo://2015/II/17#agenda-5#act-121",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "vparty@2020 + vdem-attacks-on@v13",
+        "framework_confidence": 1.0,
+        "markers": [],
+        "rationale": "Discursul este unul pur tehnic și procedural, axat pe dezbaterea unei propuneri legislative privind cotele de TVA. Vorbitorul prezintă argumentele inițiatorului și poziția Guvernului, făcând referire la legislația comunitară și la constrângerile bugetare într-un mod neutru și democratic. Nu există nicio urmă de delegitimizare a instituțiilor, a opoziției, a presei sau a altor actori sociali. Discursul respectă pe deplin normele parlamentare și pluralismul democratic."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"vparty@2020 + vdem-attacks-on@v13\",\n  \"framework_confidence\": 1.0,\n  \"markers\": [],\n  \"rationale\": \"Discursul este unul pur tehnic și procedural, axat pe dezbaterea unei propuneri legislative privind cotele de TVA. Vorbitorul prezintă argumentele inițiatorului și poziția Guvernului, făcând referire la legislația comunitară și la constrângerile bugetare într-un mod neutru și democratic. Nu există nicio urmă de delegitimizare a instituțiilor, a opoziției, a presei sau a altor actori sociali. Discursul respectă pe deplin normele parlamentare și pluralismul democratic.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13043,
+      "tokens_in_breakdown": {
+        "fresh": 13043,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 203,
+      "cost_usd": null,
+      "latency_ms": 1750,
+      "retries_used": 0
+    }
+  }
+}

@@ -1,0 +1,199 @@
+{
+  "speech_id": "mo://2017/II/136#agenda-12#act-26",
+  "tier": "calibration",
+  "speaker": {
+    "id": "pascan-emil-marius",
+    "name": "Emil Marius Pașcan",
+    "raw": "Domnul Emil Marius Pașcan",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2017-10-03",
+    "year": 2017,
+    "legislature": "VIII",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2017/II/136#agenda-12#act-26",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [
+          {
+            "kind": "evil_elite",
+            "evidence": {
+              "text": "Presa a caracterizat drept incompetență crasă referința la modul în care sunt gestionate și se desfășoară aceste lucrări"
+            },
+            "preliminary_voice": "quoted",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.9,
+            "rationale_short": "Vorbitorul citează presa care acuză autoritățile de incompetență; vocea este raportată, nu a vorbitorului."
+          }
+        ],
+        "rationale": "Discursul este o interpelare parlamentară tehnică, axată pe stadiul lucrărilor la autostrăzile A3 și A8. Deși vorbitorul menționează critici din presă și societatea civilă privind incompetența autorităților, el o face prin citare (voce raportată) pentru a fundamenta o solicitare oficială de informații către Ministerul Transporturilor. Nu există un cadru maniheist popor-vs-elită, nicio invocare a unei voințe populare omogene și nicio retorică populistă la persoana întâi. Discursul rămâne în registrul procedural și administrativ, fiind un exemplu clar de scor 0."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [\n    {\n      \"kind\": \"evil_elite\",\n      \"evidence\": {\n        \"text\": \"Presa a caracterizat drept incompetență crasă referința la modul în care sunt gestionate și se desfășoară aceste lucrări\"\n      },\n      \"preliminary_voice\": \"quoted\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Vorbitorul citează presa care acuză autoritățile de incompetență; vocea este raportată, nu a vorbitorului.\"\n    }\n  ],\n  \"rationale\": \"Discursul este o interpelare parlamentară tehnică, axată pe stadiul lucrărilor la autostrăzile A3 și A8. Deși vorbitorul menționează critici din presă și societatea civilă privind incompetența autorităților, el o face prin citare (voce raportată) pentru a fundamenta o solicitare oficială de informații către Ministerul Transporturilor. Nu există un cadru maniheist popor-vs-elită, nicio invocare a unei voințe populare omogene și nicio retorică populistă la persoana întâi. Discursul rămâne în registrul procedural și administrativ, fiind un exemplu clar de scor 0.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 14023,
+      "tokens_in_breakdown": {
+        "fresh": 14023,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 373,
+      "cost_usd": null,
+      "latency_ms": 2458,
+      "retries_used": 0
+    },
+    "voice": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "voice",
+      "speech_id": "mo://2017/II/136#agenda-12#act-26",
+      "output": {
+        "classifications": [
+          {
+            "marker_id": "m_0",
+            "voice": "reported",
+            "voice_confidence": 0.95,
+            "voice_evidence": {
+              "text": "Presa a caracterizat"
+            },
+            "attributed_to": {
+              "raw": "Presa",
+              "kind": "institution"
+            },
+            "rationale_short": "Vorbitorul raportează o caracterizare făcută de presă; este o construcție de tip reported voice cu sursă instituțională clară."
+          }
+        ]
+      },
+      "raw_response": "{\n  \"classifications\": [\n    {\n      \"marker_id\": \"m_0\",\n      \"voice\": \"reported\",\n      \"voice_confidence\": 0.95,\n      \"voice_evidence\": {\n        \"text\": \"Presa a caracterizat\"\n      },\n      \"attributed_to\": {\n        \"raw\": \"Presa\",\n        \"kind\": \"institution\"\n      },\n      \"rationale_short\": \"Vorbitorul raportează o caracterizare făcută de presă; este o construcție de tip reported voice cu sursă instituțională clară.\"\n    }\n  ]\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 11582,
+      "tokens_in_breakdown": {
+        "fresh": 11582,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 145,
+      "cost_usd": null,
+      "latency_ms": 1422,
+      "retries_used": 0
+    },
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2017/II/136#agenda-12#act-26",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.82,
+        "level_of_justification": 2,
+        "content_of_justification": "group_interest",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "la autostrada A8, autoritățile s-au blocat la studiul de fezabilitate, iar la A3 construcția a avansat destul de mult, dar problemele nu au întârziat să apară: lipsa autorizației de construcție, pentru anumite sectoare, dificultăți cu exproprierea terenurilor"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Vorbitorul oferă detalii specifice despre blocajele administrative (A8, A3) pentru a justifica necesitatea interpelării."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "group_interest",
+            "evidence": {
+              "text": "privește o îngrijorare legată de autostrăzile care traversează județul Mureș"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.99,
+            "marker_confidence": 0.95,
+            "rationale_short": "Justificarea este ancorată explicit în interesele specifice ale județului Mureș."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Ministerului Transporturilor, domnului ministru Alexandru Răzvan Cuc"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.99,
+            "marker_confidence": 0.95,
+            "rationale_short": "Referință funcțională la instituția vizată; tonul este neutru și profesional."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "vă solicit să analizați aceste probleme semnalate"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Vorbitorul își formulează cererile fără a angaja sau respinge cereri adverse; neutru."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "Presa a caracterizat drept incompetență crasă referința la modul în care sunt gestionate și se desfășoară aceste lucrări"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.88,
+            "rationale_short": "Menționează criticile presei fără a intra într-un dialog substanțial cu argumentele ministerului."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "vă solicit să mă informați oficial care este poziția Ministerului Transporturilor"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.94,
+            "rationale_short": "Interpelarea este o solicitare de informații și acțiune, nu o propunere alternativă de politică publică."
+          }
+        ],
+        "rationale": "Discursul este o interpelare parlamentară standard, caracterizată printr-o justificare calificată (level_of_justification=2) bazată pe probleme concrete de infrastructură din județul Mureș. Justificarea este orientată către interesul grupului local (content_of_justification=group_interest). Vorbitorul menționează criticile presei, dar nu angajează un dialog substanțial cu argumentele ministerului, menținând o atitudine neutră (respect_for_counterarguments=1). Intervenția este pozițională, solicitând clarificări și dinamizarea lucrărilor, fără a oferi o alternativă legislativă sau o mediere. Calitatea deliberativă este medie, fiind un discurs procedural tipic pentru rolul de deputat în opoziție."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.82,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"group_interest\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"la autostrada A8, autoritățile s-au blocat la studiul de fezabilitate, iar la A3 construcția a avansat destul de mult, dar problemele nu au întârziat să apară: lipsa autorizației de construcție, pentru anumite sectoare, dificultăți cu exproprierea terenurilor\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Vorbitorul oferă detalii specifice despre blocajele administrative (A8, A3) pentru a justifica necesitatea interpelării.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"group_interest\",\n      \"evidence\": {\n        \"text\": \"privește o îngrijorare legată de autostrăzile care traversează județul Mureș\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.99,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Justificarea este ancorată explicit în interesele specifice ale județului Mureș.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Ministerului Transporturilor, domnului ministru Alexandru Răzvan Cuc\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.99,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Referință funcțională la instituția vizată; tonul este neutru și profesional.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"vă solicit să analizați aceste probleme semnalate\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.90,\n      \"rationale_short\": \"Vorbitorul își formulează cererile fără a angaja sau respinge cereri adverse; neutru.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Presa a caracterizat drept incompetență crasă referința la modul în care sunt gestionate și se desfășoară aceste lucrări\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Menționează criticile presei fără a intra într-un dialog substanțial cu argumentele ministerului.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"vă solicit să mă informați oficial care este poziția Ministerului Transporturilor\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.94,\n      \"rationale_short\": \"Interpelarea este o solicitare de informații și acțiune, nu o propunere alternativă de politică publică.\"\n    }\n  ],\n  \"rationale\": \"Discursul este o interpelare parlamentară standard, caracterizată printr-o justificare calificată (level_of_justification=2) bazată pe probleme concrete de infrastructură din județul Mureș. Justificarea este orientată către interesul grupului local (content_of_justification=group_interest). Vorbitorul menționează criticile presei, dar nu angajează un dialog substanțial cu argumentele ministerului, menținând o atitudine neutră (respect_for_counterarguments=1). Intervenția este pozițională, solicitând clarificări și dinamizarea lucrărilor, fără a oferi o alternativă legislativă sau o mediere. Calitatea deliberativă este medie, fiind un discurs procedural tipic pentru rolul de deputat în opoziție.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [
+        "vă solicit să mă informați oficial care este poziția Ministerului Transporturilor"
+      ],
+      "parse_repaired": false,
+      "tokens_in": 12824,
+      "tokens_in_breakdown": {
+        "fresh": 12824,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1225,
+      "cost_usd": null,
+      "latency_ms": 4350,
+      "retries_used": 0
+    }
+  }
+}

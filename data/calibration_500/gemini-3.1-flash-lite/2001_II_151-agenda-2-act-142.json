@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2001/II/151#agenda-2#act-142",
+  "tier": "calibration",
+  "speaker": {
+    "id": "feldman-radu-alexandru",
+    "name": "Radu Feldman Alexandru",
+    "raw": "Domnul Radu Feldman Alexandru",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": null,
+    "year": 2001,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2001/II/151#agenda-2#act-142",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul este o interpelare procedurală standard, axată pe transmiterea unor solicitări din partea unor organizații culturale și a reprezentanților românilor din Basarabia către autoritățile statului. Vorbitorul solicită clarificări privind reducerea burselor, fără a utiliza un cadru maniheist popor-vs-elită, fără a invoca o voință populară omogenă ca forță suverană și fără a recurge la retorică populistă. Discursul rămâne în limitele activității parlamentare curente, fiind un demers administrativ de reprezentare a unor interese specifice. Hawkins=0 cu încredere ridicată."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul este o interpelare procedurală standard, axată pe transmiterea unor solicitări din partea unor organizații culturale și a reprezentanților românilor din Basarabia către autoritățile statului. Vorbitorul solicită clarificări privind reducerea burselor, fără a utiliza un cadru maniheist popor-vs-elită, fără a invoca o voință populară omogenă ca forță suverană și fără a recurge la retorică populistă. Discursul rămâne în limitele activității parlamentare curente, fiind un demers administrativ de reprezentare a unor interese specifice. Hawkins=0 cu încredere ridicată.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13686,
+      "tokens_in_breakdown": {
+        "fresh": 13686,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 218,
+      "cost_usd": null,
+      "latency_ms": 2101,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2001/II/151#agenda-2#act-142",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.72,
+        "level_of_justification": 1,
+        "content_of_justification": "group_interest",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 1,
+            "evidence": {
+              "text": "sunt extrem de îngrijoraþi de reducerea la jumãtate a numãrului burselor."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.85,
+            "rationale_short": "Vorbitorul invocă îngrijorarea unui grup, dar nu oferă un raționament cauzal sau probatoriu pentru poziția sa."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "group_interest",
+            "evidence": {
+              "text": "reprezentanþilor românilor din sudul Basarabiei, regiunea Odessa"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.9,
+            "rationale_short": "Justificarea se bazează explicit pe interesele unui grup specific (românii din sudul Basarabiei)."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Societãþii culturale ”Dunãrea ºi MareaÒ"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.8,
+            "rationale_short": "Grupul este menționat neutru, ca sursă a sesizării, fără conotații de respect sau dispreț."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "alte demersuri ce trebuie fãcute"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.75,
+            "rationale_short": "Vorbitorul nu angajează cereri adverse, ci solicită informații; atitudine neutră."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "dacã este într-adevãr aºa"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.75,
+            "rationale_short": "Vorbitorul solicită clarificări asupra situației, fără a aborda un contraargument substanțial."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "alte demersuri ce trebuie fãcute"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.85,
+            "rationale_short": "Intervenția este o interpelare procedurală, nu o propunere alternativă sau de mediere."
+          }
+        ],
+        "rationale": "Discursul este o interpelare procedurală prin care vorbitorul solicită informații oficiale cu privire la reducerea burselor pentru românii din sudul Basarabiei. Nivelul de justificare este scăzut (1), deoarece se bazează pe îngrijorarea unui grup fără a oferi o argumentație cauzală complexă. Conținutul justificării este orientat către interesul de grup. Nu există elemente de dispreț sau respect explicit față de alte grupuri sau cereri, discursul menținându-se într-o zonă neutră. Caracterul politic este pur pozițional, vizând obținerea de clarificări. Calitatea deliberativă este limitată de natura procedurală a intervenției."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.72,\n  \"level_of_justification\": 1,\n  \"content_of_justification\": \"group_interest\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"sunt extrem de îngrijoraþi de reducerea la jumãtate a numãrului burselor.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Vorbitorul invocă îngrijorarea unui grup, dar nu oferă un raționament cauzal sau probatoriu pentru poziția sa.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"group_interest\",\n      \"evidence\": {\n        \"text\": \"reprezentanþilor românilor din sudul Basarabiei, regiunea Odessa\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Justificarea se bazează explicit pe interesele unui grup specific (românii din sudul Basarabiei).\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Societãþii culturale ”Dunãrea ºi MareaÒ\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.8,\n      \"rationale_short\": \"Grupul este menționat neutru, ca sursă a sesizării, fără conotații de respect sau dispreț.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"alte demersuri ce trebuie fãcute\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.75,\n      \"rationale_short\": \"Vorbitorul nu angajează cereri adverse, ci solicită informații; atitudine neutră.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"dacã este într-adevãr aºa\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.75,\n      \"rationale_short\": \"Vorbitorul solicită clarificări asupra situației, fără a aborda un contraargument substanțial.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"alte demersuri ce trebuie fãcute\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Intervenția este o interpelare procedurală, nu o propunere alternativă sau de mediere.\"\n    }\n  ],\n  \"rationale\": \"Discursul este o interpelare procedurală prin care vorbitorul solicită informații oficiale cu privire la reducerea burselor pentru românii din sudul Basarabiei. Nivelul de justificare este scăzut (1), deoarece se bazează pe îngrijorarea unui grup fără a oferi o argumentație cauzală complexă. Conținutul justificării este orientat către interesul de grup. Nu există elemente de dispreț sau respect explicit față de alte grupuri sau cereri, discursul menținându-se într-o zonă neutră. Caracterul politic este pur pozițional, vizând obținerea de clarificări. Calitatea deliberativă este limitată de natura procedurală a intervenției.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12487,
+      "tokens_in_breakdown": {
+        "fresh": 12487,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1138,
+      "cost_usd": null,
+      "latency_ms": 5656,
+      "retries_used": 0
+    }
+  }
+}

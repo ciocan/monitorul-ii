@@ -1,0 +1,52 @@
+{
+  "speech_id": "mo://2019/II/28#agenda-3#act-174",
+  "tier": "calibration",
+  "speaker": {
+    "id": "gotiu-remus-mihai",
+    "name": "Remus Mihai Goțiu",
+    "raw": "Domnul Remus Mihai Goțiu",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": "2019-02-25",
+    "year": 2019,
+    "legislature": "VIII",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": null,
+    "voice": null,
+    "dqi": null,
+    "vparty": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "vparty",
+      "speech_id": "mo://2019/II/28#agenda-3#act-174",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "vparty@2020 + vdem-attacks-on@v13",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul este unul pur tehnic și procedural, concentrat pe clarificarea prevederilor unui proiect legislativ privind incompatibilitățile funcțiilor publice. Vorbitorul răspunde unei obiecții punctuale a unui coleg, fără a recurge la delegitimarea instituțiilor, a opoziției sau a altor actori democratici. Nu există nicio urmă de retorică anti-pluralistă, discursul încadrându-se în limitele normale ale dezbaterii parlamentare. Scor 0 cu încredere ridicată."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"vparty@2020 + vdem-attacks-on@v13\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul este unul pur tehnic și procedural, concentrat pe clarificarea prevederilor unui proiect legislativ privind incompatibilitățile funcțiilor publice. Vorbitorul răspunde unei obiecții punctuale a unui coleg, fără a recurge la delegitimarea instituțiilor, a opoziției sau a altor actori democratici. Nu există nicio urmă de retorică anti-pluralistă, discursul încadrându-se în limitele normale ale dezbaterii parlamentare. Scor 0 cu încredere ridicată.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12920,
+      "tokens_in_breakdown": {
+        "fresh": 12920,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 198,
+      "cost_usd": null,
+      "latency_ms": 1887,
+      "retries_used": 0
+    }
+  }
+}

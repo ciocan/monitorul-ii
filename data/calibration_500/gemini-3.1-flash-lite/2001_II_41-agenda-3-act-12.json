@@ -1,0 +1,152 @@
+{
+  "speech_id": "mo://2001/II/41#agenda-3#act-12",
+  "tier": "calibration",
+  "speaker": {
+    "id": "pop-napoleon",
+    "name": "Napoleon Pop",
+    "raw": "Domnul Napoleon Pop",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": null,
+    "year": 2001,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2001/II/41#agenda-3#act-12",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul este o critică tehnică și procedurală a politicilor economice ale Executivului, concentrându-se pe ineficiența privatizărilor, lipsa de neutralitate în administrarea economiei și necesitatea unor reguli egale pentru toți agenții economici. Deși vorbitorul critică „clasa politică” și „managerii”, o face într-un registru de analiză economică și de bună guvernare, fără a construi un cadru maniheist popor-vs-elită sau a invoca o voință populară omogenă ca sursă de legitimitate supremă. Nu există elemente de moralism, criză existențială sau populism structural. Discursul rămâne ferm în registrul dezbaterii parlamentare tehnocratice."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul este o critică tehnică și procedurală a politicilor economice ale Executivului, concentrându-se pe ineficiența privatizărilor, lipsa de neutralitate în administrarea economiei și necesitatea unor reguli egale pentru toți agenții economici. Deși vorbitorul critică „clasa politică” și „managerii”, o face într-un registru de analiză economică și de bună guvernare, fără a construi un cadru maniheist popor-vs-elită sau a invoca o voință populară omogenă ca sursă de legitimitate supremă. Nu există elemente de moralism, criză existențială sau populism structural. Discursul rămâne ferm în registrul dezbaterii parlamentare tehnocratice.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 14406,
+      "tokens_in_breakdown": {
+        "fresh": 14406,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 245,
+      "cost_usd": null,
+      "latency_ms": 1945,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2001/II/41#agenda-3#act-12",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.88,
+        "level_of_justification": 2,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "lipsa de neutralitate în administrarea economiei, perturbând ºansele egale care trebuie asigurate tuturor agenþilor economici, indiferent de forma de proprietate ºi organizare"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Vorbitorul oferă o justificare bazată pe principiul egalității de șanse și neutralității economice."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "datoria noastrã de a legifera egal ºi uniform în interesul tuturor cetãþenilor"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Apelul este explicit la interesul tuturor cetățenilor și la principiul egalității în fața legii."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "managerii ºi sindicatele din sectorul de stat"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.85,
+            "rationale_short": "Grupuri menționate funcțional în contextul criticii economice, fără derogare sau respect explicit."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Foarte multã legislaþie are ca singurã preocupare modalitãþi de prelungire a agoniei unor societãþi comerciale"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.88,
+            "rationale_short": "Vorbitorul critică politicile curente fără a se angaja direct cu cererile opoziției."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "Coalizia majoritară susține că această derogare de la regulile de transparență este necesară"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.96,
+            "marker_confidence": 0.82,
+            "rationale_short": "Menționează argumentul majorității dar nu îl combate printr-o analiză detaliată a raționamentului."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Aº propune colegilor parlamentari aflaþi prin comisiile de specialitate ale Camerei sã fie mai aspri în a aproba facilitãþi cu adresã exactã"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Vorbitorul avansează o poziție critică și un apel la rigoare, fără a propune un amendament concret."
+          }
+        ],
+        "rationale": "Discursul prezintă o calitate deliberativă medie-ridicată, caracterizată printr-o justificare calificată (level_of_justification=2) ancorată în principii de bine comun (common_good). Vorbitorul analizează critic intervenția statului în economie, invocând principii de egalitate și transparență. Deși discursul este bine structurat, acesta rămâne în sfera pozițională (constructive_politics=positional), fără a oferi o alternativă legislativă concretă sau un mecanism de mediere. Respectul pentru grupuri și cereri este neutru, fiind menționate funcțional în cadrul criticii economice. Angajamentul față de contraargumente este limitat la o mențiune generală, fără o dezbatere substanțială a raționamentelor adverse."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.88,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"lipsa de neutralitate în administrarea economiei, perturbând ºansele egale care trebuie asigurate tuturor agenþilor economici, indiferent de forma de proprietate ºi organizare\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Vorbitorul oferă o justificare bazată pe principiul egalității de șanse și neutralității economice.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"datoria noastrã de a legifera egal ºi uniform în interesul tuturor cetãþenilor\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Apelul este explicit la interesul tuturor cetățenilor și la principiul egalității în fața legii.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"managerii ºi sindicatele din sectorul de stat\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Grupuri menționate funcțional în contextul criticii economice, fără derogare sau respect explicit.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Foarte multã legislaþie are ca singurã preocupare modalitãþi de prelungire a agoniei unor societãþi comerciale\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Vorbitorul critică politicile curente fără a se angaja direct cu cererile opoziției.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Coalizia majoritară susține că această derogare de la regulile de transparență este necesară\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.96,\n      \"marker_confidence\": 0.82,\n      \"rationale_short\": \"Menționează argumentul majorității dar nu îl combate printr-o analiză detaliată a raționamentului.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"Aº propune colegilor parlamentari aflaþi prin comisiile de specialitate ale Camerei sã fie mai aspri în a aproba facilitãþi cu adresã exactã\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.90,\n      \"rationale_short\": \"Vorbitorul avansează o poziție critică și un apel la rigoare, fără a propune un amendament concret.\"\n    }\n  ],\n  \"rationale\": \"Discursul prezintă o calitate deliberativă medie-ridicată, caracterizată printr-o justificare calificată (level_of_justification=2) ancorată în principii de bine comun (common_good). Vorbitorul analizează critic intervenția statului în economie, invocând principii de egalitate și transparență. Deși discursul este bine structurat, acesta rămâne în sfera pozițională (constructive_politics=positional), fără a oferi o alternativă legislativă concretă sau un mecanism de mediere. Respectul pentru grupuri și cereri este neutru, fiind menționate funcțional în cadrul criticii economice. Angajamentul față de contraargumente este limitat la o mențiune generală, fără o dezbatere substanțială a raționamentelor adverse.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [
+        "Coalizia majoritară susține că această derogare de la regulile de transparență este necesară"
+      ],
+      "parse_repaired": false,
+      "tokens_in": 13207,
+      "tokens_in_breakdown": {
+        "fresh": 13207,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1243,
+      "cost_usd": null,
+      "latency_ms": 4559,
+      "retries_used": 0
+    }
+  }
+}

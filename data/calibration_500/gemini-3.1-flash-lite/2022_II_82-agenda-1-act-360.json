@@ -1,0 +1,194 @@
+{
+  "speech_id": "mo://2022/II/82#agenda-1#act-360",
+  "tier": "calibration",
+  "speaker": {
+    "id": "nasui-claudiu-iulius-gavril",
+    "name": "Claudiu-Iulius-Gavril Năsui",
+    "raw": "Domnul Claudiu-Iulius-Gavril Năsui",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2022-05-30",
+    "year": 2022,
+    "legislature": "IX",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2022/II/82#agenda-1#act-360",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.95,
+        "markers": [
+          {
+            "kind": "crisis_invocation",
+            "evidence": {
+              "text": "ne jucam pe marginea prăpastiei"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.85,
+            "rationale_short": "Folosește metafora „marginea prăpastiei” pentru a descrie situația fiscală, dar într-un context tehnic de analiză a deficitului bugetar."
+          }
+        ],
+        "rationale": "Discursul se înscrie într-un registru de dezbatere politică și economică, axat pe cifre (deficit de 3%, PNRR, pensii speciale) și pe schimburi de replici privind moștenirea guvernamentală. Deși vorbitorul folosește o metaforă de criză („marginea prăpastiei”), aceasta este ancorată într-o analiză tehnică a indicatorilor macroeconomici, nu într-un cadru maniheist popor-vs-elită. Nu există o invocare a unei voințe populare omogene sau o demonizare a elitei ca entitate malignă, ci o critică politică standard. Prin urmare, discursul nu atinge pragul de populism conform rubricii Hawkins."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.95,\n  \"markers\": [\n    {\n      \"kind\": \"crisis_invocation\",\n      \"evidence\": {\n        \"text\": \"ne jucam pe marginea prăpastiei\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Folosește metafora „marginea prăpastiei” pentru a descrie situația fiscală, dar într-un context tehnic de analiză a deficitului bugetar.\"\n    }\n  ],\n  \"rationale\": \"Discursul se înscrie într-un registru de dezbatere politică și economică, axat pe cifre (deficit de 3%, PNRR, pensii speciale) și pe schimburi de replici privind moștenirea guvernamentală. Deși vorbitorul folosește o metaforă de criză („marginea prăpastiei”), aceasta este ancorată într-o analiză tehnică a indicatorilor macroeconomici, nu într-un cadru maniheist popor-vs-elită. Nu există o invocare a unei voințe populare omogene sau o demonizare a elitei ca entitate malignă, ci o critică politică standard. Prin urmare, discursul nu atinge pragul de populism conform rubricii Hawkins.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13771,
+      "tokens_in_breakdown": {
+        "fresh": 13771,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 379,
+      "cost_usd": null,
+      "latency_ms": 2368,
+      "retries_used": 0
+    },
+    "voice": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "voice",
+      "speech_id": "mo://2022/II/82#agenda-1#act-360",
+      "output": {
+        "classifications": [
+          {
+            "marker_id": "m_0",
+            "voice": "speaker_first_person",
+            "voice_confidence": 0.95,
+            "voice_evidence": null,
+            "attributed_to": null,
+            "rationale_short": "Vorbitorul folosește o metaforă în nume propriu pentru a descrie situația economică a României, fără a cita sau raporta pe altcineva."
+          }
+        ]
+      },
+      "raw_response": "{\n  \"classifications\": [\n    {\n      \"marker_id\": \"m_0\",\n      \"voice\": \"speaker_first_person\",\n      \"voice_confidence\": 0.95,\n      \"voice_evidence\": null,\n      \"attributed_to\": null,\n      \"rationale_short\": \"Vorbitorul folosește o metaforă în nume propriu pentru a descrie situația economică a României, fără a cita sau raporta pe altcineva.\"\n    }\n  ]\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 11302,
+      "tokens_in_breakdown": {
+        "fresh": 11302,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 122,
+      "cost_usd": null,
+      "latency_ms": 1154,
+      "retries_used": 0
+    },
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2022/II/82#agenda-1#act-360",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.85,
+        "level_of_justification": 2,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 2,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "România a intrat în pandemie, dacă mai țineți minte, cu 3% deficit. Eram la 3% deficit bugetar, adică la maximul posibil admis de către Uniunea Europeană"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Vorbitorul oferă o justificare bazată pe date economice concrete (deficitul de 3%) și norme UE."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "PNRR împiedică, într-adevăr, creșterea pensiilor speciale și este un lucru foarte bun și foarte sănătos pentru România."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Justificarea se ancorează în interesul general al țării (sănătatea bugetară), nu în interese de grup."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Domnule ministru al finanțelor"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.99,
+            "marker_confidence": 0.95,
+            "rationale_short": "Adresare formală neutră; nicio derogare sau respect explicit pentru grupuri."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Domnule ministru al finanțelor, ne-ați spus câteva lucruri cu care eu chiar sunt de acord"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Vorbitorul exprimă acordul cu ministrul, dar nu abordează o cerere politică specifică a opoziției."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 2,
+            "evidence": {
+              "text": "PNRR nu împiedică nicio creștere de pensii, este o minciună pe care o tot propagați. [...] Ceea ce împiedică PNRR – și ministrul actual al muncii a recunoscut – e creșterea pensiilor speciale."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.91,
+            "rationale_short": "Vorbitorul identifică argumentul advers (PNRR blochează pensiile) și îl combate prin distincția între pensii generale și speciale."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "PNRR împiedică, într-adevăr, creșterea pensiilor speciale și este un lucru foarte bun și foarte sănătos pentru România."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Vorbitorul își susține poziția proprie fără a propune o alternativă legislativă sau o mediere."
+          }
+        ],
+        "rationale": "Discursul prezintă o calitate deliberativă medie-ridicată. Vorbitorul oferă o justificare calificată (level_of_justification=2) prin utilizarea datelor economice și a normelor UE, orientându-se către binele comun. Se remarcă un angajament substanțial cu contraargumentele opoziției (respect_for_counterarguments=2), prin demontarea mitului privind PNRR-ul și pensiile generale. Totuși, discursul rămâne pozițional (constructive_politics=positional), fără a oferi o soluție alternativă concretă. Respectul pentru grupuri și cereri este neutru, limitându-se la curtoazia parlamentară standard."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.85,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 2,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"România a intrat în pandemie, dacă mai țineți minte, cu 3% deficit. Eram la 3% deficit bugetar, adică la maximul posibil admis de către Uniunea Europeană\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Vorbitorul oferă o justificare bazată pe date economice concrete (deficitul de 3%) și norme UE.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"PNRR împiedică, într-adevăr, creșterea pensiilor speciale și este un lucru foarte bun și foarte sănătos pentru România.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.90,\n      \"rationale_short\": \"Justificarea se ancorează în interesul general al țării (sănătatea bugetară), nu în interese de grup.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Domnule ministru al finanțelor\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.99,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Adresare formală neutră; nicio derogare sau respect explicit pentru grupuri.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Domnule ministru al finanțelor, ne-ați spus câteva lucruri cu care eu chiar sunt de acord\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Vorbitorul exprimă acordul cu ministrul, dar nu abordează o cerere politică specifică a opoziției.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"PNRR nu împiedică nicio creștere de pensii, este o minciună pe care o tot propagați. [...] Ceea ce împiedică PNRR – și ministrul actual al muncii a recunoscut – e creșterea pensiilor speciale.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.91,\n      \"rationale_short\": \"Vorbitorul identifică argumentul advers (PNRR blochează pensiile) și îl combate prin distincția între pensii generale și speciale.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"PNRR împiedică, într-adevăr, creșterea pensiilor speciale și este un lucru foarte bun și foarte sănătos pentru România.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.90,\n      \"rationale_short\": \"Vorbitorul își susține poziția proprie fără a propune o alternativă legislativă sau o mediere.\"\n    }\n  ],\n  \"rationale\": \"Discursul prezintă o calitate deliberativă medie-ridicată. Vorbitorul oferă o justificare calificată (level_of_justification=2) prin utilizarea datelor economice și a normelor UE, orientându-se către binele comun. Se remarcă un angajament substanțial cu contraargumentele opoziției (respect_for_counterarguments=2), prin demontarea mitului privind PNRR-ul și pensiile generale. Totuși, discursul rămâne pozițional (constructive_politics=positional), fără a oferi o soluție alternativă concretă. Respectul pentru grupuri și cereri este neutru, limitându-se la curtoazia parlamentară standard.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [
+        "PNRR nu împiedică nicio creștere de pensii, este o minciună pe care o tot propagați. [...] Ceea ce împiedică PNRR – și ministrul actual al muncii a recunoscut – e creșterea pensiilor speciale."
+      ],
+      "parse_repaired": false,
+      "tokens_in": 12572,
+      "tokens_in_breakdown": {
+        "fresh": 12572,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1252,
+      "cost_usd": null,
+      "latency_ms": 4615,
+      "retries_used": 0
+    }
+  }
+}

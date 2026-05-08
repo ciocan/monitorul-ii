@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2021/II/89#agenda-1#act-150",
+  "tier": "calibration",
+  "speaker": {
+    "id": "grosaru-andi-gabriel",
+    "name": "Andi-Gabriel Grosaru",
+    "raw": "Domnul Andi-Gabriel Grosaru",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2021-06-03",
+    "year": 2021,
+    "legislature": "IX",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2021/II/89#agenda-1#act-150",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul este unul pur procedural, axat pe respectarea regulamentului Camerei Deputaților și a procedurilor parlamentare privind circuitul amendamentelor. Deși vorbitorul invocă faptul că „plenul este suveran”, această expresie este utilizată în contextul tehnic al ierarhiei decizionale parlamentare, nu ca o invocare populistă a voinței populare împotriva instituțiilor democratice. Nu există nicio urmă de maniheism, cadru popor-vs-elită sau alte elemente populiste. Discursul se încadrează perfect în registrul procedural standard."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul este unul pur procedural, axat pe respectarea regulamentului Camerei Deputaților și a procedurilor parlamentare privind circuitul amendamentelor. Deși vorbitorul invocă faptul că „plenul este suveran”, această expresie este utilizată în contextul tehnic al ierarhiei decizionale parlamentare, nu ca o invocare populistă a voinței populare împotriva instituțiilor democratice. Nu există nicio urmă de maniheism, cadru popor-vs-elită sau alte elemente populiste. Discursul se încadrează perfect în registrul procedural standard.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13702,
+      "tokens_in_breakdown": {
+        "fresh": 13702,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 204,
+      "cost_usd": null,
+      "latency_ms": 1856,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2021/II/89#agenda-1#act-150",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.85,
+        "level_of_justification": 2,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "Plenul este suveran și nicio comisie din Camera Deputaților nu se poate substitui plenului."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Vorbitorul invocă principiul suveranității plenului ca temei pentru procedura parlamentară."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "Plenul este suveran și nicio comisie din Camera Deputaților nu se poate substitui plenului."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Apelul la suveranitatea plenului este un principiu procedural universal, nu un interes de grup."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Bună ziua, doamnă președinte!"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.99,
+            "marker_confidence": 0.85,
+            "rationale_short": "Adresare protocolară neutră; niciun grup vizat explicit."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "în mod normal nu trebuie să se mai ia în discuție"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.88,
+            "rationale_short": "Vorbitorul respinge procedural reluarea discuției, fără a angaja legitimitatea cererii."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "în mod normal nu trebuie să se mai ia în discuție și ar trebui, cum este normal și regulamentar, ca acel amendament să fie trecut"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.85,
+            "rationale_short": "Menționează procedura fără a angaja substanțial argumentele contrare."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "în mod normal nu trebuie să se mai ia în discuție"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.9,
+            "rationale_short": "Intervenție procedurală care susține o poziție de blocaj, fără propunere alternativă."
+          }
+        ],
+        "rationale": "Discursul este o intervenție procedurală axată pe respectarea regulamentului și a suveranității plenului. Vorbitorul oferă o justificare calificată (level_of_justification=2) prin invocarea principiului suveranității plenului, care este un argument de bine comun (content_of_justification=common_good). Respectul pentru grupuri și cereri este neutru, fiind limitat la cadrul procedural. Nu există un angajament substanțial cu contraargumente, ci doar o respingere a reluării discuției pe baza regulamentului. Discursul rămâne pozițional, nefiind oferită o alternativă sau o mediere, ci doar o insistență asupra unei interpretări procedurale."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.85,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"Plenul este suveran și nicio comisie din Camera Deputaților nu se poate substitui plenului.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Vorbitorul invocă principiul suveranității plenului ca temei pentru procedura parlamentară.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"Plenul este suveran și nicio comisie din Camera Deputaților nu se poate substitui plenului.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Apelul la suveranitatea plenului este un principiu procedural universal, nu un interes de grup.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Bună ziua, doamnă președinte!\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.99,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Adresare protocolară neutră; niciun grup vizat explicit.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"în mod normal nu trebuie să se mai ia în discuție\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Vorbitorul respinge procedural reluarea discuției, fără a angaja legitimitatea cererii.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"în mod normal nu trebuie să se mai ia în discuție și ar trebui, cum este normal și regulamentar, ca acel amendament să fie trecut\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Menționează procedura fără a angaja substanțial argumentele contrare.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"în mod normal nu trebuie să se mai ia în discuție\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Intervenție procedurală care susține o poziție de blocaj, fără propunere alternativă.\"\n    }\n  ],\n  \"rationale\": \"Discursul este o intervenție procedurală axată pe respectarea regulamentului și a suveranității plenului. Vorbitorul oferă o justificare calificată (level_of_justification=2) prin invocarea principiului suveranității plenului, care este un argument de bine comun (content_of_justification=common_good). Respectul pentru grupuri și cereri este neutru, fiind limitat la cadrul procedural. Nu există un angajament substanțial cu contraargumente, ci doar o respingere a reluării discuției pe baza regulamentului. Discursul rămâne pozițional, nefiind oferită o alternativă sau o mediere, ci doar o insistență asupra unei interpretări procedurale.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12503,
+      "tokens_in_breakdown": {
+        "fresh": 12503,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1129,
+      "cost_usd": null,
+      "latency_ms": 4474,
+      "retries_used": 0
+    }
+  }
+}

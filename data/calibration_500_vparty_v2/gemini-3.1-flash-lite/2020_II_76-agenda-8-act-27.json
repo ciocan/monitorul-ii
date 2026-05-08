@@ -1,0 +1,52 @@
+{
+  "speech_id": "mo://2020/II/76#agenda-8#act-27",
+  "tier": "calibration",
+  "speaker": {
+    "id": "ciolacu-marcel",
+    "name": "Ion Marcel Ciolacu",
+    "raw": "Domnul Ion Marcel Ciolacu",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2020-06-30",
+    "year": 2020,
+    "legislature": "VIII",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": null,
+    "voice": null,
+    "dqi": null,
+    "vparty": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "vparty",
+      "speech_id": "mo://2020/II/76#agenda-8#act-27",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "vparty@2020 + vdem-attacks-on@v13",
+        "framework_confidence": 0.95,
+        "markers": [],
+        "rationale": "Discursul se concentrează pe o critică procedurală și tehnică a modului în care a fost elaborată și dezbătută o strategie de securitate în Parlament. Deși vorbitorul menționează că instituțiile ar putea fi 'stat în stat' și critică lipsa controlului parlamentar, aceste observații sunt formulate ca o critică a procesului legislativ și a lipsei de transparență, nu ca o delegitimizare a instituțiilor democratice ca atare. Nu există atacuri la adresa judecătorilor, presei, minorităților sau a normelor democratice fundamentale. Discursul rămâne în limitele unei dezbateri parlamentare legitime."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"vparty@2020 + vdem-attacks-on@v13\",\n  \"framework_confidence\": 0.95,\n  \"markers\": [],\n  \"rationale\": \"Discursul se concentrează pe o critică procedurală și tehnică a modului în care a fost elaborată și dezbătută o strategie de securitate în Parlament. Deși vorbitorul menționează că instituțiile ar putea fi 'stat în stat' și critică lipsa controlului parlamentar, aceste observații sunt formulate ca o critică a procesului legislativ și a lipsei de transparență, nu ca o delegitimizare a instituțiilor democratice ca atare. Nu există atacuri la adresa judecătorilor, presei, minorităților sau a normelor democratice fundamentale. Discursul rămâne în limitele unei dezbateri parlamentare legitime.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13135,
+      "tokens_in_breakdown": {
+        "fresh": 13135,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 230,
+      "cost_usd": null,
+      "latency_ms": 1745,
+      "retries_used": 0
+    }
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "speech_id": "mo://2006/II/32#agenda-1#act-42",
+  "tier": "calibration",
+  "speaker": {
+    "id": "moldovan-emil-radu",
+    "name": "Emil Radu Moldovan",
+    "raw": "Domnul Emil Radu Moldovan",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": null,
+    "session_date": null,
+    "year": 2006,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": null,
+    "voice": null,
+    "dqi": null,
+    "vparty": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "vparty",
+      "speech_id": "mo://2006/II/32#agenda-1#act-42",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "vparty@2020 + vdem-attacks-on@v13",
+        "framework_confidence": 0.95,
+        "markers": [],
+        "rationale": "Discursul reprezintă o critică politică acerbă la adresa prim-ministrului de la acea vreme, concentrându-se pe incompetența guvernamentală, lipsa de caracter a premierului și utilizarea resurselor statului în scopuri personale. Deși limbajul este dur și personal, acesta rămâne în sfera contestării politice legitime. Nu există atacuri la adresa instituțiilor democratice ca clasă (judiciar, presă, ONG-uri, minorități) sau respingerea normelor democratice. Critica vizează un actor politic specific și acțiunile sale, nu delegitimează însăși pluralismul sau ordinea constituțională."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"vparty@2020 + vdem-attacks-on@v13\",\n  \"framework_confidence\": 0.95,\n  \"markers\": [],\n  \"rationale\": \"Discursul reprezintă o critică politică acerbă la adresa prim-ministrului de la acea vreme, concentrându-se pe incompetența guvernamentală, lipsa de caracter a premierului și utilizarea resurselor statului în scopuri personale. Deși limbajul este dur și personal, acesta rămâne în sfera contestării politice legitime. Nu există atacuri la adresa instituțiilor democratice ca clasă (judiciar, presă, ONG-uri, minorități) sau respingerea normelor democratice. Critica vizează un actor politic specific și acțiunile sale, nu delegitimează însăși pluralismul sau ordinea constituțională.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13975,
+      "tokens_in_breakdown": {
+        "fresh": 13975,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 228,
+      "cost_usd": null,
+      "latency_ms": 2284,
+      "retries_used": 0
+    }
+  }
+}

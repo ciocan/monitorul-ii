@@ -1,0 +1,224 @@
+{
+  "speech_id": "mo://2018/II/177#agenda-2#act-93",
+  "tier": "calibration",
+  "speaker": {
+    "id": "dehelean-silviu",
+    "name": "Silviu Dehelean",
+    "raw": "Domnul Silviu Dehelean",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2018-11-21",
+    "year": 2018,
+    "legislature": "VIII",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2018/II/177#agenda-2#act-93",
+      "output": {
+        "score": 1,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.85,
+        "markers": [
+          {
+            "kind": "people_vs_elite",
+            "evidence": {
+              "text": "PSD nu este România, iar reproșurile primite la Strasbourg și criticile dure din raportul MCV vă privesc direct pe voi, cei care o susțineți pe nevinovata Dăncilă și pe stăpânul ei condamnat penal definitiv, Dragnea."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.85,
+            "rationale_short": "Stabilește o distincție maniheistă între „România” (poporul) și „PSD” (elita coruptă/condamnată)."
+          },
+          {
+            "kind": "evil_elite",
+            "evidence": {
+              "text": "această castă politică o vinde bucată cu bucată"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.92,
+            "marker_confidence": 0.88,
+            "rationale_short": "Elita politică este descrisă ca fiind malignă, acționând activ împotriva intereselor naționale."
+          },
+          {
+            "kind": "crisis_invocation",
+            "evidence": {
+              "text": "Suntem în pragul preluării președinției rotative a Consiliului Uniunii Europene, iar obsesia aceasta furibundă pentru legile care guvernează justiția trădează frica imensă de răspundere a celor care știu că au încălcat legea."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.94,
+            "marker_confidence": 0.82,
+            "rationale_short": "Invocă un moment critic (președinția UE) pentru a sublinia urgența și gravitatea acțiunilor elitei."
+          }
+        ],
+        "rationale": "Discursul conține elemente populiste clare, în special prin separarea morală a „României” de „PSD” și prin portretizarea elitei politice ca fiind malignă și coruptă. Totuși, discursul rămâne ancorat în argumente de politică publică (raportul MCV, Parlamentul European, legislația justiției), ceea ce împiedică viziunea populistă să devină structura unică și pervazivă a întregului text. Deși markerii sunt prezenți, aceștia funcționează mai degrabă ca instrumente retorice într-o critică politică convențională decât ca un manifest populist complet. Scor 1 cu încredere ridicată."
+      },
+      "raw_response": "{\n  \"score\": 1,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.85,\n  \"markers\": [\n    {\n      \"kind\": \"people_vs_elite\",\n      \"evidence\": {\n        \"text\": \"PSD nu este România, iar reproșurile primite la Strasbourg și criticile dure din raportul MCV vă privesc direct pe voi, cei care o susțineți pe nevinovata Dăncilă și pe stăpânul ei condamnat penal definitiv, Dragnea.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Stabilește o distincție maniheistă între „România” (poporul) și „PSD” (elita coruptă/condamnată).\"\n    },\n    {\n      \"kind\": \"evil_elite\",\n      \"evidence\": {\n        \"text\": \"această castă politică o vinde bucată cu bucată\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.92,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Elita politică este descrisă ca fiind malignă, acționând activ împotriva intereselor naționale.\"\n    },\n    {\n      \"kind\": \"crisis_invocation\",\n      \"evidence\": {\n        \"text\": \"Suntem în pragul preluării președinției rotative a Consiliului Uniunii Europene, iar obsesia aceasta furibundă pentru legile care guvernează justiția trădează frica imensă de răspundere a celor care știu că au încălcat legea.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.94,\n      \"marker_confidence\": 0.82,\n      \"rationale_short\": \"Invocă un moment critic (președinția UE) pentru a sublinia urgența și gravitatea acțiunilor elitei.\"\n    }\n  ],\n  \"rationale\": \"Discursul conține elemente populiste clare, în special prin separarea morală a „României” de „PSD” și prin portretizarea elitei politice ca fiind malignă și coruptă. Totuși, discursul rămâne ancorat în argumente de politică publică (raportul MCV, Parlamentul European, legislația justiției), ceea ce împiedică viziunea populistă să devină structura unică și pervazivă a întregului text. Deși markerii sunt prezenți, aceștia funcționează mai degrabă ca instrumente retorice într-o critică politică convențională decât ca un manifest populist complet. Scor 1 cu încredere ridicată.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [
+        "această castă politică o vinde bucată cu bucată"
+      ],
+      "parse_repaired": false,
+      "tokens_in": 14136,
+      "tokens_in_breakdown": {
+        "fresh": 14136,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 734,
+      "cost_usd": null,
+      "latency_ms": 3994,
+      "retries_used": 0
+    },
+    "voice": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "voice",
+      "speech_id": "mo://2018/II/177#agenda-2#act-93",
+      "output": {
+        "classifications": [
+          {
+            "marker_id": "m_0",
+            "voice": "speaker_first_person",
+            "voice_confidence": 0.98,
+            "voice_evidence": null,
+            "attributed_to": null,
+            "rationale_short": "Afirmație directă a vorbitorului, fără indicii de citare, raportare sau disclaimer; vorbitorul își asumă poziția critică."
+          },
+          {
+            "marker_id": "m_2",
+            "voice": "speaker_first_person",
+            "voice_confidence": 0.98,
+            "voice_evidence": null,
+            "attributed_to": null,
+            "rationale_short": "Afirmație directă la persoana întâi plural („Suntem”), exprimând opinia proprie a vorbitorului despre contextul politic actual."
+          }
+        ]
+      },
+      "raw_response": "{\n  \"classifications\": [\n    {\n      \"marker_id\": \"m_0\",\n      \"voice\": \"speaker_first_person\",\n      \"voice_confidence\": 0.98,\n      \"voice_evidence\": null,\n      \"attributed_to\": null,\n      \"rationale_short\": \"Afirmație directă a vorbitorului, fără indicii de citare, raportare sau disclaimer; vorbitorul își asumă poziția critică.\"\n    },\n    {\n      \"marker_id\": \"m_2\",\n      \"voice\": \"speaker_first_person\",\n      \"voice_confidence\": 0.98,\n      \"voice_evidence\": null,\n      \"attributed_to\": null,\n      \"rationale_short\": \"Afirmație directă la persoana întâi plural („Suntem”), exprimând opinia proprie a vorbitorului despre contextul politic actual.\"\n    }\n  ]\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 11843,
+      "tokens_in_breakdown": {
+        "fresh": 11843,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 220,
+      "cost_usd": null,
+      "latency_ms": 1507,
+      "retries_used": 0
+    },
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2018/II/177#agenda-2#act-93",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.72,
+        "level_of_justification": 1,
+        "content_of_justification": "group_interest",
+        "respect_for_groups": 0,
+        "respect_for_demands": 0,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 1,
+            "evidence": {
+              "text": "obsesia aceasta furibundă pentru legile care guvernează justiția trădează frica imensă de răspundere a celor care știu că au încălcat legea"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.85,
+            "rationale_short": "Justificarea se bazează pe atribuirea de intenții (frica de răspundere) mai degrabă decât pe o analiză cauzală sau normativă."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "group_interest",
+            "evidence": {
+              "text": "PSD nu este România, iar reproșurile primite la Strasbourg și criticile dure din raportul MCV vă privesc direct pe voi"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.88,
+            "rationale_short": "Apelul este centrat pe conflictul politic dintre partide și responsabilitatea grupului PSD."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 0,
+            "evidence": {
+              "text": "domnilor temători de statul paralel și alte himere bune de adormit populația"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.92,
+            "rationale_short": "Utilizarea unui limbaj disprețuitor la adresa adversarilor politici ('temători', 'himere')."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 0,
+            "evidence": {
+              "text": "În locul acestor înțelegeri pe tema comunicării eșecului reformei Toader, mai bine s-ar discuta în Guvern despre calea cea mai rapidă"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.82,
+            "rationale_short": "Cererile și acțiunile guvernului sunt respinse ca fiind 'comunicarea eșecului', fără a le recunoaște legitimitatea."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "comunicatorii puterii au ieșit în cor să declare că România este atacată, pusă la colț de UE și certată pentru ceva ce n-a făcut. Adevărat, România nu a greșit cu nimic!"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.88,
+            "rationale_short": "Argumentele opoziției sunt menționate doar pentru a fi ridiculizate, fără un angajament substanțial."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "„Fără penali în funcții publice” nu mai este doar o inițiativă cetățenească. Este o necesitate zero a noastră"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.9,
+            "rationale_short": "Discursul susține o poziție politică fermă fără a propune un mecanism de mediere sau o alternativă legislativă concretă."
+          }
+        ],
+        "rationale": "Discursul prezintă un profil deliberativ scăzut, caracterizat prin retorică combativă și lipsa angajamentului substanțial cu argumentele adversarilor. Justificarea este de nivel 1, bazându-se pe atribuiri de intenții și atacuri la persoană mai degrabă decât pe argumente cauzale sau principiale. Respectul pentru grupuri și cereri este absent, fiind înlocuit de un ton disprețuitor față de coaliția de guvernare. Deși menționează rapoarte internaționale, vorbitorul nu angajează contraargumentele acestora, ci le folosește ca instrumente de atac politic. Constructivitatea este limitată la susținerea unei poziții, fără a oferi soluții de compromis sau alternative legislative detaliate."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.72,\n  \"level_of_justification\": 1,\n  \"content_of_justification\": \"group_interest\",\n  \"respect_for_groups\": 0,\n  \"respect_for_demands\": 0,\n  \"respect_for_counterarguments\": 0,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"obsesia aceasta furibundă pentru legile care guvernează justiția trădează frica imensă de răspundere a celor care știu că au încălcat legea\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Justificarea se bazează pe atribuirea de intenții (frica de răspundere) mai degrabă decât pe o analiză cauzală sau normativă.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"group_interest\",\n      \"evidence\": {\n        \"text\": \"PSD nu este România, iar reproșurile primite la Strasbourg și criticile dure din raportul MCV vă privesc direct pe voi\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Apelul este centrat pe conflictul politic dintre partide și responsabilitatea grupului PSD.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"domnilor temători de statul paralel și alte himere bune de adormit populația\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Utilizarea unui limbaj disprețuitor la adresa adversarilor politici ('temători', 'himere').\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"În locul acestor înțelegeri pe tema comunicării eșecului reformei Toader, mai bine s-ar discuta în Guvern despre calea cea mai rapidă\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.82,\n      \"rationale_short\": \"Cererile și acțiunile guvernului sunt respinse ca fiind 'comunicarea eșecului', fără a le recunoaște legitimitatea.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"comunicatorii puterii au ieșit în cor să declare că România este atacată, pusă la colț de UE și certată pentru ceva ce n-a făcut. Adevărat, România nu a greșit cu nimic!\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Argumentele opoziției sunt menționate doar pentru a fi ridiculizate, fără un angajament substanțial.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"„Fără penali în funcții publice” nu mai este doar o inițiativă cetățenească. Este o necesitate zero a noastră\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Discursul susține o poziție politică fermă fără a propune un mecanism de mediere sau o alternativă legislativă concretă.\"\n    }\n  ],\n  \"rationale\": \"Discursul prezintă un profil deliberativ scăzut, caracterizat prin retorică combativă și lipsa angajamentului substanțial cu argumentele adversarilor. Justificarea este de nivel 1, bazându-se pe atribuiri de intenții și atacuri la persoană mai degrabă decât pe argumente cauzale sau principiale. Respectul pentru grupuri și cereri este absent, fiind înlocuit de un ton disprețuitor față de coaliția de guvernare. Deși menționează rapoarte internaționale, vorbitorul nu angajează contraargumentele acestora, ci le folosește ca instrumente de atac politic. Constructivitatea este limitată la susținerea unei poziții, fără a oferi soluții de compromis sau alternative legislative detaliate.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [
+        "comunicatorii puterii au ieșit în cor să declare că România este atacată, pusă la colț de UE și certată pentru ceva ce n-a făcut. Adevărat, România nu a greșit cu nimic!"
+      ],
+      "parse_repaired": false,
+      "tokens_in": 12937,
+      "tokens_in_breakdown": {
+        "fresh": 12937,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1292,
+      "cost_usd": null,
+      "latency_ms": 5338,
+      "retries_used": 0
+    }
+  }
+}

@@ -1,0 +1,210 @@
+{
+  "speech_id": "mo://2023/II/149#agenda-2#act-175",
+  "tier": "calibration",
+  "speaker": {
+    "id": "georgescu-nicolae",
+    "name": "Nicolae Georgescu",
+    "raw": "Domnul Nicolae Georgescu",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2023-11-06",
+    "year": 2023,
+    "legislature": "IX",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2023/II/149#agenda-2#act-175",
+      "output": {
+        "score": 1,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.85,
+        "markers": [
+          {
+            "kind": "evil_elite",
+            "evidence": {
+              "text": "Clujul, unde administrația PNL, de 11 ani încoace, se chinuie să facă un centru de management al deșeurilor."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.82,
+            "rationale_short": "Administrația locală este prezentată ca incompetentă și ineficientă, marcând o critică a elitei locale."
+          },
+          {
+            "kind": "evil_elite",
+            "evidence": {
+              "text": "Și după 11 ani de zile ce avem? Avem un Cluj care pute."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.85,
+            "rationale_short": "Elita locală este asociată cu un eșec palpabil și degradant pentru cetățeni, întărind caracterul malign al acțiunilor lor."
+          }
+        ],
+        "rationale": "Discursul începe într-un registru procedural, tehnic, privind economia circulară, dar pivotează brusc către o critică politică agresivă la adresa administrației locale din Cluj. Deși vorbitorul folosește un ton acuzator și atribuie incompetență elitei locale (PNL), discursul nu atinge un nivel de maniheism moralist sau de invocare a unei voințe populare omogene care să definească o viziune populistă pervazivă. Este un discurs partizan care utilizează elemente de critică a elitei, dar rămâne ancorat în dezbaterea administrativă locală. Scor 1 cu încredere ridicată, reflectând natura episodică a atacului populist într-un context altfel procedural."
+      },
+      "raw_response": "{\n  \"score\": 1,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.85,\n  \"markers\": [\n    {\n      \"kind\": \"evil_elite\",\n      \"evidence\": {\n        \"text\": \"Clujul, unde administrația PNL, de 11 ani încoace, se chinuie să facă un centru de management al deșeurilor.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.82,\n      \"rationale_short\": \"Administrația locală este prezentată ca incompetentă și ineficientă, marcând o critică a elitei locale.\"\n    },\n    {\n      \"kind\": \"evil_elite\",\n      \"evidence\": {\n        \"text\": \"Și după 11 ani de zile ce avem? Avem un Cluj care pute.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Elita locală este asociată cu un eșec palpabil și degradant pentru cetățeni, întărind caracterul malign al acțiunilor lor.\"\n    }\n  ],\n  \"rationale\": \"Discursul începe într-un registru procedural, tehnic, privind economia circulară, dar pivotează brusc către o critică politică agresivă la adresa administrației locale din Cluj. Deși vorbitorul folosește un ton acuzator și atribuie incompetență elitei locale (PNL), discursul nu atinge un nivel de maniheism moralist sau de invocare a unei voințe populare omogene care să definească o viziune populistă pervazivă. Este un discurs partizan care utilizează elemente de critică a elitei, dar rămâne ancorat în dezbaterea administrativă locală. Scor 1 cu încredere ridicată, reflectând natura episodică a atacului populist într-un context altfel procedural.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 14047,
+      "tokens_in_breakdown": {
+        "fresh": 14047,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 531,
+      "cost_usd": null,
+      "latency_ms": 3108,
+      "retries_used": 0
+    },
+    "voice": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "voice",
+      "speech_id": "mo://2023/II/149#agenda-2#act-175",
+      "output": {
+        "classifications": [
+          {
+            "marker_id": "m_0",
+            "voice": "speaker_first_person",
+            "voice_confidence": 0.95,
+            "voice_evidence": null,
+            "attributed_to": null,
+            "rationale_short": "Afirmație directă a vorbitorului în nume propriu, fără indicii de citare, raportare sau disclaimer."
+          },
+          {
+            "marker_id": "m_1",
+            "voice": "speaker_first_person",
+            "voice_confidence": 0.95,
+            "voice_evidence": null,
+            "attributed_to": null,
+            "rationale_short": "Afirmație directă a vorbitorului în nume propriu, fără indicii de citare, raportare sau disclaimer."
+          }
+        ]
+      },
+      "raw_response": "{\n  \"classifications\": [\n    {\n      \"marker_id\": \"m_0\",\n      \"voice\": \"speaker_first_person\",\n      \"voice_confidence\": 0.95,\n      \"voice_evidence\": null,\n      \"attributed_to\": null,\n      \"rationale_short\": \"Afirmație directă a vorbitorului în nume propriu, fără indicii de citare, raportare sau disclaimer.\"\n    },\n    {\n      \"marker_id\": \"m_1\",\n      \"voice\": \"speaker_first_person\",\n      \"voice_confidence\": 0.95,\n      \"voice_evidence\": null,\n      \"attributed_to\": null,\n      \"rationale_short\": \"Afirmație directă a vorbitorului în nume propriu, fără indicii de citare, raportare sau disclaimer.\"\n    }\n  ]\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 11696,
+      "tokens_in_breakdown": {
+        "fresh": 11696,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 207,
+      "cost_usd": null,
+      "latency_ms": 1259,
+      "retries_used": 0
+    },
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2023/II/149#agenda-2#act-175",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.78,
+        "level_of_justification": 1,
+        "content_of_justification": "group_interest",
+        "respect_for_groups": 0,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 1,
+            "evidence": {
+              "text": "În România economia circulară este inexistentă, practic."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Afirmație generală fără un lanț cauzal sau dovezi empirice specifice care să susțină poziția."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "group_interest",
+            "evidence": {
+              "text": "Stimați colegi de la PNL, aceste 10 puncte pe care le votăm acum poate le transmiteți și domnului primar Emil Boc"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.82,
+            "rationale_short": "Justificarea este ancorată în critica intereselor politice ale unui grup specific (PNL/administrația locală)."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 0,
+            "evidence": {
+              "text": "Avem un Cluj care pute."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Utilizarea unui limbaj denigrator la adresa unei comunități locale pentru a ataca adversarul politic."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Prin această comunicare transmitem Parlamentului European că ne dorim ca acesta să susțină economia circulară."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.96,
+            "marker_confidence": 0.88,
+            "rationale_short": "Vorbitorul își urmărește propria agendă fără a se angaja cu cererile sau pozițiile opoziției."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "O să repet asta, ca să nu credeți că am greșit – 11 ani de zile ca să faci o groapă de gunoi!"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.9,
+            "rationale_short": "Vorbitorul ignoră orice contraargumente și folosește retorica pentru a sublinia eșecul adversarului."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Supunem aprobării plenului Camerei Deputaților opinia, în forma adoptată de Comisia pentru afaceri europene."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.91,
+            "rationale_short": "Discursul este pozițional, susținând o opinie deja adoptată fără a propune alternative sau medieri."
+          }
+        ],
+        "rationale": "Discursul prezintă o calitate deliberativă scăzută, fiind marcat de o retorică agresivă și lipsită de justificare substanțială. Deși vorbitorul prezintă o opinie tehnică, argumentația sa se transformă rapid într-un atac politic la adresa administrației locale din Cluj, folosind un limbaj denigrator (respect_for_groups=0). Nu există o încercare de a angaja contraargumente sau de a recunoaște legitimitatea cererilor opoziției, discursul rămânând strict pozițional. Justificarea este slabă (level_of_justification=1), bazându-se pe generalizări și atacuri de grup (content_of_justification=group_interest) mai degrabă decât pe o analiză a binelui comun. În ansamblu, intervenția servește scopurilor politice partizane în detrimentul deliberării parlamentare."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.78,\n  \"level_of_justification\": 1,\n  \"content_of_justification\": \"group_interest\",\n  \"respect_for_groups\": 0,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 0,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"În România economia circulară este inexistentă, practic.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Afirmație generală fără un lanț cauzal sau dovezi empirice specifice care să susțină poziția.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"group_interest\",\n      \"evidence\": {\n        \"text\": \"Stimați colegi de la PNL, aceste 10 puncte pe care le votăm acum poate le transmiteți și domnului primar Emil Boc\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"marker_confidence\": 0.82,\n      \"rationale_short\": \"Justificarea este ancorată în critica intereselor politice ale unui grup specific (PNL/administrația locală).\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"Avem un Cluj care pute.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Utilizarea unui limbaj denigrator la adresa unei comunități locale pentru a ataca adversarul politic.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Prin această comunicare transmitem Parlamentului European că ne dorim ca acesta să susțină economia circulară.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.96,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Vorbitorul își urmărește propria agendă fără a se angaja cu cererile sau pozițiile opoziției.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"O să repet asta, ca să nu credeți că am greșit – 11 ani de zile ca să faci o groapă de gunoi!\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"marker_confidence\": 0.90,\n      \"rationale_short\": \"Vorbitorul ignoră orice contraargumente și folosește retorica pentru a sublinia eșecul adversarului.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"Supunem aprobării plenului Camerei Deputaților opinia, în forma adoptată de Comisia pentru afaceri europene.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.91,\n      \"rationale_short\": \"Discursul este pozițional, susținând o opinie deja adoptată fără a propune alternative sau medieri.\"\n    }\n  ],\n  \"rationale\": \"Discursul prezintă o calitate deliberativă scăzută, fiind marcat de o retorică agresivă și lipsită de justificare substanțială. Deși vorbitorul prezintă o opinie tehnică, argumentația sa se transformă rapid într-un atac politic la adresa administrației locale din Cluj, folosind un limbaj denigrator (respect_for_groups=0). Nu există o încercare de a angaja contraargumente sau de a recunoaște legitimitatea cererilor opoziției, discursul rămânând strict pozițional. Justificarea este slabă (level_of_justification=1), bazându-se pe generalizări și atacuri de grup (content_of_justification=group_interest) mai degrabă decât pe o analiză a binelui comun. În ansamblu, intervenția servește scopurilor politice partizane în detrimentul deliberării parlamentare.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12848,
+      "tokens_in_breakdown": {
+        "fresh": 12848,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1229,
+      "cost_usd": null,
+      "latency_ms": 5070,
+      "retries_used": 0
+    }
+  }
+}

@@ -1,0 +1,212 @@
+{
+  "speech_id": "mo://2003/II/117#agenda-1#act-58",
+  "tier": "calibration",
+  "speaker": {
+    "id": "bichinet-corneliu",
+    "name": "Corneliu Bichine˛",
+    "raw": "Domnul Corneliu Bichine˛",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": null,
+    "year": 2003,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2003/II/117#agenda-1#act-58",
+      "output": {
+        "score": 1,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.85,
+        "markers": [
+          {
+            "kind": "evil_elite",
+            "evidence": {
+              "text": "Cine a spus c„ doamna Puwak nu e cinstit„, nu e om corect? S-a Ónfruptat ∫i ea un pic din fondurile europene, c„ doar nu degeaba le gestioneaz„!"
+            },
+            "preliminary_voice": "sarcastic",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.9,
+            "rationale_short": "Folose∫te sarcasmul pentru a acuza un ministru de corup˛ie, încadrând elita ca fiind parazitară."
+          },
+          {
+            "kind": "people_vs_elite",
+            "evidence": {
+              "text": "lumea s-a cam s„turat de toate aceste drame ∫i anomalii, a∫a c„ dac„ nu le pute˛i curma dumneavoastr„, cei afla˛i vremelnic la putere, ei bine, l„sa˛i-i pe al˛ii s„ o fac„!"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.92,
+            "rationale_short": "Opozi˛ie directă între „lumea\" (poporul) și „cei afla˛i vremelnic la putere\" (elita), cerând înlocuirea acestora."
+          }
+        ],
+        "rationale": "Discursul începe cu o analiză tehnică a bugetului asigurărilor sociale, dar pivotează spre un registru populist în a doua jumătate. Vorbitorul utilizează sarcasmul pentru a ataca integritatea mini∫trilor (cazul Puwak) și încheie cu un apel direct la înlocuirea elitei politice de către „lumea\" care s-a săturat de anomalii. Deși cadrul popor-vs-elită este prezent și clar, acesta nu constituie întreaga structură a discursului, care rămâne ancorat în critica unor măsuri bugetare specifice. Scor 1 cu încredere ridicată, reflectând natura mixtă a discursului."
+      },
+      "raw_response": "{\n  \"score\": 1,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.85,\n  \"markers\": [\n    {\n      \"kind\": \"evil_elite\",\n      \"evidence\": {\n        \"text\": \"Cine a spus c„ doamna Puwak nu e cinstit„, nu e om corect? S-a Ónfruptat ∫i ea un pic din fondurile europene, c„ doar nu degeaba le gestioneaz„!\"\n      },\n      \"preliminary_voice\": \"sarcastic\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Folose∫te sarcasmul pentru a acuza un ministru de corup˛ie, încadrând elita ca fiind parazitară.\"\n    },\n    {\n      \"kind\": \"people_vs_elite\",\n      \"evidence\": {\n        \"text\": \"lumea s-a cam s„turat de toate aceste drame ∫i anomalii, a∫a c„ dac„ nu le pute˛i curma dumneavoastr„, cei afla˛i vremelnic la putere, ei bine, l„sa˛i-i pe al˛ii s„ o fac„!\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Opozi˛ie directă între „lumea\\\" (poporul) și „cei afla˛i vremelnic la putere\\\" (elita), cerând înlocuirea acestora.\"\n    }\n  ],\n  \"rationale\": \"Discursul începe cu o analiză tehnică a bugetului asigurărilor sociale, dar pivotează spre un registru populist în a doua jumătate. Vorbitorul utilizează sarcasmul pentru a ataca integritatea mini∫trilor (cazul Puwak) și încheie cu un apel direct la înlocuirea elitei politice de către „lumea\\\" care s-a săturat de anomalii. Deși cadrul popor-vs-elită este prezent și clar, acesta nu constituie întreaga structură a discursului, care rămâne ancorat în critica unor măsuri bugetare specifice. Scor 1 cu încredere ridicată, reflectând natura mixtă a discursului.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 14533,
+      "tokens_in_breakdown": {
+        "fresh": 14533,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 603,
+      "cost_usd": null,
+      "latency_ms": 3224,
+      "retries_used": 0
+    },
+    "voice": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "voice",
+      "speech_id": "mo://2003/II/117#agenda-1#act-58",
+      "output": {
+        "classifications": [
+          {
+            "marker_id": "m_0",
+            "voice": "sarcastic",
+            "voice_confidence": 0.85,
+            "voice_evidence": {
+              "text": "Cine a spus c„ doamna Puwak nu e cinstit„, nu e om corect? S-a Ónfruptat ∫i ea un pic din fondurile europene, c„ doar nu degeaba le gestioneaz„!"
+            },
+            "attributed_to": null,
+            "rationale_short": "Vorbitorul folosește ironia pentru a ataca integritatea ministrului, sugerând contrariul celor afirmate prin contextul acuzator."
+          },
+          {
+            "marker_id": "m_1",
+            "voice": "speaker_first_person",
+            "voice_confidence": 0.95,
+            "voice_evidence": null,
+            "attributed_to": null,
+            "rationale_short": "Afirmație directă a vorbitorului care îndeamnă colegii la acțiune; nu există indicii de citare, raportare sau alte cadre retorice."
+          }
+        ]
+      },
+      "raw_response": "{\n  \"classifications\": [\n    {\n      \"marker_id\": \"m_0\",\n      \"voice\": \"sarcastic\",\n      \"voice_confidence\": 0.85,\n      \"voice_evidence\": {\n        \"text\": \"Cine a spus c„ doamna Puwak nu e cinstit„, nu e om corect? S-a Ónfruptat ∫i ea un pic din fondurile europene, c„ doar nu degeaba le gestioneaz„!\"\n      },\n      \"attributed_to\": null,\n      \"rationale_short\": \"Vorbitorul folosește ironia pentru a ataca integritatea ministrului, sugerând contrariul celor afirmate prin contextul acuzator.\"\n    },\n    {\n      \"marker_id\": \"m_1\",\n      \"voice\": \"speaker_first_person\",\n      \"voice_confidence\": 0.95,\n      \"voice_evidence\": null,\n      \"attributed_to\": null,\n      \"rationale_short\": \"Afirmație directă a vorbitorului care îndeamnă colegii la acțiune; nu există indicii de citare, raportare sau alte cadre retorice.\"\n    }\n  ]\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12247,
+      "tokens_in_breakdown": {
+        "fresh": 12247,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 284,
+      "cost_usd": null,
+      "latency_ms": 1787,
+      "retries_used": 0
+    },
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2003/II/117#agenda-1#act-58",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.65,
+        "level_of_justification": 1,
+        "content_of_justification": "group_interest",
+        "respect_for_groups": 0,
+        "respect_for_demands": 0,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 1,
+            "evidence": {
+              "text": "diminuarea veniturilor cu 8.237,4 miliarde lei, apelarea la subven˛ii de la bugetul de stat, Ón valoare de 6.901,5 miliarde de lei"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Enumeră cifrele bugetare ca dovezi, dar fără a explica mecanismul cauzal al eșecului economic."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "group_interest",
+            "evidence": {
+              "text": "cei mai Ón v‚rst„ dec‚t noi s„ fie amenin˛a˛i a nu-∫i mai Óncasa la timp ori deloc pensiile"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Justificarea se bazează pe interesul specific al pensionarilor, un grup social definit."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 0,
+            "evidence": {
+              "text": "Cine a spus c„ doamna Puwak nu e cinstit„, nu e om corect? S-a Ónfruptat ∫i ea un pic din fondurile europene"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.92,
+            "rationale_short": "Atac direct și denigrator la adresa unui membru al guvernului, folosind un ton disprețuitor."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 0,
+            "evidence": {
+              "text": "Halal performan˛„!"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.96,
+            "marker_confidence": 0.88,
+            "rationale_short": "Respinge batjocoritor performanța guvernamentală, refuzând legitimitatea oricărei cereri adverse."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "l„sa˛i-i pe al˛ii s„ o fac„!"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.9,
+            "rationale_short": "Ignoră complet argumentele opoziției sau ale guvernului, cerând doar înlocuirea puterii."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "l„sa˛i-i pe al˛ii s„ o fac„!"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.95,
+            "rationale_short": "Discursul este pur pozițional, cerând schimbarea puterii fără a oferi o alternativă politică concretă."
+          }
+        ],
+        "rationale": "Discursul prezintă o calitate deliberativă scăzută, fiind marcat de un ton agresiv și disprețuitor. Deși oferă câteva date bugetare, acestea nu sunt legate de un raționament cauzal solid, limitându-se la o justificare de nivel 1. Respectul pentru grupuri și pentru cererile adverse este absent, vorbitorul recurgând la atacuri la persoană și ironii (ex. cazul Puwak, Beuran). Nu există nicio propunere constructivă sau mediatoare, discursul fiind pur pozițional și axat pe critică politică. Calitatea deliberativă este compromisă de retorica populistă și lipsa angajamentului substanțial cu argumentele contrare."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.65,\n  \"level_of_justification\": 1,\n  \"content_of_justification\": \"group_interest\",\n  \"respect_for_groups\": 0,\n  \"respect_for_demands\": 0,\n  \"respect_for_counterarguments\": 0,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 1,\n      \"evidence\": { \"text\": \"diminuarea veniturilor cu 8.237,4 miliarde lei, apelarea la subven˛ii de la bugetul de stat, Ón valoare de 6.901,5 miliarde de lei\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Enumeră cifrele bugetare ca dovezi, dar fără a explica mecanismul cauzal al eșecului economic.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"group_interest\",\n      \"evidence\": { \"text\": \"cei mai Ón v‚rst„ dec‚t noi s„ fie amenin˛a˛i a nu-∫i mai Óncasa la timp ori deloc pensiile\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Justificarea se bazează pe interesul specific al pensionarilor, un grup social definit.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 0,\n      \"evidence\": { \"text\": \"Cine a spus c„ doamna Puwak nu e cinstit„, nu e om corect? S-a Ónfruptat ∫i ea un pic din fondurile europene\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Atac direct și denigrator la adresa unui membru al guvernului, folosind un ton disprețuitor.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 0,\n      \"evidence\": { \"text\": \"Halal performan˛„!\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.96,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Respinge batjocoritor performanța guvernamentală, refuzând legitimitatea oricărei cereri adverse.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 0,\n      \"evidence\": { \"text\": \"l„sa˛i-i pe al˛ii s„ o fac„!\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Ignoră complet argumentele opoziției sau ale guvernului, cerând doar înlocuirea puterii.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": { \"text\": \"l„sa˛i-i pe al˛ii s„ o fac„!\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Discursul este pur pozițional, cerând schimbarea puterii fără a oferi o alternativă politică concretă.\"\n    }\n  ],\n  \"rationale\": \"Discursul prezintă o calitate deliberativă scăzută, fiind marcat de un ton agresiv și disprețuitor. Deși oferă câteva date bugetare, acestea nu sunt legate de un raționament cauzal solid, limitându-se la o justificare de nivel 1. Respectul pentru grupuri și pentru cererile adverse este absent, vorbitorul recurgând la atacuri la persoană și ironii (ex. cazul Puwak, Beuran). Nu există nicio propunere constructivă sau mediatoare, discursul fiind pur pozițional și axat pe critică politică. Calitatea deliberativă este compromisă de retorica populistă și lipsa angajamentului substanțial cu argumentele contrare.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13334,
+      "tokens_in_breakdown": {
+        "fresh": 13334,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1189,
+      "cost_usd": null,
+      "latency_ms": 4517,
+      "retries_used": 0
+    }
+  }
+}

@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2007/II/113#agenda-1#act-227",
+  "tier": "calibration",
+  "speaker": {
+    "id": "mihailescu-petru-serban",
+    "name": "Petru Șerban Mihăilescu",
+    "raw": "Domnul Petru Șerban Mihăilescu",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": "2007-09-06",
+    "year": 2007,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2007/II/113#agenda-1#act-227",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul este o intervenție pur procedurală referitoare la cvorumul necesar pentru adoptarea unui raport de respingere. Vorbitorul invocă regulamentele parlamentare, cutumele și calculele matematice (32 vs 35 de voturi, cvorum de 69) pentru a contesta validitatea unui vot. Nu există nicio urmă de cadru popor-vs-elită, maniheism moral sau invocare a unei voințe populare suverane. Discursul se înscrie în registrul tehnic-procedural al activității parlamentare, motiv pentru care scorul este 0."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul este o intervenție pur procedurală referitoare la cvorumul necesar pentru adoptarea unui raport de respingere. Vorbitorul invocă regulamentele parlamentare, cutumele și calculele matematice (32 vs 35 de voturi, cvorum de 69) pentru a contesta validitatea unui vot. Nu există nicio urmă de cadru popor-vs-elită, maniheism moral sau invocare a unei voințe populare suverane. Discursul se înscrie în registrul tehnic-procedural al activității parlamentare, motiv pentru care scorul este 0.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13630,
+      "tokens_in_breakdown": {
+        "fresh": 13630,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 207,
+      "cost_usd": null,
+      "latency_ms": 1902,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2007/II/113#agenda-1#act-227",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.85,
+        "level_of_justification": 2,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "Jumătate plus unu din cvorumul minim este 35, raportat la cvorumul minim de 69."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Vorbitorul oferă un calcul matematic specific pentru a justifica necesitatea unui cvorum de 35."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "Jumătate plus unu din cvorumul minim a fost și cutumă și este un lucru pe care l-am consacrat în nenumărate alte situații."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.88,
+            "rationale_short": "Apelul la cutumă și procedură parlamentară universală vizează binele comun al funcționării instituției."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "chiar dacă ar fi colegii prezenți în sală"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Referință neutră la colegii din sală; nicio derogare sau respect explicit."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "nu putem spune că am adoptat un raport de respingere"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.82,
+            "rationale_short": "Vorbitorul se concentrează pe argumentul procedural propriu fără a aborda cererile opoziției."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "Cum putem spune că am adoptat ceva cu 32 de voturi?"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.8,
+            "rationale_short": "Interogație retorică ce atinge argumentul advers, dar fără o restructurare sau combatere substanțială."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "nu putem spune că am adoptat un raport de respingere"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Vorbitorul susține o poziție procedurală fără a propune o alternativă sau o mediere."
+          }
+        ],
+        "rationale": "Discursul este o intervenție procedurală axată pe interpretarea cvorumului parlamentar. Vorbitorul oferă o justificare calificată (level_of_justification=2) prin utilizarea unui calcul matematic concret (35 din 69) și apelul la cutuma parlamentară, ceea ce plasează conținutul justificării în sfera binelui comun (common_good). Respectul pentru grupuri și cereri este neutru (1), deoarece vorbitorul se concentrează pe normele procedurale fără a ataca sau a valida explicit pozițiile altor grupuri. Angajamentul cu contraargumentele este limitat la o interogație retorică (respect_for_counterarguments=1), iar discursul rămâne pozițional (constructive_politics=positional) prin faptul că nu oferă o soluție de compromis, ci doar contestă validitatea votului. Calitatea deliberativă este medie, fiind un discurs tehnic-procedural."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.85,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"Jumătate plus unu din cvorumul minim este 35, raportat la cvorumul minim de 69.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Vorbitorul oferă un calcul matematic specific pentru a justifica necesitatea unui cvorum de 35.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"Jumătate plus unu din cvorumul minim a fost și cutumă și este un lucru pe care l-am consacrat în nenumărate alte situații.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Apelul la cutumă și procedură parlamentară universală vizează binele comun al funcționării instituției.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"chiar dacă ar fi colegii prezenți în sală\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Referință neutră la colegii din sală; nicio derogare sau respect explicit.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"nu putem spune că am adoptat un raport de respingere\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.82,\n      \"rationale_short\": \"Vorbitorul se concentrează pe argumentul procedural propriu fără a aborda cererile opoziției.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Cum putem spune că am adoptat ceva cu 32 de voturi?\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.80,\n      \"rationale_short\": \"Interogație retorică ce atinge argumentul advers, dar fără o restructurare sau combatere substanțială.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"nu putem spune că am adoptat un raport de respingere\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.90,\n      \"rationale_short\": \"Vorbitorul susține o poziție procedurală fără a propune o alternativă sau o mediere.\"\n    }\n  ],\n  \"rationale\": \"Discursul este o intervenție procedurală axată pe interpretarea cvorumului parlamentar. Vorbitorul oferă o justificare calificată (level_of_justification=2) prin utilizarea unui calcul matematic concret (35 din 69) și apelul la cutuma parlamentară, ceea ce plasează conținutul justificării în sfera binelui comun (common_good). Respectul pentru grupuri și cereri este neutru (1), deoarece vorbitorul se concentrează pe normele procedurale fără a ataca sau a valida explicit pozițiile altor grupuri. Angajamentul cu contraargumentele este limitat la o interogație retorică (respect_for_counterarguments=1), iar discursul rămâne pozițional (constructive_politics=positional) prin faptul că nu oferă o soluție de compromis, ci doar contestă validitatea votului. Calitatea deliberativă este medie, fiind un discurs tehnic-procedural.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12431,
+      "tokens_in_breakdown": {
+        "fresh": 12431,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1208,
+      "cost_usd": null,
+      "latency_ms": 4626,
+      "retries_used": 0
+    }
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "speech_id": "mo://2017/II/76#agenda-4#act-38",
+  "tier": "calibration",
+  "speaker": {
+    "id": "cretu-gabriela",
+    "name": "Gabriela Crețu",
+    "raw": "Doamna Gabriela Crețu",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": "2017-05-09",
+    "year": 2017,
+    "legislature": "VIII",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": null,
+    "voice": null,
+    "dqi": null,
+    "vparty": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "vparty",
+      "speech_id": "mo://2017/II/76#agenda-4#act-38",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "vparty@2020 + vdem-attacks-on@v13",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul este unul pur tehnic și procedural, axat pe analiza unei directive europene privind piața energiei. Vorbitorul prezintă activitatea comisiei, consultările cu instituțiile statului și argumentele juridice bazate pe tratatele UE, fără a ataca nicio instituție democratică. Nu există nicio urmă de delegitimizare a opoziției, presei, justiției, ONG-urilor sau a normelor democratice. Discursul respectă pe deplin registrul parlamentar democratic, fiind un exemplu clar de scor 0."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"vparty@2020 + vdem-attacks-on@v13\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul este unul pur tehnic și procedural, axat pe analiza unei directive europene privind piața energiei. Vorbitorul prezintă activitatea comisiei, consultările cu instituțiile statului și argumentele juridice bazate pe tratatele UE, fără a ataca nicio instituție democratică. Nu există nicio urmă de delegitimizare a opoziției, presei, justiției, ONG-urilor sau a normelor democratice. Discursul respectă pe deplin registrul parlamentar democratic, fiind un exemplu clar de scor 0.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13948,
+      "tokens_in_breakdown": {
+        "fresh": 13948,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 200,
+      "cost_usd": null,
+      "latency_ms": 1851,
+      "retries_used": 0
+    }
+  }
+}

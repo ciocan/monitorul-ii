@@ -1,0 +1,153 @@
+{
+  "speech_id": "mo://2016/II/169#agenda-1#act-32",
+  "tier": "moderate",
+  "speaker": {
+    "id": "citu-florin",
+    "name": "Florin Vasile Cîțu",
+    "raw": "Domnul Florin Vasile Cîțu",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": "2016-12-27",
+    "year": 2016,
+    "legislature": "VIII",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2016/II/169#agenda-1#act-32",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul domnului Florin Cîțu este un exemplu tipic de intervenție procedurală și tehnică în cadrul unei comisii parlamentare. Vorbitorul se concentrează pe analiza impactului bugetar al „legii celor 102 taxe”, utilizând date economice, estimări ale Comisiei Naționale de Prognoză și argumente legate de deficitul bugetar. Deși există referiri la „campania electorală” și la acțiunile politice ale domnului Dragnea, acestea sunt încadrate în contextul unei dezbateri parlamentare despre sustenabilitatea fiscală, nu într-un cadru maniheist popor-vs-elită. Nu sunt prezente niciunul dintre cei șapte markeri populiști, discursul rămânând ferm ancorat în registrul tehnocratic și procedural."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul domnului Florin Cîțu este un exemplu tipic de intervenție procedurală și tehnică în cadrul unei comisii parlamentare. Vorbitorul se concentrează pe analiza impactului bugetar al „legii celor 102 taxe”, utilizând date economice, estimări ale Comisiei Naționale de Prognoză și argumente legate de deficitul bugetar. Deși există referiri la „campania electorală” și la acțiunile politice ale domnului Dragnea, acestea sunt încadrate în contextul unei dezbateri parlamentare despre sustenabilitatea fiscală, nu într-un cadru maniheist popor-vs-elită. Nu sunt prezente niciunul dintre cei șapte markeri populiști, discursul rămânând ferm ancorat în registrul tehnocratic și procedural.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 14101,
+      "tokens_in_breakdown": {
+        "fresh": 14101,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 252,
+      "cost_usd": null,
+      "latency_ms": 2236,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2016/II/169#agenda-1#act-32",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.85,
+        "level_of_justification": 2,
+        "content_of_justification": "mixed",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "alternative_proposal",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "Din cele 102 taxe, taxa TVR și radio reprezintă 70%. Din acest impact pe buget de 1,6 miliarde, 1,1 miliarde sunt doar pentru taxa TVR și radio. [...] fără să fi avut un guvern, în acest moment domnul Dragnea a crescut deja deficitul bugetar pentru 2017 de la 2,7% din PIB la 2,95% din PIB."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Vorbitorul oferă o justificare bazată pe date bugetare specifice și proiecții de deficit pentru a susține poziția sa."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "mixed",
+            "evidence": {
+              "text": "Grupul parlamentar al PNL consideră că președintele are motive întemeiate pentru a cere această reexaminare. [...] Nu ne opunem reducerilor de taxe, dar în acest moment, când deja avem un deficit estimat de 2,95% pentru 2017, este normal să discutăm despre această taxă radio și de televiziune."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.88,
+            "rationale_short": "Justificarea combină interesele politice ale grupului PNL cu apelul la responsabilitate fiscală pentru binele comun."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Stimați colegi"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.99,
+            "marker_confidence": 0.95,
+            "rationale_short": "Adresare convențională; nu există derogări sau recunoașteri explicite ale legitimității out-group-urilor."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "este adevărat ce spune domnul Șerban Nicolae, că nu se cere acest lucru, dar poate că era momentul acum"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.85,
+            "rationale_short": "Vorbitorul menționează cererea opoziției fără a o respinge sau a o valida explicit; non-angajament."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "este adevărat ce spune domnul Șerban Nicolae, că nu se cere acest lucru, dar poate că era momentul acum"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.82,
+            "rationale_short": "Recunoaște argumentul advers, dar nu îl combate substanțial, trecând rapid la propria argumentație."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "alternative_proposal",
+            "evidence": {
+              "text": "Ar fi fost mult mai frumos dacă inițiatorii ar fi decuplat cele 101 taxe, cu un impact mai mic pentru buget, și ar fi rămas în discuție doar această taxă, despre TV."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Vorbitorul propune o alternativă concretă la modul în care a fost structurată legea inițială."
+          }
+        ],
+        "rationale": "Discursul prezintă o calitate deliberativă medie-ridicată, caracterizată printr-o justificare bazată pe date economice concrete (deficit, proiecții PIB), ceea ce îi conferă un nivel de justificare 2. Vorbitorul îmbină interesele grupului PNL cu argumente de interes general (responsabilitate fiscală), rezultând într-o justificare mixtă. Deși menționează poziția opoziției, nu se angajează profund în contraargumente, menținând un respect neutru pentru cererile adverse. Propunerea de a decupla taxele reprezintă o alternativă constructivă, deși formulată ipotetic. Per ansamblu, discursul este argumentat și orientat spre politică publică, evitând atacurile la persoană."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.85,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"mixed\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"alternative_proposal\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"Din cele 102 taxe, taxa TVR și radio reprezintă 70%. Din acest impact pe buget de 1,6 miliarde, 1,1 miliarde sunt doar pentru taxa TVR și radio. [...] fără să fi avut un guvern, în acest moment domnul Dragnea a crescut deja deficitul bugetar pentru 2017 de la 2,7% din PIB la 2,95% din PIB.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Vorbitorul oferă o justificare bazată pe date bugetare specifice și proiecții de deficit pentru a susține poziția sa.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"mixed\",\n      \"evidence\": {\n        \"text\": \"Grupul parlamentar al PNL consideră că președintele are motive întemeiate pentru a cere această reexaminare. [...] Nu ne opunem reducerilor de taxe, dar în acest moment, când deja avem un deficit estimat de 2,95% pentru 2017, este normal să discutăm despre această taxă radio și de televiziune.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Justificarea combină interesele politice ale grupului PNL cu apelul la responsabilitate fiscală pentru binele comun.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Stimați colegi\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.99,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Adresare convențională; nu există derogări sau recunoașteri explicite ale legitimității out-group-urilor.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"este adevărat ce spune domnul Șerban Nicolae, că nu se cere acest lucru, dar poate că era momentul acum\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Vorbitorul menționează cererea opoziției fără a o respinge sau a o valida explicit; non-angajament.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"este adevărat ce spune domnul Șerban Nicolae, că nu se cere acest lucru, dar poate că era momentul acum\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"marker_confidence\": 0.82,\n      \"rationale_short\": \"Recunoaște argumentul advers, dar nu îl combate substanțial, trecând rapid la propria argumentație.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"alternative_proposal\",\n      \"evidence\": {\n        \"text\": \"Ar fi fost mult mai frumos dacă inițiatorii ar fi decuplat cele 101 taxe, cu un impact mai mic pentru buget, și ar fi rămas în discuție doar această taxă, despre TV.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.90,\n      \"rationale_short\": \"Vorbitorul propune o alternativă concretă la modul în care a fost structurată legea inițială.\"\n    }\n  ],\n  \"rationale\": \"Discursul prezintă o calitate deliberativă medie-ridicată, caracterizată printr-o justificare bazată pe date economice concrete (deficit, proiecții PIB), ceea ce îi conferă un nivel de justificare 2. Vorbitorul îmbină interesele grupului PNL cu argumente de interes general (responsabilitate fiscală), rezultând într-o justificare mixtă. Deși menționează poziția opoziției, nu se angajează profund în contraargumente, menținând un respect neutru pentru cererile adverse. Propunerea de a decupla taxele reprezintă o alternativă constructivă, deși formulată ipotetic. Per ansamblu, discursul este argumentat și orientat spre politică publică, evitând atacurile la persoană.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [
+        "Din cele 102 taxe, taxa TVR și radio reprezintă 70%. Din acest impact pe buget de 1,6 miliarde, 1,1 miliarde sunt doar pentru taxa TVR și radio. [...] fără să fi avut un guvern, în acest moment domnul Dragnea a crescut deja deficitul bugetar pentru 2017 de la 2,7% din PIB la 2,95% din PIB.",
+        "Grupul parlamentar al PNL consideră că președintele are motive întemeiate pentru a cere această reexaminare. [...] Nu ne opunem reducerilor de taxe, dar în acest moment, când deja avem un deficit estimat de 2,95% pentru 2017, este normal să discutăm despre această taxă radio și de televiziune."
+      ],
+      "parse_repaired": false,
+      "tokens_in": 12902,
+      "tokens_in_breakdown": {
+        "fresh": 12902,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1361,
+      "cost_usd": null,
+      "latency_ms": 4948,
+      "retries_used": 0
+    }
+  }
+}

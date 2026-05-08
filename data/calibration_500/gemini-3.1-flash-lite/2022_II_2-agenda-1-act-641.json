@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2022/II/2#agenda-1#act-641",
+  "tier": "calibration",
+  "speaker": {
+    "id": "baltaretu-viorel",
+    "name": "Viorel Băltărețu",
+    "raw": "Domnul Viorel Băltărețu",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2021-12-22",
+    "year": 2022,
+    "legislature": "IX",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2022/II/2#agenda-1#act-641",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul este unul pur tehnic și procedural, axat pe solicitarea de fonduri pentru un proiect de infrastructură specific (drumul expres Cluj–Dej). Vorbitorul apelează la colegii parlamentari din regiunile vizate pentru susținerea amendamentului bugetar, folosind un registru de colaborare parlamentară. Nu există nicio urmă de cadru popor-vs-elită, maniheism moral sau invocare a unei voințe populare omogene. Discursul se încadrează perfect în registrul dezbaterii de politici publice, primind scorul 0 cu încredere ridicată."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul este unul pur tehnic și procedural, axat pe solicitarea de fonduri pentru un proiect de infrastructură specific (drumul expres Cluj–Dej). Vorbitorul apelează la colegii parlamentari din regiunile vizate pentru susținerea amendamentului bugetar, folosind un registru de colaborare parlamentară. Nu există nicio urmă de cadru popor-vs-elită, maniheism moral sau invocare a unei voințe populare omogene. Discursul se încadrează perfect în registrul dezbaterii de politici publice, primind scorul 0 cu încredere ridicată.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13688,
+      "tokens_in_breakdown": {
+        "fresh": 13688,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 208,
+      "cost_usd": null,
+      "latency_ms": 2021,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2022/II/2#agenda-1#act-641",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.85,
+        "level_of_justification": 2,
+        "content_of_justification": "group_interest",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "alternative_proposal",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "solicitarea mea este, pentru anul 2022, de 7.000.000 de lei, astfel încât acest proiect să nu rămână în urma celorlalte proiecte."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Vorbitorul oferă o justificare specifică pentru alocarea bugetară, legând suma de necesitatea continuității proiectului."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "group_interest",
+            "evidence": {
+              "text": "fac apel la parlamentarii din județul Cluj, la cei din Maramureș, din Bistrița, chiar și la cei din Bucovina și din nordul Moldovei."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Justificarea este ancorată în interesele regionale ale cetățenilor din zonele menționate."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Stimați colegi"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.99,
+            "marker_confidence": 0.95,
+            "rationale_short": "Adresare convențională, neutră, fără derogări sau laude explicite."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Ministerul Transporturilor nu a prins niciun fond pentru anul 2022."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.88,
+            "rationale_short": "Constatare a unei situații administrative fără a angaja legitimitatea cererilor opoziției."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "Ministerul Transporturilor nu a prins niciun fond pentru anul 2022."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Vorbitorul semnalează o omisiune bugetară fără a aborda raționamentul din spatele acesteia."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "alternative_proposal",
+            "evidence": {
+              "text": "solicitarea mea este, pentru anul 2022, de 7.000.000 de lei"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Vorbitorul propune o alocare bugetară specifică ca alternativă la lipsa de finanțare actuală."
+          }
+        ],
+        "rationale": "Discursul prezintă o calitate deliberativă moderată, fiind axat pe o solicitare bugetară concretă pentru un proiect regional. Justificarea este calificată (level_of_justification=2) prin legarea sumei solicitate de necesitatea menținerii ritmului proiectului, apelând la interesele regionale (group_interest). Deși discursul este constructiv prin propunerea unei alocări financiare (alternative_proposal), acesta nu angajează contraargumente sau cereri adverse, limitându-se la a semnala o omisiune a Ministerului Transporturilor. Respectul pentru grupuri și cereri rămâne neutru, fiind un discurs de tip lobby regional. Profilul este unul pragmatic, orientat spre soluționarea unei probleme punctuale de infrastructură."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.85,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"group_interest\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 0,\n  \"constructive_politics\": \"alternative_proposal\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"solicitarea mea este, pentru anul 2022, de 7.000.000 de lei, astfel încât acest proiect să nu rămână în urma celorlalte proiecte.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Vorbitorul oferă o justificare specifică pentru alocarea bugetară, legând suma de necesitatea continuității proiectului.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"group_interest\",\n      \"evidence\": {\n        \"text\": \"fac apel la parlamentarii din județul Cluj, la cei din Maramureș, din Bistrița, chiar și la cei din Bucovina și din nordul Moldovei.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Justificarea este ancorată în interesele regionale ale cetățenilor din zonele menționate.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Stimați colegi\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.99,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Adresare convențională, neutră, fără derogări sau laude explicite.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Ministerul Transporturilor nu a prins niciun fond pentru anul 2022.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Constatare a unei situații administrative fără a angaja legitimitatea cererilor opoziției.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"Ministerul Transporturilor nu a prins niciun fond pentru anul 2022.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Vorbitorul semnalează o omisiune bugetară fără a aborda raționamentul din spatele acesteia.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"alternative_proposal\",\n      \"evidence\": {\n        \"text\": \"solicitarea mea este, pentru anul 2022, de 7.000.000 de lei\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Vorbitorul propune o alocare bugetară specifică ca alternativă la lipsa de finanțare actuală.\"\n    }\n  ],\n  \"rationale\": \"Discursul prezintă o calitate deliberativă moderată, fiind axat pe o solicitare bugetară concretă pentru un proiect regional. Justificarea este calificată (level_of_justification=2) prin legarea sumei solicitate de necesitatea menținerii ritmului proiectului, apelând la interesele regionale (group_interest). Deși discursul este constructiv prin propunerea unei alocări financiare (alternative_proposal), acesta nu angajează contraargumente sau cereri adverse, limitându-se la a semnala o omisiune a Ministerului Transporturilor. Respectul pentru grupuri și cereri rămâne neutru, fiind un discurs de tip lobby regional. Profilul este unul pragmatic, orientat spre soluționarea unei probleme punctuale de infrastructură.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12489,
+      "tokens_in_breakdown": {
+        "fresh": 12489,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1198,
+      "cost_usd": null,
+      "latency_ms": 4477,
+      "retries_used": 0
+    }
+  }
+}

@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2013/II/26#agenda-2#act-115",
+  "tier": "calibration",
+  "speaker": {
+    "id": "zgonea-valeriu-stefan",
+    "name": "Valeriu Ștefan Zgonea",
+    "raw": "Domnul Valeriu Ștefan Zgonea",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2013-03-05",
+    "year": 2013,
+    "legislature": "VII",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2013/II/26#agenda-2#act-115",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 1.0,
+        "markers": [],
+        "rationale": "Discursul reprezintă o intervenție pur procedurală de deschidere a ședinței Camerei Deputaților. Vorbitorul se ocupă cu gestionarea cvorumului, urări de la mulți ani, organizarea ordinii de zi și interacțiuni administrative cu alți parlamentari. Nu există nicio urmă de cadru popor-vs-elită, maniheism moral sau invocare a unei voințe populare suverane. Discursul este un exemplu clasic de registru parlamentar tehnic, scorul fiind 0 cu încredere maximă."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 1.0,\n  \"markers\": [],\n  \"rationale\": \"Discursul reprezintă o intervenție pur procedurală de deschidere a ședinței Camerei Deputaților. Vorbitorul se ocupă cu gestionarea cvorumului, urări de la mulți ani, organizarea ordinii de zi și interacțiuni administrative cu alți parlamentari. Nu există nicio urmă de cadru popor-vs-elită, maniheism moral sau invocare a unei voințe populare suverane. Discursul este un exemplu clasic de registru parlamentar tehnic, scorul fiind 0 cu încredere maximă.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13990,
+      "tokens_in_breakdown": {
+        "fresh": 13990,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 192,
+      "cost_usd": null,
+      "latency_ms": 1981,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2013/II/26#agenda-2#act-115",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.45,
+        "level_of_justification": 0,
+        "content_of_justification": "none",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 0,
+            "evidence": {
+              "text": "Continuăm lucrările de azi ale Camerei Deputaților"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Discursul este pur procedural, fără nicio justificare sau argumentație."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "none",
+            "evidence": {
+              "text": "Continuăm lucrările de azi ale Camerei Deputaților"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Nicio justificare oferită; conținutul este nedefinit."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Doamnelor și domnilor deputați"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Adresare convențională, neutră."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Începem dezbaterea inițiativelor legislative înscrise pe ordinea de zi."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Procedură administrativă, fără angajament cu cereri politice."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "Știți că pe baza relației de prietenie mă forțați să încalc regulamentul"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.85,
+            "rationale_short": "Vorbitorul ignoră orice argumentație, concentrându-se pe procedură."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Continuăm lucrările de azi ale Camerei Deputaților"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Discurs pur procedural, fără propuneri alternative sau mediere."
+          }
+        ],
+        "rationale": "Acest fragment reprezintă un discurs pur procedural al președintelui de ședință, axat pe gestionarea cvorumului și a ordinii de zi. Nu există nicio argumentație substanțială, justificare sau angajament cu contraargumente, deoarece discursul nu vizează o dezbatere politică, ci administrarea ședinței. Scorurile sunt setate la valorile implicite pentru intervenții procedurale, iar framework_confidence este scăzut deoarece DQI nu este conceput pentru a evalua discursuri de natură administrativă. Nu există elemente de respect sau dispreț față de grupuri, ci doar convenții de adresare parlamentară."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.45,\n  \"level_of_justification\": 0,\n  \"content_of_justification\": \"none\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 0,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 0,\n      \"evidence\": { \"text\": \"Continuăm lucrările de azi ale Camerei Deputaților\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Discursul este pur procedural, fără nicio justificare sau argumentație.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"none\",\n      \"evidence\": { \"text\": \"Continuăm lucrările de azi ale Camerei Deputaților\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Nicio justificare oferită; conținutul este nedefinit.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": { \"text\": \"Doamnelor și domnilor deputați\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Adresare convențională, neutră.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": { \"text\": \"Începem dezbaterea inițiativelor legislative înscrise pe ordinea de zi.\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Procedură administrativă, fără angajament cu cereri politice.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 0,\n      \"evidence\": { \"text\": \"Știți că pe baza relației de prietenie mă forțați să încalc regulamentul\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Vorbitorul ignoră orice argumentație, concentrându-se pe procedură.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": { \"text\": \"Continuăm lucrările de azi ale Camerei Deputaților\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Discurs pur procedural, fără propuneri alternative sau mediere.\"\n    }\n  ],\n  \"rationale\": \"Acest fragment reprezintă un discurs pur procedural al președintelui de ședință, axat pe gestionarea cvorumului și a ordinii de zi. Nu există nicio argumentație substanțială, justificare sau angajament cu contraargumente, deoarece discursul nu vizează o dezbatere politică, ci administrarea ședinței. Scorurile sunt setate la valorile implicite pentru intervenții procedurale, iar framework_confidence este scăzut deoarece DQI nu este conceput pentru a evalua discursuri de natură administrativă. Nu există elemente de respect sau dispreț față de grupuri, ci doar convenții de adresare parlamentară.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12791,
+      "tokens_in_breakdown": {
+        "fresh": 12791,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1026,
+      "cost_usd": null,
+      "latency_ms": 3979,
+      "retries_used": 0
+    }
+  }
+}

@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2002/II/105#agenda-3#act-6",
+  "tier": "calibration",
+  "speaker": {
+    "id": "ciontu-corneliu",
+    "name": "Corneliu Ciontu",
+    "raw": "Domnul Corneliu Ciontu",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": null,
+    "year": 2002,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2002/II/105#agenda-3#act-6",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul reprezintă un răspuns tehnic și procedural la o interpelare parlamentară, concentrându-se exclusiv pe etapele legale de autorizare a mediului pentru proiectul Roșia Montană. Vorbitorul enumeră legi, ordine ministeriale, etape de analiză tehnică și proceduri de consultare publică, fără a utiliza nicio retorică populistă sau cadru maniheist. Nu există nicio invocare a unei voințe populare omogene sau a unei elite malefice, discursul fiind strict administrativ și informativ. Hawkins=0 cu încredere ridicată."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul reprezintă un răspuns tehnic și procedural la o interpelare parlamentară, concentrându-se exclusiv pe etapele legale de autorizare a mediului pentru proiectul Roșia Montană. Vorbitorul enumeră legi, ordine ministeriale, etape de analiză tehnică și proceduri de consultare publică, fără a utiliza nicio retorică populistă sau cadru maniheist. Nu există nicio invocare a unei voințe populare omogene sau a unei elite malefice, discursul fiind strict administrativ și informativ. Hawkins=0 cu încredere ridicată.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 14721,
+      "tokens_in_breakdown": {
+        "fresh": 14721,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 205,
+      "cost_usd": null,
+      "latency_ms": 1843,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2002/II/105#agenda-3#act-6",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.88,
+        "level_of_justification": 2,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "În conformitate cu prevederile Legii protecþiei mediului nr. 137/1995, republicatã, ºi a Ordinului ministrului apelor, pãdurilor ºi protecþiei mediului nr. 125/1996, promovarea lucrãrilor de investiþii cu impact asupra mediului se realizeazã în baza acordului de mediu"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Justificare bazată pe cadrul legislativ specific (Legea 137/1995 și Ordinul 125/1996)."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "stabileascã condiþiile de realizare, din punct de vedere al protecþiei mediului, a proiectelor supuse procedurii"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Apelul la protecția mediului ca interes public general."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Onoraþi deputaþi"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.99,
+            "marker_confidence": 0.95,
+            "rationale_short": "Adresare formală neutră; niciun grup vizat derogatoriu sau laudativ."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Referitor la întrebarea adresatã de dumneavoastrã primului-ministru"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Răspuns procedural la o interpelare; nu există o evaluare a legitimității cererii."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "În cadrul dezbaterilor publice nu au fost semnalate obiecþii referitoare la investiþiile care vor fi introduse"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.88,
+            "rationale_short": "Menționează absența obiecțiilor, dar nu angajează un raționament opus."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "ministerul nostru, cât ºi unitatea sa descentralizatã de la Alba Iulia, va urmãri în continuare respectarea strictã a prevederilor legale"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Poziție administrativă de asigurare a respectării legii; nicio propunere alternativă."
+          }
+        ],
+        "rationale": "Discursul secretarului de stat este un răspuns tehnic, procedural, la o interpelare parlamentară. Justificarea este calificată (level_of_justification=2) prin citarea precisă a legislației de mediu (Legea 137/1995), iar conținutul justificării vizează binele comun (protecția mediului). Respectul pentru grupuri și cereri este neutru, limitându-se la formalități parlamentare. Nu există un angajament substanțial cu contraargumente, deoarece vorbitorul raportează doar absența obiecțiilor în procedurile administrative. Discursul este pozițional, reafirmând angajamentul ministerului de a respecta legea, fără a propune alternative sau medieri. Calitatea deliberativă este ridicată pentru un răspuns administrativ, dar limitată de natura tehnică a intervenției."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.88,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"În conformitate cu prevederile Legii protecþiei mediului nr. 137/1995, republicatã, ºi a Ordinului ministrului apelor, pãdurilor ºi protecþiei mediului nr. 125/1996, promovarea lucrãrilor de investiþii cu impact asupra mediului se realizeazã în baza acordului de mediu\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Justificare bazată pe cadrul legislativ specific (Legea 137/1995 și Ordinul 125/1996).\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"stabileascã condiþiile de realizare, din punct de vedere al protecþiei mediului, a proiectelor supuse procedurii\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Apelul la protecția mediului ca interes public general.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Onoraþi deputaþi\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.99,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Adresare formală neutră; niciun grup vizat derogatoriu sau laudativ.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Referitor la întrebarea adresatã de dumneavoastrã primului-ministru\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.90,\n      \"rationale_short\": \"Răspuns procedural la o interpelare; nu există o evaluare a legitimității cererii.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"În cadrul dezbaterilor publice nu au fost semnalate obiecþii referitoare la investiþiile care vor fi introduse\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Menționează absența obiecțiilor, dar nu angajează un raționament opus.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"ministerul nostru, cât ºi unitatea sa descentralizatã de la Alba Iulia, va urmãri în continuare respectarea strictã a prevederilor legale\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Poziție administrativă de asigurare a respectării legii; nicio propunere alternativă.\"\n    }\n  ],\n  \"rationale\": \"Discursul secretarului de stat este un răspuns tehnic, procedural, la o interpelare parlamentară. Justificarea este calificată (level_of_justification=2) prin citarea precisă a legislației de mediu (Legea 137/1995), iar conținutul justificării vizează binele comun (protecția mediului). Respectul pentru grupuri și cereri este neutru, limitându-se la formalități parlamentare. Nu există un angajament substanțial cu contraargumente, deoarece vorbitorul raportează doar absența obiecțiilor în procedurile administrative. Discursul este pozițional, reafirmând angajamentul ministerului de a respecta legea, fără a propune alternative sau medieri. Calitatea deliberativă este ridicată pentru un răspuns administrativ, dar limitată de natura tehnică a intervenției.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13522,
+      "tokens_in_breakdown": {
+        "fresh": 13522,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1281,
+      "cost_usd": null,
+      "latency_ms": 4739,
+      "retries_used": 0
+    }
+  }
+}

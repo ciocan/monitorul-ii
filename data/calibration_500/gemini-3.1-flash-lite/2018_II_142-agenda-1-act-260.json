@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2018/II/142#agenda-1#act-260",
+  "tier": "calibration",
+  "speaker": {
+    "id": "borza-remus-adrian",
+    "name": "Remus Adrian Borza",
+    "raw": "Domnul Remus Adrian Borza",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2018-10-03",
+    "year": 2018,
+    "legislature": "VIII",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2018/II/142#agenda-1#act-260",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.95,
+        "markers": [],
+        "rationale": "Discursul este un demers tehnic și procedural axat pe analiza execuției bugetare, a deficitelor și a eficienței colectării veniturilor la ANAF. Deși vorbitorul folosește un ton critic și retoric (ex. „instituție anacronică”, „a păpat 15 milioane”), acesta rămâne în registrul dezbaterii de politici publice, oferind argumente bazate pe cifre și propuneri de reformă administrativă. Nu există un cadru maniheist popor-vs-elită, nicio invocare a unei voințe populare omogene și nicio structură populistă care să pervadeze discursul. Hawkins=0 cu încredere ridicată."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.95,\n  \"markers\": [],\n  \"rationale\": \"Discursul este un demers tehnic și procedural axat pe analiza execuției bugetare, a deficitelor și a eficienței colectării veniturilor la ANAF. Deși vorbitorul folosește un ton critic și retoric (ex. „instituție anacronică”, „a păpat 15 milioane”), acesta rămâne în registrul dezbaterii de politici publice, oferind argumente bazate pe cifre și propuneri de reformă administrativă. Nu există un cadru maniheist popor-vs-elită, nicio invocare a unei voințe populare omogene și nicio structură populistă care să pervadeze discursul. Hawkins=0 cu încredere ridicată.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 14227,
+      "tokens_in_breakdown": {
+        "fresh": 14227,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 230,
+      "cost_usd": null,
+      "latency_ms": 2073,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2018/II/142#agenda-1#act-260",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.85,
+        "level_of_justification": 2,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "Anul trecut am avut un record de 12,5 miliarde de euro pe deficitul de balanță comercială – 75 de miliarde de euro importuri _versus_ doar 63,5 miliarde de euro exporturi."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Vorbitorul oferă date empirice specifice pentru a susține argumentul privind deficitele."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "Cu opt miliarde de euro ați acoperi toate găurile de la bugetul de stat, s-ar construi spitale, s-ar construi autostrăzi, s-ar construi școli."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Apelul este la interesul public general (spitale, autostrăzi, școli) și nu la un grup restrâns."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "ANAF? Da! ANAF este încă o instituție birocratică, care trebuie reformată din temelii."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.88,
+            "rationale_short": "Critica instituțională este funcțională; nu există derogare sau respect explicit pentru grupuri."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Ne spune domnul ministru că au crescut veniturile, la șase luni, cu 12%."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.96,
+            "marker_confidence": 0.85,
+            "rationale_short": "Vorbitorul menționează poziția ministrului fără a se angaja cu legitimitatea cererilor acestuia."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "Corupția este, așa..., o poveste. Este o marotă pe care și unii, și alții, de la Vlădică până la Opincă, o mestecă în fiecare dimineață"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.9,
+            "rationale_short": "Vorbitorul respinge argumentul corupției ca fiind o „marotă” fără a-l aborda substanțial."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Și atunci evident că trebuie să găsim și noi, Parlamentul, mecanismele prin care..."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.94,
+            "marker_confidence": 0.89,
+            "rationale_short": "Vorbitorul critică situația actuală, dar nu oferă o alternativă concretă sau un mecanism de mediere."
+          }
+        ],
+        "rationale": "Discursul prezintă o calitate deliberativă mixtă. Vorbitorul utilizează date empirice pentru a justifica criticile aduse execuției bugetare (level_of_justification=2), apelând la binele comun (content_of_justification=common_good). Totuși, discursul rămâne în mare parte pozițional, fără a oferi alternative concrete (constructive_politics=positional). Respectul pentru grupuri și cereri este neutru, însă tratamentul contraargumentelor este deficitar, acestea fiind respinse retoric ca fiind simple „marote” (respect_for_counterarguments=0). Discursul este analitic în diagnostic, dar nu reușește să angajeze constructiv opoziția sau să propună soluții alternative."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.85,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 0,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"Anul trecut am avut un record de 12,5 miliarde de euro pe deficitul de balanță comercială – 75 de miliarde de euro importuri _versus_ doar 63,5 miliarde de euro exporturi.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Vorbitorul oferă date empirice specifice pentru a susține argumentul privind deficitele.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"Cu opt miliarde de euro ați acoperi toate găurile de la bugetul de stat, s-ar construi spitale, s-ar construi autostrăzi, s-ar construi școli.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Apelul este la interesul public general (spitale, autostrăzi, școli) și nu la un grup restrâns.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"ANAF? Da! ANAF este încă o instituție birocratică, care trebuie reformată din temelii.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Critica instituțională este funcțională; nu există derogare sau respect explicit pentru grupuri.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Ne spune domnul ministru că au crescut veniturile, la șase luni, cu 12%.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.96,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Vorbitorul menționează poziția ministrului fără a se angaja cu legitimitatea cererilor acestuia.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"Corupția este, așa..., o poveste. Este o marotă pe care și unii, și alții, de la Vlădică până la Opincă, o mestecă în fiecare dimineață\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.90,\n      \"rationale_short\": \"Vorbitorul respinge argumentul corupției ca fiind o „marotă” fără a-l aborda substanțial.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"Și atunci evident că trebuie să găsim și noi, Parlamentul, mecanismele prin care...\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.94,\n      \"marker_confidence\": 0.89,\n      \"rationale_short\": \"Vorbitorul critică situația actuală, dar nu oferă o alternativă concretă sau un mecanism de mediere.\"\n    }\n  ],\n  \"rationale\": \"Discursul prezintă o calitate deliberativă mixtă. Vorbitorul utilizează date empirice pentru a justifica criticile aduse execuției bugetare (level_of_justification=2), apelând la binele comun (content_of_justification=common_good). Totuși, discursul rămâne în mare parte pozițional, fără a oferi alternative concrete (constructive_politics=positional). Respectul pentru grupuri și cereri este neutru, însă tratamentul contraargumentelor este deficitar, acestea fiind respinse retoric ca fiind simple „marote” (respect_for_counterarguments=0). Discursul este analitic în diagnostic, dar nu reușește să angajeze constructiv opoziția sau să propună soluții alternative.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13028,
+      "tokens_in_breakdown": {
+        "fresh": 13028,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1270,
+      "cost_usd": null,
+      "latency_ms": 5285,
+      "retries_used": 0
+    }
+  }
+}

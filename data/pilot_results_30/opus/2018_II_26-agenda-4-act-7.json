@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2018/II/26#agenda-4#act-7",
+  "tier": "register_shift",
+  "speaker": {
+    "id": "popescu-tariceanu-calin",
+    "name": "Călin Constantin Anton Popescu-Tăriceanu",
+    "raw": "Domnul Călin Constantin Anton Popescu-Tăriceanu",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2018-02-12",
+    "year": 2018,
+    "legislature": "VIII",
+    "delivery_mode": null
+  },
+  "model_key": "opus",
+  "model_label": "claude-opus-4.7",
+  "results": {
+    "hawkins": {
+      "model_key": "opus",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2018/II/26#agenda-4#act-7",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.97,
+        "markers": [],
+        "rationale": "Discurs strict procedural de deschidere a unei dezbateri parlamentare: președintele de ședință anunță aprobarea procedurii și a timpilor alocați, citește lista vorbitorilor înscriși din partea grupurilor parlamentare și o invită la microfon pe președintele Comisiei speciale de anchetă pentru prezentarea raportului. Nu există cadru popor-vs-elită, nici maniheism moralist, nici invocarea unei voințe populare omogene sau a vreunei crize existențiale. Vocabularul este integral tehnic-procedural (microfon, secretari de ședință, raport, proiect de hotărâre). Hawkins=0 cu încredere ridicată."
+      },
+      "raw_response": "{\"score\":0,\"score_unit\":\"ordinal_0_2\",\"framework_version\":\"hawkins@2018\",\"framework_confidence\":0.97,\"markers\":[],\"rationale\":\"Discurs strict procedural de deschidere a unei dezbateri parlamentare: președintele de ședință anunță aprobarea procedurii și a timpilor alocați, citește lista vorbitorilor înscriși din partea grupurilor parlamentare și o invită la microfon pe președintele Comisiei speciale de anchetă pentru prezentarea raportului. Nu există cadru popor-vs-elită, nici maniheism moralist, nici invocarea unei voințe populare omogene sau a vreunei crize existențiale. Vocabularul este integral tehnic-procedural (microfon, secretari de ședință, raport, proiect de hotărâre). Hawkins=0 cu încredere ridicată.\"}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 104277,
+      "tokens_in_breakdown": {
+        "fresh": 5,
+        "cache_creation": 85919,
+        "cache_read": 18353
+      },
+      "tokens_out": 304,
+      "cost_usd": 0.55379525,
+      "latency_ms": 10900,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "opus",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2018/II/26#agenda-4#act-7",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.38,
+        "level_of_justification": 0,
+        "content_of_justification": "none",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 0,
+            "evidence": {
+              "text": "au fost aprobate procedura de prezentare și timpii alocați, precum și celelalte aspecte care țin de dezbaterea noastră"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.82,
+            "rationale_short": "Anunț procedural pur (rezultatul votului asupra procedurii); nicio justificare substanțială oferită."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "none",
+            "evidence": {
+              "text": "au fost aprobate procedura de prezentare și timpii alocați"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.82,
+            "rationale_short": "Nicio justificare oferită; conținutul justificării este, prin urmare, nedefinit."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "din partea PSD – domnul deputat Nicolicea, domnul deputat Pleșoianu; din partea PNL"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.94,
+            "marker_confidence": 0.78,
+            "rationale_short": "Enumerare funcțională a grupurilor parlamentare la cuvânt; neutru, fără respect sau derogare explicită."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Din partea senatorilor neafiliați, să vină la secretarii de ședință, să-și depună solicitarea"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.94,
+            "marker_confidence": 0.7,
+            "rationale_short": "Niciun angajament cu cereri politice opuse; doar instrucțiune procedurală pentru depunerea solicitărilor."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "Conform celor convenite anterior, o invit la microfon"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.94,
+            "marker_confidence": 0.65,
+            "rationale_short": "Niciun raționament advers angajat; intervenție pur procedurală fără substanță deliberativă."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "o invit la microfon pe doamna deputat Oana Consuela Florea, președintele Comisiei speciale de anchetă"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.78,
+            "rationale_short": "Acțiune procedurală (invitarea raportorului); nicio alternativă sau mediere propusă."
+          }
+        ],
+        "rationale": "Discurs pur procedural rostit de prezidentul de ședință: anunță rezultatul votului pe procedură, enumeră grupurile parlamentare înscrise la cuvânt și o invită pe președintele comisiei speciale să prezinte raportul. Nu este o intervenție deliberativă în sensul DQI — nu există poziție politică, nici justificare, nici angajament cu argumente sau cereri adverse (level_of_justification=0, content=none, respect dimensions implicit neutre). Caracterul constructiv este pozițional prin convenție procedurală. framework_confidence este scăzut (~0.38) pentru că genul de discurs (intervenție prezidențială de organizare a ședinței) nu suportă coduri DQI fiabile; consumatorii care filtrează după framework_confidence > 0.7 vor exclude acest tip de discurs, ceea ce este comportamentul intenționat."
+      },
+      "raw_response": "{\"framework_version\":\"steiner-bachtiger@2017\",\"score_unit\":\"dqi_multi\",\"framework_confidence\":0.38,\"level_of_justification\":0,\"content_of_justification\":\"none\",\"respect_for_groups\":1,\"respect_for_demands\":1,\"respect_for_counterarguments\":1,\"constructive_politics\":\"positional\",\"markers\":[{\"kind\":\"level_of_justification\",\"value\":0,\"evidence\":{\"text\":\"au fost aprobate procedura de prezentare și timpii alocați, precum și celelalte aspecte care țin de dezbaterea noastră\"},\"preliminary_voice\":\"speaker_first_person\",\"preliminary_voice_confidence\":0.95,\"marker_confidence\":0.82,\"rationale_short\":\"Anunț procedural pur (rezultatul votului asupra procedurii); nicio justificare substanțială oferită.\"},{\"kind\":\"content_of_justification\",\"value\":\"none\",\"evidence\":{\"text\":\"au fost aprobate procedura de prezentare și timpii alocați\"},\"preliminary_voice\":\"speaker_first_person\",\"preliminary_voice_confidence\":0.95,\"marker_confidence\":0.82,\"rationale_short\":\"Nicio justificare oferită; conținutul justificării este, prin urmare, nedefinit.\"},{\"kind\":\"respect_for_groups\",\"value\":1,\"evidence\":{\"text\":\"din partea PSD – domnul deputat Nicolicea, domnul deputat Pleșoianu; din partea PNL\"},\"preliminary_voice\":\"speaker_first_person\",\"preliminary_voice_confidence\":0.94,\"marker_confidence\":0.78,\"rationale_short\":\"Enumerare funcțională a grupurilor parlamentare la cuvânt; neutru, fără respect sau derogare explicită.\"},{\"kind\":\"respect_for_demands\",\"value\":1,\"evidence\":{\"text\":\"Din partea senatorilor neafiliați, să vină la secretarii de ședință, să-și depună solicitarea\"},\"preliminary_voice\":\"speaker_first_person\",\"preliminary_voice_confidence\":0.94,\"marker_confidence\":0.7,\"rationale_short\":\"Niciun angajament cu cereri politice opuse; doar instrucțiune procedurală pentru depunerea solicitărilor.\"},{\"kind\":\"respect_for_counterarguments\",\"value\":1,\"evidence\":{\"text\":\"Conform celor convenite anterior, o invit la microfon\"},\"preliminary_voice\":\"speaker_first_person\",\"preliminary_voice_confidence\":0.94,\"marker_confidence\":0.65,\"rationale_short\":\"Niciun raționament advers angajat; intervenție pur procedurală fără substanță deliberativă.\"},{\"kind\":\"constructive_politics\",\"value\":\"positional\",\"evidence\":{\"text\":\"o invit la microfon pe doamna deputat Oana Consuela Florea, președintele Comisiei speciale de anchetă\"},\"preliminary_voice\":\"speaker_first_person\",\"preliminary_voice_confidence\":0.95,\"marker_confidence\":0.78,\"rationale_short\":\"Acțiune procedurală (invitarea raportorului); nicio alternativă sau mediere propusă.\"}],\"rationale\":\"Discurs pur procedural rostit de prezidentul de ședință: anunță rezultatul votului pe procedură, enumeră grupurile parlamentare înscrise la cuvânt și o invită pe președintele comisiei speciale să prezinte raportul. Nu este o intervenție deliberativă în sensul DQI — nu există poziție politică, nici justificare, nici angajament cu argumente sau cereri adverse (level_of_justification=0, content=none, respect dimensions implicit neutre). Caracterul constructiv este pozițional prin convenție procedurală. framework_confidence este scăzut (~0.38) pentru că genul de discurs (intervenție prezidențială de organizare a ședinței) nu suportă coduri DQI fiabile; consumatorii care filtrează după framework_confidence > 0.7 vor exclude acest tip de discurs, ceea ce este comportamentul intenționat.\"}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 102268,
+      "tokens_in_breakdown": {
+        "fresh": 5,
+        "cache_creation": 83910,
+        "cache_read": 18353
+      },
+      "tokens_out": 1385,
+      "cost_usd": 0.568264,
+      "latency_ms": 23271,
+      "retries_used": 0
+    }
+  }
+}

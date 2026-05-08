@@ -1,0 +1,52 @@
+{
+  "speech_id": "mo://2016/II/106#agenda-1#act-10",
+  "tier": "calibration",
+  "speaker": {
+    "id": "nica-nicolae-ciprian",
+    "name": "Nicolae Ciprian Nica",
+    "raw": "Domnul Nicolae Ciprian Nica",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2016-06-15",
+    "year": 2016,
+    "legislature": "VII",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": null,
+    "voice": null,
+    "dqi": null,
+    "vparty": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "vparty",
+      "speech_id": "mo://2016/II/106#agenda-1#act-10",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "vparty@2020 + vdem-attacks-on@v13",
+        "framework_confidence": 1.0,
+        "markers": [],
+        "rationale": "Discursul este unul pur procedural, de raportare a parcursului legislativ al unui proiect de lege prin diverse comisii și instituții (Senat, Consiliul Legislativ, CSM). Vorbitorul menționează instituțiile democratice în mod neutru, ca parte a procesului de avizare, fără a exprima nicio formă de delegitimizare sau atac la adresa acestora. Nu există elemente de anti-pluralism, discursul încadrându-se perfect în registrul parlamentar standard."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"vparty@2020 + vdem-attacks-on@v13\",\n  \"framework_confidence\": 1.0,\n  \"markers\": [],\n  \"rationale\": \"Discursul este unul pur procedural, de raportare a parcursului legislativ al unui proiect de lege prin diverse comisii și instituții (Senat, Consiliul Legislativ, CSM). Vorbitorul menționează instituțiile democratice în mod neutru, ca parte a procesului de avizare, fără a exprima nicio formă de delegitimizare sau atac la adresa acestora. Nu există elemente de anti-pluralism, discursul încadrându-se perfect în registrul parlamentar standard.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12980,
+      "tokens_in_breakdown": {
+        "fresh": 12980,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 191,
+      "cost_usd": null,
+      "latency_ms": 1677,
+      "retries_used": 0
+    }
+  }
+}

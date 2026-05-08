@@ -1,0 +1,196 @@
+{
+  "speech_id": "mo://2016/II/32#agenda-1#act-115",
+  "tier": "calibration",
+  "speaker": {
+    "id": "iane-ovidiu-cristian",
+    "name": "Ovidiu Cristian Iane",
+    "raw": "Domnul Ovidiu Cristian Iane",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2016-03-02",
+    "year": 2016,
+    "legislature": "VII",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2016/II/32#agenda-1#act-115",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.95,
+        "markers": [
+          {
+            "kind": "people_vs_elite",
+            "evidence": {
+              "text": "dacă mergem pe premisa că toți românii sunt rău intenționați"
+            },
+            "preliminary_voice": "hypothetical",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.9,
+            "rationale_short": "Vorbitorul folosește un cadru ipotetic pentru a critica o premisă pe care o respinge, nu pentru a-și susține propria viziune populistă."
+          }
+        ],
+        "rationale": "Discursul se concentrează pe o problemă tehnică specifică (legislația privind vânătoarea cu arcul și utilizarea chemătorilor) și pe alinierea la standarde internaționale. Deși vorbitorul menționează ideea că 'românii sunt considerați braconieri', el o face pentru a critica această percepție și pentru a propune îmbunătățiri legislative, nu pentru a construi un cadru maniheist popor-vs-elită. Nu există nicio invocare a unei voințe populare suverane sau a unei elite malefice ca spine a argumentației. Discursul rămâne în registrul dezbaterii de politici publice, motiv pentru care scorul este 0."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.95,\n  \"markers\": [\n    {\n      \"kind\": \"people_vs_elite\",\n      \"evidence\": {\n        \"text\": \"dacă mergem pe premisa că toți românii sunt rău intenționați\"\n      },\n      \"preliminary_voice\": \"hypothetical\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Vorbitorul folosește un cadru ipotetic pentru a critica o premisă pe care o respinge, nu pentru a-și susține propria viziune populistă.\"\n    }\n  ],\n  \"rationale\": \"Discursul se concentrează pe o problemă tehnică specifică (legislația privind vânătoarea cu arcul și utilizarea chemătorilor) și pe alinierea la standarde internaționale. Deși vorbitorul menționează ideea că 'românii sunt considerați braconieri', el o face pentru a critica această percepție și pentru a propune îmbunătățiri legislative, nu pentru a construi un cadru maniheist popor-vs-elită. Nu există nicio invocare a unei voințe populare suverane sau a unei elite malefice ca spine a argumentației. Discursul rămâne în registrul dezbaterii de politici publice, motiv pentru care scorul este 0.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13896,
+      "tokens_in_breakdown": {
+        "fresh": 13896,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 381,
+      "cost_usd": null,
+      "latency_ms": 2643,
+      "retries_used": 0
+    },
+    "voice": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "voice",
+      "speech_id": "mo://2016/II/32#agenda-1#act-115",
+      "output": {
+        "classifications": [
+          {
+            "marker_id": "m_0",
+            "voice": "hypothetical",
+            "voice_confidence": 0.95,
+            "voice_evidence": {
+              "text": "dacă mergem pe premisa că"
+            },
+            "attributed_to": null,
+            "rationale_short": "Markerul este inclus într-o construcție ipotetică („dacă mergem pe premisa că”), vorbitorul prezentând o ipoteză pentru argumentare."
+          }
+        ]
+      },
+      "raw_response": "{\n  \"classifications\": [\n    {\n      \"marker_id\": \"m_0\",\n      \"voice\": \"hypothetical\",\n      \"voice_confidence\": 0.95,\n      \"voice_evidence\": {\n        \"text\": \"dacă mergem pe premisa că\"\n      },\n      \"attributed_to\": null,\n      \"rationale_short\": \"Markerul este inclus într-o construcție ipotetică („dacă mergem pe premisa că”), vorbitorul prezentând o ipoteză pentru argumentare.\"\n    }\n  ]\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 11438,
+      "tokens_in_breakdown": {
+        "fresh": 11438,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 135,
+      "cost_usd": null,
+      "latency_ms": 1002,
+      "retries_used": 0
+    },
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2016/II/32#agenda-1#act-115",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.78,
+        "level_of_justification": 1,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 1,
+            "evidence": {
+              "text": "este o vânătoare care este mai apropiată de ceea ce înseamnă, de fapt, conceptul de vânător și de vânătoare, de la care a plecat evoluția omului"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Justificarea invocă o perspectivă istorică vagă, fără a oferi o legătură cauzală sau probatorie solidă."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "ar trebui, totuși, să ne hotărâm dacă mergem să aliniem această legislație a vânătorii la o legislație europeană, internațională"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Apelul la alinierea cu standardele internaționale vizează binele comun al cadrului legislativ."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Cu tot respectul pentru colegii inițiatori"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.99,
+            "marker_confidence": 0.8,
+            "rationale_short": "Politețe convențională, fără o recunoaștere substanțială a legitimității unui out-group."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Desigur, vom respinge această inițiativă"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.99,
+            "marker_confidence": 0.85,
+            "rationale_short": "Poziție de respingere fără angajament cu cererea inițiatorilor."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "dacă mergem pe premisa că toți românii sunt rău intenționați, atunci ar trebui să facem legi prin care să interzicem orice"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.82,
+            "rationale_short": "Menționează o premisă adversă, dar o tratează retoric fără a o combate cu argumente specifice."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Desigur, vom respinge această inițiativă"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.99,
+            "marker_confidence": 0.9,
+            "rationale_short": "Discursul se limitează la anunțarea votului de respingere, fără a propune o alternativă concretă."
+          }
+        ],
+        "rationale": "Discursul prezintă o calitate deliberativă moderată, fiind marcat de o justificare inferioară (level_of_justification=1) care se bazează pe argumente istorice vagi în loc de dovezi empirice. Deși vorbitorul face apel la binele comun prin alinierea la standarde internaționale, acesta nu reușește să depășească o postură pozițională (constructive_politics=positional). Respectul pentru grupuri și cereri rămâne la un nivel neutru, fiind limitat la politețuri formale. Angajamentul față de contraargumente este superficial, folosind o premisă ipotetică pentru a critica abordarea adversă fără a intra într-o dezbatere substanțială. În ansamblu, discursul reflectă o poziție de respingere a inițiativei fără a oferi o cale de mediere sau o alternativă legislativă detaliată."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.78,\n  \"level_of_justification\": 1,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"este o vânătoare care este mai apropiată de ceea ce înseamnă, de fapt, conceptul de vânător și de vânătoare, de la care a plecat evoluția omului\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Justificarea invocă o perspectivă istorică vagă, fără a oferi o legătură cauzală sau probatorie solidă.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"ar trebui, totuși, să ne hotărâm dacă mergem să aliniem această legislație a vânătorii la o legislație europeană, internațională\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Apelul la alinierea cu standardele internaționale vizează binele comun al cadrului legislativ.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Cu tot respectul pentru colegii inițiatori\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.99,\n      \"marker_confidence\": 0.8,\n      \"rationale_short\": \"Politețe convențională, fără o recunoaștere substanțială a legitimității unui out-group.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Desigur, vom respinge această inițiativă\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.99,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Poziție de respingere fără angajament cu cererea inițiatorilor.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"dacă mergem pe premisa că toți românii sunt rău intenționați, atunci ar trebui să facem legi prin care să interzicem orice\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"marker_confidence\": 0.82,\n      \"rationale_short\": \"Menționează o premisă adversă, dar o tratează retoric fără a o combate cu argumente specifice.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"Desigur, vom respinge această inițiativă\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.99,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Discursul se limitează la anunțarea votului de respingere, fără a propune o alternativă concretă.\"\n    }\n  ],\n  \"rationale\": \"Discursul prezintă o calitate deliberativă moderată, fiind marcat de o justificare inferioară (level_of_justification=1) care se bazează pe argumente istorice vagi în loc de dovezi empirice. Deși vorbitorul face apel la binele comun prin alinierea la standarde internaționale, acesta nu reușește să depășească o postură pozițională (constructive_politics=positional). Respectul pentru grupuri și cereri rămâne la un nivel neutru, fiind limitat la politețuri formale. Angajamentul față de contraargumente este superficial, folosind o premisă ipotetică pentru a critica abordarea adversă fără a intra într-o dezbatere substanțială. În ansamblu, discursul reflectă o poziție de respingere a inițiativei fără a oferi o cale de mediere sau o alternativă legislativă detaliată.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [
+        "este o vânătoare care este mai apropiată de ceea ce înseamnă, de fapt, conceptul de vânător și de vânătoare, de la care a plecat evoluția omului"
+      ],
+      "parse_repaired": false,
+      "tokens_in": 12697,
+      "tokens_in_breakdown": {
+        "fresh": 12697,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1241,
+      "cost_usd": null,
+      "latency_ms": 4991,
+      "retries_used": 0
+    }
+  }
+}

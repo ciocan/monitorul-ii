@@ -1,0 +1,52 @@
+{
+  "speech_id": "mo://2016/II/32#agenda-1#act-115",
+  "tier": "calibration",
+  "speaker": {
+    "id": "iane-ovidiu-cristian",
+    "name": "Ovidiu Cristian Iane",
+    "raw": "Domnul Ovidiu Cristian Iane",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2016-03-02",
+    "year": 2016,
+    "legislature": "VII",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": null,
+    "voice": null,
+    "dqi": null,
+    "vparty": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "vparty",
+      "speech_id": "mo://2016/II/32#agenda-1#act-115",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "vparty@2020 + vdem-attacks-on@v13",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul se concentrează pe o temă legislativă specifică (vânătoarea cu arcul) și pe alinierea legislației naționale la standardele internaționale. Deși vorbitorul menționează o percepție negativă asupra românilor (ca fiind considerați braconieri), aceasta este folosită ca argument pentru a critica excesul de reglementare, nu pentru a delegitima instituții democratice sau a promova un discurs anti-pluralist. Nu există atacuri la adresa justiției, presei, opoziției sau a normelor democratice. Discursul rămâne în limitele dezbaterii parlamentare legitime."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"vparty@2020 + vdem-attacks-on@v13\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul se concentrează pe o temă legislativă specifică (vânătoarea cu arcul) și pe alinierea legislației naționale la standardele internaționale. Deși vorbitorul menționează o percepție negativă asupra românilor (ca fiind considerați braconieri), aceasta este folosită ca argument pentru a critica excesul de reglementare, nu pentru a delegitima instituții democratice sau a promova un discurs anti-pluralist. Nu există atacuri la adresa justiției, presei, opoziției sau a normelor democratice. Discursul rămâne în limitele dezbaterii parlamentare legitime.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13178,
+      "tokens_in_breakdown": {
+        "fresh": 13178,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 227,
+      "cost_usd": null,
+      "latency_ms": 1898,
+      "retries_used": 0
+    }
+  }
+}

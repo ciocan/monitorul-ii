@@ -1,0 +1,154 @@
+{
+  "speech_id": "mo://2005/II/192#agenda-13#act-8",
+  "tier": "moderate",
+  "speaker": {
+    "id": "nastase-adrian",
+    "name": "Adrian N„stase",
+    "raw": "Domnul Adrian N„stase",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": null,
+    "session_date": null,
+    "year": 2005,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2005/II/192#agenda-13#act-8",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 1.0,
+        "markers": [],
+        "rationale": "Discursul este pur procedural, concentrat pe gestionarea ordinii de zi, aprobarea titlului legii și a amendamentelor tehnice. Nu există nicio urmă de cadru popor-vs-elită, maniheism moral sau invocare a unei voințe populare suverane. Vorbitorul acționează în calitate de președinte de ședință, menținând un registru neutru și administrativ. Hawkins=0 cu încredere maximă."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 1.0,\n  \"markers\": [],\n  \"rationale\": \"Discursul este pur procedural, concentrat pe gestionarea ordinii de zi, aprobarea titlului legii și a amendamentelor tehnice. Nu există nicio urmă de cadru popor-vs-elită, maniheism moral sau invocare a unei voințe populare suverane. Vorbitorul acționează în calitate de președinte de ședință, menținând un registru neutru și administrativ. Hawkins=0 cu încredere maximă.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13745,
+      "tokens_in_breakdown": {
+        "fresh": 13745,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 173,
+      "cost_usd": null,
+      "latency_ms": 5162,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2005/II/192#agenda-13#act-8",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.45,
+        "level_of_justification": 0,
+        "content_of_justification": "none",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 0,
+            "evidence": {
+              "text": "Trecem la dezbaterea proiectului de lege."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.95,
+            "rationale_short": "Discurs pur procedural, fără nicio justificare a unei poziții politice."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "none",
+            "evidence": {
+              "text": "Trecem la dezbaterea proiectului de lege."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.95,
+            "rationale_short": "Nicio justificare oferită, deci conținutul este nedefinit."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Vă mulțumesc."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.9,
+            "rationale_short": "Adresare convențională, neutră."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Dacă sunt obiecții? Nu sunt obiecții."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.9,
+            "rationale_short": "Procedură neutră de verificare a consensului."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "Dacă sunt obiecții? Nu sunt obiecții."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.9,
+            "rationale_short": "Nu există argumente opuse, deci nu există angajament."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Propunerile comisiei au fost aprobate."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.9,
+            "rationale_short": "Intervenție pur procedurală de gestionare a votului."
+          }
+        ],
+        "rationale": "Acest fragment reprezintă un discurs pur procedural al președintelui de ședință, care gestionează ordinea de zi și votul pe articole. Nu există nicio argumentație substanțială, nicio justificare a unor poziții politice și nicio interacțiune deliberativă cu opoziția. Toate dimensiunile DQI sunt codate la valorile implicite pentru intervenții procedurale. Încrederea în cadrul este scăzută deoarece discursul nu conține material deliberativ, fiind o simplă coordonare administrativă a ședinței."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.45,\n  \"level_of_justification\": 0,\n  \"content_of_justification\": \"none\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 0,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"Trecem la dezbaterea proiectului de lege.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Discurs pur procedural, fără nicio justificare a unei poziții politice.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"none\",\n      \"evidence\": {\n        \"text\": \"Trecem la dezbaterea proiectului de lege.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Nicio justificare oferită, deci conținutul este nedefinit.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Vă mulțumesc.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Adresare convențională, neutră.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Dacă sunt obiecții? Nu sunt obiecții.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Procedură neutră de verificare a consensului.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"Dacă sunt obiecții? Nu sunt obiecții.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Nu există argumente opuse, deci nu există angajament.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"Propunerile comisiei au fost aprobate.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Intervenție pur procedurală de gestionare a votului.\"\n    }\n  ],\n  \"rationale\": \"Acest fragment reprezintă un discurs pur procedural al președintelui de ședință, care gestionează ordinea de zi și votul pe articole. Nu există nicio argumentație substanțială, nicio justificare a unor poziții politice și nicio interacțiune deliberativă cu opoziția. Toate dimensiunile DQI sunt codate la valorile implicite pentru intervenții procedurale. Încrederea în cadrul este scăzută deoarece discursul nu conține material deliberativ, fiind o simplă coordonare administrativă a ședinței.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [
+        "Vă mulțumesc.",
+        "Dacă sunt obiecții? Nu sunt obiecții.",
+        "Dacă sunt obiecții? Nu sunt obiecții."
+      ],
+      "parse_repaired": false,
+      "tokens_in": 12546,
+      "tokens_in_breakdown": {
+        "fresh": 12546,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 990,
+      "cost_usd": null,
+      "latency_ms": 3900,
+      "retries_used": 0
+    }
+  }
+}

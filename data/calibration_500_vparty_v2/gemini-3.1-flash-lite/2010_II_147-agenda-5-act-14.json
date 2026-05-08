@@ -1,0 +1,52 @@
+{
+  "speech_id": "mo://2010/II/147#agenda-5#act-14",
+  "tier": "calibration",
+  "speaker": {
+    "id": "mitrea-manuela",
+    "name": "Manuela Mitrea",
+    "raw": "Doamna Manuela Mitrea",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2010-10-12",
+    "year": 2010,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": null,
+    "voice": null,
+    "dqi": null,
+    "vparty": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "vparty",
+      "speech_id": "mo://2010/II/147#agenda-5#act-14",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "vparty@2020 + vdem-attacks-on@v13",
+        "framework_confidence": 0.95,
+        "markers": [],
+        "rationale": "Discursul reprezintă o critică politică dură la adresa Guvernului Boc, vizând măsuri economice și sociale specifice (reducerea salariilor, restructurări, subfinanțarea educației). Deși retorica este vehementă și folosește termeni precum „batjocoresc” sau „incompetent”, aceasta rămâne în limitele contestării democratice a unui executiv. Nu există atacuri la adresa instituțiilor democratice ca atare (judiciar, presă, ONG-uri, minorități) sau respingerea normelor constituționale. Critica este orientată către deciziile politice ale unui guvern, ceea ce constituie un discurs parlamentar legitim, nu anti-pluralism."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"vparty@2020 + vdem-attacks-on@v13\",\n  \"framework_confidence\": 0.95,\n  \"markers\": [],\n  \"rationale\": \"Discursul reprezintă o critică politică dură la adresa Guvernului Boc, vizând măsuri economice și sociale specifice (reducerea salariilor, restructurări, subfinanțarea educației). Deși retorica este vehementă și folosește termeni precum „batjocoresc” sau „incompetent”, aceasta rămâne în limitele contestării democratice a unui executiv. Nu există atacuri la adresa instituțiilor democratice ca atare (judiciar, presă, ONG-uri, minorități) sau respingerea normelor constituționale. Critica este orientată către deciziile politice ale unui guvern, ceea ce constituie un discurs parlamentar legitim, nu anti-pluralism.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13340,
+      "tokens_in_breakdown": {
+        "fresh": 13340,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 241,
+      "cost_usd": null,
+      "latency_ms": 2035,
+      "retries_used": 0
+    }
+  }
+}

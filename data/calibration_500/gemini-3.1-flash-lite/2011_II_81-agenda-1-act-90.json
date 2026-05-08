@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2011/II/81#agenda-1#act-90",
+  "tier": "calibration",
+  "speaker": {
+    "id": "maris-mircea",
+    "name": "Mircea Marin",
+    "raw": "Domnul Mircea Marin",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2011-06-20",
+    "year": 2011,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2011/II/81#agenda-1#act-90",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 1.0,
+        "markers": [],
+        "rationale": "Discursul reprezintă un raport comun procedural al Comisiei juridice și al Comisiei pentru industrii și servicii privind aprobarea unei ordonanțe de urgență. Textul se limitează strict la menționarea etapelor legislative, a avizelor primite și a procedurilor regulamentare, fără a conține elemente de retorică populistă. Nu există nicio referire la un cadru popor-vs-elită, maniheism moral sau alte tropi populiste. Discursul este pur tehnic și administrativ, încadrându-se perfect în scorul 0."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 1.0,\n  \"markers\": [],\n  \"rationale\": \"Discursul reprezintă un raport comun procedural al Comisiei juridice și al Comisiei pentru industrii și servicii privind aprobarea unei ordonanțe de urgență. Textul se limitează strict la menționarea etapelor legislative, a avizelor primite și a procedurilor regulamentare, fără a conține elemente de retorică populistă. Nu există nicio referire la un cadru popor-vs-elită, maniheism moral sau alte tropi populiste. Discursul este pur tehnic și administrativ, încadrându-se perfect în scorul 0.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13939,
+      "tokens_in_breakdown": {
+        "fresh": 13939,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 197,
+      "cost_usd": null,
+      "latency_ms": 1923,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2011/II/81#agenda-1#act-90",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.45,
+        "level_of_justification": 0,
+        "content_of_justification": "none",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 0,
+            "evidence": {
+              "text": "s-a hotărât, cu unanimitate de voturi, să se supună plenului Camerei Deputaților spre dezbatere și adoptare prezentul proiect de lege"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.95,
+            "rationale_short": "Discurs procedural de prezentare a raportului comisiei; nu conține argumentație substanțială."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "none",
+            "evidence": {
+              "text": "s-a hotărât, cu unanimitate de voturi, să se supună plenului Camerei Deputaților spre dezbatere și adoptare prezentul proiect de lege"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.95,
+            "rationale_short": "Nicio justificare oferită; conținutul este nedefinit."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Doamnă președinte, Stimați colegi"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Adresare formală standard; neutru."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Comisia juridică, de disciplină și imunități și Comisia pentru industrii și servicii au fost sesizate spre dezbatere în fond"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.9,
+            "rationale_short": "Prezentare neutră a parcursului legislativ; nicio cerere adversă angajată."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "Consiliul Legislativ a avizat favorabil proiectul de ordonanță de urgență, cu anumite observații și propuneri"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.85,
+            "rationale_short": "Menționarea avizului este pur informativă, fără angajament deliberativ cu observațiile menționate."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "s-a hotărât, cu unanimitate de voturi, să se supună plenului Camerei Deputaților spre dezbatere și adoptare prezentul proiect de lege"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.9,
+            "rationale_short": "Discursul este o prezentare tehnică a raportului, nu o propunere politică alternativă."
+          }
+        ],
+        "rationale": "Acest discurs reprezintă o prezentare tehnică a unui raport comun al comisiilor parlamentare și nu constituie o intervenție deliberativă în sensul DQI. Vorbitorul se limitează la a enumera etapele procedurale, avizele primite și decizia comisiilor, fără a oferi justificări pentru poziția adoptată sau a angaja contraargumente. Deoarece discursul este pur procedural și informativ, scorurile pentru justificări și respect sunt neutre sau nule, iar framework_confidence este scăzut. Nu există elemente de deliberare politică, ci doar o expunere a stadiului legislativ."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.45,\n  \"level_of_justification\": 0,\n  \"content_of_justification\": \"none\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 0,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 0,\n      \"evidence\": { \"text\": \"s-a hotărât, cu unanimitate de voturi, să se supună plenului Camerei Deputaților spre dezbatere și adoptare prezentul proiect de lege\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Discurs procedural de prezentare a raportului comisiei; nu conține argumentație substanțială.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"none\",\n      \"evidence\": { \"text\": \"s-a hotărât, cu unanimitate de voturi, să se supună plenului Camerei Deputaților spre dezbatere și adoptare prezentul proiect de lege\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Nicio justificare oferită; conținutul este nedefinit.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": { \"text\": \"Doamnă președinte, Stimați colegi\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Adresare formală standard; neutru.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": { \"text\": \"Comisia juridică, de disciplină și imunități și Comisia pentru industrii și servicii au fost sesizate spre dezbatere în fond\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Prezentare neutră a parcursului legislativ; nicio cerere adversă angajată.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 0,\n      \"evidence\": { \"text\": \"Consiliul Legislativ a avizat favorabil proiectul de ordonanță de urgență, cu anumite observații și propuneri\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Menționarea avizului este pur informativă, fără angajament deliberativ cu observațiile menționate.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": { \"text\": \"s-a hotărât, cu unanimitate de voturi, să se supună plenului Camerei Deputaților spre dezbatere și adoptare prezentul proiect de lege\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Discursul este o prezentare tehnică a raportului, nu o propunere politică alternativă.\"\n    }\n  ],\n  \"rationale\": \"Acest discurs reprezintă o prezentare tehnică a unui raport comun al comisiilor parlamentare și nu constituie o intervenție deliberativă în sensul DQI. Vorbitorul se limitează la a enumera etapele procedurale, avizele primite și decizia comisiilor, fără a oferi justificări pentru poziția adoptată sau a angaja contraargumente. Deoarece discursul este pur procedural și informativ, scorurile pentru justificări și respect sunt neutre sau nule, iar framework_confidence este scăzut. Nu există elemente de deliberare politică, ci doar o expunere a stadiului legislativ.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12740,
+      "tokens_in_breakdown": {
+        "fresh": 12740,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1144,
+      "cost_usd": null,
+      "latency_ms": 4263,
+      "retries_used": 0
+    }
+  }
+}

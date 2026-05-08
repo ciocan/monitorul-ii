@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2009/II/137#agenda-1#act-125",
+  "tier": "calibration",
+  "speaker": {
+    "id": "david-gheorghe",
+    "name": "Gheorghe David",
+    "raw": "Domnul Gheorghe David",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": "2009-10-20",
+    "year": 2009,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2009/II/137#agenda-1#act-125",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul este pur procedural, concentrându-se pe organizarea dezbaterii parlamentare și pe gestionarea ordinii de zi. Vorbitorul face referire la o propunere legislativă și la necesitatea unei comparații tehnice între proiecte, fără a invoca vreun cadru populist. Nu există nicio urmă de maniheism, de invocare a unei voințe populare omogene sau de atac la adresa unei elite. Discursul se încadrează perfect în registrul tehnic-parlamentar standard."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul este pur procedural, concentrându-se pe organizarea dezbaterii parlamentare și pe gestionarea ordinii de zi. Vorbitorul face referire la o propunere legislativă și la necesitatea unei comparații tehnice între proiecte, fără a invoca vreun cadru populist. Nu există nicio urmă de maniheism, de invocare a unei voințe populare omogene sau de atac la adresa unei elite. Discursul se încadrează perfect în registrul tehnic-parlamentar standard.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13606,
+      "tokens_in_breakdown": {
+        "fresh": 13606,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 187,
+      "cost_usd": null,
+      "latency_ms": 1750,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2009/II/137#agenda-1#act-125",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.82,
+        "level_of_justification": 1,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 1,
+            "evidence": {
+              "text": "nu cred că este cazul să facem referire la el, eventual, trebuie să discutăm ambele proiecte odată"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Vorbitorul oferă o justificare procedurală vagă pentru a evita subiectul, fără a conecta poziția la un principiu sau mecanism solid."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "trebuie să discutăm ambele proiecte odată, și atunci putem să facem o comparație"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.8,
+            "rationale_short": "Apelul la eficiența dezbaterii parlamentare este universalizabil, vizând buna funcționare a forului."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Cu tot respectul pentru domnul coleg"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.99,
+            "marker_confidence": 0.9,
+            "rationale_short": "Politețe convențională de sală; nu există derogare sau recunoaștere explicită a legitimității unui out-group."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Acel punct de vedere care dânsul spune că există, sigur că există"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Recunoaștere formală a existenței punctului de vedere, fără angajament substanțial cu legitimitatea cererii."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "nu este la îndemâna noastră acum și nu cred că este cazul să facem referire la el"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.88,
+            "rationale_short": "Vorbitorul menționează argumentul advers, dar îl respinge pe criterii procedurale fără a-l combate substanțial."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "trebuie să discutăm ambele proiecte odată"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Poziție procedurală; nu oferă o alternativă legislativă sau o mediere a fondului problemei."
+          }
+        ],
+        "rationale": "Discursul este unul de natură procedurală, axat pe ordinea de zi și pe modul de organizare a dezbaterii. Vorbitorul oferă o justificare de nivel 1, bazată pe eficiența procedurală, fără a intra în substanța argumentelor legislative. Respectul pentru colegi și pentru cererile acestora rămâne la un nivel neutru, marcat de politețe formală, dar fără angajament deliberativ real. Nu se oferă nicio alternativă sau mediere, discursul fiind strict pozițional în ceea ce privește organizarea ședinței. Calitatea deliberativă este limitată de caracterul procedural al intervenției."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.82,\n  \"level_of_justification\": 1,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"nu cred că este cazul să facem referire la el, eventual, trebuie să discutăm ambele proiecte odată\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Vorbitorul oferă o justificare procedurală vagă pentru a evita subiectul, fără a conecta poziția la un principiu sau mecanism solid.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"trebuie să discutăm ambele proiecte odată, și atunci putem să facem o comparație\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.8,\n      \"rationale_short\": \"Apelul la eficiența dezbaterii parlamentare este universalizabil, vizând buna funcționare a forului.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Cu tot respectul pentru domnul coleg\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.99,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Politețe convențională de sală; nu există derogare sau recunoaștere explicită a legitimității unui out-group.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Acel punct de vedere care dânsul spune că există, sigur că există\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Recunoaștere formală a existenței punctului de vedere, fără angajament substanțial cu legitimitatea cererii.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"nu este la îndemâna noastră acum și nu cred că este cazul să facem referire la el\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Vorbitorul menționează argumentul advers, dar îl respinge pe criterii procedurale fără a-l combate substanțial.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"trebuie să discutăm ambele proiecte odată\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Poziție procedurală; nu oferă o alternativă legislativă sau o mediere a fondului problemei.\"\n    }\n  ],\n  \"rationale\": \"Discursul este unul de natură procedurală, axat pe ordinea de zi și pe modul de organizare a dezbaterii. Vorbitorul oferă o justificare de nivel 1, bazată pe eficiența procedurală, fără a intra în substanța argumentelor legislative. Respectul pentru colegi și pentru cererile acestora rămâne la un nivel neutru, marcat de politețe formală, dar fără angajament deliberativ real. Nu se oferă nicio alternativă sau mediere, discursul fiind strict pozițional în ceea ce privește organizarea ședinței. Calitatea deliberativă este limitată de caracterul procedural al intervenției.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12407,
+      "tokens_in_breakdown": {
+        "fresh": 12407,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1150,
+      "cost_usd": null,
+      "latency_ms": 4482,
+      "retries_used": 0
+    }
+  }
+}

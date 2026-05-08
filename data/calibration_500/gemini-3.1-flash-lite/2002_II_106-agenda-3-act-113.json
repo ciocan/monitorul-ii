@@ -1,0 +1,153 @@
+{
+  "speech_id": "mo://2002/II/106#agenda-3#act-113",
+  "tier": "calibration",
+  "speaker": {
+    "id": "popescu-dan-mircea",
+    "name": "Dan-Mircea Popescu",
+    "raw": "Domnul Dan-Mircea Popescu",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": null,
+    "year": 2002,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2002/II/106#agenda-3#act-113",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul este pur procedural, concentrându-se pe aspecte tehnice ale activității parlamentare: raportul comisiei, publicarea unei legi în Monitorul Oficial și propunerea de respingere sau returnare la comisie a unui act normativ devenit lipsit de obiect. Nu există nicio urmă de cadru popor-vs-elită, maniheism moral sau invocare a unei voințe populare omogene. Vorbitorul se limitează strict la procedura legislativă, fără a utiliza retorică populistă. Hawkins=0 cu încredere ridicată."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul este pur procedural, concentrându-se pe aspecte tehnice ale activității parlamentare: raportul comisiei, publicarea unei legi în Monitorul Oficial și propunerea de respingere sau returnare la comisie a unui act normativ devenit lipsit de obiect. Nu există nicio urmă de cadru popor-vs-elită, maniheism moral sau invocare a unei voințe populare omogene. Vorbitorul se limitează strict la procedura legislativă, fără a utiliza retorică populistă. Hawkins=0 cu încredere ridicată.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13700,
+      "tokens_in_breakdown": {
+        "fresh": 13700,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 196,
+      "cost_usd": null,
+      "latency_ms": 2360,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2002/II/106#agenda-3#act-113",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.88,
+        "level_of_justification": 2,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "alternative_proposal",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "în data de 12 iunie s-a publicat în ”Monitorul OficialÒ Legea pentru aprobarea Ordonanþei de urgenþã a Guvernului nr. 76/2001 privind simplificarea unor formalitãþi administrative pentru înregistrarea ºi autorizarea funcþionãrii comercianþilor. În aceste condiþii, actul normativ pe care îl discutãm este lipsit de obiect"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Vorbitorul oferă o justificare bazată pe un fapt juridic concret (publicarea unei legi) care face proiectul redundant."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "actul normativ pe care îl discutãm este lipsit de obiect"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Apelul la eficiența legislativă și evitarea redundanței servește interesul general al ordinii juridice."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Stimaþi colegi"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.99,
+            "marker_confidence": 0.95,
+            "rationale_short": "Adresare convențională neutră; niciun grup vizat în mod specific."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "vã propun respingerea lui"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.88,
+            "rationale_short": "Vorbitorul se concentrează pe propria propunere procedurală fără a angaja cererile altora."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "în ciuda raportului favorabil întocmit la data pe care v-o aminteam"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Menționează raportul favorabil anterior, dar nu îl combate substanțial, ci îl ignoră prin invocarea noii legi."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "alternative_proposal",
+            "evidence": {
+              "text": "vã propun respingerea lui. Dacã nu este agreatã, atunci solicit returnarea la comisie pentru raport suplimentar"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.94,
+            "rationale_short": "Vorbitorul oferă o soluție concretă (respingere) și o alternativă procedurală (returnare la comisie)."
+          }
+        ],
+        "rationale": "Discursul este o intervenție procedurală bine structurată, bazată pe o justificare factuală clară (publicarea unei legi care face proiectul redundant). Vorbitorul demonstrează o calitate deliberativă medie-ridicată prin ancorarea poziției sale în realitatea juridică (level_of_justification=2) și prin oferirea unor soluții constructive (constructive_politics=alternative_proposal). Respectul pentru grupuri și cereri rămâne neutru, fiind o intervenție de natură tehnică. Deși menționează raportul favorabil anterior, nu se angajează într-o dezbatere cu argumentele comisiei, ci le depășește prin noutatea legislativă. Profilul este unul pragmatic și eficient, tipic pentru intervențiile de procedură parlamentară."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.88,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"alternative_proposal\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"în data de 12 iunie s-a publicat în ”Monitorul OficialÒ Legea pentru aprobarea Ordonanþei de urgenþã a Guvernului nr. 76/2001 privind simplificarea unor formalitãþi administrative pentru înregistrarea ºi autorizarea funcþionãrii comercianþilor. În aceste condiþii, actul normativ pe care îl discutãm este lipsit de obiect\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Vorbitorul oferă o justificare bazată pe un fapt juridic concret (publicarea unei legi) care face proiectul redundant.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"actul normativ pe care îl discutãm este lipsit de obiect\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Apelul la eficiența legislativă și evitarea redundanței servește interesul general al ordinii juridice.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Stimaþi colegi\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.99,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Adresare convențională neutră; niciun grup vizat în mod specific.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"vã propun respingerea lui\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Vorbitorul se concentrează pe propria propunere procedurală fără a angaja cererile altora.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"în ciuda raportului favorabil întocmit la data pe care v-o aminteam\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Menționează raportul favorabil anterior, dar nu îl combate substanțial, ci îl ignoră prin invocarea noii legi.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"alternative_proposal\",\n      \"evidence\": {\n        \"text\": \"vã propun respingerea lui. Dacã nu este agreatã, atunci solicit returnarea la comisie pentru raport suplimentar\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.94,\n      \"rationale_short\": \"Vorbitorul oferă o soluție concretă (respingere) și o alternativă procedurală (returnare la comisie).\"\n    }\n  ],\n  \"rationale\": \"Discursul este o intervenție procedurală bine structurată, bazată pe o justificare factuală clară (publicarea unei legi care face proiectul redundant). Vorbitorul demonstrează o calitate deliberativă medie-ridicată prin ancorarea poziției sale în realitatea juridică (level_of_justification=2) și prin oferirea unor soluții constructive (constructive_politics=alternative_proposal). Respectul pentru grupuri și cereri rămâne neutru, fiind o intervenție de natură tehnică. Deși menționează raportul favorabil anterior, nu se angajează într-o dezbatere cu argumentele comisiei, ci le depășește prin noutatea legislativă. Profilul este unul pragmatic și eficient, tipic pentru intervențiile de procedură parlamentară.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [
+        "în data de 12 iunie s-a publicat în ”Monitorul OficialÒ Legea pentru aprobarea Ordonanþei de urgenþã a Guvernului nr. 76/2001 privind simplificarea unor formalitãþi administrative pentru înregistrarea ºi autorizarea funcþionãrii comercianþilor. În aceste condiþii, actul normativ pe care îl discutãm este lipsit de obiect",
+        "vã propun respingerea lui. Dacã nu este agreatã, atunci solicit returnarea la comisie pentru raport suplimentar"
+      ],
+      "parse_repaired": false,
+      "tokens_in": 12501,
+      "tokens_in_breakdown": {
+        "fresh": 12501,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1244,
+      "cost_usd": null,
+      "latency_ms": 4854,
+      "retries_used": 0
+    }
+  }
+}

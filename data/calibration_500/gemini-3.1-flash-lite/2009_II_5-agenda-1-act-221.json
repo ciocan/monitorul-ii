@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2009/II/5#agenda-1#act-221",
+  "tier": "calibration",
+  "speaker": {
+    "id": "vasilescu-lia-olguta",
+    "name": "Lia Olguța Vasilescu",
+    "raw": "Doamna Lia Olguța Vasilescu",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": "2009-02-04",
+    "year": 2009,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2009/II/5#agenda-1#act-221",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.95,
+        "markers": [],
+        "rationale": "Discursul se înscrie într-un registru procedural și de politici publice, axat pe inițiative legislative, alocări bugetare pentru monumente și biserici, și probleme administrative ale diasporei. Deși vorbitorul menționează „românii de pretutindeni” și „bisericile românești”, aceste referințe sunt folosite în contextul unei dezbateri despre eficiența administrativă și sprijinul statului, nu pentru a construi un cadru maniheist popor-vs-elită. Nu există nicio invocare a unei voințe populare omogene care să se opună instituțiilor, nici un cadru de criză existențială sau de elită malefică. Discursul rămâne în limitele unei intervenții parlamentare constructive și tehnice."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.95,\n  \"markers\": [],\n  \"rationale\": \"Discursul se înscrie într-un registru procedural și de politici publice, axat pe inițiative legislative, alocări bugetare pentru monumente și biserici, și probleme administrative ale diasporei. Deși vorbitorul menționează „românii de pretutindeni” și „bisericile românești”, aceste referințe sunt folosite în contextul unei dezbateri despre eficiența administrativă și sprijinul statului, nu pentru a construi un cadru maniheist popor-vs-elită. Nu există nicio invocare a unei voințe populare omogene care să se opună instituțiilor, nici un cadru de criză existențială sau de elită malefică. Discursul rămâne în limitele unei intervenții parlamentare constructive și tehnice.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13950,
+      "tokens_in_breakdown": {
+        "fresh": 13950,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 249,
+      "cost_usd": null,
+      "latency_ms": 4136,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2009/II/5#agenda-1#act-221",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.78,
+        "level_of_justification": 1,
+        "content_of_justification": "group_interest",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 1,
+            "evidence": {
+              "text": "susținem respingerea, în primul rând pentru modul defectuos de realizare a acestor inițiative legislative"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Justificarea este circulară și vagă („modul defectuos”), fără a specifica mecanisme sau dovezi concrete."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "group_interest",
+            "evidence": {
+              "text": "trebuie să ne aducem aminte că suntem statul care susține cu cei mai puțini bani Schitul de la Muntele Athos"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.88,
+            "rationale_short": "Apelul este orientat către interesele specifice ale comunităților religioase și ale diasporei."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "preoții ortodocși sârbi"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.82,
+            "rationale_short": "Grupul este menționat în contextul unei probleme, fără a fi explicit derogatoriu sau respectuos."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Suntem în fața mai multor inițiative legislative."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.8,
+            "rationale_short": "Vorbitorul nu se angajează cu cererile opoziției, ci își expune propria agendă."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "susținem respingerea"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Nu există nicio încercare de a adresa argumentele celor care au propus inițiativele."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "susținem respingerea"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Vorbitorul adoptă o poziție de respingere fără a oferi o alternativă legislativă concretă."
+          }
+        ],
+        "rationale": "Discursul prezintă o calitate deliberativă limitată, fiind predominant pozițional și bazat pe argumente de interes de grup (sprijinul pentru biserici și diaspora). Justificarea pentru respingerea inițiativelor este superficială, invocând un „mod defectuos” fără a oferi detalii tehnice sau juridice care să susțină poziția. Nu există un angajament real cu argumentele inițiatorilor, iar respectul pentru grupuri și cereri rămâne la un nivel neutru, fără a depăși cadrul retoric standard. Deși vorbitorul ridică probleme legitime privind comunitățile românești din străinătate, acestea nu sunt integrate într-o propunere constructivă, ci servesc drept context pentru poziția sa de respingere a proiectelor aflate pe ordinea de zi."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.78,\n  \"level_of_justification\": 1,\n  \"content_of_justification\": \"group_interest\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 0,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"susținem respingerea, în primul rând pentru modul defectuos de realizare a acestor inițiative legislative\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Justificarea este circulară și vagă („modul defectuos”), fără a specifica mecanisme sau dovezi concrete.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"group_interest\",\n      \"evidence\": {\n        \"text\": \"trebuie să ne aducem aminte că suntem statul care susține cu cei mai puțini bani Schitul de la Muntele Athos\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Apelul este orientat către interesele specifice ale comunităților religioase și ale diasporei.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"preoții ortodocși sârbi\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.82,\n      \"rationale_short\": \"Grupul este menționat în contextul unei probleme, fără a fi explicit derogatoriu sau respectuos.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Suntem în fața mai multor inițiative legislative.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.80,\n      \"rationale_short\": \"Vorbitorul nu se angajează cu cererile opoziției, ci își expune propria agendă.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"susținem respingerea\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Nu există nicio încercare de a adresa argumentele celor care au propus inițiativele.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"susținem respingerea\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.90,\n      \"rationale_short\": \"Vorbitorul adoptă o poziție de respingere fără a oferi o alternativă legislativă concretă.\"\n    }\n  ],\n  \"rationale\": \"Discursul prezintă o calitate deliberativă limitată, fiind predominant pozițional și bazat pe argumente de interes de grup (sprijinul pentru biserici și diaspora). Justificarea pentru respingerea inițiativelor este superficială, invocând un „mod defectuos” fără a oferi detalii tehnice sau juridice care să susțină poziția. Nu există un angajament real cu argumentele inițiatorilor, iar respectul pentru grupuri și cereri rămâne la un nivel neutru, fără a depăși cadrul retoric standard. Deși vorbitorul ridică probleme legitime privind comunitățile românești din străinătate, acestea nu sunt integrate într-o propunere constructivă, ci servesc drept context pentru poziția sa de respingere a proiectelor aflate pe ordinea de zi.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12751,
+      "tokens_in_breakdown": {
+        "fresh": 12751,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1156,
+      "cost_usd": null,
+      "latency_ms": 5354,
+      "retries_used": 0
+    }
+  }
+}

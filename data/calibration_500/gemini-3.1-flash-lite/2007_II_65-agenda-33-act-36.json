@@ -1,0 +1,152 @@
+{
+  "speech_id": "mo://2007/II/65#agenda-33#act-36",
+  "tier": "calibration",
+  "speaker": {
+    "id": "micula-catalin",
+    "name": "C„t„lin Micula",
+    "raw": "Domnul C„t„lin Micula",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": null,
+    "session_date": null,
+    "year": 2007,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2007/II/65#agenda-33#act-36",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul este unul pur procedural, axat pe amendamente tehnice aduse unei legi privind așezămintele culturale. Vorbitorul explică modificările aduse în comisie (introducerea construcției de așezăminte, clarificarea statutului juridic de drept public) fără a utiliza nicio retorică populistă. Nu există nicio referire la un cadru popor-vs-elită, maniheism moral sau invocarea unei voințe populare suverane. Discursul se încadrează strict în registrul tehnic-parlamentar, primind astfel scorul 0."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul este unul pur procedural, axat pe amendamente tehnice aduse unei legi privind așezămintele culturale. Vorbitorul explică modificările aduse în comisie (introducerea construcției de așezăminte, clarificarea statutului juridic de drept public) fără a utiliza nicio retorică populistă. Nu există nicio referire la un cadru popor-vs-elită, maniheism moral sau invocarea unei voințe populare suverane. Discursul se încadrează strict în registrul tehnic-parlamentar, primind astfel scorul 0.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13687,
+      "tokens_in_breakdown": {
+        "fresh": 13687,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 208,
+      "cost_usd": null,
+      "latency_ms": 2073,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2007/II/65#agenda-33#act-36",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.88,
+        "level_of_justification": 2,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "alternative_proposal",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "am introdus ∫i acest cuv‚nt îde drept public“ ∫i nu îprivat“, pentru c„ aceste fonduri sunt fonduri publice, ∫i am ajuns la concluzia c„ nu putem s„ finan˛„m, Ón condi˛iile prezentei legi, f„r„ alte modific„ri, ∫i alte tipuri de a∫ez„minte culturale, cu un alt statut juridic."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Vorbitorul oferă o justificare cauzală bazată pe natura publică a fondurilor pentru a susține modificarea legislativă."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "pentru c„ aceste fonduri sunt fonduri publice"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Justificarea se bazează pe principiul utilizării corecte a fondurilor publice, vizând interesul general."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Stima˛i colegi"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.99,
+            "marker_confidence": 0.85,
+            "rationale_short": "Adresare convențională; nu există referințe derogatorii sau de respect explicit către grupuri."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "am avut dou„ modific„ri de f„cut la varianta ini˛ial„"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.88,
+            "rationale_short": "Vorbitorul prezintă modificările comisiei fără a angaja explicit cererile altor părți; neutru."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "una care a fost f„cut„ deja de Senat"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Menționează contribuția Senatului fără a intra într-un dialog argumentativ substanțial."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "alternative_proposal",
+            "evidence": {
+              "text": "am introdus ∫i acest cuv‚nt îde drept public“ ∫i nu îprivat“"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.93,
+            "rationale_short": "Vorbitorul propune o modificare concretă a textului legislativ pentru a clarifica statutul juridic al beneficiarilor."
+          }
+        ],
+        "rationale": "Discursul prezintă o calitate deliberativă solidă, specifică activității de raportor în comisie. Vorbitorul oferă o justificare calificată (level_of_justification=2) bazată pe natura publică a fondurilor, apelând la binele comun (content_of_justification=common_good). Intervenția este constructivă, propunând o modificare tehnică precisă (constructive_politics=alternative_proposal). Respectul pentru grupuri și cereri rămâne neutru, fiind o prezentare procedurală a muncii comisiei. Nu există un angajament polemic, ci o clarificare tehnică, ceea ce explică scorurile de respect pentru contraargumente și cereri la nivelul 1."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.88,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"alternative_proposal\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"am introdus ∫i acest cuv‚nt îde drept public“ ∫i nu îprivat“, pentru c„ aceste fonduri sunt fonduri publice, ∫i am ajuns la concluzia c„ nu putem s„ finan˛„m, Ón condi˛iile prezentei legi, f„r„ alte modific„ri, ∫i alte tipuri de a∫ez„minte culturale, cu un alt statut juridic.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Vorbitorul oferă o justificare cauzală bazată pe natura publică a fondurilor pentru a susține modificarea legislativă.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"pentru c„ aceste fonduri sunt fonduri publice\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Justificarea se bazează pe principiul utilizării corecte a fondurilor publice, vizând interesul general.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Stima˛i colegi\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.99,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Adresare convențională; nu există referințe derogatorii sau de respect explicit către grupuri.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"am avut dou„ modific„ri de f„cut la varianta ini˛ial„\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Vorbitorul prezintă modificările comisiei fără a angaja explicit cererile altor părți; neutru.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"una care a fost f„cut„ deja de Senat\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Menționează contribuția Senatului fără a intra într-un dialog argumentativ substanțial.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"alternative_proposal\",\n      \"evidence\": {\n        \"text\": \"am introdus ∫i acest cuv‚nt îde drept public“ ∫i nu îprivat“\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.93,\n      \"rationale_short\": \"Vorbitorul propune o modificare concretă a textului legislativ pentru a clarifica statutul juridic al beneficiarilor.\"\n    }\n  ],\n  \"rationale\": \"Discursul prezintă o calitate deliberativă solidă, specifică activității de raportor în comisie. Vorbitorul oferă o justificare calificată (level_of_justification=2) bazată pe natura publică a fondurilor, apelând la binele comun (content_of_justification=common_good). Intervenția este constructivă, propunând o modificare tehnică precisă (constructive_politics=alternative_proposal). Respectul pentru grupuri și cereri rămâne neutru, fiind o prezentare procedurală a muncii comisiei. Nu există un angajament polemic, ci o clarificare tehnică, ceea ce explică scorurile de respect pentru contraargumente și cereri la nivelul 1.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [
+        "am introdus ∫i acest cuv‚nt îde drept public“ ∫i nu îprivat“, pentru c„ aceste fonduri sunt fonduri publice, ∫i am ajuns la concluzia c„ nu putem s„ finan˛„m, Ón condi˛iile prezentei legi, f„r„ alte modific„ri, ∫i alte tipuri de a∫ez„minte culturale, cu un alt statut juridic."
+      ],
+      "parse_repaired": false,
+      "tokens_in": 12488,
+      "tokens_in_breakdown": {
+        "fresh": 12488,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1210,
+      "cost_usd": null,
+      "latency_ms": 4734,
+      "retries_used": 0
+    }
+  }
+}

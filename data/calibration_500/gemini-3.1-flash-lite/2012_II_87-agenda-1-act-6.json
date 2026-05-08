@@ -1,0 +1,199 @@
+{
+  "speech_id": "mo://2012/II/87#agenda-1#act-6",
+  "tier": "calibration",
+  "speaker": {
+    "id": "popescu-dan-mircea",
+    "name": "Dan Mircea Popescu",
+    "raw": "Domnul Dan Mircea Popescu",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2012-09-25",
+    "year": 2012,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2012/II/87#agenda-1#act-6",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [
+          {
+            "kind": "evil_elite",
+            "evidence": {
+              "text": "Dan Mircea Popescu, ministrul muncii în guvernele Stolojan, Văcăroiu și Năstase, mi-a mărturisit că a fost unul dintre mesagerii care, fiind în misiune oficială la Berna, îi ducea personal Regelui cei 10 mii de dolari, renta lunară pe care i-au plătit-o comuniștii de la Groza la Ceaușescu"
+            },
+            "preliminary_voice": "quoted",
+            "preliminary_voice_confidence": 0.99,
+            "marker_confidence": 0.95,
+            "rationale_short": "Citat din cartea lui Eugen Mihăescu care descrie o presupusă conspirație a elitei politice; vocea aparține autorului cărții, nu vorbitorului."
+          }
+        ],
+        "rationale": "Discursul este o intervenție personală de drept la replică, menită să combată acuzațiile calomnioase dintr-o carte recent publicată. Vorbitorul citează un fragment din volumul respectiv pentru a-l infirma, nu pentru a-și însuși cadrul populist. Nu există nicio tentativă de a construi o viziune maniheistă popor-vs-elită sau de a invoca o voință populară suverană. Discursul rămâne strict în registrul apărării reputației personale și al restabilirii adevărului factual, fără a atinge pragul populismului."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [\n    {\n      \"kind\": \"evil_elite\",\n      \"evidence\": {\n        \"text\": \"Dan Mircea Popescu, ministrul muncii în guvernele Stolojan, Văcăroiu și Năstase, mi-a mărturisit că a fost unul dintre mesagerii care, fiind în misiune oficială la Berna, îi ducea personal Regelui cei 10 mii de dolari, renta lunară pe care i-au plătit-o comuniștii de la Groza la Ceaușescu\"\n      },\n      \"preliminary_voice\": \"quoted\",\n      \"preliminary_voice_confidence\": 0.99,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Citat din cartea lui Eugen Mihăescu care descrie o presupusă conspirație a elitei politice; vocea aparține autorului cărții, nu vorbitorului.\"\n    }\n  ],\n  \"rationale\": \"Discursul este o intervenție personală de drept la replică, menită să combată acuzațiile calomnioase dintr-o carte recent publicată. Vorbitorul citează un fragment din volumul respectiv pentru a-l infirma, nu pentru a-și însuși cadrul populist. Nu există nicio tentativă de a construi o viziune maniheistă popor-vs-elită sau de a invoca o voință populară suverană. Discursul rămâne strict în registrul apărării reputației personale și al restabilirii adevărului factual, fără a atinge pragul populismului.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 14070,
+      "tokens_in_breakdown": {
+        "fresh": 14070,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 436,
+      "cost_usd": null,
+      "latency_ms": 4904,
+      "retries_used": 0
+    },
+    "voice": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "voice",
+      "speech_id": "mo://2012/II/87#agenda-1#act-6",
+      "output": {
+        "classifications": [
+          {
+            "marker_id": "m_0",
+            "voice": "quoted",
+            "voice_confidence": 0.98,
+            "voice_evidence": {
+              "text": "Dan Mircea Popescu, ministrul muncii în guvernele Stolojan, Văcăroiu și Năstase, mi-a mărturisit că"
+            },
+            "attributed_to": {
+              "raw": "Dan Mircea Popescu",
+              "kind": "individual"
+            },
+            "rationale_short": "Markerul este inclus într-un citat direct delimitat prin ghilimele, atribuit explicit lui Dan Mircea Popescu."
+          }
+        ]
+      },
+      "raw_response": "{\n  \"classifications\": [\n    {\n      \"marker_id\": \"m_0\",\n      \"voice\": \"quoted\",\n      \"voice_confidence\": 0.98,\n      \"voice_evidence\": {\n        \"text\": \"Dan Mircea Popescu, ministrul muncii în guvernele Stolojan, Văcăroiu și Năstase, mi-a mărturisit că\"\n      },\n      \"attributed_to\": {\n        \"raw\": \"Dan Mircea Popescu\",\n        \"kind\": \"individual\"\n      },\n      \"rationale_short\": \"Markerul este inclus într-un citat direct delimitat prin ghilimele, atribuit explicit lui Dan Mircea Popescu.\"\n    }\n  ]\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 11696,
+      "tokens_in_breakdown": {
+        "fresh": 11696,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 177,
+      "cost_usd": null,
+      "latency_ms": 1149,
+      "retries_used": 0
+    },
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2012/II/87#agenda-1#act-6",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.85,
+        "level_of_justification": 2,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 2,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "Țin să declar cu toată fermitatea nu numai că nu am avut o asemenea conversație cu domnul Eugen Mihăescu, dar și faptul că nu l-am întâlnit niciodată pe Regele Mihai, nici înainte și nici după 1990, că nu am fost niciodată mesager al nimănui pe lângă Maiestatea Sa, că nu am fost nici înainte și nici după 1990 în nicio misiune oficială la Berna."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Vorbitorul oferă o justificare factuală detaliată și specifică pentru a infirma acuzațiile aduse."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "Am socotit de datoria mea să fac o asemenea declarație, nu numai pentru restabilirea adevărului, dar și pentru corecta informare a opiniei publice și a tuturor celor interesați."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Justificarea se bazează pe interesul public și pe restabilirea adevărului, nu pe interese de grup."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Stimați colegi"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.99,
+            "marker_confidence": 0.95,
+            "rationale_short": "Adresare convențională; nu există referințe derogatorii sau de respect explicit către grupuri."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Sunt profund indignat pentru neadevărurile pe care domnul Eugen Mihăescu și-a permis să mi le atribuie"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Vorbitorul se concentrează pe apărarea propriei reputații, fără a aborda cereri politice adverse."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 2,
+            "evidence": {
+              "text": "Iată concluzia acelei întâlniri în versiunea autorului: „Imaginea Regelui de om înfrânt de viață m-a urmărit mult timp... Dan Mircea Popescu... mi-a mărturisit că a fost unul dintre mesagerii...”. Țin să declar cu toată fermitatea nu numai că nu am avut o asemenea conversație cu domnul Eugen Mihăescu, dar și faptul că nu l-am întâlnit niciodată pe Regele Mihai"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.9,
+            "rationale_short": "Vorbitorul citează acuzația specifică din carte și o respinge printr-o argumentare factuală directă."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Am socotit de datoria mea să fac o asemenea declarație"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Discursul este o declarație de poziție personală; nu propune alternative sau medieri politice."
+          }
+        ],
+        "rationale": "Discursul reprezintă o declarație de drept la replică, caracterizată printr-o justificare factuală solidă (level_of_justification=2) pentru a infirma acuzațiile aduse în volumul citat. Vorbitorul ancorează demersul său în interesul public (common_good) și demonstrează un angajament substanțial cu argumentul advers (respect_for_counterarguments=2), citând și respingând punctual afirmațiile autorului. Deși discursul este pozițional (constructive_politics=positional), acesta menține un ton neutru față de grupuri și se concentrează pe restabilirea adevărului. Calitatea deliberativă este ridicată în contextul unei declarații personale, fiind bine structurată și argumentată."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.85,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 2,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"Țin să declar cu toată fermitatea nu numai că nu am avut o asemenea conversație cu domnul Eugen Mihăescu, dar și faptul că nu l-am întâlnit niciodată pe Regele Mihai, nici înainte și nici după 1990, că nu am fost niciodată mesager al nimănui pe lângă Maiestatea Sa, că nu am fost nici înainte și nici după 1990 în nicio misiune oficială la Berna.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Vorbitorul oferă o justificare factuală detaliată și specifică pentru a infirma acuzațiile aduse.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"Am socotit de datoria mea să fac o asemenea declarație, nu numai pentru restabilirea adevărului, dar și pentru corecta informare a opiniei publice și a tuturor celor interesați.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Justificarea se bazează pe interesul public și pe restabilirea adevărului, nu pe interese de grup.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Stimați colegi\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.99,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Adresare convențională; nu există referințe derogatorii sau de respect explicit către grupuri.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Sunt profund indignat pentru neadevărurile pe care domnul Eugen Mihăescu și-a permis să mi le atribuie\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Vorbitorul se concentrează pe apărarea propriei reputații, fără a aborda cereri politice adverse.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"Iată concluzia acelei întâlniri în versiunea autorului: „Imaginea Regelui de om înfrânt de viață m-a urmărit mult timp... Dan Mircea Popescu... mi-a mărturisit că a fost unul dintre mesagerii...”. Țin să declar cu toată fermitatea nu numai că nu am avut o asemenea conversație cu domnul Eugen Mihăescu, dar și faptul că nu l-am întâlnit niciodată pe Regele Mihai\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Vorbitorul citează acuzația specifică din carte și o respinge printr-o argumentare factuală directă.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"Am socotit de datoria mea să fac o asemenea declarație\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Discursul este o declarație de poziție personală; nu propune alternative sau medieri politice.\"\n    }\n  ],\n  \"rationale\": \"Discursul reprezintă o declarație de drept la replică, caracterizată printr-o justificare factuală solidă (level_of_justification=2) pentru a infirma acuzațiile aduse în volumul citat. Vorbitorul ancorează demersul său în interesul public (common_good) și demonstrează un angajament substanțial cu argumentul advers (respect_for_counterarguments=2), citând și respingând punctual afirmațiile autorului. Deși discursul este pozițional (constructive_politics=positional), acesta menține un ton neutru față de grupuri și se concentrează pe restabilirea adevărului. Calitatea deliberativă este ridicată în contextul unei declarații personale, fiind bine structurată și argumentată.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [
+        "Iată concluzia acelei întâlniri în versiunea autorului: „Imaginea Regelui de om înfrânt de viață m-a urmărit mult timp... Dan Mircea Popescu... mi-a mărturisit că a fost unul dintre mesagerii...”. Țin să declar cu toată fermitatea nu numai că nu am avut o asemenea conversație cu domnul Eugen Mihăescu, dar și faptul că nu l-am întâlnit niciodată pe Regele Mihai"
+      ],
+      "parse_repaired": false,
+      "tokens_in": 12871,
+      "tokens_in_breakdown": {
+        "fresh": 12871,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1347,
+      "cost_usd": null,
+      "latency_ms": 4907,
+      "retries_used": 0
+    }
+  }
+}

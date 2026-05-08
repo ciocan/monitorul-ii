@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2000/II/67#agenda-7#act-132",
+  "tier": "calibration",
+  "speaker": {
+    "id": "nicolescu-mihai",
+    "name": "Mihai Nicolescu",
+    "raw": "Domnul Mihai Nicolescu",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": null,
+    "year": 2000,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2000/II/67#agenda-7#act-132",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul este o interpelare parlamentară tehnică, axată pe probleme administrative specifice: stadiul lucrărilor agricole, fertilizarea solului și distribuția cupoanelor pentru producători. Vorbitorul solicită informații concrete și pune întrebări de natură procedurală și economică, fără a recurge la un cadru maniheist popor-vs-elită sau la retorică populistă. Nu există nicio invocare a unei voințe populare omogene sau a unei elite malefice, discursul rămânând strict în registrul dezbaterii de politici publice. Hawkins=0 cu încredere ridicată."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul este o interpelare parlamentară tehnică, axată pe probleme administrative specifice: stadiul lucrărilor agricole, fertilizarea solului și distribuția cupoanelor pentru producători. Vorbitorul solicită informații concrete și pune întrebări de natură procedurală și economică, fără a recurge la un cadru maniheist popor-vs-elită sau la retorică populistă. Nu există nicio invocare a unei voințe populare omogene sau a unei elite malefice, discursul rămânând strict în registrul dezbaterii de politici publice. Hawkins=0 cu încredere ridicată.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13971,
+      "tokens_in_breakdown": {
+        "fresh": 13971,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 210,
+      "cost_usd": null,
+      "latency_ms": 2329,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2000/II/67#agenda-7#act-132",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.85,
+        "level_of_justification": 2,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "Aceste cupoane nu au ajuns, ba, mai mult, foarte multe cupoane se vând ºi la ora actualã pe piaþa liberã, fãrã sã ajungã la producãtori."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Vorbitorul oferă o justificare bazată pe o problemă factuală specifică (distribuția cupoanelor) și impactul asupra producătorilor."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "cum gândeºte conducerea ministerului sã realizeze sistemul de finanþare pentru agriculturã în perspectivã, de aºa manierã încât sã se susþinã eficient toþi producãtorii agricoli"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Apelul este universalizabil, vizând eficiența sistemului de finanțare pentru toți producătorii agricoli."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Ministerul Agriculturii, domnul ministru Ioan Mureºan"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.99,
+            "marker_confidence": 0.95,
+            "rationale_short": "Referință funcțională la instituție și ministru; ton neutru, fără derogare sau respect explicit."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Se formuleazã câteva întrebãri în legãturã cu numãrul de cupoane distribuite"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.88,
+            "rationale_short": "Interpelarea este o procedură standard; nu există un angajament cu cereri adverse specifice."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "dacã se apreciazã cã acest sistem de lucru poate susþine o agriculturã performantã"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Vorbitorul ridică o întrebare critică asupra sistemului, dar nu angajează un contraargument specific al opoziției."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Se formuleazã câteva întrebãri în legãturã cu suprafeþele însãmânþate pânã la aceastã datã"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Discursul este o interpelare care solicită informații și critică situația actuală, fără a propune o alternativă concretă."
+          }
+        ],
+        "rationale": "Discursul este o interpelare parlamentară standard, caracterizată printr-o calitate deliberativă moderată. Vorbitorul oferă o justificare calificată (level_of_justification=2) prin evidențierea problemelor concrete din agricultură și a eșecului sistemului de cupoane, apelând la binele comun al producătorilor agricoli. Respectul pentru grupuri și cereri este neutru, fiind o procedură de control parlamentar. Deși discursul este critic, acesta rămâne în sfera pozițională, solicitând explicații fără a avansa o alternativă legislativă sau o mediere. Calitatea deliberativă este solidă pentru genul interpelării, dar limitată de natura procedurală a intervenției."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.85,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"Aceste cupoane nu au ajuns, ba, mai mult, foarte multe cupoane se vând ºi la ora actualã pe piaþa liberã, fãrã sã ajungã la producãtori.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Vorbitorul oferă o justificare bazată pe o problemă factuală specifică (distribuția cupoanelor) și impactul asupra producătorilor.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"cum gândeºte conducerea ministerului sã realizeze sistemul de finanþare pentru agriculturã în perspectivã, de aºa manierã încât sã se susþinã eficient toþi producãtorii agricoli\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Apelul este universalizabil, vizând eficiența sistemului de finanțare pentru toți producătorii agricoli.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Ministerul Agriculturii, domnul ministru Ioan Mureºan\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.99,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Referință funcțională la instituție și ministru; ton neutru, fără derogare sau respect explicit.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Se formuleazã câteva întrebãri în legãturã cu numãrul de cupoane distribuite\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Interpelarea este o procedură standard; nu există un angajament cu cereri adverse specifice.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"dacã se apreciazã cã acest sistem de lucru poate susþine o agriculturã performantã\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Vorbitorul ridică o întrebare critică asupra sistemului, dar nu angajează un contraargument specific al opoziției.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"Se formuleazã câteva întrebãri în legãturã cu suprafeþele însãmânþate pânã la aceastã datã\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Discursul este o interpelare care solicită informații și critică situația actuală, fără a propune o alternativă concretă.\"\n    }\n  ],\n  \"rationale\": \"Discursul este o interpelare parlamentară standard, caracterizată printr-o calitate deliberativă moderată. Vorbitorul oferă o justificare calificată (level_of_justification=2) prin evidențierea problemelor concrete din agricultură și a eșecului sistemului de cupoane, apelând la binele comun al producătorilor agricoli. Respectul pentru grupuri și cereri este neutru, fiind o procedură de control parlamentar. Deși discursul este critic, acesta rămâne în sfera pozițională, solicitând explicații fără a avansa o alternativă legislativă sau o mediere. Calitatea deliberativă este solidă pentru genul interpelării, dar limitată de natura procedurală a intervenției.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12772,
+      "tokens_in_breakdown": {
+        "fresh": 12772,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1264,
+      "cost_usd": null,
+      "latency_ms": 4873,
+      "retries_used": 0
+    }
+  }
+}

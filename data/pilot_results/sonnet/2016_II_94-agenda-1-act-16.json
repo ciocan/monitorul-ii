@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2016/II/94#agenda-1#act-16",
+  "tier": "register_shift",
+  "speaker": {
+    "id": "popescu-tariceanu-calin",
+    "name": "Călin Constantin Anton Popescu-Tăriceanu",
+    "raw": "Domnul Călin Constantin Anton Popescu-Tăriceanu",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2016-05-10",
+    "year": 2016,
+    "legislature": "VII",
+    "delivery_mode": null
+  },
+  "model_key": "sonnet",
+  "model_label": "claude-sonnet-4.6",
+  "results": {
+    "hawkins": {
+      "model_key": "sonnet",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2016/II/94#agenda-1#act-16",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.99,
+        "markers": [],
+        "rationale": "Discurs integral procedural: vorbitorul invită membrii Birourilor permanente la constatarea rezultatului votului, informează plenul despre depunerea unor legi la secretarii generali în vederea sesizării Curții Constituționale și enumeră actul normativ vizat (OUG nr. 4/2016 privind Legea educației). Nu există niciun cadru popor-vs-elită, niciun maniheism moralist, nicio invocare a unui popor omogen sau a unei crize existențiale. Registrul este exclusiv tehnico-procedural, cu trimiteri precise la articole de lege (art. 15 alin. (2) și (3) din Legea nr. 47/1992). Hawkins=0 cu încredere maximă."
+      },
+      "raw_response": "```json\n{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.99,\n  \"markers\": [],\n  \"rationale\": \"Discurs integral procedural: vorbitorul invită membrii Birourilor permanente la constatarea rezultatului votului, informează plenul despre depunerea unor legi la secretarii generali în vederea sesizării Curții Constituționale și enumeră actul normativ vizat (OUG nr. 4/2016 privind Legea educației). Nu există niciun cadru popor-vs-elită, niciun maniheism moralist, nicio invocare a unui popor omogen sau a unei crize existențiale. Registrul este exclusiv tehnico-procedural, cu trimiteri precise la articole de lege (art. 15 alin. (2) și (3) din Legea nr. 47/1992). Hawkins=0 cu încredere maximă.\"\n}\n```",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 73680,
+      "tokens_in_breakdown": {
+        "fresh": 2,
+        "cache_creation": 60532,
+        "cache_read": 13146
+      },
+      "tokens_out": 804,
+      "cost_usd": 0.2430048,
+      "latency_ms": 23683,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "sonnet",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2016/II/94#agenda-1#act-16",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.38,
+        "level_of_justification": 0,
+        "content_of_justification": "none",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 0,
+            "evidence": {
+              "text": "Îi invit pe membrii Birourilor permanente să se întrunească în sala de ședință a Biroului permanent al Camerei Deputaților pentru constatarea rezultatului votului, încheierea și semnarea procesului-verbal."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.88,
+            "rationale_short": "Directivă procedurală pură fără nicio justificare; vorbitorul emite instrucțiuni administrative, nu argumente."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "none",
+            "evidence": {
+              "text": "Îi invit pe membrii Birourilor permanente să se întrunească"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.87,
+            "rationale_short": "Nicio justificare pentru nicio poziție deliberativă; conținut nedefinit prin absența completă a argumentului."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Doamnelor și domnilor senatori și deputați"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.72,
+            "rationale_short": "Adresare convențională de prezidare; niciun out-group invocat, nici derogate, nici recunoscute explicit — neutru implicit."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Vă informez că, în conformitate cu prevederile art. 15 alin. (2) și (3) din Legea nr. 47/1992"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.65,
+            "rationale_short": "Discurs procedural fără context deliberativ; nicio cerere adversă nici respinsă, nici recunoscută — non-angajament neutru."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "Vă informez că, în conformitate cu prevederile art. 15 alin. (2) și (3) din Legea nr. 47/1992"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.62,
+            "rationale_short": "Nicio ocazie structurală de angajament cu contraargumente într-un discurs de prezidare; non-angajament implicit, nu respingere."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Îi invit pe membrii Birourilor permanente să se întrunească"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.8,
+            "rationale_short": "Discurs de gestionare a ședinței fără propunere alternativă sau mediatoare; pozițional prin natura funcției."
+          }
+        ],
+        "rationale": "Discurs procedural pur de prezidare a ședinței comune, lipsit de conținut deliberativ. Vorbitorul (președintele în exercițiu) emite directive administrative — convocare birou permanent, notificare depunere legi la secretarii generali în vederea sesizării CCR — fără a lua o poziție pe nicio problemă de politică publică și fără a oferi justificări în sens DQI (level_of_justification=0, content=none). Referința la art. 15 alin. (2) și (3) din Legea nr. 47/1992 este o bază legală pentru acțiunea administrativă, nu o justificare pentru o poziție deliberativă. Dimensiunile de respect și contraargumentare sunt neutru-implicite (1/1): nu există ocazie structurală pentru angajamentul cu cereri sau argumente adverse într-un discurs de gestionare a procedurii parlamentare. framework_confidence este scăzut (0.38) deoarece discursul nu furnizează materialul empiric necesar pentru a ancora judecăți DQI fiabile; valorile implicite reflectă absența deliberării, nu calitatea sa redusă, iar consumatorii care filtrează după framework_confidence > 0.6 vor exclude corect aceste intervenții procedurale."
+      },
+      "raw_response": "```json\n{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.38,\n  \"level_of_justification\": 0,\n  \"content_of_justification\": \"none\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"Îi invit pe membrii Birourilor permanente să se întrunească în sala de ședință a Biroului permanent al Camerei Deputaților pentru constatarea rezultatului votului, încheierea și semnarea procesului-verbal.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Directivă procedurală pură fără nicio justificare; vorbitorul emite instrucțiuni administrative, nu argumente.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"none\",\n      \"evidence\": {\n        \"text\": \"Îi invit pe membrii Birourilor permanente să se întrunească\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.87,\n      \"rationale_short\": \"Nicio justificare pentru nicio poziție deliberativă; conținut nedefinit prin absența completă a argumentului.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Doamnelor și domnilor senatori și deputați\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.72,\n      \"rationale_short\": \"Adresare convențională de prezidare; niciun out-group invocat, nici derogate, nici recunoscute explicit — neutru implicit.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Vă informez că, în conformitate cu prevederile art. 15 alin. (2) și (3) din Legea nr. 47/1992\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.65,\n      \"rationale_short\": \"Discurs procedural fără context deliberativ; nicio cerere adversă nici respinsă, nici recunoscută — non-angajament neutru.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Vă informez că, în conformitate cu prevederile art. 15 alin. (2) și (3) din Legea nr. 47/1992\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.62,\n      \"rationale_short\": \"Nicio ocazie structurală de angajament cu contraargumente într-un discurs de prezidare; non-angajament implicit, nu respingere.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"Îi invit pe membrii Birourilor permanente să se întrunească\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.80,\n      \"rationale_short\": \"Discurs de gestionare a ședinței fără propunere alternativă sau mediatoare; pozițional prin natura funcției.\"\n    }\n  ],\n  \"rationale\": \"Discurs procedural pur de prezidare a ședinței comune, lipsit de conținut deliberativ. Vorbitorul (președintele în exercițiu) emite directive administrative — convocare birou permanent, notificare depunere legi la secretarii generali în vederea sesizării CCR — fără a lua o poziție pe nicio problemă de politică publică și fără a oferi justificări în sens DQI (level_of_justification=0, content=none). Referința la art. 15 alin. (2) și (3) din Legea nr. 47/1992 este o bază legală pentru acțiunea administrativă, nu o justificare pentru o poziție deliberativă. Dimensiunile de respect și contraargumentare sunt neutru-implicite (1/1): nu există ocazie structurală pentru angajamentul cu cereri sau argumente adverse într-un discurs de gestionare a procedurii parlamentare. framework_confidence este scăzut (0.38) deoarece discursul nu furnizează materialul empiric necesar pentru a ancora judecăți DQI fiabile; valorile implicite reflectă absența deliberării, nu calitatea sa redusă, iar consumatorii care filtrează după framework_confidence > 0.6 vor exclude corect aceste intervenții procedurale.\"\n}\n```",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 72311,
+      "tokens_in_breakdown": {
+        "fresh": 2,
+        "cache_creation": 59163,
+        "cache_read": 13146
+      },
+      "tokens_out": 6120,
+      "cost_usd": 0.31761105,
+      "latency_ms": 74335,
+      "retries_used": 0
+    }
+  }
+}

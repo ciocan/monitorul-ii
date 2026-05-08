@@ -1,0 +1,52 @@
+{
+  "speech_id": "mo://2021/II/89#agenda-1#act-150",
+  "tier": "calibration",
+  "speaker": {
+    "id": "grosaru-andi-gabriel",
+    "name": "Andi-Gabriel Grosaru",
+    "raw": "Domnul Andi-Gabriel Grosaru",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2021-06-03",
+    "year": 2021,
+    "legislature": "IX",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": null,
+    "voice": null,
+    "dqi": null,
+    "vparty": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "vparty",
+      "speech_id": "mo://2021/II/89#agenda-1#act-150",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "vparty@2020 + vdem-attacks-on@v13",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul este unul pur procedural, axat pe respectarea regulamentului Camerei Deputaților și a ierarhiei decizionale între plen și comisiile parlamentare. Vorbitorul invocă suveranitatea plenului ca principiu democratic de funcționare a legislativului, fără a ataca instituțiile democratice, opoziția, presa sau alte grupuri. Nu există nicio urmă de retorică anti-pluralistă; discursul rămâne strict în limitele dezbaterii parlamentare tehnice."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"vparty@2020 + vdem-attacks-on@v13\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul este unul pur procedural, axat pe respectarea regulamentului Camerei Deputaților și a ierarhiei decizionale între plen și comisiile parlamentare. Vorbitorul invocă suveranitatea plenului ca principiu democratic de funcționare a legislativului, fără a ataca instituțiile democratice, opoziția, presa sau alte grupuri. Nu există nicio urmă de retorică anti-pluralistă; discursul rămâne strict în limitele dezbaterii parlamentare tehnice.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12984,
+      "tokens_in_breakdown": {
+        "fresh": 12984,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 195,
+      "cost_usd": null,
+      "latency_ms": 1610,
+      "retries_used": 0
+    }
+  }
+}

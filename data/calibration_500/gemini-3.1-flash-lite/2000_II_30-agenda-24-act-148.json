@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2000/II/30#agenda-24#act-148",
+  "tier": "calibration",
+  "speaker": {
+    "id": "lupu-vasile",
+    "name": "Vasile Lupu",
+    "raw": "Domnul Vasile Lupu",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": null,
+    "year": 2000,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2000/II/30#agenda-24#act-148",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul este pur procedural, concentrându-se pe interpretarea regulamentului Camerei Deputaților (art. 83 și 84) și pe clarificarea procedurilor de vot. Nu există nicio referire la un cadru popor-vs-elită, nicio invocare a unei voințe populare omogene și nicio retorică maniheistă. Vorbitorul se limitează la sarcini administrative și tehnice, specifice activității parlamentare curente. Hawkins=0 cu încredere ridicată."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul este pur procedural, concentrându-se pe interpretarea regulamentului Camerei Deputaților (art. 83 și 84) și pe clarificarea procedurilor de vot. Nu există nicio referire la un cadru popor-vs-elită, nicio invocare a unei voințe populare omogene și nicio retorică maniheistă. Vorbitorul se limitează la sarcini administrative și tehnice, specifice activității parlamentare curente. Hawkins=0 cu încredere ridicată.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13698,
+      "tokens_in_breakdown": {
+        "fresh": 13698,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 189,
+      "cost_usd": null,
+      "latency_ms": 1767,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2000/II/30#agenda-24#act-148",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.85,
+        "level_of_justification": 2,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "Art. 83: ”Dezbaterea în ºedinþa comunã a Camerelor Parlamentului a propunerilor de numiri ºi alegeri în funcþiile prevãzute la art. 1 pct. 7, 18, 19, 20 ºi 21 din prezentul regulament se face pe baza raportului comun întocmit de comisiile permanente de specialitate ale celor douã CamereÒ."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.92,
+            "rationale_short": "Vorbitorul justifică poziția procedurală prin citarea directă a articolelor relevante din regulament."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "Dezbaterea în ºedinþa comunã a Camerelor Parlamentului a propunerilor de numiri ºi alegeri în funcþiile prevãzute la art. 1 pct. 7, 18, 19, 20 ºi 21 din prezentul regulament se face pe baza raportului comun"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.9,
+            "rationale_short": "Justificarea se bazează pe respectarea normelor procedurale universale ale Parlamentului."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Stimaþi colegi"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Adresare convențională neutră; niciun grup vizat explicit."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Dacã ar fi fost un acord general, fãrã nici o contestare, aº fi acceptat senin votul deschis."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.88,
+            "rationale_short": "Recunoaștere neutră a existenței unei contestări, fără angajament substanțial."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "Dacã ar fi fost un acord general, fãrã nici o contestare, aº fi acceptat senin votul deschis."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.85,
+            "rationale_short": "Menționează existența unei contestări fără a o dezbate sau a o combate."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Eu dau citire regulamentului."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.9,
+            "rationale_short": "Intervenție procedurală de clarificare a regulamentului; nicio propunere alternativă."
+          }
+        ],
+        "rationale": "Discursul este o intervenție procedurală bazată pe interpretarea regulamentului parlamentar. Vorbitorul oferă o justificare calificată (level_of_justification=2) prin citarea exactă a articolelor 83 și 84, ancorând argumentul în normele procedurale ale instituției (content_of_justification=common_good). Respectul pentru grupuri și cereri este neutru (1), deoarece vorbitorul menționează existența unei contestări fără a o ataca sau a o valida explicit. Intervenția este pozițională (constructive_politics=positional), limitându-se la clarificarea regulilor de vot. Calitatea deliberativă este medie, fiind un discurs tehnic-procedural tipic pentru mediul parlamentar."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.85,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"Art. 83: ”Dezbaterea în ºedinþa comunã a Camerelor Parlamentului a propunerilor de numiri ºi alegeri în funcþiile prevãzute la art. 1 pct. 7, 18, 19, 20 ºi 21 din prezentul regulament se face pe baza raportului comun întocmit de comisiile permanente de specialitate ale celor douã CamereÒ.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Vorbitorul justifică poziția procedurală prin citarea directă a articolelor relevante din regulament.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"Dezbaterea în ºedinþa comunã a Camerelor Parlamentului a propunerilor de numiri ºi alegeri în funcþiile prevãzute la art. 1 pct. 7, 18, 19, 20 ºi 21 din prezentul regulament se face pe baza raportului comun\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Justificarea se bazează pe respectarea normelor procedurale universale ale Parlamentului.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Stimaþi colegi\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Adresare convențională neutră; niciun grup vizat explicit.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Dacã ar fi fost un acord general, fãrã nici o contestare, aº fi acceptat senin votul deschis.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Recunoaștere neutră a existenței unei contestări, fără angajament substanțial.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Dacã ar fi fost un acord general, fãrã nici o contestare, aº fi acceptat senin votul deschis.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Menționează existența unei contestări fără a o dezbate sau a o combate.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"Eu dau citire regulamentului.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Intervenție procedurală de clarificare a regulamentului; nicio propunere alternativă.\"\n    }\n  ],\n  \"rationale\": \"Discursul este o intervenție procedurală bazată pe interpretarea regulamentului parlamentar. Vorbitorul oferă o justificare calificată (level_of_justification=2) prin citarea exactă a articolelor 83 și 84, ancorând argumentul în normele procedurale ale instituției (content_of_justification=common_good). Respectul pentru grupuri și cereri este neutru (1), deoarece vorbitorul menționează existența unei contestări fără a o ataca sau a o valida explicit. Intervenția este pozițională (constructive_politics=positional), limitându-se la clarificarea regulilor de vot. Calitatea deliberativă este medie, fiind un discurs tehnic-procedural tipic pentru mediul parlamentar.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12499,
+      "tokens_in_breakdown": {
+        "fresh": 12499,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1274,
+      "cost_usd": null,
+      "latency_ms": 4795,
+      "retries_used": 0
+    }
+  }
+}

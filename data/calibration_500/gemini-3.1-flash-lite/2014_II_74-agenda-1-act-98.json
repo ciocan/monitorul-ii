@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2014/II/74#agenda-1#act-98",
+  "tier": "calibration",
+  "speaker": {
+    "id": "ponta-victor-viorel",
+    "name": "Victor Viorel Ponta",
+    "raw": "Domnul Victor Viorel Ponta",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": "2014-06-17",
+    "year": 2014,
+    "legislature": "VII",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2014/II/74#agenda-1#act-98",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.95,
+        "markers": [],
+        "rationale": "Discursul se concentrează pe o temă instituțională specifică: rolul Senatului și statutul academicienilor în viața publică. Deși vorbitorul folosește termenul de „elite”, acesta este utilizat într-un sens sociologic și profesional (academicieni, rectori, profesori), nu într-un cadru maniheist popor-vs-elită. Nu există nicio invocare a unei voințe populare omogene, nicio demonizare a unei elite corupte și nicio retorică de criză existențială. Discursul este o pledoarie pentru profesionalizarea instituției, înscriindu-se într-un registru pluralist și procedural, nu populist."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.95,\n  \"markers\": [],\n  \"rationale\": \"Discursul se concentrează pe o temă instituțională specifică: rolul Senatului și statutul academicienilor în viața publică. Deși vorbitorul folosește termenul de „elite”, acesta este utilizat într-un sens sociologic și profesional (academicieni, rectori, profesori), nu într-un cadru maniheist popor-vs-elită. Nu există nicio invocare a unei voințe populare omogene, nicio demonizare a unei elite corupte și nicio retorică de criză existențială. Discursul este o pledoarie pentru profesionalizarea instituției, înscriindu-se într-un registru pluralist și procedural, nu populist.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13925,
+      "tokens_in_breakdown": {
+        "fresh": 13925,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 226,
+      "cost_usd": null,
+      "latency_ms": 2091,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2014/II/74#agenda-1#act-98",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.82,
+        "level_of_justification": 2,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "alternative_proposal",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "Orice personalitate a vieții publice care vrea să fie senator trebuie să renunțe la tot ceea ce a făcut până atunci. Nu mai ai voie să fii profesor universitar, nu ai voie să fii membru al Academiei, nu ai voie să ai o poziție de elită în această țară, lucru care cred că este în defavoarea calității actului de legislație"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Vorbitorul oferă un raționament cauzal clar între incompatibilitățile actuale și scăderea calității actului legislativ."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "să convingem elitele acestei țări să-și dedice o parte din viața lor binelui public"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Justificarea este ancorată explicit în interesul binelui public și al calității actului legislativ."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "cei care ocupă, repet, absolut, temporar funcții executive"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.85,
+            "rationale_short": "Referință critică la executiv, dar fără a depăși limitele discursului politic standard; neutru."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "trebuie să restabilim ceea ce a fost de la început"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.88,
+            "rationale_short": "Vorbitorul își promovează propria agendă fără a aborda cererile opoziției; non-angajament."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "trebuie să restabilim ceea ce a fost de la început, și anume Senatul – un loc al elitelor"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Vorbitorul ignoră complet eventualele contraargumente privind egalitatea sau reprezentativitatea democratică."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "alternative_proposal",
+            "evidence": {
+              "text": "trebuie să restabilim ceea ce a fost de la început, și anume Senatul – un loc al elitelor, un loc în care nu-i ceri unui academician să renunțe la mandat"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.93,
+            "rationale_short": "Propune o schimbare legislativă concretă pentru a elimina incompatibilitățile actuale."
+          }
+        ],
+        "rationale": "Discursul prezintă o calitate deliberativă medie, caracterizată printr-o justificare calificată (level_of_justification=2) care leagă incompatibilitățile actuale de calitatea actului legislativ. Vorbitorul apelează la binele comun, argumentând pentru atragerea elitelor în Senat. Deși discursul este constructiv prin propunerea unei reforme specifice (alternative_proposal), acesta eșuează în a respecta sau angaja contraargumente, ignorând perspectivele opuse privind reprezentativitatea. Respectul pentru grupuri rămâne neutru, fiind o critică politică standard la adresa executivului. Profilul este unul de pledoarie pentru o viziune instituțională, cu argumente logice, dar fără deschidere deliberativă către opoziție."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.82,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 0,\n  \"constructive_politics\": \"alternative_proposal\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"Orice personalitate a vieții publice care vrea să fie senator trebuie să renunțe la tot ceea ce a făcut până atunci. Nu mai ai voie să fii profesor universitar, nu ai voie să fii membru al Academiei, nu ai voie să ai o poziție de elită în această țară, lucru care cred că este în defavoarea calității actului de legislație\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Vorbitorul oferă un raționament cauzal clar între incompatibilitățile actuale și scăderea calității actului legislativ.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"să convingem elitele acestei țări să-și dedice o parte din viața lor binelui public\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Justificarea este ancorată explicit în interesul binelui public și al calității actului legislativ.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"cei care ocupă, repet, absolut, temporar funcții executive\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Referință critică la executiv, dar fără a depăși limitele discursului politic standard; neutru.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"trebuie să restabilim ceea ce a fost de la început\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Vorbitorul își promovează propria agendă fără a aborda cererile opoziției; non-angajament.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"trebuie să restabilim ceea ce a fost de la început, și anume Senatul – un loc al elitelor\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.90,\n      \"rationale_short\": \"Vorbitorul ignoră complet eventualele contraargumente privind egalitatea sau reprezentativitatea democratică.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"alternative_proposal\",\n      \"evidence\": {\n        \"text\": \"trebuie să restabilim ceea ce a fost de la început, și anume Senatul – un loc al elitelor, un loc în care nu-i ceri unui academician să renunțe la mandat\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.93,\n      \"rationale_short\": \"Propune o schimbare legislativă concretă pentru a elimina incompatibilitățile actuale.\"\n    }\n  ],\n  \"rationale\": \"Discursul prezintă o calitate deliberativă medie, caracterizată printr-o justificare calificată (level_of_justification=2) care leagă incompatibilitățile actuale de calitatea actului legislativ. Vorbitorul apelează la binele comun, argumentând pentru atragerea elitelor în Senat. Deși discursul este constructiv prin propunerea unei reforme specifice (alternative_proposal), acesta eșuează în a respecta sau angaja contraargumente, ignorând perspectivele opuse privind reprezentativitatea. Respectul pentru grupuri rămâne neutru, fiind o critică politică standard la adresa executivului. Profilul este unul de pledoarie pentru o viziune instituțională, cu argumente logice, dar fără deschidere deliberativă către opoziție.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12726,
+      "tokens_in_breakdown": {
+        "fresh": 12726,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1274,
+      "cost_usd": null,
+      "latency_ms": 4421,
+      "retries_used": 0
+    }
+  }
+}

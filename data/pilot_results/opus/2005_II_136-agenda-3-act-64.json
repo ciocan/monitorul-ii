@@ -1,0 +1,211 @@
+{
+  "speech_id": "mo://2005/II/136#agenda-3#act-64",
+  "tier": "populist",
+  "speaker": {
+    "id": "tudor-corneliu-vadim",
+    "name": "Corneliu Vadim Tudor",
+    "raw": "Domnul Corneliu Vadim Tudor",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": null,
+    "year": 2005,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "opus",
+  "model_label": "claude-opus-4.7",
+  "results": {
+    "hawkins": {
+      "model_key": "opus",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2005/II/136#agenda-3#act-64",
+      "output": {
+        "score": 1,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.72,
+        "markers": [
+          {
+            "kind": "homogeneous_people",
+            "evidence": {
+              "text": "o problem„ de via˛„ ∫i de moarte a rom‚nilor"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.85,
+            "marker_confidence": 0.7,
+            "rationale_short": "„Românii\" invocați ca subiect colectiv omogen pentru care prețurile sunt o chestiune de viață și de moarte."
+          },
+          {
+            "kind": "people_vs_elite",
+            "evidence": {
+              "text": "c‚teva sute de oameni am„r‚˛i, c‚teva sute de pensionari"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.78,
+            "marker_confidence": 0.65,
+            "rationale_short": "Contrastul implicit între „oamenii amărâți\" / pensionari și clasa politică ce ignoră realitatea prețurilor — schiță de cadru popor-vs-elită."
+          }
+        ],
+        "rationale": "Discursul este în mare parte procedural-polemic: critică sistemul de vot electronic, cere vot nominal prin strigarea catalogului și reproșează adversarilor politici că au plecat din sală. Apare însă un pivot retoric către final, când vorbitorul invocă „oamenii amărâți\", pensionarii și prețurile ca „problemă de viață și de moarte a românilor\", schițând un cadru popor-vs-elită cu un subiect colectiv omogen. Cadrul populist nu este pervaziv — nu există maniheism moralist, nici elită activ malefică, nici supremație a voinței populare deasupra instituțiilor, nici proporții cosmice — ci doar un moment de mobilizare retorică într-un discurs altfel concentrat pe procedura de vot. Hawkins=1 cu încredere moderată, la limita către 0 fiindcă registrul populist se aprinde doar episodic în ultimele paragrafe."
+      },
+      "raw_response": "{\"score\":1,\"score_unit\":\"ordinal_0_2\",\"framework_version\":\"hawkins@2018\",\"framework_confidence\":0.72,\"markers\":[{\"kind\":\"homogeneous_people\",\"evidence\":{\"text\":\"o problem„ de via˛„ ∫i de moarte a rom‚nilor\"},\"preliminary_voice\":\"speaker_first_person\",\"preliminary_voice_confidence\":0.85,\"marker_confidence\":0.7,\"rationale_short\":\"„Românii\\\" invocați ca subiect colectiv omogen pentru care prețurile sunt o chestiune de viață și de moarte.\"},{\"kind\":\"people_vs_elite\",\"evidence\":{\"text\":\"c‚teva sute de oameni am„r‚˛i, c‚teva sute de pensionari\"},\"preliminary_voice\":\"speaker_first_person\",\"preliminary_voice_confidence\":0.78,\"marker_confidence\":0.65,\"rationale_short\":\"Contrastul implicit între „oamenii amărâți\\\" / pensionari și clasa politică ce ignoră realitatea prețurilor — schiță de cadru popor-vs-elită.\"}],\"rationale\":\"Discursul este în mare parte procedural-polemic: critică sistemul de vot electronic, cere vot nominal prin strigarea catalogului și reproșează adversarilor politici că au plecat din sală. Apare însă un pivot retoric către final, când vorbitorul invocă „oamenii amărâți\\\", pensionarii și prețurile ca „problemă de viață și de moarte a românilor\\\", schițând un cadru popor-vs-elită cu un subiect colectiv omogen. Cadrul populist nu este pervaziv — nu există maniheism moralist, nici elită activ malefică, nici supremație a voinței populare deasupra instituțiilor, nici proporții cosmice — ci doar un moment de mobilizare retorică într-un discurs altfel concentrat pe procedura de vot. Hawkins=1 cu încredere moderată, la limita către 0 fiindcă registrul populist se aprinde doar episodic în ultimele paragrafe.\"}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "tokens_in": 104476,
+      "tokens_in_breakdown": {
+        "fresh": 5,
+        "cache_creation": 86118,
+        "cache_read": 18353
+      },
+      "tokens_out": 718,
+      "cost_usd": 0.565389,
+      "latency_ms": 30757,
+      "retries_used": 0
+    },
+    "voice": {
+      "model_key": "opus",
+      "prompt_kind": "voice",
+      "speech_id": "mo://2005/II/136#agenda-3#act-64",
+      "output": {
+        "classifications": [
+          {
+            "marker_id": "m_0",
+            "voice": "speaker_first_person",
+            "voice_confidence": 0.86,
+            "voice_evidence": null,
+            "attributed_to": null,
+            "rationale_short": "Vorbitorul afirmă direct, prin întrebare retorică, că prețurile sunt o problemă de viață și de moarte a românilor; fără citat, raport sau disclaimer."
+          },
+          {
+            "marker_id": "m_1",
+            "voice": "hypothetical",
+            "voice_confidence": 0.82,
+            "voice_evidence": {
+              "text": "Poate era bine să fie o ședință cu public și să vină câteva sute de oameni amărâți, câteva sute de pensionari"
+            },
+            "attributed_to": null,
+            "rationale_short": "Construcție condițională („Poate era bine să... să vină\") cu forme verbale ipotetice; vorbitorul imaginează un scenariu, nu îl afirmă."
+          }
+        ]
+      },
+      "raw_response": "{\"classifications\":[{\"marker_id\":\"m_0\",\"voice\":\"speaker_first_person\",\"voice_confidence\":0.86,\"voice_evidence\":null,\"attributed_to\":null,\"rationale_short\":\"Vorbitorul afirmă direct, prin întrebare retorică, că prețurile sunt o problemă de viață și de moarte a românilor; fără citat, raport sau disclaimer.\"},{\"marker_id\":\"m_1\",\"voice\":\"hypothetical\",\"voice_confidence\":0.82,\"voice_evidence\":{\"text\":\"Poate era bine să fie o ședință cu public și să vină câteva sute de oameni amărâți, câteva sute de pensionari\"},\"attributed_to\":null,\"rationale_short\":\"Construcție condițională („Poate era bine să... să vină\\\") cu forme verbale ipotetice; vorbitorul imaginează un scenariu, nu îl afirmă.\"}]}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [
+        "Poate era bine să fie o ședință cu public și să vină câteva sute de oameni amărâți, câteva sute de pensionari"
+      ],
+      "tokens_in": 100975,
+      "tokens_in_breakdown": {
+        "fresh": 5,
+        "cache_creation": 82617,
+        "cache_read": 18353
+      },
+      "tokens_out": 309,
+      "cost_usd": 0.5332827499999999,
+      "latency_ms": 13956,
+      "retries_used": 0
+    },
+    "dqi": {
+      "model_key": "opus",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2005/II/136#agenda-3#act-64",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.7,
+        "level_of_justification": 1,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "alternative_proposal",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 1,
+            "evidence": {
+              "text": "Cine se teme de un vot nominal dup„ strigarea catalogului, din moment ce s-a depus at‚ta efort?"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.93,
+            "marker_confidence": 0.78,
+            "rationale_short": "Justificare prin întrebare retorică („Cine se teme...?\") + analogie informală („preistoria epocii electronice\"), fără ancoră normativă sau empirică specifică."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "s„ vedem ∫i noi dac„ pre˛urile sunt o demagogie ∫i o dovad„ de populism sau sunt cumva o problem„ de via˛„ ∫i de moarte a rom‚nilor"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.94,
+            "marker_confidence": 0.74,
+            "rationale_short": "Apel la integritatea procedurii de vot și la condiția generală a românilor (pensionari, prețuri) — bine comun, nu interes de partid."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "colegi de la Alian˛a P.N.L.-P.D."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.7,
+            "rationale_short": "Referire funcțională la opoziție; nici derogare explicită, nici recunoaștere explicită a legitimității out-grupului."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Au spus c„ ei au votat Óntr-un anumit fel, dar pe lista electronic„ a ap„rut altfel"
+            },
+            "preliminary_voice": "reported",
+            "preliminary_voice_confidence": 0.88,
+            "marker_confidence": 0.66,
+            "rationale_short": "Cererea opoziției (vot fiabil) este preluată tactic ca pârghie pentru votul nominal, fără recunoaștere explicită a legitimității ei."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "se mirau, sincer sau ipocrit, de rezultatul votului"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.9,
+            "marker_confidence": 0.74,
+            "rationale_short": "Argumentația opoziției este menționată dar i se pune la îndoială sinceritatea („sincer sau ipocrit\"); recunoaștere fără angajament substanțial."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "alternative_proposal",
+            "evidence": {
+              "text": "un vot nominal dup„ strigarea catalogului"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.86,
+            "rationale_short": "Propunere procedurală concretă alternativă (votul nominal prin strigarea catalogului) la votul electronic contestat."
+          }
+        ],
+        "rationale": "Discurs procedural-confruntațional cu profil deliberativ moderat-slab. Vorbitorul construiește un argument retoric: din moment ce opoziția însăși a contestat votul electronic, atunci votul nominal este justificat (level_of_justification=1 — raționamentul există dar se sprijină pe întrebări retorice și analogii informale, fără surse sau principii specifice). Conținutul justificării se ancorează pe binele comun — integritatea procedurii de vot și problema reală a prețurilor pentru pensionari — mai degrabă decât pe interes de grup. Respectul pentru grupuri rămâne neutru (referințe funcționale la opoziție și la miniștrii prezenți). Cererile și raționamentul opoziției sunt menționate explicit dar tratate tactic, nu substanțial: speakerul ridică din umeri la motivele lor („sincer sau ipocrit\") și folosește contestația lor ca pârghie pentru propria propunere, fără a o reformula cu acuratețe sau a o combate punctual. Elementul cel mai puternic este caracterul constructiv: o propunere procedurală concretă (votul nominal prin strigarea catalogului) ca alternativă la votul electronic. Confidența generală este moderată (~0.70) — discursul are o formă deliberativă recognoscibilă, dar dimensiunile de respect rămân la nivel neutru-tactic, ceea ce face calibrarea pe limita 0/1 sensibilă."
+      },
+      "raw_response": "```json\n{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.7,\n  \"level_of_justification\": 1,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"alternative_proposal\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 1,\n      \"evidence\": { \"text\": \"Cine se teme de un vot nominal dup„ strigarea catalogului, din moment ce s-a depus at‚ta efort?\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.93,\n      \"marker_confidence\": 0.78,\n      \"rationale_short\": \"Justificare prin întrebare retorică („Cine se teme...?\\\") + analogie informală („preistoria epocii electronice\\\"), fără ancoră normativă sau empirică specifică.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": { \"text\": \"s„ vedem ∫i noi dac„ pre˛urile sunt o demagogie ∫i o dovad„ de populism sau sunt cumva o problem„ de via˛„ ∫i de moarte a rom‚nilor\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.94,\n      \"marker_confidence\": 0.74,\n      \"rationale_short\": \"Apel la integritatea procedurii de vot și la condiția generală a românilor (pensionari, prețuri) — bine comun, nu interes de partid.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": { \"text\": \"colegi de la Alian˛a P.N.L.-P.D.\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.7,\n      \"rationale_short\": \"Referire funcțională la opoziție; nici derogare explicită, nici recunoaștere explicită a legitimității out-grupului.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": { \"text\": \"Au spus c„ ei au votat Óntr-un anumit fel, dar pe lista electronic„ a ap„rut altfel\" },\n      \"preliminary_voice\": \"reported\",\n      \"preliminary_voice_confidence\": 0.88,\n      \"marker_confidence\": 0.66,\n      \"rationale_short\": \"Cererea opoziției (vot fiabil) este preluată tactic ca pârghie pentru votul nominal, fără recunoaștere explicită a legitimității ei.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": { \"text\": \"se mirau, sincer sau ipocrit, de rezultatul votului\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.9,\n      \"marker_confidence\": 0.74,\n      \"rationale_short\": \"Argumentația opoziției este menționată dar i se pune la îndoială sinceritatea („sincer sau ipocrit\\\"); recunoaștere fără angajament substanțial.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"alternative_proposal\",\n      \"evidence\": { \"text\": \"un vot nominal dup„ strigarea catalogului\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.86,\n      \"rationale_short\": \"Propunere procedurală concretă alternativă (votul nominal prin strigarea catalogului) la votul electronic contestat.\"\n    }\n  ],\n  \"rationale\": \"Discurs procedural-confruntațional cu profil deliberativ moderat-slab. Vorbitorul construiește un argument retoric: din moment ce opoziția însăși a contestat votul electronic, atunci votul nominal este justificat (level_of_justification=1 — raționamentul există dar se sprijină pe întrebări retorice și analogii informale, fără surse sau principii specifice). Conținutul justificării se ancorează pe binele comun — integritatea procedurii de vot și problema reală a prețurilor pentru pensionari — mai degrabă decât pe interes de grup. Respectul pentru grupuri rămâne neutru (referințe funcționale la opoziție și la miniștrii prezenți). Cererile și raționamentul opoziției sunt menționate explicit dar tratate tactic, nu substanțial: speakerul ridică din umeri la motivele lor („sincer sau ipocrit\\\") și folosește contestația lor ca pârghie pentru propria propunere, fără a o reformula cu acuratețe sau a o combate punctual. Elementul cel mai puternic este caracterul constructiv: o propunere procedurală concretă (votul nominal prin strigarea catalogului) ca alternativă la votul electronic. Confidența generală este moderată (~0.70) — discursul are o formă deliberativă recognoscibilă, dar dimensiunile de respect rămân la nivel neutru-tactic, ceea ce face calibrarea pe limita 0/1 sensibilă.\"\n}\n```",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "tokens_in": 102467,
+      "tokens_in_breakdown": {
+        "fresh": 5,
+        "cache_creation": 84109,
+        "cache_read": 18353
+      },
+      "tokens_out": 4451,
+      "cost_usd": 0.64615775,
+      "latency_ms": 73664,
+      "retries_used": 0
+    }
+  }
+}

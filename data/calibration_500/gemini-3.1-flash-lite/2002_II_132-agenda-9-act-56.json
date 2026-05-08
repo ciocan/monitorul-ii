@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2002/II/132#agenda-9#act-56",
+  "tier": "calibration",
+  "speaker": {
+    "id": "canacheu-costica",
+    "name": "Costicã Canacheu",
+    "raw": "Domnul Costicã Canacheu",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": null,
+    "year": 2002,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2002/II/132#agenda-9#act-56",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul este un demers tehnic și procedural axat pe controlul bugetar al serviciilor de informații și pe interpretarea normelor legale. Vorbitorul critică o modificare legislativă prin prisma competențelor instituționale și a principiilor de finanțare publică, fără a invoca un cadru maniheist popor-vs-elită sau alte tropi populiste. Nu există nicio tentativă de a mobiliza o voință populară omogenă împotriva unei elite malefice, discursul rămânând ancorat în registrul parlamentar standard. Hawkins=0 cu încredere ridicată."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul este un demers tehnic și procedural axat pe controlul bugetar al serviciilor de informații și pe interpretarea normelor legale. Vorbitorul critică o modificare legislativă prin prisma competențelor instituționale și a principiilor de finanțare publică, fără a invoca un cadru maniheist popor-vs-elită sau alte tropi populiste. Nu există nicio tentativă de a mobiliza o voință populară omogenă împotriva unei elite malefice, discursul rămânând ancorat în registrul parlamentar standard. Hawkins=0 cu încredere ridicată.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13842,
+      "tokens_in_breakdown": {
+        "fresh": 13842,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 207,
+      "cost_usd": null,
+      "latency_ms": 2047,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2002/II/132#agenda-9#act-56",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.88,
+        "level_of_justification": 2,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "în cadrul comisiei de control a Serviciului Român de Informaþii nu existã o expertizã ºi nici capacitatea instituþionalã de a face control de fond pe cheltuialã bugetarã ºi extrabugetarã de acum încolo pe care aceastã lege o prevede."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Vorbitorul oferă un argument cauzal specific legat de lipsa capacității instituționale de control."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "Considerãm cã se încalcã un principiu clar, acela cã serviciile publice speciale, cum este acesta, un serviciu de informaþii, se finanþeazã numai de la bugetul de stat ºi numai sub control parlamentar."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Justificarea se bazează pe principiul universal al controlului parlamentar asupra serviciilor publice."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Stimaþi colegi"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.99,
+            "marker_confidence": 0.9,
+            "rationale_short": "Adresare convențională; nu există derogări sau recunoașteri explicite ale unor grupuri."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Prin adoptarea acestei legi încercãm, mai bine zis încearcã majoritatea parlamentarã de astãzi ca, prin politica paºilor mãrunþi, sã transforme S.R.I.-ul într-o societate comecialã."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Vorbitorul critică inițiativa majorității fără a se angaja direct cu legitimitatea cererii lor."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "Se mai spune în legea deja adoptatã de cãtre Camerã cã se va executa controlul acestor sume prin normele aprobate de cãtre Consiliul Suprem de Apãrare a Þãrii."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.88,
+            "rationale_short": "Menționează argumentul majorității privind controlul CSAT, dar nu îl combate substanțial."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "De aceea noi am votat împotriva acestei legi."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.99,
+            "marker_confidence": 0.95,
+            "rationale_short": "Discursul se limitează la exprimarea opoziției față de proiect fără a propune o alternativă."
+          }
+        ],
+        "rationale": "Discursul prezintă o calitate deliberativă medie, caracterizată printr-o justificare calificată (level_of_justification=2) bazată pe principii de control parlamentar și capacitate instituțională. Vorbitorul invocă binele comun (common_good) prin referirea la necesitatea controlului bugetar asupra serviciilor de informații. Deși menționează argumentul majorității privind controlul CSAT, nu există un angajament substanțial cu acesta (respect_for_counterarguments=1), iar atitudinea față de majoritate rămâne neutră (respect_for_groups=1). Discursul este în esență pozițional, exprimând clar opoziția față de lege fără a oferi o alternativă constructivă. Profilul este cel al unei opoziții parlamentare clasice, bine argumentate, dar lipsite de deschidere către mediere."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.88,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"în cadrul comisiei de control a Serviciului Român de Informaþii nu existã o expertizã ºi nici capacitatea instituþionalã de a face control de fond pe cheltuialã bugetarã ºi extrabugetarã de acum încolo pe care aceastã lege o prevede.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Vorbitorul oferă un argument cauzal specific legat de lipsa capacității instituționale de control.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"Considerãm cã se încalcã un principiu clar, acela cã serviciile publice speciale, cum este acesta, un serviciu de informaþii, se finanþeazã numai de la bugetul de stat ºi numai sub control parlamentar.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Justificarea se bazează pe principiul universal al controlului parlamentar asupra serviciilor publice.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Stimaþi colegi\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.99,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Adresare convențională; nu există derogări sau recunoașteri explicite ale unor grupuri.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Prin adoptarea acestei legi încercãm, mai bine zis încearcã majoritatea parlamentarã de astãzi ca, prin politica paºilor mãrunþi, sã transforme S.R.I.-ul într-o societate comecialã.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Vorbitorul critică inițiativa majorității fără a se angaja direct cu legitimitatea cererii lor.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Se mai spune în legea deja adoptatã de cãtre Camerã cã se va executa controlul acestor sume prin normele aprobate de cãtre Consiliul Suprem de Apãrare a Þãrii.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Menționează argumentul majorității privind controlul CSAT, dar nu îl combate substanțial.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"De aceea noi am votat împotriva acestei legi.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.99,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Discursul se limitează la exprimarea opoziției față de proiect fără a propune o alternativă.\"\n    }\n  ],\n  \"rationale\": \"Discursul prezintă o calitate deliberativă medie, caracterizată printr-o justificare calificată (level_of_justification=2) bazată pe principii de control parlamentar și capacitate instituțională. Vorbitorul invocă binele comun (common_good) prin referirea la necesitatea controlului bugetar asupra serviciilor de informații. Deși menționează argumentul majorității privind controlul CSAT, nu există un angajament substanțial cu acesta (respect_for_counterarguments=1), iar atitudinea față de majoritate rămâne neutră (respect_for_groups=1). Discursul este în esență pozițional, exprimând clar opoziția față de lege fără a oferi o alternativă constructivă. Profilul este cel al unei opoziții parlamentare clasice, bine argumentate, dar lipsite de deschidere către mediere.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12643,
+      "tokens_in_breakdown": {
+        "fresh": 12643,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1313,
+      "cost_usd": null,
+      "latency_ms": 5358,
+      "retries_used": 0
+    }
+  }
+}

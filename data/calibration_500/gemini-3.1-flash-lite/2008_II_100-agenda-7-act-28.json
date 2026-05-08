@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2008/II/100#agenda-7#act-28",
+  "tier": "calibration",
+  "speaker": {
+    "id": "bivolaru-ioan",
+    "name": "Ioan Bivolaru",
+    "raw": "Domnul Ioan Bivolaru",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2008-10-15",
+    "year": 2008,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2008/II/100#agenda-7#act-28",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul este unul pur procedural, axat pe activitatea comisiei, tehnica legislativă și armonizarea cu standardele europene de siguranță rutieră. Nu există nicio urmă de cadru popor-vs-elită, maniheism moral sau invocare a unei voințe populare suverane. Vorbitorul se limitează la aspecte tehnice și administrative, fără a utiliza retorică populistă. Hawkins=0 cu încredere ridicată."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul este unul pur procedural, axat pe activitatea comisiei, tehnica legislativă și armonizarea cu standardele europene de siguranță rutieră. Nu există nicio urmă de cadru popor-vs-elită, maniheism moral sau invocare a unei voințe populare suverane. Vorbitorul se limitează la aspecte tehnice și administrative, fără a utiliza retorică populistă. Hawkins=0 cu încredere ridicată.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13639,
+      "tokens_in_breakdown": {
+        "fresh": 13639,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 173,
+      "cost_usd": null,
+      "latency_ms": 1854,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2008/II/100#agenda-7#act-28",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.72,
+        "level_of_justification": 1,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 1,
+            "evidence": {
+              "text": "avem într-un fel obligația, ca să zicem așa, să fim în concordanță cu aceste aprecieri"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.85,
+            "rationale_short": "Justificarea este vagă și bazată pe conformitate externă, nu pe un raționament cauzal solid."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "Zi europeană a siguranței rutiere"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.8,
+            "rationale_short": "Apelul la siguranța rutieră este universalizabil și orientat către binele comun."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Stimați colegi"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Adresare convențională; niciun grup vizat explicit."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Propunerea comisiei este ca, în final, să fie realizate câteva corelări"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.85,
+            "rationale_short": "Prezentarea unei propuneri tehnice fără a angaja cereri adverse."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "Au fost câteva aprecieri laudative față de anumite critici"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.8,
+            "rationale_short": "Menționare superficială a criticilor fără angajament substanțial."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Propunerea comisiei este ca, în final, să fie realizate câteva corelări"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.88,
+            "rationale_short": "Propunere de corecție tehnică, nu o alternativă politică sau mediere."
+          }
+        ],
+        "rationale": "Discursul este unul procedural, axat pe armonizarea legislativă în urma unor recomandări europene. Nivelul de justificare este inferior (1), deoarece vorbitorul invocă obligația de a fi în concordanță cu aprecierile externe fără a dezvolta un raționament cauzal. Conținutul justificării vizează binele comun (siguranța rutieră), însă respectul pentru grupuri și cereri rămâne neutru, fiind limitat la convenții parlamentare. Nu există un angajament substanțial cu contraargumentele, ci doar o menționare a existenței acestora. Caracterul constructiv este limitat la ajustări tehnice, fiind clasificat drept pozițional. Calitatea deliberativă este modestă, specifică intervențiilor de raportor."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.72,\n  \"level_of_justification\": 1,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 1,\n      \"evidence\": { \"text\": \"avem într-un fel obligația, ca să zicem așa, să fim în concordanță cu aceste aprecieri\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Justificarea este vagă și bazată pe conformitate externă, nu pe un raționament cauzal solid.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": { \"text\": \"Zi europeană a siguranței rutiere\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.80,\n      \"rationale_short\": \"Apelul la siguranța rutieră este universalizabil și orientat către binele comun.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": { \"text\": \"Stimați colegi\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.90,\n      \"rationale_short\": \"Adresare convențională; niciun grup vizat explicit.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": { \"text\": \"Propunerea comisiei este ca, în final, să fie realizate câteva corelări\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Prezentarea unei propuneri tehnice fără a angaja cereri adverse.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": { \"text\": \"Au fost câteva aprecieri laudative față de anumite critici\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.80,\n      \"rationale_short\": \"Menționare superficială a criticilor fără angajament substanțial.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": { \"text\": \"Propunerea comisiei este ca, în final, să fie realizate câteva corelări\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Propunere de corecție tehnică, nu o alternativă politică sau mediere.\"\n    }\n  ],\n  \"rationale\": \"Discursul este unul procedural, axat pe armonizarea legislativă în urma unor recomandări europene. Nivelul de justificare este inferior (1), deoarece vorbitorul invocă obligația de a fi în concordanță cu aprecierile externe fără a dezvolta un raționament cauzal. Conținutul justificării vizează binele comun (siguranța rutieră), însă respectul pentru grupuri și cereri rămâne neutru, fiind limitat la convenții parlamentare. Nu există un angajament substanțial cu contraargumentele, ci doar o menționare a existenței acestora. Caracterul constructiv este limitat la ajustări tehnice, fiind clasificat drept pozițional. Calitatea deliberativă este modestă, specifică intervențiilor de raportor.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12440,
+      "tokens_in_breakdown": {
+        "fresh": 12440,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1086,
+      "cost_usd": null,
+      "latency_ms": 4261,
+      "retries_used": 0
+    }
+  }
+}

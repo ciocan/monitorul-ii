@@ -1,0 +1,210 @@
+{
+  "speech_id": "mo://2010/II/113#agenda-1#act-74",
+  "tier": "calibration",
+  "speaker": {
+    "id": "solomon-adrian",
+    "name": "Adrian Solomon",
+    "raw": "Domnul Adrian Solomon",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2010-06-29",
+    "year": 2010,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2010/II/113#agenda-1#act-74",
+      "output": {
+        "score": 1,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.85,
+        "markers": [
+          {
+            "kind": "people_vs_elite",
+            "evidence": {
+              "text": "nu ați avut cinci minute răgazul, în această dimineață, să discutați despre tăierea salariilor bugetarilor, și anume ale profesorilor, ale medicilor, ale polițiștilor din țara asta"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.85,
+            "rationale_short": "Contrapune elitele politice care negociază funcții cu nevoile reale ale cetățenilor (profesori, medici, polițiști)."
+          },
+          {
+            "kind": "evil_elite",
+            "evidence": {
+              "text": "Domnul senator stă și se ceartă cu noi, în loc să fie în colegiu să-și salveze electoratul"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.92,
+            "marker_confidence": 0.8,
+            "rationale_short": "Elita politică este portretizată ca fiind preocupată de interese personale în detrimentul responsabilităților față de cetățeni."
+          }
+        ],
+        "rationale": "Discursul conține elemente populiste clare, în special prin contrastul dintre preocupările elitei politice (negocierea funcțiilor în Irak) și nevoile cetățenilor (salariile bugetarilor, situația de la Dorohoi). Deși discursul este ancorat într-o procedură parlamentară, utilizarea acestui contrast pentru a sublinia o ruptură morală între clasa politică și popor justifică un scor de 1. Nu atinge pragul de 2 deoarece nu susține o viziune maniheistă pervazivă pe tot parcursul intervenției, rămânând totuși în sfera unei critici politice punctuale."
+      },
+      "raw_response": "{\n  \"score\": 1,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.85,\n  \"markers\": [\n    {\n      \"kind\": \"people_vs_elite\",\n      \"evidence\": {\n        \"text\": \"nu ați avut cinci minute răgazul, în această dimineață, să discutați despre tăierea salariilor bugetarilor, și anume ale profesorilor, ale medicilor, ale polițiștilor din țara asta\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Contrapune elitele politice care negociază funcții cu nevoile reale ale cetățenilor (profesori, medici, polițiști).\"\n    },\n    {\n      \"kind\": \"evil_elite\",\n      \"evidence\": {\n        \"text\": \"Domnul senator stă și se ceartă cu noi, în loc să fie în colegiu să-și salveze electoratul\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.92,\n      \"marker_confidence\": 0.80,\n      \"rationale_short\": \"Elita politică este portretizată ca fiind preocupată de interese personale în detrimentul responsabilităților față de cetățeni.\"\n    }\n  ],\n  \"rationale\": \"Discursul conține elemente populiste clare, în special prin contrastul dintre preocupările elitei politice (negocierea funcțiilor în Irak) și nevoile cetățenilor (salariile bugetarilor, situația de la Dorohoi). Deși discursul este ancorat într-o procedură parlamentară, utilizarea acestui contrast pentru a sublinia o ruptură morală între clasa politică și popor justifică un scor de 1. Nu atinge pragul de 2 deoarece nu susține o viziune maniheistă pervazivă pe tot parcursul intervenției, rămânând totuși în sfera unei critici politice punctuale.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13701,
+      "tokens_in_breakdown": {
+        "fresh": 13701,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 538,
+      "cost_usd": null,
+      "latency_ms": 5882,
+      "retries_used": 0
+    },
+    "voice": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "voice",
+      "speech_id": "mo://2010/II/113#agenda-1#act-74",
+      "output": {
+        "classifications": [
+          {
+            "marker_id": "m_0",
+            "voice": "speaker_first_person",
+            "voice_confidence": 0.98,
+            "voice_evidence": null,
+            "attributed_to": null,
+            "rationale_short": "Vorbitorul face o afirmație directă la persoana întâi despre acțiunile sau inacțiunile președintelui de ședință; nu există indicii de citare sau raportare."
+          },
+          {
+            "marker_id": "m_1",
+            "voice": "speaker_first_person",
+            "voice_confidence": 0.98,
+            "voice_evidence": null,
+            "attributed_to": null,
+            "rationale_short": "Vorbitorul critică direct comportamentul unui coleg senator în discursul său propriu; este o aserțiune directă, fără elemente de citare sau raportare."
+          }
+        ]
+      },
+      "raw_response": "{\n  \"classifications\": [\n    {\n      \"marker_id\": \"m_0\",\n      \"voice\": \"speaker_first_person\",\n      \"voice_confidence\": 0.98,\n      \"voice_evidence\": null,\n      \"attributed_to\": null,\n      \"rationale_short\": \"Vorbitorul face o afirmație directă la persoana întâi despre acțiunile sau inacțiunile președintelui de ședință; nu există indicii de citare sau raportare.\"\n    },\n    {\n      \"marker_id\": \"m_1\",\n      \"voice\": \"speaker_first_person\",\n      \"voice_confidence\": 0.98,\n      \"voice_evidence\": null,\n      \"attributed_to\": null,\n      \"rationale_short\": \"Vorbitorul critică direct comportamentul unui coleg senator în discursul său propriu; este o aserțiune directă, fără elemente de citare sau raportare.\"\n    }\n  ]\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 11346,
+      "tokens_in_breakdown": {
+        "fresh": 11346,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 236,
+      "cost_usd": null,
+      "latency_ms": 1581,
+      "retries_used": 0
+    },
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2010/II/113#agenda-1#act-74",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.78,
+        "level_of_justification": 1,
+        "content_of_justification": "group_interest",
+        "respect_for_groups": 0,
+        "respect_for_demands": 0,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 1,
+            "evidence": {
+              "text": "nu ați avut cinci minute răgazul, în această dimineață, să discutați despre tăierea salariilor bugetarilor"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Vorbitorul invocă o prioritate politică, dar raționamentul este mai degrabă o plângere retorică decât o justificare cauzală."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "group_interest",
+            "evidence": {
+              "text": "tăierea salariilor bugetarilor, și anume ale profesorilor, ale medicilor, ale polițiștilor din țara asta"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Justificarea se concentrează pe interesele specifice ale unor categorii profesionale (bugetari)."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 0,
+            "evidence": {
+              "text": "Domnul senator stă și se ceartă cu noi, în loc să fie în colegiu să-și salveze electoratul, stă și se ceartă cu noi, că vrea să plece în Irak?!"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.94,
+            "rationale_short": "Vorbitorul folosește un ton disprețuitor la adresa unui coleg, punându-i la îndoială integritatea și responsabilitatea."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 0,
+            "evidence": {
+              "text": "Este normal ceea ce facem, doamnă președinte? Stăm de o oră ca să negociați și să-l trimiteți pe domnul senator Câmpanu în Irak?"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.91,
+            "rationale_short": "Cererile sau acțiunile opoziției sunt respinse ca fiind anormale și iresponsabile."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "nu ați avut cinci minute răgazul, în această dimineață, să discutați despre tăierea salariilor bugetarilor"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.89,
+            "rationale_short": "Vorbitorul ignoră complet orice argumente contrare, concentrându-se pe atacul la adresa priorităților majorității."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Este normal ceea ce facem, doamnă președinte?"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Discursul este pur pozițional, fără a oferi o alternativă sau o propunere de mediere."
+          }
+        ],
+        "rationale": "Discursul lui Adrian Solomon se încadrează într-un profil de opoziție agresivă, caracterizat prin lipsa deliberării substanțiale. Justificarea este de nivel 1, bazându-se pe apeluri emoționale la interesele unor grupuri profesionale (bugetari) fără a oferi o analiză cauzală a politicilor. Respectul pentru grupuri și cereri este scăzut (0), vorbitorul folosind un ton disprețuitor la adresa colegilor și respingând acțiunile acestora ca fiind anormale. Nu există nicio încercare de a angaja contraargumente sau de a propune soluții constructive, discursul fiind pur pozițional. Calitatea deliberativă este redusă, fiind un exemplu tipic de retorică de confruntare parlamentară."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.78,\n  \"level_of_justification\": 1,\n  \"content_of_justification\": \"group_interest\",\n  \"respect_for_groups\": 0,\n  \"respect_for_demands\": 0,\n  \"respect_for_counterarguments\": 0,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 1,\n      \"evidence\": { \"text\": \"nu ați avut cinci minute răgazul, în această dimineață, să discutați despre tăierea salariilor bugetarilor\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Vorbitorul invocă o prioritate politică, dar raționamentul este mai degrabă o plângere retorică decât o justificare cauzală.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"group_interest\",\n      \"evidence\": { \"text\": \"tăierea salariilor bugetarilor, și anume ale profesorilor, ale medicilor, ale polițiștilor din țara asta\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Justificarea se concentrează pe interesele specifice ale unor categorii profesionale (bugetari).\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 0,\n      \"evidence\": { \"text\": \"Domnul senator stă și se ceartă cu noi, în loc să fie în colegiu să-și salveze electoratul, stă și se ceartă cu noi, că vrea să plece în Irak?!\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"marker_confidence\": 0.94,\n      \"rationale_short\": \"Vorbitorul folosește un ton disprețuitor la adresa unui coleg, punându-i la îndoială integritatea și responsabilitatea.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 0,\n      \"evidence\": { \"text\": \"Este normal ceea ce facem, doamnă președinte? Stăm de o oră ca să negociați și să-l trimiteți pe domnul senator Câmpanu în Irak?\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.91,\n      \"rationale_short\": \"Cererile sau acțiunile opoziției sunt respinse ca fiind anormale și iresponsabile.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 0,\n      \"evidence\": { \"text\": \"nu ați avut cinci minute răgazul, în această dimineață, să discutați despre tăierea salariilor bugetarilor\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.89,\n      \"rationale_short\": \"Vorbitorul ignoră complet orice argumente contrare, concentrându-se pe atacul la adresa priorităților majorității.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": { \"text\": \"Este normal ceea ce facem, doamnă președinte?\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Discursul este pur pozițional, fără a oferi o alternativă sau o propunere de mediere.\"\n    }\n  ],\n  \"rationale\": \"Discursul lui Adrian Solomon se încadrează într-un profil de opoziție agresivă, caracterizat prin lipsa deliberării substanțiale. Justificarea este de nivel 1, bazându-se pe apeluri emoționale la interesele unor grupuri profesionale (bugetari) fără a oferi o analiză cauzală a politicilor. Respectul pentru grupuri și cereri este scăzut (0), vorbitorul folosind un ton disprețuitor la adresa colegilor și respingând acțiunile acestora ca fiind anormale. Nu există nicio încercare de a angaja contraargumente sau de a propune soluții constructive, discursul fiind pur pozițional. Calitatea deliberativă este redusă, fiind un exemplu tipic de retorică de confruntare parlamentară.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12502,
+      "tokens_in_breakdown": {
+        "fresh": 12502,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1254,
+      "cost_usd": null,
+      "latency_ms": 4902,
+      "retries_used": 0
+    }
+  }
+}

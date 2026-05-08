@@ -1,0 +1,152 @@
+{
+  "speech_id": "mo://2018/II/113#agenda-17#act-29",
+  "tier": "calibration",
+  "speaker": {
+    "id": "seidler-cristian-gabriel",
+    "name": "Cristian Gabriel Seidler",
+    "raw": "Domnul Cristian Gabriel Seidler",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2018-07-02",
+    "year": 2018,
+    "legislature": "VIII",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2018/II/113#agenda-17#act-29",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.95,
+        "markers": [],
+        "rationale": "Discursul este unul tehnic, axat pe capacitatea administrativă a Ministerului Muncii și pe procesarea dosarelor de pensii. Deși vorbitorul critică activitatea ministrului Olguța Vasilescu, limbajul rămâne în sfera competenței administrative și a eficienței guvernamentale, fără a invoca un cadru maniheist popor-vs-elită sau alte tropi populiste. Nu există nicio încercare de a mobiliza o voință populară omogenă sau de a încadra conflictul în termeni existențiali. Prin urmare, discursul se înscrie în registrul procedural și critic-tehnocratic, primind scorul 0."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.95,\n  \"markers\": [],\n  \"rationale\": \"Discursul este unul tehnic, axat pe capacitatea administrativă a Ministerului Muncii și pe procesarea dosarelor de pensii. Deși vorbitorul critică activitatea ministrului Olguța Vasilescu, limbajul rămâne în sfera competenței administrative și a eficienței guvernamentale, fără a invoca un cadru maniheist popor-vs-elită sau alte tropi populiste. Nu există nicio încercare de a mobiliza o voință populară omogenă sau de a încadra conflictul în termeni existențiali. Prin urmare, discursul se înscrie în registrul procedural și critic-tehnocratic, primind scorul 0.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13687,
+      "tokens_in_breakdown": {
+        "fresh": 13687,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 227,
+      "cost_usd": null,
+      "latency_ms": 2018,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2018/II/113#agenda-17#act-29",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.82,
+        "level_of_justification": 2,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "există încă 14.000 de dosare în lucru pentru ceea ce reprezintă în momentul de față art. 169[1] și, odată adoptată această prevedere, ar trebui recalculate 78.000 de dosare. Problema este că Guvernul nu are capacitatea administrativă să deruleze aceste chestiuni."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Vorbitorul oferă o justificare bazată pe date concrete (numărul de dosare) și un mecanism cauzal (lipsa capacității administrative)."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "Problema este că Guvernul nu are capacitatea administrativă să deruleze aceste chestiuni."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Apelul la eficiența administrativă a statului este un argument universalizabil, orientat către binele comun."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "doamna Olguța Vasilescu"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.88,
+            "rationale_short": "Referința la ministru este critică, dar nu atinge pragul de derogare sau dehumanizare; rămâne în sfera neutralității funcționale."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Tocmai venim din Comisia pentru muncă"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.82,
+            "rationale_short": "Vorbitorul nu abordează cererile opoziției, ci își expune propria analiză a situației administrative."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "așteptăm rezultatul celor trei categorii de simulări despre care dânsa afirma în spațiul public"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.96,
+            "marker_confidence": 0.84,
+            "rationale_short": "Menționează argumentul advers (simulările), dar nu îl angajează substanțial, trecând rapid la critică."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Capacitate administrativă la pământ – aceasta este ceea ce va fi lăsat doamna Olguța Vasilescu în urma dânsei."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.91,
+            "rationale_short": "Discursul este critic și pozițional, fără a propune o alternativă concretă sau o mediere a conflictului."
+          }
+        ],
+        "rationale": "Discursul prezintă o calitate deliberativă medie, marcată de o justificare calificată (level_of_justification=2) bazată pe date empirice privind dosarele de pensii și capacitatea administrativă. Vorbitorul ancorează argumentul în interesul general al eficienței statului (content_of_justification=common_good). Totuși, discursul rămâne predominant critic și pozițional, fără a oferi o alternativă constructivă sau a angaja profund contraargumentele ministrului (respect_for_counterarguments=1). Respectul pentru grupuri și cereri este neutru, limitându-se la o critică politică standard. Profilul este cel al unei opoziții tehnice, bine fundamentate, dar care nu depășește retorica de confruntare."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.82,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"există încă 14.000 de dosare în lucru pentru ceea ce reprezintă în momentul de față art. 169[1] și, odată adoptată această prevedere, ar trebui recalculate 78.000 de dosare. Problema este că Guvernul nu are capacitatea administrativă să deruleze aceste chestiuni.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Vorbitorul oferă o justificare bazată pe date concrete (numărul de dosare) și un mecanism cauzal (lipsa capacității administrative).\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"Problema este că Guvernul nu are capacitatea administrativă să deruleze aceste chestiuni.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Apelul la eficiența administrativă a statului este un argument universalizabil, orientat către binele comun.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"doamna Olguța Vasilescu\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Referința la ministru este critică, dar nu atinge pragul de derogare sau dehumanizare; rămâne în sfera neutralității funcționale.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Tocmai venim din Comisia pentru muncă\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.82,\n      \"rationale_short\": \"Vorbitorul nu abordează cererile opoziției, ci își expune propria analiză a situației administrative.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"așteptăm rezultatul celor trei categorii de simulări despre care dânsa afirma în spațiul public\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.96,\n      \"marker_confidence\": 0.84,\n      \"rationale_short\": \"Menționează argumentul advers (simulările), dar nu îl angajează substanțial, trecând rapid la critică.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"Capacitate administrativă la pământ – aceasta este ceea ce va fi lăsat doamna Olguța Vasilescu în urma dânsei.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"marker_confidence\": 0.91,\n      \"rationale_short\": \"Discursul este critic și pozițional, fără a propune o alternativă concretă sau o mediere a conflictului.\"\n    }\n  ],\n  \"rationale\": \"Discursul prezintă o calitate deliberativă medie, marcată de o justificare calificată (level_of_justification=2) bazată pe date empirice privind dosarele de pensii și capacitatea administrativă. Vorbitorul ancorează argumentul în interesul general al eficienței statului (content_of_justification=common_good). Totuși, discursul rămâne predominant critic și pozițional, fără a oferi o alternativă constructivă sau a angaja profund contraargumentele ministrului (respect_for_counterarguments=1). Respectul pentru grupuri și cereri este neutru, limitându-se la o critică politică standard. Profilul este cel al unei opoziții tehnice, bine fundamentate, dar care nu depășește retorica de confruntare.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [
+        "există încă 14.000 de dosare în lucru pentru ceea ce reprezintă în momentul de față art. 169[1] și, odată adoptată această prevedere, ar trebui recalculate 78.000 de dosare. Problema este că Guvernul nu are capacitatea administrativă să deruleze aceste chestiuni."
+      ],
+      "parse_repaired": false,
+      "tokens_in": 12488,
+      "tokens_in_breakdown": {
+        "fresh": 12488,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1262,
+      "cost_usd": null,
+      "latency_ms": 5057,
+      "retries_used": 0
+    }
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "speech_id": "mo://2016/II/105#agenda-1#act-13",
+  "tier": "calibration",
+  "speaker": {
+    "id": "badalau-niculae",
+    "name": "Niculae Bădălău",
+    "raw": "Domnul Niculae Bădălău",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": "2016-06-15",
+    "year": 2016,
+    "legislature": "VII",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": null,
+    "voice": null,
+    "dqi": null,
+    "vparty": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "vparty",
+      "speech_id": "mo://2016/II/105#agenda-1#act-13",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "vparty@2020 + vdem-attacks-on@v13",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul reprezintă o critică politică a guvernării tehnocrate, concentrându-se pe eșecul administrativ în absorbția fondurilor europene și pe neîndeplinirea promisiunilor electorale. Deși tonul este critic și ironic la adresa premierului și a miniștrilor, vorbitorul nu delegitimează instituțiile democratice ca atare, ci atacă performanța managerială a unor actori politici specifici. Nu există elemente de delegitimizare a justiției, presei, opoziției, ONG-urilor sau minorităților, iar discursul rămâne în limitele contestării politice legitime. Scor 0 cu încredere ridicată."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"vparty@2020 + vdem-attacks-on@v13\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul reprezintă o critică politică a guvernării tehnocrate, concentrându-se pe eșecul administrativ în absorbția fondurilor europene și pe neîndeplinirea promisiunilor electorale. Deși tonul este critic și ironic la adresa premierului și a miniștrilor, vorbitorul nu delegitimează instituțiile democratice ca atare, ci atacă performanța managerială a unor actori politici specifici. Nu există elemente de delegitimizare a justiției, presei, opoziției, ONG-urilor sau minorităților, iar discursul rămâne în limitele contestării politice legitime. Scor 0 cu încredere ridicată.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13748,
+      "tokens_in_breakdown": {
+        "fresh": 13748,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 237,
+      "cost_usd": null,
+      "latency_ms": 2365,
+      "retries_used": 0
+    }
+  }
+}

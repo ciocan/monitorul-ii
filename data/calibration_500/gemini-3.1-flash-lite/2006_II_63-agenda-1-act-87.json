@@ -1,0 +1,152 @@
+{
+  "speech_id": "mo://2006/II/63#agenda-1#act-87",
+  "tier": "calibration",
+  "speaker": {
+    "id": "barbara-kibedi-katalin",
+    "name": "Kibedi Katalin Barbara",
+    "raw": "Doamna Kibedi Katalin Barbara",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": null,
+    "year": 2006,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2006/II/63#agenda-1#act-87",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul este un punct de vedere tehnic și juridic al Guvernului referitor la o inițiativă legislativă privind amnistia. Vorbitorul se concentrează pe argumente procedurale, consecințe juridice (in rem vs in personam) și drepturile victimelor în procesul penal, fără a utiliza cadre populiste. Nu există nicio invocare a unui conflict manihean între popor și elită, nicio referire la o voință populară omogenă și nicio retorică populistă. Discursul rămâne strict în registrul tehnic-administrativ, fiind un exemplu clar de scor 0."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul este un punct de vedere tehnic și juridic al Guvernului referitor la o inițiativă legislativă privind amnistia. Vorbitorul se concentrează pe argumente procedurale, consecințe juridice (in rem vs in personam) și drepturile victimelor în procesul penal, fără a utiliza cadre populiste. Nu există nicio invocare a unui conflict manihean între popor și elită, nicio referire la o voință populară omogenă și nicio retorică populistă. Discursul rămâne strict în registrul tehnic-administrativ, fiind un exemplu clar de scor 0.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 14083,
+      "tokens_in_breakdown": {
+        "fresh": 14083,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 209,
+      "cost_usd": null,
+      "latency_ms": 1896,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2006/II/63#agenda-1#act-87",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.88,
+        "level_of_justification": 2,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 2,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "amnistia opereaz„ _in rem_ , nu _in personam_ , ceea ce Ónseamn„ c„ orice persoan„ care este trimis„ Ón judecat„, condamnat„, poate beneficia de acest act de clemen˛„."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Vorbitorul oferă o justificare tehnică bazată pe distincția juridică între amnistia in rem și in personam."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "dac„ totu∫i Ón aceste cauze figureaz„ victime care s-au constituit p„r˛i civile, fie pentru daune materiale, dar Ón principal pentru daune morale"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Justificarea se ancorează în protecția drepturilor victimelor, un principiu universalizabil de bine comun."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Distins Senat"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.99,
+            "marker_confidence": 0.95,
+            "rationale_short": "Adresare formală standard; nu există referințe derogatorii sau de respect explicit către grupuri."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Punctul de vedere al Guvernului este unul negativ"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Vorbitorul prezintă poziția Guvernului fără a angaja explicit legitimitatea cererilor opoziției."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 2,
+            "evidence": {
+              "text": "amnistia opereaz„ _in rem_ , nu _in personam_ , ceea ce Ónseamn„ c„ orice persoan„ care este trimis„ Ón judecat„, condamnat„, poate beneficia de acest act de clemen˛„. ™i atunci, pe undeva expunerea de motive nu se justific„ pe acest argument."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.91,
+            "rationale_short": "Vorbitorul identifică argumentul din expunerea de motive și îl combate printr-o distincție juridică precisă."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "sus˛in Ón continuare punctul de vedere negativ al Guvernului."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.99,
+            "marker_confidence": 0.95,
+            "rationale_short": "Vorbitorul susține o poziție existentă fără a propune o alternativă sau o mediere."
+          }
+        ],
+        "rationale": "Discursul prezintă o calitate deliberativă solidă, marcată de o justificare tehnică și juridică bine structurată (level_of_justification=2). Vorbitorul apelează la binele comun prin invocarea drepturilor victimelor (content_of_justification=common_good). Se observă un angajament substanțial cu raționamentul din expunerea de motive a inițiativei, pe care îl combate prin distincții juridice (respect_for_counterarguments=2). Respectul pentru grupuri și cereri rămâne neutru, fiind o intervenție procedurală și tehnică. Deși discursul este pozițional, calitatea argumentării tehnice îl plasează peste media discursurilor pur retorice."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.88,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 2,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"amnistia opereaz„ _in rem_ , nu _in personam_ , ceea ce Ónseamn„ c„ orice persoan„ care este trimis„ Ón judecat„, condamnat„, poate beneficia de acest act de clemen˛„.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Vorbitorul oferă o justificare tehnică bazată pe distincția juridică între amnistia in rem și in personam.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"dac„ totu∫i Ón aceste cauze figureaz„ victime care s-au constituit p„r˛i civile, fie pentru daune materiale, dar Ón principal pentru daune morale\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Justificarea se ancorează în protecția drepturilor victimelor, un principiu universalizabil de bine comun.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Distins Senat\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.99,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Adresare formală standard; nu există referințe derogatorii sau de respect explicit către grupuri.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Punctul de vedere al Guvernului este unul negativ\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Vorbitorul prezintă poziția Guvernului fără a angaja explicit legitimitatea cererilor opoziției.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"amnistia opereaz„ _in rem_ , nu _in personam_ , ceea ce Ónseamn„ c„ orice persoan„ care este trimis„ Ón judecat„, condamnat„, poate beneficia de acest act de clemen˛„. ™i atunci, pe undeva expunerea de motive nu se justific„ pe acest argument.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.91,\n      \"rationale_short\": \"Vorbitorul identifică argumentul din expunerea de motive și îl combate printr-o distincție juridică precisă.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"sus˛in Ón continuare punctul de vedere negativ al Guvernului.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.99,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Vorbitorul susține o poziție existentă fără a propune o alternativă sau o mediere.\"\n    }\n  ],\n  \"rationale\": \"Discursul prezintă o calitate deliberativă solidă, marcată de o justificare tehnică și juridică bine structurată (level_of_justification=2). Vorbitorul apelează la binele comun prin invocarea drepturilor victimelor (content_of_justification=common_good). Se observă un angajament substanțial cu raționamentul din expunerea de motive a inițiativei, pe care îl combate prin distincții juridice (respect_for_counterarguments=2). Respectul pentru grupuri și cereri rămâne neutru, fiind o intervenție procedurală și tehnică. Deși discursul este pozițional, calitatea argumentării tehnice îl plasează peste media discursurilor pur retorice.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [
+        "amnistia opereaz„ _in rem_ , nu _in personam_ , ceea ce Ónseamn„ c„ orice persoan„ care este trimis„ Ón judecat„, condamnat„, poate beneficia de acest act de clemen˛„. ™i atunci, pe undeva expunerea de motive nu se justific„ pe acest argument."
+      ],
+      "parse_repaired": false,
+      "tokens_in": 12884,
+      "tokens_in_breakdown": {
+        "fresh": 12884,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1257,
+      "cost_usd": null,
+      "latency_ms": 4472,
+      "retries_used": 0
+    }
+  }
+}

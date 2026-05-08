@@ -1,0 +1,52 @@
+{
+  "speech_id": "mo://2017/II/167#agenda-1#act-16",
+  "tier": "register_shift",
+  "speaker": {
+    "id": "basescu-traian",
+    "name": "Traian Băsescu",
+    "raw": "Domnul Traian Băsescu",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2017-11-20",
+    "year": 2017,
+    "legislature": "VIII",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": null,
+    "voice": null,
+    "dqi": null,
+    "vparty": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "vparty",
+      "speech_id": "mo://2017/II/167#agenda-1#act-16",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "vparty@2020 + vdem-attacks-on@v13",
+        "framework_confidence": 0.95,
+        "markers": [],
+        "rationale": "Discursul se încadrează în registrul parlamentar normal, vizând o critică procedurală și politică a modului de constituire a unei comisii speciale. Vorbitorul critică alegerea președintelui comisiei și eficiența procedurii legislative, dar nu delegitimează justiția ca instituție, nici nu atacă opoziția, presa sau alte categorii sociale ca entități antidemocratice. Critica este direcționată către un actor politic specific și o procedură parlamentară, ceea ce reprezintă o formă legitimă de contestare democratică. Nu există elemente de anti-pluralism, motiv pentru care scorul este 0."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"vparty@2020 + vdem-attacks-on@v13\",\n  \"framework_confidence\": 0.95,\n  \"markers\": [],\n  \"rationale\": \"Discursul se încadrează în registrul parlamentar normal, vizând o critică procedurală și politică a modului de constituire a unei comisii speciale. Vorbitorul critică alegerea președintelui comisiei și eficiența procedurii legislative, dar nu delegitimează justiția ca instituție, nici nu atacă opoziția, presa sau alte categorii sociale ca entități antidemocratice. Critica este direcționată către un actor politic specific și o procedură parlamentară, ceea ce reprezintă o formă legitimă de contestare democratică. Nu există elemente de anti-pluralism, motiv pentru care scorul este 0.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 11222,
+      "tokens_in_breakdown": {
+        "fresh": 11222,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 225,
+      "cost_usd": null,
+      "latency_ms": 1811,
+      "retries_used": 0
+    }
+  }
+}

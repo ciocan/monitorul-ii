@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2021/II/5#agenda-2#act-11",
+  "tier": "calibration",
+  "speaker": {
+    "id": "dragu-anca",
+    "name": "Anca Dana Dragu",
+    "raw": "Doamna Anca Dana Dragu",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": "2020-12-28",
+    "year": 2021,
+    "legislature": "IX",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2021/II/5#agenda-2#act-11",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 1.0,
+        "markers": [],
+        "rationale": "Discursul este pur procedural, limitându-se la gestionarea ordinii de zi a ședinței Senatului, anunțarea procedurilor legislative și a cerințelor de vot pentru un proiect de lege. Nu există nicio urmă de retorică populistă, cadru maniheist sau invocare a unei voințe populare omogene. Vorbitorul acționează strict în rolul de președinte de ședință, respectând normele parlamentare. Hawkins=0 cu încredere maximă."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 1.0,\n  \"markers\": [],\n  \"rationale\": \"Discursul este pur procedural, limitându-se la gestionarea ordinii de zi a ședinței Senatului, anunțarea procedurilor legislative și a cerințelor de vot pentru un proiect de lege. Nu există nicio urmă de retorică populistă, cadru maniheist sau invocare a unei voințe populare omogene. Vorbitorul acționează strict în rolul de președinte de ședință, respectând normele parlamentare. Hawkins=0 cu încredere maximă.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13824,
+      "tokens_in_breakdown": {
+        "fresh": 13824,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 180,
+      "cost_usd": null,
+      "latency_ms": 1977,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2021/II/5#agenda-2#act-11",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.45,
+        "level_of_justification": 0,
+        "content_of_justification": "none",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 0,
+            "evidence": {
+              "text": "Am încheiat dezbaterile generale asupra acestui punct al ordinii de zi."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Discurs pur procedural, fără nicio justificare sau argumentație."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "none",
+            "evidence": {
+              "text": "Am încheiat dezbaterile generale asupra acestui punct al ordinii de zi."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Nicio justificare oferită; conținutul este nedefinit."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Stimați colegi"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Adresare convențională, neutră."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Nu avem înscrieri la cuvânt pentru acest punct de pe ordinea de zi."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Constatare procedurală, fără angajament cu cereri politice."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "Nu avem înscrieri la cuvânt"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Absența dezbaterii face imposibilă orice formă de angajament cu contraargumente."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Am încheiat dezbaterile generale"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Intervenție pur administrativă, fără propuneri alternative sau mediere."
+          }
+        ],
+        "rationale": "Acest discurs este o intervenție pur procedurală a președintelui de ședință, având rolul de a gestiona ordinea de zi și fluxul dezbaterilor. Nu conține nicio argumentație, justificare sau poziție politică, fiind în afara sferei deliberative vizate de DQI. Toate dimensiunile sunt codate la valorile implicite de neutralitate sau absență, iar framework_confidence este scăzut deoarece discursul nu reprezintă o argumentație proprie a vorbitorului, ci un act administrativ. Nu există elemente de respect sau constructivitate politică, deoarece contextul este strict tehnic."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.45,\n  \"level_of_justification\": 0,\n  \"content_of_justification\": \"none\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 0,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"Am încheiat dezbaterile generale asupra acestui punct al ordinii de zi.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Discurs pur procedural, fără nicio justificare sau argumentație.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"none\",\n      \"evidence\": {\n        \"text\": \"Am încheiat dezbaterile generale asupra acestui punct al ordinii de zi.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Nicio justificare oferită; conținutul este nedefinit.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Stimați colegi\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Adresare convențională, neutră.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Nu avem înscrieri la cuvânt pentru acest punct de pe ordinea de zi.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Constatare procedurală, fără angajament cu cereri politice.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"Nu avem înscrieri la cuvânt\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Absența dezbaterii face imposibilă orice formă de angajament cu contraargumente.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"Am încheiat dezbaterile generale\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Intervenție pur administrativă, fără propuneri alternative sau mediere.\"\n    }\n  ],\n  \"rationale\": \"Acest discurs este o intervenție pur procedurală a președintelui de ședință, având rolul de a gestiona ordinea de zi și fluxul dezbaterilor. Nu conține nicio argumentație, justificare sau poziție politică, fiind în afara sferei deliberative vizate de DQI. Toate dimensiunile sunt codate la valorile implicite de neutralitate sau absență, iar framework_confidence este scăzut deoarece discursul nu reprezintă o argumentație proprie a vorbitorului, ci un act administrativ. Nu există elemente de respect sau constructivitate politică, deoarece contextul este strict tehnic.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12625,
+      "tokens_in_breakdown": {
+        "fresh": 12625,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1039,
+      "cost_usd": null,
+      "latency_ms": 4134,
+      "retries_used": 0
+    }
+  }
+}

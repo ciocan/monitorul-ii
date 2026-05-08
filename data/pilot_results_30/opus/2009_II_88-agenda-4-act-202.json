@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2009/II/88#agenda-4#act-202",
+  "tier": "moderate",
+  "speaker": {
+    "id": "nastase-adrian",
+    "name": "Adrian Năstase",
+    "raw": "Domnul Adrian Năstase",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2009-06-23",
+    "year": 2009,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "opus",
+  "model_label": "claude-opus-4.7",
+  "results": {
+    "hawkins": {
+      "model_key": "opus",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2009/II/88#agenda-4#act-202",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.96,
+        "markers": [],
+        "rationale": "Discurs strict procedural-juridic în care vorbitorul invocă „logica juridică, regulamentele și Constituția\" ca arbitri ai dezbaterii și argumentează tehnic în jurul cererii procurorului general, art. 47 din Constituție, a unui dosar din 2008/2009 și a procedurii prin Biroul permanent și Comisia pentru regulament. Nu există cadru popor-vs-elită, nici invocarea unei voințe populare omogene, nici maniheism moral, nici elită-malefică, nici cadru de criză sau mize cosmice. Registrul este tehnocratic-instituțional, cu apel la procedură și la respectarea Constituției — opusul logicii populiste. Hawkins=0 cu încredere ridicată."
+      },
+      "raw_response": "{\"score\":0,\"score_unit\":\"ordinal_0_2\",\"framework_version\":\"hawkins@2018\",\"framework_confidence\":0.96,\"markers\":[],\"rationale\":\"Discurs strict procedural-juridic în care vorbitorul invocă „logica juridică, regulamentele și Constituția\\\" ca arbitri ai dezbaterii și argumentează tehnic în jurul cererii procurorului general, art. 47 din Constituție, a unui dosar din 2008/2009 și a procedurii prin Biroul permanent și Comisia pentru regulament. Nu există cadru popor-vs-elită, nici invocarea unei voințe populare omogene, nici maniheism moral, nici elită-malefică, nici cadru de criză sau mize cosmice. Registrul este tehnocratic-instituțional, cu apel la procedură și la respectarea Constituției — opusul logicii populiste. Hawkins=0 cu încredere ridicată.\"}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 105072,
+      "tokens_in_breakdown": {
+        "fresh": 5,
+        "cache_creation": 86714,
+        "cache_read": 18353
+      },
+      "tokens_out": 327,
+      "cost_usd": 0.559339,
+      "latency_ms": 12367,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "opus",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2009/II/88#agenda-4#act-202",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.82,
+        "level_of_justification": 2,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "alternative_proposal",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "art. 47 din Constituție ne spune foarte clar, și anume faptul că o decizie a Curții nu poate să fie... deciziile sunt general obligatorii și au putere numai pentru viitor"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.96,
+            "marker_confidence": 0.88,
+            "rationale_short": "Justificare ancorată într-un text constituțional specific (art. 47) cu mecanism principial (neretroactivitatea deciziilor CCR)."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "arbitrul nostru nu poate să fie decât logica juridică, regulamentele noastre și mai ales Constituția"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.86,
+            "rationale_short": "Apel explicit la principii universale (Constituție, regulament, logică juridică), nu la interes de partid."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Au fost colegi din acest Parlament care au votat împotriva acestui text din Constituție"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.93,
+            "marker_confidence": 0.74,
+            "rationale_short": "Colegii care au votat diferit sunt referiți funcțional, fără derogare explicită; neutru."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Putem să trimitem o scrisoare procurorului general să întrebăm dacă dorește să mai deschidă și alte dosare. Sigur că este o chestiune valabilă"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.94,
+            "marker_confidence": 0.72,
+            "rationale_short": "Recunoaște parțial validitatea unei cereri colaterale („chestiune valabilă\") fără a o legitima pe deplin pe cea principală."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "considerând ca admisibilă cererea procurorului general, au considerat că acest articol din Constituție este abrogat. Deci unii au votat conform Constituției, alții au votat împotriva Constituției"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.94,
+            "marker_confidence": 0.7,
+            "rationale_short": "Menționează poziția adversă reformulând-o ca „vot împotriva Constituției\", fără angajament substanțial cu raționamentul ei."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "alternative_proposal",
+            "evidence": {
+              "text": "Vă rog să supuneți la vot prima propunere care s-a făcut și, după aceea, să continuăm, sigur, cu activitățile obișnuite ale Parlamentului"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.8,
+            "rationale_short": "Propunere procedurală concretă: scoaterea de pe ordinea de zi + redirecționarea unei eventuale cereri noi pe calea raportului Comisiei juridice."
+          }
+        ],
+        "rationale": "Discurs procedural-juridic cu profil deliberativ moderat-ridicat. Vorbitorul oferă o justificare calificată (level_of_justification=2) ancorată în art. 47 din Constituție și în mecanismul neretroactivității deciziilor CCR, apelând explicit la binele comun procedural — Constituție, regulament, logică juridică — nu la interes de grup (content=common_good). Angajamentul cu poziția adversă rămâne la nivel de menționare-și-respingere („au votat împotriva Constituției\"), fără reformulare echitabilă a argumentului juridic alternativ (respect_for_counterarguments=1). Cererile adverse sunt parțial recunoscute ca valabile pe latura colaterală, dar respinse pe forma concretă (respect_for_demands=1). Respectul pentru grupuri este neutru — colegii care au votat diferit sunt referiți funcțional, fără derogare. Vorbitorul închide constructiv cu o propunere procedurală concretă (votarea propunerii de scoatere de pe ordinea de zi + redirecționarea unei eventuale cereri noi pe calea raportului Comisiei juridice), ceea ce ridică dimensiunea constructivă deasupra simplei poziționări. Profil tipic de intervenție de lider de grup pe chestiune procedurală: justificare principială solidă, angajament redus cu raționamentul advers, încheiere cu o cale procedurală alternativă."
+      },
+      "raw_response": "{\"framework_version\":\"steiner-bachtiger@2017\",\"score_unit\":\"dqi_multi\",\"framework_confidence\":0.82,\"level_of_justification\":2,\"content_of_justification\":\"common_good\",\"respect_for_groups\":1,\"respect_for_demands\":1,\"respect_for_counterarguments\":1,\"constructive_politics\":\"alternative_proposal\",\"markers\":[{\"kind\":\"level_of_justification\",\"value\":2,\"evidence\":{\"text\":\"art. 47 din Constituție ne spune foarte clar, și anume faptul că o decizie a Curții nu poate să fie... deciziile sunt general obligatorii și au putere numai pentru viitor\"},\"preliminary_voice\":\"speaker_first_person\",\"preliminary_voice_confidence\":0.96,\"marker_confidence\":0.88,\"rationale_short\":\"Justificare ancorată într-un text constituțional specific (art. 47) cu mecanism principial (neretroactivitatea deciziilor CCR).\"},{\"kind\":\"content_of_justification\",\"value\":\"common_good\",\"evidence\":{\"text\":\"arbitrul nostru nu poate să fie decât logica juridică, regulamentele noastre și mai ales Constituția\"},\"preliminary_voice\":\"speaker_first_person\",\"preliminary_voice_confidence\":0.95,\"marker_confidence\":0.86,\"rationale_short\":\"Apel explicit la principii universale (Constituție, regulament, logică juridică), nu la interes de partid.\"},{\"kind\":\"respect_for_groups\",\"value\":1,\"evidence\":{\"text\":\"Au fost colegi din acest Parlament care au votat împotriva acestui text din Constituție\"},\"preliminary_voice\":\"speaker_first_person\",\"preliminary_voice_confidence\":0.93,\"marker_confidence\":0.74,\"rationale_short\":\"Colegii care au votat diferit sunt referiți funcțional, fără derogare explicită; neutru.\"},{\"kind\":\"respect_for_demands\",\"value\":1,\"evidence\":{\"text\":\"Putem să trimitem o scrisoare procurorului general să întrebăm dacă dorește să mai deschidă și alte dosare. Sigur că este o chestiune valabilă\"},\"preliminary_voice\":\"speaker_first_person\",\"preliminary_voice_confidence\":0.94,\"marker_confidence\":0.72,\"rationale_short\":\"Recunoaște parțial validitatea unei cereri colaterale („chestiune valabilă\\\") fără a o legitima pe deplin pe cea principală.\"},{\"kind\":\"respect_for_counterarguments\",\"value\":1,\"evidence\":{\"text\":\"considerând ca admisibilă cererea procurorului general, au considerat că acest articol din Constituție este abrogat. Deci unii au votat conform Constituției, alții au votat împotriva Constituției\"},\"preliminary_voice\":\"speaker_first_person\",\"preliminary_voice_confidence\":0.94,\"marker_confidence\":0.7,\"rationale_short\":\"Menționează poziția adversă reformulând-o ca „vot împotriva Constituției\\\", fără angajament substanțial cu raționamentul ei.\"},{\"kind\":\"constructive_politics\",\"value\":\"alternative_proposal\",\"evidence\":{\"text\":\"Vă rog să supuneți la vot prima propunere care s-a făcut și, după aceea, să continuăm, sigur, cu activitățile obișnuite ale Parlamentului\"},\"preliminary_voice\":\"speaker_first_person\",\"preliminary_voice_confidence\":0.95,\"marker_confidence\":0.8,\"rationale_short\":\"Propunere procedurală concretă: scoaterea de pe ordinea de zi + redirecționarea unei eventuale cereri noi pe calea raportului Comisiei juridice.\"}],\"rationale\":\"Discurs procedural-juridic cu profil deliberativ moderat-ridicat. Vorbitorul oferă o justificare calificată (level_of_justification=2) ancorată în art. 47 din Constituție și în mecanismul neretroactivității deciziilor CCR, apelând explicit la binele comun procedural — Constituție, regulament, logică juridică — nu la interes de grup (content=common_good). Angajamentul cu poziția adversă rămâne la nivel de menționare-și-respingere („au votat împotriva Constituției\\\"), fără reformulare echitabilă a argumentului juridic alternativ (respect_for_counterarguments=1). Cererile adverse sunt parțial recunoscute ca valabile pe latura colaterală, dar respinse pe forma concretă (respect_for_demands=1). Respectul pentru grupuri este neutru — colegii care au votat diferit sunt referiți funcțional, fără derogare. Vorbitorul închide constructiv cu o propunere procedurală concretă (votarea propunerii de scoatere de pe ordinea de zi + redirecționarea unei eventuale cereri noi pe calea raportului Comisiei juridice), ceea ce ridică dimensiunea constructivă deasupra simplei poziționări. Profil tipic de intervenție de lider de grup pe chestiune procedurală: justificare principială solidă, angajament redus cu raționamentul advers, încheiere cu o cale procedurală alternativă.\"}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 103063,
+      "tokens_in_breakdown": {
+        "fresh": 5,
+        "cache_creation": 84705,
+        "cache_read": 18353
+      },
+      "tokens_out": 1769,
+      "cost_usd": 0.58283275,
+      "latency_ms": 32158,
+      "retries_used": 0
+    }
+  }
+}

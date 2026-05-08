@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2005/II/97#agenda-1#act-72",
+  "tier": "calibration",
+  "speaker": {
+    "id": "alexandru-mircea",
+    "name": "Alexandru Mircea",
+    "raw": "Domnul Alexandru Mircea",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": null,
+    "session_date": null,
+    "year": 2005,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2005/II/97#agenda-1#act-72",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 1.0,
+        "markers": [],
+        "rationale": "Discursul este unul pur procedural, axat pe corelarea tehnică a unor acte normative (Legea nr. 188/1999 și Codul muncii) și pe solicitarea de adoptare a unui proiect de lege. Nu există nicio urmă de retorică populistă, nicio invocare a unui conflict între popor și elită, niciun maniheism moral și nicio referire la o voință populară suverană. Discursul se încadrează perfect în registrul tehnic-administrativ al activității parlamentare, primind astfel scorul 0 cu încredere maximă."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 1.0,\n  \"markers\": [],\n  \"rationale\": \"Discursul este unul pur procedural, axat pe corelarea tehnică a unor acte normative (Legea nr. 188/1999 și Codul muncii) și pe solicitarea de adoptare a unui proiect de lege. Nu există nicio urmă de retorică populistă, nicio invocare a unui conflict între popor și elită, niciun maniheism moral și nicio referire la o voință populară suverană. Discursul se încadrează perfect în registrul tehnic-administrativ al activității parlamentare, primind astfel scorul 0 cu încredere maximă.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13795,
+      "tokens_in_breakdown": {
+        "fresh": 13795,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 206,
+      "cost_usd": null,
+      "latency_ms": 1901,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2005/II/97#agenda-1#act-72",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.85,
+        "level_of_justification": 2,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "prin Ordonan˛a de urgen˛„ a Guvernului nr. 8/2005 textul lit. b) al alin. 2 al art. 56 din Legea nr. 188/1999, republicat„, a fost modificat, av‚nd Ón vedere situa˛ia similar„ reglementat„ Ón art. 56 lit. d) din Codul muncii"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Vorbitorul oferă o justificare bazată pe corelarea legislativă între Legea 188/1999 și Codul Muncii."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "corelarea prevederilor Legii nr. 188/1999 cu cele ale Legii nr. 53/2003 — Codul muncii"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Justificarea vizează coerența legislativă, un obiectiv de interes general pentru funcționarea statului."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Doamnelor ∫i domnilor deputa˛i"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.99,
+            "marker_confidence": 0.95,
+            "rationale_short": "Adresare formală standard; nu există referințe la grupuri care să indice respect sau dispreț."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "v„ adresez rug„mintea de a adopta proiectul de lege Ón discu˛ie"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.88,
+            "rationale_short": "Vorbitorul își prezintă cererea fără a angaja sau respinge cereri adverse; atitudine neutră."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "Ordonan˛a de urgen˛„ supus„ aprob„rii a fost ini˛iat„ de Guvern pentru corelarea prevederilor"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Nu există contraargumente invocate în discurs; vorbitorul prezintă argumentele proprii fără opoziție."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "v„ adresez rug„mintea de a adopta proiectul de lege Ón discu˛ie, Ón forma prezentat„."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Discursul susține adoptarea unei forme specifice a legii fără a propune alternative sau medieri."
+          }
+        ],
+        "rationale": "Discursul este unul tehnic, de prezentare a unei ordonanțe de urgență, având un nivel de justificare calificat prin referințe legislative clare (Legea 188/1999 și Codul Muncii). Justificarea este orientată către binele comun, vizând coerența cadrului normativ. Nu există elemente de dispreț sau respect explicit față de grupuri, discursul menținându-se într-o zonă de neutralitate formală. De asemenea, nu sunt abordate contraargumente sau cereri adverse, deoarece discursul este unul de susținere a unei inițiative guvernamentale. Caracterul constructiv este limitat la susținerea poziției oficiale, fără a oferi alternative sau medieri, încadrându-se în profilul unui discurs procedural-tehnic."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.85,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"prin Ordonan˛a de urgen˛„ a Guvernului nr. 8/2005 textul lit. b) al alin. 2 al art. 56 din Legea nr. 188/1999, republicat„, a fost modificat, av‚nd Ón vedere situa˛ia similar„ reglementat„ Ón art. 56 lit. d) din Codul muncii\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Vorbitorul oferă o justificare bazată pe corelarea legislativă între Legea 188/1999 și Codul Muncii.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"corelarea prevederilor Legii nr. 188/1999 cu cele ale Legii nr. 53/2003 — Codul muncii\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Justificarea vizează coerența legislativă, un obiectiv de interes general pentru funcționarea statului.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Doamnelor ∫i domnilor deputa˛i\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.99,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Adresare formală standard; nu există referințe la grupuri care să indice respect sau dispreț.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"v„ adresez rug„mintea de a adopta proiectul de lege Ón discu˛ie\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Vorbitorul își prezintă cererea fără a angaja sau respinge cereri adverse; atitudine neutră.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Ordonan˛a de urgen˛„ supus„ aprob„rii a fost ini˛iat„ de Guvern pentru corelarea prevederilor\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Nu există contraargumente invocate în discurs; vorbitorul prezintă argumentele proprii fără opoziție.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"v„ adresez rug„mintea de a adopta proiectul de lege Ón discu˛ie, Ón forma prezentat„.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Discursul susține adoptarea unei forme specifice a legii fără a propune alternative sau medieri.\"\n    }\n  ],\n  \"rationale\": \"Discursul este unul tehnic, de prezentare a unei ordonanțe de urgență, având un nivel de justificare calificat prin referințe legislative clare (Legea 188/1999 și Codul Muncii). Justificarea este orientată către binele comun, vizând coerența cadrului normativ. Nu există elemente de dispreț sau respect explicit față de grupuri, discursul menținându-se într-o zonă de neutralitate formală. De asemenea, nu sunt abordate contraargumente sau cereri adverse, deoarece discursul este unul de susținere a unei inițiative guvernamentale. Caracterul constructiv este limitat la susținerea poziției oficiale, fără a oferi alternative sau medieri, încadrându-se în profilul unui discurs procedural-tehnic.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12596,
+      "tokens_in_breakdown": {
+        "fresh": 12596,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1316,
+      "cost_usd": null,
+      "latency_ms": 5170,
+      "retries_used": 0
+    }
+  }
+}

@@ -1,0 +1,154 @@
+{
+  "speech_id": "mo://2022/II/56#agenda-9#act-1",
+  "tier": "calibration",
+  "speaker": {
+    "id": "rodeanu-bogdan-ionel",
+    "name": "Bogdan-Ionel Rodeanu",
+    "raw": "Domnul Bogdan-Ionel Rodeanu",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2022-04-12",
+    "year": 2022,
+    "legislature": "IX",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2022/II/56#agenda-9#act-1",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 1.0,
+        "markers": [],
+        "rationale": "Discursul este un raport tehnic de procedură parlamentară, prezentând stadiul legislativ al unui proiect de lege, avizele comisiilor și poziția Guvernului. Nu există nicio urmă de cadru popor-vs-elită, maniheism moral sau invocare a unei voințe populare omogene. Limbajul este strict procedural și administrativ, specific activității de comisie. Hawkins=0 cu încredere maximă."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 1.0,\n  \"markers\": [],\n  \"rationale\": \"Discursul este un raport tehnic de procedură parlamentară, prezentând stadiul legislativ al unui proiect de lege, avizele comisiilor și poziția Guvernului. Nu există nicio urmă de cadru popor-vs-elită, maniheism moral sau invocare a unei voințe populare omogene. Limbajul este strict procedural și administrativ, specific activității de comisie. Hawkins=0 cu încredere maximă.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13781,
+      "tokens_in_breakdown": {
+        "fresh": 13781,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 165,
+      "cost_usd": null,
+      "latency_ms": 2505,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2022/II/56#agenda-9#act-1",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.85,
+        "level_of_justification": 0,
+        "content_of_justification": "none",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 0,
+            "evidence": {
+              "text": "membrii comisiei au hotărât, cu unanimitate de voturi, să propune plenului Camerei Deputaților respingerea acestui proiect de lege."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Raport procedural de respingere fără argumentare substanțială proprie."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "none",
+            "evidence": {
+              "text": "membrii comisiei au hotărât, cu unanimitate de voturi, să propune plenului Camerei Deputaților respingerea acestui proiect de lege."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Nicio justificare oferită; conținutul este nedefinit."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Comisia pentru egalitatea de șanse pentru femei și bărbați a avizat negativ."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Referință neutră la avizele altor comisii; nicio derogare sau respect explicit."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Guvernul nu susține adoptarea acestei inițiative."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Raportare neutră a poziției Guvernului; nicio evaluare a legitimității cererii."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "Consiliul Economic și Social a avizat nefavorabil acest proiect de act normativ."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Menționarea avizelor adverse fără angajament substanțial cu raționamentul acestora."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "să propune plenului Camerei Deputaților respingerea acestui proiect de lege."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Poziție procedurală de respingere; nicio alternativă sau mediere propusă."
+          }
+        ],
+        "rationale": "Acesta este un discurs procedural tipic pentru un raportor de comisie care prezintă rezultatul votului. Vorbitorul se limitează la a enumera avizele primite și decizia finală a comisiei, fără a oferi o justificare proprie pentru respingere (level_of_justification=0). Respectul pentru grupuri și cereri este neutru, limitându-se la raportarea avizelor negative ale altor instituții (respect_for_groups=1, respect_for_demands=1). Nu există un angajament cu raționamentele din spatele avizelor, ci doar o menționare a acestora (respect_for_counterarguments=1). Discursul este pur pozițional, reflectând mandatul comisiei de a propune respingerea (constructive_politics=positional). Calitatea deliberativă este scăzută, fiind un discurs de natură administrativă, nu argumentativă."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.85,\n  \"level_of_justification\": 0,\n  \"content_of_justification\": \"none\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"membrii comisiei au hotărât, cu unanimitate de voturi, să propune plenului Camerei Deputaților respingerea acestui proiect de lege.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Raport procedural de respingere fără argumentare substanțială proprie.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"none\",\n      \"evidence\": {\n        \"text\": \"membrii comisiei au hotărât, cu unanimitate de voturi, să propune plenului Camerei Deputaților respingerea acestui proiect de lege.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Nicio justificare oferită; conținutul este nedefinit.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Comisia pentru egalitatea de șanse pentru femei și bărbați a avizat negativ.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Referință neutră la avizele altor comisii; nicio derogare sau respect explicit.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Guvernul nu susține adoptarea acestei inițiative.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Raportare neutră a poziției Guvernului; nicio evaluare a legitimității cererii.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Consiliul Economic și Social a avizat nefavorabil acest proiect de act normativ.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Menționarea avizelor adverse fără angajament substanțial cu raționamentul acestora.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"să propune plenului Camerei Deputaților respingerea acestui proiect de lege.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Poziție procedurală de respingere; nicio alternativă sau mediere propusă.\"\n    }\n  ],\n  \"rationale\": \"Acesta este un discurs procedural tipic pentru un raportor de comisie care prezintă rezultatul votului. Vorbitorul se limitează la a enumera avizele primite și decizia finală a comisiei, fără a oferi o justificare proprie pentru respingere (level_of_justification=0). Respectul pentru grupuri și cereri este neutru, limitându-se la raportarea avizelor negative ale altor instituții (respect_for_groups=1, respect_for_demands=1). Nu există un angajament cu raționamentele din spatele avizelor, ci doar o menționare a acestora (respect_for_counterarguments=1). Discursul este pur pozițional, reflectând mandatul comisiei de a propune respingerea (constructive_politics=positional). Calitatea deliberativă este scăzută, fiind un discurs de natură administrativă, nu argumentativă.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [
+        "membrii comisiei au hotărât, cu unanimitate de voturi, să propune plenului Camerei Deputaților respingerea acestui proiect de lege.",
+        "membrii comisiei au hotărât, cu unanimitate de voturi, să propune plenului Camerei Deputaților respingerea acestui proiect de lege.",
+        "să propune plenului Camerei Deputaților respingerea acestui proiect de lege."
+      ],
+      "parse_repaired": false,
+      "tokens_in": 12582,
+      "tokens_in_breakdown": {
+        "fresh": 12582,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1192,
+      "cost_usd": null,
+      "latency_ms": 4381,
+      "retries_used": 0
+    }
+  }
+}

@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2009/II/14#agenda-6#act-49",
+  "tier": "calibration",
+  "speaker": {
+    "id": "calian-petru",
+    "name": "Petru Călian",
+    "raw": "Domnul Petru Călian",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2009-02-17",
+    "year": 2009,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2009/II/14#agenda-6#act-49",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.95,
+        "markers": [],
+        "rationale": "Discursul este un atac politic partizan, concentrat pe critica activității fostului prim-ministru Tăriceanu și pe justificarea bugetului pe anul 2009. Deși limbajul este agresiv și conține acuzații de „troc politic” sau „criză a lichidităților”, acesta rămâne în registrul dezbaterii parlamentare convenționale, fără a construi un cadru maniheist popor-vs-elită sau a invoca o voință populară omogenă ca autoritate supremă. Nu există elemente care să susțină o viziune populistă pervazivă, discursul fiind ancorat în proceduri bugetare și polemică politică standard. Hawkins=0 cu încredere ridicată."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.95,\n  \"markers\": [],\n  \"rationale\": \"Discursul este un atac politic partizan, concentrat pe critica activității fostului prim-ministru Tăriceanu și pe justificarea bugetului pe anul 2009. Deși limbajul este agresiv și conține acuzații de „troc politic” sau „criză a lichidităților”, acesta rămâne în registrul dezbaterii parlamentare convenționale, fără a construi un cadru maniheist popor-vs-elită sau a invoca o voință populară omogenă ca autoritate supremă. Nu există elemente care să susțină o viziune populistă pervazivă, discursul fiind ancorat în proceduri bugetare și polemică politică standard. Hawkins=0 cu încredere ridicată.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 14345,
+      "tokens_in_breakdown": {
+        "fresh": 14345,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 237,
+      "cost_usd": null,
+      "latency_ms": 2282,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2009/II/14#agenda-6#act-49",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.78,
+        "level_of_justification": 2,
+        "content_of_justification": "mixed",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "anul trecut, Legea bugetului de stat și Legea bugetului asigurărilor sociale s-au dezbătut în comisie tot în două zile, nicidecum într-o perioadă mai îndelungată."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Vorbitorul oferă o justificare bazată pe fapte concrete privind procedurile parlamentare anterioare."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "mixed",
+            "evidence": {
+              "text": "pentru a reuși să treacă de Parlamentul României bugetul de stat și bugetul asigurărilor sociale, a încheiat un troc politic"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.82,
+            "rationale_short": "Justificarea combină critica interesului politic (troc) cu referința la binele public (deficitul excesiv)."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Stimați colegi"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.99,
+            "marker_confidence": 0.95,
+            "rationale_short": "Adresare convențională; nu există derogări sau respect explicit pentru grupuri."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Dacă iluștrii liberali aveau capacitatea și energia să vină și să îmbunătățească actualul proiect de buget, care va fi votat cu siguranță, aveau posibilitatea să o facă în comisie."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.8,
+            "rationale_short": "Vorbitorul ignoră cererile opoziției, concentrându-se pe lipsa lor de acțiune procedurală."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "Sigur că întreba domnul prim-ministru unde se regăsește deficitul bugetar. Este foarte simplu: se regăsește în mulțimea de facturi pe care nu le-ați achitat anul trecut"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.88,
+            "rationale_short": "Vorbitorul menționează argumentul advers, dar îl abordează printr-o explicație directă, fără o dezbatere a raționamentului."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Nu are rost să insist și să intru în detalii legate de bugetul pe anul 2009 pentru că, într-adevăr, este un buget realist"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Discursul susține poziția guvernului fără a propune alternative sau medieri."
+          }
+        ],
+        "rationale": "Discursul prezintă un nivel de justificare calificată (level 2) prin utilizarea unor exemple procedurale și economice concrete, deși tonul este marcat de polemică politică. Conținutul justificării este mixt, apelând atât la critica intereselor politice ale opoziției, cât și la preocupări pentru binele comun (deficitul bugetar). Respectul pentru grupuri și cereri rămâne neutru, fiind mai degrabă o critică a lipsei de acțiune a opoziției decât o angajare deliberativă. Vorbitorul abordează argumentele opoziției într-o manieră superficială, fără a intra în dezbaterea substanțială a raționamentelor. Discursul este în esență pozițional, susținând bugetul actual fără a oferi alternative sau propuneri de mediere."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.78,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"mixed\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": { \"text\": \"anul trecut, Legea bugetului de stat și Legea bugetului asigurărilor sociale s-au dezbătut în comisie tot în două zile, nicidecum într-o perioadă mai îndelungată.\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Vorbitorul oferă o justificare bazată pe fapte concrete privind procedurile parlamentare anterioare.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"mixed\",\n      \"evidence\": { \"text\": \"pentru a reuși să treacă de Parlamentul României bugetul de stat și bugetul asigurărilor sociale, a încheiat un troc politic\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.82,\n      \"rationale_short\": \"Justificarea combină critica interesului politic (troc) cu referința la binele public (deficitul excesiv).\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": { \"text\": \"Stimați colegi\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.99,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Adresare convențională; nu există derogări sau respect explicit pentru grupuri.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": { \"text\": \"Dacă iluștrii liberali aveau capacitatea și energia să vină și să îmbunătățească actualul proiect de buget, care va fi votat cu siguranță, aveau posibilitatea să o facă în comisie.\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.80,\n      \"rationale_short\": \"Vorbitorul ignoră cererile opoziției, concentrându-se pe lipsa lor de acțiune procedurală.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": { \"text\": \"Sigur că întreba domnul prim-ministru unde se regăsește deficitul bugetar. Este foarte simplu: se regăsește în mulțimea de facturi pe care nu le-ați achitat anul trecut\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Vorbitorul menționează argumentul advers, dar îl abordează printr-o explicație directă, fără o dezbatere a raționamentului.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": { \"text\": \"Nu are rost să insist și să intru în detalii legate de bugetul pe anul 2009 pentru că, într-adevăr, este un buget realist\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.90,\n      \"rationale_short\": \"Discursul susține poziția guvernului fără a propune alternative sau medieri.\"\n    }\n  ],\n  \"rationale\": \"Discursul prezintă un nivel de justificare calificată (level 2) prin utilizarea unor exemple procedurale și economice concrete, deși tonul este marcat de polemică politică. Conținutul justificării este mixt, apelând atât la critica intereselor politice ale opoziției, cât și la preocupări pentru binele comun (deficitul bugetar). Respectul pentru grupuri și cereri rămâne neutru, fiind mai degrabă o critică a lipsei de acțiune a opoziției decât o angajare deliberativă. Vorbitorul abordează argumentele opoziției într-o manieră superficială, fără a intra în dezbaterea substanțială a raționamentelor. Discursul este în esență pozițional, susținând bugetul actual fără a oferi alternative sau propuneri de mediere.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13146,
+      "tokens_in_breakdown": {
+        "fresh": 13146,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1265,
+      "cost_usd": null,
+      "latency_ms": 5028,
+      "retries_used": 0
+    }
+  }
+}

@@ -1,0 +1,152 @@
+{
+  "speech_id": "mo://2009/II/15#agenda-1#act-1051",
+  "tier": "calibration",
+  "speaker": {
+    "id": "pogea-gheorghe",
+    "name": "Gheorghe Pogea",
+    "raw": "Domnul Gheorghe Pogea",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2009-02-18",
+    "year": 2009,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2009/II/15#agenda-1#act-1051",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul este unul pur tehnic și procedural, axat pe gestionarea bugetului general consolidat, legislația finanțelor publice (Legea nr. 500/2002) și coordonarea resurselor administrative. Vorbitorul propune soluții de transparență și eficiență guvernamentală, fără a invoca un cadru maniheist popor-vs-elită sau alte tropi populiste. Citatul referitor la „coordonarea coordonării” este utilizat într-un context de analiză a eficienței administrative, nu ca atac populist. Discursul respectă normele dezbaterii parlamentare constructive, primind astfel scorul 0."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul este unul pur tehnic și procedural, axat pe gestionarea bugetului general consolidat, legislația finanțelor publice (Legea nr. 500/2002) și coordonarea resurselor administrative. Vorbitorul propune soluții de transparență și eficiență guvernamentală, fără a invoca un cadru maniheist popor-vs-elită sau alte tropi populiste. Citatul referitor la „coordonarea coordonării” este utilizat într-un context de analiză a eficienței administrative, nu ca atac populist. Discursul respectă normele dezbaterii parlamentare constructive, primind astfel scorul 0.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 14017,
+      "tokens_in_breakdown": {
+        "fresh": 14017,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 222,
+      "cost_usd": null,
+      "latency_ms": 2392,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2009/II/15#agenda-1#act-1051",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.85,
+        "level_of_justification": 2,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 2,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "alternative_proposal",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "Astăzi, din păcate, Legea nr. 500/2002 a finanțelor publice spune că în Parlament se dezbat doar două legi bugetare: Proiectul Legii bugetului de stat, componentă a bugetului consolidat, dar despre care în această structură nu știm prea multe"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Vorbitorul invocă o sursă legislativă specifică (Legea 500/2002) pentru a justifica necesitatea unei schimbări în procesul bugetar."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "atunci cu toții, cei care suntem prezenți aici, am avea o mai bună imagine despre resursele publice și despre modul cum sunt alocate."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Justificarea se bazează pe transparența resurselor publice, un principiu universalizabil de interes general."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "colegii liberali sau ale colegilor de la UDMR, PSD"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Referințe funcționale la partidele politice prezente; ton neutru, fără derogare sau laudă explicită."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 2,
+            "evidence": {
+              "text": "dacă le discutam de o manieră integrată, se regăseau în acest buget"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.88,
+            "rationale_short": "Vorbitorul recunoaște legitimitatea amendamentelor opoziției, sugerând că acestea ar fi fost integrate într-un proces mai transparent."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "dacă în Parlamentul României, pentru viitorul an financiar, s-ar fi prezentat bugetul general consolidat al națiunii"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Vorbitorul menționează implicit limitările actuale ale dezbaterii, dar nu angajează direct un contraargument specific al majorității."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "alternative_proposal",
+            "evidence": {
+              "text": "eu propun ca, cu proxima ocazie, chiar dacă aprobăm cele două bugete, Ministerul Finanțelor Publice să prezinte în fața Parlamentului întreg bugetul general consolidat"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.94,
+            "rationale_short": "Vorbitorul oferă o propunere concretă de procedură pentru viitor, vizând îmbunătățirea transparenței bugetare."
+          }
+        ],
+        "rationale": "Discursul prezintă o calitate deliberativă solidă, caracterizată prin justificări bazate pe cadrul legislativ actual (Legea 500/2002) și un apel clar la binele comun (transparența resurselor publice). Vorbitorul adoptă o postură constructivă, propunând o alternativă procedurală pentru viitoarele exerciții bugetare. Respectul pentru grupuri este neutru, iar cererile opoziției sunt tratate cu legitimitate, deși angajamentul cu contraargumentele specifice rămâne la un nivel de recunoaștere generală. Profilul este unul de reformator procedural, evitând atacurile și concentrându-se pe îmbunătățirea mecanismelor de control parlamentar."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.85,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 2,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"alternative_proposal\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"Astăzi, din păcate, Legea nr. 500/2002 a finanțelor publice spune că în Parlament se dezbat doar două legi bugetare: Proiectul Legii bugetului de stat, componentă a bugetului consolidat, dar despre care în această structură nu știm prea multe\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Vorbitorul invocă o sursă legislativă specifică (Legea 500/2002) pentru a justifica necesitatea unei schimbări în procesul bugetar.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"atunci cu toții, cei care suntem prezenți aici, am avea o mai bună imagine despre resursele publice și despre modul cum sunt alocate.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Justificarea se bazează pe transparența resurselor publice, un principiu universalizabil de interes general.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"colegii liberali sau ale colegilor de la UDMR, PSD\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Referințe funcționale la partidele politice prezente; ton neutru, fără derogare sau laudă explicită.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"dacă le discutam de o manieră integrată, se regăseau în acest buget\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Vorbitorul recunoaște legitimitatea amendamentelor opoziției, sugerând că acestea ar fi fost integrate într-un proces mai transparent.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"dacă în Parlamentul României, pentru viitorul an financiar, s-ar fi prezentat bugetul general consolidat al națiunii\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Vorbitorul menționează implicit limitările actuale ale dezbaterii, dar nu angajează direct un contraargument specific al majorității.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"alternative_proposal\",\n      \"evidence\": {\n        \"text\": \"eu propun ca, cu proxima ocazie, chiar dacă aprobăm cele două bugete, Ministerul Finanțelor Publice să prezinte în fața Parlamentului întreg bugetul general consolidat\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.94,\n      \"rationale_short\": \"Vorbitorul oferă o propunere concretă de procedură pentru viitor, vizând îmbunătățirea transparenței bugetare.\"\n    }\n  ],\n  \"rationale\": \"Discursul prezintă o calitate deliberativă solidă, caracterizată prin justificări bazate pe cadrul legislativ actual (Legea 500/2002) și un apel clar la binele comun (transparența resurselor publice). Vorbitorul adoptă o postură constructivă, propunând o alternativă procedurală pentru viitoarele exerciții bugetare. Respectul pentru grupuri este neutru, iar cererile opoziției sunt tratate cu legitimitate, deși angajamentul cu contraargumentele specifice rămâne la un nivel de recunoaștere generală. Profilul este unul de reformator procedural, evitând atacurile și concentrându-se pe îmbunătățirea mecanismelor de control parlamentar.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [
+        "colegii liberali sau ale colegilor de la UDMR, PSD"
+      ],
+      "parse_repaired": false,
+      "tokens_in": 12818,
+      "tokens_in_breakdown": {
+        "fresh": 12818,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1299,
+      "cost_usd": null,
+      "latency_ms": 4728,
+      "retries_used": 0
+    }
+  }
+}

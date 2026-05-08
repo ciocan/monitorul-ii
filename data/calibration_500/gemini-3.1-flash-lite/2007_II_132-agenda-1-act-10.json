@@ -1,0 +1,152 @@
+{
+  "speech_id": "mo://2007/II/132#agenda-1#act-10",
+  "tier": "calibration",
+  "speaker": {
+    "id": "vasilescu-gavrila",
+    "name": "Gavrilă Vasilescu",
+    "raw": "Domnul Gavrilă Vasilescu",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": "2007-10-03",
+    "year": 2007,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2007/II/132#agenda-1#act-10",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 1.0,
+        "markers": [],
+        "rationale": "Acest fragment reprezintă o procedură administrativă standard de verificare a cvorumului și a prezenței senatorilor în plen. Nu există nicio formă de discurs politic, nicio referire la popor sau elită și niciun element de maniheism moral. Discursul este pur tehnic și procedural, încadrându-se perfect în categoria non-populistă (Hawkins=0)."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 1.0,\n  \"markers\": [],\n  \"rationale\": \"Acest fragment reprezintă o procedură administrativă standard de verificare a cvorumului și a prezenței senatorilor în plen. Nu există nicio formă de discurs politic, nicio referire la popor sau elită și niciun element de maniheism moral. Discursul este pur tehnic și procedural, încadrându-se perfect în categoria non-populistă (Hawkins=0).\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 15121,
+      "tokens_in_breakdown": {
+        "fresh": 15121,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 154,
+      "cost_usd": null,
+      "latency_ms": 1755,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2007/II/132#agenda-1#act-10",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.45,
+        "level_of_justification": 0,
+        "content_of_justification": "none",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 0,
+            "evidence": {
+              "text": "O să vă rog să mai aveți puțină răbdare. Deci, haideți să vedem... cu persoanele care nu au fost."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Discursul este pur procedural, fără nicio justificare sau argumentație."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "none",
+            "evidence": {
+              "text": "O să vă rog să mai aveți puțină răbdare."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Nicio justificare oferită; conținutul este nedefinit."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Doamnelor și domnilor senatori"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.99,
+            "marker_confidence": 0.95,
+            "rationale_short": "Adresare convențională, neutră."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "O să vă rog să fiți atenți"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Intervenție procedurală fără angajament cu cereri politice."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "O să vă rog să mai aveți puțină răbdare."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Nicio contraargumentare prezentă; discurs pur administrativ."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "O să vă rog să mai aveți puțină răbdare."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Discursul este pur procedural, fără propuneri alternative sau mediere."
+          }
+        ],
+        "rationale": "Acest fragment reprezintă un discurs pur procedural de verificare a cvorumului și de gestionare a prezenței senatorilor. Nu conține nicio formă de argumentație, justificare sau dezbatere politică, fiind exclusiv administrativ. Din acest motiv, toate dimensiunile DQI sunt codate la valorile lor implicite (neutru/pozițional/fără justificare). Încrederea în cadrul de lucru este scăzută, deoarece discursul nu îndeplinește criteriile de deliberare necesare pentru o analiză calitativă a argumentației."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.45,\n  \"level_of_justification\": 0,\n  \"content_of_justification\": \"none\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 0,\n      \"evidence\": { \"text\": \"O să vă rog să mai aveți puțină răbdare. Deci, haideți să vedem... cu persoanele care nu au fost.\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Discursul este pur procedural, fără nicio justificare sau argumentație.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"none\",\n      \"evidence\": { \"text\": \"O să vă rog să mai aveți puțină răbdare.\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Nicio justificare oferită; conținutul este nedefinit.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": { \"text\": \"Doamnelor și domnilor senatori\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.99,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Adresare convențională, neutră.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": { \"text\": \"O să vă rog să fiți atenți\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Intervenție procedurală fără angajament cu cereri politice.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": { \"text\": \"O să vă rog să mai aveți puțină răbdare.\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Nicio contraargumentare prezentă; discurs pur administrativ.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": { \"text\": \"O să vă rog să mai aveți puțină răbdare.\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Discursul este pur procedural, fără propuneri alternative sau mediere.\"\n    }\n  ],\n  \"rationale\": \"Acest fragment reprezintă un discurs pur procedural de verificare a cvorumului și de gestionare a prezenței senatorilor. Nu conține nicio formă de argumentație, justificare sau dezbatere politică, fiind exclusiv administrativ. Din acest motiv, toate dimensiunile DQI sunt codate la valorile lor implicite (neutru/pozițional/fără justificare). Încrederea în cadrul de lucru este scăzută, deoarece discursul nu îndeplinește criteriile de deliberare necesare pentru o analiză calitativă a argumentației.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [
+        "O să vă rog să fiți atenți"
+      ],
+      "parse_repaired": false,
+      "tokens_in": 13922,
+      "tokens_in_breakdown": {
+        "fresh": 13922,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1002,
+      "cost_usd": null,
+      "latency_ms": 3784,
+      "retries_used": 0
+    }
+  }
+}

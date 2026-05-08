@@ -1,0 +1,152 @@
+{
+  "speech_id": "mo://2017/II/153#agenda-1#act-116",
+  "tier": "register_shift",
+  "speaker": {
+    "id": "basescu-traian",
+    "name": "Traian Băsescu",
+    "raw": "Domnul Traian Băsescu",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": "2017-10-24",
+    "year": 2017,
+    "legislature": "VIII",
+    "delivery_mode": null
+  },
+  "model_key": "haiku",
+  "model_label": "claude-haiku-4.5",
+  "results": {
+    "hawkins": {
+      "model_key": "haiku",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2017/II/153#agenda-1#act-116",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.96,
+        "markers": [],
+        "rationale": "Discurs de procedură constituțională și control instituțional asupra Monitorului Oficial. Vorbitorul invocă Constituția, legalitatea și echilibrul puterilor între Executiv și Parlament, fără a construi un cadru popor-vs-elită. Critica adusă Guvernului (că jonglează cu actele normative și generează ilegalități) rămâne în registrul tehnic-juridic, nu în cel populist. Absentă invocarea poporului ca subiect singular moral opus unei elite corupte; absenți maniheismul moralizator, criza existențială și viziunea populistă pervazivă. Avertismentul adresat majorității cu privire la viitoarele neajunsuri este sfat pragmatic instituțional, nu apel populist. Hawkins=0 cu încredere ridicată."
+      },
+      "raw_response": "```json\n{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.96,\n  \"markers\": [],\n  \"rationale\": \"Discurs de procedură constituțională și control instituțional asupra Monitorului Oficial. Vorbitorul invocă Constituția, legalitatea și echilibrul puterilor între Executiv și Parlament, fără a construi un cadru popor-vs-elită. Critica adusă Guvernului (că jonglează cu actele normative și generează ilegalități) rămâne în registrul tehnic-juridic, nu în cel populist. Absentă invocarea poporului ca subiect singular moral opus unei elite corupte; absenți maniheismul moralizator, criza existențială și viziunea populistă pervazivă. Avertismentul adresat majorității cu privire la viitoarele neajunsuri este sfat pragmatic instituțional, nu apel populist. Hawkins=0 cu încredere ridicată.\"\n}\n```",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 116461,
+      "tokens_in_breakdown": {
+        "fresh": 9,
+        "cache_creation": 58815,
+        "cache_read": 57637
+      },
+      "tokens_out": 1441,
+      "cost_usd": 0.08649644999999999,
+      "latency_ms": 23553,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "haiku",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2017/II/153#agenda-1#act-116",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.79,
+        "level_of_justification": 1,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "alternative_proposal",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 1,
+            "evidence": {
+              "text": "a fost o mișcare politică ce a decurs din nevoia de a genera ilegalități: încălcarea Constituției și nerespectarea legii"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.96,
+            "marker_confidence": 0.78,
+            "rationale_short": "Motiv invocat (încălcarea Constituției) dar fără ancoră specifică (articol, decizie CCR, mecanism) — justificare generală, nu substantivă."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "Nu trebuie să perpetuăm dreptul Executivului, pe care avem pretenția că-l controlăm, să jongleze cu actele normative"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.96,
+            "marker_confidence": 0.9,
+            "rationale_short": "Justificarea apelează la principiu universalizabil (separația puterilor, controlul parlamentar) și la interes general, nu la beneficiu de partid."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "susținem fără rezerve varianta revenirii Monitorului Oficial acolo unde îi este locul"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.84,
+            "rationale_short": "Referință funcțională la instituții (Executiv, Parlament, Camera Deputaților); niciun out-group explicit invocat, nici derogat, nici respectat — neutru."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Și un avertisment și pentru majoritate: mâine-poimâine s-ar putea să vă treziți că nu vă convine nici vouă"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.96,
+            "marker_confidence": 0.75,
+            "rationale_short": "Vorbitorul invocă interes viitor comun dar nu recunoaște explicit legitimitatea cererii curente a majorității — alozie indirectă, nu angajament."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "Și un avertisment și pentru majoritate: mâine-poimâine s-ar putea să vă treziți că nu vă convine nici vouă ce vă face Guvernul, așa că susțin fără rezerve revenirea Monitorului Oficial în subordinea Camerei Deputaților"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.96,
+            "marker_confidence": 0.86,
+            "rationale_short": "Nici o argumentație opusă nu este identificată și nici nu este combătută — discursul este pur pozițional, fără angajament cu raționamentul majorității."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "alternative_proposal",
+            "evidence": {
+              "text": "susținem fără rezerve varianta revenirii Monitorului Oficial acolo unde îi este locul, adică în subordinea Parlamentului României, în speță a Camerei Deputaților"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.77,
+            "rationale_short": "Propunere concretă alternativă (revenire la Parlament / Camera Deputaților), deși lipsit de detalii procedurale despre mecanismul tranziției."
+          }
+        ],
+        "rationale": "Discurs pozițional cu justificare moderată și angajament minim cu pariurile adverse. Vorbitorul articulates o poziție pe care o susține pe baza unor principii constituționale generale (separația puterilor, controlul parlamentar asupra Executivului) și apeluri la binele comun (protecția actelor normative de manipularea politică), dar motivele invocate nu sunt ancorat în autorități specifice sau mecanisme substantive (level_of_justification=1, content=common_good). Oferă o propunere alternativă concretă (revenirea Monitorului la Parlamentul României), ceea ce justifică codarea alternative_proposal mai degrabă decât positional pur. Totuși, discursul nu angajează cu argumentația adverse: nu identifică nici nu combate raționamentul majorității, nu recunoaște legitimitatea cererilor lor, și nici nu înțelege preocupările pe care le-ar putea avea (respect_for_counterarguments=0, respect_for_demands=1). Respectul pentru grupuri este neutru pe dimensiunile actorilor instituționali (Executiv, Parlament). Profil deliberativ general: articulate principial dar izolat, fără diálogo cu pariurile adverse."
+      },
+      "raw_response": "```json\n{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.79,\n  \"level_of_justification\": 1,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 0,\n  \"constructive_politics\": \"alternative_proposal\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"a fost o mișcare politică ce a decurs din nevoia de a genera ilegalități: încălcarea Constituției și nerespectarea legii\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.96,\n      \"marker_confidence\": 0.78,\n      \"rationale_short\": \"Motiv invocat (încălcarea Constituției) dar fără ancoră specifică (articol, decizie CCR, mecanism) — justificare generală, nu substantivă.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"Nu trebuie să perpetuăm dreptul Executivului, pe care avem pretenția că-l controlăm, să jongleze cu actele normative\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.96,\n      \"marker_confidence\": 0.90,\n      \"rationale_short\": \"Justificarea apelează la principiu universalizabil (separația puterilor, controlul parlamentar) și la interes general, nu la beneficiu de partid.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"susținem fără rezerve varianta revenirii Monitorului Oficial acolo unde îi este locul\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"marker_confidence\": 0.84,\n      \"rationale_short\": \"Referință funcțională la instituții (Executiv, Parlament, Camera Deputaților); niciun out-group explicit invocat, nici derogat, nici respectat — neutru.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Și un avertisment și pentru majoritate: mâine-poimâine s-ar putea să vă treziți că nu vă convine nici vouă\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.96,\n      \"marker_confidence\": 0.75,\n      \"rationale_short\": \"Vorbitorul invocă interes viitor comun dar nu recunoaște explicit legitimitatea cererii curente a majorității — alozie indirectă, nu angajament.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"Și un avertisment și pentru majoritate: mâine-poimâine s-ar putea să vă treziți că nu vă convine nici vouă ce vă face Guvernul, așa că susțin fără rezerve revenirea Monitorului Oficial în subordinea Camerei Deputaților\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.96,\n      \"marker_confidence\": 0.86,\n      \"rationale_short\": \"Nici o argumentație opusă nu este identificată și nici nu este combătută — discursul este pur pozițional, fără angajament cu raționamentul majorității.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"alternative_proposal\",\n      \"evidence\": {\n        \"text\": \"susținem fără rezerve varianta revenirii Monitorului Oficial acolo unde îi este locul, adică în subordinea Parlamentului României, în speță a Camerei Deputaților\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"marker_confidence\": 0.77,\n      \"rationale_short\": \"Propunere concretă alternativă (revenire la Parlament / Camera Deputaților), deși lipsit de detalii procedurale despre mecanismul tranziției.\"\n    }\n  ],\n  \"rationale\": \"Discurs pozițional cu justificare moderată și angajament minim cu pariurile adverse. Vorbitorul articulates o poziție pe care o susține pe baza unor principii constituționale generale (separația puterilor, controlul parlamentar asupra Executivului) și apeluri la binele comun (protecția actelor normative de manipularea politică), dar motivele invocate nu sunt ancorat în autorități specifice sau mecanisme substantive (level_of_justification=1, content=common_good). Oferă o propunere alternativă concretă (revenirea Monitorului la Parlamentul României), ceea ce justifică codarea alternative_proposal mai degrabă decât positional pur. Totuși, discursul nu angajează cu argumentația adverse: nu identifică nici nu combate raționamentul majorității, nu recunoaște legitimitatea cererilor lor, și nici nu înțelege preocupările pe care le-ar putea avea (respect_for_counterarguments=0, respect_for_demands=1). Respectul pentru grupuri este neutru pe dimensiunile actorilor instituționali (Executiv, Parlament). Profil deliberativ general: articulate principial dar izolat, fără diálogo cu pariurile adverse.\"\n}\n```",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [
+        "Și un avertisment și pentru majoritate: mâine-poimâine s-ar putea să vă treziți că nu vă convine nici vouă ce vă face Guvernul, așa că susțin fără rezerve revenirea Monitorului Oficial în subordinea Camerei Deputaților"
+      ],
+      "parse_repaired": false,
+      "tokens_in": 115092,
+      "tokens_in_breakdown": {
+        "fresh": 9,
+        "cache_creation": 57446,
+        "cache_read": 57637
+      },
+      "tokens_out": 4739,
+      "cost_usd": 0.1012752,
+      "latency_ms": 48302,
+      "retries_used": 0
+    }
+  }
+}

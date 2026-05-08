@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2015/II/179#agenda-1#act-30",
+  "tier": "calibration",
+  "speaker": {
+    "id": "pascan-emil-marius",
+    "name": "Emil Marius Pașcan",
+    "raw": "Domnul Emil Marius Pașcan",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": "2015-10-13",
+    "year": 2015,
+    "legislature": "VII",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2015/II/179#agenda-1#act-30",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.95,
+        "markers": [],
+        "rationale": "Discursul se concentrează pe o critică procedurală și administrativă privind înființarea unei noi comisii parlamentare, argumentând că aceasta este redundantă și ineficientă. Deși vorbitorul folosește termeni precum „interesul cetățeanului” și critică „clasa politică” pentru ineficiență, aceștia sunt utilizați în contextul unei dezbateri tehnice despre organizarea internă a Senatului, nu ca parte a unui cadru manihean popor-vs-elită. Nu există invocarea unei voințe populare omogene, nici un cadru de criză existențială sau moralitate binară. Discursul rămâne în registrul procedural, motiv pentru care scorul este 0."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.95,\n  \"markers\": [],\n  \"rationale\": \"Discursul se concentrează pe o critică procedurală și administrativă privind înființarea unei noi comisii parlamentare, argumentând că aceasta este redundantă și ineficientă. Deși vorbitorul folosește termeni precum „interesul cetățeanului” și critică „clasa politică” pentru ineficiență, aceștia sunt utilizați în contextul unei dezbateri tehnice despre organizarea internă a Senatului, nu ca parte a unui cadru manihean popor-vs-elită. Nu există invocarea unei voințe populare omogene, nici un cadru de criză existențială sau moralitate binară. Discursul rămâne în registrul procedural, motiv pentru care scorul este 0.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 14033,
+      "tokens_in_breakdown": {
+        "fresh": 14033,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 237,
+      "cost_usd": null,
+      "latency_ms": 2143,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2015/II/179#agenda-1#act-30",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.82,
+        "level_of_justification": 2,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "pe linie economică, singura comisie care are, practic, un rol subdivizionar este cea economică, având și Comisie economică, de industrii, și buget și control bancar etc. La un moment dat, se interferează atribuțiile lor și discută aproape același subiect."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Vorbitorul oferă un raționament cauzal bazat pe suprapunerea atribuțiilor comisiilor existente pentru a justifica opoziția față de noua comisie."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "nu de interese politicianiste, ci de interesul cetățeanului."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.99,
+            "marker_confidence": 0.95,
+            "rationale_short": "Justificarea este ancorată explicit în interesul general al cetățeanului, nu în interese de grup sau partid."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Stimați colegi"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.99,
+            "marker_confidence": 0.9,
+            "rationale_short": "Adresare convențională; nu există derogări sau recunoașteri explicite ale legitimității out-group-urilor."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Iată, constatăm în schimb, zi de zi, în ultima perioadă, un derapaj al recentralizării."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.85,
+            "rationale_short": "Vorbitorul critică tendința de centralizare fără a angaja direct cererile specifice ale opoziției."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "Adică, implicit, noi constatăm și ne asumăm că celelalte două comisii, economică și de buget, nu au acest rol al dezvoltării, ceea ce mi se pare aberant."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.96,
+            "marker_confidence": 0.88,
+            "rationale_short": "Menționează logica implicită a susținătorilor noii comisii, dar o respinge ca fiind aberantă fără o contra-argumentare detaliată."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "noi presupunem că înființăm o nouă comisie tot cu profil economic – ar fi a treia –, de data aceasta cu conotația „dezvoltare”."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.91,
+            "rationale_short": "Vorbitorul își exprimă opoziția față de înființarea comisiei, dar nu propune o alternativă concretă sau o mediere."
+          }
+        ],
+        "rationale": "Discursul prezintă o calitate deliberativă medie. Vorbitorul oferă o justificare calificată (level_of_justification=2) bazată pe ineficiența structurală a suprapunerii comisiilor, apelând la binele comun (interesul cetățeanului). Totuși, discursul rămâne în mare parte pozițional, criticând tendința de centralizare fără a oferi o alternativă constructivă sau o mediere. Respectul pentru grupuri și cereri este neutru, iar angajamentul față de contraargumente este limitat la o mențiune critică a logicii adverse, fără o dezbatere substanțială. Profilul este cel al unei opoziții critice, dar care nu depășește stadiul de poziționare."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.82,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"pe linie economică, singura comisie care are, practic, un rol subdivizionar este cea economică, având și Comisie economică, de industrii, și buget și control bancar etc. La un moment dat, se interferează atribuțiile lor și discută aproape același subiect.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Vorbitorul oferă un raționament cauzal bazat pe suprapunerea atribuțiilor comisiilor existente pentru a justifica opoziția față de noua comisie.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"nu de interese politicianiste, ci de interesul cetățeanului.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.99,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Justificarea este ancorată explicit în interesul general al cetățeanului, nu în interese de grup sau partid.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Stimați colegi\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.99,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Adresare convențională; nu există derogări sau recunoașteri explicite ale legitimității out-group-urilor.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Iată, constatăm în schimb, zi de zi, în ultima perioadă, un derapaj al recentralizării.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Vorbitorul critică tendința de centralizare fără a angaja direct cererile specifice ale opoziției.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Adică, implicit, noi constatăm și ne asumăm că celelalte două comisii, economică și de buget, nu au acest rol al dezvoltării, ceea ce mi se pare aberant.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.96,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Menționează logica implicită a susținătorilor noii comisii, dar o respinge ca fiind aberantă fără o contra-argumentare detaliată.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"noi presupunem că înființăm o nouă comisie tot cu profil economic – ar fi a treia –, de data aceasta cu conotația „dezvoltare”.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.91,\n      \"rationale_short\": \"Vorbitorul își exprimă opoziția față de înființarea comisiei, dar nu propune o alternativă concretă sau o mediere.\"\n    }\n  ],\n  \"rationale\": \"Discursul prezintă o calitate deliberativă medie. Vorbitorul oferă o justificare calificată (level_of_justification=2) bazată pe ineficiența structurală a suprapunerii comisiilor, apelând la binele comun (interesul cetățeanului). Totuși, discursul rămâne în mare parte pozițional, criticând tendința de centralizare fără a oferi o alternativă constructivă sau o mediere. Respectul pentru grupuri și cereri este neutru, iar angajamentul față de contraargumente este limitat la o mențiune critică a logicii adverse, fără o dezbatere substanțială. Profilul este cel al unei opoziții critice, dar care nu depășește stadiul de poziționare.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12834,
+      "tokens_in_breakdown": {
+        "fresh": 12834,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1286,
+      "cost_usd": null,
+      "latency_ms": 4456,
+      "retries_used": 0
+    }
+  }
+}

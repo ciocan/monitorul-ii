@@ -1,0 +1,154 @@
+{
+  "speech_id": "mo://2015/II/19#agenda-1#act-384",
+  "tier": "calibration",
+  "speaker": {
+    "id": "dolha-mircea",
+    "name": "Mircea Dolha",
+    "raw": "Domnul Mircea Dolha",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2015-02-18",
+    "year": 2015,
+    "legislature": "VII",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2015/II/19#agenda-1#act-384",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.95,
+        "markers": [],
+        "rationale": "Discursul se concentrează pe o critică politică punctuală la adresa unui ministru, bazată pe gafele și acțiunile specifice ale acesteia (toxiinfecție, înmatricularea mașinii în Bulgaria). Deși vorbitorul menționează „slujba românilor”, aceasta este o formulare procedurală standard, nu o invocare a unei voințe populare omogene sau a unui cadru maniheist popor-vs-elită. Nu există elemente de populism structural, ci o critică de opoziție bazată pe exemple concrete. Hawkins=0 cu încredere ridicată."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.95,\n  \"markers\": [],\n  \"rationale\": \"Discursul se concentrează pe o critică politică punctuală la adresa unui ministru, bazată pe gafele și acțiunile specifice ale acesteia (toxiinfecție, înmatricularea mașinii în Bulgaria). Deși vorbitorul menționează „slujba românilor”, aceasta este o formulare procedurală standard, nu o invocare a unei voințe populare omogene sau a unui cadru maniheist popor-vs-elită. Nu există elemente de populism structural, ci o critică de opoziție bazată pe exemple concrete. Hawkins=0 cu încredere ridicată.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13902,
+      "tokens_in_breakdown": {
+        "fresh": 13902,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 212,
+      "cost_usd": null,
+      "latency_ms": 2410,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2015/II/19#agenda-1#act-384",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.72,
+        "level_of_justification": 1,
+        "content_of_justification": "none",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 1,
+            "evidence": {
+              "text": "o explicație ar putea fi și faptul că cea care ocupă în prezent funcția de ministru al muncii, doamna Plumb, a bifat, de-a lungul timpului, mai multe funcții și poziții publice importante, în care s-a făcut remarcată doar prin gafele istorice ce se leagă de numele său."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Justificarea se bazează pe enumerarea unor gafe percepute, fără a conecta logic poziția la un principiu sau mecanism cauzal."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "none",
+            "evidence": {
+              "text": "nu cred însă că doamna ministru Rovana Plumb este conștientă de acest lucru"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Nicio justificare substanțială oferită; conținutul este nedefinit."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Federația Sindicală din Industria Alimentară – Sindalimenta"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.8,
+            "rationale_short": "Grupul este menționat funcțional ca sursă de presiune, fără derogare sau respect explicit."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "cineva să-i ceară demisia doamnei ministru Rovana Plumb"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.85,
+            "rationale_short": "Cererea de demisie este raportată, dar vorbitorul nu se angajează în validarea sau invalidarea ei explicită."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "s-a făcut remarcată doar prin gafele istorice ce se leagă de numele său."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.88,
+            "rationale_short": "Vorbitorul ignoră orice argumente de apărare ale ministrului, concentrându-se exclusiv pe atacuri ad hominem."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "nu cred însă că doamna ministru Rovana Plumb este conștientă de acest lucru"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Discursul este pur pozițional, vizând criticarea unei persoane fără a propune alternative politice."
+          }
+        ],
+        "rationale": "Discursul este un atac politic axat pe persoana ministrului, caracterizat prin nivel scăzut de justificare (level_of_justification=1) și absența oricărei propuneri constructive (constructive_politics=positional). Vorbitorul nu oferă raționamente cauzale, ci enumeră gafe trecute pentru a susține cererea de demisie. Respectul pentru grupuri și cereri este neutru, deoarece mențiunile sunt pur funcționale, iar respectul pentru contraargumente este absent (respect_for_counterarguments=0), ignorând orice apărare a ministrului. Calitatea deliberativă este redusă, discursul fiind un exemplu tipic de retorică de opoziție orientată spre discreditare."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.72,\n  \"level_of_justification\": 1,\n  \"content_of_justification\": \"none\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 0,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"o explicație ar putea fi și faptul că cea care ocupă în prezent funcția de ministru al muncii, doamna Plumb, a bifat, de-a lungul timpului, mai multe funcții și poziții publice importante, în care s-a făcut remarcată doar prin gafele istorice ce se leagă de numele său.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Justificarea se bazează pe enumerarea unor gafe percepute, fără a conecta logic poziția la un principiu sau mecanism cauzal.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"none\",\n      \"evidence\": {\n        \"text\": \"nu cred însă că doamna ministru Rovana Plumb este conștientă de acest lucru\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Nicio justificare substanțială oferită; conținutul este nedefinit.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Federația Sindicală din Industria Alimentară – Sindalimenta\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.8,\n      \"rationale_short\": \"Grupul este menționat funcțional ca sursă de presiune, fără derogare sau respect explicit.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"cineva să-i ceară demisia doamnei ministru Rovana Plumb\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Cererea de demisie este raportată, dar vorbitorul nu se angajează în validarea sau invalidarea ei explicită.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"s-a făcut remarcată doar prin gafele istorice ce se leagă de numele său.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Vorbitorul ignoră orice argumente de apărare ale ministrului, concentrându-se exclusiv pe atacuri ad hominem.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"nu cred însă că doamna ministru Rovana Plumb este conștientă de acest lucru\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Discursul este pur pozițional, vizând criticarea unei persoane fără a propune alternative politice.\"\n    }\n  ],\n  \"rationale\": \"Discursul este un atac politic axat pe persoana ministrului, caracterizat prin nivel scăzut de justificare (level_of_justification=1) și absența oricărei propuneri constructive (constructive_politics=positional). Vorbitorul nu oferă raționamente cauzale, ci enumeră gafe trecute pentru a susține cererea de demisie. Respectul pentru grupuri și cereri este neutru, deoarece mențiunile sunt pur funcționale, iar respectul pentru contraargumente este absent (respect_for_counterarguments=0), ignorând orice apărare a ministrului. Calitatea deliberativă este redusă, discursul fiind un exemplu tipic de retorică de opoziție orientată spre discreditare.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [
+        "o explicație ar putea fi și faptul că cea care ocupă în prezent funcția de ministru al muncii, doamna Plumb, a bifat, de-a lungul timpului, mai multe funcții și poziții publice importante, în care s-a făcut remarcată doar prin gafele istorice ce se leagă de numele său.",
+        "nu cred însă că doamna ministru Rovana Plumb este conștientă de acest lucru",
+        "nu cred însă că doamna ministru Rovana Plumb este conștientă de acest lucru"
+      ],
+      "parse_repaired": false,
+      "tokens_in": 12703,
+      "tokens_in_breakdown": {
+        "fresh": 12703,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1223,
+      "cost_usd": null,
+      "latency_ms": 4442,
+      "retries_used": 0
+    }
+  }
+}

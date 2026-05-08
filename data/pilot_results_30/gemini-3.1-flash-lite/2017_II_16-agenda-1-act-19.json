@@ -1,0 +1,266 @@
+{
+  "speech_id": "mo://2017/II/16#agenda-1#act-19",
+  "tier": "register_shift",
+  "speaker": {
+    "id": "popescu-tariceanu-calin",
+    "name": "Călin Constantin Anton Popescu-Tăriceanu",
+    "raw": "Domnul Călin Constantin Anton Popescu-Tăriceanu",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2017-02-07",
+    "year": 2017,
+    "legislature": "VIII",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2017/II/16#agenda-1#act-19",
+      "output": {
+        "score": 1,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.85,
+        "markers": [
+          {
+            "kind": "people_vs_elite",
+            "evidence": {
+              "text": "nu de un guvern care cu sfială execută ordinele de la partid"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.85,
+            "rationale_short": "Opoziție între guvernul care execută ordine de partid și interesul național, sugerând o elită subordonată."
+          },
+          {
+            "kind": "evil_elite",
+            "evidence": {
+              "text": "un grup de politicieni cu probleme"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.8,
+            "rationale_short": "Elita politică este caracterizată negativ prin probleme, sugerând o natură malignă sau coruptă."
+          },
+          {
+            "kind": "popular_will_supremacy",
+            "evidence": {
+              "text": "pentru a afla realmente voința suverană a poporului român, voi convoca acest referendum"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Invocă voința suverană a poporului ca autoritate supremă care trebuie consultată direct prin referendum."
+          },
+          {
+            "kind": "crisis_invocation",
+            "evidence": {
+              "text": "Dacă PSD-ul, care a creat această criză, nu o rezolvă urgent"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.9,
+            "rationale_short": "Invocă o criză creată de un actor politic specific, cerând rezolvare urgentă."
+          },
+          {
+            "kind": "cosmic_proportions",
+            "evidence": {
+              "text": "pentru generațiile care vin după noi, pentru viitorul României!"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.85,
+            "rationale_short": "Miza politică este ridicată la nivelul viitorului națiunii și al generațiilor viitoare."
+          }
+        ],
+        "rationale": "Discursul conține elemente populiste clare, precum invocarea voinței suverane a poporului și cadrul de criză, însă acestea sunt integrate într-un discurs instituțional și procedural. Deși există o critică a elitei politice (grupul cu probleme), aceasta nu devine o structură maniheistă pervazivă care să definească întregul discurs. Vorbitorul alternează între apeluri la responsabilitate instituțională și retorică populistă, ceea ce plasează discursul în categoria 1. Nu atinge pragul de 2 deoarece cadrul populist nu constituie coloana vertebrală a întregii argumentații, ci coexistă cu un registru de guvernare și respect pentru instituții."
+      },
+      "raw_response": "{\n  \"score\": 1,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.85,\n  \"markers\": [\n    {\n      \"kind\": \"people_vs_elite\",\n      \"evidence\": {\n        \"text\": \"nu de un guvern care cu sfială execută ordinele de la partid\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Opoziție între guvernul care execută ordine de partid și interesul național, sugerând o elită subordonată.\"\n    },\n    {\n      \"kind\": \"evil_elite\",\n      \"evidence\": {\n        \"text\": \"un grup de politicieni cu probleme\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.8,\n      \"rationale_short\": \"Elita politică este caracterizată negativ prin probleme, sugerând o natură malignă sau coruptă.\"\n    },\n    {\n      \"kind\": \"popular_will_supremacy\",\n      \"evidence\": {\n        \"text\": \"pentru a afla realmente voința suverană a poporului român, voi convoca acest referendum\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Invocă voința suverană a poporului ca autoritate supremă care trebuie consultată direct prin referendum.\"\n    },\n    {\n      \"kind\": \"crisis_invocation\",\n      \"evidence\": {\n        \"text\": \"Dacă PSD-ul, care a creat această criză, nu o rezolvă urgent\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Invocă o criză creată de un actor politic specific, cerând rezolvare urgentă.\"\n    },\n    {\n      \"kind\": \"cosmic_proportions\",\n      \"evidence\": {\n        \"text\": \"pentru generațiile care vin după noi, pentru viitorul României!\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Miza politică este ridicată la nivelul viitorului națiunii și al generațiilor viitoare.\"\n    }\n  ],\n  \"rationale\": \"Discursul conține elemente populiste clare, precum invocarea voinței suverane a poporului și cadrul de criză, însă acestea sunt integrate într-un discurs instituțional și procedural. Deși există o critică a elitei politice (grupul cu probleme), aceasta nu devine o structură maniheistă pervazivă care să definească întregul discurs. Vorbitorul alternează între apeluri la responsabilitate instituțională și retorică populistă, ceea ce plasează discursul în categoria 1. Nu atinge pragul de 2 deoarece cadrul populist nu constituie coloana vertebrală a întregii argumentații, ci coexistă cu un registru de guvernare și respect pentru instituții.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 14443,
+      "tokens_in_breakdown": {
+        "fresh": 14443,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 884,
+      "cost_usd": null,
+      "latency_ms": 3840,
+      "retries_used": 0
+    },
+    "voice": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "voice",
+      "speech_id": "mo://2017/II/16#agenda-1#act-19",
+      "output": {
+        "classifications": [
+          {
+            "marker_id": "m_0",
+            "voice": "speaker_first_person",
+            "voice_confidence": 0.95,
+            "voice_evidence": null,
+            "attributed_to": null,
+            "rationale_short": "Afirmație directă a vorbitorului în discursul său politic; nu există indicii de citare, raportare sau negație."
+          },
+          {
+            "marker_id": "m_1",
+            "voice": "speaker_first_person",
+            "voice_confidence": 0.95,
+            "voice_evidence": null,
+            "attributed_to": null,
+            "rationale_short": "Expresie utilizată direct de vorbitor pentru a caracteriza opoziția; nu este o citare sau o raportare a unei terțe părți."
+          },
+          {
+            "marker_id": "m_2",
+            "voice": "speaker_first_person",
+            "voice_confidence": 0.95,
+            "voice_evidence": null,
+            "attributed_to": null,
+            "rationale_short": "Vorbitorul își asumă direct acțiunea de a convoca referendumul; este o afirmație la persoana întâi."
+          },
+          {
+            "marker_id": "m_3",
+            "voice": "hypothetical",
+            "voice_confidence": 0.92,
+            "voice_evidence": {
+              "text": "Dacă PSD-ul"
+            },
+            "attributed_to": null,
+            "rationale_short": "Construcție condițională („Dacă...”) care introduce o ipoteză pentru argumentația vorbitorului."
+          },
+          {
+            "marker_id": "m_4",
+            "voice": "speaker_first_person",
+            "voice_confidence": 0.95,
+            "voice_evidence": null,
+            "attributed_to": null,
+            "rationale_short": "Afirmație directă a vorbitorului privind viziunea sa asupra viitorului României; nu există indicii de citare sau raportare."
+          }
+        ]
+      },
+      "raw_response": "{\n  \"classifications\": [\n    {\n      \"marker_id\": \"m_0\",\n      \"voice\": \"speaker_first_person\",\n      \"voice_confidence\": 0.95,\n      \"voice_evidence\": null,\n      \"attributed_to\": null,\n      \"rationale_short\": \"Afirmație directă a vorbitorului în discursul său politic; nu există indicii de citare, raportare sau negație.\"\n    },\n    {\n      \"marker_id\": \"m_1\",\n      \"voice\": \"speaker_first_person\",\n      \"voice_confidence\": 0.95,\n      \"voice_evidence\": null,\n      \"attributed_to\": null,\n      \"rationale_short\": \"Expresie utilizată direct de vorbitor pentru a caracteriza opoziția; nu este o citare sau o raportare a unei terțe părți.\"\n    },\n    {\n      \"marker_id\": \"m_2\",\n      \"voice\": \"speaker_first_person\",\n      \"voice_confidence\": 0.95,\n      \"voice_evidence\": null,\n      \"attributed_to\": null,\n      \"rationale_short\": \"Vorbitorul își asumă direct acțiunea de a convoca referendumul; este o afirmație la persoana întâi.\"\n    },\n    {\n      \"marker_id\": \"m_3\",\n      \"voice\": \"hypothetical\",\n      \"voice_confidence\": 0.92,\n      \"voice_evidence\": {\n        \"text\": \"Dacă PSD-ul\"\n      },\n      \"attributed_to\": null,\n      \"rationale_short\": \"Construcție condițională („Dacă...”) care introduce o ipoteză pentru argumentația vorbitorului.\"\n    },\n    {\n      \"marker_id\": \"m_4\",\n      \"voice\": \"speaker_first_person\",\n      \"voice_confidence\": 0.95,\n      \"voice_evidence\": null,\n      \"attributed_to\": null,\n      \"rationale_short\": \"Afirmație directă a vorbitorului privind viziunea sa asupra viitorului României; nu există indicii de citare sau raportare.\"\n    }\n  ]\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12278,
+      "tokens_in_breakdown": {
+        "fresh": 12278,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 527,
+      "cost_usd": null,
+      "latency_ms": 2249,
+      "retries_used": 0
+    },
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2017/II/16#agenda-1#act-19",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.72,
+        "level_of_justification": 1,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 0,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 1,
+            "evidence": {
+              "text": "România are nevoie de un guvern puternic, nu de un guvern care cu sfială execută ordinele de la partid."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Afirmații retorice despre necesitatea unui guvern puternic, fără a oferi un raționament cauzal sau dovezi."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "Vrem să fim o națiune puternică, prosperă, o națiune care își construiește un stat de drept și îl respectă"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Apelul este universalizabil, vizând binele comun al națiunii și statul de drept."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Doamnelor și domnilor"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.99,
+            "marker_confidence": 0.95,
+            "rationale_short": "Adresare formală standard; nu există derogări sau laude explicite pentru grupuri."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 0,
+            "evidence": {
+              "text": "Nu vă bateți joc de România!"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.88,
+            "rationale_short": "Cererile și acțiunile opoziției sunt respinse prin acuzația de batjocură la adresa țării."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "Dacă PSD-ul, care a creat această criză, nu o rezolvă urgent, voi convoca, în virtutea atribuțiilor de președinte, consultări"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.82,
+            "rationale_short": "Vorbitorul ignoră raționamentele opoziției, concentrându-se pe propria acțiune de convocare a referendumului."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "voi convoca acest referendum."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Discursul avansează o poziție politică (convocarea referendumului) fără a propune o alternativă legislativă sau mediere."
+          }
+        ],
+        "rationale": "Discursul președintelui este predominant retoric și pozițional, axat pe mobilizarea opiniei publice mai degrabă decât pe deliberarea parlamentară. Nivelul de justificare este scăzut (1), deoarece argumentele sunt formulate ca imperative morale sau politice fără a oferi mecanisme cauzale sau dovezi empirice. Respectul pentru cererile și argumentele opoziției este absent (0), acestea fiind caracterizate prin prisma unei crize create de partidul advers. Deși apelul la binele comun este prezent, acesta servește scopului de a legitima convocarea referendumului, nu de a media între poziții. Discursul nu oferă alternative legislative, ci reafirmă o poziție de forță, încadrându-se în categoria discursurilor poziționale cu calitate deliberativă limitată."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.72,\n  \"level_of_justification\": 1,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 0,\n  \"respect_for_counterarguments\": 0,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 1,\n      \"evidence\": { \"text\": \"România are nevoie de un guvern puternic, nu de un guvern care cu sfială execută ordinele de la partid.\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Afirmații retorice despre necesitatea unui guvern puternic, fără a oferi un raționament cauzal sau dovezi.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": { \"text\": \"Vrem să fim o națiune puternică, prosperă, o națiune care își construiește un stat de drept și îl respectă\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Apelul este universalizabil, vizând binele comun al națiunii și statul de drept.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": { \"text\": \"Doamnelor și domnilor\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.99,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Adresare formală standard; nu există derogări sau laude explicite pentru grupuri.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 0,\n      \"evidence\": { \"text\": \"Nu vă bateți joc de România!\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Cererile și acțiunile opoziției sunt respinse prin acuzația de batjocură la adresa țării.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 0,\n      \"evidence\": { \"text\": \"Dacă PSD-ul, care a creat această criză, nu o rezolvă urgent, voi convoca, în virtutea atribuțiilor de președinte, consultări\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.82,\n      \"rationale_short\": \"Vorbitorul ignoră raționamentele opoziției, concentrându-se pe propria acțiune de convocare a referendumului.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": { \"text\": \"voi convoca acest referendum.\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.90,\n      \"rationale_short\": \"Discursul avansează o poziție politică (convocarea referendumului) fără a propune o alternativă legislativă sau mediere.\"\n    }\n  ],\n  \"rationale\": \"Discursul președintelui este predominant retoric și pozițional, axat pe mobilizarea opiniei publice mai degrabă decât pe deliberarea parlamentară. Nivelul de justificare este scăzut (1), deoarece argumentele sunt formulate ca imperative morale sau politice fără a oferi mecanisme cauzale sau dovezi empirice. Respectul pentru cererile și argumentele opoziției este absent (0), acestea fiind caracterizate prin prisma unei crize create de partidul advers. Deși apelul la binele comun este prezent, acesta servește scopului de a legitima convocarea referendumului, nu de a media între poziții. Discursul nu oferă alternative legislative, ci reafirmă o poziție de forță, încadrându-se în categoria discursurilor poziționale cu calitate deliberativă limitată.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13244,
+      "tokens_in_breakdown": {
+        "fresh": 13244,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1165,
+      "cost_usd": null,
+      "latency_ms": 5035,
+      "retries_used": 0
+    }
+  }
+}

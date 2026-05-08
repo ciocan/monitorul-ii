@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2010/II/176#agenda-1#act-22",
+  "tier": "calibration",
+  "speaker": {
+    "id": "verestoy-attila",
+    "name": "Verestóy Attila",
+    "raw": "Domnul Verestóy Attila",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": "2010-11-22",
+    "year": 2010,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2010/II/176#agenda-1#act-22",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul este unul pur procedural, axat pe validarea unei proceduri parlamentare și pe solicitarea unui vot în plen. Nu există nicio urmă de cadru popor-vs-elită, maniheism moral sau invocare a unei voințe populare suverane. Vorbitorul se limitează la argumente de echilibru parlamentar și legitimitate procedurală, încadrându-se perfect în registrul non-populist. Hawkins=0 cu încredere maximă."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul este unul pur procedural, axat pe validarea unei proceduri parlamentare și pe solicitarea unui vot în plen. Nu există nicio urmă de cadru popor-vs-elită, maniheism moral sau invocare a unei voințe populare suverane. Vorbitorul se limitează la argumente de echilibru parlamentar și legitimitate procedurală, încadrându-se perfect în registrul non-populist. Hawkins=0 cu încredere maximă.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13696,
+      "tokens_in_breakdown": {
+        "fresh": 13696,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 175,
+      "cost_usd": null,
+      "latency_ms": 1935,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2010/II/176#agenda-1#act-22",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.82,
+        "level_of_justification": 1,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 2,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 1,
+            "evidence": {
+              "text": "Este, de fapt, o confirmare a echilibrului existent în acest moment în Parlamentul nostru."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Justificarea invocă un echilibru abstract fără a oferi un mecanism cauzal sau dovezi empirice specifice."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "Este, de fapt, o confirmare a echilibrului existent în acest moment în Parlamentul nostru."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.88,
+            "rationale_short": "Apelul la echilibrul parlamentar este universalizabil și vizează funcționarea instituției ca întreg."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Onorat Senat"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.99,
+            "marker_confidence": 0.95,
+            "rationale_short": "Adresare formală standard; niciun grup nu este vizat pentru derogare sau respect explicit."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 2,
+            "evidence": {
+              "text": "solicitarea domnului senator Mihăilescu de a supune propunerea votului plenului este un lucru de dorit, legitim"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Vorbitorul recunoaște explicit legitimitatea cererii procedurale a colegului."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "Consecințele trebuie asumate, chiar dacă, pe moment, unora nu le place acest lucru."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.8,
+            "rationale_short": "Recunoaște existența unei opoziții („unora nu le place”), dar nu angajează substanțial raționamentul acestora."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "susținem să supuneți propunerea la vot"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Vorbitorul susține o procedură existentă fără a propune o alternativă sau o mediere între părți."
+          }
+        ],
+        "rationale": "Discursul este un intervenție procedurală care susține o solicitare de vot. Vorbitorul oferă o justificare de nivel 1, bazată pe conceptul de echilibru parlamentar, care este orientată către binele comun dar lipsește de profunzime cauzală. Respectul pentru cererea colegului este ridicat (recunoaștere explicită a legitimității), însă angajamentul față de contraargumentele opoziției rămâne superficial. Discursul este pozițional, limitându-se la a susține o procedură deja solicitată. Profilul deliberativ este unul de susținere procedurală, cu un nivel moderat de politețe și recunoaștere a legitimității, dar fără o argumentație complexă."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.82,\n  \"level_of_justification\": 1,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 2,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Este, de fapt, o confirmare a echilibrului existent în acest moment în Parlamentul nostru.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Justificarea invocă un echilibru abstract fără a oferi un mecanism cauzal sau dovezi empirice specifice.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"Este, de fapt, o confirmare a echilibrului existent în acest moment în Parlamentul nostru.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Apelul la echilibrul parlamentar este universalizabil și vizează funcționarea instituției ca întreg.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Onorat Senat\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.99,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Adresare formală standard; niciun grup nu este vizat pentru derogare sau respect explicit.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"solicitarea domnului senator Mihăilescu de a supune propunerea votului plenului este un lucru de dorit, legitim\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Vorbitorul recunoaște explicit legitimitatea cererii procedurale a colegului.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Consecințele trebuie asumate, chiar dacă, pe moment, unora nu le place acest lucru.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"marker_confidence\": 0.80,\n      \"rationale_short\": \"Recunoaște existența unei opoziții („unora nu le place”), dar nu angajează substanțial raționamentul acestora.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"susținem să supuneți propunerea la vot\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.90,\n      \"rationale_short\": \"Vorbitorul susține o procedură existentă fără a propune o alternativă sau o mediere între părți.\"\n    }\n  ],\n  \"rationale\": \"Discursul este un intervenție procedurală care susține o solicitare de vot. Vorbitorul oferă o justificare de nivel 1, bazată pe conceptul de echilibru parlamentar, care este orientată către binele comun dar lipsește de profunzime cauzală. Respectul pentru cererea colegului este ridicat (recunoaștere explicită a legitimității), însă angajamentul față de contraargumentele opoziției rămâne superficial. Discursul este pozițional, limitându-se la a susține o procedură deja solicitată. Profilul deliberativ este unul de susținere procedurală, cu un nivel moderat de politețe și recunoaștere a legitimității, dar fără o argumentație complexă.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12497,
+      "tokens_in_breakdown": {
+        "fresh": 12497,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1156,
+      "cost_usd": null,
+      "latency_ms": 4428,
+      "retries_used": 0
+    }
+  }
+}

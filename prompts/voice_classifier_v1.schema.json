@@ -1,0 +1,90 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "voice_classifier_v1",
+  "title": "Voice classification output (per-marker)",
+  "description": "Schema for voice_classifier_v1.md output. Consumed by structured-output APIs (OpenAI Structured Outputs, Anthropic tool-use, Mistral JSON mode). Field semantics, decision rules, and few-shot examples live in the companion .md prompt; this file only enforces shape.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["classifications"],
+  "properties": {
+    "classifications": {
+      "type": "array",
+      "description": "One entry per input marker, in input order.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "marker_id",
+          "voice",
+          "voice_confidence",
+          "voice_evidence",
+          "attributed_to",
+          "rationale_short"
+        ],
+        "properties": {
+          "marker_id": {
+            "type": "string",
+            "description": "Echo of input marker_id."
+          },
+          "voice": {
+            "type": "string",
+            "enum": [
+              "speaker_first_person",
+              "quoted",
+              "reported",
+              "negated",
+              "hypothetical",
+              "apophasis_disclaimed",
+              "weasel_attribution",
+              "sarcastic",
+              "uncertain"
+            ]
+          },
+          "voice_confidence": {
+            "type": "number",
+            "minimum": 0.0,
+            "maximum": 1.0
+          },
+          "voice_evidence": {
+            "description": "The cue phrase that triggered the call. null when voice = speaker_first_person with no cue, or when uncertain with no isolable cue. char_offsets are computed downstream by the harness via string search; the model only emits the verbatim text.",
+            "anyOf": [
+              { "type": "null" },
+              {
+                "type": "object",
+                "additionalProperties": false,
+                "required": ["text"],
+                "properties": {
+                  "text": { "type": "string", "minLength": 1 }
+                }
+              }
+            ]
+          },
+          "attributed_to": {
+            "description": "Who is being quoted / reported / attributed-to. null unless voice ∈ {quoted, reported, weasel_attribution} with a named or collective source. person_id resolution is a downstream backfill against the persons registry; the model only emits raw + kind.",
+            "anyOf": [
+              { "type": "null" },
+              {
+                "type": "object",
+                "additionalProperties": false,
+                "required": ["raw", "kind"],
+                "properties": {
+                  "raw": { "type": "string", "minLength": 1 },
+                  "kind": {
+                    "type": "string",
+                    "enum": ["individual", "institution", "document", "collective", "unnamed"]
+                  }
+                }
+              }
+            ]
+          },
+          "rationale_short": {
+            "type": "string",
+            "description": "One sentence in Romanian explaining the voice call, ≤ 200 characters.",
+            "minLength": 1,
+            "maxLength": 200
+          }
+        }
+      }
+    }
+  }
+}

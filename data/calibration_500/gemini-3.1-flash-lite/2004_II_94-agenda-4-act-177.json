@@ -1,0 +1,157 @@
+{
+  "speech_id": "mo://2004/II/94#agenda-4#act-177",
+  "tier": "calibration",
+  "speaker": {
+    "id": "prichici-emilian",
+    "name": "Emilian Prichici",
+    "raw": "Domnul Emilian Prichici",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": null,
+    "year": 2004,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2004/II/94#agenda-4#act-177",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 1.0,
+        "markers": [],
+        "rationale": "Discursul este unul pur procedural, axat pe activitatea comisiei juridice și pe caracterul tehnic al proiectului de lege. Nu există nicio urmă de cadru popor-vs-elită, maniheism moral sau invocare a unei voințe populare suverane. Vorbitorul se limitează la prezentarea raportului de admitere și a procedurii parlamentare, încadrându-se perfect în registrul non-populist. Hawkins=0 cu încredere maximă."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 1.0,\n  \"markers\": [],\n  \"rationale\": \"Discursul este unul pur procedural, axat pe activitatea comisiei juridice și pe caracterul tehnic al proiectului de lege. Nu există nicio urmă de cadru popor-vs-elită, maniheism moral sau invocare a unei voințe populare suverane. Vorbitorul se limitează la prezentarea raportului de admitere și a procedurii parlamentare, încadrându-se perfect în registrul non-populist. Hawkins=0 cu încredere maximă.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13717,
+      "tokens_in_breakdown": {
+        "fresh": 13717,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 176,
+      "cost_usd": null,
+      "latency_ms": 2159,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2004/II/94#agenda-4#act-177",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.85,
+        "level_of_justification": 1,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 1,
+            "evidence": {
+              "text": "este o lege cu un pronunțat caracter tehnic, foarte bine întocmită și care, într-adevăr, răspunde cerințelor unei legislații moderne"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.88,
+            "rationale_short": "Justificarea este bazată pe aprecieri calitative generale („foarte bine întocmită”), fără a oferi un raționament cauzal detaliat."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "răspunde cerințelor unei legislații moderne în materie"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.9,
+            "rationale_short": "Apelul este la modernizarea legislației, un deziderat universalizabil pentru binele comun."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Domnule președinte"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Adresare procedurală standard; nu există referiri la grupuri externe care să necesite evaluare."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "comisia, cu unanimitate de voturi, a hotărât să adopte raport de admitere"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.85,
+            "rationale_short": "Raportarea consensului comisiei este neutră; nu există cereri adverse specifice de abordat."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "amendamente cu care și inițiatorul a fost de acord"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.85,
+            "rationale_short": "Menționarea acordului inițiatorului este o recunoaștere procedurală, nu un angajament cu un contraargument."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "a hotărât să adopte raport de admitere"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.9,
+            "rationale_short": "Vorbitorul prezintă poziția comisiei (raport de admitere) fără a propune o alternativă sau mediere."
+          }
+        ],
+        "rationale": "Discursul raportorului de comisie este unul procedural, axat pe prezentarea consensului tehnic obținut. Justificarea este de nivel 1, bazându-se pe calificative generale despre calitatea legii, fără a detalia mecanismele cauzale. Apelul la modernizarea legislației indică o orientare către binele comun. Nu există elemente de dispreț sau angajament substanțial cu contraargumente, deoarece discursul reflectă o poziție unitară a comisiei. Caracterul constructiv este limitat la susținerea raportului, fiind o intervenție pozițională tipică pentru prezentarea rapoartelor de comisie."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.85,\n  \"level_of_justification\": 1,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"este o lege cu un pronunțat caracter tehnic, foarte bine întocmită și care, într-adevăr, răspunde cerințelor unei legislații moderne\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Justificarea este bazată pe aprecieri calitative generale („foarte bine întocmită”), fără a oferi un raționament cauzal detaliat.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"răspunde cerințelor unei legislații moderne în materie\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Apelul este la modernizarea legislației, un deziderat universalizabil pentru binele comun.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Domnule președinte\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Adresare procedurală standard; nu există referiri la grupuri externe care să necesite evaluare.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"comisia, cu unanimitate de voturi, a hotărât să adopte raport de admitere\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Raportarea consensului comisiei este neutră; nu există cereri adverse specifice de abordat.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"amendamente cu care și inițiatorul a fost de acord\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Menționarea acordului inițiatorului este o recunoaștere procedurală, nu un angajament cu un contraargument.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"a hotărât să adopte raport de admitere\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Vorbitorul prezintă poziția comisiei (raport de admitere) fără a propune o alternativă sau mediere.\"\n    }\n  ],\n  \"rationale\": \"Discursul raportorului de comisie este unul procedural, axat pe prezentarea consensului tehnic obținut. Justificarea este de nivel 1, bazându-se pe calificative generale despre calitatea legii, fără a detalia mecanismele cauzale. Apelul la modernizarea legislației indică o orientare către binele comun. Nu există elemente de dispreț sau angajament substanțial cu contraargumente, deoarece discursul reflectă o poziție unitară a comisiei. Caracterul constructiv este limitat la susținerea raportului, fiind o intervenție pozițională tipică pentru prezentarea rapoartelor de comisie.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [
+        "este o lege cu un pronunțat caracter tehnic, foarte bine întocmită și care, într-adevăr, răspunde cerințelor unei legislații moderne",
+        "răspunde cerințelor unei legislații moderne în materie",
+        "Domnule președinte",
+        "comisia, cu unanimitate de voturi, a hotărât să adopte raport de admitere",
+        "amendamente cu care și inițiatorul a fost de acord",
+        "a hotărât să adopte raport de admitere"
+      ],
+      "parse_repaired": false,
+      "tokens_in": 12518,
+      "tokens_in_breakdown": {
+        "fresh": 12518,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1140,
+      "cost_usd": null,
+      "latency_ms": 4399,
+      "retries_used": 0
+    }
+  }
+}

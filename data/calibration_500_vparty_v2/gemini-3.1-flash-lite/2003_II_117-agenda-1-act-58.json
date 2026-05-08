@@ -1,0 +1,52 @@
+{
+  "speech_id": "mo://2003/II/117#agenda-1#act-58",
+  "tier": "calibration",
+  "speaker": {
+    "id": "bichinet-corneliu",
+    "name": "Corneliu Bichine˛",
+    "raw": "Domnul Corneliu Bichine˛",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": null,
+    "year": 2003,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": null,
+    "voice": null,
+    "dqi": null,
+    "vparty": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "vparty",
+      "speech_id": "mo://2003/II/117#agenda-1#act-58",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "vparty@2020 + vdem-attacks-on@v13",
+        "framework_confidence": 0.92,
+        "markers": [],
+        "rationale": "Discursul conține critici politice dure la adresa guvernului, a miniștrilor și a modului de gestionare a fondurilor, însă acestea rămân în sfera retoricii parlamentare de opoziție. Deși vorbitorul folosește un ton sarcastic și critică performanța instituțiilor, nu delegitimează instituțiile democratice ca atare, nu atacă justiția ca sistem, nu incită la respingerea normelor democratice și nu scapegoatează minorități. Criticile la adresa presei sau a miniștrilor sunt punctuale și nu ating pragul de delegitimizare sistemică necesar pentru a declanșa markerii de anti-pluralism. Discursul reflectă o confruntare politică legitimă, nu un atac asupra pluralismului democratic."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"vparty@2020 + vdem-attacks-on@v13\",\n  \"framework_confidence\": 0.92,\n  \"markers\": [],\n  \"rationale\": \"Discursul conține critici politice dure la adresa guvernului, a miniștrilor și a modului de gestionare a fondurilor, însă acestea rămân în sfera retoricii parlamentare de opoziție. Deși vorbitorul folosește un ton sarcastic și critică performanța instituțiilor, nu delegitimează instituțiile democratice ca atare, nu atacă justiția ca sistem, nu incită la respingerea normelor democratice și nu scapegoatează minorități. Criticile la adresa presei sau a miniștrilor sunt punctuale și nu ating pragul de delegitimizare sistemică necesar pentru a declanșa markerii de anti-pluralism. Discursul reflectă o confruntare politică legitimă, nu un atac asupra pluralismului democratic.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13815,
+      "tokens_in_breakdown": {
+        "fresh": 13815,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 256,
+      "cost_usd": null,
+      "latency_ms": 2037,
+      "retries_used": 0
+    }
+  }
+}

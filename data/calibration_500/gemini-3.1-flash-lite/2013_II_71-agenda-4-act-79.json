@@ -1,0 +1,204 @@
+{
+  "speech_id": "mo://2013/II/71#agenda-4#act-79",
+  "tier": "calibration",
+  "speaker": {
+    "id": null,
+    "name": "Florin Gheorghe",
+    "raw": "Domnul Florin Gheorghe",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2013-05-28",
+    "year": 2013,
+    "legislature": "VII",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2013/II/71#agenda-4#act-79",
+      "output": {
+        "score": 1,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.85,
+        "markers": [
+          {
+            "kind": "popular_will_supremacy",
+            "evidence": {
+              "text": "Vocea poporului trebuie să fie suverană deasupra oricărei instituții, oricărei proceduri, oricărui regulament"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.92,
+            "rationale_short": "Invocă supremația voinței populare asupra instituțiilor și procedurilor democratice."
+          },
+          {
+            "kind": "homogeneous_people",
+            "evidence": {
+              "text": "Poporul, în majoritatea lui, și-a pus baza în ei"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.9,
+            "marker_confidence": 0.85,
+            "rationale_short": "Poporul este tratat ca un subiect colectiv omogen care își plasează încrederea."
+          }
+        ],
+        "rationale": "Discursul oscilează între o critică tehnică a procedurilor parlamentare (cvorumul de 30%, regionalizarea) și apeluri populiste la suveranitatea poporului. Deși vorbitorul invocă „poporul suveran” și supremația voinței acestuia asupra instituțiilor, argumentația rămâne ancorată în dezbaterea constituțională și istorică a mecanismelor electorale. Nu există un cadru maniheist pervaziv sau o demonizare a unei elite malefice, ci mai degrabă o critică a deciziilor politice succesive. Scor 1, deoarece elementele populiste sunt prezente ca puncte de sprijin retoric, dar nu constituie coloana vertebrală a întregului discurs."
+      },
+      "raw_response": "{\n  \"score\": 1,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.85,\n  \"markers\": [\n    {\n      \"kind\": \"popular_will_supremacy\",\n      \"evidence\": {\n        \"text\": \"Vocea poporului trebuie să fie suverană deasupra oricărei instituții, oricărei proceduri, oricărui regulament\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Invocă supremația voinței populare asupra instituțiilor și procedurilor democratice.\"\n    },\n    {\n      \"kind\": \"homogeneous_people\",\n      \"evidence\": {\n        \"text\": \"Poporul, în majoritatea lui, și-a pus baza în ei\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.9,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Poporul este tratat ca un subiect colectiv omogen care își plasează încrederea.\"\n    }\n  ],\n  \"rationale\": \"Discursul oscilează între o critică tehnică a procedurilor parlamentare (cvorumul de 30%, regionalizarea) și apeluri populiste la suveranitatea poporului. Deși vorbitorul invocă „poporul suveran” și supremația voinței acestuia asupra instituțiilor, argumentația rămâne ancorată în dezbaterea constituțională și istorică a mecanismelor electorale. Nu există un cadru maniheist pervaziv sau o demonizare a unei elite malefice, ci mai degrabă o critică a deciziilor politice succesive. Scor 1, deoarece elementele populiste sunt prezente ca puncte de sprijin retoric, dar nu constituie coloana vertebrală a întregului discurs.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [
+        "Vocea poporului trebuie să fie suverană deasupra oricărei instituții, oricărei proceduri, oricărui regulament"
+      ],
+      "parse_repaired": false,
+      "tokens_in": 14243,
+      "tokens_in_breakdown": {
+        "fresh": 14243,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 506,
+      "cost_usd": null,
+      "latency_ms": 2558,
+      "retries_used": 0
+    },
+    "voice": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "voice",
+      "speech_id": "mo://2013/II/71#agenda-4#act-79",
+      "output": {
+        "classifications": [
+          {
+            "marker_id": "m_1",
+            "voice": "speaker_first_person",
+            "voice_confidence": 0.95,
+            "voice_evidence": null,
+            "attributed_to": null,
+            "rationale_short": "Afirmație directă a vorbitorului în discursul său, fără indicii de citare, raportare sau alte cadre retorice."
+          }
+        ]
+      },
+      "raw_response": "{\n  \"classifications\": [\n    {\n      \"marker_id\": \"m_1\",\n      \"voice\": \"speaker_first_person\",\n      \"voice_confidence\": 0.95,\n      \"voice_evidence\": null,\n      \"attributed_to\": null,\n      \"rationale_short\": \"Afirmație directă a vorbitorului în discursul său, fără indicii de citare, raportare sau alte cadre retorice.\"\n    }\n  ]\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 11790,
+      "tokens_in_breakdown": {
+        "fresh": 11790,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 114,
+      "cost_usd": null,
+      "latency_ms": 881,
+      "retries_used": 0
+    },
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2013/II/71#agenda-4#act-79",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.82,
+        "level_of_justification": 2,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "Nu există justificare rațională, logică, democratică sau istorică pentru acest procent. Este inadmisibil ca un număr restrâns de oameni să hotărască în numele tuturor în chestiuni fundamentale"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Vorbitorul oferă o justificare bazată pe principiul democratic al reprezentativității și al legitimității decizionale."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "Constituția este actul fundamental de organizare al unei societăți moderne și de aceea trebuie să fie pe deplin legitimă"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Apelul este la legitimitatea constituțională și la binele comun, nu la interese de grup."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "USL-ului"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.85,
+            "rationale_short": "Referință funcțională la coaliția politică; niciun semn de derogare sau respect explicit."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "USL dorește ca și referendumul să se adopte printr-o prezență minoritară"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.88,
+            "rationale_short": "Vorbitorul descrie cererea adversă fără a o angaja sau a-i recunoaște legitimitatea."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "Nu există justificare rațională, logică, democratică sau istorică pentru acest procent."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Vorbitorul ignoră raționamentele opoziției, declarând pur și simplu că nu există justificare."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Susțin cu hotărâre că exprimarea democratică și legitimă a poporului suveran se face întotdeauna printr-o prezență la vot de cel puțin 50%"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.93,
+            "rationale_short": "Vorbitorul își afirmă poziția fermă fără a propune o alternativă sau o mediere concretă."
+          }
+        ],
+        "rationale": "Discursul prezintă o calitate deliberativă mixtă. Vorbitorul oferă o justificare calificată (level_of_justification=2) bazată pe principii democratice universale (common_good), însă eșuează în a angaja substanțial contraargumentele opoziției (respect_for_counterarguments=0), limitându-se la a le nega validitatea. Deși discursul este articulat, acesta rămâne într-o zonă pozițională (constructive_politics=positional), fără a oferi o cale de compromis sau o alternativă tehnică. Respectul pentru grupuri și cereri este neutru, reflectând o postură critică, dar nu derogatorie. Calitatea deliberativă este susținută de argumentația principială, dar limitată de lipsa angajamentului dialogic."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.82,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 0,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"Nu există justificare rațională, logică, democratică sau istorică pentru acest procent. Este inadmisibil ca un număr restrâns de oameni să hotărască în numele tuturor în chestiuni fundamentale\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Vorbitorul oferă o justificare bazată pe principiul democratic al reprezentativității și al legitimității decizionale.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"Constituția este actul fundamental de organizare al unei societăți moderne și de aceea trebuie să fie pe deplin legitimă\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Apelul este la legitimitatea constituțională și la binele comun, nu la interese de grup.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"USL-ului\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Referință funcțională la coaliția politică; niciun semn de derogare sau respect explicit.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"USL dorește ca și referendumul să se adopte printr-o prezență minoritară\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Vorbitorul descrie cererea adversă fără a o angaja sau a-i recunoaște legitimitatea.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"Nu există justificare rațională, logică, democratică sau istorică pentru acest procent.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.90,\n      \"rationale_short\": \"Vorbitorul ignoră raționamentele opoziției, declarând pur și simplu că nu există justificare.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"Susțin cu hotărâre că exprimarea democratică și legitimă a poporului suveran se face întotdeauna printr-o prezență la vot de cel puțin 50%\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.93,\n      \"rationale_short\": \"Vorbitorul își afirmă poziția fermă fără a propune o alternativă sau o mediere concretă.\"\n    }\n  ],\n  \"rationale\": \"Discursul prezintă o calitate deliberativă mixtă. Vorbitorul oferă o justificare calificată (level_of_justification=2) bazată pe principii democratice universale (common_good), însă eșuează în a angaja substanțial contraargumentele opoziției (respect_for_counterarguments=0), limitându-se la a le nega validitatea. Deși discursul este articulat, acesta rămâne într-o zonă pozițională (constructive_politics=positional), fără a oferi o cale de compromis sau o alternativă tehnică. Respectul pentru grupuri și cereri este neutru, reflectând o postură critică, dar nu derogatorie. Calitatea deliberativă este susținută de argumentația principială, dar limitată de lipsa angajamentului dialogic.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13044,
+      "tokens_in_breakdown": {
+        "fresh": 13044,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1232,
+      "cost_usd": null,
+      "latency_ms": 4328,
+      "retries_used": 0
+    }
+  }
+}

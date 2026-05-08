@@ -1,0 +1,153 @@
+{
+  "speech_id": "mo://2000/II/37#agenda-1#act-17",
+  "tier": "calibration",
+  "speaker": {
+    "id": "francu-aleodor",
+    "name": "Aleodor Frâncu",
+    "raw": "Domnul Aleodor Frâncu",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": null,
+    "year": 2000,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2000/II/37#agenda-1#act-17",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 1.0,
+        "markers": [],
+        "rationale": "Discursul este unul pur tehnic și procedural, axat pe ratificarea unui acord internațional de transport (TRACECA). Vorbitorul prezintă obiectivele acordului, structura comisiei interguvernamentale și detaliile tehnice ale anexelor, fără a utiliza nicio retorică populistă. Nu există nicio referire la un cadru popor-vs-elită, maniheism moral sau invocarea unei voințe populare omogene. Discursul se încadrează perfect în registrul administrativ-parlamentar standard."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 1.0,\n  \"markers\": [],\n  \"rationale\": \"Discursul este unul pur tehnic și procedural, axat pe ratificarea unui acord internațional de transport (TRACECA). Vorbitorul prezintă obiectivele acordului, structura comisiei interguvernamentale și detaliile tehnice ale anexelor, fără a utiliza nicio retorică populistă. Nu există nicio referire la un cadru popor-vs-elită, maniheism moral sau invocarea unei voințe populare omogene. Discursul se încadrează perfect în registrul administrativ-parlamentar standard.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 14178,
+      "tokens_in_breakdown": {
+        "fresh": 14178,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 190,
+      "cost_usd": null,
+      "latency_ms": 2903,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2000/II/37#agenda-1#act-17",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.88,
+        "level_of_justification": 2,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "Având în vedere cã acordul prevede în mod expres cã aplicarea sa nu afecteazã obligaþiile ºi drepturile pãrþilor care decurg din alte acorduri bilaterale ºi multilaterale, precum ºi interesul României pentru dezvoltarea coridorului de transport TRACECA, vã supunem atenþiei prezentul proiect de Lege pentru ratificarea acordului."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Vorbitorul oferă o justificare bazată pe interesele strategice ale României și pe compatibilitatea juridică a acordului."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "interesul României pentru dezvoltarea coridorului de transport TRACECA"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Justificarea se ancorează în interesul național și dezvoltarea economică generală, nu în interese de grup."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Doamnelor ºi domnilor senatori"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.99,
+            "marker_confidence": 0.9,
+            "rationale_short": "Adresare formală standard; nu există referiri la out-group-uri care să necesite respect sau derogare."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "vã supunem atenþiei prezentul proiect de Lege pentru ratificarea acordului."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Discursul este de natură tehnică/procedurală; nu există cereri adverse angajate."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "Acordul reglementeazã în special transportul de mãrfuri ºi pasageri"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Prezentare tehnică a acordului fără a fi necesară adresarea unor contraargumente."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "vã supunem atenþiei prezentul proiect de Lege pentru ratificarea acordului."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Vorbitorul susține ratificarea proiectului de lege; este o poziție standard de raportor."
+          }
+        ],
+        "rationale": "Discursul este o prezentare tehnică a unui acord internațional, caracteristică rolului de raportor. Justificarea este calificată (level_of_justification=2) prin invocarea interesului național și a compatibilității juridice. Conținutul justificării este orientat către binele comun (common_good). Respectul pentru grupuri și cereri este neutru, deoarece discursul nu vizează opoziția sau grupuri sociale, ci expune detaliile tehnice ale ratificării. Constructivitatea este pozițională, fiind un demers de susținere a unui proiect legislativ. Calitatea deliberativă este ridicată pentru un discurs de prezentare tehnică."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.88,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"Având în vedere cã acordul prevede în mod expres cã aplicarea sa nu afecteazã obligaþiile ºi drepturile pãrþilor care decurg din alte acorduri bilaterale ºi multilaterale, precum ºi interesul României pentru dezvoltarea coridorului de transport TRACECA, vã supunem atenþiei prezentul proiect de Lege pentru ratificarea acordului.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Vorbitorul oferă o justificare bazată pe interesele strategice ale României și pe compatibilitatea juridică a acordului.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"interesul României pentru dezvoltarea coridorului de transport TRACECA\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Justificarea se ancorează în interesul național și dezvoltarea economică generală, nu în interese de grup.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Doamnelor ºi domnilor senatori\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.99,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Adresare formală standard; nu există referiri la out-group-uri care să necesite respect sau derogare.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"vã supunem atenþiei prezentul proiect de Lege pentru ratificarea acordului.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Discursul este de natură tehnică/procedurală; nu există cereri adverse angajate.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Acordul reglementeazã în special transportul de mãrfuri ºi pasageri\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Prezentare tehnică a acordului fără a fi necesară adresarea unor contraargumente.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"vã supunem atenþiei prezentul proiect de Lege pentru ratificarea acordului.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Vorbitorul susține ratificarea proiectului de lege; este o poziție standard de raportor.\"\n    }\n  ],\n  \"rationale\": \"Discursul este o prezentare tehnică a unui acord internațional, caracteristică rolului de raportor. Justificarea este calificată (level_of_justification=2) prin invocarea interesului național și a compatibilității juridice. Conținutul justificării este orientat către binele comun (common_good). Respectul pentru grupuri și cereri este neutru, deoarece discursul nu vizează opoziția sau grupuri sociale, ci expune detaliile tehnice ale ratificării. Constructivitatea este pozițională, fiind un demers de susținere a unui proiect legislativ. Calitatea deliberativă este ridicată pentru un discurs de prezentare tehnică.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [
+        "Având în vedere cã acordul prevede în mod expres cã aplicarea sa nu afecteazã obligaþiile ºi drepturile pãrþilor care decurg din alte acorduri bilaterale ºi multilaterale, precum ºi interesul României pentru dezvoltarea coridorului de transport TRACECA, vã supunem atenþiei prezentul proiect de Lege pentru ratificarea acordului.",
+        "interesul României pentru dezvoltarea coridorului de transport TRACECA"
+      ],
+      "parse_repaired": false,
+      "tokens_in": 12979,
+      "tokens_in_breakdown": {
+        "fresh": 12979,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1222,
+      "cost_usd": null,
+      "latency_ms": 5194,
+      "retries_used": 0
+    }
+  }
+}

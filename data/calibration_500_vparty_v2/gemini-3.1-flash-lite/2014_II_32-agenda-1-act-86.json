@@ -1,0 +1,75 @@
+{
+  "speech_id": "mo://2014/II/32#agenda-1#act-86",
+  "tier": "calibration",
+  "speaker": {
+    "id": "buicu-corneliu-florin",
+    "name": "Corneliu Florin Buicu",
+    "raw": "Domnul Corneliu Florin Buicu",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2014-03-18",
+    "year": 2014,
+    "legislature": "VII",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": null,
+    "voice": null,
+    "dqi": null,
+    "vparty": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "vparty",
+      "speech_id": "mo://2014/II/32#agenda-1#act-86",
+      "output": {
+        "score": 1,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "vparty@2020 + vdem-attacks-on@v13",
+        "framework_confidence": 0.85,
+        "markers": [
+          {
+            "kind": "minority_scapegoating",
+            "evidence": {
+              "text": "Nu înțeleg de ce tot încearcă să radicalizee o populație care este finanțată și protejată de statul român pe banii românilor și ai celorlalte naționalități care trăiesc în România"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.85,
+            "rationale_short": "Folosește cadrul de „populație finanțată și protejată pe banii românilor” pentru a sugera o parazitare a statului de către minoritatea maghiară."
+          },
+          {
+            "kind": "opposition_delegitimization",
+            "evidence": {
+              "text": "László Tökés, cel care și-a schimbat sutana de popă tocmai pentru ca să poată să acționeze, prin toate mijloacele, împotriva țării în care s-a născut și al cărei cetățean este, nu reușește să se împace cu ideea că este un trădător de neam"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.88,
+            "rationale_short": "Etichetarea unui lider politic drept „trădător de neam” depășește critica politică și vizează delegitimarea sa fundamentală."
+          }
+        ],
+        "rationale": "Discursul conține elemente clare de anti-pluralism, în special prin utilizarea retoricii de tip „minoritate parazită” și delegitimarea unui lider politic prin acuzația de trădare de neam. Deși discursul este structurat ca o critică politică la adresa unor acțiuni specifice (marșuri, declarații ale lui László Tökés), limbajul utilizat pentru a descrie minoritatea maghiară și opoziția politică depășește cadrul democratic de contestare. Totuși, discursul nu atacă instituțiile democratice ca întreg (judiciar, presă, ONG-uri) și nu respinge normele democratice, rămânând la nivelul unui discurs naționalist-populist cu accente anti-pluraliste punctuale. Scor 1, reflectând prezența unor momente anti-pluraliste într-un discurs care nu este un manifest anti-pluralist structural."
+      },
+      "raw_response": "{\n  \"score\": 1,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"vparty@2020 + vdem-attacks-on@v13\",\n  \"framework_confidence\": 0.85,\n  \"markers\": [\n    {\n      \"kind\": \"minority_scapegoating\",\n      \"evidence\": {\n        \"text\": \"Nu înțeleg de ce tot încearcă să radicalizee o populație care este finanțată și protejată de statul român pe banii românilor și ai celorlalte naționalități care trăiesc în România\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Folosește cadrul de „populație finanțată și protejată pe banii românilor” pentru a sugera o parazitare a statului de către minoritatea maghiară.\"\n    },\n    {\n      \"kind\": \"opposition_delegitimization\",\n      \"evidence\": {\n        \"text\": \"László Tökés, cel care și-a schimbat sutana de popă tocmai pentru ca să poată să acționeze, prin toate mijloacele, împotriva țării în care s-a născut și al cărei cetățean este, nu reușește să se împace cu ideea că este un trădător de neam\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Etichetarea unui lider politic drept „trădător de neam” depășește critica politică și vizează delegitimarea sa fundamentală.\"\n    }\n  ],\n  \"rationale\": \"Discursul conține elemente clare de anti-pluralism, în special prin utilizarea retoricii de tip „minoritate parazită” și delegitimarea unui lider politic prin acuzația de trădare de neam. Deși discursul este structurat ca o critică politică la adresa unor acțiuni specifice (marșuri, declarații ale lui László Tökés), limbajul utilizat pentru a descrie minoritatea maghiară și opoziția politică depășește cadrul democratic de contestare. Totuși, discursul nu atacă instituțiile democratice ca întreg (judiciar, presă, ONG-uri) și nu respinge normele democratice, rămânând la nivelul unui discurs naționalist-populist cu accente anti-pluraliste punctuale. Scor 1, reflectând prezența unor momente anti-pluraliste într-un discurs care nu este un manifest anti-pluralist structural.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [
+        "Nu înțeleg de ce tot încearcă să radicalizee o populație care este finanțată și protejată de statul român pe banii românilor și ai celorlalte naționalități care trăiesc în România"
+      ],
+      "parse_repaired": false,
+      "tokens_in": 13770,
+      "tokens_in_breakdown": {
+        "fresh": 13770,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 683,
+      "cost_usd": null,
+      "latency_ms": 3534,
+      "retries_used": 0
+    }
+  }
+}

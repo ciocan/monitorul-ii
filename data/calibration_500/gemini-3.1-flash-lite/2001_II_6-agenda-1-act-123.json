@@ -1,0 +1,152 @@
+{
+  "speech_id": "mo://2001/II/6#agenda-1#act-123",
+  "tier": "calibration",
+  "speaker": {
+    "id": "moise-vasile",
+    "name": "Vasile Moiº",
+    "raw": "Domnul Vasile Moiº",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": null,
+    "year": 2001,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2001/II/6#agenda-1#act-123",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul este pur procedural, concentrându-se exclusiv pe tehnica legislativă și redactarea corectă a unui articol de lege. Vorbitorul propune o reformulare a textului pentru claritate juridică, fără a invoca vreun cadru populist, maniheist sau de opoziție între popor și elită. Menționarea „participării directe a cetățenilor” este făcută în contextul tehnic al procedurilor de consultare prevăzute de lege, nu ca o invocare a supremației voinței populare asupra instituțiilor. Discursul nu conține niciun element populist, încadrându-se perfect în registrul dezbaterii parlamentare tehnice."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul este pur procedural, concentrându-se exclusiv pe tehnica legislativă și redactarea corectă a unui articol de lege. Vorbitorul propune o reformulare a textului pentru claritate juridică, fără a invoca vreun cadru populist, maniheist sau de opoziție între popor și elită. Menționarea „participării directe a cetățenilor” este făcută în contextul tehnic al procedurilor de consultare prevăzute de lege, nu ca o invocare a supremației voinței populare asupra instituțiilor. Discursul nu conține niciun element populist, încadrându-se perfect în registrul dezbaterii parlamentare tehnice.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13760,
+      "tokens_in_breakdown": {
+        "fresh": 13760,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 223,
+      "cost_usd": null,
+      "latency_ms": 2018,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2001/II/6#agenda-1#act-123",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.88,
+        "level_of_justification": 2,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "alternative_proposal",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "Aºa cum este formulat: ”Dispoziþiile alin. 2 nu aduc atingere...Ò nu este de esenþa redactãrii textelor legale ºi de aceea noi nu ne opunem în ceea ce priveºte fondul articolului, dar ni se pare cã redactarea nu este corectã."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Vorbitorul oferă o justificare specifică bazată pe tehnica legislativă pentru a susține amendamentul de redactare."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "Aplicarea dispoziþiilor alin. 2 nu trebuie sã aducã atingere posibilitãþii de a recurge la consultarea locuitorilor prin referendum sau orice altã formã de participare directã a cetãþenilor la treburile publice"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Justificarea vizează claritatea legii și drepturile cetățenești, servind interesul general al calității legislative."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Domnilor colegi"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.99,
+            "marker_confidence": 0.9,
+            "rationale_short": "Adresare convențională neutră; nu există referințe la grupuri care să indice respect sau dispreț."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "noi nu ne opunem în ceea ce priveºte fondul articolului"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Vorbitorul acceptă fondul propunerii, dar nu angajează cererile opoziției în mod deliberativ."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "ni se pare cã redactarea nu este corectã"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.8,
+            "rationale_short": "Vorbitorul identifică o problemă de redactare fără a fi angajat într-o dezbatere cu un contraargument specific."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "alternative_proposal",
+            "evidence": {
+              "text": "v-am propune o reamenajare topicã: ”Aplicarea dispoziþiilor alin. 2 nu trebuie sã aducã atingere posibilitãþii de a recurge la consultarea locuitorilor...Ò"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.96,
+            "rationale_short": "Vorbitorul propune un amendament concret de redactare pentru a îmbunătăți textul legislativ."
+          }
+        ],
+        "rationale": "Discursul este unul tehnic și constructiv, axat pe îmbunătățirea calității redactării legislative fără a contesta fondul politic al inițiativei. Vorbitorul oferă o justificare calificată (level_of_justification=2) bazată pe norme de tehnică legislativă, orientată către binele comun (content_of_justification=common_good). Deși respectul pentru grupuri și cereri rămâne neutru (1), discursul este explicit constructiv prin propunerea unui amendament de redactare (constructive_politics=alternative_proposal). Nu există un angajament cu contraargumente deoarece nu există o opoziție pe fond, ceea ce explică scorul de 1 pentru respect_for_counterarguments. Calitatea deliberativă este ridicată în contextul unei intervenții de procedură."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.88,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"alternative_proposal\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"Aºa cum este formulat: ”Dispoziþiile alin. 2 nu aduc atingere...Ò nu este de esenþa redactãrii textelor legale ºi de aceea noi nu ne opunem în ceea ce priveºte fondul articolului, dar ni se pare cã redactarea nu este corectã.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Vorbitorul oferă o justificare specifică bazată pe tehnica legislativă pentru a susține amendamentul de redactare.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"Aplicarea dispoziþiilor alin. 2 nu trebuie sã aducã atingere posibilitãþii de a recurge la consultarea locuitorilor prin referendum sau orice altã formã de participare directã a cetãþenilor la treburile publice\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Justificarea vizează claritatea legii și drepturile cetățenești, servind interesul general al calității legislative.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Domnilor colegi\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.99,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Adresare convențională neutră; nu există referințe la grupuri care să indice respect sau dispreț.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"noi nu ne opunem în ceea ce priveºte fondul articolului\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Vorbitorul acceptă fondul propunerii, dar nu angajează cererile opoziției în mod deliberativ.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"ni se pare cã redactarea nu este corectã\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.8,\n      \"rationale_short\": \"Vorbitorul identifică o problemă de redactare fără a fi angajat într-o dezbatere cu un contraargument specific.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"alternative_proposal\",\n      \"evidence\": {\n        \"text\": \"v-am propune o reamenajare topicã: ”Aplicarea dispoziþiilor alin. 2 nu trebuie sã aducã atingere posibilitãþii de a recurge la consultarea locuitorilor...Ò\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.96,\n      \"rationale_short\": \"Vorbitorul propune un amendament concret de redactare pentru a îmbunătăți textul legislativ.\"\n    }\n  ],\n  \"rationale\": \"Discursul este unul tehnic și constructiv, axat pe îmbunătățirea calității redactării legislative fără a contesta fondul politic al inițiativei. Vorbitorul oferă o justificare calificată (level_of_justification=2) bazată pe norme de tehnică legislativă, orientată către binele comun (content_of_justification=common_good). Deși respectul pentru grupuri și cereri rămâne neutru (1), discursul este explicit constructiv prin propunerea unui amendament de redactare (constructive_politics=alternative_proposal). Nu există un angajament cu contraargumente deoarece nu există o opoziție pe fond, ceea ce explică scorul de 1 pentru respect_for_counterarguments. Calitatea deliberativă este ridicată în contextul unei intervenții de procedură.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [
+        "Aºa cum este formulat: ”Dispoziþiile alin. 2 nu aduc atingere...Ò nu este de esenþa redactãrii textelor legale ºi de aceea noi nu ne opunem în ceea ce priveºte fondul articolului, dar ni se pare cã redactarea nu este corectã."
+      ],
+      "parse_repaired": false,
+      "tokens_in": 12561,
+      "tokens_in_breakdown": {
+        "fresh": 12561,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1302,
+      "cost_usd": null,
+      "latency_ms": 4642,
+      "retries_used": 0
+    }
+  }
+}

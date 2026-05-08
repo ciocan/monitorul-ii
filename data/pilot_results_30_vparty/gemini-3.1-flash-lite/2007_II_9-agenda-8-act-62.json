@@ -1,0 +1,85 @@
+{
+  "speech_id": "mo://2007/II/9#agenda-8#act-62",
+  "tier": "populist",
+  "speaker": {
+    "id": "tudor-corneliu-vadim",
+    "name": "Corneliu Vadim Tudor",
+    "raw": "Domnul Corneliu Vadim Tudor",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": null,
+    "year": 2007,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": null,
+    "voice": null,
+    "dqi": null,
+    "vparty": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "vparty",
+      "speech_id": "mo://2007/II/9#agenda-8#act-62",
+      "output": {
+        "score": 2,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "vparty@2020 + vdem-attacks-on@v13",
+        "framework_confidence": 0.95,
+        "markers": [
+          {
+            "kind": "judiciary_attack",
+            "evidence": {
+              "text": "D.N.A. a devenit un organ de constr‚ngere Ón m‚na mafiei aflate la putere"
+            },
+            "preliminary_voice": "quoted",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "DNA este delegitimizat ca organ de constrângere al mafiei; citat folosit pentru a susține atacul."
+          },
+          {
+            "kind": "judiciary_attack",
+            "evidence": {
+              "text": "D.N.A., aceast„ dictatur„ a procurorilor care aresteaz„ politicieni la comand„"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.95,
+            "rationale_short": "Vorbitorul etichetează DNA drept dictatură a procurorilor, delegitimând instituția ca clasă."
+          },
+          {
+            "kind": "judiciary_attack",
+            "evidence": {
+              "text": "nu ne vorbeasc„ nou„ de independen˛a justi˛iei"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.85,
+            "rationale_short": "Atac direct asupra independenței justiției ca principiu și instituție."
+          }
+        ],
+        "rationale": "Discursul este un atac susținut și pervasiv asupra instituțiilor judiciare, în special DNA, pe care vorbitorul le delegitimează ca fiind instrumente ale unei „mafii” sau „dictaturi a procurorilor”. Deși o parte din argumentație este prezentată sub formă de citat, vorbitorul își însușește cadrul anti-pluralist prin comentarii directe și acuzații de imixtiune politică la nivel înalt (Cotroceni). Structura discursului depinde în întregime de delegitimarea justiției ca instituție independentă, încadrându-se astfel în categoria scorului 2. Nu există nicio tentativă de a aborda problema prin proceduri democratice, ci doar prin denunțarea totală a sistemului judiciar."
+      },
+      "raw_response": "{\n  \"score\": 2,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"vparty@2020 + vdem-attacks-on@v13\",\n  \"framework_confidence\": 0.95,\n  \"markers\": [\n    {\n      \"kind\": \"judiciary_attack\",\n      \"evidence\": {\n        \"text\": \"D.N.A. a devenit un organ de constr‚ngere Ón m‚na mafiei aflate la putere\"\n      },\n      \"preliminary_voice\": \"quoted\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"DNA este delegitimizat ca organ de constrângere al mafiei; citat folosit pentru a susține atacul.\"\n    },\n    {\n      \"kind\": \"judiciary_attack\",\n      \"evidence\": {\n        \"text\": \"D.N.A., aceast„ dictatur„ a procurorilor care aresteaz„ politicieni la comand„\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Vorbitorul etichetează DNA drept dictatură a procurorilor, delegitimând instituția ca clasă.\"\n    },\n    {\n      \"kind\": \"judiciary_attack\",\n      \"evidence\": {\n        \"text\": \"nu ne vorbeasc„ nou„ de independen˛a justi˛iei\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Atac direct asupra independenței justiției ca principiu și instituție.\"\n    }\n  ],\n  \"rationale\": \"Discursul este un atac susținut și pervasiv asupra instituțiilor judiciare, în special DNA, pe care vorbitorul le delegitimează ca fiind instrumente ale unei „mafii” sau „dictaturi a procurorilor”. Deși o parte din argumentație este prezentată sub formă de citat, vorbitorul își însușește cadrul anti-pluralist prin comentarii directe și acuzații de imixtiune politică la nivel înalt (Cotroceni). Structura discursului depinde în întregime de delegitimarea justiției ca instituție independentă, încadrându-se astfel în categoria scorului 2. Nu există nicio tentativă de a aborda problema prin proceduri democratice, ci doar prin denunțarea totală a sistemului judiciar.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [
+        "D.N.A., aceast„ dictatur„ a procurorilor care aresteaz„ politicieni la comand„"
+      ],
+      "parse_repaired": false,
+      "tokens_in": 11483,
+      "tokens_in_breakdown": {
+        "fresh": 11483,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 663,
+      "cost_usd": null,
+      "latency_ms": 3573,
+      "retries_used": 0
+    }
+  }
+}

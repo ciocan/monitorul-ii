@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2012/II/97#agenda-1#act-3",
+  "tier": "calibration",
+  "speaker": {
+    "id": "filip-petru",
+    "name": "Petru Filip",
+    "raw": "Domnul Petru Filip",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": "2012-10-10",
+    "year": 2012,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2012/II/97#agenda-1#act-3",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul este unul comemorativ, axat pe responsabilitate morală, asumarea istoriei și promovarea valorilor democratice precum toleranța și solidaritatea. Nu există nicio tentativă de a construi un cadru maniheist popor-vs-elită, nicio invocare a unei voințe populare omogene care să se opună instituțiilor și nicio retorică populistă. Vorbitorul se înscrie într-un registru instituțional și etic, recunoscând complexitatea istoriei și necesitatea educației, ceea ce este diametral opus viziunii populiste. Hawkins=0 cu încredere ridicată."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul este unul comemorativ, axat pe responsabilitate morală, asumarea istoriei și promovarea valorilor democratice precum toleranța și solidaritatea. Nu există nicio tentativă de a construi un cadru maniheist popor-vs-elită, nicio invocare a unei voințe populare omogene care să se opună instituțiilor și nicio retorică populistă. Vorbitorul se înscrie într-un registru instituțional și etic, recunoscând complexitatea istoriei și necesitatea educației, ceea ce este diametral opus viziunii populiste. Hawkins=0 cu încredere ridicată.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 14140,
+      "tokens_in_breakdown": {
+        "fresh": 14140,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 217,
+      "cost_usd": null,
+      "latency_ms": 2027,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2012/II/97#agenda-1#act-3",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.85,
+        "level_of_justification": 2,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 2,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "Este singura soluție de a merge mai departe pe calea europeană a societăților democratice, prin asumarea trecutului și cinstirea memoriei victimelor."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Justificare calificată prin legătura cauzală între asumarea istorică și calea democratică europeană."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "Celebrarea și ocrotirea vieții sunt mai importante decât orice."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Apel universal la valoarea vieții și a memoriei colective, dincolo de interese de grup."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 2,
+            "evidence": {
+              "text": "A avut puterea de a-și asuma, în mod public, ororile pe care statul român le-a întreprins asupra propriilor cetățeni evrei și romi."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.94,
+            "rationale_short": "Recunoaștere explicită a demnității victimelor și a responsabilității statului față de minorități."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Comemorarea Zilei Naționale a Holocaustului rămâne, fără îndoială, actul de responsabilitate morală"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Discursul este unul omagial, nu răspunde unor cereri politice adverse; neutru implicit."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "Avem obligația să înțelegem istoria și nu avem dreptul s-o mistificăm."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.88,
+            "rationale_short": "Referire implicită la curente negaționiste fără a angaja un argument specific al opoziției."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Trebuie să continuăm, prin propriile mijloace, ale cunoașterii, și prin educație în special, să împărtășim copiilor noștri și generațiilor care vor urma adevărul"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Discursul promovează o poziție morală și educativă, fără a propune o alternativă legislativă."
+          }
+        ],
+        "rationale": "Discursul este unul de natură comemorativă, caracterizat printr-o calitate deliberativă ridicată în ceea ce privește respectul pentru minorități și justificarea morală. Vorbitorul oferă o justificare calificată (level_of_justification=2) pentru importanța asumării istorice, ancorată în binele comun (content_of_justification=common_good). Respectul pentru grupurile afectate (evrei și romi) este explicit și demn (respect_for_groups=2). Deoarece discursul nu este unul de dezbatere legislativă contradictorie, dimensiunile privind respectul pentru cereri și contraargumente rămân neutre (1), iar caracterul constructiv este pozițional, axat pe promovarea valorilor educaționale. Discursul este coerent, sobru și respectă standardele deliberative pentru acest tip de intervenție solemnă."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.85,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 2,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"Este singura soluție de a merge mai departe pe calea europeană a societăților democratice, prin asumarea trecutului și cinstirea memoriei victimelor.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Justificare calificată prin legătura cauzală între asumarea istorică și calea democratică europeană.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"Celebrarea și ocrotirea vieții sunt mai importante decât orice.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Apel universal la valoarea vieții și a memoriei colective, dincolo de interese de grup.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"A avut puterea de a-și asuma, în mod public, ororile pe care statul român le-a întreprins asupra propriilor cetățeni evrei și romi.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.94,\n      \"rationale_short\": \"Recunoaștere explicită a demnității victimelor și a responsabilității statului față de minorități.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Comemorarea Zilei Naționale a Holocaustului rămâne, fără îndoială, actul de responsabilitate morală\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Discursul este unul omagial, nu răspunde unor cereri politice adverse; neutru implicit.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Avem obligația să înțelegem istoria și nu avem dreptul s-o mistificăm.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Referire implicită la curente negaționiste fără a angaja un argument specific al opoziției.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"Trebuie să continuăm, prin propriile mijloace, ale cunoașterii, și prin educație în special, să împărtășim copiilor noștri și generațiilor care vor urma adevărul\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.90,\n      \"rationale_short\": \"Discursul promovează o poziție morală și educativă, fără a propune o alternativă legislativă.\"\n    }\n  ],\n  \"rationale\": \"Discursul este unul de natură comemorativă, caracterizat printr-o calitate deliberativă ridicată în ceea ce privește respectul pentru minorități și justificarea morală. Vorbitorul oferă o justificare calificată (level_of_justification=2) pentru importanța asumării istorice, ancorată în binele comun (content_of_justification=common_good). Respectul pentru grupurile afectate (evrei și romi) este explicit și demn (respect_for_groups=2). Deoarece discursul nu este unul de dezbatere legislativă contradictorie, dimensiunile privind respectul pentru cereri și contraargumente rămân neutre (1), iar caracterul constructiv este pozițional, axat pe promovarea valorilor educaționale. Discursul este coerent, sobru și respectă standardele deliberative pentru acest tip de intervenție solemnă.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12941,
+      "tokens_in_breakdown": {
+        "fresh": 12941,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1268,
+      "cost_usd": null,
+      "latency_ms": 7110,
+      "retries_used": 0
+    }
+  }
+}

@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2003/II/106#agenda-4#act-102",
+  "tier": "calibration",
+  "speaker": {
+    "id": null,
+    "name": "Ráduly Róbert Kálmán",
+    "raw": "Domnul Ráduly Róbert Kálmán",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": null,
+    "session_date": null,
+    "year": 2003,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2003/II/106#agenda-4#act-102",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.95,
+        "markers": [],
+        "rationale": "Discursul este unul tehnic și procedural, axat pe analiza eficienței bugetare, a restructurării sistemului de învățământ și a problemelor economice ale întreprinderii ARO din Câmpulung. Deși vorbitorul folosește un ton critic la adresa modului în care Guvernul a gestionat aceste probleme (menționând „o minte luminată” sau „inevitabilul”), acesta nu construiește un cadru maniheist popor-vs-elită, nu invocă o voință populară omogenă și nu recurge la retorică populistă. Argumentația rămâne ancorată în realități economice și administrative, fără a transforma conflictul politic într-o luptă existențială sau morală. Prin urmare, discursul se încadrează în registrul dezbaterii parlamentare standard, primind scorul 0."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.95,\n  \"markers\": [],\n  \"rationale\": \"Discursul este unul tehnic și procedural, axat pe analiza eficienței bugetare, a restructurării sistemului de învățământ și a problemelor economice ale întreprinderii ARO din Câmpulung. Deși vorbitorul folosește un ton critic la adresa modului în care Guvernul a gestionat aceste probleme (menționând „o minte luminată” sau „inevitabilul”), acesta nu construiește un cadru maniheist popor-vs-elită, nu invocă o voință populară omogenă și nu recurge la retorică populistă. Argumentația rămâne ancorată în realități economice și administrative, fără a transforma conflictul politic într-o luptă existențială sau morală. Prin urmare, discursul se încadrează în registrul dezbaterii parlamentare standard, primind scorul 0.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 14472,
+      "tokens_in_breakdown": {
+        "fresh": 14472,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 270,
+      "cost_usd": null,
+      "latency_ms": 2186,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2003/II/106#agenda-4#act-102",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.82,
+        "level_of_justification": 2,
+        "content_of_justification": "mixed",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "constat c„ la nivelul bugetului local nu mai avem sursele necesare ca s„ acoperim cheltuielile legate de func˛ionarea acestor midibuze."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Vorbitorul oferă o justificare cauzală specifică legată de ineficiența bugetară locală a programului."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "mixed",
+            "evidence": {
+              "text": "din punct de vedere al cheltuirii banului public, nu mai sunt eficiente aceste ∫coli."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Justificarea combină interesul pentru eficiența banului public (bine comun) cu preocupări specifice pentru comunitățile locale (grup)."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "colegul din Arge∫, care a vorbit Ón numele P.U.N.R."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Referință neutră la un coleg și partidul său; nicio derogare sau respect explicit."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Guvernul Óncearc„ s-o tempereze de pe o zi pe alta, Óns„, a∫a cum ∫tim cu to˛ii, nu asta este solu˛ia."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.88,
+            "rationale_short": "Vorbitorul respinge soluția Guvernului fără a angaja legitimitatea cererii lor; non-angajament."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "colegul din Arge∫, care a vorbit Ón numele P.U.N.R., a pus punctul pe îi“."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.82,
+            "rationale_short": "Menționează argumentul colegului, dar nu îl reia sau combate substanțial; recunoaștere superficială."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "nu cred c„ noi suntem suficient de boga˛i ∫i suficient de puternici ca s„-i ˛inem pe ace∫ti oameni doar cu sprijin bugetar la locul de munc„."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.91,
+            "rationale_short": "Vorbitorul își exprimă poziția critică fără a oferi o alternativă legislativă concretă."
+          }
+        ],
+        "rationale": "Discursul prezintă o calitate deliberativă medie, caracterizată printr-o justificare calificată (level_of_justification=2) bazată pe ineficiența bugetară locală, apelând la un mix de bine comun și interese locale. Vorbitorul rămâne în zona pozițională (constructive_politics=positional), criticând măsurile Guvernului fără a propune un amendament sau o soluție alternativă concretă. Respectul pentru grupuri și cereri este neutru, iar angajamentul cu contraargumentele este limitat la o mențiune superficială a colegului din Argeș. Profilul este cel al unei critici parlamentare informate, dar care nu avansează deliberarea prin mediere sau propuneri alternative."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.82,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"mixed\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"constat c„ la nivelul bugetului local nu mai avem sursele necesare ca s„ acoperim cheltuielile legate de func˛ionarea acestor midibuze.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Vorbitorul oferă o justificare cauzală specifică legată de ineficiența bugetară locală a programului.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"mixed\",\n      \"evidence\": {\n        \"text\": \"din punct de vedere al cheltuirii banului public, nu mai sunt eficiente aceste ∫coli.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Justificarea combină interesul pentru eficiența banului public (bine comun) cu preocupări specifice pentru comunitățile locale (grup).\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"colegul din Arge∫, care a vorbit Ón numele P.U.N.R.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Referință neutră la un coleg și partidul său; nicio derogare sau respect explicit.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Guvernul Óncearc„ s-o tempereze de pe o zi pe alta, Óns„, a∫a cum ∫tim cu to˛ii, nu asta este solu˛ia.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Vorbitorul respinge soluția Guvernului fără a angaja legitimitatea cererii lor; non-angajament.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"colegul din Arge∫, care a vorbit Ón numele P.U.N.R., a pus punctul pe îi“.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.82,\n      \"rationale_short\": \"Menționează argumentul colegului, dar nu îl reia sau combate substanțial; recunoaștere superficială.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"nu cred c„ noi suntem suficient de boga˛i ∫i suficient de puternici ca s„-i ˛inem pe ace∫ti oameni doar cu sprijin bugetar la locul de munc„.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.91,\n      \"rationale_short\": \"Vorbitorul își exprimă poziția critică fără a oferi o alternativă legislativă concretă.\"\n    }\n  ],\n  \"rationale\": \"Discursul prezintă o calitate deliberativă medie, caracterizată printr-o justificare calificată (level_of_justification=2) bazată pe ineficiența bugetară locală, apelând la un mix de bine comun și interese locale. Vorbitorul rămâne în zona pozițională (constructive_politics=positional), criticând măsurile Guvernului fără a propune un amendament sau o soluție alternativă concretă. Respectul pentru grupuri și cereri este neutru, iar angajamentul cu contraargumentele este limitat la o mențiune superficială a colegului din Argeș. Profilul este cel al unei critici parlamentare informate, dar care nu avansează deliberarea prin mediere sau propuneri alternative.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13273,
+      "tokens_in_breakdown": {
+        "fresh": 13273,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1249,
+      "cost_usd": null,
+      "latency_ms": 4411,
+      "retries_used": 0
+    }
+  }
+}

@@ -1,0 +1,194 @@
+{
+  "speech_id": "mo://2008/II/26#agenda-1#act-42",
+  "tier": "calibration",
+  "speaker": {
+    "id": "vraciu-jan",
+    "name": "Jan Vraciu",
+    "raw": "Domnul Jan Vraciu",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": "2008-03-10",
+    "year": 2008,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2008/II/26#agenda-1#act-42",
+      "output": {
+        "score": 1,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.85,
+        "markers": [
+          {
+            "kind": "evil_elite",
+            "evidence": {
+              "text": "toate acestea doar pentru a scoate din sistem persoanele indezirabile din punct de vedere politic și pentru a face loc clientelei"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.85,
+            "rationale_short": "Elita politică este acuzată de acțiuni deliberate pentru a elimina opoziția și a favoriza clientela politică."
+          }
+        ],
+        "rationale": "Discursul este predominant tehnic, concentrându-se pe reorganizarea Gărzii Naționale de Mediu, procedurile de infringement ale UE și comparația administrativă cu ANPC. Deși vorbitorul utilizează un limbaj critic la adresa guvernului, acesta rămâne în mare parte în registrul analizei administrative și al criticii de politici publice. Totuși, spre final, discursul pivotează către o retorică populistă prin acuzarea explicită a guvernului de eliminare a persoanelor indezirabile și favorizarea clientelei politice, marcând o tranziție către un cadru de elită malefică. Deoarece acest element populist apare ca o concluzie a unei argumentații tehnice și nu constituie întreaga structură a discursului, scorul 1 este cel mai adecvat."
+      },
+      "raw_response": "{\n  \"score\": 1,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.85,\n  \"markers\": [\n    {\n      \"kind\": \"evil_elite\",\n      \"evidence\": {\n        \"text\": \"toate acestea doar pentru a scoate din sistem persoanele indezirabile din punct de vedere politic și pentru a face loc clientelei\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Elita politică este acuzată de acțiuni deliberate pentru a elimina opoziția și a favoriza clientela politică.\"\n    }\n  ],\n  \"rationale\": \"Discursul este predominant tehnic, concentrându-se pe reorganizarea Gărzii Naționale de Mediu, procedurile de infringement ale UE și comparația administrativă cu ANPC. Deși vorbitorul utilizează un limbaj critic la adresa guvernului, acesta rămâne în mare parte în registrul analizei administrative și al criticii de politici publice. Totuși, spre final, discursul pivotează către o retorică populistă prin acuzarea explicită a guvernului de eliminare a persoanelor indezirabile și favorizarea clientelei politice, marcând o tranziție către un cadru de elită malefică. Deoarece acest element populist apare ca o concluzie a unei argumentații tehnice și nu constituie întreaga structură a discursului, scorul 1 este cel mai adecvat.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 14410,
+      "tokens_in_breakdown": {
+        "fresh": 14410,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 395,
+      "cost_usd": null,
+      "latency_ms": 2506,
+      "retries_used": 0
+    },
+    "voice": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "voice",
+      "speech_id": "mo://2008/II/26#agenda-1#act-42",
+      "output": {
+        "classifications": [
+          {
+            "marker_id": "m_0",
+            "voice": "speaker_first_person",
+            "voice_confidence": 0.95,
+            "voice_evidence": null,
+            "attributed_to": null,
+            "rationale_short": "Afirmație directă a vorbitorului, fără indicii de citare, raportare sau disclaimer; vorbitorul își asumă responsabilitatea pentru această interpretare a acțiunilor guvernului."
+          }
+        ]
+      },
+      "raw_response": "{\n  \"classifications\": [\n    {\n      \"marker_id\": \"m_0\",\n      \"voice\": \"speaker_first_person\",\n      \"voice_confidence\": 0.95,\n      \"voice_evidence\": null,\n      \"attributed_to\": null,\n      \"rationale_short\": \"Afirmație directă a vorbitorului, fără indicii de citare, raportare sau disclaimer; vorbitorul își asumă responsabilitatea pentru această interpretare a acțiunilor guvernului.\"\n    }\n  ]\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 11967,
+      "tokens_in_breakdown": {
+        "fresh": 11967,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 128,
+      "cost_usd": null,
+      "latency_ms": 1154,
+      "retries_used": 0
+    },
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2008/II/26#agenda-1#act-42",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.85,
+        "level_of_justification": 2,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "Garda Națională de Mediu nu mai poate amenda pe nimeni din cauza Hotărârii Guvernului nr. 1.224/2007. În procesul-verbal scrie că „plângerea împreună cu procesul-verbal se depun la Garda de Mediu”. Potrivit legii, plângerea se depune în instanță, nu la cel care a dat sancțiunea"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Vorbitorul oferă o justificare bazată pe o contradicție legislativă specifică (HG 1.224/2007 vs. legea privind instanța)."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "Uniunea Europeană a deschis deja mai multe proceduri de infringement asupra României pe probleme de mediu, care se pot solda cu amenzi de zeci de milioane de euro."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.9,
+            "rationale_short": "Justificarea se ancorează în interesul public (evitarea amenzilor UE și protecția mediului), nu în interese de grup."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Guvernul Tăriceanu"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.85,
+            "rationale_short": "Referință critică la guvern, dar fără a depăși limitele discursului politic standard; neutru."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "interesul Cabinetului Tăriceanu pentru acest domeniu este zero"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.96,
+            "marker_confidence": 0.88,
+            "rationale_short": "Vorbitorul ignoră cererile sau justificările guvernului, concentrându-se pe propria critică."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "Ar trebui să credem că mărirea eficienței acțiunilor de control asupra poluatorilor a fost cea care a dus la această criză în instituție."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.89,
+            "rationale_short": "Menționează argumentul guvernului (eficiența), dar îl respinge retoric fără o analiză substanțială."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Declarația mea politică de astăzi se va referi la funcționarea unei instituții deosebit de importante pentru protecția mediului"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Discursul este o critică pozițională a acțiunilor guvernului, fără a propune o alternativă legislativă concretă."
+          }
+        ],
+        "rationale": "Discursul prezintă o critică detaliată a reorganizării Gărzii Naționale de Mediu, susținută de o justificare calificată (level_of_justification=2) prin citarea unor acte normative specifice (HG 1.224/2007) și a riscurilor de infringement. Apelul la binele comun (protecția mediului și evitarea amenzilor UE) conferă o notă de legitimitate argumentației. Totuși, discursul rămâne în sfera pozițională (constructive_politics=positional), fără a oferi o soluție alternativă sau un compromis. Respectul pentru grupuri și cereri este neutru, iar angajamentul cu contraargumentele guvernului este superficial, limitându-se la o respingere retorică. Calitatea deliberativă este medie, fiind un discurs de opoziție bine documentat, dar lipsit de deschidere constructivă."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.85,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"Garda Națională de Mediu nu mai poate amenda pe nimeni din cauza Hotărârii Guvernului nr. 1.224/2007. În procesul-verbal scrie că „plângerea împreună cu procesul-verbal se depun la Garda de Mediu”. Potrivit legii, plângerea se depune în instanță, nu la cel care a dat sancțiunea\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Vorbitorul oferă o justificare bazată pe o contradicție legislativă specifică (HG 1.224/2007 vs. legea privind instanța).\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"Uniunea Europeană a deschis deja mai multe proceduri de infringement asupra României pe probleme de mediu, care se pot solda cu amenzi de zeci de milioane de euro.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Justificarea se ancorează în interesul public (evitarea amenzilor UE și protecția mediului), nu în interese de grup.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Guvernul Tăriceanu\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Referință critică la guvern, dar fără a depăși limitele discursului politic standard; neutru.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"interesul Cabinetului Tăriceanu pentru acest domeniu este zero\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.96,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Vorbitorul ignoră cererile sau justificările guvernului, concentrându-se pe propria critică.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Ar trebui să credem că mărirea eficienței acțiunilor de control asupra poluatorilor a fost cea care a dus la această criză în instituție.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"marker_confidence\": 0.89,\n      \"rationale_short\": \"Menționează argumentul guvernului (eficiența), dar îl respinge retoric fără o analiză substanțială.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"Declarația mea politică de astăzi se va referi la funcționarea unei instituții deosebit de importante pentru protecția mediului\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Discursul este o critică pozițională a acțiunilor guvernului, fără a propune o alternativă legislativă concretă.\"\n    }\n  ],\n  \"rationale\": \"Discursul prezintă o critică detaliată a reorganizării Gărzii Naționale de Mediu, susținută de o justificare calificată (level_of_justification=2) prin citarea unor acte normative specifice (HG 1.224/2007) și a riscurilor de infringement. Apelul la binele comun (protecția mediului și evitarea amenzilor UE) conferă o notă de legitimitate argumentației. Totuși, discursul rămâne în sfera pozițională (constructive_politics=positional), fără a oferi o soluție alternativă sau un compromis. Respectul pentru grupuri și cereri este neutru, iar angajamentul cu contraargumentele guvernului este superficial, limitându-se la o respingere retorică. Calitatea deliberativă este medie, fiind un discurs de opoziție bine documentat, dar lipsit de deschidere constructivă.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [
+        "Garda Națională de Mediu nu mai poate amenda pe nimeni din cauza Hotărârii Guvernului nr. 1.224/2007. În procesul-verbal scrie că „plângerea împreună cu procesul-verbal se depun la Garda de Mediu”. Potrivit legii, plângerea se depune în instanță, nu la cel care a dat sancțiunea"
+      ],
+      "parse_repaired": false,
+      "tokens_in": 13211,
+      "tokens_in_breakdown": {
+        "fresh": 13211,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1341,
+      "cost_usd": null,
+      "latency_ms": 5174,
+      "retries_used": 0
+    }
+  }
+}

@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2024/II/30#agenda-1#act-14",
+  "tier": "calibration",
+  "speaker": {
+    "id": "gudu-michael",
+    "name": "Michael Gudu",
+    "raw": "Domnul Michael Gudu",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2024-02-20",
+    "year": 2024,
+    "legislature": "IX",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2024/II/30#agenda-1#act-14",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul deputatului Michael Gudu este un discurs anti-populist, în care vorbitorul analizează și critică mecanismele extremismului și populismului politic. Deși textul conține termeni precum „populație”, „oameni” sau „elită”, aceștia sunt utilizați în contextul unei analize politologice și procedurale, nu pentru a construi un cadru maniheist popor-vs-elită. Vorbitorul nu invocă o voință populară omogenă ca autoritate supremă, ci pledează pentru consolidarea instituțiilor democratice și a statului de drept. Discursul se înscrie în registrul dezbaterii parlamentare constructive, fără a adopta el însuși o viziune populistă. Hawkins=0 cu încredere ridicată."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul deputatului Michael Gudu este un discurs anti-populist, în care vorbitorul analizează și critică mecanismele extremismului și populismului politic. Deși textul conține termeni precum „populație”, „oameni” sau „elită”, aceștia sunt utilizați în contextul unei analize politologice și procedurale, nu pentru a construi un cadru maniheist popor-vs-elită. Vorbitorul nu invocă o voință populară omogenă ca autoritate supremă, ci pledează pentru consolidarea instituțiilor democratice și a statului de drept. Discursul se înscrie în registrul dezbaterii parlamentare constructive, fără a adopta el însuși o viziune populistă. Hawkins=0 cu încredere ridicată.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 14214,
+      "tokens_in_breakdown": {
+        "fresh": 14214,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 254,
+      "cost_usd": null,
+      "latency_ms": 2030,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2024/II/30#agenda-1#act-14",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.82,
+        "level_of_justification": 2,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "alternative_proposal",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "Una dintre cele mai grave consecințe ale extremismului politic o reprezintă polarizarea excesivă a societății, care duce la divizarea populației în tabere antagoniste, slăbește coeziunea socială și inhibă dialogul constructiv în procesul politic."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Vorbitorul oferă o justificare bazată pe mecanisme cauzale clare privind impactul extremismului asupra coeziunii sociale."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "Combaterea extremismului din politica românească trebuie să constituie preocuparea fiecăruia dintre noi."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Apelul este universalizabil, vizând interesul general al societății și stabilitatea democratică."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Fenomenul populismului și extremismului politic a câștigat teren"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Referință neutră la fenomene politice; nu există derogare sau respect explicit pentru grupuri specifice."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Este nevoie de o legislație mai strictă împotriva incitării la ură"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.88,
+            "rationale_short": "Vorbitorul își promovează propria agendă legislativă fără a aborda cererile opoziției."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "Capcana discursului extremist constă în capacitatea acestuia de a manipula emoțiile și fricile oamenilor"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Vorbitorul ignoră raționamentele opoziției, concentrându-se pe caracterizarea negativă a extremismului."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "alternative_proposal",
+            "evidence": {
+              "text": "Este nevoie de o legislație mai strictă împotriva incitării la ură și a discursului violent, cu aplicare riguroasă în toate domeniile, inclusiv online."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.93,
+            "rationale_short": "Vorbitorul propune măsuri legislative concrete pentru combaterea fenomenului descris."
+          }
+        ],
+        "rationale": "Discursul prezintă o calitate deliberativă medie-ridicată, caracterizată printr-o justificare calificată (level_of_justification=2) care leagă riscurile extremismului de mecanisme sociale și diplomatice concrete. Apelul este orientat către binele comun (content_of_justification=common_good). Deși vorbitorul oferă propuneri legislative concrete (constructive_politics=alternative_proposal), acesta nu angajează contraargumente sau cereri ale opoziției, menținând o postură de monolog persuasiv. Respectul pentru grupuri și cereri rămâne neutru, neexistând atacuri directe, dar nici recunoașterea legitimității unor perspective adverse. Profilul este cel al unui discurs de avertizare politică, bine structurat, dar lipsit de dialog deliberativ."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.82,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 0,\n  \"constructive_politics\": \"alternative_proposal\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"Una dintre cele mai grave consecințe ale extremismului politic o reprezintă polarizarea excesivă a societății, care duce la divizarea populației în tabere antagoniste, slăbește coeziunea socială și inhibă dialogul constructiv în procesul politic.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Vorbitorul oferă o justificare bazată pe mecanisme cauzale clare privind impactul extremismului asupra coeziunii sociale.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"Combaterea extremismului din politica românească trebuie să constituie preocuparea fiecăruia dintre noi.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Apelul este universalizabil, vizând interesul general al societății și stabilitatea democratică.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Fenomenul populismului și extremismului politic a câștigat teren\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Referință neutră la fenomene politice; nu există derogare sau respect explicit pentru grupuri specifice.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Este nevoie de o legislație mai strictă împotriva incitării la ură\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Vorbitorul își promovează propria agendă legislativă fără a aborda cererile opoziției.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"Capcana discursului extremist constă în capacitatea acestuia de a manipula emoțiile și fricile oamenilor\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.90,\n      \"rationale_short\": \"Vorbitorul ignoră raționamentele opoziției, concentrându-se pe caracterizarea negativă a extremismului.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"alternative_proposal\",\n      \"evidence\": {\n        \"text\": \"Este nevoie de o legislație mai strictă împotriva incitării la ură și a discursului violent, cu aplicare riguroasă în toate domeniile, inclusiv online.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.93,\n      \"rationale_short\": \"Vorbitorul propune măsuri legislative concrete pentru combaterea fenomenului descris.\"\n    }\n  ],\n  \"rationale\": \"Discursul prezintă o calitate deliberativă medie-ridicată, caracterizată printr-o justificare calificată (level_of_justification=2) care leagă riscurile extremismului de mecanisme sociale și diplomatice concrete. Apelul este orientat către binele comun (content_of_justification=common_good). Deși vorbitorul oferă propuneri legislative concrete (constructive_politics=alternative_proposal), acesta nu angajează contraargumente sau cereri ale opoziției, menținând o postură de monolog persuasiv. Respectul pentru grupuri și cereri rămâne neutru, neexistând atacuri directe, dar nici recunoașterea legitimității unor perspective adverse. Profilul este cel al unui discurs de avertizare politică, bine structurat, dar lipsit de dialog deliberativ.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13015,
+      "tokens_in_breakdown": {
+        "fresh": 13015,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1249,
+      "cost_usd": null,
+      "latency_ms": 4808,
+      "retries_used": 0
+    }
+  }
+}

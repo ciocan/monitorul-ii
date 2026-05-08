@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2011/II/150#agenda-4#act-485",
+  "tier": "calibration",
+  "speaker": {
+    "id": "daea-petre",
+    "name": "Petre Daea",
+    "raw": "Domnul Petre Daea",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2011-12-13",
+    "year": 2011,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2011/II/150#agenda-4#act-485",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.95,
+        "markers": [],
+        "rationale": "Discursul domnului Petre Daea este un exemplu tipic de intervenție parlamentară procedurală și tehnică. Deși vorbitorul folosește un ton retoric ridicat și critică deciziile Guvernului (reducerea bugetului pentru agricultură, Ordonanța nr. 82), argumentația sa rămâne ancorată în detalii administrative, proceduri parlamentare și critici de politici publice. Nu există un cadru maniheist popor-vs-elită, nu se invocă o voință populară omogenă ca autoritate supremă și nu se construiește o dihotomie morală între bine și rău. Critica la adresa ministrului este una de competență și atitudine, nu una populistă. Prin urmare, discursul primește scorul 0."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.95,\n  \"markers\": [],\n  \"rationale\": \"Discursul domnului Petre Daea este un exemplu tipic de intervenție parlamentară procedurală și tehnică. Deși vorbitorul folosește un ton retoric ridicat și critică deciziile Guvernului (reducerea bugetului pentru agricultură, Ordonanța nr. 82), argumentația sa rămâne ancorată în detalii administrative, proceduri parlamentare și critici de politici publice. Nu există un cadru maniheist popor-vs-elită, nu se invocă o voință populară omogenă ca autoritate supremă și nu se construiește o dihotomie morală între bine și rău. Critica la adresa ministrului este una de competență și atitudine, nu una populistă. Prin urmare, discursul primește scorul 0.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 14517,
+      "tokens_in_breakdown": {
+        "fresh": 14517,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 250,
+      "cost_usd": null,
+      "latency_ms": 2170,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2011/II/150#agenda-4#act-485",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.82,
+        "level_of_justification": 2,
+        "content_of_justification": "mixed",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "alternative_proposal",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "Ați distrus sistemul de irigații, prin Ordonanța nr. 82 din 28 septembrie a acestui an, când ați redus din 5.100 de salariați din sistemul de îmbunătățiri funciare la 1.500, lăsând 3.500 de stații de punere sub presiune și de pompare fără paznici măcar."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Vorbitorul oferă o justificare bazată pe un mecanism cauzal specific și date concrete (Ordonanța 82, cifrele de personal)."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "mixed",
+            "evidence": {
+              "text": "nu înțeleg cum un domeniu extrem de important pentru țară nu poate fi apreciat ca atare în Guvern."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.85,
+            "rationale_short": "Justificarea îmbină interesul sectorial (agricultura) cu apelul la binele comun (importanța pentru țară)."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Domnilor miniștri"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.99,
+            "marker_confidence": 0.95,
+            "rationale_short": "Adresare convențională, neutră; nicio derogare sau respect explicit pentru out-group-uri."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Vă rog, procedural, să-mi îngăduiți, în litera și spiritul regulamentului, să ascult părerea ministrului finanțelor"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.88,
+            "rationale_short": "Cerere procedurală neutră; nu există angajament cu cererile politice adverse."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "V-am urmărit cu atenție și v-am apreciat atunci când cuvântul de specialist sau intervenția specialistului a dat nuanța practică a interpretării"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.82,
+            "rationale_short": "Recunoaștere formală a intervențiilor anterioare fără un angajament substanțial cu argumentele opoziției."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "alternative_proposal",
+            "evidence": {
+              "text": "am convenit să creștem bugetul la Ministerul Agriculturii."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.91,
+            "rationale_short": "Vorbitorul susține o propunere concretă de creștere bugetară convenită anterior în comisii."
+          }
+        ],
+        "rationale": "Discursul domnului Petre Daea prezintă o calitate deliberativă mixtă. Vorbitorul oferă o justificare calificată (level_of_justification=2) prin utilizarea unor date concrete și referințe legislative (Ordonanța 82), apelând la un amestec de interes sectorial și bine comun. Deși discursul este articulat, respectul pentru contraargumente și cereri rămâne la un nivel neutru (1), fiind mai degrabă o critică retorică decât un angajament substanțial cu raționamentul advers. Caracterul constructiv este prezent prin susținerea unei propuneri alternative de buget, însă tonul critic și observațiile personale la adresa ministrului limitează scorul de respect. Profilul este cel al unui discurs de opoziție angajat, dar marcat de o retorică personală care nu atinge idealul deliberativ."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.82,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"mixed\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"alternative_proposal\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"Ați distrus sistemul de irigații, prin Ordonanța nr. 82 din 28 septembrie a acestui an, când ați redus din 5.100 de salariați din sistemul de îmbunătățiri funciare la 1.500, lăsând 3.500 de stații de punere sub presiune și de pompare fără paznici măcar.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Vorbitorul oferă o justificare bazată pe un mecanism cauzal specific și date concrete (Ordonanța 82, cifrele de personal).\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"mixed\",\n      \"evidence\": {\n        \"text\": \"nu înțeleg cum un domeniu extrem de important pentru țară nu poate fi apreciat ca atare în Guvern.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Justificarea îmbină interesul sectorial (agricultura) cu apelul la binele comun (importanța pentru țară).\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Domnilor miniștri\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.99,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Adresare convențională, neutră; nicio derogare sau respect explicit pentru out-group-uri.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Vă rog, procedural, să-mi îngăduiți, în litera și spiritul regulamentului, să ascult părerea ministrului finanțelor\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Cerere procedurală neutră; nu există angajament cu cererile politice adverse.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"V-am urmărit cu atenție și v-am apreciat atunci când cuvântul de specialist sau intervenția specialistului a dat nuanța practică a interpretării\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"marker_confidence\": 0.82,\n      \"rationale_short\": \"Recunoaștere formală a intervențiilor anterioare fără un angajament substanțial cu argumentele opoziției.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"alternative_proposal\",\n      \"evidence\": {\n        \"text\": \"am convenit să creștem bugetul la Ministerul Agriculturii.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.91,\n      \"rationale_short\": \"Vorbitorul susține o propunere concretă de creștere bugetară convenită anterior în comisii.\"\n    }\n  ],\n  \"rationale\": \"Discursul domnului Petre Daea prezintă o calitate deliberativă mixtă. Vorbitorul oferă o justificare calificată (level_of_justification=2) prin utilizarea unor date concrete și referințe legislative (Ordonanța 82), apelând la un amestec de interes sectorial și bine comun. Deși discursul este articulat, respectul pentru contraargumente și cereri rămâne la un nivel neutru (1), fiind mai degrabă o critică retorică decât un angajament substanțial cu raționamentul advers. Caracterul constructiv este prezent prin susținerea unei propuneri alternative de buget, însă tonul critic și observațiile personale la adresa ministrului limitează scorul de respect. Profilul este cel al unui discurs de opoziție angajat, dar marcat de o retorică personală care nu atinge idealul deliberativ.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13318,
+      "tokens_in_breakdown": {
+        "fresh": 13318,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1303,
+      "cost_usd": null,
+      "latency_ms": 5005,
+      "retries_used": 0
+    }
+  }
+}

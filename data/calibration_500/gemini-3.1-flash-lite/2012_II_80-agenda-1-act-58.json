@@ -1,0 +1,152 @@
+{
+  "speech_id": "mo://2012/II/80#agenda-1#act-58",
+  "tier": "calibration",
+  "speaker": {
+    "id": "rusanu-dan-radu",
+    "name": "Dan Radu Rușanu",
+    "raw": "Domnul Dan Radu Rușanu",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": "2012-09-11",
+    "year": 2012,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2012/II/80#agenda-1#act-58",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul este unul pur procedural, axat pe componența Comisiei pentru buget și pe interpretarea regulamentului parlamentar. Deși menționează sintagma „plenul este suveran”, aceasta este utilizată în contextul unei proceduri parlamentare standard, nu ca o invocare a supremației voinței populare asupra instituțiilor democratice. Nu există nicio urmă de maniheism, cadru popor-vs-elită sau alte elemente ale viziunii populiste. Discursul rămâne strict în registrul tehnic al activității parlamentare."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul este unul pur procedural, axat pe componența Comisiei pentru buget și pe interpretarea regulamentului parlamentar. Deși menționează sintagma „plenul este suveran”, aceasta este utilizată în contextul unei proceduri parlamentare standard, nu ca o invocare a supremației voinței populare asupra instituțiilor democratice. Nu există nicio urmă de maniheism, cadru popor-vs-elită sau alte elemente ale viziunii populiste. Discursul rămâne strict în registrul tehnic al activității parlamentare.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13693,
+      "tokens_in_breakdown": {
+        "fresh": 13693,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 194,
+      "cost_usd": null,
+      "latency_ms": 1916,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2012/II/80#agenda-1#act-58",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.78,
+        "level_of_justification": 1,
+        "content_of_justification": "group_interest",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 1,
+            "evidence": {
+              "text": "Atunci nu s-a respectat nici regulamentul și Grupul parlamentar al PNL a fost obligat să-și retragă un membru din comisie"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.85,
+            "rationale_short": "Vorbitorul invocă un precedent pentru a susține o nemulțumire, dar raționamentul rămâne descriptiv, fără o legătură cauzală solidă."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "group_interest",
+            "evidence": {
+              "text": "Grupul parlamentar al PDL avea doar 4 parlamentari, 7 erau din partea Grupurilor parlamentare ale USL"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.88,
+            "rationale_short": "Justificarea se bazează pe interesele și ponderea numerică a grupurilor parlamentare specifice."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "domnul senator Cristian Rădulescu"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.9,
+            "rationale_short": "Referință neutră la un coleg; nicio derogare sau respect explicit."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "s-a modificat poziția fără a se vota"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.82,
+            "rationale_short": "Vorbitorul critică o procedură fără a se angaja direct cu cererile sau pretențiile opoziției."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "îmi aduc aminte de frumoasa sintagmă „plenul este suveran”"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.8,
+            "rationale_short": "Menționează ironic un argument advers, dar nu îl combate substanțial."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Eu sunt convins că acesta este regulamentul"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.9,
+            "rationale_short": "Discursul este o expunere a unei nemulțumiri punctuale, fără a propune o alternativă sau o mediere."
+          }
+        ],
+        "rationale": "Discursul este unul procedural, axat pe rememorarea unor inechități trecute în distribuția locurilor din comisii. Justificarea este de nivel 1, bazându-se pe descrierea unor fapte trecute pentru a susține o nemulțumire, fără a oferi un raționament cauzal complex. Conținutul justificării este orientat către interesul de grup (ponderea parlamentară a partidelor). Respectul pentru grupuri și cereri este neutru, iar angajamentul față de contraargumente este minim, limitându-se la o referință ironică la suveranitatea plenului. Discursul rămâne pozițional, fără a oferi soluții constructive sau medieri, reflectând o intervenție de tip 'explicarea votului' sau 'procedură' cu calitate deliberativă limitată."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.78,\n  \"level_of_justification\": 1,\n  \"content_of_justification\": \"group_interest\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Atunci nu s-a respectat nici regulamentul și Grupul parlamentar al PNL a fost obligat să-și retragă un membru din comisie\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Vorbitorul invocă un precedent pentru a susține o nemulțumire, dar raționamentul rămâne descriptiv, fără o legătură cauzală solidă.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"group_interest\",\n      \"evidence\": {\n        \"text\": \"Grupul parlamentar al PDL avea doar 4 parlamentari, 7 erau din partea Grupurilor parlamentare ale USL\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Justificarea se bazează pe interesele și ponderea numerică a grupurilor parlamentare specifice.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"domnul senator Cristian Rădulescu\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Referință neutră la un coleg; nicio derogare sau respect explicit.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"s-a modificat poziția fără a se vota\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.82,\n      \"rationale_short\": \"Vorbitorul critică o procedură fără a se angaja direct cu cererile sau pretențiile opoziției.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"îmi aduc aminte de frumoasa sintagmă „plenul este suveran”\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.8,\n      \"rationale_short\": \"Menționează ironic un argument advers, dar nu îl combate substanțial.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"Eu sunt convins că acesta este regulamentul\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Discursul este o expunere a unei nemulțumiri punctuale, fără a propune o alternativă sau o mediere.\"\n    }\n  ],\n  \"rationale\": \"Discursul este unul procedural, axat pe rememorarea unor inechități trecute în distribuția locurilor din comisii. Justificarea este de nivel 1, bazându-se pe descrierea unor fapte trecute pentru a susține o nemulțumire, fără a oferi un raționament cauzal complex. Conținutul justificării este orientat către interesul de grup (ponderea parlamentară a partidelor). Respectul pentru grupuri și cereri este neutru, iar angajamentul față de contraargumente este minim, limitându-se la o referință ironică la suveranitatea plenului. Discursul rămâne pozițional, fără a oferi soluții constructive sau medieri, reflectând o intervenție de tip 'explicarea votului' sau 'procedură' cu calitate deliberativă limitată.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [
+        "Grupul parlamentar al PDL avea doar 4 parlamentari, 7 erau din partea Grupurilor parlamentare ale USL"
+      ],
+      "parse_repaired": false,
+      "tokens_in": 12494,
+      "tokens_in_breakdown": {
+        "fresh": 12494,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1183,
+      "cost_usd": null,
+      "latency_ms": 4311,
+      "retries_used": 0
+    }
+  }
+}

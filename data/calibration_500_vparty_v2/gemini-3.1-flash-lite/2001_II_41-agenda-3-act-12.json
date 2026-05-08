@@ -1,0 +1,52 @@
+{
+  "speech_id": "mo://2001/II/41#agenda-3#act-12",
+  "tier": "calibration",
+  "speaker": {
+    "id": "pop-napoleon",
+    "name": "Napoleon Pop",
+    "raw": "Domnul Napoleon Pop",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": null,
+    "year": 2001,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": null,
+    "voice": null,
+    "dqi": null,
+    "vparty": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "vparty",
+      "speech_id": "mo://2001/II/41#agenda-3#act-12",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "vparty@2020 + vdem-attacks-on@v13",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul reprezintă o critică economică și politică de tip mainstream, axată pe ineficiența sectorului de stat, lipsa de neutralitate a Executivului și necesitatea unor reguli egale pentru toți agenții economici. Vorbitorul critică deciziile guvernamentale și politicile de subvenționare, dar nu delegitimează nicio instituție democratică (judiciară, media, opoziție, societate civilă) ca clasă. Nu există elemente de scapegoating sau respingere a normelor democratice. Discursul se încadrează în registrul normal al dezbaterii parlamentare, fiind un discurs pluralist de tip score 0."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"vparty@2020 + vdem-attacks-on@v13\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul reprezintă o critică economică și politică de tip mainstream, axată pe ineficiența sectorului de stat, lipsa de neutralitate a Executivului și necesitatea unor reguli egale pentru toți agenții economici. Vorbitorul critică deciziile guvernamentale și politicile de subvenționare, dar nu delegitimează nicio instituție democratică (judiciară, media, opoziție, societate civilă) ca clasă. Nu există elemente de scapegoating sau respingere a normelor democratice. Discursul se încadrează în registrul normal al dezbaterii parlamentare, fiind un discurs pluralist de tip score 0.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13688,
+      "tokens_in_breakdown": {
+        "fresh": 13688,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 236,
+      "cost_usd": null,
+      "latency_ms": 1872,
+      "retries_used": 0
+    }
+  }
+}

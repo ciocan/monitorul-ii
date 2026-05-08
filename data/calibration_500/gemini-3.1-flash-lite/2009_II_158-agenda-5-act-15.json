@@ -1,0 +1,153 @@
+{
+  "speech_id": "mo://2009/II/158#agenda-5#act-15",
+  "tier": "calibration",
+  "speaker": {
+    "id": "iliescu-valentin-adrian",
+    "name": "Valentin Adrian Iliescu",
+    "raw": "Domnul Valentin Adrian Iliescu",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2009-12-14",
+    "year": 2009,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2009/II/158#agenda-5#act-15",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 1.0,
+        "markers": [],
+        "rationale": "Discursul este pur procedural și tehnic, vizând aprobarea unei ordonanțe guvernamentale privind taxele de școlarizare pentru cetățenii din state terțe. Nu există nicio urmă de cadru popor-vs-elită, maniheism moral sau invocare a unei voințe populare omogene. Vorbitorul se limitează la prezentarea obiectului de reglementare și la solicitarea unui vot favorabil pe baza argumentelor comisiei de specialitate. Este un exemplu clasic de discurs parlamentar non-populist."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 1.0,\n  \"markers\": [],\n  \"rationale\": \"Discursul este pur procedural și tehnic, vizând aprobarea unei ordonanțe guvernamentale privind taxele de școlarizare pentru cetățenii din state terțe. Nu există nicio urmă de cadru popor-vs-elită, maniheism moral sau invocare a unei voințe populare omogene. Vorbitorul se limitează la prezentarea obiectului de reglementare și la solicitarea unui vot favorabil pe baza argumentelor comisiei de specialitate. Este un exemplu clasic de discurs parlamentar non-populist.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13777,
+      "tokens_in_breakdown": {
+        "fresh": 13777,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 189,
+      "cost_usd": null,
+      "latency_ms": 1918,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2009/II/158#agenda-5#act-15",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.85,
+        "level_of_justification": 1,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 1,
+            "evidence": {
+              "text": "Punctul de vedere adoptat de Senat a fost acceptat și susținut cu argumente foarte corecte și de comisia de specialitate"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.88,
+            "rationale_short": "Justificarea invocă autoritatea Senatului și a comisiei fără a detalia raționamentul propriu-zis."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "cetățenii statelor membre ale Uniunii Europene... au acces la toate formele și nivelurile de învățământ, în aceleași condiții cu cele prevăzute de lege pentru cetățenii români"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Apelul la egalitatea de tratament între cetățenii UE și cei români vizează un principiu universalizabil."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "cetățenii din statele terțe Uniunii Europene"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Referință neutră, descriptivă, la grupurile vizate de reglementare."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "vă rog, doamnelor și domnilor deputați, să fiți de acord cu votarea acestui proiect de lege"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Discurs procedural de susținere; nu există cereri adverse angajate."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "Punctul de vedere adoptat de Senat a fost acceptat"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Menționează consensul anterior fără a angaja substanțial argumente contrare."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "vă rog, doamnelor și domnilor deputați, să fiți de acord cu votarea acestui proiect de lege"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Discurs de susținere a unei poziții existente; nicio alternativă sau mediere propusă."
+          }
+        ],
+        "rationale": "Discursul este unul de natură tehnică și procedurală, prezentând contextul legislativ al unei ordonanțe. Justificarea este de nivel 1, bazându-se pe autoritatea Senatului și a comisiei de specialitate, fără a dezvolta un raționament causal complex. Apelul la egalitatea de tratament între cetățenii UE și cei români indică o orientare către binele comun. Nu există dovezi de lipsă de respect față de grupuri sau cereri, dar nici angajament deliberativ cu contraargumente, deoarece discursul este unul de susținere a unui consens deja stabilit. Caracterul constructiv este limitat la susținerea poziției oficiale, fără a propune alternative sau medieri."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.85,\n  \"level_of_justification\": 1,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Punctul de vedere adoptat de Senat a fost acceptat și susținut cu argumente foarte corecte și de comisia de specialitate\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Justificarea invocă autoritatea Senatului și a comisiei fără a detalia raționamentul propriu-zis.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"cetățenii statelor membre ale Uniunii Europene... au acces la toate formele și nivelurile de învățământ, în aceleași condiții cu cele prevăzute de lege pentru cetățenii români\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Apelul la egalitatea de tratament între cetățenii UE și cei români vizează un principiu universalizabil.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"cetățenii din statele terțe Uniunii Europene\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Referință neutră, descriptivă, la grupurile vizate de reglementare.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"vă rog, doamnelor și domnilor deputați, să fiți de acord cu votarea acestui proiect de lege\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Discurs procedural de susținere; nu există cereri adverse angajate.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Punctul de vedere adoptat de Senat a fost acceptat\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Menționează consensul anterior fără a angaja substanțial argumente contrare.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"vă rog, doamnelor și domnilor deputați, să fiți de acord cu votarea acestui proiect de lege\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Discurs de susținere a unei poziții existente; nicio alternativă sau mediere propusă.\"\n    }\n  ],\n  \"rationale\": \"Discursul este unul de natură tehnică și procedurală, prezentând contextul legislativ al unei ordonanțe. Justificarea este de nivel 1, bazându-se pe autoritatea Senatului și a comisiei de specialitate, fără a dezvolta un raționament causal complex. Apelul la egalitatea de tratament între cetățenii UE și cei români indică o orientare către binele comun. Nu există dovezi de lipsă de respect față de grupuri sau cereri, dar nici angajament deliberativ cu contraargumente, deoarece discursul este unul de susținere a unui consens deja stabilit. Caracterul constructiv este limitat la susținerea poziției oficiale, fără a propune alternative sau medieri.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [
+        "cetățenii statelor membre ale Uniunii Europene... au acces la toate formele și nivelurile de învățământ, în aceleași condiții cu cele prevăzute de lege pentru cetățenii români",
+        "cetățenii din statele terțe Uniunii Europene"
+      ],
+      "parse_repaired": false,
+      "tokens_in": 12578,
+      "tokens_in_breakdown": {
+        "fresh": 12578,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1189,
+      "cost_usd": null,
+      "latency_ms": 4496,
+      "retries_used": 0
+    }
+  }
+}

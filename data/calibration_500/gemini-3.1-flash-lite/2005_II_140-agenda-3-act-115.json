@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2005/II/140#agenda-3#act-115",
+  "tier": "calibration",
+  "speaker": {
+    "id": "simionescu-aurel-gabriel",
+    "name": "Aurel Gabriel Simionescu",
+    "raw": "Domnul Aurel Gabriel Simionescu",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": null,
+    "year": 2005,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2005/II/140#agenda-3#act-115",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul este pur procedural, axat pe solicitări administrative, termene de răspuns și referințe tehnice la legislație (Legea nr. 315/2004). Nu există nicio urmă de cadru popor-vs-elită, maniheism moral sau invocare a unei voințe populare suverane. Vorbitorul se limitează la activitatea parlamentară curentă, fără a utiliza retorică populistă. Hawkins=0 cu încredere maximă."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul este pur procedural, axat pe solicitări administrative, termene de răspuns și referințe tehnice la legislație (Legea nr. 315/2004). Nu există nicio urmă de cadru popor-vs-elită, maniheism moral sau invocare a unei voințe populare suverane. Vorbitorul se limitează la activitatea parlamentară curentă, fără a utiliza retorică populistă. Hawkins=0 cu încredere maximă.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13697,
+      "tokens_in_breakdown": {
+        "fresh": 13697,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 180,
+      "cost_usd": null,
+      "latency_ms": 1893,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2005/II/140#agenda-3#act-115",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.65,
+        "level_of_justification": 0,
+        "content_of_justification": "none",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 0,
+            "evidence": {
+              "text": "poate purt„m o discu˛ie Ón acest domeniu"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.85,
+            "rationale_short": "Vorbitorul exprimă o dorință de discuție fără a oferi un raționament cauzal sau justificativ."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "none",
+            "evidence": {
+              "text": "poate purt„m o discu˛ie Ón acest domeniu"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.9,
+            "rationale_short": "Nicio justificare oferită; conținutul justificării este nedefinit."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "domnule secretar de stat"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Adresare formală neutră; niciun grup vizat pentru respect sau derogare."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "am o Óntrebare, de acum dou„ s„pt„m‚ni, pentru Ministerul Finan˛elor Publice"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.85,
+            "rationale_short": "Intervenția este o solicitare procedurală de răspuns, nu un angajament cu cereri politice adverse."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "am fost unul dintre cei care au discutat Legea nr. 315/2004"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.8,
+            "rationale_short": "Referință la experiența proprie fără a menționa sau combate argumente opuse."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "poate purt„m o discu˛ie Ón acest domeniu"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.85,
+            "rationale_short": "Vorbitorul propune o discuție viitoare, dar nu oferă o alternativă politică sau mediere concretă."
+          }
+        ],
+        "rationale": "Discursul este predominant procedural și administrativ, vizând obținerea unui răspuns de la ministere. Vorbitorul nu oferă o justificare substanțială pentru o poziție politică, ci mai degrabă își exprimă disponibilitatea pentru discuții viitoare, ceea ce duce la un nivel de justificare 0. Nu există un angajament cu contraargumente sau cereri adverse, menținând dimensiunile de respect la un nivel neutru. Caracterul discursului este pozițional, limitându-se la solicitări de informații și referințe la experiența legislativă anterioară. Calitatea deliberativă este scăzută, fiind un discurs de rutină parlamentară."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.65,\n  \"level_of_justification\": 0,\n  \"content_of_justification\": \"none\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"poate purt„m o discu˛ie Ón acest domeniu\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Vorbitorul exprimă o dorință de discuție fără a oferi un raționament cauzal sau justificativ.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"none\",\n      \"evidence\": {\n        \"text\": \"poate purt„m o discu˛ie Ón acest domeniu\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Nicio justificare oferită; conținutul justificării este nedefinit.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"domnule secretar de stat\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Adresare formală neutră; niciun grup vizat pentru respect sau derogare.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"am o Óntrebare, de acum dou„ s„pt„m‚ni, pentru Ministerul Finan˛elor Publice\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Intervenția este o solicitare procedurală de răspuns, nu un angajament cu cereri politice adverse.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"am fost unul dintre cei care au discutat Legea nr. 315/2004\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.8,\n      \"rationale_short\": \"Referință la experiența proprie fără a menționa sau combate argumente opuse.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"poate purt„m o discu˛ie Ón acest domeniu\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Vorbitorul propune o discuție viitoare, dar nu oferă o alternativă politică sau mediere concretă.\"\n    }\n  ],\n  \"rationale\": \"Discursul este predominant procedural și administrativ, vizând obținerea unui răspuns de la ministere. Vorbitorul nu oferă o justificare substanțială pentru o poziție politică, ci mai degrabă își exprimă disponibilitatea pentru discuții viitoare, ceea ce duce la un nivel de justificare 0. Nu există un angajament cu contraargumente sau cereri adverse, menținând dimensiunile de respect la un nivel neutru. Caracterul discursului este pozițional, limitându-se la solicitări de informații și referințe la experiența legislativă anterioară. Calitatea deliberativă este scăzută, fiind un discurs de rutină parlamentară.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12498,
+      "tokens_in_breakdown": {
+        "fresh": 12498,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1123,
+      "cost_usd": null,
+      "latency_ms": 4693,
+      "retries_used": 0
+    }
+  }
+}

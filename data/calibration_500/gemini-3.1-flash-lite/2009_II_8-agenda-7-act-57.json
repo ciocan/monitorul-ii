@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2009/II/8#agenda-7#act-57",
+  "tier": "calibration",
+  "speaker": {
+    "id": "tudose-mihai",
+    "name": "Mihai Tudose",
+    "raw": "Domnul Mihai Tudose",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2009-02-10",
+    "year": 2009,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2009/II/8#agenda-7#act-57",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 1.0,
+        "markers": [],
+        "rationale": "Discursul este unul pur procedural, prezentând raportul unei comisii parlamentare cu privire la un acord internațional. Nu există nicio urmă de retorică populistă, maniheism moral sau invocare a unei voințe populare omogene. Vorbitorul se limitează la menționarea avizelor tehnice și a procedurilor parlamentare standard, încadrându-se perfect în registrul non-populist. Hawkins=0 cu încredere maximă."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 1.0,\n  \"markers\": [],\n  \"rationale\": \"Discursul este unul pur procedural, prezentând raportul unei comisii parlamentare cu privire la un acord internațional. Nu există nicio urmă de retorică populistă, maniheism moral sau invocare a unei voințe populare omogene. Vorbitorul se limitează la menționarea avizelor tehnice și a procedurilor parlamentare standard, încadrându-se perfect în registrul non-populist. Hawkins=0 cu încredere maximă.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13673,
+      "tokens_in_breakdown": {
+        "fresh": 13673,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 170,
+      "cost_usd": null,
+      "latency_ms": 1728,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2009/II/8#agenda-7#act-57",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.85,
+        "level_of_justification": 0,
+        "content_of_justification": "none",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 0,
+            "evidence": {
+              "text": "vă propunem adoptarea prezentului proiect de lege"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Discurs procedural de prezentare a unui raport; nu conține argumente cauzale pentru poziția luată."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "none",
+            "evidence": {
+              "text": "vă propunem adoptarea prezentului proiect de lege"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Nicio justificare oferită; conținutul justificării este nedefinit."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Membrii comisiei"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Referință funcțională la membrii comisiei; atitudine neutră."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "vă propunem adoptarea prezentului proiect de lege"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Discursul nu abordează cereri adverse, ci prezintă un raport tehnic; neutru."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "Obiectul de reglementare a fost prezentat pe larg de antevorbitori"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Mențiune neutră a dezbaterii anterioare fără angajament substanțial."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "vă propunem adoptarea prezentului proiect de lege"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Poziție procedurală de adoptare; nicio alternativă sau mediere propusă."
+          }
+        ],
+        "rationale": "Acesta este un discurs procedural tipic pentru un raportor de comisie, având un caracter tehnic și informativ. Vorbitorul nu oferă o justificare substanțială pentru adoptarea proiectului (level_of_justification=0), limitându-se la a prezenta avizul comisiei și al Consiliului Legislativ. Nu există elemente de respect sau dispreț față de grupuri sau cereri, discursul fiind neutru și funcțional (respect_for_groups=1, respect_for_demands=1). De asemenea, nu există un angajament cu contraargumente, ci doar o mențiune neutră a dezbaterilor anterioare (respect_for_counterarguments=1). Din punct de vedere constructiv, discursul este pozițional, fiind o recomandare de vot bazată pe consensul comisiei. Calitatea deliberativă este scăzută, dar adecvată contextului procedural al prezentării unui raport."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.85,\n  \"level_of_justification\": 0,\n  \"content_of_justification\": \"none\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 0,\n      \"evidence\": { \"text\": \"vă propunem adoptarea prezentului proiect de lege\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Discurs procedural de prezentare a unui raport; nu conține argumente cauzale pentru poziția luată.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"none\",\n      \"evidence\": { \"text\": \"vă propunem adoptarea prezentului proiect de lege\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Nicio justificare oferită; conținutul justificării este nedefinit.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": { \"text\": \"Membrii comisiei\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Referință funcțională la membrii comisiei; atitudine neutră.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": { \"text\": \"vă propunem adoptarea prezentului proiect de lege\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.90,\n      \"rationale_short\": \"Discursul nu abordează cereri adverse, ci prezintă un raport tehnic; neutru.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": { \"text\": \"Obiectul de reglementare a fost prezentat pe larg de antevorbitori\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Mențiune neutră a dezbaterii anterioare fără angajament substanțial.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": { \"text\": \"vă propunem adoptarea prezentului proiect de lege\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Poziție procedurală de adoptare; nicio alternativă sau mediere propusă.\"\n    }\n  ],\n  \"rationale\": \"Acesta este un discurs procedural tipic pentru un raportor de comisie, având un caracter tehnic și informativ. Vorbitorul nu oferă o justificare substanțială pentru adoptarea proiectului (level_of_justification=0), limitându-se la a prezenta avizul comisiei și al Consiliului Legislativ. Nu există elemente de respect sau dispreț față de grupuri sau cereri, discursul fiind neutru și funcțional (respect_for_groups=1, respect_for_demands=1). De asemenea, nu există un angajament cu contraargumente, ci doar o mențiune neutră a dezbaterilor anterioare (respect_for_counterarguments=1). Din punct de vedere constructiv, discursul este pozițional, fiind o recomandare de vot bazată pe consensul comisiei. Calitatea deliberativă este scăzută, dar adecvată contextului procedural al prezentării unui raport.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12474,
+      "tokens_in_breakdown": {
+        "fresh": 12474,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1107,
+      "cost_usd": null,
+      "latency_ms": 4226,
+      "retries_used": 0
+    }
+  }
+}

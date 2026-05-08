@@ -1,0 +1,52 @@
+{
+  "speech_id": "mo://2013/II/51#agenda-1#act-60",
+  "tier": "calibration",
+  "speaker": {
+    "id": "badea-viorel-riceard",
+    "name": "Viorel Riceard Badea",
+    "raw": "Domnul Viorel Riceard Badea",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": "2013-04-16",
+    "year": 2013,
+    "legislature": "VII",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": null,
+    "voice": null,
+    "dqi": null,
+    "vparty": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "vparty",
+      "speech_id": "mo://2013/II/51#agenda-1#act-60",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "vparty@2020 + vdem-attacks-on@v13",
+        "framework_confidence": 0.95,
+        "markers": [],
+        "rationale": "Discursul reprezintă o critică politică la adresa unei decizii administrative a Biroului permanent al Senatului, pe care vorbitorul o consideră discriminatorie și neconstituțională. Deși vorbitorul folosește un limbaj critic și acuzator la adresa majorității parlamentare (USL), acesta rămâne în limitele contestării politice legitime, invocând Constituția și procedurile parlamentare pentru a-și susține argumentele. Nu există atacuri la adresa instituțiilor democratice ca clasă, ci o dispută privind exercitarea mandatului parlamentar. Discursul nu conține elemente de delegitimizare a presei, justiției, ONG-urilor sau minorităților, încadrându-se în registrul normal al dezbaterii parlamentare."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"vparty@2020 + vdem-attacks-on@v13\",\n  \"framework_confidence\": 0.95,\n  \"markers\": [],\n  \"rationale\": \"Discursul reprezintă o critică politică la adresa unei decizii administrative a Biroului permanent al Senatului, pe care vorbitorul o consideră discriminatorie și neconstituțională. Deși vorbitorul folosește un limbaj critic și acuzator la adresa majorității parlamentare (USL), acesta rămâne în limitele contestării politice legitime, invocând Constituția și procedurile parlamentare pentru a-și susține argumentele. Nu există atacuri la adresa instituțiilor democratice ca clasă, ci o dispută privind exercitarea mandatului parlamentar. Discursul nu conține elemente de delegitimizare a presei, justiției, ONG-urilor sau minorităților, încadrându-se în registrul normal al dezbaterii parlamentare.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13604,
+      "tokens_in_breakdown": {
+        "fresh": 13604,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 256,
+      "cost_usd": null,
+      "latency_ms": 1865,
+      "retries_used": 0
+    }
+  }
+}

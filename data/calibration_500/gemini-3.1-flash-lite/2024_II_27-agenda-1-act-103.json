@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2024/II/27#agenda-1#act-103",
+  "tier": "calibration",
+  "speaker": {
+    "id": "simonis-alfred-robert",
+    "name": "Alfred-Robert Simonis",
+    "raw": "Domnul Alfred-Robert Simonis",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2024-02-13",
+    "year": 2024,
+    "legislature": "IX",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2024/II/27#agenda-1#act-103",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 1.0,
+        "markers": [],
+        "rationale": "Discursul este pur procedural și tehnic, concentrat pe modificarea Codului silvic și a Legii minelor. Nu există nicio urmă de cadru popor-vs-elită, maniheism moral sau invocare a unei voințe populare suverane. Vorbitorul se limitează la expunerea unor detalii legislative și administrative, încadrându-se perfect în registrul tehnocratic al dezbaterilor parlamentare. Hawkins=0 cu încredere maximă."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 1.0,\n  \"markers\": [],\n  \"rationale\": \"Discursul este pur procedural și tehnic, concentrat pe modificarea Codului silvic și a Legii minelor. Nu există nicio urmă de cadru popor-vs-elită, maniheism moral sau invocare a unei voințe populare suverane. Vorbitorul se limitează la expunerea unor detalii legislative și administrative, încadrându-se perfect în registrul tehnocratic al dezbaterilor parlamentare. Hawkins=0 cu încredere maximă.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13938,
+      "tokens_in_breakdown": {
+        "fresh": 13938,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 173,
+      "cost_usd": null,
+      "latency_ms": 2026,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2024/II/27#agenda-1#act-103",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.85,
+        "level_of_justification": 2,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "terenurile forestiere achiziționate de operatorul economic cu capital integrat sau majoritar de stat, în condițiile art. 6 lit. a) din Legea minelor nr. 85, care nu fac parte din coridorul de expropriere al unei lucrări miniere declarate de interes național și de utilitate publică de exploatare a zăcămintelor de lignit, dar care se regăsesc în amplasamentul lucrării în cauză, fiind necesare realizării lucrărilor miniere, pot fi scoase din fondul forestier național"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Vorbitorul explică mecanismul tehnic și legal al scoaterii din fondul forestier, oferind o justificare bazată pe necesitatea operațională."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "lucrări miniere declarate de interes național și de utilitate publică"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Justificarea se ancorează în conceptul de interes național și utilitate publică."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "operatorul economic cu capital integrat sau majoritar de stat"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Referință neutră și funcțională la entitatea vizată de reglementare."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Prin promovarea acestui proiect de act normativ se propune modificarea art. 36 din Legea nr. 46 – Codul silvic."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Discursul este pur informativ și tehnic, fără a aborda cereri opuse."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "Prin promovarea acestui proiect de act normativ se propune modificarea art. 36 din Legea nr. 46 – Codul silvic."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Nu există contraargumente menționate sau angajate în acest discurs tehnic."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "se propune modificarea art. 36 din Legea nr. 46 – Codul silvic."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Vorbitorul prezintă propunerea legislativă a Guvernului fără a oferi alternative sau medieri."
+          }
+        ],
+        "rationale": "Discursul este o prezentare tehnică a unui proiect de lege din partea Guvernului. Vorbitorul oferă o justificare calificată (level_of_justification=2) prin explicarea mecanismului legal și a necesității operaționale pentru lucrările de interes național. Justificarea este orientată către binele comun (common_good), invocând utilitatea publică. Deoarece discursul este pur informativ și nu răspunde unor critici sau cereri, dimensiunile de respect și constructivitate sunt neutre sau poziționale. Calitatea deliberativă este ridicată în ceea ce privește claritatea argumentării tehnice, dar limitată de natura unilaterală a intervenției."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.85,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"terenurile forestiere achiziționate de operatorul economic cu capital integrat sau majoritar de stat, în condițiile art. 6 lit. a) din Legea minelor nr. 85, care nu fac parte din coridorul de expropriere al unei lucrări miniere declarate de interes național și de utilitate publică de exploatare a zăcămintelor de lignit, dar care se regăsesc în amplasamentul lucrării în cauză, fiind necesare realizării lucrărilor miniere, pot fi scoase din fondul forestier național\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Vorbitorul explică mecanismul tehnic și legal al scoaterii din fondul forestier, oferind o justificare bazată pe necesitatea operațională.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"lucrări miniere declarate de interes național și de utilitate publică\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.90,\n      \"rationale_short\": \"Justificarea se ancorează în conceptul de interes național și utilitate publică.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"operatorul economic cu capital integrat sau majoritar de stat\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Referință neutră și funcțională la entitatea vizată de reglementare.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Prin promovarea acestui proiect de act normativ se propune modificarea art. 36 din Legea nr. 46 – Codul silvic.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.90,\n      \"rationale_short\": \"Discursul este pur informativ și tehnic, fără a aborda cereri opuse.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Prin promovarea acestui proiect de act normativ se propune modificarea art. 36 din Legea nr. 46 – Codul silvic.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.90,\n      \"rationale_short\": \"Nu există contraargumente menționate sau angajate în acest discurs tehnic.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"se propune modificarea art. 36 din Legea nr. 46 – Codul silvic.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Vorbitorul prezintă propunerea legislativă a Guvernului fără a oferi alternative sau medieri.\"\n    }\n  ],\n  \"rationale\": \"Discursul este o prezentare tehnică a unui proiect de lege din partea Guvernului. Vorbitorul oferă o justificare calificată (level_of_justification=2) prin explicarea mecanismului legal și a necesității operaționale pentru lucrările de interes național. Justificarea este orientată către binele comun (common_good), invocând utilitatea publică. Deoarece discursul este pur informativ și nu răspunde unor critici sau cereri, dimensiunile de respect și constructivitate sunt neutre sau poziționale. Calitatea deliberativă este ridicată în ceea ce privește claritatea argumentării tehnice, dar limitată de natura unilaterală a intervenției.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12739,
+      "tokens_in_breakdown": {
+        "fresh": 12739,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1265,
+      "cost_usd": null,
+      "latency_ms": 4704,
+      "retries_used": 0
+    }
+  }
+}

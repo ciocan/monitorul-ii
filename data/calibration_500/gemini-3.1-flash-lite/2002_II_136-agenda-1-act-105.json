@@ -1,0 +1,220 @@
+{
+  "speech_id": "mo://2002/II/136#agenda-1#act-105",
+  "tier": "calibration",
+  "speaker": {
+    "id": "paslaru-dumitru",
+    "name": "Dumitru Pâslaru",
+    "raw": "Domnul Dumitru Pâslaru",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": null,
+    "year": 2002,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2002/II/136#agenda-1#act-105",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [
+          {
+            "kind": "evil_elite",
+            "evidence": {
+              "text": "întregul patrimoniu ºi întreaga culturã româneascã au fost condamnate la distrugere de cãtre Guvernul României"
+            },
+            "preliminary_voice": "quoted",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.9,
+            "rationale_short": "Citat din întrebarea deputatului Brudașca; vocea aparține acestuia, nu ministrului care răspunde."
+          },
+          {
+            "kind": "evil_elite",
+            "evidence": {
+              "text": "Ministerul Culturii ºi Cultelor dovedeºte o generozitate specialã faþã de manifestãrile iredentistºovine"
+            },
+            "preliminary_voice": "quoted",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.9,
+            "rationale_short": "Citat din întrebarea deputatului Brudașca; vocea aparține acestuia, nu ministrului care răspunde."
+          }
+        ],
+        "rationale": "Discursul reprezintă un răspuns tehnic și administrativ al unui ministru la o interpelare parlamentară. Vorbitorul citează acuzațiile deputatului Brudașca (care conțin elemente de retorică populistă precum 'condamnarea la distrugere' sau 'generozitate față de iredentism'), dar le respinge prin date concrete, referințe la legi (Legea 422, Legea administrației publice) și criterii obiective de selecție a finanțărilor. Nu există nicio asumare a unui cadru manihean sau populist din partea vorbitorului, acesta menținându-se strict în registrul procedural și instituțional. Scor 0 cu încredere ridicată."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [\n    {\n      \"kind\": \"evil_elite\",\n      \"evidence\": {\n        \"text\": \"întregul patrimoniu ºi întreaga culturã româneascã au fost condamnate la distrugere de cãtre Guvernul României\"\n      },\n      \"preliminary_voice\": \"quoted\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Citat din întrebarea deputatului Brudașca; vocea aparține acestuia, nu ministrului care răspunde.\"\n    },\n    {\n      \"kind\": \"evil_elite\",\n      \"evidence\": {\n        \"text\": \"Ministerul Culturii ºi Cultelor dovedeºte o generozitate specialã faþã de manifestãrile iredentistºovine\"\n      },\n      \"preliminary_voice\": \"quoted\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Citat din întrebarea deputatului Brudașca; vocea aparține acestuia, nu ministrului care răspunde.\"\n    }\n  ],\n  \"rationale\": \"Discursul reprezintă un răspuns tehnic și administrativ al unui ministru la o interpelare parlamentară. Vorbitorul citează acuzațiile deputatului Brudașca (care conțin elemente de retorică populistă precum 'condamnarea la distrugere' sau 'generozitate față de iredentism'), dar le respinge prin date concrete, referințe la legi (Legea 422, Legea administrației publice) și criterii obiective de selecție a finanțărilor. Nu există nicio asumare a unui cadru manihean sau populist din partea vorbitorului, acesta menținându-se strict în registrul procedural și instituțional. Scor 0 cu încredere ridicată.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 14804,
+      "tokens_in_breakdown": {
+        "fresh": 14804,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 522,
+      "cost_usd": null,
+      "latency_ms": 2814,
+      "retries_used": 0
+    },
+    "voice": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "voice",
+      "speech_id": "mo://2002/II/136#agenda-1#act-105",
+      "output": {
+        "classifications": [
+          {
+            "marker_id": "m_0",
+            "voice": "reported",
+            "voice_confidence": 0.95,
+            "voice_evidence": {
+              "text": "domnul deputat Damian Brudaºca, care în prima parte a întrebãrii sale aratã"
+            },
+            "attributed_to": {
+              "raw": "Damian Brudaºca",
+              "kind": "individual"
+            },
+            "rationale_short": "Vorbitorul raportează afirmația deputatului Damian Brudașca folosind verbul „arată”, deci este discurs raportat."
+          },
+          {
+            "marker_id": "m_1",
+            "voice": "reported",
+            "voice_confidence": 0.95,
+            "voice_evidence": {
+              "text": "domnul deputat aratã cã"
+            },
+            "attributed_to": {
+              "raw": "Damian Brudaºca",
+              "kind": "individual"
+            },
+            "rationale_short": "Vorbitorul continuă să raporteze acuzațiile deputatului Damian Brudașca prin clauza „arată că”, fiind discurs raportat."
+          }
+        ]
+      },
+      "raw_response": "{\n  \"classifications\": [\n    {\n      \"marker_id\": \"m_0\",\n      \"voice\": \"reported\",\n      \"voice_confidence\": 0.95,\n      \"voice_evidence\": {\n        \"text\": \"domnul deputat Damian Brudaºca, care în prima parte a întrebãrii sale aratã\"\n      },\n      \"attributed_to\": {\n        \"raw\": \"Damian Brudaºca\",\n        \"kind\": \"individual\"\n      },\n      \"rationale_short\": \"Vorbitorul raportează afirmația deputatului Damian Brudașca folosind verbul „arată”, deci este discurs raportat.\"\n    },\n    {\n      \"marker_id\": \"m_1\",\n      \"voice\": \"reported\",\n      \"voice_confidence\": 0.95,\n      \"voice_evidence\": {\n        \"text\": \"domnul deputat aratã cã\"\n      },\n      \"attributed_to\": {\n        \"raw\": \"Damian Brudaºca\",\n        \"kind\": \"individual\"\n      },\n      \"rationale_short\": \"Vorbitorul continuă să raporteze acuzațiile deputatului Damian Brudașca prin clauza „arată că”, fiind discurs raportat.\"\n    }\n  ]\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13083,
+      "tokens_in_breakdown": {
+        "fresh": 13083,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 307,
+      "cost_usd": null,
+      "latency_ms": 1886,
+      "retries_used": 0
+    },
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2002/II/136#agenda-1#act-105",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.88,
+        "level_of_justification": 2,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 2,
+        "respect_for_counterarguments": 2,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "Criteriile de selecþionare a finanþãrii lucrãrilor de restaurare prin planul naþional de restaurare se referã la valoarea monumentului în patrimoniul naþional existent: unicitate, stare de degradare, urgenþa intervenþiilor, posibilitãþi de cofinanþare."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Vorbitorul explică mecanismul de selecție a finanțării prin criterii obiective și specifice."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "considerându-se în mod firesc cã toate valorile de patrimoniu de pe teritoriul României trebuie protejate în acelaºi fel, fãrã discriminãri ºi fãrã favorizãri."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Justificarea se bazează pe principiul universal al protecției patrimoniului național fără discriminare."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "iniþiate de ligi, fundaþii, asociaþii, societãþi maghiare"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.85,
+            "rationale_short": "Grupul este menționat funcțional în contextul răspunsului la interpelare; atitudine neutră."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 2,
+            "evidence": {
+              "text": "Iar, în final, solicitã fonduri suplimentare pentru restaurarea Castelului ”BanffyÒ din Bonþida."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Vorbitorul tratează cererea de fonduri ca pe o solicitare legitimă, oferind detalii despre stadiul finanțării."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 2,
+            "evidence": {
+              "text": "Referitor la afirmaþia domnului deputat Brudaºca cu privire la presupusa favorizare de cãtre Ministerul Culturii a lucrãrilor de restaurare la monumente istorice ºi a manifestãrilor aparþinând etniei maghiare, precizãm urmãtoarele: în programul naþional de restaurare, dintre cele 235 de ºantiere deschise la monumente istorice, un numãr de 35 aparþin minoritãþilor naþionale ºi un numãr de 8, minoritãþilor maghiare."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.94,
+            "rationale_short": "Vorbitorul reformulează acuzația și o combate cu date statistice concrete din programul național."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "La toate acestea doresc sã rãspund în felul urmãtor"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.88,
+            "rationale_short": "Discursul este o explicație ministerială a poziției oficiale, fără a propune o alternativă sau mediere."
+          }
+        ],
+        "rationale": "Discursul reprezintă un răspuns ministerial structurat, caracterizat printr-o calitate deliberativă solidă. Vorbitorul oferă o justificare calificată (level_of_justification=2) bazată pe criterii tehnice și legale, apelând la binele comun (content_of_justification=common_good). Respectul pentru cererile opoziției este ridicat (respect_for_demands=2), iar contraargumentele privind presupusa discriminare etnică sunt abordate prin prezentarea unor date statistice precise (respect_for_counterarguments=2). Deși discursul este în esență pozițional (constructive_politics=positional), acesta îndeplinește standardele de rigoare așteptate de la un reprezentant al executivului în fața Parlamentului. Respectul pentru grupuri rămâne neutru, fiind tratat în mod funcțional și administrativ."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.88,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 2,\n  \"respect_for_counterarguments\": 2,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"Criteriile de selecþionare a finanþãrii lucrãrilor de restaurare prin planul naþional de restaurare se referã la valoarea monumentului în patrimoniul naþional existent: unicitate, stare de degradare, urgenþa intervenþiilor, posibilitãþi de cofinanþare.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Vorbitorul explică mecanismul de selecție a finanțării prin criterii obiective și specifice.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"considerându-se în mod firesc cã toate valorile de patrimoniu de pe teritoriul României trebuie protejate în acelaºi fel, fãrã discriminãri ºi fãrã favorizãri.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Justificarea se bazează pe principiul universal al protecției patrimoniului național fără discriminare.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"iniþiate de ligi, fundaþii, asociaþii, societãþi maghiare\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Grupul este menționat funcțional în contextul răspunsului la interpelare; atitudine neutră.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"Iar, în final, solicitã fonduri suplimentare pentru restaurarea Castelului ”BanffyÒ din Bonþida.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.90,\n      \"rationale_short\": \"Vorbitorul tratează cererea de fonduri ca pe o solicitare legitimă, oferind detalii despre stadiul finanțării.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"Referitor la afirmaþia domnului deputat Brudaºca cu privire la presupusa favorizare de cãtre Ministerul Culturii a lucrãrilor de restaurare la monumente istorice ºi a manifestãrilor aparþinând etniei maghiare, precizãm urmãtoarele: în programul naþional de restaurare, dintre cele 235 de ºantiere deschise la monumente istorice, un numãr de 35 aparþin minoritãþilor naþionale ºi un numãr de 8, minoritãþilor maghiare.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.94,\n      \"rationale_short\": \"Vorbitorul reformulează acuzația și o combate cu date statistice concrete din programul național.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"La toate acestea doresc sã rãspund în felul urmãtor\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Discursul este o explicație ministerială a poziției oficiale, fără a propune o alternativă sau mediere.\"\n    }\n  ],\n  \"rationale\": \"Discursul reprezintă un răspuns ministerial structurat, caracterizat printr-o calitate deliberativă solidă. Vorbitorul oferă o justificare calificată (level_of_justification=2) bazată pe criterii tehnice și legale, apelând la binele comun (content_of_justification=common_good). Respectul pentru cererile opoziției este ridicat (respect_for_demands=2), iar contraargumentele privind presupusa discriminare etnică sunt abordate prin prezentarea unor date statistice precise (respect_for_counterarguments=2). Deși discursul este în esență pozițional (constructive_politics=positional), acesta îndeplinește standardele de rigoare așteptate de la un reprezentant al executivului în fața Parlamentului. Respectul pentru grupuri rămâne neutru, fiind tratat în mod funcțional și administrativ.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13605,
+      "tokens_in_breakdown": {
+        "fresh": 13605,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1419,
+      "cost_usd": null,
+      "latency_ms": 5138,
+      "retries_used": 0
+    }
+  }
+}

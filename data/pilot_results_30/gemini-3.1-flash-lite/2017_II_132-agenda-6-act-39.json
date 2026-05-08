@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2017/II/132#agenda-6#act-39",
+  "tier": "register_shift",
+  "speaker": {
+    "id": "basescu-traian",
+    "name": "Traian Băsescu",
+    "raw": "Domnul Traian Băsescu",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": "2017-09-25",
+    "year": 2017,
+    "legislature": "VIII",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2017/II/132#agenda-6#act-39",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul este unul procedural, axat pe susținerea unor amendamente tehnice pentru persoanele cu handicap. Deși vorbitorul menționează „Grupul PSD-ALDE” și „cei mai ghinioniști dintre români”, aceste referințe nu sunt folosite pentru a construi un cadru maniheist popor-vs-elită sau pentru a invoca o voință populară suverană împotriva instituțiilor. Argumentația rămâne în registrul dezbaterii parlamentare obișnuite, apelând la raționalitate și empatie, nu la o viziune populistă. Hawkins=0 cu încredere ridicată."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul este unul procedural, axat pe susținerea unor amendamente tehnice pentru persoanele cu handicap. Deși vorbitorul menționează „Grupul PSD-ALDE” și „cei mai ghinioniști dintre români”, aceste referințe nu sunt folosite pentru a construi un cadru maniheist popor-vs-elită sau pentru a invoca o voință populară suverană împotriva instituțiilor. Argumentația rămâne în registrul dezbaterii parlamentare obișnuite, apelând la raționalitate și empatie, nu la o viziune populistă. Hawkins=0 cu încredere ridicată.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13656,
+      "tokens_in_breakdown": {
+        "fresh": 13656,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 216,
+      "cost_usd": null,
+      "latency_ms": 1831,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2017/II/132#agenda-6#act-39",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.78,
+        "level_of_justification": 1,
+        "content_of_justification": "group_interest",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "alternative_proposal",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 1,
+            "evidence": {
+              "text": "să nu mai trecem structurile care au astfel de angajați prin procese de reautorizare"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Vorbitorul propune o măsură specifică, dar justificarea rămâne bazată pe apelul la compasiune, nu pe un mecanism cauzal detaliat."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "group_interest",
+            "evidence": {
+              "text": "sunt amendamente în favoarea celor mai ghinioniști dintre români, oameni cu handicap"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Justificarea este ancorată explicit în interesul unui grup specific (persoanele cu handicap)."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Grupul PSD–ALDE"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.88,
+            "rationale_short": "Referința la grupul politic este funcțională, fără a fi derogatorie sau explicit respectuoasă."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "nu justifică respingerea acestor amendamente"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.82,
+            "rationale_short": "Vorbitorul critică respingerea amendamentelor, dar nu angajează legitimitatea cererilor opoziției."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "nu justifică respingerea acestor amendamente"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.85,
+            "rationale_short": "Argumentele opoziției pentru respingere nu sunt adresate sau reformulate, ci doar respinse ca fiind nejustificate."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "alternative_proposal",
+            "evidence": {
+              "text": "să nu mai trecem structurile care au astfel de angajați prin procese de reautorizare"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.94,
+            "rationale_short": "Vorbitorul propune o modificare concretă a procedurii de reautorizare, constituind o propunere alternativă."
+          }
+        ],
+        "rationale": "Discursul prezintă un profil deliberativ mixt, caracterizat printr-o abordare constructivă la nivel de propunere, dar cu o justificare limitată. Vorbitorul oferă o propunere alternativă concretă (eliminarea reautorizării), ceea ce îi conferă un caracter constructiv, însă justificarea rămâne la nivelul 1, bazându-se pe apelul la interesul unui grup vulnerabil (persoane cu handicap) fără a detalia mecanismele administrative. Respectul pentru grupuri și cereri este neutru, iar respectul pentru contraargumente este absent, deoarece vorbitorul nu angajează raționamentul majorității, ci doar critică rezultatul votului. Calitatea deliberativă este moderată, fiind un discurs de pledoarie emoțională mai degrabă decât unul de analiză tehnică."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.78,\n  \"level_of_justification\": 1,\n  \"content_of_justification\": \"group_interest\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 0,\n  \"constructive_politics\": \"alternative_proposal\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"să nu mai trecem structurile care au astfel de angajați prin procese de reautorizare\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Vorbitorul propune o măsură specifică, dar justificarea rămâne bazată pe apelul la compasiune, nu pe un mecanism cauzal detaliat.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"group_interest\",\n      \"evidence\": {\n        \"text\": \"sunt amendamente în favoarea celor mai ghinioniști dintre români, oameni cu handicap\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Justificarea este ancorată explicit în interesul unui grup specific (persoanele cu handicap).\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Grupul PSD–ALDE\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Referința la grupul politic este funcțională, fără a fi derogatorie sau explicit respectuoasă.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"nu justifică respingerea acestor amendamente\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"marker_confidence\": 0.82,\n      \"rationale_short\": \"Vorbitorul critică respingerea amendamentelor, dar nu angajează legitimitatea cererilor opoziției.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"nu justifică respingerea acestor amendamente\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Argumentele opoziției pentru respingere nu sunt adresate sau reformulate, ci doar respinse ca fiind nejustificate.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"alternative_proposal\",\n      \"evidence\": {\n        \"text\": \"să nu mai trecem structurile care au astfel de angajați prin procese de reautorizare\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.94,\n      \"rationale_short\": \"Vorbitorul propune o modificare concretă a procedurii de reautorizare, constituind o propunere alternativă.\"\n    }\n  ],\n  \"rationale\": \"Discursul prezintă un profil deliberativ mixt, caracterizat printr-o abordare constructivă la nivel de propunere, dar cu o justificare limitată. Vorbitorul oferă o propunere alternativă concretă (eliminarea reautorizării), ceea ce îi conferă un caracter constructiv, însă justificarea rămâne la nivelul 1, bazându-se pe apelul la interesul unui grup vulnerabil (persoane cu handicap) fără a detalia mecanismele administrative. Respectul pentru grupuri și cereri este neutru, iar respectul pentru contraargumente este absent, deoarece vorbitorul nu angajează raționamentul majorității, ci doar critică rezultatul votului. Calitatea deliberativă este moderată, fiind un discurs de pledoarie emoțională mai degrabă decât unul de analiză tehnică.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12457,
+      "tokens_in_breakdown": {
+        "fresh": 12457,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1175,
+      "cost_usd": null,
+      "latency_ms": 4243,
+      "retries_used": 0
+    }
+  }
+}

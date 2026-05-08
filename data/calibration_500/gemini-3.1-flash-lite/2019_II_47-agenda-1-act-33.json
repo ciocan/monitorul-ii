@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2019/II/47#agenda-1#act-33",
+  "tier": "calibration",
+  "speaker": {
+    "id": "varza-mihaita",
+    "name": "Mihăiță Vîrză",
+    "raw": "Domnul Mihăiță Vîrză",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2019-04-02",
+    "year": 2019,
+    "legislature": "VIII",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2019/II/47#agenda-1#act-33",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 1.0,
+        "markers": [],
+        "rationale": "Discursul reprezintă un raport tehnic de comisie parlamentară privind un proiect de lege pentru protecția consumatorilor. Textul se limitează la descrierea procedurilor legislative, a avizelor primite de la instituții (Consiliul Legislativ, Guvern, Comisia juridică) și a argumentelor tehnice pentru respingerea proiectului. Nu există nicio urmă de retorică populistă, cadru maniheist sau invocare a unei voințe populare omogene. Discursul este pur procedural și tehnic, încadrându-se perfect în scorul 0."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 1.0,\n  \"markers\": [],\n  \"rationale\": \"Discursul reprezintă un raport tehnic de comisie parlamentară privind un proiect de lege pentru protecția consumatorilor. Textul se limitează la descrierea procedurilor legislative, a avizelor primite de la instituții (Consiliul Legislativ, Guvern, Comisia juridică) și a argumentelor tehnice pentru respingerea proiectului. Nu există nicio urmă de retorică populistă, cadru maniheist sau invocare a unei voințe populare omogene. Discursul este pur procedural și tehnic, încadrându-se perfect în scorul 0.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 14174,
+      "tokens_in_breakdown": {
+        "fresh": 14174,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 196,
+      "cost_usd": null,
+      "latency_ms": 2308,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2019/II/47#agenda-1#act-33",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.92,
+        "level_of_justification": 2,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "hotărât, cu unanimitate de voturi, să propună plenului Camerei Deputaților respingerea proiectului de lege, din următorul considerent – prevederile nou-introduse se regăsesc în art. 1 și 2 din Ordinul președintelui ANPC nr. 632/2009"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Justificare calificată prin referință la un act normativ specific (Ordinul ANPC 632/2009) pentru a susține respingerea."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "pentru a nu induce în eroare consumatorul și să afle de existența lor înainte de achiziționarea produsului sau serviciului"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.92,
+            "rationale_short": "Justificarea se bazează pe protecția consumatorului, un principiu universalizabil de bine comun."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Membrii Comisiei pentru industrii și servicii"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Referință neutră și funcțională la membrii comisiei; nicio derogare sau respect explicit."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Senatul, în calitate de primă Cameră sesizată, a adoptat proiectul de lege"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.94,
+            "rationale_short": "Mențiune procedurală a adoptării Senatului fără angajament față de cererea politică."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "Guvernul României susține adoptarea inițiativei legislative"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.93,
+            "rationale_short": "Menționează poziția Guvernului fără a intra într-un dialog substanțial cu argumentele acestuia."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "să propună plenului Camerei Deputaților respingerea proiectului de lege"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.96,
+            "rationale_short": "Poziție clară de respingere bazată pe redundanță legislativă; nu propune o alternativă nouă."
+          }
+        ],
+        "rationale": "Acesta este un discurs de raportor care prezintă o poziție tehnică bine fundamentată. Vorbitorul oferă o justificare calificată (level_of_justification=2) prin citarea unui ordin ANPC existent care face proiectul redundant, apelând la binele comun al protecției consumatorului. Deși discursul este informativ și procedural, acesta rămâne pozițional (constructive_politics=positional) în recomandarea de respingere. Respectul pentru grupuri și cereri este neutru, reflectând natura administrativă a raportului. Nu există un angajament deliberativ profund cu contraargumentele, ci doar o constatare a suprapunerii legislative. Calitatea deliberativă este ridicată pentru un raport tehnic, fiind clară, justificată și lipsită de retorică ostilă."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.92,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"hotărât, cu unanimitate de voturi, să propună plenului Camerei Deputaților respingerea proiectului de lege, din următorul considerent – prevederile nou-introduse se regăsesc în art. 1 și 2 din Ordinul președintelui ANPC nr. 632/2009\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Justificare calificată prin referință la un act normativ specific (Ordinul ANPC 632/2009) pentru a susține respingerea.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"pentru a nu induce în eroare consumatorul și să afle de existența lor înainte de achiziționarea produsului sau serviciului\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Justificarea se bazează pe protecția consumatorului, un principiu universalizabil de bine comun.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Membrii Comisiei pentru industrii și servicii\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Referință neutră și funcțională la membrii comisiei; nicio derogare sau respect explicit.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Senatul, în calitate de primă Cameră sesizată, a adoptat proiectul de lege\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.94,\n      \"rationale_short\": \"Mențiune procedurală a adoptării Senatului fără angajament față de cererea politică.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Guvernul României susține adoptarea inițiativei legislative\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.93,\n      \"rationale_short\": \"Menționează poziția Guvernului fără a intra într-un dialog substanțial cu argumentele acestuia.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"să propună plenului Camerei Deputaților respingerea proiectului de lege\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.96,\n      \"rationale_short\": \"Poziție clară de respingere bazată pe redundanță legislativă; nu propune o alternativă nouă.\"\n    }\n  ],\n  \"rationale\": \"Acesta este un discurs de raportor care prezintă o poziție tehnică bine fundamentată. Vorbitorul oferă o justificare calificată (level_of_justification=2) prin citarea unui ordin ANPC existent care face proiectul redundant, apelând la binele comun al protecției consumatorului. Deși discursul este informativ și procedural, acesta rămâne pozițional (constructive_politics=positional) în recomandarea de respingere. Respectul pentru grupuri și cereri este neutru, reflectând natura administrativă a raportului. Nu există un angajament deliberativ profund cu contraargumentele, ci doar o constatare a suprapunerii legislative. Calitatea deliberativă este ridicată pentru un raport tehnic, fiind clară, justificată și lipsită de retorică ostilă.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12975,
+      "tokens_in_breakdown": {
+        "fresh": 12975,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1244,
+      "cost_usd": null,
+      "latency_ms": 4933,
+      "retries_used": 0
+    }
+  }
+}

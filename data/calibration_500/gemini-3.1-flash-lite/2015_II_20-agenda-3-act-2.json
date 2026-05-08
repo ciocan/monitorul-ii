@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2015/II/20#agenda-3#act-2",
+  "tier": "calibration",
+  "speaker": {
+    "id": "firea-gabriela",
+    "name": "Gabriela Firea",
+    "raw": "Doamna Gabriela Firea",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": "2015-02-18",
+    "year": 2015,
+    "legislature": "VII",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2015/II/20#agenda-3#act-2",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul este o intervenție de politică publică axată pe o problemă de sănătate (fumatul) și pe susținerea unei inițiative legislative concrete (modificarea Legii nr. 349/2002). Deși vorbitorul folosește un ton persuasiv și invocă „sănătatea noastră, a tuturor”, acesta nu construiește un cadru maniheist popor-vs-elită, nu atacă o elită malefică și nu invocă o voință populară suverană împotriva instituțiilor. Referința la „factorii de decizie” este una procedurală, iar discursul rămâne în limitele dezbaterii parlamentare tehnice. Hawkins=0 cu încredere ridicată."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul este o intervenție de politică publică axată pe o problemă de sănătate (fumatul) și pe susținerea unei inițiative legislative concrete (modificarea Legii nr. 349/2002). Deși vorbitorul folosește un ton persuasiv și invocă „sănătatea noastră, a tuturor”, acesta nu construiește un cadru maniheist popor-vs-elită, nu atacă o elită malefică și nu invocă o voință populară suverană împotriva instituțiilor. Referința la „factorii de decizie” este una procedurală, iar discursul rămâne în limitele dezbaterii parlamentare tehnice. Hawkins=0 cu încredere ridicată.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 14207,
+      "tokens_in_breakdown": {
+        "fresh": 14207,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 240,
+      "cost_usd": null,
+      "latency_ms": 2025,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2015/II/20#agenda-3#act-2",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.85,
+        "level_of_justification": 2,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 0,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "alternative_proposal",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "În fiecare din ultimii ani, cheltuielile sistemului public de sănătate din România aferente afecțiunilor cauzate de fumat depășesc un miliard de lei, adică aproape 6% din bugetul total alocat sănătății."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Justificare calificată prin date empirice specifice privind impactul bugetar al fumatului."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "este vorba de sănătatea noastră, a tuturor."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Apelul este universalizabil, vizând sănătatea publică a întregii populații."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 0,
+            "evidence": {
+              "text": "Și le cer scuze colegilor fumători, dar trebuie să se gândească la familiile lor și la copiii lor și mai puțin la viciul lor, așa cum spuneam, ascuns sau pe față."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.88,
+            "rationale_short": "Referință disprețuitoare la 'viciul' fumătorilor, reducând legitimitatea grupului."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "România are legislația cea mai permisivă din Uniunea Europeană privind fumatul în locurile publice"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.96,
+            "marker_confidence": 0.85,
+            "rationale_short": "Starea de fapt este menționată, dar cererile opoziției pentru status-quo nu sunt angajate."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "industria tutunului încă interferează cu politicile publice în acest domeniu"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.82,
+            "rationale_short": "Menționează opoziția industriei fără a angaja substanțial argumentele lor specifice."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "alternative_proposal",
+            "evidence": {
+              "text": "în sensul interzicerii complete a fumatului în spațiile autorităților și instituțiilor publice"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.94,
+            "rationale_short": "Propune o modificare legislativă concretă (Legea 349/2002) ca alternativă la situația actuală."
+          }
+        ],
+        "rationale": "Discursul prezintă o calitate deliberativă mixtă. Vorbitorul oferă o justificare calificată (level_of_justification=2) bazată pe date economice și de sănătate publică, orientată către binele comun. Totuși, discursul suferă pe dimensiunea respectului, folosind un ton condescendent față de fumători (respect_for_groups=0). Deși propune o alternativă legislativă concretă (constructive_politics=alternative_proposal), nu angajează substanțial contraargumentele opoziției sau ale industriei, limitându-se la o menționare a acestora. Profilul este cel al unui discurs de advocacy bine documentat, dar cu o postură moralizatoare care limitează calitatea deliberativă."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.85,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 0,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"alternative_proposal\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"În fiecare din ultimii ani, cheltuielile sistemului public de sănătate din România aferente afecțiunilor cauzate de fumat depășesc un miliard de lei, adică aproape 6% din bugetul total alocat sănătății.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Justificare calificată prin date empirice specifice privind impactul bugetar al fumatului.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"este vorba de sănătatea noastră, a tuturor.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Apelul este universalizabil, vizând sănătatea publică a întregii populații.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"Și le cer scuze colegilor fumători, dar trebuie să se gândească la familiile lor și la copiii lor și mai puțin la viciul lor, așa cum spuneam, ascuns sau pe față.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Referință disprețuitoare la 'viciul' fumătorilor, reducând legitimitatea grupului.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"România are legislația cea mai permisivă din Uniunea Europeană privind fumatul în locurile publice\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.96,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Starea de fapt este menționată, dar cererile opoziției pentru status-quo nu sunt angajate.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"industria tutunului încă interferează cu politicile publice în acest domeniu\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.82,\n      \"rationale_short\": \"Menționează opoziția industriei fără a angaja substanțial argumentele lor specifice.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"alternative_proposal\",\n      \"evidence\": {\n        \"text\": \"în sensul interzicerii complete a fumatului în spațiile autorităților și instituțiilor publice\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.94,\n      \"rationale_short\": \"Propune o modificare legislativă concretă (Legea 349/2002) ca alternativă la situația actuală.\"\n    }\n  ],\n  \"rationale\": \"Discursul prezintă o calitate deliberativă mixtă. Vorbitorul oferă o justificare calificată (level_of_justification=2) bazată pe date economice și de sănătate publică, orientată către binele comun. Totuși, discursul suferă pe dimensiunea respectului, folosind un ton condescendent față de fumători (respect_for_groups=0). Deși propune o alternativă legislativă concretă (constructive_politics=alternative_proposal), nu angajează substanțial contraargumentele opoziției sau ale industriei, limitându-se la o menționare a acestora. Profilul este cel al unui discurs de advocacy bine documentat, dar cu o postură moralizatoare care limitează calitatea deliberativă.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13008,
+      "tokens_in_breakdown": {
+        "fresh": 13008,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1230,
+      "cost_usd": null,
+      "latency_ms": 4408,
+      "retries_used": 0
+    }
+  }
+}

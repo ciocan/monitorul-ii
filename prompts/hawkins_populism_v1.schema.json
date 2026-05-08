@@ -1,0 +1,116 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "hawkins_populism_v1",
+  "title": "Hawkins populism classification output",
+  "description": "Schema for hawkins_populism_v1.md output. Consumed by structured-output APIs (OpenAI Structured Outputs, Anthropic tool-use, Mistral JSON mode). Field semantics, scoring rubric, and few-shot examples live in the companion .md prompt; this file only enforces shape.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "score",
+    "score_unit",
+    "framework_version",
+    "framework_confidence",
+    "markers",
+    "rationale"
+  ],
+  "properties": {
+    "score": {
+      "type": "integer",
+      "enum": [0, 1, 2],
+      "description": "Holistic Hawkins grade applied to the speech as a whole. Holistic, not algorithmic — see prompt rubric."
+    },
+    "score_unit": {
+      "type": "string",
+      "enum": ["ordinal_0_2"]
+    },
+    "framework_version": {
+      "type": "string",
+      "enum": ["hawkins@2018"]
+    },
+    "framework_confidence": {
+      "type": "number",
+      "minimum": 0.0,
+      "maximum": 1.0,
+      "description": "Confidence in the rubric application (not in the speech's meaning). Calibrated per the prompt's confidence table."
+    },
+    "markers": {
+      "type": "array",
+      "description": "Evidence-anchored marker records. May be empty for unambiguous score-0 speeches. Markers in non-first-person voice are emitted as evidence anchors but do not contribute to the score.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "kind",
+          "evidence",
+          "preliminary_voice",
+          "preliminary_voice_confidence",
+          "marker_confidence",
+          "rationale_short"
+        ],
+        "properties": {
+          "kind": {
+            "type": "string",
+            "enum": [
+              "people_vs_elite",
+              "moralistic_manichaeism",
+              "homogeneous_people",
+              "evil_elite",
+              "popular_will_supremacy",
+              "crisis_invocation",
+              "cosmic_proportions"
+            ]
+          },
+          "evidence": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["text"],
+            "properties": {
+              "text": {
+                "type": "string",
+                "minLength": 1,
+                "description": "Exact substring from the speech excerpt. char_offsets are computed downstream by the harness via string search."
+              }
+            }
+          },
+          "preliminary_voice": {
+            "type": "string",
+            "enum": [
+              "speaker_first_person",
+              "quoted",
+              "reported",
+              "negated",
+              "hypothetical",
+              "apophasis_disclaimed",
+              "weasel_attribution",
+              "sarcastic",
+              "uncertain"
+            ],
+            "description": "Best-effort voice from Pass-1 region hints + the prompt's own read; voice_classifier_v1 may refine downstream."
+          },
+          "preliminary_voice_confidence": {
+            "type": "number",
+            "minimum": 0.0,
+            "maximum": 1.0
+          },
+          "marker_confidence": {
+            "type": "number",
+            "minimum": 0.0,
+            "maximum": 1.0,
+            "description": "Confidence that the marker fires — separate from voice confidence."
+          },
+          "rationale_short": {
+            "type": "string",
+            "description": "One sentence in Romanian explaining why this marker fires, ≤ 200 characters.",
+            "minLength": 1,
+            "maxLength": 200
+          }
+        }
+      }
+    },
+    "rationale": {
+      "type": "string",
+      "description": "One paragraph (3–6 sentences) in Romanian explaining the holistic score and how the markers (or their absence) sustain or fail to sustain a populist worldview across the speech.",
+      "minLength": 1
+    }
+  }
+}

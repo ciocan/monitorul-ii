@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2013/II/10#agenda-4#act-20",
+  "tier": "calibration",
+  "speaker": {
+    "id": "radulescu-cristian",
+    "name": "Cristian Rădulescu",
+    "raw": "Domnul Cristian Rădulescu",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2013-02-07",
+    "year": 2013,
+    "legislature": "VII",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2013/II/10#agenda-4#act-20",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul este unul pur procedural, axat pe analiza unei cereri de reexaminare a unei legi privind statutul parlamentarilor și incompatibilitățile. Vorbitorul discută aspecte tehnice precum rolul Agenției Naționale de Integritate, procedurile de reținere/arestare și amendamentele legislative, fără a invoca un cadru maniheist popor-vs-elită. Deși menționează termenul „superimunitate” ca o critică politică, acesta este utilizat în contextul unei dezbateri parlamentare standard, nu ca parte a unei viziuni populiste pervazive. Nu există niciun marker populist prezent, discursul fiind în întregime în registrul tehnic-procedural."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul este unul pur procedural, axat pe analiza unei cereri de reexaminare a unei legi privind statutul parlamentarilor și incompatibilitățile. Vorbitorul discută aspecte tehnice precum rolul Agenției Naționale de Integritate, procedurile de reținere/arestare și amendamentele legislative, fără a invoca un cadru maniheist popor-vs-elită. Deși menționează termenul „superimunitate” ca o critică politică, acesta este utilizat în contextul unei dezbateri parlamentare standard, nu ca parte a unei viziuni populiste pervazive. Nu există niciun marker populist prezent, discursul fiind în întregime în registrul tehnic-procedural.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13777,
+      "tokens_in_breakdown": {
+        "fresh": 13777,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 233,
+      "cost_usd": null,
+      "latency_ms": 2751,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2013/II/10#agenda-4#act-20",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.85,
+        "level_of_justification": 2,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 2,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "Cererea de reexaminare dorește eliminarea confuziilor privitoare la legislația incompatibilităților, lămurirea acelor cazuri de incompatibilitate și încetare a mandatului, care nu erau lămurite în statut, și restabilirea rolului esențial al Agenției Naționale de Integritate"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Vorbitorul explică rațiunile cererii de reexaminare prin referire la clarificări legislative și rolul ANI."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "restabilirea rolului esențial al Agenției Naționale de Integritate referitor la conflictele de interese și incompatibilități, conform și cerințelor europene"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Justificarea se ancorează în conformitatea cu cerințele europene și integritatea instituțională, vizând binele comun."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Stimați colegi"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.99,
+            "marker_confidence": 0.85,
+            "rationale_short": "Adresare convențională în sală; niciun out-group specific nu este vizat sau derogatoriu tratat."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 2,
+            "evidence": {
+              "text": "În mare măsură, raportul acesta lămurește, prin formulările pe care le dă, prin amendamentele admise, aceste probleme pentru care președintele ne-a retrimis legea"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.91,
+            "rationale_short": "Vorbitorul recunoaște legitimitatea cererii de reexaminare a Președintelui și confirmă soluționarea problemelor ridicate."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "Cererea de reexaminare dorește eliminarea confuziilor privitoare la legislația incompatibilităților"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.88,
+            "rationale_short": "Vorbitorul menționează argumentele cererii de reexaminare, dar nu angajează o dezbatere critică, ci confirmă acceptarea lor."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Grupurile parlamentare ale PDL vor vota acest raport"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.99,
+            "marker_confidence": 0.95,
+            "rationale_short": "Vorbitorul anunță poziția de vot a grupului parlamentar fără a propune o alternativă sau mediere nouă."
+          }
+        ],
+        "rationale": "Discursul prezintă o calitate deliberativă moderată, caracterizată prin recunoașterea legitimă a cererii de reexaminare a Președintelui (respect_for_demands=2) și o justificare clară a votului bazată pe conformitatea cu cerințele europene (level_of_justification=2, content=common_good). Vorbitorul nu angajează o dezbatere critică cu argumentele opoziției, ci mai degrabă confirmă alinierea la cerințele de reexaminare, ceea ce limitează scorul pentru respect_for_counterarguments la 1. Poziția este una de susținere a raportului, fiind clasificată ca positional. Respectul pentru grupuri rămâne neutru, limitat la formulele de politețe parlamentară. Per ansamblu, discursul este constructiv în contextul procedurii de reexaminare, dar nu depășește cadrul unei poziții politice asumate."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.85,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 2,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"Cererea de reexaminare dorește eliminarea confuziilor privitoare la legislația incompatibilităților, lămurirea acelor cazuri de incompatibilitate și încetare a mandatului, care nu erau lămurite în statut, și restabilirea rolului esențial al Agenției Naționale de Integritate\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Vorbitorul explică rațiunile cererii de reexaminare prin referire la clarificări legislative și rolul ANI.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"restabilirea rolului esențial al Agenției Naționale de Integritate referitor la conflictele de interese și incompatibilități, conform și cerințelor europene\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Justificarea se ancorează în conformitatea cu cerințele europene și integritatea instituțională, vizând binele comun.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Stimați colegi\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.99,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Adresare convențională în sală; niciun out-group specific nu este vizat sau derogatoriu tratat.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"În mare măsură, raportul acesta lămurește, prin formulările pe care le dă, prin amendamentele admise, aceste probleme pentru care președintele ne-a retrimis legea\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.91,\n      \"rationale_short\": \"Vorbitorul recunoaște legitimitatea cererii de reexaminare a Președintelui și confirmă soluționarea problemelor ridicate.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Cererea de reexaminare dorește eliminarea confuziilor privitoare la legislația incompatibilităților\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Vorbitorul menționează argumentele cererii de reexaminare, dar nu angajează o dezbatere critică, ci confirmă acceptarea lor.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"Grupurile parlamentare ale PDL vor vota acest raport\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.99,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Vorbitorul anunță poziția de vot a grupului parlamentar fără a propune o alternativă sau mediere nouă.\"\n    }\n  ],\n  \"rationale\": \"Discursul prezintă o calitate deliberativă moderată, caracterizată prin recunoașterea legitimă a cererii de reexaminare a Președintelui (respect_for_demands=2) și o justificare clară a votului bazată pe conformitatea cu cerințele europene (level_of_justification=2, content=common_good). Vorbitorul nu angajează o dezbatere critică cu argumentele opoziției, ci mai degrabă confirmă alinierea la cerințele de reexaminare, ceea ce limitează scorul pentru respect_for_counterarguments la 1. Poziția este una de susținere a raportului, fiind clasificată ca positional. Respectul pentru grupuri rămâne neutru, limitat la formulele de politețe parlamentară. Per ansamblu, discursul este constructiv în contextul procedurii de reexaminare, dar nu depășește cadrul unei poziții politice asumate.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12578,
+      "tokens_in_breakdown": {
+        "fresh": 12578,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1328,
+      "cost_usd": null,
+      "latency_ms": 4555,
+      "retries_used": 0
+    }
+  }
+}

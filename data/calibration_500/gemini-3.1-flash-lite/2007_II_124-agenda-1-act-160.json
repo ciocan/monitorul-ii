@@ -1,0 +1,152 @@
+{
+  "speech_id": "mo://2007/II/124#agenda-1#act-160",
+  "tier": "calibration",
+  "speaker": {
+    "id": "dinescu-valentin",
+    "name": "Valentin Dinescu",
+    "raw": "Domnul Valentin Dinescu",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": "2007-09-20",
+    "year": 2007,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2007/II/124#agenda-1#act-160",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 1.0,
+        "markers": [],
+        "rationale": "Discursul este pur procedural și tehnic, concentrându-se pe modificarea unui articol dintr-o lege specifică (Legea energiei electrice nr. 13/2007) și pe raportul comisiei de specialitate. Nu există nicio urmă de cadru popor-vs-elită, maniheism moral sau invocare a unei voințe populare omogene. Limbajul este administrativ și neutru, specific activității parlamentare de rutină. Hawkins=0 cu încredere maximă."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 1.0,\n  \"markers\": [],\n  \"rationale\": \"Discursul este pur procedural și tehnic, concentrându-se pe modificarea unui articol dintr-o lege specifică (Legea energiei electrice nr. 13/2007) și pe raportul comisiei de specialitate. Nu există nicio urmă de cadru popor-vs-elită, maniheism moral sau invocare a unei voințe populare omogene. Limbajul este administrativ și neutru, specific activității parlamentare de rutină. Hawkins=0 cu încredere maximă.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13707,
+      "tokens_in_breakdown": {
+        "fresh": 13707,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 182,
+      "cost_usd": null,
+      "latency_ms": 1908,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2007/II/124#agenda-1#act-160",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.88,
+        "level_of_justification": 2,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "reglementarea la nivel de lege a aspectelor legate de finalizarea electrificării conferă mai multă greutate acțiunilor Guvernului și consiliilor locale"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Vorbitorul oferă un mecanism cauzal clar pentru justificarea legiferării (conferirea de greutate acțiunilor administrative)."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "finalizarea electrificării tuturor gospodăriilor din localitățile urbane și rurale"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Justificarea vizează un obiectiv universalizabil (electrificarea tuturor gospodăriilor) în interesul întregii populații."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Comisia a analizat aceste aspecte"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Referință neutră la activitatea comisiei; nicio derogare sau respect explicit pentru grupuri."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Comisia a analizat aceste aspecte și a hotărât, cu 5 voturi pentru și două voturi împotrivă"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.88,
+            "rationale_short": "Menționarea votului opoziției este procedurală; nu există un angajament cu legitimitatea cererilor lor."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "Comisia a analizat aceste aspecte și a hotărât, cu 5 voturi pentru și două voturi împotrivă"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Votul este menționat, dar raționamentul opoziției nu este nici restabilit, nici combătut."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "vă propunem să supuneți plenului aprobarea unui raport de admitere"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.94,
+            "rationale_short": "Vorbitorul susține raportul comisiei fără a propune o alternativă sau o mediere nouă."
+          }
+        ],
+        "rationale": "Discursul raportorului prezintă o calitate deliberativă moderată, specifică rolului instituțional. Justificarea este calificată (level_of_justification=2) prin invocarea unui mecanism cauzal clar pentru eficiența administrativă, apelând la binele comun (electrificarea universală). Respectul pentru grupuri și cereri rămâne neutru (1), deoarece menționarea votului din comisie este pur procedurală și nu implică un angajament substanțial cu argumentele opoziției. Discursul este pozițional (constructive_politics=positional), limitându-se la susținerea raportului comisiei. Profilul este cel al unui raportor tehnic care explică o decizie, fără a intra în dezbatere contradictorie."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.88,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"reglementarea la nivel de lege a aspectelor legate de finalizarea electrificării conferă mai multă greutate acțiunilor Guvernului și consiliilor locale\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Vorbitorul oferă un mecanism cauzal clar pentru justificarea legiferării (conferirea de greutate acțiunilor administrative).\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"finalizarea electrificării tuturor gospodăriilor din localitățile urbane și rurale\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Justificarea vizează un obiectiv universalizabil (electrificarea tuturor gospodăriilor) în interesul întregii populații.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Comisia a analizat aceste aspecte\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Referință neutră la activitatea comisiei; nicio derogare sau respect explicit pentru grupuri.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Comisia a analizat aceste aspecte și a hotărât, cu 5 voturi pentru și două voturi împotrivă\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Menționarea votului opoziției este procedurală; nu există un angajament cu legitimitatea cererilor lor.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Comisia a analizat aceste aspecte și a hotărât, cu 5 voturi pentru și două voturi împotrivă\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Votul este menționat, dar raționamentul opoziției nu este nici restabilit, nici combătut.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"vă propunem să supuneți plenului aprobarea unui raport de admitere\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.94,\n      \"rationale_short\": \"Vorbitorul susține raportul comisiei fără a propune o alternativă sau o mediere nouă.\"\n    }\n  ],\n  \"rationale\": \"Discursul raportorului prezintă o calitate deliberativă moderată, specifică rolului instituțional. Justificarea este calificată (level_of_justification=2) prin invocarea unui mecanism cauzal clar pentru eficiența administrativă, apelând la binele comun (electrificarea universală). Respectul pentru grupuri și cereri rămâne neutru (1), deoarece menționarea votului din comisie este pur procedurală și nu implică un angajament substanțial cu argumentele opoziției. Discursul este pozițional (constructive_politics=positional), limitându-se la susținerea raportului comisiei. Profilul este cel al unui raportor tehnic care explică o decizie, fără a intra în dezbatere contradictorie.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [
+        "finalizarea electrificării tuturor gospodăriilor din localitățile urbane și rurale"
+      ],
+      "parse_repaired": false,
+      "tokens_in": 12508,
+      "tokens_in_breakdown": {
+        "fresh": 12508,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1199,
+      "cost_usd": null,
+      "latency_ms": 4546,
+      "retries_used": 0
+    }
+  }
+}

@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2023/II/86#agenda-1#act-46",
+  "tier": "calibration",
+  "speaker": {
+    "id": "pambuccian-varujan",
+    "name": "Varujan Pambuccian",
+    "raw": "Domnul Varujan Pambuccian",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": "2023-05-30",
+    "year": 2023,
+    "legislature": "IX",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2023/II/86#agenda-1#act-46",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul este unul tehnic, axat pe promovarea unui proiect de lege privind agricultura modernă și producția de hrană. Vorbitorul utilizează un registru informativ și argumentativ, fără a invoca un cadru maniheist popor-vs-elită, fără a ataca o elită malefică și fără a apela la o voință populară omogenă sau la supremația acesteia asupra instituțiilor. Deși menționează riscul dependenței alimentare, acesta este prezentat ca o problemă de politică publică și strategie economică, nu ca o criză existențială sau civilizațională. Discursul nu conține niciun marker populist, încadrându-se clar în registrul procedural și legislativ."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul este unul tehnic, axat pe promovarea unui proiect de lege privind agricultura modernă și producția de hrană. Vorbitorul utilizează un registru informativ și argumentativ, fără a invoca un cadru maniheist popor-vs-elită, fără a ataca o elită malefică și fără a apela la o voință populară omogenă sau la supremația acesteia asupra instituțiilor. Deși menționează riscul dependenței alimentare, acesta este prezentat ca o problemă de politică publică și strategie economică, nu ca o criză existențială sau civilizațională. Discursul nu conține niciun marker populist, încadrându-se clar în registrul procedural și legislativ.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 14089,
+      "tokens_in_breakdown": {
+        "fresh": 14089,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 232,
+      "cost_usd": null,
+      "latency_ms": 2168,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2023/II/86#agenda-1#act-46",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.85,
+        "level_of_justification": 2,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "alternative_proposal",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "hrana produsă în acest fel este o hrană necontaminată chimic și biologic, adică este cea mai curată hrană cu putință. Sigur, condițiile în care hrana este produsă astfel sunt condiții destul de greu de realizat, adică nu sunt la îndemâna oricui, și din cauza aceasta am considerat că este necesară o lege care să stimuleze acest tip de producere a hranei"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Vorbitorul oferă o justificare bazată pe un mecanism cauzal (producție curată) și o nevoie de stimulare legislativă."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "o mare greșeală, care ne poate crea dependențe foarte periculoase în viitor."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Apelul este la interesul general al țării de a evita dependențele alimentare, nu la un grup specific."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Doamnelor și domnilor depu..., senatori!"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.99,
+            "marker_confidence": 0.95,
+            "rationale_short": "Adresare convențională în sală; niciun out-group menționat sau derogatoriu."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "am considerat că este necesară o lege care să stimuleze acest tip de producere a hranei"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Vorbitorul își urmărește propria inițiativă fără a aborda cereri opuse; neutru implicit."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "cred că este o mare greșeală să nu fim și noi în acest joc"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.88,
+            "rationale_short": "Nu există nicio referire la argumente contrare; discursul este pur expozitiv și persuasiv."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "alternative_proposal",
+            "evidence": {
+              "text": "am considerat că este necesară o lege care să stimuleze acest tip de producere a hranei și care să permită intrarea în joc și a antreprenorilor români."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.94,
+            "rationale_short": "Vorbitorul propune o inițiativă legislativă concretă pentru a rezolva o problemă de dependență alimentară."
+          }
+        ],
+        "rationale": "Discursul prezintă o calitate deliberativă moderată, fiind centrat pe susținerea unei inițiative legislative proprii. Vorbitorul oferă o justificare calificată (level_of_justification=2) bazată pe un mecanism cauzal clar (producția alimentară delocalizată ca soluție la dependențe), apelând la binele comun (content_of_justification=common_good). Deși discursul este constructiv prin propunerea legislativă (constructive_politics=alternative_proposal), acesta nu angajează contraargumente sau cereri opuse, rămânând într-o zonă de expunere a propriei viziuni. Respectul pentru grupuri și cereri este neutru, neexistând elemente de derogare sau de recunoaștere explicită a legitimității altor poziții. Profilul este cel al unui inițiator care își argumentează proiectul, dar fără a intra într-un dialog deliberativ cu opoziția."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.85,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 0,\n  \"constructive_politics\": \"alternative_proposal\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"hrana produsă în acest fel este o hrană necontaminată chimic și biologic, adică este cea mai curată hrană cu putință. Sigur, condițiile în care hrana este produsă astfel sunt condiții destul de greu de realizat, adică nu sunt la îndemâna oricui, și din cauza aceasta am considerat că este necesară o lege care să stimuleze acest tip de producere a hranei\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Vorbitorul oferă o justificare bazată pe un mecanism cauzal (producție curată) și o nevoie de stimulare legislativă.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"o mare greșeală, care ne poate crea dependențe foarte periculoase în viitor.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Apelul este la interesul general al țării de a evita dependențele alimentare, nu la un grup specific.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Doamnelor și domnilor depu..., senatori!\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.99,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Adresare convențională în sală; niciun out-group menționat sau derogatoriu.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"am considerat că este necesară o lege care să stimuleze acest tip de producere a hranei\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Vorbitorul își urmărește propria inițiativă fără a aborda cereri opuse; neutru implicit.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"cred că este o mare greșeală să nu fim și noi în acest joc\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Nu există nicio referire la argumente contrare; discursul este pur expozitiv și persuasiv.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"alternative_proposal\",\n      \"evidence\": {\n        \"text\": \"am considerat că este necesară o lege care să stimuleze acest tip de producere a hranei și care să permită intrarea în joc și a antreprenorilor români.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.94,\n      \"rationale_short\": \"Vorbitorul propune o inițiativă legislativă concretă pentru a rezolva o problemă de dependență alimentară.\"\n    }\n  ],\n  \"rationale\": \"Discursul prezintă o calitate deliberativă moderată, fiind centrat pe susținerea unei inițiative legislative proprii. Vorbitorul oferă o justificare calificată (level_of_justification=2) bazată pe un mecanism cauzal clar (producția alimentară delocalizată ca soluție la dependențe), apelând la binele comun (content_of_justification=common_good). Deși discursul este constructiv prin propunerea legislativă (constructive_politics=alternative_proposal), acesta nu angajează contraargumente sau cereri opuse, rămânând într-o zonă de expunere a propriei viziuni. Respectul pentru grupuri și cereri este neutru, neexistând elemente de derogare sau de recunoaștere explicită a legitimității altor poziții. Profilul este cel al unui inițiator care își argumentează proiectul, dar fără a intra într-un dialog deliberativ cu opoziția.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12890,
+      "tokens_in_breakdown": {
+        "fresh": 12890,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1324,
+      "cost_usd": null,
+      "latency_ms": 4939,
+      "retries_used": 0
+    }
+  }
+}

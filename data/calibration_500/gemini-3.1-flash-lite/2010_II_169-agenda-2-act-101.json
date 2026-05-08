@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2010/II/169#agenda-2#act-101",
+  "tier": "calibration",
+  "speaker": {
+    "id": "grebla-toni",
+    "name": "Toni Greblă",
+    "raw": "Domnul Toni Greblă",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": "2010-11-10",
+    "year": 2010,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2010/II/169#agenda-2#act-101",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul este unul pur tehnic și procedural, concentrat pe amendamente la legea pensiilor, vârste de pensionare și stagiile de cotizare. Vorbitorul utilizează un registru legislativ, făcând referire la articole, anexe și modele legislative comparate (legea germană). Nu există nicio urmă de cadru popor-vs-elită, maniheism moral sau invocare a unei voințe populare suverane. Discursul se înscrie în registrul dezbaterii parlamentare de specialitate, motiv pentru care scorul este 0."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul este unul pur tehnic și procedural, concentrat pe amendamente la legea pensiilor, vârste de pensionare și stagiile de cotizare. Vorbitorul utilizează un registru legislativ, făcând referire la articole, anexe și modele legislative comparate (legea germană). Nu există nicio urmă de cadru popor-vs-elită, maniheism moral sau invocare a unei voințe populare suverane. Discursul se înscrie în registrul dezbaterii parlamentare de specialitate, motiv pentru care scorul este 0.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 14226,
+      "tokens_in_breakdown": {
+        "fresh": 14226,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 200,
+      "cost_usd": null,
+      "latency_ms": 2244,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2010/II/169#agenda-2#act-101",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.88,
+        "level_of_justification": 2,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "alternative_proposal",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "fiindcă și vârsta de pensionare este mai mică cu doi ani și atunci și stagiul de cotizare trebuie să fie mai mic cu doi ani, întrucât au intrat în activitate, și bărbatul, și femeia, la 25 de ani, după terminarea facultății"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Vorbitorul oferă o justificare bazată pe un mecanism logic și o premisă factuală (vârsta de intrare în activitate)."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "satisface și nevoia creșterii treptate a vârstei la care putem beneficia de pensie, dar are în vedere și dificultatea pe care o au unii de a ajunge în deplinătatea forțelor psihice și fizice la vârsta de 65 de ani"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Justificarea vizează echilibrul între sustenabilitatea sistemului și protecția socială a cetățenilor, un apel la binele comun."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "domnul președinte al comisiei raportoare"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.85,
+            "rationale_short": "Referință funcțională la un coleg; nu există derogare sau respect explicit."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Nu vă ascund faptul că nu este o invenție a noastră, ci este o copie aproape fidelă a prevederilor din legea germană a pensionării"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.88,
+            "rationale_short": "Vorbitorul își prezintă propunerea fără a angaja explicit cererile opoziției; neutru."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "pe domnul președinte al comisiei raportoare îl rog să nu mai facă comentarii politice din postura de raportor"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.96,
+            "marker_confidence": 0.89,
+            "rationale_short": "Vorbitorul ignoră argumentele substanțiale și se concentrează pe o critică procedurală a raportorului."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "alternative_proposal",
+            "evidence": {
+              "text": "propunem un sistem mai flexibil și care să aibă în vedere diferențele biologice dintre oameni"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Vorbitorul prezintă un amendament concret și o alternativă structurată la legislația existentă."
+          }
+        ],
+        "rationale": "Discursul prezintă o calitate deliberativă medie-ridicată, marcată de un caracter constructiv clar prin propunerea unor amendamente detaliate și justificate logic. Vorbitorul oferă o justificare calificată (level_of_justification=2) bazată pe mecanisme de echitate și referințe la modele legislative externe (Germania), apelând la binele comun. Totuși, discursul suferă pe dimensiunea respectului, începând cu o critică procedurală la adresa raportorului și ignorând complet contraargumentele opoziției (respect_for_counterarguments=0). Deși propunerea este alternativă și bine articulată, lipsa angajamentului cu pozițiile adverse limitează scorul deliberativ global. Profilul este cel al unui vorbitor tehnic care își promovează propria soluție fără a media cu restul camerei."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.88,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 0,\n  \"constructive_politics\": \"alternative_proposal\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"fiindcă și vârsta de pensionare este mai mică cu doi ani și atunci și stagiul de cotizare trebuie să fie mai mic cu doi ani, întrucât au intrat în activitate, și bărbatul, și femeia, la 25 de ani, după terminarea facultății\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Vorbitorul oferă o justificare bazată pe un mecanism logic și o premisă factuală (vârsta de intrare în activitate).\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"satisface și nevoia creșterii treptate a vârstei la care putem beneficia de pensie, dar are în vedere și dificultatea pe care o au unii de a ajunge în deplinătatea forțelor psihice și fizice la vârsta de 65 de ani\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Justificarea vizează echilibrul între sustenabilitatea sistemului și protecția socială a cetățenilor, un apel la binele comun.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"domnul președinte al comisiei raportoare\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Referință funcțională la un coleg; nu există derogare sau respect explicit.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Nu vă ascund faptul că nu este o invenție a noastră, ci este o copie aproape fidelă a prevederilor din legea germană a pensionării\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Vorbitorul își prezintă propunerea fără a angaja explicit cererile opoziției; neutru.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"pe domnul președinte al comisiei raportoare îl rog să nu mai facă comentarii politice din postura de raportor\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.96,\n      \"marker_confidence\": 0.89,\n      \"rationale_short\": \"Vorbitorul ignoră argumentele substanțiale și se concentrează pe o critică procedurală a raportorului.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"alternative_proposal\",\n      \"evidence\": {\n        \"text\": \"propunem un sistem mai flexibil și care să aibă în vedere diferențele biologice dintre oameni\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Vorbitorul prezintă un amendament concret și o alternativă structurată la legislația existentă.\"\n    }\n  ],\n  \"rationale\": \"Discursul prezintă o calitate deliberativă medie-ridicată, marcată de un caracter constructiv clar prin propunerea unor amendamente detaliate și justificate logic. Vorbitorul oferă o justificare calificată (level_of_justification=2) bazată pe mecanisme de echitate și referințe la modele legislative externe (Germania), apelând la binele comun. Totuși, discursul suferă pe dimensiunea respectului, începând cu o critică procedurală la adresa raportorului și ignorând complet contraargumentele opoziției (respect_for_counterarguments=0). Deși propunerea este alternativă și bine articulată, lipsa angajamentului cu pozițiile adverse limitează scorul deliberativ global. Profilul este cel al unui vorbitor tehnic care își promovează propria soluție fără a media cu restul camerei.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13027,
+      "tokens_in_breakdown": {
+        "fresh": 13027,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1313,
+      "cost_usd": null,
+      "latency_ms": 5426,
+      "retries_used": 0
+    }
+  }
+}

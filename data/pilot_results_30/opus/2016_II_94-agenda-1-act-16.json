@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2016/II/94#agenda-1#act-16",
+  "tier": "register_shift",
+  "speaker": {
+    "id": "popescu-tariceanu-calin",
+    "name": "Călin Constantin Anton Popescu-Tăriceanu",
+    "raw": "Domnul Călin Constantin Anton Popescu-Tăriceanu",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2016-05-10",
+    "year": 2016,
+    "legislature": "VII",
+    "delivery_mode": null
+  },
+  "model_key": "opus",
+  "model_label": "claude-opus-4.7",
+  "results": {
+    "hawkins": {
+      "model_key": "opus",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2016/II/94#agenda-1#act-16",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discurs strict procedural: anunț de încheiere a votării, invitație către membrii Birourilor permanente pentru semnarea procesului-verbal și informare formală privind depunerea unei legi la secretarii generali în vederea exercitării dreptului de sesizare a CCR, cu citarea articolului 15 din Legea nr. 47/1992. Nu există niciun cadru popor-vs-elită, nicio invocare a unei voințe populare omogene, niciun maniheism moral și nicio dramatizare a mizei. Registrul este integral tehnico-administrativ, fără markeri populiști. Hawkins=0 cu încredere foarte ridicată."
+      },
+      "raw_response": "{\"score\":0,\"score_unit\":\"ordinal_0_2\",\"framework_version\":\"hawkins@2018\",\"framework_confidence\":0.98,\"markers\":[],\"rationale\":\"Discurs strict procedural: anunț de încheiere a votării, invitație către membrii Birourilor permanente pentru semnarea procesului-verbal și informare formală privind depunerea unei legi la secretarii generali în vederea exercitării dreptului de sesizare a CCR, cu citarea articolului 15 din Legea nr. 47/1992. Nu există niciun cadru popor-vs-elită, nicio invocare a unei voințe populare omogene, niciun maniheism moral și nicio dramatizare a mizei. Registrul este integral tehnico-administrativ, fără markeri populiști. Hawkins=0 cu încredere foarte ridicată.\"}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 104187,
+      "tokens_in_breakdown": {
+        "fresh": 5,
+        "cache_creation": 85829,
+        "cache_read": 18353
+      },
+      "tokens_out": 290,
+      "cost_usd": 0.55288275,
+      "latency_ms": 11807,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "opus",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2016/II/94#agenda-1#act-16",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.38,
+        "level_of_justification": 0,
+        "content_of_justification": "none",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 0,
+            "evidence": {
+              "text": "s-au depus la secretarii generali ai Senatului și Camerei Deputaților, în vederea exercitării de către senatori și deputați a dreptului de sesizare a Curții Constituționale, următoarele legi adoptate de ambele Camere ale Parlamentului"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.92,
+            "marker_confidence": 0.84,
+            "rationale_short": "Anunț procedural pur; nicio poziție argumentată și nicio justificare oferită."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "none",
+            "evidence": {
+              "text": "Vă informez că, în conformitate cu prevederile art. 15 alin. (2) și (3) din Legea nr. 47/1992"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.92,
+            "marker_confidence": 0.83,
+            "rationale_short": "Citare procedurală a temeiului legal; niciun apel la binele comun sau la interes de grup în argumentare."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Doamnelor și domnilor senatori și deputați"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.7,
+            "rationale_short": "Adresare convențională în sală; niciun out-group invocat — neutru implicit."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Îi invit pe membrii Birourilor permanente să se întrunească"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.94,
+            "marker_confidence": 0.6,
+            "rationale_short": "Niciun angajament cu cereri adverse; conducere procedurală neutră."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "pentru constatarea rezultatului votului, încheierea și semnarea procesului-verbal"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.93,
+            "marker_confidence": 0.78,
+            "rationale_short": "Discurs procedural; niciun contraargument prezent în text și niciun angajament cu raționamente adverse."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Vă informez că"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.94,
+            "marker_confidence": 0.72,
+            "rationale_short": "Anunț procedural; nicio alternativă sau mediere propusă — implicit pozițional."
+          }
+        ],
+        "rationale": "Discursul este o intervenție pur procedurală a președintelui de ședință: închiderea unei runde de vot, convocarea Birourilor permanente și anunțul depunerii unor legi pentru exercitarea dreptului de sesizare a CCR. Nu există o poziție deliberativă argumentată, deci level_of_justification=0 și content_of_justification=none. Respectul pentru grupuri rămâne neutru pe baza adresării convenționale, iar respectul pentru cereri este neutru întrucât nicio cerere adversă nu este invocată. Respectul pentru contraargumente se duce la 0 — nu există contraargument prezent în text. constructive_politics rămâne pozițional implicit, deoarece nu se oferă nicio alternativă sau mediere. framework_confidence este scăzută (~0.38) fiindcă fragmentul este de gen procedural-administrativ și nu suportă o judecată DQI fiabilă; consumatorii care filtrează după framework_confidence > 0.7 vor exclude corect acest tip de intervenție."
+      },
+      "raw_response": "{\"framework_version\":\"steiner-bachtiger@2017\",\"score_unit\":\"dqi_multi\",\"framework_confidence\":0.38,\"level_of_justification\":0,\"content_of_justification\":\"none\",\"respect_for_groups\":1,\"respect_for_demands\":1,\"respect_for_counterarguments\":0,\"constructive_politics\":\"positional\",\"markers\":[{\"kind\":\"level_of_justification\",\"value\":0,\"evidence\":{\"text\":\"s-au depus la secretarii generali ai Senatului și Camerei Deputaților, în vederea exercitării de către senatori și deputați a dreptului de sesizare a Curții Constituționale, următoarele legi adoptate de ambele Camere ale Parlamentului\"},\"preliminary_voice\":\"speaker_first_person\",\"preliminary_voice_confidence\":0.92,\"marker_confidence\":0.84,\"rationale_short\":\"Anunț procedural pur; nicio poziție argumentată și nicio justificare oferită.\"},{\"kind\":\"content_of_justification\",\"value\":\"none\",\"evidence\":{\"text\":\"Vă informez că, în conformitate cu prevederile art. 15 alin. (2) și (3) din Legea nr. 47/1992\"},\"preliminary_voice\":\"speaker_first_person\",\"preliminary_voice_confidence\":0.92,\"marker_confidence\":0.83,\"rationale_short\":\"Citare procedurală a temeiului legal; niciun apel la binele comun sau la interes de grup în argumentare.\"},{\"kind\":\"respect_for_groups\",\"value\":1,\"evidence\":{\"text\":\"Doamnelor și domnilor senatori și deputați\"},\"preliminary_voice\":\"speaker_first_person\",\"preliminary_voice_confidence\":0.95,\"marker_confidence\":0.7,\"rationale_short\":\"Adresare convențională în sală; niciun out-group invocat — neutru implicit.\"},{\"kind\":\"respect_for_demands\",\"value\":1,\"evidence\":{\"text\":\"Îi invit pe membrii Birourilor permanente să se întrunească\"},\"preliminary_voice\":\"speaker_first_person\",\"preliminary_voice_confidence\":0.94,\"marker_confidence\":0.6,\"rationale_short\":\"Niciun angajament cu cereri adverse; conducere procedurală neutră.\"},{\"kind\":\"respect_for_counterarguments\",\"value\":0,\"evidence\":{\"text\":\"pentru constatarea rezultatului votului, încheierea și semnarea procesului-verbal\"},\"preliminary_voice\":\"speaker_first_person\",\"preliminary_voice_confidence\":0.93,\"marker_confidence\":0.78,\"rationale_short\":\"Discurs procedural; niciun contraargument prezent în text și niciun angajament cu raționamente adverse.\"},{\"kind\":\"constructive_politics\",\"value\":\"positional\",\"evidence\":{\"text\":\"Vă informez că\"},\"preliminary_voice\":\"speaker_first_person\",\"preliminary_voice_confidence\":0.94,\"marker_confidence\":0.72,\"rationale_short\":\"Anunț procedural; nicio alternativă sau mediere propusă — implicit pozițional.\"}],\"rationale\":\"Discursul este o intervenție pur procedurală a președintelui de ședință: închiderea unei runde de vot, convocarea Birourilor permanente și anunțul depunerii unor legi pentru exercitarea dreptului de sesizare a CCR. Nu există o poziție deliberativă argumentată, deci level_of_justification=0 și content_of_justification=none. Respectul pentru grupuri rămâne neutru pe baza adresării convenționale, iar respectul pentru cereri este neutru întrucât nicio cerere adversă nu este invocată. Respectul pentru contraargumente se duce la 0 — nu există contraargument prezent în text. constructive_politics rămâne pozițional implicit, deoarece nu se oferă nicio alternativă sau mediere. framework_confidence este scăzută (~0.38) fiindcă fragmentul este de gen procedural-administrativ și nu suportă o judecată DQI fiabilă; consumatorii care filtrează după framework_confidence > 0.7 vor exclude corect acest tip de intervenție.\"}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 102178,
+      "tokens_in_breakdown": {
+        "fresh": 5,
+        "cache_creation": 83820,
+        "cache_read": 18353
+      },
+      "tokens_out": 1410,
+      "cost_usd": 0.5683265000000001,
+      "latency_ms": 24880,
+      "retries_used": 0
+    }
+  }
+}

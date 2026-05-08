@@ -1,0 +1,153 @@
+{
+  "speech_id": "mo://2000/II/68#agenda-2#act-241",
+  "tier": "calibration",
+  "speaker": {
+    "id": "gaspar-acsinte",
+    "name": "Acsinte Gaspar",
+    "raw": "Domnul Acsinte Gaspar",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": null,
+    "year": 2000,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2000/II/68#agenda-2#act-241",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 1.0,
+        "markers": [],
+        "rationale": "Discursul este pur procedural, concentrat pe amendamente tehnice la articolele 38 ale unei legi electorale (corectarea denumirilor instituțiilor, clarificări terminologice, proceduri de publicare în Monitorul Oficial). Nu există nicio urmă de cadru popor-vs-elită, maniheism moral sau invocare a unei voințe populare omogene. Vorbitorul se limitează strict la sarcini legislative și administrative, fără a utiliza retorică populistă. Hawkins=0 cu încredere maximă."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 1.0,\n  \"markers\": [],\n  \"rationale\": \"Discursul este pur procedural, concentrat pe amendamente tehnice la articolele 38 ale unei legi electorale (corectarea denumirilor instituțiilor, clarificări terminologice, proceduri de publicare în Monitorul Oficial). Nu există nicio urmă de cadru popor-vs-elită, maniheism moral sau invocare a unei voințe populare omogene. Vorbitorul se limitează strict la sarcini legislative și administrative, fără a utiliza retorică populistă. Hawkins=0 cu încredere maximă.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13867,
+      "tokens_in_breakdown": {
+        "fresh": 13867,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 188,
+      "cost_usd": null,
+      "latency_ms": 1780,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2000/II/68#agenda-2#act-241",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.88,
+        "level_of_justification": 2,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "alternative_proposal",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "Aºa ceva nu existã în Legea alegerilor locale, nici în Legea alegerilor parlamentare ºi deci va trebui sã înlocuim sintagma: ”lo- cal sau teritorialÒ cu ”sau de Biroul electoral judeþeanÒ"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Vorbitorul oferă motive tehnice specifice pentru amendamente, invocând neconcordanțe cu legislația electorală existentă."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "va trebui sã înlocuim sintagma: ”lo- cal sau teritorialÒ cu ”sau de Biroul electoral judeþeanÒ"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Justificarea vizează corectitudinea procedurală și claritatea legii, servind interesul general al funcționării sistemului electoral."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Domnule preºedinte"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.99,
+            "marker_confidence": 0.95,
+            "rationale_short": "Adresare formală neutră; nu există referiri la grupuri sociale sau politice care să fie vizate."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "La art. 38 am mai multe comentarii."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.88,
+            "rationale_short": "Vorbitorul se concentrează pe amendamente tehnice proprii fără a aborda cererile altor părți."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "La art. 38 am mai multe comentarii."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Nu există o confruntare cu argumente opuse, ci o propunere de corectare a textului legislativ."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "alternative_proposal",
+            "evidence": {
+              "text": "aº reformula în felul urmãtor: ”În termen de 7 zile, C.N.S.A.S. va transmite rezultatul verificãrilor ºi va lua mãsuri pentru publicarea imediatã"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Vorbitorul propune reformulări concrete și amendamente specifice pentru îmbunătățirea textului legislativ."
+          }
+        ],
+        "rationale": "Discursul este unul de natură tehnică, axat pe corectarea unor erori legislative și îmbunătățirea clarității textului. Vorbitorul oferă justificări calificate (level_of_justification=2) prin raportarea la legislația electorală existentă, vizând binele comun al clarității procedurale. Deși nu există un angajament cu contraargumente sau cereri adverse (respect_for_demands/counterarguments=1), discursul este constructiv prin natura sa, oferind amendamente concrete (constructive_politics=alternative_proposal). Tonul este neutru și profesional, fără a viza grupuri specifice. Calitatea deliberativă este ridicată în contextul unei intervenții de comisie sau de amendare a legii."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.88,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"alternative_proposal\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"Aºa ceva nu existã în Legea alegerilor locale, nici în Legea alegerilor parlamentare ºi deci va trebui sã înlocuim sintagma: ”lo- cal sau teritorialÒ cu ”sau de Biroul electoral judeþeanÒ\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Vorbitorul oferă motive tehnice specifice pentru amendamente, invocând neconcordanțe cu legislația electorală existentă.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"va trebui sã înlocuim sintagma: ”lo- cal sau teritorialÒ cu ”sau de Biroul electoral judeþeanÒ\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Justificarea vizează corectitudinea procedurală și claritatea legii, servind interesul general al funcționării sistemului electoral.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Domnule preºedinte\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.99,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Adresare formală neutră; nu există referiri la grupuri sociale sau politice care să fie vizate.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"La art. 38 am mai multe comentarii.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Vorbitorul se concentrează pe amendamente tehnice proprii fără a aborda cererile altor părți.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"La art. 38 am mai multe comentarii.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Nu există o confruntare cu argumente opuse, ci o propunere de corectare a textului legislativ.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"alternative_proposal\",\n      \"evidence\": {\n        \"text\": \"aº reformula în felul urmãtor: ”În termen de 7 zile, C.N.S.A.S. va transmite rezultatul verificãrilor ºi va lua mãsuri pentru publicarea imediatã\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Vorbitorul propune reformulări concrete și amendamente specifice pentru îmbunătățirea textului legislativ.\"\n    }\n  ],\n  \"rationale\": \"Discursul este unul de natură tehnică, axat pe corectarea unor erori legislative și îmbunătățirea clarității textului. Vorbitorul oferă justificări calificate (level_of_justification=2) prin raportarea la legislația electorală existentă, vizând binele comun al clarității procedurale. Deși nu există un angajament cu contraargumente sau cereri adverse (respect_for_demands/counterarguments=1), discursul este constructiv prin natura sa, oferind amendamente concrete (constructive_politics=alternative_proposal). Tonul este neutru și profesional, fără a viza grupuri specifice. Calitatea deliberativă este ridicată în contextul unei intervenții de comisie sau de amendare a legii.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [
+        "Aºa ceva nu existã în Legea alegerilor locale, nici în Legea alegerilor parlamentare ºi deci va trebui sã înlocuim sintagma: ”lo- cal sau teritorialÒ cu ”sau de Biroul electoral judeþeanÒ",
+        "va trebui sã înlocuim sintagma: ”lo- cal sau teritorialÒ cu ”sau de Biroul electoral judeþeanÒ"
+      ],
+      "parse_repaired": false,
+      "tokens_in": 12668,
+      "tokens_in_breakdown": {
+        "fresh": 12668,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1236,
+      "cost_usd": null,
+      "latency_ms": 4953,
+      "retries_used": 0
+    }
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "speech_id": "mo://2009/II/137#agenda-1#act-125",
+  "tier": "calibration",
+  "speaker": {
+    "id": "david-gheorghe",
+    "name": "Gheorghe David",
+    "raw": "Domnul Gheorghe David",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": "2009-10-20",
+    "year": 2009,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": null,
+    "voice": null,
+    "dqi": null,
+    "vparty": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "vparty",
+      "speech_id": "mo://2009/II/137#agenda-1#act-125",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "vparty@2020 + vdem-attacks-on@v13",
+        "framework_confidence": 1.0,
+        "markers": [],
+        "rationale": "Discursul este unul pur procedural, axat pe organizarea dezbaterii parlamentare și pe clarificarea ordinii de zi. Vorbitorul nu atacă nicio instituție democratică, nu delegitimează opoziția și nu folosește retorică anti-pluralistă. Intervenția se încadrează în registrul normal al activității parlamentare, respectând procedurile și normele democratice. Scor 0 cu încredere maximă."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"vparty@2020 + vdem-attacks-on@v13\",\n  \"framework_confidence\": 1.0,\n  \"markers\": [],\n  \"rationale\": \"Discursul este unul pur procedural, axat pe organizarea dezbaterii parlamentare și pe clarificarea ordinii de zi. Vorbitorul nu atacă nicio instituție democratică, nu delegitimează opoziția și nu folosește retorică anti-pluralistă. Intervenția se încadrează în registrul normal al activității parlamentare, respectând procedurile și normele democratice. Scor 0 cu încredere maximă.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12888,
+      "tokens_in_breakdown": {
+        "fresh": 12888,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 180,
+      "cost_usd": null,
+      "latency_ms": 1937,
+      "retries_used": 0
+    }
+  }
+}

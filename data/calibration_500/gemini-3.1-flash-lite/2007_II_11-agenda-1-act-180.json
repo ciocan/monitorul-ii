@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2007/II/11#agenda-1#act-180",
+  "tier": "calibration",
+  "speaker": {
+    "id": "taracila-doru-ioan",
+    "name": "Doru Ioan T„r„cil„",
+    "raw": "Domnul Doru Ioan T„r„cil„",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": null,
+    "year": 2007,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2007/II/11#agenda-1#act-180",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul este pur procedural, concentrându-se pe mecanismele parlamentare de retrimitere a unui raport la comisie și pe coordonarea pozițiilor grupurilor parlamentare. Nu există nicio urmă de cadru popor-vs-elită, maniheism moral sau invocare a unei voințe populare suverane. Vorbitorul gestionează o problemă tehnică de procedură legislativă, fără a recurge la retorică populistă. Hawkins=0 cu încredere ridicată."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul este pur procedural, concentrându-se pe mecanismele parlamentare de retrimitere a unui raport la comisie și pe coordonarea pozițiilor grupurilor parlamentare. Nu există nicio urmă de cadru popor-vs-elită, maniheism moral sau invocare a unei voințe populare suverane. Vorbitorul gestionează o problemă tehnică de procedură legislativă, fără a recurge la retorică populistă. Hawkins=0 cu încredere ridicată.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13807,
+      "tokens_in_breakdown": {
+        "fresh": 13807,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 183,
+      "cost_usd": null,
+      "latency_ms": 1889,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2007/II/11#agenda-1#act-180",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.85,
+        "level_of_justification": 2,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 2,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "mediating_proposal",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "solicit plenului s„ infirm„m raportul negativ dat de comisie ∫i s„ o retrimitem pentru dezbatere, pentru analiz„ ∫i prezentare de solu˛ii Ón viitoarea ∫edin˛„ de plen a Senatului."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Vorbitorul oferă o justificare procedurală clară pentru retrimiterea la comisie, legând acțiunea de necesitatea unei analize aprofundate."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "rezolvare pe ansamblu a acestei chestiuni"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.88,
+            "rationale_short": "Apelul este la rezolvarea problemei pentru toți cei vizați, nu pentru un grup politic specific."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "M„ refer la pozi˛iile exprimate de grupurile P.S.D., P.C., P.R.M. ∫i U.D.M.R."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Referință neutră și funcțională la grupurile parlamentare; nicio derogare sau laudă explicită."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 2,
+            "evidence": {
+              "text": "nici colegii din Grupul parlamentar al Alian˛ei îDreptate ∫i Adev„r“ P.N.L.-P.D. nu au respins ideea unei dezbateri pe fond"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Recunoaște legitimitatea cererii opoziției pentru o dezbatere pe fond, validând poziția lor."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "Deci 4 grupuri parlamentare s-au pronun˛at Ón mod direct pe respingerea raportului negativ"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Menționează argumentele grupurilor, dar nu le angajează substanțial, folosindu-le doar pentru a justifica propunerea sa."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "mediating_proposal",
+            "evidence": {
+              "text": "solicit plenului s„ infirm„m raportul negativ dat de comisie ∫i s„ o retrimitem pentru dezbatere"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.93,
+            "rationale_short": "Propune o soluție de compromis (infirmarea raportului și retrimiterea) pentru a media între pozițiile divergente."
+          }
+        ],
+        "rationale": "Discursul este un exemplu de mediere procedurală în cadrul Senatului. Vorbitorul sintetizează pozițiile grupurilor parlamentare (respect_for_demands=2) și propune o soluție de compromis (constructive_politics=mediating_proposal) pentru a depăși blocajul creat de raportul negativ al comisiei. Justificarea este clară și orientată către binele comun (rezolvarea problemei chiriașilor), deși nu atinge nivelul de sofisticare academică (level_of_justification=2). Respectul pentru grupuri este neutru, iar angajamentul cu contraargumentele este limitat la o recunoaștere a pozițiilor exprimate anterior. Calitatea deliberativă este ridicată prin caracterul constructiv și efortul de a găsi un consens."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.85,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 2,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"mediating_proposal\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"solicit plenului s„ infirm„m raportul negativ dat de comisie ∫i s„ o retrimitem pentru dezbatere, pentru analiz„ ∫i prezentare de solu˛ii Ón viitoarea ∫edin˛„ de plen a Senatului.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Vorbitorul oferă o justificare procedurală clară pentru retrimiterea la comisie, legând acțiunea de necesitatea unei analize aprofundate.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"rezolvare pe ansamblu a acestei chestiuni\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Apelul este la rezolvarea problemei pentru toți cei vizați, nu pentru un grup politic specific.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"M„ refer la pozi˛iile exprimate de grupurile P.S.D., P.C., P.R.M. ∫i U.D.M.R.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Referință neutră și funcțională la grupurile parlamentare; nicio derogare sau laudă explicită.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"nici colegii din Grupul parlamentar al Alian˛ei îDreptate ∫i Adev„r“ P.N.L.-P.D. nu au respins ideea unei dezbateri pe fond\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.90,\n      \"rationale_short\": \"Recunoaște legitimitatea cererii opoziției pentru o dezbatere pe fond, validând poziția lor.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Deci 4 grupuri parlamentare s-au pronun˛at Ón mod direct pe respingerea raportului negativ\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Menționează argumentele grupurilor, dar nu le angajează substanțial, folosindu-le doar pentru a justifica propunerea sa.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"mediating_proposal\",\n      \"evidence\": {\n        \"text\": \"solicit plenului s„ infirm„m raportul negativ dat de comisie ∫i s„ o retrimitem pentru dezbatere\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.93,\n      \"rationale_short\": \"Propune o soluție de compromis (infirmarea raportului și retrimiterea) pentru a media între pozițiile divergente.\"\n    }\n  ],\n  \"rationale\": \"Discursul este un exemplu de mediere procedurală în cadrul Senatului. Vorbitorul sintetizează pozițiile grupurilor parlamentare (respect_for_demands=2) și propune o soluție de compromis (constructive_politics=mediating_proposal) pentru a depăși blocajul creat de raportul negativ al comisiei. Justificarea este clară și orientată către binele comun (rezolvarea problemei chiriașilor), deși nu atinge nivelul de sofisticare academică (level_of_justification=2). Respectul pentru grupuri este neutru, iar angajamentul cu contraargumentele este limitat la o recunoaștere a pozițiilor exprimate anterior. Calitatea deliberativă este ridicată prin caracterul constructiv și efortul de a găsi un consens.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12608,
+      "tokens_in_breakdown": {
+        "fresh": 12608,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1299,
+      "cost_usd": null,
+      "latency_ms": 5157,
+      "retries_used": 0
+    }
+  }
+}

@@ -1,0 +1,152 @@
+{
+  "speech_id": "mo://2017/II/153#agenda-1#act-116",
+  "tier": "register_shift",
+  "speaker": {
+    "id": "basescu-traian",
+    "name": "Traian Băsescu",
+    "raw": "Domnul Traian Băsescu",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": "2017-10-24",
+    "year": 2017,
+    "legislature": "VIII",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2017/II/153#agenda-1#act-116",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.95,
+        "markers": [],
+        "rationale": "Discursul se concentrează pe o problemă procedurală și instituțională specifică: subordonarea administrativă a Monitorului Oficial. Deși vorbitorul critică Guvernul pentru „încălcarea Constituției” și „jonglarea cu actele normative”, acest limbaj rămâne în sfera controlului parlamentar și a legalității, fără a invoca un cadru maniheist popor-vs-elită sau o voință populară omogenă. Nu există elemente de populism în sensul rubricii Hawkins, discursul fiind o intervenție tehnică de susținere a unei propuneri legislative. Scor 0 cu încredere ridicată."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.95,\n  \"markers\": [],\n  \"rationale\": \"Discursul se concentrează pe o problemă procedurală și instituțională specifică: subordonarea administrativă a Monitorului Oficial. Deși vorbitorul critică Guvernul pentru „încălcarea Constituției” și „jonglarea cu actele normative”, acest limbaj rămâne în sfera controlului parlamentar și a legalității, fără a invoca un cadru maniheist popor-vs-elită sau o voință populară omogenă. Nu există elemente de populism în sensul rubricii Hawkins, discursul fiind o intervenție tehnică de susținere a unei propuneri legislative. Scor 0 cu încredere ridicată.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13678,
+      "tokens_in_breakdown": {
+        "fresh": 13678,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 217,
+      "cost_usd": null,
+      "latency_ms": 2452,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2017/II/153#agenda-1#act-116",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.82,
+        "level_of_justification": 1,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 1,
+            "evidence": {
+              "text": "susținem fără rezerve varianta revenirii Monitorului Oficial acolo unde îi este locul, adică în subordinea Parlamentului României"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Vorbitorul susține o poziție bazată pe o normă procedurală („unde îi este locul”), dar fără un raționament cauzal sau juridic detaliat."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "revenirea Monitorului Oficial acolo unde îi este locul, adică în subordinea Parlamentului României"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.88,
+            "rationale_short": "Apelul este la principiul separării puterilor și controlului parlamentar, considerat un bine comun al sistemului democratic."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "avertisment și pentru majoritate"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.82,
+            "rationale_short": "Referința la majoritate este funcțională și politică, fără a fi derogatorie sau explicit respectuoasă."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Nu trebuie să perpetuăm dreptul Executivului"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.8,
+            "rationale_short": "Vorbitorul ignoră cererile sau rațiunile Executivului, concentrându-se pe propria agendă de revenire la controlul parlamentar."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "Trecerea Monitorului Oficial la Guvern, la Secretariatul General al Guvernului, a fost o mișcare politică ce a decurs din nevoia de a genera ilegalități"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Argumentul advers este respins ca fiind o „mișcare politică” ilegală, fără a fi angajat sau analizat substanțial."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "susținem fără rezerve varianta revenirii Monitorului Oficial acolo unde îi este locul"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Vorbitorul susține o poziție clară de revenire la status-quo-ul anterior, fără a propune o alternativă nouă sau un compromis."
+          }
+        ],
+        "rationale": "Discursul prezintă o calitate deliberativă moderată, fiind centrat pe o poziție politică clară (revenirea Monitorului Oficial la Parlament). Justificarea este de nivel 1, bazându-se pe un principiu general de control parlamentar fără a oferi dovezi sau mecanisme detaliate. Nu există un angajament real cu contraargumentele Executivului, acestea fiind respinse ca fiind ilegale. Respectul pentru grupuri și cereri rămâne neutru, iar discursul este pur pozițional, fără a oferi alternative sau medieri. Profilul este unul de opoziție clasică, axat pe critică și restabilirea unei ordini anterioare."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.82,\n  \"level_of_justification\": 1,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 0,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"susținem fără rezerve varianta revenirii Monitorului Oficial acolo unde îi este locul, adică în subordinea Parlamentului României\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Vorbitorul susține o poziție bazată pe o normă procedurală („unde îi este locul”), dar fără un raționament cauzal sau juridic detaliat.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"revenirea Monitorului Oficial acolo unde îi este locul, adică în subordinea Parlamentului României\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Apelul este la principiul separării puterilor și controlului parlamentar, considerat un bine comun al sistemului democratic.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"avertisment și pentru majoritate\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.82,\n      \"rationale_short\": \"Referința la majoritate este funcțională și politică, fără a fi derogatorie sau explicit respectuoasă.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Nu trebuie să perpetuăm dreptul Executivului\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.80,\n      \"rationale_short\": \"Vorbitorul ignoră cererile sau rațiunile Executivului, concentrându-se pe propria agendă de revenire la controlul parlamentar.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"Trecerea Monitorului Oficial la Guvern, la Secretariatul General al Guvernului, a fost o mișcare politică ce a decurs din nevoia de a genera ilegalități\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Argumentul advers este respins ca fiind o „mișcare politică” ilegală, fără a fi angajat sau analizat substanțial.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"susținem fără rezerve varianta revenirii Monitorului Oficial acolo unde îi este locul\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.90,\n      \"rationale_short\": \"Vorbitorul susține o poziție clară de revenire la status-quo-ul anterior, fără a propune o alternativă nouă sau un compromis.\"\n    }\n  ],\n  \"rationale\": \"Discursul prezintă o calitate deliberativă moderată, fiind centrat pe o poziție politică clară (revenirea Monitorului Oficial la Parlament). Justificarea este de nivel 1, bazându-se pe un principiu general de control parlamentar fără a oferi dovezi sau mecanisme detaliate. Nu există un angajament real cu contraargumentele Executivului, acestea fiind respinse ca fiind ilegale. Respectul pentru grupuri și cereri rămâne neutru, iar discursul este pur pozițional, fără a oferi alternative sau medieri. Profilul este unul de opoziție clasică, axat pe critică și restabilirea unei ordini anterioare.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [
+        "revenirea Monitorului Oficial acolo unde îi este locul, adică în subordinea Parlamentului României"
+      ],
+      "parse_repaired": false,
+      "tokens_in": 12479,
+      "tokens_in_breakdown": {
+        "fresh": 12479,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1208,
+      "cost_usd": null,
+      "latency_ms": 4703,
+      "retries_used": 0
+    }
+  }
+}

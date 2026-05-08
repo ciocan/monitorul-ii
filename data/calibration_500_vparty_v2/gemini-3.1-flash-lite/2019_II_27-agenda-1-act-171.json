@@ -1,0 +1,52 @@
+{
+  "speech_id": "mo://2019/II/27#agenda-1#act-171",
+  "tier": "calibration",
+  "speaker": {
+    "id": "dancila-vasilica-viorica",
+    "name": "Vasilica Viorica Dăncilă",
+    "raw": "Doamna Vasilica Viorica Dăncilă",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2019-03-04",
+    "year": 2019,
+    "legislature": "VIII",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": null,
+    "voice": null,
+    "dqi": null,
+    "vparty": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "vparty",
+      "speech_id": "mo://2019/II/27#agenda-1#act-171",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "vparty@2020 + vdem-attacks-on@v13",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul reprezintă o confruntare politică parlamentară standard, bazată pe critici privind guvernarea anterioară și schimburi de replici între colegi. Vorbitorul atacă deciziile politice și performanța administrativă a opoziției, dar nu delegitimează instituțiile democratice ca clasă, nu atacă presa, ONG-urile sau minoritățile și nu respinge normele democratice. Critica este încadrată în registrul normal al dezbaterii parlamentare, fără a atinge pragul anti-pluralismului definit de rubrică."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"vparty@2020 + vdem-attacks-on@v13\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul reprezintă o confruntare politică parlamentară standard, bazată pe critici privind guvernarea anterioară și schimburi de replici între colegi. Vorbitorul atacă deciziile politice și performanța administrativă a opoziției, dar nu delegitimează instituțiile democratice ca clasă, nu atacă presa, ONG-urile sau minoritățile și nu respinge normele democratice. Critica este încadrată în registrul normal al dezbaterii parlamentare, fără a atinge pragul anti-pluralismului definit de rubrică.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13006,
+      "tokens_in_breakdown": {
+        "fresh": 13006,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 206,
+      "cost_usd": null,
+      "latency_ms": 1915,
+      "retries_used": 0
+    }
+  }
+}

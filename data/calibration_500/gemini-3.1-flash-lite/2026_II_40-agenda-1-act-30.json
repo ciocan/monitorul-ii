@@ -1,0 +1,204 @@
+{
+  "speech_id": "mo://2026/II/40#agenda-1#act-30",
+  "tier": "calibration",
+  "speaker": {
+    "id": "caciu-adrian",
+    "name": "Adrian Câciu",
+    "raw": "Domnul Adrian Câciu",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2026-03-30",
+    "year": 2026,
+    "legislature": "X",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2026/II/40#agenda-1#act-30",
+      "output": {
+        "score": 1,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.85,
+        "markers": [
+          {
+            "kind": "people_vs_elite",
+            "evidence": {
+              "text": "Pentru cei care vorbesc despre oameni ascunzându-se după bani"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.85,
+            "rationale_short": "Vorbitorul opune „oamenii” celor care se ascund după bani, sugerând o distincție morală între cetățeni și o elită materialistă."
+          },
+          {
+            "kind": "evil_elite",
+            "evidence": {
+              "text": "Oameni buni, Așa îi cinstim pe cei care ne-au adus pe culmile gloriei mondiale? Cred că nu."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.92,
+            "marker_confidence": 0.82,
+            "rationale_short": "Invocă o elită politică/administrativă care disprețuiește eroii naționali, sugerând o atitudine malignă față de valorile poporului."
+          }
+        ],
+        "rationale": "Discursul conține elemente populiste episodice, în special prin contrastul dintre „oameni” și cei care „se ascund după bani” sau „sistemul” care nu respectă eroii naționali. Deși vorbitorul folosește un ton moralizator și invocă o elită care ignoră valorile poporului, discursul rămâne centrat pe o inițiativă legislativă specifică (cinstirea lui Ilie Năstase) și nu dezvoltă o viziune maniheistă pervazivă. Este un discurs de tip populist-partizan care folosește retorica „oamenilor cinstiți” pentru a critica instituțiile, dar fără a structura întregul discurs în jurul unei lupte existențiale între popor și o elită coruptă. Scor 1 cu încredere ridicată."
+      },
+      "raw_response": "{\n  \"score\": 1,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.85,\n  \"markers\": [\n    {\n      \"kind\": \"people_vs_elite\",\n      \"evidence\": {\n        \"text\": \"Pentru cei care vorbesc despre oameni ascunzându-se după bani\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Vorbitorul opune „oamenii” celor care se ascund după bani, sugerând o distincție morală între cetățeni și o elită materialistă.\"\n    },\n    {\n      \"kind\": \"evil_elite\",\n      \"evidence\": {\n        \"text\": \"Oameni buni, Așa îi cinstim pe cei care ne-au adus pe culmile gloriei mondiale? Cred că nu.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.92,\n      \"marker_confidence\": 0.82,\n      \"rationale_short\": \"Invocă o elită politică/administrativă care disprețuiește eroii naționali, sugerând o atitudine malignă față de valorile poporului.\"\n    }\n  ],\n  \"rationale\": \"Discursul conține elemente populiste episodice, în special prin contrastul dintre „oameni” și cei care „se ascund după bani” sau „sistemul” care nu respectă eroii naționali. Deși vorbitorul folosește un ton moralizator și invocă o elită care ignoră valorile poporului, discursul rămâne centrat pe o inițiativă legislativă specifică (cinstirea lui Ilie Năstase) și nu dezvoltă o viziune maniheistă pervazivă. Este un discurs de tip populist-partizan care folosește retorica „oamenilor cinstiți” pentru a critica instituțiile, dar fără a structura întregul discurs în jurul unei lupte existențiale între popor și o elită coruptă. Scor 1 cu încredere ridicată.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [
+        "Oameni buni, Așa îi cinstim pe cei care ne-au adus pe culmile gloriei mondiale? Cred că nu."
+      ],
+      "parse_repaired": false,
+      "tokens_in": 13934,
+      "tokens_in_breakdown": {
+        "fresh": 13934,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 561,
+      "cost_usd": null,
+      "latency_ms": 3276,
+      "retries_used": 0
+    },
+    "voice": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "voice",
+      "speech_id": "mo://2026/II/40#agenda-1#act-30",
+      "output": {
+        "classifications": [
+          {
+            "marker_id": "m_0",
+            "voice": "speaker_first_person",
+            "voice_confidence": 0.95,
+            "voice_evidence": null,
+            "attributed_to": null,
+            "rationale_short": "Vorbitorul face o afirmație directă la persoana întâi, fără a cita sau raporta o sursă externă; este o opinie proprie despre cei care critică."
+          }
+        ]
+      },
+      "raw_response": "{\n  \"classifications\": [\n    {\n      \"marker_id\": \"m_0\",\n      \"voice\": \"speaker_first_person\",\n      \"voice_confidence\": 0.95,\n      \"voice_evidence\": null,\n      \"attributed_to\": null,\n      \"rationale_short\": \"Vorbitorul face o afirmație directă la persoana întâi, fără a cita sau raporta o sursă externă; este o opinie proprie despre cei care critică.\"\n    }\n  ]\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 11485,
+      "tokens_in_breakdown": {
+        "fresh": 11485,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 123,
+      "cost_usd": null,
+      "latency_ms": 1033,
+      "retries_used": 0
+    },
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2026/II/40#agenda-1#act-30",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.82,
+        "level_of_justification": 1,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 1,
+            "evidence": {
+              "text": "Ilie Năstase, dincolo de a fi sportiv, este un mare patriot."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Justificarea se bazează pe apelul la patriotism și valori, fără un lanț cauzal sau dovezi empirice."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "Societățile s-au clădit pe valori, pe eroi și pe modele, nu pe bani."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Apelul este la valori universale și la rolul modelelor în societate, nu la interese de grup."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Cine gândește în termeni de bani n-o să înțeleagă niciodată ce înseamnă omul."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.88,
+            "rationale_short": "Critica este adresată unei mentalități, nu unui grup social sau politic definit, rămânând neutră."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Nu pot, în schimb, să nu aduc în atenția celor care vorbesc iar despre bani"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.85,
+            "rationale_short": "Vorbitorul menționează opoziția față de argumentele financiare fără a angaja legitimitatea cererilor."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "Nu pot, în schimb, să nu aduc în atenția celor care vorbesc iar despre bani că Ilie Năstase, deși general și deși campion, are o pensie de 1.435 de lei."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.82,
+            "rationale_short": "Menționează argumentul financiar advers, dar îl contracarează prin apel emoțional, nu prin dezbatere substanțială."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Cred că trebuie să facem mai mult pentru ei cât sunt în viață."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.91,
+            "rationale_short": "Discursul susține o poziție morală fără a propune un mecanism legislativ sau o alternativă concretă."
+          }
+        ],
+        "rationale": "Discursul lui Adrian Câciu se concentrează pe o pledoarie morală pentru recunoașterea valorilor și a eroilor naționali, în special a lui Ilie Năstase. Justificarea este de nivel 1, bazându-se pe apeluri la patriotism și modele inspiraționale, fără a oferi o argumentație cauzală sau dovezi tehnice. Apelul la binele comun este prezent prin accentul pus pe valori societale, însă discursul rămâne pozițional, fără a oferi o alternativă legislativă concretă. Respectul pentru grupuri și cereri este neutru, vorbitorul criticând o mentalitate ('cei care vorbesc despre bani') fără a deroga un grup specific. Deși menționează argumentele adverse, nu există un angajament deliberativ substanțial, ci mai degrabă o retorică emoțională."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.82,\n  \"level_of_justification\": 1,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Ilie Năstase, dincolo de a fi sportiv, este un mare patriot.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Justificarea se bazează pe apelul la patriotism și valori, fără un lanț cauzal sau dovezi empirice.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"Societățile s-au clădit pe valori, pe eroi și pe modele, nu pe bani.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Apelul este la valori universale și la rolul modelelor în societate, nu la interese de grup.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Cine gândește în termeni de bani n-o să înțeleagă niciodată ce înseamnă omul.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Critica este adresată unei mentalități, nu unui grup social sau politic definit, rămânând neutră.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Nu pot, în schimb, să nu aduc în atenția celor care vorbesc iar despre bani\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Vorbitorul menționează opoziția față de argumentele financiare fără a angaja legitimitatea cererilor.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Nu pot, în schimb, să nu aduc în atenția celor care vorbesc iar despre bani că Ilie Năstase, deși general și deși campion, are o pensie de 1.435 de lei.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"marker_confidence\": 0.82,\n      \"rationale_short\": \"Menționează argumentul financiar advers, dar îl contracarează prin apel emoțional, nu prin dezbatere substanțială.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"Cred că trebuie să facem mai mult pentru ei cât sunt în viață.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.91,\n      \"rationale_short\": \"Discursul susține o poziție morală fără a propune un mecanism legislativ sau o alternativă concretă.\"\n    }\n  ],\n  \"rationale\": \"Discursul lui Adrian Câciu se concentrează pe o pledoarie morală pentru recunoașterea valorilor și a eroilor naționali, în special a lui Ilie Năstase. Justificarea este de nivel 1, bazându-se pe apeluri la patriotism și modele inspiraționale, fără a oferi o argumentație cauzală sau dovezi tehnice. Apelul la binele comun este prezent prin accentul pus pe valori societale, însă discursul rămâne pozițional, fără a oferi o alternativă legislativă concretă. Respectul pentru grupuri și cereri este neutru, vorbitorul criticând o mentalitate ('cei care vorbesc despre bani') fără a deroga un grup specific. Deși menționează argumentele adverse, nu există un angajament deliberativ substanțial, ci mai degrabă o retorică emoțională.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12735,
+      "tokens_in_breakdown": {
+        "fresh": 12735,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1244,
+      "cost_usd": null,
+      "latency_ms": 4799,
+      "retries_used": 0
+    }
+  }
+}

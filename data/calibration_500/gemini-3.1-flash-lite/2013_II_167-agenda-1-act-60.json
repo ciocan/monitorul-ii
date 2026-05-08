@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2013/II/167#agenda-1#act-60",
+  "tier": "calibration",
+  "speaker": {
+    "id": "uioreanu-elena-ramona",
+    "name": "Elena Ramona Uioreanu",
+    "raw": "Doamna Elena Ramona Uioreanu",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2013-12-17",
+    "year": 2013,
+    "legislature": "VII",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2013/II/167#agenda-1#act-60",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul este o relatare a unui eveniment cultural local („Tradiții pentru viitor”) și o exprimare a mândriei față de valorile tradiționale și comunitatea locală. Deși vorbitoarea folosește termeni precum „neam”, „tradiții” sau „spiritul nostru”, aceștia sunt utilizați într-un context de celebrare culturală și civică, nu într-un cadru maniheist popor-vs-elită. Nu există nicio invocare a unei elite malefice, a unei crize existențiale sau a unei voințe populare care să conteste instituțiile democratice. Discursul rămâne în registrul discursului politic de reprezentare comunitară, fără a atinge nicio trăsătură a viziunii populiste."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul este o relatare a unui eveniment cultural local („Tradiții pentru viitor”) și o exprimare a mândriei față de valorile tradiționale și comunitatea locală. Deși vorbitoarea folosește termeni precum „neam”, „tradiții” sau „spiritul nostru”, aceștia sunt utilizați într-un context de celebrare culturală și civică, nu într-un cadru maniheist popor-vs-elită. Nu există nicio invocare a unei elite malefice, a unei crize existențiale sau a unei voințe populare care să conteste instituțiile democratice. Discursul rămâne în registrul discursului politic de reprezentare comunitară, fără a atinge nicio trăsătură a viziunii populiste.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 14492,
+      "tokens_in_breakdown": {
+        "fresh": 14492,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 245,
+      "cost_usd": null,
+      "latency_ms": 2090,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2013/II/167#agenda-1#act-60",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.55,
+        "level_of_justification": 0,
+        "content_of_justification": "none",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 0,
+            "evidence": {
+              "text": "voi face tot ce îmi stă în putință să fac cunoscute, peste tot în lume, valorile noastre, tradiția noastră, spiritul nostru."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Discursul este o declarație de intenție și un raport de activitate, fără o argumentare cauzală sau logică."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "none",
+            "evidence": {
+              "text": "voi face tot ce îmi stă în putință să fac cunoscute, peste tot în lume, valorile noastre"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Nicio justificare oferită; conținutul justificării este nedefinit."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "stimați părinți și dascăli ai acestor minunați copii"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Adresare politicoasă, dar convențională; nu există un out-group specific angajat."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "vă voi susține în ceea ce faceți"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.88,
+            "rationale_short": "Nu există cereri opuse sau dezbateri contradictorii în acest discurs; atitudine neutră."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "Nu e o promisiune, ci un lucru pe care mi-l asum"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Discursul nu conține nicio referire la contraargumente sau opoziție."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "voi face tot ce îmi stă în putință să fac cunoscute, peste tot în lume, valorile noastre"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.94,
+            "rationale_short": "Discursul este o afirmare a propriei poziții și angajamente, fără a propune alternative sau medieri."
+          }
+        ],
+        "rationale": "Discursul este unul de tip festiv și de raportare a activității parlamentare, axat pe promovarea tradițiilor locale. Din punct de vedere deliberativ, acesta nu conține argumentație substanțială (level_of_justification=0), fiind o succesiune de afirmații și angajamente personale. Nu există un conflict de idei sau contraargumente, ceea ce face ca dimensiunile de respect pentru cereri și contraargumente să fie neutre sau absente. Discursul este pur pozițional, fără a oferi alternative la politici publice sau medieri. Calitatea deliberativă este scăzută, deoarece textul nu vizează convingerea prin raționament, ci validarea emoțională a comunității."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.55,\n  \"level_of_justification\": 0,\n  \"content_of_justification\": \"none\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 0,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"voi face tot ce îmi stă în putință să fac cunoscute, peste tot în lume, valorile noastre, tradiția noastră, spiritul nostru.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Discursul este o declarație de intenție și un raport de activitate, fără o argumentare cauzală sau logică.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"none\",\n      \"evidence\": {\n        \"text\": \"voi face tot ce îmi stă în putință să fac cunoscute, peste tot în lume, valorile noastre\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Nicio justificare oferită; conținutul justificării este nedefinit.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"stimați părinți și dascăli ai acestor minunați copii\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Adresare politicoasă, dar convențională; nu există un out-group specific angajat.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"vă voi susține în ceea ce faceți\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Nu există cereri opuse sau dezbateri contradictorii în acest discurs; atitudine neutră.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"Nu e o promisiune, ci un lucru pe care mi-l asum\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.90,\n      \"rationale_short\": \"Discursul nu conține nicio referire la contraargumente sau opoziție.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"voi face tot ce îmi stă în putință să fac cunoscute, peste tot în lume, valorile noastre\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.94,\n      \"rationale_short\": \"Discursul este o afirmare a propriei poziții și angajamente, fără a propune alternative sau medieri.\"\n    }\n  ],\n  \"rationale\": \"Discursul este unul de tip festiv și de raportare a activității parlamentare, axat pe promovarea tradițiilor locale. Din punct de vedere deliberativ, acesta nu conține argumentație substanțială (level_of_justification=0), fiind o succesiune de afirmații și angajamente personale. Nu există un conflict de idei sau contraargumente, ceea ce face ca dimensiunile de respect pentru cereri și contraargumente să fie neutre sau absente. Discursul este pur pozițional, fără a oferi alternative la politici publice sau medieri. Calitatea deliberativă este scăzută, deoarece textul nu vizează convingerea prin raționament, ci validarea emoțională a comunității.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13293,
+      "tokens_in_breakdown": {
+        "fresh": 13293,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1151,
+      "cost_usd": null,
+      "latency_ms": 4302,
+      "retries_used": 0
+    }
+  }
+}

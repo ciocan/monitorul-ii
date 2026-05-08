@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2021/II/47#agenda-1#act-29",
+  "tier": "calibration",
+  "speaker": {
+    "id": "tepelus-laurentiu-cristinel",
+    "name": "Laurențiu-Cristinel Țepeluș",
+    "raw": "Domnul Laurențiu-Cristinel Țepeluș",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2021-03-30",
+    "year": 2021,
+    "legislature": "IX",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2021/II/47#agenda-1#act-29",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 1.0,
+        "markers": [],
+        "rationale": "Discursul reprezintă un raport tehnic de comisie parlamentară, prezentând procedura legislativă, cadrul legal și argumentele pentru respingerea unui proiect de lege (cheltuieli bugetare). Nu există nicio urmă de cadru popor-vs-elită, maniheism moral sau invocare a unei voințe populare suverane. Limbajul este strict procedural și administrativ, specific activității parlamentare de rutină. Hawkins=0 cu încredere maximă."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 1.0,\n  \"markers\": [],\n  \"rationale\": \"Discursul reprezintă un raport tehnic de comisie parlamentară, prezentând procedura legislativă, cadrul legal și argumentele pentru respingerea unui proiect de lege (cheltuieli bugetare). Nu există nicio urmă de cadru popor-vs-elită, maniheism moral sau invocare a unei voințe populare suverane. Limbajul este strict procedural și administrativ, specific activității parlamentare de rutină. Hawkins=0 cu încredere maximă.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13872,
+      "tokens_in_breakdown": {
+        "fresh": 13872,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 170,
+      "cost_usd": null,
+      "latency_ms": 1963,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2021/II/47#agenda-1#act-29",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.92,
+        "level_of_justification": 2,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "E vorba de cheltuială bugetară suplimentară."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Justificare bazată pe un mecanism cauzal specific (impactul bugetar) pentru respingerea proiectului."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "cheltuială bugetară suplimentară"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Apelul la responsabilitatea bugetară este un argument universalizabil, orientat către binele comun."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "membrii celor două comisii"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Referință neutră și funcțională la membrii comisiilor; nicio derogare sau respect explicit."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "membrii celor două comisii au hotărât, cu majoritate de voturi, respingerea proiectului"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.94,
+            "rationale_short": "Prezentarea procedurală a deciziei de respingere fără angajament cu cererile opoziției."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "din considerentele ce se găsesc în raportul comun"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.93,
+            "rationale_short": "Trimitere la raportul comun pentru argumente, fără a le restabili sau a le dezbate substanțial."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "membrii celor două comisii au hotărât, cu majoritate de voturi, respingerea proiectului"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.96,
+            "rationale_short": "Discursul raportează o decizie de respingere; nu propune alternative sau medieri."
+          }
+        ],
+        "rationale": "Acest discurs este un raport procedural standard prezentat în plenul Camerei Deputaților. Vorbitorul oferă o justificare calificată (level_of_justification=2) prin invocarea impactului bugetar ca motiv pentru respingerea proiectului, argument care vizează binele comun (content_of_justification=common_good). Deși discursul este formal și neutru, acesta rămâne pozițional (constructive_politics=positional) și nu angajează substanțial contraargumente sau cereri adverse, limitându-se la trimiterea către raportul scris. Respectul pentru grupuri și cereri este neutru, reflectând natura administrativă a intervenției. Calitatea deliberativă este adecvată contextului de raportare tehnică, fiind clară și concisă."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.92,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": { \"text\": \"E vorba de cheltuială bugetară suplimentară.\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Justificare bazată pe un mecanism cauzal specific (impactul bugetar) pentru respingerea proiectului.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": { \"text\": \"cheltuială bugetară suplimentară\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Apelul la responsabilitatea bugetară este un argument universalizabil, orientat către binele comun.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": { \"text\": \"membrii celor două comisii\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Referință neutră și funcțională la membrii comisiilor; nicio derogare sau respect explicit.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": { \"text\": \"membrii celor două comisii au hotărât, cu majoritate de voturi, respingerea proiectului\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.94,\n      \"rationale_short\": \"Prezentarea procedurală a deciziei de respingere fără angajament cu cererile opoziției.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": { \"text\": \"din considerentele ce se găsesc în raportul comun\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.93,\n      \"rationale_short\": \"Trimitere la raportul comun pentru argumente, fără a le restabili sau a le dezbate substanțial.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": { \"text\": \"membrii celor două comisii au hotărât, cu majoritate de voturi, respingerea proiectului\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.96,\n      \"rationale_short\": \"Discursul raportează o decizie de respingere; nu propune alternative sau medieri.\"\n    }\n  ],\n  \"rationale\": \"Acest discurs este un raport procedural standard prezentat în plenul Camerei Deputaților. Vorbitorul oferă o justificare calificată (level_of_justification=2) prin invocarea impactului bugetar ca motiv pentru respingerea proiectului, argument care vizează binele comun (content_of_justification=common_good). Deși discursul este formal și neutru, acesta rămâne pozițional (constructive_politics=positional) și nu angajează substanțial contraargumente sau cereri adverse, limitându-se la trimiterea către raportul scris. Respectul pentru grupuri și cereri este neutru, reflectând natura administrativă a intervenției. Calitatea deliberativă este adecvată contextului de raportare tehnică, fiind clară și concisă.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12673,
+      "tokens_in_breakdown": {
+        "fresh": 12673,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1115,
+      "cost_usd": null,
+      "latency_ms": 4521,
+      "retries_used": 0
+    }
+  }
+}

@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2011/II/30#agenda-2#act-311",
+  "tier": "calibration",
+  "speaker": {
+    "id": "severin-georgica",
+    "name": "Georgică Severin",
+    "raw": "Domnul Georgică Severin",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": "2011-03-23",
+    "year": 2011,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2011/II/30#agenda-2#act-311",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul este pur tehnic, concentrându-se pe clarificarea terminologiei juridice (diferența dintre „provider” și „deținător de site”) și pe eficacitatea practică a unei propuneri legislative. Nu există nicio urmă de cadru popor-vs-elită, maniheism moral sau invocare a unei voințe populare omogene. Vorbitorul se limitează la o intervenție procedurală și de precizie legislativă, fără a utiliza retorică populistă. Hawkins=0 cu încredere ridicată."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul este pur tehnic, concentrându-se pe clarificarea terminologiei juridice (diferența dintre „provider” și „deținător de site”) și pe eficacitatea practică a unei propuneri legislative. Nu există nicio urmă de cadru popor-vs-elită, maniheism moral sau invocare a unei voințe populare omogene. Vorbitorul se limitează la o intervenție procedurală și de precizie legislativă, fără a utiliza retorică populistă. Hawkins=0 cu încredere ridicată.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13656,
+      "tokens_in_breakdown": {
+        "fresh": 13656,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 194,
+      "cost_usd": null,
+      "latency_ms": 1911,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2011/II/30#agenda-2#act-311",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.85,
+        "level_of_justification": 2,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 2,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "Providerul este cel care asigură internetul din rețea, rețeaua de internet. Să nu confundăm, pentru că acum o să începem să-i obligăm pe providerii de internet să filtreze ei."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Vorbitorul oferă o distincție tehnică clară între entități (provider vs. deținător site) pentru a justifica ineficiența măsurii."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "Deci, din punct de vedere practic, rezultatul este zero."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.88,
+            "rationale_short": "Justificarea vizează eficiența legiferării în interesul public, nu un grup specific."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "domnul senator Dumitru Oprea"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.99,
+            "marker_confidence": 0.95,
+            "rationale_short": "Referință neutră la un coleg; nicio derogare sau respect explicit."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Aș vrea să fac o completare de natură tehnică."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Intervenția este tehnică și nu abordează direct legitimitatea cererilor politice."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 2,
+            "evidence": {
+              "text": "domnul senator Dumitru Oprea a folosit de mai multe ori termenul „provider”. Din câte cunosc textul legii – și domnul secretar de stat poate confirma – vorbim despre deținătorii de site-uri pornografice, și nu de provideri."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.94,
+            "rationale_short": "Vorbitorul identifică o eroare terminologică în argumentația colegului și o corectează cu argumente tehnice."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Deci, din punct de vedere practic, rezultatul este zero."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.91,
+            "rationale_short": "Vorbitorul critică eficiența proiectului fără a propune o alternativă legislativă concretă."
+          }
+        ],
+        "rationale": "Discursul este o intervenție tehnică de clarificare terminologică. Vorbitorul demonstrează o justificare calificată (level_of_justification=2) prin distincția logică între furnizorii de internet și deținătorii de site-uri, apelând la rațiunea practică (common_good). Respectul pentru contraargumente este ridicat (respect_for_counterarguments=2) deoarece vorbitorul identifică și corectează o eroare factuală în argumentația colegului. Totuși, discursul rămâne pozițional (constructive_politics=positional) deoarece se limitează la a critica ineficiența măsurii fără a oferi o soluție alternativă. Respectul pentru grupuri și cereri este neutru, fiind o intervenție de natură tehnică."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.85,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 2,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"Providerul este cel care asigură internetul din rețea, rețeaua de internet. Să nu confundăm, pentru că acum o să începem să-i obligăm pe providerii de internet să filtreze ei.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Vorbitorul oferă o distincție tehnică clară între entități (provider vs. deținător site) pentru a justifica ineficiența măsurii.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"Deci, din punct de vedere practic, rezultatul este zero.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Justificarea vizează eficiența legiferării în interesul public, nu un grup specific.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"domnul senator Dumitru Oprea\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.99,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Referință neutră la un coleg; nicio derogare sau respect explicit.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Aș vrea să fac o completare de natură tehnică.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.90,\n      \"rationale_short\": \"Intervenția este tehnică și nu abordează direct legitimitatea cererilor politice.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"domnul senator Dumitru Oprea a folosit de mai multe ori termenul „provider”. Din câte cunosc textul legii – și domnul secretar de stat poate confirma – vorbim despre deținătorii de site-uri pornografice, și nu de provideri.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.94,\n      \"rationale_short\": \"Vorbitorul identifică o eroare terminologică în argumentația colegului și o corectează cu argumente tehnice.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"Deci, din punct de vedere practic, rezultatul este zero.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.91,\n      \"rationale_short\": \"Vorbitorul critică eficiența proiectului fără a propune o alternativă legislativă concretă.\"\n    }\n  ],\n  \"rationale\": \"Discursul este o intervenție tehnică de clarificare terminologică. Vorbitorul demonstrează o justificare calificată (level_of_justification=2) prin distincția logică între furnizorii de internet și deținătorii de site-uri, apelând la rațiunea practică (common_good). Respectul pentru contraargumente este ridicat (respect_for_counterarguments=2) deoarece vorbitorul identifică și corectează o eroare factuală în argumentația colegului. Totuși, discursul rămâne pozițional (constructive_politics=positional) deoarece se limitează la a critica ineficiența măsurii fără a oferi o soluție alternativă. Respectul pentru grupuri și cereri este neutru, fiind o intervenție de natură tehnică.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12457,
+      "tokens_in_breakdown": {
+        "fresh": 12457,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1219,
+      "cost_usd": null,
+      "latency_ms": 4630,
+      "retries_used": 0
+    }
+  }
+}

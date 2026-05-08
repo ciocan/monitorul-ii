@@ -1,0 +1,152 @@
+{
+  "speech_id": "mo://2013/II/64#agenda-3#act-61",
+  "tier": "calibration",
+  "speaker": {
+    "id": "rosca-stanescu-sorin-stefan",
+    "name": "Sorin Ștefan Roșca-Stănescu",
+    "raw": "Domnul Sorin Ștefan Roșca-Stănescu",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": "2013-05-14",
+    "year": 2013,
+    "legislature": "VII",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2013/II/64#agenda-3#act-61",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul este unul tehnic, axat pe probleme concrete de agricultură, intabulare și proceduri administrative. Vorbitorul identifică o problemă de eficiență a statului și a instituțiilor, dar nu încadrează acest conflict într-o viziune maniheistă popor-vs-elită. Nu există apeluri la o voință populară omogenă, nici demonizarea elitei ca entitate malefică, ci o critică a ineficienței birocratice susținută prin exemple și propuneri legislative. Discursul rămâne în registrul dezbaterii de politici publice, motiv pentru care scorul este 0."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul este unul tehnic, axat pe probleme concrete de agricultură, intabulare și proceduri administrative. Vorbitorul identifică o problemă de eficiență a statului și a instituțiilor, dar nu încadrează acest conflict într-o viziune maniheistă popor-vs-elită. Nu există apeluri la o voință populară omogenă, nici demonizarea elitei ca entitate malefică, ci o critică a ineficienței birocratice susținută prin exemple și propuneri legislative. Discursul rămâne în registrul dezbaterii de politici publice, motiv pentru care scorul este 0.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13972,
+      "tokens_in_breakdown": {
+        "fresh": 13972,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 214,
+      "cost_usd": null,
+      "latency_ms": 1997,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2013/II/64#agenda-3#act-61",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.88,
+        "level_of_justification": 2,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 2,
+        "respect_for_counterarguments": 2,
+        "constructive_politics": "alternative_proposal",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "În județul Dâmbovița, unde am candidat, s-a făcut chiar un experiment cu bani de la Banca Mondială, legat de o procedură rapidă de intabulare. În patru ani, acolo, s-a reușit intabularea în două comune din întreg județul Dâmbovița."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Vorbitorul oferă un exemplu empiric specific (experimentul din Dâmbovița) pentru a susține ineficiența procedurilor actuale."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "Chestiunea proprietăților poate fi soluționată fără bani, fără a încărca bugetul public."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.91,
+            "rationale_short": "Apelul este la interesul general (bugetul public) și la rezolvarea unei probleme sistemice a proprietății."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Micii proprietari, de cele mai multe ori, nu au nicio posibilitate de a-și intabula și înregistra terenurile."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.96,
+            "marker_confidence": 0.85,
+            "rationale_short": "Grupul este menționat într-o manieră empatică, dar funcțională, fără a fi un out-group derogatoriu."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 2,
+            "evidence": {
+              "text": "Propunerea pe care am făcut-o împreună cu domnul Atanasiu simplifică foarte mult această procedură, dar a fost respinsă de Guvern pe motiv că necesită costuri."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.9,
+            "rationale_short": "Vorbitorul recunoaște legitimitatea preocupării Guvernului privind costurile, deși o contestă factual."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 2,
+            "evidence": {
+              "text": "Propunerea pe care am făcut-o împreună cu domnul Atanasiu simplifică foarte mult această procedură, dar a fost respinsă de Guvern pe motiv că necesită costuri. Nu este real. Nu este real, pentru că există foarte multe fonduri europene destinate acestui scop și care pot fi accesate."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.93,
+            "rationale_short": "Vorbitorul identifică argumentul Guvernului (costurile) și îl combate direct prin indicarea surselor alternative de finanțare (fonduri europene)."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "alternative_proposal",
+            "evidence": {
+              "text": "Propunerea pe care am făcut-o împreună cu domnul Atanasiu simplifică foarte mult această procedură"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.94,
+            "rationale_short": "Vorbitorul promovează o soluție legislativă concretă ca alternativă la status-quo-ul ineficient."
+          }
+        ],
+        "rationale": "Discursul prezintă o calitate deliberativă ridicată, caracterizată prin argumentare bazată pe dovezi empirice (experimentul din Dâmbovița) și o abordare constructivă. Vorbitorul oferă o justificare calificată (level_of_justification=2) ancorată în binele comun, evitând retorica de grup. Respectul pentru cererile și contraargumentele Guvernului este demonstrat prin recunoașterea preocupării pentru costuri și combaterea acesteia cu argumente financiare concrete (fonduri europene). Deși discursul este critic, acesta rămâne în limitele unei dezbateri parlamentare constructive, propunând o alternativă legislativă clară. Profilul este unul de opoziție angajată, care caută să medieze între necesitatea reformei și constrângerile bugetare invocate de executiv."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.88,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 2,\n  \"respect_for_counterarguments\": 2,\n  \"constructive_politics\": \"alternative_proposal\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"În județul Dâmbovița, unde am candidat, s-a făcut chiar un experiment cu bani de la Banca Mondială, legat de o procedură rapidă de intabulare. În patru ani, acolo, s-a reușit intabularea în două comune din întreg județul Dâmbovița.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Vorbitorul oferă un exemplu empiric specific (experimentul din Dâmbovița) pentru a susține ineficiența procedurilor actuale.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"Chestiunea proprietăților poate fi soluționată fără bani, fără a încărca bugetul public.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"marker_confidence\": 0.91,\n      \"rationale_short\": \"Apelul este la interesul general (bugetul public) și la rezolvarea unei probleme sistemice a proprietății.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Micii proprietari, de cele mai multe ori, nu au nicio posibilitate de a-și intabula și înregistra terenurile.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.96,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Grupul este menționat într-o manieră empatică, dar funcțională, fără a fi un out-group derogatoriu.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"Propunerea pe care am făcut-o împreună cu domnul Atanasiu simplifică foarte mult această procedură, dar a fost respinsă de Guvern pe motiv că necesită costuri.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"marker_confidence\": 0.90,\n      \"rationale_short\": \"Vorbitorul recunoaște legitimitatea preocupării Guvernului privind costurile, deși o contestă factual.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"Propunerea pe care am făcut-o împreună cu domnul Atanasiu simplifică foarte mult această procedură, dar a fost respinsă de Guvern pe motiv că necesită costuri. Nu este real. Nu este real, pentru că există foarte multe fonduri europene destinate acestui scop și care pot fi accesate.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.93,\n      \"rationale_short\": \"Vorbitorul identifică argumentul Guvernului (costurile) și îl combate direct prin indicarea surselor alternative de finanțare (fonduri europene).\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"alternative_proposal\",\n      \"evidence\": {\n        \"text\": \"Propunerea pe care am făcut-o împreună cu domnul Atanasiu simplifică foarte mult această procedură\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"marker_confidence\": 0.94,\n      \"rationale_short\": \"Vorbitorul promovează o soluție legislativă concretă ca alternativă la status-quo-ul ineficient.\"\n    }\n  ],\n  \"rationale\": \"Discursul prezintă o calitate deliberativă ridicată, caracterizată prin argumentare bazată pe dovezi empirice (experimentul din Dâmbovița) și o abordare constructivă. Vorbitorul oferă o justificare calificată (level_of_justification=2) ancorată în binele comun, evitând retorica de grup. Respectul pentru cererile și contraargumentele Guvernului este demonstrat prin recunoașterea preocupării pentru costuri și combaterea acesteia cu argumente financiare concrete (fonduri europene). Deși discursul este critic, acesta rămâne în limitele unei dezbateri parlamentare constructive, propunând o alternativă legislativă clară. Profilul este unul de opoziție angajată, care caută să medieze între necesitatea reformei și constrângerile bugetare invocate de executiv.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [
+        "Propunerea pe care am făcut-o împreună cu domnul Atanasiu simplifică foarte mult această procedură, dar a fost respinsă de Guvern pe motiv că necesită costuri. Nu este real. Nu este real, pentru că există foarte multe fonduri europene destinate acestui scop și care pot fi accesate."
+      ],
+      "parse_repaired": false,
+      "tokens_in": 12773,
+      "tokens_in_breakdown": {
+        "fresh": 12773,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1370,
+      "cost_usd": null,
+      "latency_ms": 4787,
+      "retries_used": 0
+    }
+  }
+}

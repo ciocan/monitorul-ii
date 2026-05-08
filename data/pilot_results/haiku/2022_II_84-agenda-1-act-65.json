@@ -1,0 +1,152 @@
+{
+  "speech_id": "mo://2022/II/84#agenda-1#act-65",
+  "tier": "moderate",
+  "speaker": {
+    "id": "citu-florin",
+    "name": "Florin-Vasile Cîțu",
+    "raw": "Domnul Florin-Vasile Cîțu",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": "2022-05-30",
+    "year": 2022,
+    "legislature": "IX",
+    "delivery_mode": null
+  },
+  "model_key": "haiku",
+  "model_label": "claude-haiku-4.5",
+  "results": {
+    "hawkins": {
+      "model_key": "haiku",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2022/II/84#agenda-1#act-65",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul este pur procedural în caracter. Preşedintele şedinţei încheie dezbaterile asupra unui punct al ordinii de zi, anunţă punctul următor, citește titlul formal și referința legislativă, și gestionează participarea vorbitorilor (invită iniţiatorul și reprezentanţii Guvernului). Fără cadru popor-versus-elită, fără maniheism moral, fără invocarea voinţei populare, fără apel la un popor omogen, fără framing de criză sau mizări civilizaţionale. Registrul este în întregime tehnic și procedural, standard pentru conducerea şedinţelor parlamentare. Hawkins=0 cu încredere foarte ridicată."
+      },
+      "raw_response": "```json\n{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul este pur procedural în caracter. Preşedintele şedinţei încheie dezbaterile asupra unui punct al ordinii de zi, anunţă punctul următor, citește titlul formal și referința legislativă, și gestionează participarea vorbitorilor (invită iniţiatorul și reprezentanţii Guvernului). Fără cadru popor-versus-elită, fără maniheism moral, fără invocarea voinţei populare, fără apel la un popor omogen, fără framing de criză sau mizări civilizaţionale. Registrul este în întregime tehnic și procedural, standard pentru conducerea şedinţelor parlamentare. Hawkins=0 cu încredere foarte ridicată.\"\n}\n```",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 116442,
+      "tokens_in_breakdown": {
+        "fresh": 9,
+        "cache_creation": 58796,
+        "cache_read": 57637
+      },
+      "tokens_out": 1061,
+      "cost_usd": 0.0845727,
+      "latency_ms": 18612,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "haiku",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2022/II/84#agenda-1#act-65",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.38,
+        "level_of_justification": 0,
+        "content_of_justification": "none",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 0,
+            "evidence": {
+              "text": "Declar deschise dezbaterile generale asupra propunerii"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.94,
+            "rationale_short": "Declarație procedurală pură; nicio justificare oferită pentru vreo poziție."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "none",
+            "evidence": {
+              "text": "Nu mai sunt, declar încheiate dezbaterile"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.93,
+            "rationale_short": "Nicio justificare fiind oferită, conținutul justificării este nedefinit."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Dau cuvântul inițiatorului, dacă este prezent"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.96,
+            "marker_confidence": 0.85,
+            "rationale_short": "Referire funcțională la participanți; nicio derogare, nicio recunoaștere explicită — neutru procedural."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Punctul 4 al ordinii de zi, Propunerea legislativă pentru modificarea și completarea Legii nr. 514"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.82,
+            "rationale_short": "Citirea ordinii de zi fără angajament cu cererile sau demande; management procedural neutru."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "Haideți, doamnă, vă rog! Dar trebuia să veniți aici, în față"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.96,
+            "marker_confidence": 0.79,
+            "rationale_short": "Dirijare a participanților din motive procedurale, fără angajament cu argumente; neutru implicit."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Inițiativa legislativă rămâne la vot final"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.96,
+            "marker_confidence": 0.88,
+            "rationale_short": "Gestionare procedurală a ordinii de zi; nicio alternativă sau mediere propusă."
+          }
+        ],
+        "rationale": "Discurs pur procedural al preşedintelui de şedinţă. Vorbitorul gestionează ordinea de zi, declară dezbaterile deschise și închise, numește următorul punct de lucru, și dirijează participanții în continuare. Nicio justificare substanțială pentru o poziție deliberativă, nicio angajament cu contraargumente, nicio poziție politică constructivă. Framework-ul DQI nu se aplică semnificativ la managementul procedural al sesiunilor parlamentare; codinele reflectă implicite pentru un conținut fără dimensiune deliberativă. Valorile joase și neutre sunt așteptate și intenționate pentru acest gen discursiv."
+      },
+      "raw_response": "```json\n{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.38,\n  \"level_of_justification\": 0,\n  \"content_of_justification\": \"none\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"Declar deschise dezbaterile generale asupra propunerii\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"marker_confidence\": 0.94,\n      \"rationale_short\": \"Declarație procedurală pură; nicio justificare oferită pentru vreo poziție.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"none\",\n      \"evidence\": {\n        \"text\": \"Nu mai sunt, declar încheiate dezbaterile\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"marker_confidence\": 0.93,\n      \"rationale_short\": \"Nicio justificare fiind oferită, conținutul justificării este nedefinit.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Dau cuvântul inițiatorului, dacă este prezent\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.96,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Referire funcțională la participanți; nicio derogare, nicio recunoaștere explicită — neutru procedural.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Punctul 4 al ordinii de zi, Propunerea legislativă pentru modificarea și completarea Legii nr. 514\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.82,\n      \"rationale_short\": \"Citirea ordinii de zi fără angajament cu cererile sau demande; management procedural neutru.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Haideți, doamnă, vă rog! Dar trebuia să veniți aici, în față\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.96,\n      \"marker_confidence\": 0.79,\n      \"rationale_short\": \"Dirijare a participanților din motive procedurale, fără angajament cu argumente; neutru implicit.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"Inițiativa legislativă rămâne la vot final\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.96,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Gestionare procedurală a ordinii de zi; nicio alternativă sau mediere propusă.\"\n    }\n  ],\n  \"rationale\": \"Discurs pur procedural al preşedintelui de şedinţă. Vorbitorul gestionează ordinea de zi, declară dezbaterile deschise și închise, numește următorul punct de lucru, și dirijează participanții în continuare. Nicio justificare substanțială pentru o poziție deliberativă, nicio angajament cu contraargumente, nicio poziție politică constructivă. Framework-ul DQI nu se aplică semnificativ la managementul procedural al sesiunilor parlamentare; codinele reflectă implicite pentru un conținut fără dimensiune deliberativă. Valorile joase și neutre sunt așteptate și intenționate pentru acest gen discursiv.\"\n}\n```",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [
+        "Haideți, doamnă, vă rog! Dar trebuia să veniți aici, în față"
+      ],
+      "parse_repaired": false,
+      "tokens_in": 115073,
+      "tokens_in_breakdown": {
+        "fresh": 9,
+        "cache_creation": 57427,
+        "cache_read": 57637
+      },
+      "tokens_out": 2625,
+      "cost_usd": 0.09068145,
+      "latency_ms": 27553,
+      "retries_used": 0
+    }
+  }
+}

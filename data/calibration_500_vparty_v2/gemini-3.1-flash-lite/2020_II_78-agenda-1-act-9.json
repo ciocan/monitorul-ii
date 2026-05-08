@@ -1,0 +1,52 @@
+{
+  "speech_id": "mo://2020/II/78#agenda-1#act-9",
+  "tier": "calibration",
+  "speaker": {
+    "id": "iordache-florin",
+    "name": "Florin Iordache",
+    "raw": "Domnul Florin Iordache",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2020-07-14",
+    "year": 2020,
+    "legislature": "VIII",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": null,
+    "voice": null,
+    "dqi": null,
+    "vparty": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "vparty",
+      "speech_id": "mo://2020/II/78#agenda-1#act-9",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "vparty@2020 + vdem-attacks-on@v13",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul se încadrează în registrul parlamentar democratic, susținând o inițiativă legislativă prin argumente de moralitate politică și procedură. Referința la Liviu Dragnea este o critică politică specifică, nu o delegitimizare a instituțiilor statului ca clasă. Vorbitorul pledează pentru respectarea normelor democratice și a integrității în instituții, fără a ataca justiția, presa, opoziția sau minoritățile. Nu există niciun marker de anti-pluralism prezent în text."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"vparty@2020 + vdem-attacks-on@v13\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul se încadrează în registrul parlamentar democratic, susținând o inițiativă legislativă prin argumente de moralitate politică și procedură. Referința la Liviu Dragnea este o critică politică specifică, nu o delegitimizare a instituțiilor statului ca clasă. Vorbitorul pledează pentru respectarea normelor democratice și a integrității în instituții, fără a ataca justiția, presa, opoziția sau minoritățile. Nu există niciun marker de anti-pluralism prezent în text.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13091,
+      "tokens_in_breakdown": {
+        "fresh": 13091,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 206,
+      "cost_usd": null,
+      "latency_ms": 1664,
+      "retries_used": 0
+    }
+  }
+}

@@ -1,0 +1,152 @@
+{
+  "speech_id": "mo://2014/II/123#agenda-5#act-105",
+  "tier": "calibration",
+  "speaker": {
+    "id": "pascan-emil-marius",
+    "name": "Emil Marius Pașcan",
+    "raw": "Domnul Emil Marius Pașcan",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": "2014-12-03",
+    "year": 2014,
+    "legislature": "VII",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2014/II/123#agenda-5#act-105",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul este unul pur tehnic și procedural, axat pe critica unor mecanisme de calcul al valorii de înlocuire pentru locuințele ANL și pe protejarea intereselor financiare ale administrațiilor publice locale. Vorbitorul invocă argumente de ordin economic (amortizare, costuri reale) și juridic (dreptul de proprietate, constituționalitate), fără a utiliza un cadru maniheist popor-vs-elită sau alte tropi populiste. Deși menționează „Guvernul” și „clasa politică”, o face în contextul unei dispute administrative legitime, nu în cadrul unei retorici populiste. Hawkins=0 cu încredere ridicată."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul este unul pur tehnic și procedural, axat pe critica unor mecanisme de calcul al valorii de înlocuire pentru locuințele ANL și pe protejarea intereselor financiare ale administrațiilor publice locale. Vorbitorul invocă argumente de ordin economic (amortizare, costuri reale) și juridic (dreptul de proprietate, constituționalitate), fără a utiliza un cadru maniheist popor-vs-elită sau alte tropi populiste. Deși menționează „Guvernul” și „clasa politică”, o face în contextul unei dispute administrative legitime, nu în cadrul unei retorici populiste. Hawkins=0 cu încredere ridicată.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13839,
+      "tokens_in_breakdown": {
+        "fresh": 13839,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 222,
+      "cost_usd": null,
+      "latency_ms": 2268,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2014/II/123#agenda-5#act-105",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.85,
+        "level_of_justification": 2,
+        "content_of_justification": "mixed",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "alternative_proposal",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "Eu cred că prețul de calcul, costul real ar trebui să fie luat în calcul la data construirii locuințelor respective și, firește, amortizările, pe baza utilizării lor de-a lungul timpului."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Vorbitorul propune un mecanism de calcul alternativ bazat pe costul istoric și amortizare, oferind o justificare cauzală specifică."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "mixed",
+            "evidence": {
+              "text": "nicio clipă nu ia în calcul și interesele administrațiilor publice locale... respectiv ale primăriilor, de pildă, care pun la dispoziție terenuri"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.88,
+            "rationale_short": "Justificarea combină interesul specific al administrațiilor locale cu argumente privind echitatea și dreptul de proprietate (binele comun)."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Guvernul"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Guvernul este menționat funcțional în contextul politicii publice; nicio derogare sau respect explicit."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Guvernul, sigur, caută să atragă surse sporite la bugetul de stat"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Vorbitorul recunoaște obiectivul Guvernului, dar nu angajează legitimitatea cererii în mod explicit."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "nu cred că putem susține acest proiect de act legislativ."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Vorbitorul își prezintă argumentele fără a adresa direct contraargumentele sau raționamentele opoziției."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "alternative_proposal",
+            "evidence": {
+              "text": "Am și inițiat, în acest sens, un proiect legislativ"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.94,
+            "rationale_short": "Vorbitorul menționează inițierea unui proiect legislativ ca alternativă la abordarea actuală a Guvernului."
+          }
+        ],
+        "rationale": "Discursul prezintă o calitate deliberativă medie-ridicată, caracterizată printr-o justificare calificată (level_of_justification=2) care propune un mecanism alternativ de calcul al prețului locuințelor. Vorbitorul îmbină interesele locale cu principii constituționale (content_of_justification=mixed). Deși discursul este constructiv prin menționarea unei inițiative legislative proprii (constructive_politics=alternative_proposal), acesta eșuează în a angaja substanțial contraargumentele Guvernului (respect_for_counterarguments=0). Respectul pentru grupuri și cereri rămâne neutru, fiind o critică funcțională a politicii publice. Profilul este cel al unui parlamentar care oferă o alternativă tehnică, dar evită dialogul direct cu poziția adversă."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.85,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"mixed\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 0,\n  \"constructive_politics\": \"alternative_proposal\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"Eu cred că prețul de calcul, costul real ar trebui să fie luat în calcul la data construirii locuințelor respective și, firește, amortizările, pe baza utilizării lor de-a lungul timpului.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Vorbitorul propune un mecanism de calcul alternativ bazat pe costul istoric și amortizare, oferind o justificare cauzală specifică.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"mixed\",\n      \"evidence\": {\n        \"text\": \"nicio clipă nu ia în calcul și interesele administrațiilor publice locale... respectiv ale primăriilor, de pildă, care pun la dispoziție terenuri\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Justificarea combină interesul specific al administrațiilor locale cu argumente privind echitatea și dreptul de proprietate (binele comun).\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Guvernul\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Guvernul este menționat funcțional în contextul politicii publice; nicio derogare sau respect explicit.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Guvernul, sigur, caută să atragă surse sporite la bugetul de stat\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Vorbitorul recunoaște obiectivul Guvernului, dar nu angajează legitimitatea cererii în mod explicit.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"nu cred că putem susține acest proiect de act legislativ.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.90,\n      \"rationale_short\": \"Vorbitorul își prezintă argumentele fără a adresa direct contraargumentele sau raționamentele opoziției.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"alternative_proposal\",\n      \"evidence\": {\n        \"text\": \"Am și inițiat, în acest sens, un proiect legislativ\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.94,\n      \"rationale_short\": \"Vorbitorul menționează inițierea unui proiect legislativ ca alternativă la abordarea actuală a Guvernului.\"\n    }\n  ],\n  \"rationale\": \"Discursul prezintă o calitate deliberativă medie-ridicată, caracterizată printr-o justificare calificată (level_of_justification=2) care propune un mecanism alternativ de calcul al prețului locuințelor. Vorbitorul îmbină interesele locale cu principii constituționale (content_of_justification=mixed). Deși discursul este constructiv prin menționarea unei inițiative legislative proprii (constructive_politics=alternative_proposal), acesta eșuează în a angaja substanțial contraargumentele Guvernului (respect_for_counterarguments=0). Respectul pentru grupuri și cereri rămâne neutru, fiind o critică funcțională a politicii publice. Profilul este cel al unui parlamentar care oferă o alternativă tehnică, dar evită dialogul direct cu poziția adversă.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [
+        "nicio clipă nu ia în calcul și interesele administrațiilor publice locale... respectiv ale primăriilor, de pildă, care pun la dispoziție terenuri"
+      ],
+      "parse_repaired": false,
+      "tokens_in": 12640,
+      "tokens_in_breakdown": {
+        "fresh": 12640,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1225,
+      "cost_usd": null,
+      "latency_ms": 4320,
+      "retries_used": 0
+    }
+  }
+}

@@ -1,0 +1,152 @@
+{
+  "speech_id": "mo://2005/II/125#agenda-1#act-114",
+  "tier": "calibration",
+  "speaker": {
+    "id": "vacaroiu-nicolae",
+    "name": "Nicolae V„c„roiu",
+    "raw": "Domnul Nicolae V„c„roiu",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": null,
+    "year": 2005,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2005/II/125#agenda-1#act-114",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul este pur procedural, concentrându-se pe gestionarea timpului, organizarea ordinii de zi și medierea discuțiilor între liderii grupurilor parlamentare. Nu există nicio urmă de cadru popor-vs-elită, maniheism moral sau invocare a unei voințe populare suverane. Vorbitorul acționează în calitate de moderator al ședinței, iar limbajul utilizat este strict administrativ. Hawkins=0 cu încredere ridicată."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul este pur procedural, concentrându-se pe gestionarea timpului, organizarea ordinii de zi și medierea discuțiilor între liderii grupurilor parlamentare. Nu există nicio urmă de cadru popor-vs-elită, maniheism moral sau invocare a unei voințe populare suverane. Vorbitorul acționează în calitate de moderator al ședinței, iar limbajul utilizat este strict administrativ. Hawkins=0 cu încredere ridicată.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13713,
+      "tokens_in_breakdown": {
+        "fresh": 13713,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 178,
+      "cost_usd": null,
+      "latency_ms": 1965,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2005/II/125#agenda-1#act-114",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.55,
+        "level_of_justification": 0,
+        "content_of_justification": "none",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 0,
+            "evidence": {
+              "text": "Vă rog eu foarte mult. Deci, 10 minute, domnule senator Solcanu."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.9,
+            "rationale_short": "Intervenție procedurală de organizare a timpului, fără argumentare substanțială."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "none",
+            "evidence": {
+              "text": "ca s„ termin„m cu procedurile"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.9,
+            "rationale_short": "Nicio justificare oferită; conținutul este nedefinit."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "domnule senator Solcanu"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.85,
+            "rationale_short": "Adresare convențională, neutră."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Iar discut„m o jum„tate de or„ de proceduri."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.8,
+            "rationale_short": "Exprimă frustrare față de proceduri, dar nu angajează cereri politice."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "Iar discut„m o jum„tate de or„ de proceduri."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.8,
+            "rationale_short": "Menționează discuția procedurală fără a se angaja în raționamentul acesteia."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "consulta˛i-v„"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.85,
+            "rationale_short": "Propunere procedurală de organizare, nu o alternativă politică."
+          }
+        ],
+        "rationale": "Discursul este pur procedural, vizând gestionarea timpului și a ordinii de zi în cadrul ședinței. Vorbitorul nu oferă nicio justificare pentru poziția sa (level_of_justification=0), limitându-se la solicitări de organizare. Nu există angajament cu cereri politice sau contraargumente, iar respectul pentru colegi rămâne la nivelul convențional (respect_for_groups=1). Deoarece discursul este strict procedural și nu conține deliberare politică, scorul de încredere este scăzut. Acesta este un exemplu tipic de intervenție de reglementare a ordinii de zi care nu atinge pragul deliberativ."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.55,\n  \"level_of_justification\": 0,\n  \"content_of_justification\": \"none\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"Vă rog eu foarte mult. Deci, 10 minute, domnule senator Solcanu.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Intervenție procedurală de organizare a timpului, fără argumentare substanțială.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"none\",\n      \"evidence\": {\n        \"text\": \"ca s„ termin„m cu procedurile\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Nicio justificare oferită; conținutul este nedefinit.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"domnule senator Solcanu\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Adresare convențională, neutră.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Iar discut„m o jum„tate de or„ de proceduri.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.8,\n      \"rationale_short\": \"Exprimă frustrare față de proceduri, dar nu angajează cereri politice.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Iar discut„m o jum„tate de or„ de proceduri.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.8,\n      \"rationale_short\": \"Menționează discuția procedurală fără a se angaja în raționamentul acesteia.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"consulta˛i-v„\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Propunere procedurală de organizare, nu o alternativă politică.\"\n    }\n  ],\n  \"rationale\": \"Discursul este pur procedural, vizând gestionarea timpului și a ordinii de zi în cadrul ședinței. Vorbitorul nu oferă nicio justificare pentru poziția sa (level_of_justification=0), limitându-se la solicitări de organizare. Nu există angajament cu cereri politice sau contraargumente, iar respectul pentru colegi rămâne la nivelul convențional (respect_for_groups=1). Deoarece discursul este strict procedural și nu conține deliberare politică, scorul de încredere este scăzut. Acesta este un exemplu tipic de intervenție de reglementare a ordinii de zi care nu atinge pragul deliberativ.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [
+        "Vă rog eu foarte mult. Deci, 10 minute, domnule senator Solcanu."
+      ],
+      "parse_repaired": false,
+      "tokens_in": 12514,
+      "tokens_in_breakdown": {
+        "fresh": 12514,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1051,
+      "cost_usd": null,
+      "latency_ms": 4167,
+      "retries_used": 0
+    }
+  }
+}

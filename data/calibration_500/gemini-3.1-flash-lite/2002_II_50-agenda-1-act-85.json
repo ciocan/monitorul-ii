@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2002/II/50#agenda-1#act-85",
+  "tier": "calibration",
+  "speaker": {
+    "id": "vacaroiu-nicolae",
+    "name": "Nicolae Vãcãroiu",
+    "raw": "Domnul Nicolae Vãcãroiu",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": null,
+    "year": 2002,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2002/II/50#agenda-1#act-85",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 1.0,
+        "markers": [],
+        "rationale": "Discursul este pur procedural, concentrat pe gestionarea voturilor și a procedurilor parlamentare pentru aprobarea unei ordonanțe guvernamentale. Nu există nicio referire la un cadru popor-vs-elită, nicio retorică maniheistă sau invocare a unei voințe populare suverane. Limbajul este tehnic și administrativ, specific activității curente din plenul Senatului. Hawkins=0 cu încredere maximă."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 1.0,\n  \"markers\": [],\n  \"rationale\": \"Discursul este pur procedural, concentrat pe gestionarea voturilor și a procedurilor parlamentare pentru aprobarea unei ordonanțe guvernamentale. Nu există nicio referire la un cadru popor-vs-elită, nicio retorică maniheistă sau invocare a unei voințe populare suverane. Limbajul este tehnic și administrativ, specific activității curente din plenul Senatului. Hawkins=0 cu încredere maximă.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13877,
+      "tokens_in_breakdown": {
+        "fresh": 13877,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 171,
+      "cost_usd": null,
+      "latency_ms": 1756,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2002/II/50#agenda-1#act-85",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.45,
+        "level_of_justification": 0,
+        "content_of_justification": "none",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 0,
+            "evidence": {
+              "text": "Dacã sunt observaþii? Nu sunt."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Intervenție pur procedurală de gestionare a ședinței, fără argumentație."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "none",
+            "evidence": {
+              "text": "Dacã sunt observaþii? Nu sunt."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Nicio justificare oferită; conținutul este nedefinit."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Stimaþi colegi"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.99,
+            "marker_confidence": 0.9,
+            "rationale_short": "Adresare convențională neutră; niciun grup vizat."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Dacã sunt observaþii? Nu sunt."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Procedură standard, fără angajament cu cereri politice."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "Dacã sunt observaþii? Nu sunt."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Absența oricărui angajament cu argumente opuse."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Vã rog sã votaþi."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.99,
+            "marker_confidence": 0.95,
+            "rationale_short": "Intervenție procedurală de conducere a votului, nu o propunere politică."
+          }
+        ],
+        "rationale": "Acest fragment reprezintă o intervenție pur procedurală a președintelui de ședință, Nicolae Văcăroiu, care gestionează votul pentru rapoartele comisiilor de mediere. Discursul nu conține argumentație, justificare sau angajament cu cereri politice, fiind limitat la formalități parlamentare. Din acest motiv, toate dimensiunile DQI sunt codate la valorile lor implicite (neutru/pozițional/fără justificare). Nivelul de încredere este scăzut deoarece discursul nu constituie o deliberare politică, ci o activitate administrativă de sală, ceea ce face ca rubricile DQI să fie inaplicabile în sensul lor deliberativ."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.45,\n  \"level_of_justification\": 0,\n  \"content_of_justification\": \"none\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 0,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 0,\n      \"evidence\": { \"text\": \"Dacã sunt observaþii? Nu sunt.\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Intervenție pur procedurală de gestionare a ședinței, fără argumentație.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"none\",\n      \"evidence\": { \"text\": \"Dacã sunt observaþii? Nu sunt.\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Nicio justificare oferită; conținutul este nedefinit.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": { \"text\": \"Stimaþi colegi\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.99,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Adresare convențională neutră; niciun grup vizat.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": { \"text\": \"Dacã sunt observaþii? Nu sunt.\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Procedură standard, fără angajament cu cereri politice.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 0,\n      \"evidence\": { \"text\": \"Dacã sunt observaþii? Nu sunt.\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Absența oricărui angajament cu argumente opuse.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": { \"text\": \"Vã rog sã votaþi.\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.99,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Intervenție procedurală de conducere a votului, nu o propunere politică.\"\n    }\n  ],\n  \"rationale\": \"Acest fragment reprezintă o intervenție pur procedurală a președintelui de ședință, Nicolae Văcăroiu, care gestionează votul pentru rapoartele comisiilor de mediere. Discursul nu conține argumentație, justificare sau angajament cu cereri politice, fiind limitat la formalități parlamentare. Din acest motiv, toate dimensiunile DQI sunt codate la valorile lor implicite (neutru/pozițional/fără justificare). Nivelul de încredere este scăzut deoarece discursul nu constituie o deliberare politică, ci o activitate administrativă de sală, ceea ce face ca rubricile DQI să fie inaplicabile în sensul lor deliberativ.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12678,
+      "tokens_in_breakdown": {
+        "fresh": 12678,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1013,
+      "cost_usd": null,
+      "latency_ms": 4065,
+      "retries_used": 0
+    }
+  }
+}

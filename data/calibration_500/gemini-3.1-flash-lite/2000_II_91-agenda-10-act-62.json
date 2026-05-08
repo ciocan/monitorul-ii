@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2000/II/91#agenda-10#act-62",
+  "tier": "calibration",
+  "speaker": {
+    "id": "popescu-emil-teodor",
+    "name": "Emil-Teodor Popescu",
+    "raw": "Domnul Emil-Teodor Popescu",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": null,
+    "year": 2000,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2000/II/91#agenda-10#act-62",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 1.0,
+        "markers": [],
+        "rationale": "Discursul este unul pur tehnic și procedural, axat pe prezentarea unui proiect de lege privind statutul consilierilor juridici. Nu există nicio referire la un cadru popor-vs-elită, nicio invocare a unei voințe populare omogene și niciun element de maniheism moral. Vorbitorul se limitează la descrierea reglementărilor legale și a structurilor administrative, încadrându-se perfect în registrul legislativ standard. Hawkins=0 cu încredere maximă."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 1.0,\n  \"markers\": [],\n  \"rationale\": \"Discursul este unul pur tehnic și procedural, axat pe prezentarea unui proiect de lege privind statutul consilierilor juridici. Nu există nicio referire la un cadru popor-vs-elită, nicio invocare a unei voințe populare omogene și niciun element de maniheism moral. Vorbitorul se limitează la descrierea reglementărilor legale și a structurilor administrative, încadrându-se perfect în registrul legislativ standard. Hawkins=0 cu încredere maximă.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13860,
+      "tokens_in_breakdown": {
+        "fresh": 13860,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 181,
+      "cost_usd": null,
+      "latency_ms": 1945,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2000/II/91#agenda-10#act-62",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.85,
+        "level_of_justification": 1,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 1,
+            "evidence": {
+              "text": "reglementarea privind organizarea ºi funcþionarea oficiilor juridice este depãºitã de realitãþile specifice economiei de piaþã"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.88,
+            "rationale_short": "Justificarea invocă o necesitate generală (economia de piață) fără a oferi un mecanism cauzal sau dovezi specifice."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "reglementarea statutului juridic al consilierilor juridici, a asistenþei juridice a autoritãþilor ºi instituþiilor publice"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Apelul este la interesul instituțional și public general, nu la un grup specific."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Uniunii Naþionale a Consilierilor Juridici din România"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Referință neutră și funcțională la grupul profesional vizat de proiect."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "supunem proiectul de Lege privind executarea ºi exercitarea profesiei de consilier spre dezbatere ºi adoptare"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Discursul este de natură procedurală/expunere de motive, fără a aborda cereri opuse."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "reglementarea privind organizarea ºi funcþionarea oficiilor juridice este depãºitã"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Nu există nicio referire la argumente contrare sau critici aduse proiectului."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "supunem proiectul de Lege privind executarea ºi exercitarea profesiei de consilier spre dezbatere ºi adoptare"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Discursul prezintă o inițiativă legislativă fără a propune alternative sau medieri."
+          }
+        ],
+        "rationale": "Acest discurs reprezintă o expunere de motive standard pentru un proiect de lege, având un caracter predominant informativ și procedural. Justificarea este de nivel 1, deoarece invocă necesitatea adaptării la economia de piață fără a detalia mecanisme cauzale sau dovezi empirice. Nu există un angajament cu contraargumente sau cereri opuse, ceea ce este tipic pentru prezentările legislative inițiale. Discursul este orientat către binele comun, vizând reglementarea unei profesii, dar rămâne într-o zonă pozițională, nefiind o propunere de mediere. Calitatea deliberativă este limitată de natura tehnică a intervenției, care nu invită la dezbatere contradictorie."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.85,\n  \"level_of_justification\": 1,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 0,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"reglementarea privind organizarea ºi funcþionarea oficiilor juridice este depãºitã de realitãþile specifice economiei de piaþã\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Justificarea invocă o necesitate generală (economia de piață) fără a oferi un mecanism cauzal sau dovezi specifice.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"reglementarea statutului juridic al consilierilor juridici, a asistenþei juridice a autoritãþilor ºi instituþiilor publice\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Apelul este la interesul instituțional și public general, nu la un grup specific.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Uniunii Naþionale a Consilierilor Juridici din România\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Referință neutră și funcțională la grupul profesional vizat de proiect.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"supunem proiectul de Lege privind executarea ºi exercitarea profesiei de consilier spre dezbatere ºi adoptare\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Discursul este de natură procedurală/expunere de motive, fără a aborda cereri opuse.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"reglementarea privind organizarea ºi funcþionarea oficiilor juridice este depãºitã\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Nu există nicio referire la argumente contrare sau critici aduse proiectului.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"supunem proiectul de Lege privind executarea ºi exercitarea profesiei de consilier spre dezbatere ºi adoptare\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Discursul prezintă o inițiativă legislativă fără a propune alternative sau medieri.\"\n    }\n  ],\n  \"rationale\": \"Acest discurs reprezintă o expunere de motive standard pentru un proiect de lege, având un caracter predominant informativ și procedural. Justificarea este de nivel 1, deoarece invocă necesitatea adaptării la economia de piață fără a detalia mecanisme cauzale sau dovezi empirice. Nu există un angajament cu contraargumente sau cereri opuse, ceea ce este tipic pentru prezentările legislative inițiale. Discursul este orientat către binele comun, vizând reglementarea unei profesii, dar rămâne într-o zonă pozițională, nefiind o propunere de mediere. Calitatea deliberativă este limitată de natura tehnică a intervenției, care nu invită la dezbatere contradictorie.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12661,
+      "tokens_in_breakdown": {
+        "fresh": 12661,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1201,
+      "cost_usd": null,
+      "latency_ms": 4839,
+      "retries_used": 0
+    }
+  }
+}

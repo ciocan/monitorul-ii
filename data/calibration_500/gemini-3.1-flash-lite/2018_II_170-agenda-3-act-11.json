@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2018/II/170#agenda-3#act-11",
+  "tier": "calibration",
+  "speaker": {
+    "id": "manda-iulian-claudiu",
+    "name": "Iulian Claudiu Manda",
+    "raw": "Domnul Iulian Claudiu Manda",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": "2018-11-07",
+    "year": 2018,
+    "legislature": "VIII",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2018/II/170#agenda-3#act-11",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 1.0,
+        "markers": [],
+        "rationale": "Discursul este pur procedural, limitându-se la gestionarea ordinii de zi a ședinței și la prezentarea punctului de vedere tehnic al Guvernului privind o propunere legislativă. Nu există nicio urmă de retorică populistă, cadru maniheist sau invocare a unei voințe populare. Discursul se încadrează strict în registrul administrativ-parlamentar standard. Hawkins=0 cu încredere maximă."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 1.0,\n  \"markers\": [],\n  \"rationale\": \"Discursul este pur procedural, limitându-se la gestionarea ordinii de zi a ședinței și la prezentarea punctului de vedere tehnic al Guvernului privind o propunere legislativă. Nu există nicio urmă de retorică populistă, cadru maniheist sau invocare a unei voințe populare. Discursul se încadrează strict în registrul administrativ-parlamentar standard. Hawkins=0 cu încredere maximă.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13790,
+      "tokens_in_breakdown": {
+        "fresh": 13790,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 170,
+      "cost_usd": null,
+      "latency_ms": 1739,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2018/II/170#agenda-3#act-11",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.65,
+        "level_of_justification": 0,
+        "content_of_justification": "none",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 0,
+            "evidence": {
+              "text": "Guvernul a formulat un punct de vedere negativ pe marginea propunerii legislative în discuție."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Vorbitorul anunță poziția Guvernului fără a oferi raționamente sau argumente de susținere."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "none",
+            "evidence": {
+              "text": "Guvernul a formulat un punct de vedere negativ"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Nicio justificare oferită; conținutul justificării este nedefinit."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Mulțumesc, domnule președinte."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.99,
+            "marker_confidence": 0.9,
+            "rationale_short": "Adresare convențională; niciun grup vizat în mod explicit."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Ministerul Afacerilor Interne nu este de acord cu raportul comun de admitere"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Poziție de dezacord exprimată fără a angaja legitimitatea cererii adverse."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "Ministerul Afacerilor Interne nu este de acord cu raportul comun de admitere"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.94,
+            "rationale_short": "Vorbitorul respinge raportul fără a adresa argumentele tehnice sau juridice din spatele acestuia."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Ministerul Afacerilor Interne nu este de acord cu raportul comun de admitere"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Poziție declarată; nicio alternativă sau propunere de mediere oferită."
+          }
+        ],
+        "rationale": "Discursul reprezentantului Guvernului este pur procedural și pozițional, limitându-se la a comunica un aviz negativ. Nu există nicio justificare pentru această poziție (level_of_justification=0), iar conținutul justificării este inexistent. Vorbitorul nu angajează argumentele din raportul comisiilor (respect_for_counterarguments=0) și nu oferă nicio alternativă constructivă (constructive_politics=positional). Respectul pentru grupuri și cereri rămâne la nivel neutru, fiind o intervenție formală. Calitatea deliberativă este scăzută, reflectând natura administrativă a intervenției."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.65,\n  \"level_of_justification\": 0,\n  \"content_of_justification\": \"none\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 0,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 0,\n      \"evidence\": { \"text\": \"Guvernul a formulat un punct de vedere negativ pe marginea propunerii legislative în discuție.\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Vorbitorul anunță poziția Guvernului fără a oferi raționamente sau argumente de susținere.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"none\",\n      \"evidence\": { \"text\": \"Guvernul a formulat un punct de vedere negativ\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Nicio justificare oferită; conținutul justificării este nedefinit.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": { \"text\": \"Mulțumesc, domnule președinte.\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.99,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Adresare convențională; niciun grup vizat în mod explicit.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": { \"text\": \"Ministerul Afacerilor Interne nu este de acord cu raportul comun de admitere\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Poziție de dezacord exprimată fără a angaja legitimitatea cererii adverse.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 0,\n      \"evidence\": { \"text\": \"Ministerul Afacerilor Interne nu este de acord cu raportul comun de admitere\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.94,\n      \"rationale_short\": \"Vorbitorul respinge raportul fără a adresa argumentele tehnice sau juridice din spatele acestuia.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": { \"text\": \"Ministerul Afacerilor Interne nu este de acord cu raportul comun de admitere\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Poziție declarată; nicio alternativă sau propunere de mediere oferită.\"\n    }\n  ],\n  \"rationale\": \"Discursul reprezentantului Guvernului este pur procedural și pozițional, limitându-se la a comunica un aviz negativ. Nu există nicio justificare pentru această poziție (level_of_justification=0), iar conținutul justificării este inexistent. Vorbitorul nu angajează argumentele din raportul comisiilor (respect_for_counterarguments=0) și nu oferă nicio alternativă constructivă (constructive_politics=positional). Respectul pentru grupuri și cereri rămâne la nivel neutru, fiind o intervenție formală. Calitatea deliberativă este scăzută, reflectând natura administrativă a intervenției.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12591,
+      "tokens_in_breakdown": {
+        "fresh": 12591,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1066,
+      "cost_usd": null,
+      "latency_ms": 4155,
+      "retries_used": 0
+    }
+  }
+}

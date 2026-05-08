@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2017/II/167#agenda-1#act-16",
+  "tier": "register_shift",
+  "speaker": {
+    "id": "basescu-traian",
+    "name": "Traian Băsescu",
+    "raw": "Domnul Traian Băsescu",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2017-11-20",
+    "year": 2017,
+    "legislature": "VIII",
+    "delivery_mode": null
+  },
+  "model_key": "opus",
+  "model_label": "claude-opus-4.7",
+  "results": {
+    "hawkins": {
+      "model_key": "opus",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2017/II/167#agenda-1#act-16",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.93,
+        "markers": [],
+        "rationale": "Discurs procedural-instituțional în care vorbitorul se opune constituirii unei comisii speciale pentru legile justiției și propune ca proiectele să urmeze traseul obișnuit prin Comisiile juridice și plenurile celor două Camere. Critica este nominală și instituțională (vizează modul de constituire a comisiei și pe președintele acesteia, considerat „emblemă a antireformei\"), nu un cadru popor-vs-elită manihean. Nu apare invocarea unui popor omogen, a unei voințe populare suverane peste instituții, a unei elite malefice colective sau a unei crize existențiale; dimpotrivă, vorbitorul apără tocmai procedura parlamentară standard. Tonul polemic și partizan nu echivalează cu o viziune populistă în sensul Hawkins. Hawkins=0 cu încredere ridicată."
+      },
+      "raw_response": "{\"score\":0,\"score_unit\":\"ordinal_0_2\",\"framework_version\":\"hawkins@2018\",\"framework_confidence\":0.93,\"markers\":[],\"rationale\":\"Discurs procedural-instituțional în care vorbitorul se opune constituirii unei comisii speciale pentru legile justiției și propune ca proiectele să urmeze traseul obișnuit prin Comisiile juridice și plenurile celor două Camere. Critica este nominală și instituțională (vizează modul de constituire a comisiei și pe președintele acesteia, considerat „emblemă a antireformei\\\"), nu un cadru popor-vs-elită manihean. Nu apare invocarea unui popor omogen, a unei voințe populare suverane peste instituții, a unei elite malefice colective sau a unei crize existențiale; dimpotrivă, vorbitorul apără tocmai procedura parlamentară standard. Tonul polemic și partizan nu echivalează cu o viziune populistă în sensul Hawkins. Hawkins=0 cu încredere ridicată.\"}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 104299,
+      "tokens_in_breakdown": {
+        "fresh": 5,
+        "cache_creation": 85941,
+        "cache_read": 18353
+      },
+      "tokens_out": 364,
+      "cost_usd": 0.55543275,
+      "latency_ms": 14549,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "opus",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2017/II/167#agenda-1#act-16",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.78,
+        "level_of_justification": 1,
+        "content_of_justification": "mixed",
+        "respect_for_groups": 0,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "alternative_proposal",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 1,
+            "evidence": {
+              "text": "modul în care s-a constituit comisia și cel care reprezintă comisia, domnul președinte Iordache, vor fi elemente..., dezavantaje uriașe pentru ca aceste legi să poată fi duse până la capăt în bune condițiuni, din cauza reacției publice care va exista"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.78,
+            "rationale_short": "Motiv invocat circular/opinionat: „reacția publică” și caracterizarea persoanei drept „emblemă a antireformei” — fără mecanism sau sursă specifică."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "mixed",
+            "evidence": {
+              "text": "sunt convins că vom avea legi mai bune"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.94,
+            "marker_confidence": 0.7,
+            "rationale_short": "Apel la binele comun („legi mai bune”) combinat cu argument de imagine publică/politic — justificare mixtă."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 0,
+            "evidence": {
+              "text": "a reușit să devină o emblemă a antireformei în justiție"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.96,
+            "marker_confidence": 0.88,
+            "rationale_short": "Derogare explicită a unui coleg parlamentar identificabil, caracterizat ca „emblemă a antireformei”."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Lăsați proiectele de lege să meargă prin Comisiile juridice și plenurile celor două Camere"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.7,
+            "rationale_short": "Cererile majorității de a constitui comisia specială sunt respinse fără a fi caracterizate ca ilegitime — non-angajament."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "Nu vreau să intru în nicio polemică, dar vă spun de aici, de la tribuna Camerelor reunite"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.85,
+            "rationale_short": "Vorbitorul refuză explicit polemica și nu reformulează niciun argument al majorității pentru constituirea comisiei."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "alternative_proposal",
+            "evidence": {
+              "text": "Sugestia mea este să renunțăm la orice comisie specială. Lăsați proiectele de lege să meargă prin Comisiile juridice și plenurile celor două Camere"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.96,
+            "marker_confidence": 0.86,
+            "rationale_short": "Propune o alternativă procedurală concretă: traseul ordinar prin Comisiile juridice în locul comisiei speciale."
+          }
+        ],
+        "rationale": "Discurs scurt de opoziție cu profil mixt. Vorbitorul oferă o justificare de calitate inferioară (level_of_justification=1): motivele invocate sunt mai degrabă circulare și se sprijină pe caracterizări ad hominem („emblemă a antireformei”) și pe anticiparea unei reacții publice nespecificate, fără mecanism sau sursă concretă. Conținutul justificării este mixt — apelul la „legi mai bune” are formă de bine comun, dar argumentul central privind imaginea publică a președintelui comisiei este de natură politico-tactică. Respectul pentru grupuri scade la 0 prin derogarea explicită a unui coleg parlamentar identificabil. Cererile majorității nu sunt caracterizate ca ilegitime, doar respinse procedural (respect_for_demands=1), iar contraargumentele pentru constituirea comisiei nu sunt reformulate sau combătute substanțial — vorbitorul declară explicit că nu intră în polemică (respect_for_counterarguments=0). Pe latura constructivă oferă totuși o alternativă procedurală concretă (traseul ordinar prin Comisiile juridice), ceea ce ridică dimensiunea constructive_politics la alternative_proposal. Profil tipic de intervenție de tribună: ușor argumentat, personalizat în critică, dar cu o propunere alternativă clară."
+      },
+      "raw_response": "{\"framework_version\":\"steiner-bachtiger@2017\",\"score_unit\":\"dqi_multi\",\"framework_confidence\":0.78,\"level_of_justification\":1,\"content_of_justification\":\"mixed\",\"respect_for_groups\":0,\"respect_for_demands\":1,\"respect_for_counterarguments\":0,\"constructive_politics\":\"alternative_proposal\",\"markers\":[{\"kind\":\"level_of_justification\",\"value\":1,\"evidence\":{\"text\":\"modul în care s-a constituit comisia și cel care reprezintă comisia, domnul președinte Iordache, vor fi elemente..., dezavantaje uriașe pentru ca aceste legi să poată fi duse până la capăt în bune condițiuni, din cauza reacției publice care va exista\"},\"preliminary_voice\":\"speaker_first_person\",\"preliminary_voice_confidence\":0.95,\"marker_confidence\":0.78,\"rationale_short\":\"Motiv invocat circular/opinionat: „reacția publică” și caracterizarea persoanei drept „emblemă a antireformei” — fără mecanism sau sursă specifică.\"},{\"kind\":\"content_of_justification\",\"value\":\"mixed\",\"evidence\":{\"text\":\"sunt convins că vom avea legi mai bune\"},\"preliminary_voice\":\"speaker_first_person\",\"preliminary_voice_confidence\":0.94,\"marker_confidence\":0.7,\"rationale_short\":\"Apel la binele comun („legi mai bune”) combinat cu argument de imagine publică/politic — justificare mixtă.\"},{\"kind\":\"respect_for_groups\",\"value\":0,\"evidence\":{\"text\":\"a reușit să devină o emblemă a antireformei în justiție\"},\"preliminary_voice\":\"speaker_first_person\",\"preliminary_voice_confidence\":0.96,\"marker_confidence\":0.88,\"rationale_short\":\"Derogare explicită a unui coleg parlamentar identificabil, caracterizat ca „emblemă a antireformei”.\"},{\"kind\":\"respect_for_demands\",\"value\":1,\"evidence\":{\"text\":\"Lăsați proiectele de lege să meargă prin Comisiile juridice și plenurile celor două Camere\"},\"preliminary_voice\":\"speaker_first_person\",\"preliminary_voice_confidence\":0.95,\"marker_confidence\":0.7,\"rationale_short\":\"Cererile majorității de a constitui comisia specială sunt respinse fără a fi caracterizate ca ilegitime — non-angajament.\"},{\"kind\":\"respect_for_counterarguments\",\"value\":0,\"evidence\":{\"text\":\"Nu vreau să intru în nicio polemică, dar vă spun de aici, de la tribuna Camerelor reunite\"},\"preliminary_voice\":\"speaker_first_person\",\"preliminary_voice_confidence\":0.95,\"marker_confidence\":0.85,\"rationale_short\":\"Vorbitorul refuză explicit polemica și nu reformulează niciun argument al majorității pentru constituirea comisiei.\"},{\"kind\":\"constructive_politics\",\"value\":\"alternative_proposal\",\"evidence\":{\"text\":\"Sugestia mea este să renunțăm la orice comisie specială. Lăsați proiectele de lege să meargă prin Comisiile juridice și plenurile celor două Camere\"},\"preliminary_voice\":\"speaker_first_person\",\"preliminary_voice_confidence\":0.96,\"marker_confidence\":0.86,\"rationale_short\":\"Propune o alternativă procedurală concretă: traseul ordinar prin Comisiile juridice în locul comisiei speciale.\"}],\"rationale\":\"Discurs scurt de opoziție cu profil mixt. Vorbitorul oferă o justificare de calitate inferioară (level_of_justification=1): motivele invocate sunt mai degrabă circulare și se sprijină pe caracterizări ad hominem („emblemă a antireformei”) și pe anticiparea unei reacții publice nespecificate, fără mecanism sau sursă concretă. Conținutul justificării este mixt — apelul la „legi mai bune” are formă de bine comun, dar argumentul central privind imaginea publică a președintelui comisiei este de natură politico-tactică. Respectul pentru grupuri scade la 0 prin derogarea explicită a unui coleg parlamentar identificabil. Cererile majorității nu sunt caracterizate ca ilegitime, doar respinse procedural (respect_for_demands=1), iar contraargumentele pentru constituirea comisiei nu sunt reformulate sau combătute substanțial — vorbitorul declară explicit că nu intră în polemică (respect_for_counterarguments=0). Pe latura constructivă oferă totuși o alternativă procedurală concretă (traseul ordinar prin Comisiile juridice), ceea ce ridică dimensiunea constructive_politics la alternative_proposal. Profil tipic de intervenție de tribună: ușor argumentat, personalizat în critică, dar cu o propunere alternativă clară.\"}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 102290,
+      "tokens_in_breakdown": {
+        "fresh": 5,
+        "cache_creation": 83932,
+        "cache_read": 18353
+      },
+      "tokens_out": 1695,
+      "cost_usd": 0.5761515,
+      "latency_ms": 31166,
+      "retries_used": 0
+    }
+  }
+}

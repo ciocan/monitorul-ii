@@ -1,0 +1,210 @@
+{
+  "speech_id": "mo://2006/II/162#agenda-5#act-4",
+  "tier": "calibration",
+  "speaker": {
+    "id": "rus-ioan-aurel",
+    "name": "Ioan Aurel Rus",
+    "raw": "Domnul Ioan Aurel Rus",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": null,
+    "session_date": null,
+    "year": 2006,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2006/II/162#agenda-5#act-4",
+      "output": {
+        "score": 1,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.85,
+        "markers": [
+          {
+            "kind": "evil_elite",
+            "evidence": {
+              "text": "Ne-am v‚ndut gazul, acum pl„tim prostia."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.85,
+            "rationale_short": "Sugerează o trădare a interesului național prin vânzarea resurselor către entități străine, marcând elita ca fiind iresponsabilă sau complice."
+          },
+          {
+            "kind": "crisis_invocation",
+            "evidence": {
+              "text": "Nu credeam vreodat„ c„ Ón anul 2006 copiii din municipiul Bistri˛a vor fi sili˛i s„ fac„ grev„ din cauza lipsei de c„ldur„."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Invocă o situație de criză socială inacceptabilă pentru a sublinia eșecul autorităților locale."
+          }
+        ],
+        "rationale": "Discursul combină critica administrativă locală (problemele de termoficare din Bistrița) cu elemente de retorică populistă. Deși majoritatea discursului se concentrează pe eșecuri manageriale concrete ale primarului și ale societății de termoficare, vorbitorul introduce accente de tip „elită malefică” prin referirea la vânzarea resurselor naționale și invocă o criză socială pentru a amplifica gravitatea situației. Totuși, discursul nu atinge un nivel de maniheism pervaziv sau o structură de tip popor-vs-elită care să definească întreaga argumentație, rămânând ancorat în problemele specifice ale unei comunități locale. Scor 1 cu încredere ridicată, reflectând prezența unor tropi populiști într-un discurs altfel orientat pe probleme administrative."
+      },
+      "raw_response": "{\n  \"score\": 1,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.85,\n  \"markers\": [\n    {\n      \"kind\": \"evil_elite\",\n      \"evidence\": {\n        \"text\": \"Ne-am v‚ndut gazul, acum pl„tim prostia.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Sugerează o trădare a interesului național prin vânzarea resurselor către entități străine, marcând elita ca fiind iresponsabilă sau complice.\"\n    },\n    {\n      \"kind\": \"crisis_invocation\",\n      \"evidence\": {\n        \"text\": \"Nu credeam vreodat„ c„ Ón anul 2006 copiii din municipiul Bistri˛a vor fi sili˛i s„ fac„ grev„ din cauza lipsei de c„ldur„.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Invocă o situație de criză socială inacceptabilă pentru a sublinia eșecul autorităților locale.\"\n    }\n  ],\n  \"rationale\": \"Discursul combină critica administrativă locală (problemele de termoficare din Bistrița) cu elemente de retorică populistă. Deși majoritatea discursului se concentrează pe eșecuri manageriale concrete ale primarului și ale societății de termoficare, vorbitorul introduce accente de tip „elită malefică” prin referirea la vânzarea resurselor naționale și invocă o criză socială pentru a amplifica gravitatea situației. Totuși, discursul nu atinge un nivel de maniheism pervaziv sau o structură de tip popor-vs-elită care să definească întreaga argumentație, rămânând ancorat în problemele specifice ale unei comunități locale. Scor 1 cu încredere ridicată, reflectând prezența unor tropi populiști într-un discurs altfel orientat pe probleme administrative.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 14241,
+      "tokens_in_breakdown": {
+        "fresh": 14241,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 578,
+      "cost_usd": null,
+      "latency_ms": 3582,
+      "retries_used": 0
+    },
+    "voice": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "voice",
+      "speech_id": "mo://2006/II/162#agenda-5#act-4",
+      "output": {
+        "classifications": [
+          {
+            "marker_id": "m_0",
+            "voice": "speaker_first_person",
+            "voice_confidence": 0.95,
+            "voice_evidence": null,
+            "attributed_to": null,
+            "rationale_short": "Afirmație directă la persoana întâi; vorbitorul își asumă responsabilitatea pentru această critică politică."
+          },
+          {
+            "marker_id": "m_1",
+            "voice": "speaker_first_person",
+            "voice_confidence": 0.95,
+            "voice_evidence": null,
+            "attributed_to": null,
+            "rationale_short": "Afirmație directă la persoana întâi; vorbitorul își exprimă propria opinie despre situația din 2006."
+          }
+        ]
+      },
+      "raw_response": "{\n  \"classifications\": [\n    {\n      \"marker_id\": \"m_0\",\n      \"voice\": \"speaker_first_person\",\n      \"voice_confidence\": 0.95,\n      \"voice_evidence\": null,\n      \"attributed_to\": null,\n      \"rationale_short\": \"Afirmație directă la persoana întâi; vorbitorul își asumă responsabilitatea pentru această critică politică.\"\n    },\n    {\n      \"marker_id\": \"m_1\",\n      \"voice\": \"speaker_first_person\",\n      \"voice_confidence\": 0.95,\n      \"voice_evidence\": null,\n      \"attributed_to\": null,\n      \"rationale_short\": \"Afirmație directă la persoana întâi; vorbitorul își exprimă propria opinie despre situația din 2006.\"\n    }\n  ]\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 11893,
+      "tokens_in_breakdown": {
+        "fresh": 11893,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 212,
+      "cost_usd": null,
+      "latency_ms": 1317,
+      "retries_used": 0
+    },
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2006/II/162#agenda-5#act-4",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.78,
+        "level_of_justification": 1,
+        "content_of_justification": "group_interest",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 1,
+            "evidence": {
+              "text": "Iat„ c„ neglijen˛a ∫i slaba preocupare au dus la aceast„ grev„ spontan„ f„cut„ de copii"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Oferă o explicație cauzală simplistă (neglijența primarului), fără a conecta poziția la dovezi sau principii."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "group_interest",
+            "evidence": {
+              "text": "soarta ∫colilor din municipiu"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.88,
+            "rationale_short": "Justificarea se concentrează pe interesele specifice ale comunității locale din Bistrița."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Primarul Vasile Moldovan a fost mai preocupat de chefurile ocazionale"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.82,
+            "rationale_short": "Critica la adresa primarului este personală, nu vizează un grup social sau politic protejat."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Cer domnilor mini∫tri Blaga ∫i H„rd„u s„ intervin„"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.8,
+            "rationale_short": "Vorbitorul își formulează cererile fără a angaja legitimitatea cererilor adverse."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "Nu cred c„ aici se spun minciuni, de la aceast„ tribun„."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Vorbitorul ignoră argumentele opoziției, preferând o retorică de atac personal."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Cer domnilor mini∫tri Blaga ∫i H„rd„u s„ intervin„"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Discursul este o critică politică ce solicită intervenția miniștrilor, fără a propune o alternativă legislativă."
+          }
+        ],
+        "rationale": "Discursul prezintă o calitate deliberativă scăzută, fiind centrat pe critică politică și acuzații la adresa administrației locale. Justificarea este de nivel 1, bazându-se pe o cauzalitate simplistă (neglijența primarului) și apelând la interesele grupului local (content_of_justification=group_interest). Nu există un angajament substanțial cu contraargumentele, iar respectul pentru grupuri și cereri rămâne la un nivel neutru sau procedural. Discursul este pur pozițional, fără a oferi alternative concrete sau medieri, limitându-se la a cere intervenția miniștrilor. Calitatea deliberativă este limitată de tonul polemic și absența unei argumentații complexe."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.78,\n  \"level_of_justification\": 1,\n  \"content_of_justification\": \"group_interest\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 0,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Iat„ c„ neglijen˛a ∫i slaba preocupare au dus la aceast„ grev„ spontan„ f„cut„ de copii\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Oferă o explicație cauzală simplistă (neglijența primarului), fără a conecta poziția la dovezi sau principii.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"group_interest\",\n      \"evidence\": {\n        \"text\": \"soarta ∫colilor din municipiu\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Justificarea se concentrează pe interesele specifice ale comunității locale din Bistrița.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Primarul Vasile Moldovan a fost mai preocupat de chefurile ocazionale\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.82,\n      \"rationale_short\": \"Critica la adresa primarului este personală, nu vizează un grup social sau politic protejat.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Cer domnilor mini∫tri Blaga ∫i H„rd„u s„ intervin„\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.80,\n      \"rationale_short\": \"Vorbitorul își formulează cererile fără a angaja legitimitatea cererilor adverse.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"Nu cred c„ aici se spun minciuni, de la aceast„ tribun„.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Vorbitorul ignoră argumentele opoziției, preferând o retorică de atac personal.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"Cer domnilor mini∫tri Blaga ∫i H„rd„u s„ intervin„\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.90,\n      \"rationale_short\": \"Discursul este o critică politică ce solicită intervenția miniștrilor, fără a propune o alternativă legislativă.\"\n    }\n  ],\n  \"rationale\": \"Discursul prezintă o calitate deliberativă scăzută, fiind centrat pe critică politică și acuzații la adresa administrației locale. Justificarea este de nivel 1, bazându-se pe o cauzalitate simplistă (neglijența primarului) și apelând la interesele grupului local (content_of_justification=group_interest). Nu există un angajament substanțial cu contraargumentele, iar respectul pentru grupuri și cereri rămâne la un nivel neutru sau procedural. Discursul este pur pozițional, fără a oferi alternative concrete sau medieri, limitându-se la a cere intervenția miniștrilor. Calitatea deliberativă este limitată de tonul polemic și absența unei argumentații complexe.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13042,
+      "tokens_in_breakdown": {
+        "fresh": 13042,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1172,
+      "cost_usd": null,
+      "latency_ms": 4334,
+      "retries_used": 0
+    }
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "speech_id": "mo://2000/II/147#agenda-1#act-100",
+  "tier": "calibration",
+  "speaker": {
+    "id": "dijmarescu-eugen",
+    "name": "Eugen Dijmãrescu",
+    "raw": "Domnul Eugen Dijmãrescu",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": null,
+    "year": 2000,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": null,
+    "voice": null,
+    "dqi": null,
+    "vparty": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "vparty",
+      "speech_id": "mo://2000/II/147#agenda-1#act-100",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "vparty@2020 + vdem-attacks-on@v13",
+        "framework_confidence": 1.0,
+        "markers": [],
+        "rationale": "Discursul este unul pur tehnic, axat pe ratificarea unui acord internațional de investiții între România și Macedonia. Vorbitorul explică contextul juridic și diplomatic al tratatului, inclusiv dificultățile de denumire a statului macedonean în cadrul ONU, fără a recurge la nicio formă de delegitimizare a instituțiilor democratice, a opoziției, a presei sau a altor actori sociali. Nu există nicio urmă de retorică anti-pluralistă; discursul respectă normele parlamentare și procedurile diplomatice standard. Scor 0 cu încredere maximă."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"vparty@2020 + vdem-attacks-on@v13\",\n  \"framework_confidence\": 1.0,\n  \"markers\": [],\n  \"rationale\": \"Discursul este unul pur tehnic, axat pe ratificarea unui acord internațional de investiții între România și Macedonia. Vorbitorul explică contextul juridic și diplomatic al tratatului, inclusiv dificultățile de denumire a statului macedonean în cadrul ONU, fără a recurge la nicio formă de delegitimizare a instituțiilor democratice, a opoziției, a presei sau a altor actori sociali. Nu există nicio urmă de retorică anti-pluralistă; discursul respectă normele parlamentare și procedurile diplomatice standard. Scor 0 cu încredere maximă.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13233,
+      "tokens_in_breakdown": {
+        "fresh": 13233,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 218,
+      "cost_usd": null,
+      "latency_ms": 1805,
+      "retries_used": 0
+    }
+  }
+}

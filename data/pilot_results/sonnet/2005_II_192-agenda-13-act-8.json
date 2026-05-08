@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2005/II/192#agenda-13#act-8",
+  "tier": "moderate",
+  "speaker": {
+    "id": "nastase-adrian",
+    "name": "Adrian N„stase",
+    "raw": "Domnul Adrian N„stase",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": null,
+    "session_date": null,
+    "year": 2005,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "sonnet",
+  "model_label": "claude-sonnet-4.6",
+  "results": {
+    "hawkins": {
+      "model_key": "sonnet",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2005/II/192#agenda-13#act-8",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul este integral procedural: vorbitorul prezidează dezbaterea unui proiect de lege, solicită obiecții la titlu și la articole, constată unanimitatea, aprobă propunerile comisiei și avansează la vot final. Niciun cadru popor-vs-elită, niciun maniheism moralist, nicio invocare a unei voințe populare omogene, nicio elită malefică, nicio criză existențială. Registrul este exclusiv cel al conducerii ședinței parlamentare — formulare standard de tipul „Cine este pentru?"
+      },
+      "raw_response": "```json\n{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul este integral procedural: vorbitorul prezidează dezbaterea unui proiect de lege, solicită obiecții la titlu și la articole, constată unanimitatea, aprobă propunerile comisiei și avansează la vot final. Niciun cadru popor-vs-elită, niciun maniheism moralist, nicio invocare a unei voințe populare omogene, nicio elită malefică, nicio criză existențială. Registrul este exclusiv cel al conducerii ședinței parlamentare — formulare standard de tipul „Cine este pentru?\", „Nu sunt obiecții\", „Propunerile comisiei au fost aprobate\". Hawkins=0 cu încredere foarte ridicată.\"\n}\n```",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": true,
+      "tokens_in": 73748,
+      "tokens_in_breakdown": {
+        "fresh": 2,
+        "cache_creation": 60600,
+        "cache_read": 13146
+      },
+      "tokens_out": 873,
+      "cost_usd": 0.2442948,
+      "latency_ms": 18614,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "sonnet",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2005/II/192#agenda-13#act-8",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.34,
+        "level_of_justification": 0,
+        "content_of_justification": "none",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 0,
+            "evidence": {
+              "text": "Trecem la dezbaterea proiectului de lege. Œncepem cu titlul."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.92,
+            "marker_confidence": 0.87,
+            "rationale_short": "Intervenție pur procedurală a președintelui de ședință; nicio poziție susținută și nicio justificare oferită."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "none",
+            "evidence": {
+              "text": "Trecem la dezbaterea proiectului de lege. Œncepem cu titlul."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.92,
+            "marker_confidence": 0.86,
+            "rationale_short": "Absența oricărei justificări face conținutul justificării nedefinit."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "V„ mul˛umesc."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.91,
+            "marker_confidence": 0.6,
+            "rationale_short": "Formulă de adresare convențională; niciun grup social specific invocat, angajat sau derogate."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Sunt obiec˛ii? Nu sunt obiec˛ii."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.91,
+            "marker_confidence": 0.6,
+            "rationale_short": "Verificare pro-forma a obiecțiilor; nicio cerere adversă prezentă sau angajată — neutru implicit."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "Sunt obiec˛ii? Nu sunt obiec˛ii."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.91,
+            "marker_confidence": 0.59,
+            "rationale_short": "Niciun contraargument formulat în context; întrebarea procedurală nu constituie nici recunoaștere, nici ignorare deliberată."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "dac„ sunte˛i de acord, s„ opt„m pentru aceast„ variant„."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.91,
+            "marker_confidence": 0.7,
+            "rationale_short": "Facilitarea variantei propuse de comisie; nicio propunere alternativă sau de mediere din partea vorbitorului însuși."
+          }
+        ],
+        "rationale": "Discursul este în întregime procedural — vocea președintelui de ședință care conduce dezbaterea articol cu articol, solicită obiecții, deschide votul și anunță rezultatele („Unanimitate\"). Nu există nicio poziție susținută și nicio justificare oferită (level_of_justification=0, content=none), niciun grup social angajat explicit (respect_for_groups=1), nicio cerere adversă abordată (respect_for_demands=1) și niciun contraargument disponibil în context față de care vorbitorul să se raporteze (respect_for_counterarguments=1), deoarece discursul nu constituie o contribuție deliberativă, ci o facilitare instituțională a procedurii legislative. constructive_politics=positional este eticheta cea mai apropiată disponibilă, deși rolul de prezidare transcende această categorie. framework_confidence este scăzut (0.34) deoarece instrumentul DQI este conceput pentru a evalua argumentarea unui participant la dezbatere, iar un discurs de prezidare nu conține argumentare codabilă — valorile implicite reflectă absența materialului deliberativ, nu o judecată de calitate negativă; consumatorii care filtrează după framework_confidence > 0.50 vor exclude corect astfel de intervenții.\""
+      },
+      "raw_response": "```json\n{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.34,\n  \"level_of_justification\": 0,\n  \"content_of_justification\": \"none\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 0,\n      \"evidence\": { \"text\": \"Trecem la dezbaterea proiectului de lege. Œncepem cu titlul.\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.92,\n      \"marker_confidence\": 0.87,\n      \"rationale_short\": \"Intervenție pur procedurală a președintelui de ședință; nicio poziție susținută și nicio justificare oferită.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"none\",\n      \"evidence\": { \"text\": \"Trecem la dezbaterea proiectului de lege. Œncepem cu titlul.\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.92,\n      \"marker_confidence\": 0.86,\n      \"rationale_short\": \"Absența oricărei justificări face conținutul justificării nedefinit.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": { \"text\": \"V„ mul˛umesc.\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.91,\n      \"marker_confidence\": 0.60,\n      \"rationale_short\": \"Formulă de adresare convențională; niciun grup social specific invocat, angajat sau derogate.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": { \"text\": \"Sunt obiec˛ii? Nu sunt obiec˛ii.\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.91,\n      \"marker_confidence\": 0.60,\n      \"rationale_short\": \"Verificare pro-forma a obiecțiilor; nicio cerere adversă prezentă sau angajată — neutru implicit.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": { \"text\": \"Sunt obiec˛ii? Nu sunt obiec˛ii.\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.91,\n      \"marker_confidence\": 0.59,\n      \"rationale_short\": \"Niciun contraargument formulat în context; întrebarea procedurală nu constituie nici recunoaștere, nici ignorare deliberată.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": { \"text\": \"dac„ sunte˛i de acord, s„ opt„m pentru aceast„ variant„.\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.91,\n      \"marker_confidence\": 0.70,\n      \"rationale_short\": \"Facilitarea variantei propuse de comisie; nicio propunere alternativă sau de mediere din partea vorbitorului însuși.\"\n    }\n  ],\n  \"rationale\": \"Discursul este în întregime procedural — vocea președintelui de ședință care conduce dezbaterea articol cu articol, solicită obiecții, deschide votul și anunță rezultatele („Unanimitate\"). Nu există nicio poziție susținută și nicio justificare oferită (level_of_justification=0, content=none), niciun grup social angajat explicit (respect_for_groups=1), nicio cerere adversă abordată (respect_for_demands=1) și niciun contraargument disponibil în context față de care vorbitorul să se raporteze (respect_for_counterarguments=1), deoarece discursul nu constituie o contribuție deliberativă, ci o facilitare instituțională a procedurii legislative. constructive_politics=positional este eticheta cea mai apropiată disponibilă, deși rolul de prezidare transcende această categorie. framework_confidence este scăzut (0.34) deoarece instrumentul DQI este conceput pentru a evalua argumentarea unui participant la dezbatere, iar un discurs de prezidare nu conține argumentare codabilă — valorile implicite reflectă absența materialului deliberativ, nu o judecată de calitate negativă; consumatorii care filtrează după framework_confidence > 0.50 vor exclude corect astfel de intervenții.\"\n}\n```",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": true,
+      "tokens_in": 72379,
+      "tokens_in_breakdown": {
+        "fresh": 2,
+        "cache_creation": 59231,
+        "cache_read": 13146
+      },
+      "tokens_out": 6808,
+      "cost_usd": 0.32818605,
+      "latency_ms": 114365,
+      "retries_used": 0
+    }
+  }
+}

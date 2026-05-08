@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2009/II/72#agenda-1#act-129",
+  "tier": "calibration",
+  "speaker": {
+    "id": "hasotti-puiu",
+    "name": "Puiu Hașotti",
+    "raw": "Domnul Puiu Hașotti",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": "2009-05-20",
+    "year": 2009,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2009/II/72#agenda-1#act-129",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul este unul pur procedural, axat pe susținerea unei inițiative legislative privind ocuparea posturilor de arhitect-șef în administrația locală. Vorbitorul se concentrează pe argumente tehnice și pe critica modului în care Guvernul a formulat punctul de vedere, fără a apela la cadre populiste. Nu există nicio urmă de maniheism, de invocare a unei voințe populare omogene sau de atacuri la adresa unei elite malefice. Discursul rămâne în limitele dezbaterii parlamentare convenționale, motiv pentru care scorul este 0."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul este unul pur procedural, axat pe susținerea unei inițiative legislative privind ocuparea posturilor de arhitect-șef în administrația locală. Vorbitorul se concentrează pe argumente tehnice și pe critica modului în care Guvernul a formulat punctul de vedere, fără a apela la cadre populiste. Nu există nicio urmă de maniheism, de invocare a unei voințe populare omogene sau de atacuri la adresa unei elite malefice. Discursul rămâne în limitele dezbaterii parlamentare convenționale, motiv pentru care scorul este 0.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13853,
+      "tokens_in_breakdown": {
+        "fresh": 13853,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 202,
+      "cost_usd": null,
+      "latency_ms": 4454,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2009/II/72#agenda-1#act-129",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.72,
+        "level_of_justification": 1,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 1,
+            "evidence": {
+              "text": "Arhitectul este cel care se pricepe și la urbanism, și la ambient, la toate, deci propunerea legislativă este foarte judicioasă."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Justificarea este circulară și bazată pe o afirmație generală despre competența arhitecților, fără dovezi empirice sau mecanisme cauzale detaliate."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "în fruntea acestor departamente din municipii, cel puțin în orașele mari, trebuie să stea un arhitect."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Apelul vizează interesul general al bunei administrări urbane, nu un grup specific."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "colegi senatori"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Referință neutră și convențională la colegii parlamentari."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Răspunsul Guvernului este surprinzător"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.8,
+            "rationale_short": "Vorbitorul menționează poziția Guvernului fără a o respinge explicit ca ilegitimă, dar nici nu o validează."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "Răspunsul Guvernului este surprinzător: cum că la ora actuală nu ar fi tentați arhitecții să ocupe aceste funcții."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.75,
+            "rationale_short": "Argumentul Guvernului este menționat, dar vorbitorul trece rapid la o critică retorică fără a angaja substanțial raționamentul economic."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "propunerea legislativă este foarte judicioasă."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Vorbitorul susține inițiativa fără a propune amendamente sau soluții de compromis."
+          }
+        ],
+        "rationale": "Discursul prezintă o calitate deliberativă moderată, fiind marcat de o justificare de nivel 1, bazată pe argumente de bun-simț profesional mai degrabă decât pe dovezi tehnice riguroase. Vorbitorul apelează la binele comun (calitatea urbanismului), dar nu reușește să depășească stadiul pozițional, limitându-se la a susține inițiativa fără a oferi alternative concrete. Respectul pentru contraargumente este limitat la o mențiune a poziției Guvernului, urmată de o critică retorică (referința la „Mama Omida”) care scade tonul deliberativ. Nu există derogări explicite, dar nici un angajament substanțial cu raționamentul advers. Profilul este cel al unui discurs de susținere parlamentară standard, cu o notă de ironie politică."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.72,\n  \"level_of_justification\": 1,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Arhitectul este cel care se pricepe și la urbanism, și la ambient, la toate, deci propunerea legislativă este foarte judicioasă.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Justificarea este circulară și bazată pe o afirmație generală despre competența arhitecților, fără dovezi empirice sau mecanisme cauzale detaliate.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"în fruntea acestor departamente din municipii, cel puțin în orașele mari, trebuie să stea un arhitect.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Apelul vizează interesul general al bunei administrări urbane, nu un grup specific.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"colegi senatori\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Referință neutră și convențională la colegii parlamentari.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Răspunsul Guvernului este surprinzător\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.8,\n      \"rationale_short\": \"Vorbitorul menționează poziția Guvernului fără a o respinge explicit ca ilegitimă, dar nici nu o validează.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Răspunsul Guvernului este surprinzător: cum că la ora actuală nu ar fi tentați arhitecții să ocupe aceste funcții.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.75,\n      \"rationale_short\": \"Argumentul Guvernului este menționat, dar vorbitorul trece rapid la o critică retorică fără a angaja substanțial raționamentul economic.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"propunerea legislativă este foarte judicioasă.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Vorbitorul susține inițiativa fără a propune amendamente sau soluții de compromis.\"\n    }\n  ],\n  \"rationale\": \"Discursul prezintă o calitate deliberativă moderată, fiind marcat de o justificare de nivel 1, bazată pe argumente de bun-simț profesional mai degrabă decât pe dovezi tehnice riguroase. Vorbitorul apelează la binele comun (calitatea urbanismului), dar nu reușește să depășească stadiul pozițional, limitându-se la a susține inițiativa fără a oferi alternative concrete. Respectul pentru contraargumente este limitat la o mențiune a poziției Guvernului, urmată de o critică retorică (referința la „Mama Omida”) care scade tonul deliberativ. Nu există derogări explicite, dar nici un angajament substanțial cu raționamentul advers. Profilul este cel al unui discurs de susținere parlamentară standard, cu o notă de ironie politică.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12654,
+      "tokens_in_breakdown": {
+        "fresh": 12654,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1213,
+      "cost_usd": null,
+      "latency_ms": 4543,
+      "retries_used": 0
+    }
+  }
+}

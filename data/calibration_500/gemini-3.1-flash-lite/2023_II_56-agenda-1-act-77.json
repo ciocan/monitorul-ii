@@ -1,0 +1,204 @@
+{
+  "speech_id": "mo://2023/II/56#agenda-1#act-77",
+  "tier": "calibration",
+  "speaker": {
+    "id": "rasaliu-marian-iulian",
+    "name": "Marian-Iulian Rasaliu",
+    "raw": "Domnul Marian-Iulian Rasaliu",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2023-04-12",
+    "year": 2023,
+    "legislature": "IX",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2023/II/56#agenda-1#act-77",
+      "output": {
+        "score": 1,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.85,
+        "markers": [
+          {
+            "kind": "people_vs_elite",
+            "evidence": {
+              "text": "cei care muncesc, îngrijesc și prețuiesc pământul care ne dă pâinea cea de toate zilele"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.85,
+            "rationale_short": "Definește fermierii ca grup virtuos care muncește, în contrast implicit cu elitele decidente."
+          },
+          {
+            "kind": "evil_elite",
+            "evidence": {
+              "text": "fermierii nu protestează față de Ministerul Agriculturii, ci împotriva Comisiei Europene"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.8,
+            "rationale_short": "Identifică Comisia Europeană ca sursă a problemei, separând-o de autoritățile naționale."
+          }
+        ],
+        "rationale": "Discursul îmbină un registru procedural și tehnic (măsuri administrative, algoritmi de alocare, acte normative) cu elemente de retorică populistă. Deși cadrul popor-vs-elită este prezent prin glorificarea fermierilor ca grup muncitor și plasarea Comisiei Europene într-o poziție de adversar, discursul nu devine maniheist sau pervaziv populist. Argumentația rămâne ancorată în soluții tehnice și procedurale, iar criticile la adresa Comisiei sunt temperate de menționarea colaborării instituționale. Scor 1 cu încredere ridicată, reflectând un discurs mainstream care utilizează episodic tropi populiști pentru a valida revendicările unui grup social."
+      },
+      "raw_response": "{\n  \"score\": 1,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.85,\n  \"markers\": [\n    {\n      \"kind\": \"people_vs_elite\",\n      \"evidence\": {\n        \"text\": \"cei care muncesc, îngrijesc și prețuiesc pământul care ne dă pâinea cea de toate zilele\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Definește fermierii ca grup virtuos care muncește, în contrast implicit cu elitele decidente.\"\n    },\n    {\n      \"kind\": \"evil_elite\",\n      \"evidence\": {\n        \"text\": \"fermierii nu protestează față de Ministerul Agriculturii, ci împotriva Comisiei Europene\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.8,\n      \"rationale_short\": \"Identifică Comisia Europeană ca sursă a problemei, separând-o de autoritățile naționale.\"\n    }\n  ],\n  \"rationale\": \"Discursul îmbină un registru procedural și tehnic (măsuri administrative, algoritmi de alocare, acte normative) cu elemente de retorică populistă. Deși cadrul popor-vs-elită este prezent prin glorificarea fermierilor ca grup muncitor și plasarea Comisiei Europene într-o poziție de adversar, discursul nu devine maniheist sau pervaziv populist. Argumentația rămâne ancorată în soluții tehnice și procedurale, iar criticile la adresa Comisiei sunt temperate de menționarea colaborării instituționale. Scor 1 cu încredere ridicată, reflectând un discurs mainstream care utilizează episodic tropi populiști pentru a valida revendicările unui grup social.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [
+        "cei care muncesc, îngrijesc și prețuiesc pământul care ne dă pâinea cea de toate zilele"
+      ],
+      "parse_repaired": false,
+      "tokens_in": 13877,
+      "tokens_in_breakdown": {
+        "fresh": 13877,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 513,
+      "cost_usd": null,
+      "latency_ms": 3201,
+      "retries_used": 0
+    },
+    "voice": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "voice",
+      "speech_id": "mo://2023/II/56#agenda-1#act-77",
+      "output": {
+        "classifications": [
+          {
+            "marker_id": "m_1",
+            "voice": "speaker_first_person",
+            "voice_confidence": 0.95,
+            "voice_evidence": null,
+            "attributed_to": null,
+            "rationale_short": "Afirmație directă a vorbitorului despre natura protestelor; nu există un citat, raportare sau disclaimer, ci o prezentare a poziției oficiale a fermierilor."
+          }
+        ]
+      },
+      "raw_response": "{\n  \"classifications\": [\n    {\n      \"marker_id\": \"m_1\",\n      \"voice\": \"speaker_first_person\",\n      \"voice_confidence\": 0.95,\n      \"voice_evidence\": null,\n      \"attributed_to\": null,\n      \"rationale_short\": \"Afirmație directă a vorbitorului despre natura protestelor; nu există un citat, raportare sau disclaimer, ci o prezentare a poziției oficiale a fermierilor.\"\n    }\n  ]\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 11420,
+      "tokens_in_breakdown": {
+        "fresh": 11420,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 123,
+      "cost_usd": null,
+      "latency_ms": 1130,
+      "retries_used": 0
+    },
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2023/II/56#agenda-1#act-77",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.85,
+        "level_of_justification": 2,
+        "content_of_justification": "mixed",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "alternative_proposal",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "Ministerul Agriculturii a propus experților europeni un nou algoritm de alocare, care să țină seama de suprafața cultivată cu cereale în fiecare stat solicitant."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Vorbitorul oferă o justificare bazată pe un mecanism specific (algoritm de alocare bazat pe suprafață)."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "mixed",
+            "evidence": {
+              "text": "Avem datoria să ne protejăm fermierii și producția românească!"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.88,
+            "rationale_short": "Discursul îmbină interesul specific al fermierilor români cu apelul la echitate în cadrul politicilor UE."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "fermierii nu protestează față de Ministerul Agriculturii, ci împotriva Comisiei Europene."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Referință neutră la fermieri și Comisia Europeană; nicio derogare sau laudă explicită."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Ajutoarele au fost insuficiente și distribuite în mod inechitabil, după cum au admis și oficialii Comisiei Europene."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Vorbitorul preia o critică existentă fără a angaja direct legitimitatea cererilor opoziției."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "Decizia Comisiei Europene de a permite intrarea în UE a grânelor ucrainene fără taxe vamale și fără a se limita doar la tranzitare a afectat mult statele din regiune"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.89,
+            "rationale_short": "Menționează decizia Comisiei ca punct de dispută, dar nu angajează substanțial raționamentul lor."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "alternative_proposal",
+            "evidence": {
+              "text": "Ministerul Agriculturii a propus experților europeni un nou algoritm de alocare"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.94,
+            "rationale_short": "Vorbitorul prezintă o propunere concretă (algoritm de alocare) ca alternativă la situația actuală."
+          }
+        ],
+        "rationale": "Discursul prezintă o calitate deliberativă medie-ridicată, caracterizată prin oferirea unei justificări calificate (nivel 2) bazate pe un mecanism de alocare propus. Vorbitorul îmbină interesele grupului (fermierii români) cu argumente de echitate la nivel european, rezultând într-un conținut mixt. Deși discursul este constructiv prin propunerea unui algoritm alternativ, respectul pentru cererile și contraargumentele Comisiei Europene rămâne la un nivel neutru (1), fără o angajare substanțială a raționamentului lor. Nu există derogări explicite, menținând un ton funcțional și orientat spre soluții."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.85,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"mixed\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"alternative_proposal\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"Ministerul Agriculturii a propus experților europeni un nou algoritm de alocare, care să țină seama de suprafața cultivată cu cereale în fiecare stat solicitant.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Vorbitorul oferă o justificare bazată pe un mecanism specific (algoritm de alocare bazat pe suprafață).\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"mixed\",\n      \"evidence\": {\n        \"text\": \"Avem datoria să ne protejăm fermierii și producția românească!\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Discursul îmbină interesul specific al fermierilor români cu apelul la echitate în cadrul politicilor UE.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"fermierii nu protestează față de Ministerul Agriculturii, ci împotriva Comisiei Europene.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Referință neutră la fermieri și Comisia Europeană; nicio derogare sau laudă explicită.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Ajutoarele au fost insuficiente și distribuite în mod inechitabil, după cum au admis și oficialii Comisiei Europene.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Vorbitorul preia o critică existentă fără a angaja direct legitimitatea cererilor opoziției.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Decizia Comisiei Europene de a permite intrarea în UE a grânelor ucrainene fără taxe vamale și fără a se limita doar la tranzitare a afectat mult statele din regiune\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.89,\n      \"rationale_short\": \"Menționează decizia Comisiei ca punct de dispută, dar nu angajează substanțial raționamentul lor.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"alternative_proposal\",\n      \"evidence\": {\n        \"text\": \"Ministerul Agriculturii a propus experților europeni un nou algoritm de alocare\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.94,\n      \"rationale_short\": \"Vorbitorul prezintă o propunere concretă (algoritm de alocare) ca alternativă la situația actuală.\"\n    }\n  ],\n  \"rationale\": \"Discursul prezintă o calitate deliberativă medie-ridicată, caracterizată prin oferirea unei justificări calificate (nivel 2) bazate pe un mecanism de alocare propus. Vorbitorul îmbină interesele grupului (fermierii români) cu argumente de echitate la nivel european, rezultând într-un conținut mixt. Deși discursul este constructiv prin propunerea unui algoritm alternativ, respectul pentru cererile și contraargumentele Comisiei Europene rămâne la un nivel neutru (1), fără o angajare substanțială a raționamentului lor. Nu există derogări explicite, menținând un ton funcțional și orientat spre soluții.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12678,
+      "tokens_in_breakdown": {
+        "fresh": 12678,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1232,
+      "cost_usd": null,
+      "latency_ms": 4917,
+      "retries_used": 0
+    }
+  }
+}

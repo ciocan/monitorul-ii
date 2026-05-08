@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2017/II/97#agenda-8#act-55",
+  "tier": "calibration",
+  "speaker": {
+    "id": "bichinet-corneliu",
+    "name": "Corneliu Bichineț",
+    "raw": "Domnul Corneliu Bichineț",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2017-06-12",
+    "year": 2017,
+    "legislature": "VIII",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2017/II/97#agenda-8#act-55",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul este unul procedural și constructiv, axat pe susținerea unei inițiative legislative privind Ziua recoltei. Vorbitorul exprimă acordul politic al partidului său și susține proiectul prin argumente economice și sociale, fără a utiliza un cadru maniheist popor-vs-elită. Nu există invocări ale unei voințe populare omogene care să se opună instituțiilor, nici retorică populistă. Hawkins=0 cu încredere ridicată."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul este unul procedural și constructiv, axat pe susținerea unei inițiative legislative privind Ziua recoltei. Vorbitorul exprimă acordul politic al partidului său și susține proiectul prin argumente economice și sociale, fără a utiliza un cadru maniheist popor-vs-elită. Nu există invocări ale unei voințe populare omogene care să se opună instituțiilor, nici retorică populistă. Hawkins=0 cu încredere ridicată.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13684,
+      "tokens_in_breakdown": {
+        "fresh": 13684,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 176,
+      "cost_usd": null,
+      "latency_ms": 2180,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2017/II/97#agenda-8#act-55",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.78,
+        "level_of_justification": 1,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 1,
+            "evidence": {
+              "text": "considerând că dăm o șansă celor care muncesc în agricultură, nu numai să-și expună produsele, să fie văzute, să fie cunoscute, apreciate, ci și achiziționate."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Justificarea este bazată pe o generalizare despre beneficiile agricultorilor, fără un mecanism cauzal sau dovezi specifice."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "dăm o șansă celor care muncesc în agricultură"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Apelul este universalizabil către o categorie profesională, vizând binele comun al sectorului agricol."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Lăudabilă inițiativa colegilor noștri"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.8,
+            "rationale_short": "Referință convențională la colegi; nu există derogare sau respect explicit de out-group."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Am înțeles, Comisia pentru agricultură a votat, în unanimitate."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Recunoașterea consensului comisiei este o notare procedurală, nu un angajament cu cereri opuse."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "Am înțeles, Comisia pentru agricultură a votat, în unanimitate."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.8,
+            "rationale_short": "Menționarea unanimității comisiei indică absența unor contraargumente active în acest context."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Și noi, Partidul Mișcarea Populară, vom susține acest proiect"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Vorbitorul își declară susținerea pentru proiectul existent fără a propune alternative sau medieri."
+          }
+        ],
+        "rationale": "Discursul este unul de susținere a unei inițiative legislative, caracterizat printr-o calitate deliberativă moderată. Justificarea este de nivel 1, bazându-se pe beneficii generale pentru agricultori fără a oferi un raționament cauzal detaliat sau dovezi empirice. Apelul este orientat către binele comun al sectorului agricol. Respectul pentru grupuri și cereri este neutru, limitându-se la curtoazie parlamentară standard. Vorbitorul adoptă o poziție de susținere fără a propune amendamente sau medieri, încadrându-se în categoria 'positional'. Gluma finală despre un coleg este irelevantă pentru calitatea deliberativă, dar nu scade scorul de respect, fiind percepută ca o notă personală."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.78,\n  \"level_of_justification\": 1,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"considerând că dăm o șansă celor care muncesc în agricultură, nu numai să-și expună produsele, să fie văzute, să fie cunoscute, apreciate, ci și achiziționate.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Justificarea este bazată pe o generalizare despre beneficiile agricultorilor, fără un mecanism cauzal sau dovezi specifice.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"dăm o șansă celor care muncesc în agricultură\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Apelul este universalizabil către o categorie profesională, vizând binele comun al sectorului agricol.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Lăudabilă inițiativa colegilor noștri\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.8,\n      \"rationale_short\": \"Referință convențională la colegi; nu există derogare sau respect explicit de out-group.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Am înțeles, Comisia pentru agricultură a votat, în unanimitate.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Recunoașterea consensului comisiei este o notare procedurală, nu un angajament cu cereri opuse.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Am înțeles, Comisia pentru agricultură a votat, în unanimitate.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.8,\n      \"rationale_short\": \"Menționarea unanimității comisiei indică absența unor contraargumente active în acest context.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"Și noi, Partidul Mișcarea Populară, vom susține acest proiect\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Vorbitorul își declară susținerea pentru proiectul existent fără a propune alternative sau medieri.\"\n    }\n  ],\n  \"rationale\": \"Discursul este unul de susținere a unei inițiative legislative, caracterizat printr-o calitate deliberativă moderată. Justificarea este de nivel 1, bazându-se pe beneficii generale pentru agricultori fără a oferi un raționament cauzal detaliat sau dovezi empirice. Apelul este orientat către binele comun al sectorului agricol. Respectul pentru grupuri și cereri este neutru, limitându-se la curtoazie parlamentară standard. Vorbitorul adoptă o poziție de susținere fără a propune amendamente sau medieri, încadrându-se în categoria 'positional'. Gluma finală despre un coleg este irelevantă pentru calitatea deliberativă, dar nu scade scorul de respect, fiind percepută ca o notă personală.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12485,
+      "tokens_in_breakdown": {
+        "fresh": 12485,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1178,
+      "cost_usd": null,
+      "latency_ms": 4720,
+      "retries_used": 0
+    }
+  }
+}

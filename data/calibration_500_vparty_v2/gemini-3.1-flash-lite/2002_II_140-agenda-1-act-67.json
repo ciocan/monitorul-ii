@@ -1,0 +1,52 @@
+{
+  "speech_id": "mo://2002/II/140#agenda-1#act-67",
+  "tier": "calibration",
+  "speaker": {
+    "id": "petrescu-cameliu-ovidiu",
+    "name": "Ovidiu Cameliu Petrescu",
+    "raw": "Domnul Ovidiu Cameliu Petrescu",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": null,
+    "year": 2002,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": null,
+    "voice": null,
+    "dqi": null,
+    "vparty": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "vparty",
+      "speech_id": "mo://2002/II/140#agenda-1#act-67",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "vparty@2020 + vdem-attacks-on@v13",
+        "framework_confidence": 1.0,
+        "markers": [],
+        "rationale": "Discursul este unul pur procedural, constând în gestionarea ordinii de zi a ședinței parlamentare și a etapelor de vot pentru un proiect de lege. Nu există nicio referire la instituții democratice, opoziție, presă, societate civilă sau minorități, cu atât mai puțin o delegitimizare a acestora. Limbajul este neutru, administrativ și respectă pe deplin normele parlamentare. Scor 0 cu încredere maximă."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"vparty@2020 + vdem-attacks-on@v13\",\n  \"framework_confidence\": 1.0,\n  \"markers\": [],\n  \"rationale\": \"Discursul este unul pur procedural, constând în gestionarea ordinii de zi a ședinței parlamentare și a etapelor de vot pentru un proiect de lege. Nu există nicio referire la instituții democratice, opoziție, presă, societate civilă sau minorități, cu atât mai puțin o delegitimizare a acestora. Limbajul este neutru, administrativ și respectă pe deplin normele parlamentare. Scor 0 cu încredere maximă.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13090,
+      "tokens_in_breakdown": {
+        "fresh": 13090,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 182,
+      "cost_usd": null,
+      "latency_ms": 1488,
+      "retries_used": 0
+    }
+  }
+}

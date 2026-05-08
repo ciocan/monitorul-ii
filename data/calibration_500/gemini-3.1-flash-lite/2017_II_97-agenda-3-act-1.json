@@ -1,0 +1,153 @@
+{
+  "speech_id": "mo://2017/II/97#agenda-3#act-1",
+  "tier": "calibration",
+  "speaker": {
+    "id": "tilvar-angel",
+    "name": "Angel Tîlvăr",
+    "raw": "Domnul Angel Tîlvăr",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2017-06-12",
+    "year": 2017,
+    "legislature": "VIII",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2017/II/97#agenda-3#act-1",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul reprezintă un raport tehnic al Comisiei pentru afaceri europene privind o comunicare a Comisiei Europene despre protecția copiilor migranți. Textul este structurat pe enumerarea consultărilor inter-comisii, analiza statistică a fenomenului, recomandări de politici publice și proceduri administrative. Nu există nicio urmă de cadru popor-vs-elită, maniheism moralist sau invocare a unei voințe populare suverane. Discursul se înscrie integral în registrul tehnocratic și procedural, fiind un exemplu clasic de Hawkins=0."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul reprezintă un raport tehnic al Comisiei pentru afaceri europene privind o comunicare a Comisiei Europene despre protecția copiilor migranți. Textul este structurat pe enumerarea consultărilor inter-comisii, analiza statistică a fenomenului, recomandări de politici publice și proceduri administrative. Nu există nicio urmă de cadru popor-vs-elită, maniheism moralist sau invocare a unei voințe populare suverane. Discursul se înscrie integral în registrul tehnocratic și procedural, fiind un exemplu clasic de Hawkins=0.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 14558,
+      "tokens_in_breakdown": {
+        "fresh": 14558,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 200,
+      "cost_usd": null,
+      "latency_ms": 2046,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2017/II/97#agenda-3#act-1",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.88,
+        "level_of_justification": 2,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "Comisia a susținut ca evaluarea copiilor imigranți să se facă întotdeauna de un decident specialist în protecția copilului, și nu de autoritățile de imigrare"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Vorbitorul oferă recomandări specifice bazate pe mecanisme de protecție a copilului, depășind simpla afirmație."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "Uniunea Europeană este cel mai important actor internațional în domeniul protecției copiilor imigranți"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Justificarea se ancorează în responsabilitatea internațională și protecția drepturilor omului, un interes universal."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "protecția copiilor migranți"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Grupul vizat (copiii migranți) este tratat cu neutralitate funcțională, fără derogare sau laudă explicită."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Comisia a observat că unele intenții exprimate în comunicare, deși necesare, sunt idealiste"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Critica este orientată spre fezabilitatea comunicării, fără a respinge sau valida explicit cererile opoziției."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "Comisia a observat reticența Comisiei Europene de a prezenta date privind problemele de integrare"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.88,
+            "rationale_short": "Vorbitorul menționează reticența Comisiei Europene, dar nu angajează un dialog substanțial cu argumentele acesteia."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Supunem, astfel, aprobării Camerei Deputaților opinia, în forma prezentată."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.99,
+            "marker_confidence": 0.95,
+            "rationale_short": "Discursul prezintă poziția oficială a comisiei, fără a propune o alternativă sau o mediere între părți."
+          }
+        ],
+        "rationale": "Discursul reprezintă prezentarea unui raport de comisie, caracterizat printr-o calitate deliberativă moderată. Vorbitorul oferă justificări calificate (level_of_justification=2) pentru recomandările sale, apelând la binele comun (protecția drepturilor copilului). Respectul pentru grupuri și cereri este neutru, reflectând o postură instituțională. Deși menționează reticența Comisiei Europene, nu există un angajament substanțial cu contraargumentele acesteia (respect_for_counterarguments=1). Discursul este în esență pozițional, având rolul de a susține opinia comisiei în fața plenului."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.88,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"Comisia a susținut ca evaluarea copiilor imigranți să se facă întotdeauna de un decident specialist în protecția copilului, și nu de autoritățile de imigrare\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Vorbitorul oferă recomandări specifice bazate pe mecanisme de protecție a copilului, depășind simpla afirmație.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"Uniunea Europeană este cel mai important actor internațional în domeniul protecției copiilor imigranți\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Justificarea se ancorează în responsabilitatea internațională și protecția drepturilor omului, un interes universal.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"protecția copiilor migranți\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Grupul vizat (copiii migranți) este tratat cu neutralitate funcțională, fără derogare sau laudă explicită.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Comisia a observat că unele intenții exprimate în comunicare, deși necesare, sunt idealiste\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Critica este orientată spre fezabilitatea comunicării, fără a respinge sau valida explicit cererile opoziției.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Comisia a observat reticența Comisiei Europene de a prezenta date privind problemele de integrare\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Vorbitorul menționează reticența Comisiei Europene, dar nu angajează un dialog substanțial cu argumentele acesteia.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"Supunem, astfel, aprobării Camerei Deputaților opinia, în forma prezentată.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.99,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Discursul prezintă poziția oficială a comisiei, fără a propune o alternativă sau o mediere între părți.\"\n    }\n  ],\n  \"rationale\": \"Discursul reprezintă prezentarea unui raport de comisie, caracterizat printr-o calitate deliberativă moderată. Vorbitorul oferă justificări calificate (level_of_justification=2) pentru recomandările sale, apelând la binele comun (protecția drepturilor copilului). Respectul pentru grupuri și cereri este neutru, reflectând o postură instituțională. Deși menționează reticența Comisiei Europene, nu există un angajament substanțial cu contraargumentele acesteia (respect_for_counterarguments=1). Discursul este în esență pozițional, având rolul de a susține opinia comisiei în fața plenului.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [
+        "protecția copiilor migranți",
+        "Comisia a observat reticența Comisiei Europene de a prezenta date privind problemele de integrare"
+      ],
+      "parse_repaired": false,
+      "tokens_in": 13359,
+      "tokens_in_breakdown": {
+        "fresh": 13359,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1200,
+      "cost_usd": null,
+      "latency_ms": 4888,
+      "retries_used": 0
+    }
+  }
+}

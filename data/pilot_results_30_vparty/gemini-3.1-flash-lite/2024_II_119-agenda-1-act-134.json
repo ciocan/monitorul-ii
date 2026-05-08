@@ -1,0 +1,63 @@
+{
+  "speech_id": "mo://2024/II/119#agenda-1#act-134",
+  "tier": "populist",
+  "speaker": {
+    "id": "simion-george-nicolae",
+    "name": "George-Nicolae Simion",
+    "raw": "Domnul George-Nicolae Simion",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2024-10-15",
+    "year": 2024,
+    "legislature": "IX",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": null,
+    "voice": null,
+    "dqi": null,
+    "vparty": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "vparty",
+      "speech_id": "mo://2024/II/119#agenda-1#act-134",
+      "output": {
+        "score": 1,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "vparty@2020 + vdem-attacks-on@v13",
+        "framework_confidence": 0.85,
+        "markers": [
+          {
+            "kind": "judiciary_attack",
+            "evidence": {
+              "text": "Agenția Națională pentru... Hoție"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.85,
+            "rationale_short": "Redenumirea instituției statului ca „Agenție pentru Hoție” delegitimează instituția ca clasă."
+          }
+        ],
+        "rationale": "Discursul conține un atac instituțional marcat prin redenumirea batjocoritoare a ANRP în „Agenția Națională pentru Hoție”, ceea ce constituie o delegitimizare a instituției ca clasă. Deși vorbitorul critică și clasa politică în general, restul discursului se concentrează pe probleme de fond funciar și subvenții agricole, care, deși formulate agresiv, rămân în registrul criticii politice. Deoarece atacul anti-pluralist este prezent dar nu constituie coloana vertebrală a întregului discurs, scorul este 1."
+      },
+      "raw_response": "{\n  \"score\": 1,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"vparty@2020 + vdem-attacks-on@v13\",\n  \"framework_confidence\": 0.85,\n  \"markers\": [\n    {\n      \"kind\": \"judiciary_attack\",\n      \"evidence\": {\n        \"text\": \"Agenția Națională pentru... Hoție\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Redenumirea instituției statului ca „Agenție pentru Hoție” delegitimează instituția ca clasă.\"\n    }\n  ],\n  \"rationale\": \"Discursul conține un atac instituțional marcat prin redenumirea batjocoritoare a ANRP în „Agenția Națională pentru Hoție”, ceea ce constituie o delegitimizare a instituției ca clasă. Deși vorbitorul critică și clasa politică în general, restul discursului se concentrează pe probleme de fond funciar și subvenții agricole, care, deși formulate agresiv, rămân în registrul criticii politice. Deoarece atacul anti-pluralist este prezent dar nu constituie coloana vertebrală a întregului discurs, scorul este 1.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 11334,
+      "tokens_in_breakdown": {
+        "fresh": 11334,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 336,
+      "cost_usd": null,
+      "latency_ms": 2194,
+      "retries_used": 0
+    }
+  }
+}

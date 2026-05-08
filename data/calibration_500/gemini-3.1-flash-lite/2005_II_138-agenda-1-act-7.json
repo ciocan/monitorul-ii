@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2005/II/138#agenda-1#act-7",
+  "tier": "calibration",
+  "speaker": {
+    "id": "sabau-dan",
+    "name": "Dan Sab„u",
+    "raw": "Domnul Dan Sab„u",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": null,
+    "year": 2005,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2005/II/138#agenda-1#act-7",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 1.0,
+        "markers": [],
+        "rationale": "Discursul este unul pur procedural, axat pe prezentarea raportului suplimentar al unei comisii parlamentare, menționarea amendamentelor tehnice și clarificarea caracterului legii. Nu există nicio urmă de cadru popor-vs-elită, maniheism moral sau invocare a unei voințe populare omogene. Vorbitorul se limitează strict la activitatea legislativă curentă, fără a utiliza retorică populistă. Hawkins=0 cu încredere maximă."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 1.0,\n  \"markers\": [],\n  \"rationale\": \"Discursul este unul pur procedural, axat pe prezentarea raportului suplimentar al unei comisii parlamentare, menționarea amendamentelor tehnice și clarificarea caracterului legii. Nu există nicio urmă de cadru popor-vs-elită, maniheism moral sau invocare a unei voințe populare omogene. Vorbitorul se limitează strict la activitatea legislativă curentă, fără a utiliza retorică populistă. Hawkins=0 cu încredere maximă.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13694,
+      "tokens_in_breakdown": {
+        "fresh": 13694,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 178,
+      "cost_usd": null,
+      "latency_ms": 1696,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2005/II/138#agenda-1#act-7",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.85,
+        "level_of_justification": 1,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 1,
+            "evidence": {
+              "text": "comisia a votat Ón unanimitate aceast„ amendare, care, repet, d„ un plus de valoare concret„ legii"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.88,
+            "rationale_short": "Justificarea invocă consensul comisiei ca autoritate, fără a detalia mecanismul cauzal al valorii adăugate."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "d„ un plus de valoare concret„ legii"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Apelul la îmbunătățirea legii este universalizabil, vizând interesul general al calității legislative."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "domnul senator Aurel Ardelean"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Referință neutră și funcțională la un coleg senator; nicio derogare sau respect explicit."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Raportul suplimentar vizeaz„ dou„ articole"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Discurs procedural de raportor; nu există cereri adverse de tratat, deci non-angajament neutru."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "Œn urma discu˛iilor de la comisie, art. 1 ∫i art. 2 au fost amendate"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.89,
+            "rationale_short": "Menționează existența discuțiilor anterioare fără a detalia sau a se angaja în contraargumente."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Raportul este favorabil, cu amendamentele pe care le-am men˛ionat"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.94,
+            "rationale_short": "Prezentarea unui raport favorabil este o poziție procedurală, nu o propunere alternativă sau mediere."
+          }
+        ],
+        "rationale": "Discursul este o intervenție procedurală tipică pentru un raportor de comisie. Justificarea este de nivel 1, bazându-se pe consensul comisiei ca autoritate, fără a oferi o argumentație cauzală detaliată. Conținutul justificării vizează binele comun prin îmbunătățirea calității legii. Respectul pentru grupuri și cereri este neutru, fiind un discurs tehnic de prezentare. Nu există contraargumente de combătut, iar caracterul politic este pur pozițional, susținând raportul comisiei. Calitatea deliberativă este limitată de natura procedurală a intervenției."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.85,\n  \"level_of_justification\": 1,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"comisia a votat Ón unanimitate aceast„ amendare, care, repet, d„ un plus de valoare concret„ legii\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Justificarea invocă consensul comisiei ca autoritate, fără a detalia mecanismul cauzal al valorii adăugate.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"d„ un plus de valoare concret„ legii\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Apelul la îmbunătățirea legii este universalizabil, vizând interesul general al calității legislative.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"domnul senator Aurel Ardelean\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Referință neutră și funcțională la un coleg senator; nicio derogare sau respect explicit.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Raportul suplimentar vizeaz„ dou„ articole\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Discurs procedural de raportor; nu există cereri adverse de tratat, deci non-angajament neutru.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Œn urma discu˛iilor de la comisie, art. 1 ∫i art. 2 au fost amendate\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.89,\n      \"rationale_short\": \"Menționează existența discuțiilor anterioare fără a detalia sau a se angaja în contraargumente.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"Raportul este favorabil, cu amendamentele pe care le-am men˛ionat\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.94,\n      \"rationale_short\": \"Prezentarea unui raport favorabil este o poziție procedurală, nu o propunere alternativă sau mediere.\"\n    }\n  ],\n  \"rationale\": \"Discursul este o intervenție procedurală tipică pentru un raportor de comisie. Justificarea este de nivel 1, bazându-se pe consensul comisiei ca autoritate, fără a oferi o argumentație cauzală detaliată. Conținutul justificării vizează binele comun prin îmbunătățirea calității legii. Respectul pentru grupuri și cereri este neutru, fiind un discurs tehnic de prezentare. Nu există contraargumente de combătut, iar caracterul politic este pur pozițional, susținând raportul comisiei. Calitatea deliberativă este limitată de natura procedurală a intervenției.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12495,
+      "tokens_in_breakdown": {
+        "fresh": 12495,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1135,
+      "cost_usd": null,
+      "latency_ms": 4451,
+      "retries_used": 0
+    }
+  }
+}

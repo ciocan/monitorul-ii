@@ -1,0 +1,52 @@
+{
+  "speech_id": "mo://2020/II/22#agenda-1#act-83",
+  "tier": "calibration",
+  "speaker": {
+    "id": "movila-petru",
+    "name": "Petru Movilă",
+    "raw": "Domnul Petru Movilă",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2020-03-09",
+    "year": 2020,
+    "legislature": "VIII",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": null,
+    "voice": null,
+    "dqi": null,
+    "vparty": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "vparty",
+      "speech_id": "mo://2020/II/22#agenda-1#act-83",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "vparty@2020 + vdem-attacks-on@v13",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul este unul procedural și critic la adresa eficienței parlamentare, vizând blocajele legislative și responsabilitatea președinților de comisii. Deși vorbitorul folosește un ton acuzator la adresa colegilor parlamentari (afirmând că „își bat joc de proiectele parlamentarilor”), acesta rămâne în limitele criticii politice legitime și nu delegitimează instituția Parlamentului sau alte instituții democratice ca clasă. Nu există atacuri la adresa justiției, presei, ONG-urilor, minorităților sau a normelor democratice. Discursul se încadrează în registrul normal de contestare parlamentară."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"vparty@2020 + vdem-attacks-on@v13\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul este unul procedural și critic la adresa eficienței parlamentare, vizând blocajele legislative și responsabilitatea președinților de comisii. Deși vorbitorul folosește un ton acuzator la adresa colegilor parlamentari (afirmând că „își bat joc de proiectele parlamentarilor”), acesta rămâne în limitele criticii politice legitime și nu delegitimează instituția Parlamentului sau alte instituții democratice ca clasă. Nu există atacuri la adresa justiției, presei, ONG-urilor, minorităților sau a normelor democratice. Discursul se încadrează în registrul normal de contestare parlamentară.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13328,
+      "tokens_in_breakdown": {
+        "fresh": 13328,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 228,
+      "cost_usd": null,
+      "latency_ms": 1915,
+      "retries_used": 0
+    }
+  }
+}

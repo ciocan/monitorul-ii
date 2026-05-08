@@ -1,0 +1,152 @@
+{
+  "speech_id": "mo://2001/II/56#agenda-1#act-321",
+  "tier": "calibration",
+  "speaker": {
+    "id": "cozmanca-octav",
+    "name": "Octav Cozmâncã",
+    "raw": "Domnul Octav Cozmâncã",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": null,
+    "year": 2001,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2001/II/56#agenda-1#act-321",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul este un exemplu tipic de dezbatere tehnică și procedurală în Parlament, concentrat pe amendamente bugetare, descentralizare administrativă și criterii obiective de personal. Vorbitorul utilizează un limbaj administrativ standard, referindu-se la legi, bugete și proceduri, fără a invoca un cadru maniheist popor-vs-elită sau o voință populară omogenă care să se opună instituțiilor. Deși menționează „autonomia locală”, o face în contextul legal și tehnic al funcționării statului, nu ca un trop populist. Discursul nu conține niciunul dintre cei șapte markeri populiști, încadrându-se clar în categoria non-populistă."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul este un exemplu tipic de dezbatere tehnică și procedurală în Parlament, concentrat pe amendamente bugetare, descentralizare administrativă și criterii obiective de personal. Vorbitorul utilizează un limbaj administrativ standard, referindu-se la legi, bugete și proceduri, fără a invoca un cadru maniheist popor-vs-elită sau o voință populară omogenă care să se opună instituțiilor. Deși menționează „autonomia locală”, o face în contextul legal și tehnic al funcționării statului, nu ca un trop populist. Discursul nu conține niciunul dintre cei șapte markeri populiști, încadrându-se clar în categoria non-populistă.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 14498,
+      "tokens_in_breakdown": {
+        "fresh": 14498,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 239,
+      "cost_usd": null,
+      "latency_ms": 2319,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2001/II/56#agenda-1#act-321",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.88,
+        "level_of_justification": 2,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "în Legea administraþiei publice locale avem numãrul de consilieri raportat la numãrul de populaþie. Mergând pe principiul simetriei, era normal ca ºi în ceea ce priveºte numãrul de personal sã ne raportãm, din aparatul propriu al consiliilor judeþene sau locale, totuºi la un criteriu care este obiectiv"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Vorbitorul oferă o justificare bazată pe un principiu de simetrie administrativă și criterii obiective (populație)."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "Cred cã în acest fel procedãm la a economisi banul public, la a-l cheltui cu eficienþã în fiecare localitate din þarã"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Justificarea se ancorează în eficiența cheltuirii banului public, un obiectiv universalizabil pentru binele comun."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Vreau sã adaug ºi sã îi asigur pe domnii parlamentari din partea Partidului Democrat"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.85,
+            "rationale_short": "Referință funcțională la un grup politic; nu există derogare sau respect explicit."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "nu se încalcã sub nici o formã autonomia localã."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.88,
+            "rationale_short": "Vorbitorul respinge acuzația de încălcare a autonomiei fără a angaja legitimitatea cererii opoziției."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "nu se încalcã sub nici o formã autonomia localã. S-a explicat aici foarte clar ce înseamnã autonomie administrativã"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Menționează preocuparea opoziției privind autonomia, dar nu oferă o contra-argumentare substanțială."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "În consecinþã, susþinem acest alineat al Comisiilor pentru buget, finanþe."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.99,
+            "marker_confidence": 0.95,
+            "rationale_short": "Discursul susține o poziție existentă fără a propune o alternativă sau o mediere nouă."
+          }
+        ],
+        "rationale": "Discursul prezintă o calitate deliberativă medie, caracterizată printr-o justificare calificată (level_of_justification=2) bazată pe principii de eficiență administrativă și simetrie. Vorbitorul apelează la binele comun (economisirea banului public) și evită atacurile directe, menținând un ton neutru față de opoziție. Totuși, respectul pentru cererile și contraargumentele opoziției rămâne la nivelul 1, deoarece vorbitorul se limitează la a respinge acuzațiile fără a angaja substanțial raționamentul advers. Discursul este în esență pozițional, susținând o propunere a comisiilor fără a oferi o alternativă proprie. Profilul este cel al unui discurs de apărare a unei politici guvernamentale, cu un nivel rezonabil de argumentare tehnică."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.88,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"în Legea administraþiei publice locale avem numãrul de consilieri raportat la numãrul de populaþie. Mergând pe principiul simetriei, era normal ca ºi în ceea ce priveºte numãrul de personal sã ne raportãm, din aparatul propriu al consiliilor judeþene sau locale, totuºi la un criteriu care este obiectiv\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Vorbitorul oferă o justificare bazată pe un principiu de simetrie administrativă și criterii obiective (populație).\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"Cred cã în acest fel procedãm la a economisi banul public, la a-l cheltui cu eficienþã în fiecare localitate din þarã\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Justificarea se ancorează în eficiența cheltuirii banului public, un obiectiv universalizabil pentru binele comun.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Vreau sã adaug ºi sã îi asigur pe domnii parlamentari din partea Partidului Democrat\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Referință funcțională la un grup politic; nu există derogare sau respect explicit.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"nu se încalcã sub nici o formã autonomia localã.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Vorbitorul respinge acuzația de încălcare a autonomiei fără a angaja legitimitatea cererii opoziției.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"nu se încalcã sub nici o formã autonomia localã. S-a explicat aici foarte clar ce înseamnã autonomie administrativã\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Menționează preocuparea opoziției privind autonomia, dar nu oferă o contra-argumentare substanțială.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"În consecinþã, susþinem acest alineat al Comisiilor pentru buget, finanþe.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.99,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Discursul susține o poziție existentă fără a propune o alternativă sau o mediere nouă.\"\n    }\n  ],\n  \"rationale\": \"Discursul prezintă o calitate deliberativă medie, caracterizată printr-o justificare calificată (level_of_justification=2) bazată pe principii de eficiență administrativă și simetrie. Vorbitorul apelează la binele comun (economisirea banului public) și evită atacurile directe, menținând un ton neutru față de opoziție. Totuși, respectul pentru cererile și contraargumentele opoziției rămâne la nivelul 1, deoarece vorbitorul se limitează la a respinge acuzațiile fără a angaja substanțial raționamentul advers. Discursul este în esență pozițional, susținând o propunere a comisiilor fără a oferi o alternativă proprie. Profilul este cel al unui discurs de apărare a unei politici guvernamentale, cu un nivel rezonabil de argumentare tehnică.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [
+        "nu se încalcã sub nici o formã autonomia localã. S-a explicat aici foarte clar ce înseamnã autonomie administrativã"
+      ],
+      "parse_repaired": false,
+      "tokens_in": 13299,
+      "tokens_in_breakdown": {
+        "fresh": 13299,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1311,
+      "cost_usd": null,
+      "latency_ms": 5094,
+      "retries_used": 0
+    }
+  }
+}

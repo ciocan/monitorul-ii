@@ -1,0 +1,52 @@
+{
+  "speech_id": "mo://2014/II/32#agenda-1#act-148",
+  "tier": "calibration",
+  "speaker": {
+    "id": "ratoi-neculai",
+    "name": "Neculai Rățoi",
+    "raw": "Domnul Neculai Rățoi",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2014-03-18",
+    "year": 2014,
+    "legislature": "VII",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": null,
+    "voice": null,
+    "dqi": null,
+    "vparty": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "vparty",
+      "speech_id": "mo://2014/II/32#agenda-1#act-148",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "vparty@2020 + vdem-attacks-on@v13",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul este unul de natură administrativă și legislativă, concentrat pe propunerea unor măsuri mai stricte pentru combaterea evaziunii și a practicilor comerciale periculoase pentru sănătatea publică. Vorbitorul menționează instituții precum ANPC, ANSVSA și DIICOT în contextul activității lor de control, fără a le delegitima ca instituții sau a le ataca independența. Critica vizează comportamentul unor operatori economici privați, nu instituțiile statului sau principiile democratice. Nu există elemente de anti-pluralism, discursul încadrându-se în registrul normal al dezbaterii parlamentare."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"vparty@2020 + vdem-attacks-on@v13\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul este unul de natură administrativă și legislativă, concentrat pe propunerea unor măsuri mai stricte pentru combaterea evaziunii și a practicilor comerciale periculoase pentru sănătatea publică. Vorbitorul menționează instituții precum ANPC, ANSVSA și DIICOT în contextul activității lor de control, fără a le delegitima ca instituții sau a le ataca independența. Critica vizează comportamentul unor operatori economici privați, nu instituțiile statului sau principiile democratice. Nu există elemente de anti-pluralism, discursul încadrându-se în registrul normal al dezbaterii parlamentare.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13401,
+      "tokens_in_breakdown": {
+        "fresh": 13401,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 231,
+      "cost_usd": null,
+      "latency_ms": 1888,
+      "retries_used": 0
+    }
+  }
+}

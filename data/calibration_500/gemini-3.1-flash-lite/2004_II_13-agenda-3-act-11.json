@@ -1,0 +1,152 @@
+{
+  "speech_id": "mo://2004/II/13#agenda-3#act-11",
+  "tier": "calibration",
+  "speaker": {
+    "id": "moraru-florentin-constantin",
+    "name": "Constantin Florentin Moraru",
+    "raw": "Domnul Constantin Florentin Moraru",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": null,
+    "session_date": null,
+    "year": 2004,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2004/II/13#agenda-3#act-11",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.95,
+        "markers": [],
+        "rationale": "Discursul este unul procedural, axat pe solicitarea tehnică de includere a unui partid politic în sondajele de opinie și pe argumente privind corecta informare a cetățenilor. Deși vorbitorul menționează că „partidele mari nu sunt agreate”, această afirmație este folosită ca argument pentru diversificarea sondajelor, nu ca parte a unui cadru manihean popor-vs-elită. Nu există elemente de moralism, invocare a unei voințe populare suverane sau atacuri la adresa unei elite malefice. Discursul rămâne în registrul procedural și administrativ, neîndeplinind criteriile pentru un scor populist."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.95,\n  \"markers\": [],\n  \"rationale\": \"Discursul este unul procedural, axat pe solicitarea tehnică de includere a unui partid politic în sondajele de opinie și pe argumente privind corecta informare a cetățenilor. Deși vorbitorul menționează că „partidele mari nu sunt agreate”, această afirmație este folosită ca argument pentru diversificarea sondajelor, nu ca parte a unui cadru manihean popor-vs-elită. Nu există elemente de moralism, invocare a unei voințe populare suverane sau atacuri la adresa unei elite malefice. Discursul rămâne în registrul procedural și administrativ, neîndeplinind criteriile pentru un scor populist.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 14004,
+      "tokens_in_breakdown": {
+        "fresh": 14004,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 221,
+      "cost_usd": null,
+      "latency_ms": 2055,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2004/II/13#agenda-3#act-11",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.82,
+        "level_of_justification": 2,
+        "content_of_justification": "group_interest",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "Actualizarea bazei de date cu privire la partidele reÓnscrise Ón Registrul partidelor politice este o obliga˛ie fundamental„ pentru buna informare a cet„˛enilor, deoarece noi credem c„ un partid politic trebuie prezentat opiniei publice Ón mod nediscriminatoriu"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Vorbitorul leagă cererea de un principiu normativ (informarea nediscriminatorie a cetățenilor) și o obligație legală."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "group_interest",
+            "evidence": {
+              "text": "cerem insistent introducerea Partidului Unit„˛ii Na˛iunii Rom‚ne Ón chestionarul principal"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.88,
+            "rationale_short": "Justificarea este orientată către interesul specific al partidului propriu (PUNR) de a fi inclus în sondaje."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "celelalte institute de sondare a opiniei publice la nivel na˛ional, IMAS, CURS, Metro Media Transilvania"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.85,
+            "rationale_short": "Institutele de sondare sunt menționate funcțional, fără a fi derogate sau respectate explicit."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "cerem insistent introducerea Partidului Unit„˛ii Na˛iunii Rom‚ne Ón chestionarul principal"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.82,
+            "rationale_short": "Vorbitorul își urmărește propria agendă fără a aborda cererile sau pozițiile altor actori politici."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "cerem insistent introducerea Partidului Unit„˛ii Na˛iunii Rom‚ne Ón chestionarul principal"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Nu există nicio referire la argumentele contrare sau la raționamentele care ar putea justifica excluderea partidului."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "cerem insistent introducerea Partidului Unit„˛ii Na˛iunii Rom‚ne Ón chestionarul principal"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Discursul este o solicitare directă pentru o schimbare de procedură, fără a oferi o alternativă sau mediere."
+          }
+        ],
+        "rationale": "Discursul prezintă o justificare calificată (level_of_justification=2) prin apelul la principiul informării nediscriminatorii a cetățenilor, deși scopul final este strict legat de interesul propriului partid (content_of_justification=group_interest). Vorbitorul nu angajează contraargumente sau cereri adverse, menținând o postură pozițională (constructive_politics=positional). Respectul pentru grupuri și cereri rămâne neutru, deoarece institutele de sondare sunt menționate doar ca ținte ale solicitării, fără a fi atacate sau validate. Calitatea deliberativă este limitată de natura unilaterală a cererii, deși argumentația este coerentă și bazată pe un principiu normativ."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.82,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"group_interest\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 0,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"Actualizarea bazei de date cu privire la partidele reÓnscrise Ón Registrul partidelor politice este o obliga˛ie fundamental„ pentru buna informare a cet„˛enilor, deoarece noi credem c„ un partid politic trebuie prezentat opiniei publice Ón mod nediscriminatoriu\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Vorbitorul leagă cererea de un principiu normativ (informarea nediscriminatorie a cetățenilor) și o obligație legală.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"group_interest\",\n      \"evidence\": {\n        \"text\": \"cerem insistent introducerea Partidului Unit„˛ii Na˛iunii Rom‚ne Ón chestionarul principal\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Justificarea este orientată către interesul specific al partidului propriu (PUNR) de a fi inclus în sondaje.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"celelalte institute de sondare a opiniei publice la nivel na˛ional, IMAS, CURS, Metro Media Transilvania\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Institutele de sondare sunt menționate funcțional, fără a fi derogate sau respectate explicit.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"cerem insistent introducerea Partidului Unit„˛ii Na˛iunii Rom‚ne Ón chestionarul principal\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.82,\n      \"rationale_short\": \"Vorbitorul își urmărește propria agendă fără a aborda cererile sau pozițiile altor actori politici.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"cerem insistent introducerea Partidului Unit„˛ii Na˛iunii Rom‚ne Ón chestionarul principal\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.90,\n      \"rationale_short\": \"Nu există nicio referire la argumentele contrare sau la raționamentele care ar putea justifica excluderea partidului.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"cerem insistent introducerea Partidului Unit„˛ii Na˛iunii Rom‚ne Ón chestionarul principal\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Discursul este o solicitare directă pentru o schimbare de procedură, fără a oferi o alternativă sau mediere.\"\n    }\n  ],\n  \"rationale\": \"Discursul prezintă o justificare calificată (level_of_justification=2) prin apelul la principiul informării nediscriminatorii a cetățenilor, deși scopul final este strict legat de interesul propriului partid (content_of_justification=group_interest). Vorbitorul nu angajează contraargumente sau cereri adverse, menținând o postură pozițională (constructive_politics=positional). Respectul pentru grupuri și cereri rămâne neutru, deoarece institutele de sondare sunt menționate doar ca ținte ale solicitării, fără a fi atacate sau validate. Calitatea deliberativă este limitată de natura unilaterală a cererii, deși argumentația este coerentă și bazată pe un principiu normativ.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [
+        "celelalte institute de sondare a opiniei publice la nivel na˛ional, IMAS, CURS, Metro Media Transilvania"
+      ],
+      "parse_repaired": false,
+      "tokens_in": 12805,
+      "tokens_in_breakdown": {
+        "fresh": 12805,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1273,
+      "cost_usd": null,
+      "latency_ms": 4491,
+      "retries_used": 0
+    }
+  }
+}

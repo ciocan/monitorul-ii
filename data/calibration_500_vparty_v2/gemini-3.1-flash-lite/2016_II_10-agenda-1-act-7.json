@@ -1,0 +1,52 @@
+{
+  "speech_id": "mo://2016/II/10#agenda-1#act-7",
+  "tier": "calibration",
+  "speaker": {
+    "id": "boboc-catalin",
+    "name": "Cătălin Boboc",
+    "raw": "Domnul Cătălin Boboc",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": "2016-02-08",
+    "year": 2016,
+    "legislature": "VII",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": null,
+    "voice": null,
+    "dqi": null,
+    "vparty": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "vparty",
+      "speech_id": "mo://2016/II/10#agenda-1#act-7",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "vparty@2020 + vdem-attacks-on@v13",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul se încadrează în registrul parlamentar procedural standard, concentrându-se pe critica modului în care se gestionează termenele și rapoartele comisiilor parlamentare. Vorbitorul critică tacticile de amânare ale opoziției și propune soluții procedurale, fără a delegitima instituțiile democratice, opoziția ca entitate antinațională sau alte categorii protejate. Nu există elemente de anti-pluralism; discursul reflectă o dezbatere politică legitimă despre procedurile de lucru în Senat."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"vparty@2020 + vdem-attacks-on@v13\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul se încadrează în registrul parlamentar procedural standard, concentrându-se pe critica modului în care se gestionează termenele și rapoartele comisiilor parlamentare. Vorbitorul critică tacticile de amânare ale opoziției și propune soluții procedurale, fără a delegitima instituțiile democratice, opoziția ca entitate antinațională sau alte categorii protejate. Nu există elemente de anti-pluralism; discursul reflectă o dezbatere politică legitimă despre procedurile de lucru în Senat.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13384,
+      "tokens_in_breakdown": {
+        "fresh": 13384,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 206,
+      "cost_usd": null,
+      "latency_ms": 1777,
+      "retries_used": 0
+    }
+  }
+}

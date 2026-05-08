@@ -1,0 +1,197 @@
+{
+  "speech_id": "mo://2021/II/91#agenda-1#act-47",
+  "tier": "calibration",
+  "speaker": {
+    "id": "firea-gabriela",
+    "name": "Gabriela Firea",
+    "raw": "Doamna Gabriela Firea",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2021-05-26",
+    "year": 2021,
+    "legislature": "IX",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2021/II/91#agenda-1#act-47",
+      "output": {
+        "score": 1,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.85,
+        "markers": [
+          {
+            "kind": "evil_elite",
+            "evidence": {
+              "text": "Ați venit cam cu forța și, așa, cam, cum spune românul, „cum îi e câinelui a linge sare”."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.82,
+            "rationale_short": "Folosește o metaforă depreciativă pentru a descrie prezența forțată a prim-ministrului, sugerând o atitudine malignă sau nesinceră a elitei."
+          }
+        ],
+        "rationale": "Discursul oscilează între un registru procedural, axat pe colaborarea politică și PNRR, și un moment de atac personal la adresa prim-ministrului. Deși vorbitoarea invocă dorința de a face echipă pentru români, discursul nu susține un cadru maniheist pervaziv sau o viziune populistă structurală. Markerul de elită-malefică este prezent, dar rămâne un episod izolat într-o intervenție altfel axată pe critica politică a modului de guvernare. Scor 1 cu încredere ridicată, reflectând natura episodică a elementului populist."
+      },
+      "raw_response": "{\n  \"score\": 1,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.85,\n  \"markers\": [\n    {\n      \"kind\": \"evil_elite\",\n      \"evidence\": {\n        \"text\": \"Ați venit cam cu forța și, așa, cam, cum spune românul, „cum îi e câinelui a linge sare”.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.82,\n      \"rationale_short\": \"Folosește o metaforă depreciativă pentru a descrie prezența forțată a prim-ministrului, sugerând o atitudine malignă sau nesinceră a elitei.\"\n    }\n  ],\n  \"rationale\": \"Discursul oscilează între un registru procedural, axat pe colaborarea politică și PNRR, și un moment de atac personal la adresa prim-ministrului. Deși vorbitoarea invocă dorința de a face echipă pentru români, discursul nu susține un cadru maniheist pervaziv sau o viziune populistă structurală. Markerul de elită-malefică este prezent, dar rămâne un episod izolat într-o intervenție altfel axată pe critica politică a modului de guvernare. Scor 1 cu încredere ridicată, reflectând natura episodică a elementului populist.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13829,
+      "tokens_in_breakdown": {
+        "fresh": 13829,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 373,
+      "cost_usd": null,
+      "latency_ms": 2721,
+      "retries_used": 0
+    },
+    "voice": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "voice",
+      "speech_id": "mo://2021/II/91#agenda-1#act-47",
+      "output": {
+        "classifications": [
+          {
+            "marker_id": "m_0",
+            "voice": "quoted",
+            "voice_confidence": 0.95,
+            "voice_evidence": {
+              "text": "cum spune românul, „cum îi e câinelui a linge sare”"
+            },
+            "attributed_to": {
+              "raw": "românul",
+              "kind": "collective"
+            },
+            "rationale_short": "Vorbitorul citează o expresie populară folosind ghilimele și un indicator de citare („cum spune românul”), ceea ce constituie o citare a unei surse colective."
+          }
+        ]
+      },
+      "raw_response": "{\n  \"classifications\": [\n    {\n      \"marker_id\": \"m_0\",\n      \"voice\": \"quoted\",\n      \"voice_confidence\": 0.95,\n      \"voice_evidence\": {\n        \"text\": \"cum spune românul, „cum îi e câinelui a linge sare”\"\n      },\n      \"attributed_to\": {\n        \"raw\": \"românul\",\n        \"kind\": \"collective\"\n      },\n      \"rationale_short\": \"Vorbitorul citează o expresie populară folosind ghilimele și un indicator de citare („cum spune românul”), ceea ce constituie o citare a unei surse colective.\"\n    }\n  ]\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 11386,
+      "tokens_in_breakdown": {
+        "fresh": 11386,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 169,
+      "cost_usd": null,
+      "latency_ms": 1268,
+      "retries_used": 0
+    },
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2021/II/91#agenda-1#act-47",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.78,
+        "level_of_justification": 1,
+        "content_of_justification": "group_interest",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 1,
+            "evidence": {
+              "text": "noi am fi vrut să spunem „da”, dar nu ne-a dat Guvernul ocazia"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Justificare bazată pe o afirmație de intenție politică, fără un raționament cauzal sau dovezi externe."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "group_interest",
+            "evidence": {
+              "text": "Partidul Social Democrat, din prima clipă – și avem toate dovezile publice –, a fost deschis nu doar să dialogheze, ci să pună la dispoziție toți specialiștii noștri"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.88,
+            "rationale_short": "Apelul la acțiunile și disponibilitatea partidului ca argument pentru legitimitate."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Reprezentanți ai Guvernului"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.99,
+            "marker_confidence": 0.95,
+            "rationale_short": "Referință funcțională, neutră, fără derogare sau respect explicit."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "N-ați venit de bunăvoie aici."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.82,
+            "rationale_short": "Critica atitudinii Guvernului fără a aborda cererile politice specifice."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "Ați început declarația politică spunând că, iată, au fost plângăcioși cei din opoziție și v-au criticat pe nedrept."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.89,
+            "rationale_short": "Vorbitorul menționează critica Guvernului dar nu o angajează substanțial, trecând la atac retoric."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "noi am fi vrut să spunem „da”, dar nu ne-a dat Guvernul ocazia"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Discursul este centrat pe poziționarea partidului față de Guvern, fără a propune alternative concrete."
+          }
+        ],
+        "rationale": "Discursul Gabrielei Firea prezintă un profil deliberativ scăzut, caracterizat prin poziționare politică și lipsa unei justificări substanțiale. Deși vorbitoarea invocă disponibilitatea partidului pentru dialog, argumentația rămâne la nivelul interesului de grup (PSD) și nu oferă dovezi sau mecanisme cauzale pentru susținerea poziției (level_of_justification=1). Respectul pentru grupuri și cereri este neutru, limitându-se la convenții de adresare și critici retorice. Nu există un angajament real cu contraargumentele Guvernului, ci mai degrabă o respingere a modului în care opoziția a fost percepută. Discursul este pur pozițional, fără a oferi alternative sau propuneri de mediere, reflectând o retorică de confruntare politică standard."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.78,\n  \"level_of_justification\": 1,\n  \"content_of_justification\": \"group_interest\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 0,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"noi am fi vrut să spunem „da”, dar nu ne-a dat Guvernul ocazia\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Justificare bazată pe o afirmație de intenție politică, fără un raționament cauzal sau dovezi externe.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"group_interest\",\n      \"evidence\": {\n        \"text\": \"Partidul Social Democrat, din prima clipă – și avem toate dovezile publice –, a fost deschis nu doar să dialogheze, ci să pună la dispoziție toți specialiștii noștri\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Apelul la acțiunile și disponibilitatea partidului ca argument pentru legitimitate.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Reprezentanți ai Guvernului\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.99,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Referință funcțională, neutră, fără derogare sau respect explicit.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"N-ați venit de bunăvoie aici.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.82,\n      \"rationale_short\": \"Critica atitudinii Guvernului fără a aborda cererile politice specifice.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"Ați început declarația politică spunând că, iată, au fost plângăcioși cei din opoziție și v-au criticat pe nedrept.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.89,\n      \"rationale_short\": \"Vorbitorul menționează critica Guvernului dar nu o angajează substanțial, trecând la atac retoric.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"noi am fi vrut să spunem „da”, dar nu ne-a dat Guvernul ocazia\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Discursul este centrat pe poziționarea partidului față de Guvern, fără a propune alternative concrete.\"\n    }\n  ],\n  \"rationale\": \"Discursul Gabrielei Firea prezintă un profil deliberativ scăzut, caracterizat prin poziționare politică și lipsa unei justificări substanțiale. Deși vorbitoarea invocă disponibilitatea partidului pentru dialog, argumentația rămâne la nivelul interesului de grup (PSD) și nu oferă dovezi sau mecanisme cauzale pentru susținerea poziției (level_of_justification=1). Respectul pentru grupuri și cereri este neutru, limitându-se la convenții de adresare și critici retorice. Nu există un angajament real cu contraargumentele Guvernului, ci mai degrabă o respingere a modului în care opoziția a fost percepută. Discursul este pur pozițional, fără a oferi alternative sau propuneri de mediere, reflectând o retorică de confruntare politică standard.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12630,
+      "tokens_in_breakdown": {
+        "fresh": 12630,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1205,
+      "cost_usd": null,
+      "latency_ms": 4948,
+      "retries_used": 0
+    }
+  }
+}

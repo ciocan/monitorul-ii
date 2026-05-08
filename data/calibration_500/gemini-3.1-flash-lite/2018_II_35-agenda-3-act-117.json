@@ -1,0 +1,152 @@
+{
+  "speech_id": "mo://2018/II/35#agenda-3#act-117",
+  "tier": "calibration",
+  "speaker": {
+    "id": "dumitrescu-iulian",
+    "name": "Iulian Dumitrescu",
+    "raw": "Domnul Iulian Dumitrescu",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": "2018-02-26",
+    "year": 2018,
+    "legislature": "VIII",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2018/II/35#agenda-3#act-117",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.95,
+        "markers": [],
+        "rationale": "Discursul este unul tehnic, axat pe argumente economice privind impactul plafonării dobânzilor asupra deponenților și a sistemului bancar. Deși vorbitorul folosește un limbaj colocvial și menționează frustrări personale legate de bănci, acesta nu construiește un cadru manihean popor-vs-elită, ci explică rațional consecințele unei legi specifice. Nu există invocarea unei voințe populare omogene sau a unei elite malefice ca spine a argumentației. Discursul rămâne în registrul dezbaterii de politici publice, motiv pentru care scorul este 0."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.95,\n  \"markers\": [],\n  \"rationale\": \"Discursul este unul tehnic, axat pe argumente economice privind impactul plafonării dobânzilor asupra deponenților și a sistemului bancar. Deși vorbitorul folosește un limbaj colocvial și menționează frustrări personale legate de bănci, acesta nu construiește un cadru manihean popor-vs-elită, ci explică rațional consecințele unei legi specifice. Nu există invocarea unei voințe populare omogene sau a unei elite malefice ca spine a argumentației. Discursul rămâne în registrul dezbaterii de politici publice, motiv pentru care scorul este 0.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13849,
+      "tokens_in_breakdown": {
+        "fresh": 13849,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 215,
+      "cost_usd": null,
+      "latency_ms": 2506,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2018/II/35#agenda-3#act-117",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.88,
+        "level_of_justification": 2,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 2,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "Dacă plafonăm dobânzile la credite, o să micșorăm dobânzile la depozite. Dacă mâine s-ar aplica această lege, e posibil ca dobânzile să ajungă negative. Asta înseamnă că prin această lege o să luăm bani din buzunarul a milioane de români"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Vorbitorul explică un mecanism economic cauzal (plafonare dobânzi -> scădere dobânzi depozite -> pierdere pentru deponenți)."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "o să luăm bani din buzunarul a milioane de români"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Justificarea se referă la impactul asupra milioanelor de deponenți, un apel universalizabil la binele comun."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Stimați colegi"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.99,
+            "marker_confidence": 0.95,
+            "rationale_short": "Adresare convențională; nu există derogări sau respect explicit pentru grupuri specifice."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Partidul Național Liberal nu o să susțină această inițiativă legislativă"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.99,
+            "marker_confidence": 0.9,
+            "rationale_short": "Vorbitorul își exprimă opoziția fără a angaja direct legitimitatea cererii inițiatorilor."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 2,
+            "evidence": {
+              "text": "înainte de toate, că nici eu, ca mulți din dumneavoastră, nu sunt mulțumit de activitatea băncilor din România... Dar nu despre asta este vorba în această lege."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.89,
+            "rationale_short": "Vorbitorul identifică și reformulează argumentul advers (nemulțumirea față de bănci) și îl respinge ca fiind irelevant pentru mecanismul legii."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Partidul Național Liberal nu o să susțină această inițiativă legislativă"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.99,
+            "marker_confidence": 0.95,
+            "rationale_short": "Poziție clară de respingere fără a oferi o alternativă legislativă sau o mediere."
+          }
+        ],
+        "rationale": "Discursul prezintă o calitate deliberativă medie-ridicată. Vorbitorul oferă o justificare calificată (level_of_justification=2) bazată pe un mecanism economic cauzal clar, apelând la binele comun al deponenților. Respectul pentru counterarguments este ridicat (level=2) deoarece vorbitorul anticipează și reformulează argumentul advers (nemulțumirea față de bănci) pentru a-l disocia de subiectul legii. Totuși, discursul rămâne pozițional (constructive_politics=positional) fără a propune o alternativă, iar respectul pentru grupuri și cereri este neutru. Profilul este cel al unei opoziții argumentate, dar neconstructive."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.88,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 2,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"Dacă plafonăm dobânzile la credite, o să micșorăm dobânzile la depozite. Dacă mâine s-ar aplica această lege, e posibil ca dobânzile să ajungă negative. Asta înseamnă că prin această lege o să luăm bani din buzunarul a milioane de români\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Vorbitorul explică un mecanism economic cauzal (plafonare dobânzi -> scădere dobânzi depozite -> pierdere pentru deponenți).\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"o să luăm bani din buzunarul a milioane de români\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Justificarea se referă la impactul asupra milioanelor de deponenți, un apel universalizabil la binele comun.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Stimați colegi\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.99,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Adresare convențională; nu există derogări sau respect explicit pentru grupuri specifice.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Partidul Național Liberal nu o să susțină această inițiativă legislativă\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.99,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Vorbitorul își exprimă opoziția fără a angaja direct legitimitatea cererii inițiatorilor.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"înainte de toate, că nici eu, ca mulți din dumneavoastră, nu sunt mulțumit de activitatea băncilor din România... Dar nu despre asta este vorba în această lege.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.89,\n      \"rationale_short\": \"Vorbitorul identifică și reformulează argumentul advers (nemulțumirea față de bănci) și îl respinge ca fiind irelevant pentru mecanismul legii.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"Partidul Național Liberal nu o să susțină această inițiativă legislativă\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.99,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Poziție clară de respingere fără a oferi o alternativă legislativă sau o mediere.\"\n    }\n  ],\n  \"rationale\": \"Discursul prezintă o calitate deliberativă medie-ridicată. Vorbitorul oferă o justificare calificată (level_of_justification=2) bazată pe un mecanism economic cauzal clar, apelând la binele comun al deponenților. Respectul pentru counterarguments este ridicat (level=2) deoarece vorbitorul anticipează și reformulează argumentul advers (nemulțumirea față de bănci) pentru a-l disocia de subiectul legii. Totuși, discursul rămâne pozițional (constructive_politics=positional) fără a propune o alternativă, iar respectul pentru grupuri și cereri este neutru. Profilul este cel al unei opoziții argumentate, dar neconstructive.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [
+        "înainte de toate, că nici eu, ca mulți din dumneavoastră, nu sunt mulțumit de activitatea băncilor din România... Dar nu despre asta este vorba în această lege."
+      ],
+      "parse_repaired": false,
+      "tokens_in": 12650,
+      "tokens_in_breakdown": {
+        "fresh": 12650,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1249,
+      "cost_usd": null,
+      "latency_ms": 4745,
+      "retries_used": 0
+    }
+  }
+}

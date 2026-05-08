@@ -1,0 +1,52 @@
+{
+  "speech_id": "mo://2012/II/7#agenda-12#act-26",
+  "tier": "calibration",
+  "speaker": {
+    "id": "rusu-valentin",
+    "name": "Valentin Rusu",
+    "raw": "Domnul Valentin Rusu",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2012-02-14",
+    "year": 2012,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": null,
+    "voice": null,
+    "dqi": null,
+    "vparty": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "vparty",
+      "speech_id": "mo://2012/II/7#agenda-12#act-26",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "vparty@2020 + vdem-attacks-on@v13",
+        "framework_confidence": 0.95,
+        "markers": [],
+        "rationale": "Discursul critică dur clasa politică pentru iresponsabilitate fiscală și populism, însă această critică rămâne în limitele dezbaterii democratice privind guvernanța economică. Vorbitorul nu delegitimează instituțiile democratice ca atare, ci atacă comportamentul politicienilor în raport cu disciplina bugetară și economia de piață. Nu există atacuri la adresa justiției, presei, ONG-urilor, minorităților sau a normelor democratice fundamentale. Discursul susține Pactul fiscal european ca mecanism de constrângere a deciziei politice, ceea ce reprezintă o poziție politică legitimă, nu un atac anti-pluralist."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"vparty@2020 + vdem-attacks-on@v13\",\n  \"framework_confidence\": 0.95,\n  \"markers\": [],\n  \"rationale\": \"Discursul critică dur clasa politică pentru iresponsabilitate fiscală și populism, însă această critică rămâne în limitele dezbaterii democratice privind guvernanța economică. Vorbitorul nu delegitimează instituțiile democratice ca atare, ci atacă comportamentul politicienilor în raport cu disciplina bugetară și economia de piață. Nu există atacuri la adresa justiției, presei, ONG-urilor, minorităților sau a normelor democratice fundamentale. Discursul susține Pactul fiscal european ca mecanism de constrângere a deciziei politice, ceea ce reprezintă o poziție politică legitimă, nu un atac anti-pluralist.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13661,
+      "tokens_in_breakdown": {
+        "fresh": 13661,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 232,
+      "cost_usd": null,
+      "latency_ms": 1974,
+      "retries_used": 0
+    }
+  }
+}

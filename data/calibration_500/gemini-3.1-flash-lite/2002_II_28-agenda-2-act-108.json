@@ -1,0 +1,157 @@
+{
+  "speech_id": "mo://2002/II/28#agenda-2#act-108",
+  "tier": "calibration",
+  "speaker": {
+    "id": "antonescu-napoleon-niculae",
+    "name": "Niculae Napoleon Antonescu",
+    "raw": "Domnul Niculae Napoleon Antonescu",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": null,
+    "year": 2002,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2002/II/28#agenda-2#act-108",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.95,
+        "markers": [],
+        "rationale": "Discursul se concentrează pe o dezbatere tehnică și procedurală privind regimul profitului în universitățile particulare și fundații. Vorbitorul ridică întrebări legitime despre transparența financiară și standardele de învățământ, menținând un ton argumentativ și procedural. Nu există un cadru maniheist popor-vs-elită, nicio invocare a unei voințe populare omogene și nicio retorică populistă structurală. Discursul rămâne în limitele dezbaterii parlamentare obișnuite, motiv pentru care scorul este 0."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.95,\n  \"markers\": [],\n  \"rationale\": \"Discursul se concentrează pe o dezbatere tehnică și procedurală privind regimul profitului în universitățile particulare și fundații. Vorbitorul ridică întrebări legitime despre transparența financiară și standardele de învățământ, menținând un ton argumentativ și procedural. Nu există un cadru maniheist popor-vs-elită, nicio invocare a unei voințe populare omogene și nicio retorică populistă structurală. Discursul rămâne în limitele dezbaterii parlamentare obișnuite, motiv pentru care scorul este 0.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13950,
+      "tokens_in_breakdown": {
+        "fresh": 13950,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 203,
+      "cost_usd": null,
+      "latency_ms": 1928,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2002/II/28#agenda-2#act-108",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.82,
+        "level_of_justification": 2,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 2,
+        "respect_for_counterarguments": 2,
+        "constructive_politics": "mediating_proposal",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "cum se explică sutele sau miile de miliarde din bănci la unele dintre acestea, dacă nu există profit? Banii aceia de unde vin?"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Vorbitorul folosește un raționament cauzal bazat pe evidența financiară pentru a contesta argumentul lipsei profitului."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "cum le putem explica. E ușor să nu faci profit, dacă banii respectivi... și aceasta au învățat și întreprinderile, nu numai fundațiile."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.88,
+            "rationale_short": "Apelul vizează transparența și corectitudinea fiscală în interesul public, nu un grup specific."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "cu tot respectul pe care-l am pentru realizările unor universități particulare"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.96,
+            "marker_confidence": 0.85,
+            "rationale_short": "Referință neutră și politicoasă la universitățile particulare; nu există derogare sau respect excepțional."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 2,
+            "evidence": {
+              "text": "sunt de acord și cu ce a spus domnul de la U.D.M.R., că ar trebui să discutăm, să vedem ce înseamnă acest profit"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.94,
+            "rationale_short": "Vorbitorul recunoaște legitimitatea cererii de a discuta și analiza conceptul de profit."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 2,
+            "evidence": {
+              "text": "Sigur că problema ridicată de colegul de la U.D.M.R. este și, mă rog, merită să fie discutată, dar merită să discutăm și ce înseamnă a nu avea profit"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.91,
+            "rationale_short": "Vorbitorul reia argumentul colegului și îl completează cu o contra-argumentație substanțială."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "mediating_proposal",
+            "evidence": {
+              "text": "ar trebui să discutăm, să vedem ce înseamnă acest profit și eventual și procentul dacă se constată că acest procent este destul de mare."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.96,
+            "marker_confidence": 0.89,
+            "rationale_short": "Propune o cale de mijloc prin analiză și ajustarea procentelor, mediind între poziții diferite."
+          }
+        ],
+        "rationale": "Discursul demonstrează o calitate deliberativă ridicată prin angajamentul substanțial cu argumentele colegilor (UDMR și Andea). Vorbitorul oferă o justificare calificată (level_of_justification=2) bazată pe logică economică și transparență, apelând la binele comun. Respectul pentru cererile și argumentele opoziției este explicit (respect_for_demands=2, respect_for_counterarguments=2), recunoscând legitimitatea preocupărilor acestora. În final, vorbitorul propune o soluție de mediere (constructive_politics=mediating_proposal) prin sugerarea unei analize detaliate a profitului și a procentelor, evitând poziționarea rigidă. Respectul pentru grupuri rămâne neutru, fiind o referință funcțională la universitățile particulare."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.82,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 2,\n  \"respect_for_counterarguments\": 2,\n  \"constructive_politics\": \"mediating_proposal\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"cum se explică sutele sau miile de miliarde din bănci la unele dintre acestea, dacă nu există profit? Banii aceia de unde vin?\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Vorbitorul folosește un raționament cauzal bazat pe evidența financiară pentru a contesta argumentul lipsei profitului.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"cum le putem explica. E ușor să nu faci profit, dacă banii respectivi... și aceasta au învățat și întreprinderile, nu numai fundațiile.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Apelul vizează transparența și corectitudinea fiscală în interesul public, nu un grup specific.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"cu tot respectul pe care-l am pentru realizările unor universități particulare\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.96,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Referință neutră și politicoasă la universitățile particulare; nu există derogare sau respect excepțional.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"sunt de acord și cu ce a spus domnul de la U.D.M.R., că ar trebui să discutăm, să vedem ce înseamnă acest profit\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.94,\n      \"rationale_short\": \"Vorbitorul recunoaște legitimitatea cererii de a discuta și analiza conceptul de profit.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"Sigur că problema ridicată de colegul de la U.D.M.R. este și, mă rog, merită să fie discutată, dar merită să discutăm și ce înseamnă a nu avea profit\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"marker_confidence\": 0.91,\n      \"rationale_short\": \"Vorbitorul reia argumentul colegului și îl completează cu o contra-argumentație substanțială.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"mediating_proposal\",\n      \"evidence\": {\n        \"text\": \"ar trebui să discutăm, să vedem ce înseamnă acest profit și eventual și procentul dacă se constată că acest procent este destul de mare.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.96,\n      \"marker_confidence\": 0.89,\n      \"rationale_short\": \"Propune o cale de mijloc prin analiză și ajustarea procentelor, mediind între poziții diferite.\"\n    }\n  ],\n  \"rationale\": \"Discursul demonstrează o calitate deliberativă ridicată prin angajamentul substanțial cu argumentele colegilor (UDMR și Andea). Vorbitorul oferă o justificare calificată (level_of_justification=2) bazată pe logică economică și transparență, apelând la binele comun. Respectul pentru cererile și argumentele opoziției este explicit (respect_for_demands=2, respect_for_counterarguments=2), recunoscând legitimitatea preocupărilor acestora. În final, vorbitorul propune o soluție de mediere (constructive_politics=mediating_proposal) prin sugerarea unei analize detaliate a profitului și a procentelor, evitând poziționarea rigidă. Respectul pentru grupuri rămâne neutru, fiind o referință funcțională la universitățile particulare.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [
+        "cum se explică sutele sau miile de miliarde din bănci la unele dintre acestea, dacă nu există profit? Banii aceia de unde vin?",
+        "cum le putem explica. E ușor să nu faci profit, dacă banii respectivi... și aceasta au învățat și întreprinderile, nu numai fundațiile.",
+        "cu tot respectul pe care-l am pentru realizările unor universități particulare",
+        "sunt de acord și cu ce a spus domnul de la U.D.M.R., că ar trebui să discutăm, să vedem ce înseamnă acest profit",
+        "Sigur că problema ridicată de colegul de la U.D.M.R. este și, mă rog, merită să fie discutată, dar merită să discutăm și ce înseamnă a nu avea profit",
+        "ar trebui să discutăm, să vedem ce înseamnă acest profit și eventual și procentul dacă se constată că acest procent este destul de mare."
+      ],
+      "parse_repaired": false,
+      "tokens_in": 12751,
+      "tokens_in_breakdown": {
+        "fresh": 12751,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1282,
+      "cost_usd": null,
+      "latency_ms": 4559,
+      "retries_used": 0
+    }
+  }
+}

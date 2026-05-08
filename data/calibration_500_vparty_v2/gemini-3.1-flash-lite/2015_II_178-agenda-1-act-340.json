@@ -1,0 +1,52 @@
+{
+  "speech_id": "mo://2015/II/178#agenda-1#act-340",
+  "tier": "calibration",
+  "speaker": {
+    "id": "constantin-daniel",
+    "name": "Daniel Constantin",
+    "raw": "Domnul Daniel Constantin",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2015-10-13",
+    "year": 2015,
+    "legislature": "VII",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": null,
+    "voice": null,
+    "dqi": null,
+    "vparty": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "vparty",
+      "speech_id": "mo://2015/II/178#agenda-1#act-340",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "vparty@2020 + vdem-attacks-on@v13",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul reprezintă o intervenție parlamentară de rutină, axată pe clarificarea unor proceduri și a dinamicii de lucru din cadrul Comisiei de agricultură. Vorbitorul critică opoziția pentru absența de la ședințe și pentru lipsa de implicare în procesul de amendare, ceea ce constituie o critică politică legitimă și nu o delegitimizare a opoziției ca entitate antinațională sau ilegitimă. Nu există atacuri la adresa instituțiilor democratice, a presei, a societății civile sau a minorităților. Discursul se încadrează în registrul democratic normal de contestare politică."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"vparty@2020 + vdem-attacks-on@v13\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul reprezintă o intervenție parlamentară de rutină, axată pe clarificarea unor proceduri și a dinamicii de lucru din cadrul Comisiei de agricultură. Vorbitorul critică opoziția pentru absența de la ședințe și pentru lipsa de implicare în procesul de amendare, ceea ce constituie o critică politică legitimă și nu o delegitimizare a opoziției ca entitate antinațională sau ilegitimă. Nu există atacuri la adresa instituțiilor democratice, a presei, a societății civile sau a minorităților. Discursul se încadrează în registrul democratic normal de contestare politică.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12967,
+      "tokens_in_breakdown": {
+        "fresh": 12967,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 229,
+      "cost_usd": null,
+      "latency_ms": 2162,
+      "retries_used": 0
+    }
+  }
+}

@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2017/II/75#agenda-9#act-79",
+  "tier": "moderate",
+  "speaker": {
+    "id": "citu-florin",
+    "name": "Florin Vasile Cîțu",
+    "raw": "Domnul Florin Vasile Cîțu",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": "2017-05-08",
+    "year": 2017,
+    "legislature": "VIII",
+    "delivery_mode": null
+  },
+  "model_key": "opus",
+  "model_label": "claude-opus-4.7",
+  "results": {
+    "hawkins": {
+      "model_key": "opus",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2017/II/75#agenda-9#act-79",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.96,
+        "markers": [],
+        "rationale": "Discurs strict tehnic pe o propunere legislativă fiscală: vorbitorul critică menținerea unui impozit pe o piață dereglementată, invocând argumentul slab al Guvernului („există și în alte țări\") și anunță poziția grupului PNL împotriva propunerii. Nu există cadru popor-vs-elită, nici maniheism moral, nici invocare a unei voințe populare omogene sau a unei crize existențiale. Referința la „buzunarele noastre\" este o trimitere conversațională la contribuabili în registru de politică fiscală, nu un cadru populist structural. Hawkins=0 cu încredere ridicată."
+      },
+      "raw_response": "{\"score\":0,\"score_unit\":\"ordinal_0_2\",\"framework_version\":\"hawkins@2018\",\"framework_confidence\":0.96,\"markers\":[],\"rationale\":\"Discurs strict tehnic pe o propunere legislativă fiscală: vorbitorul critică menținerea unui impozit pe o piață dereglementată, invocând argumentul slab al Guvernului („există și în alte țări\\\") și anunță poziția grupului PNL împotriva propunerii. Nu există cadru popor-vs-elită, nici maniheism moral, nici invocare a unei voințe populare omogene sau a unei crize existențiale. Referința la „buzunarele noastre\\\" este o trimitere conversațională la contribuabili în registru de politică fiscală, nu un cadru populist structural. Hawkins=0 cu încredere ridicată.\"}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 104130,
+      "tokens_in_breakdown": {
+        "fresh": 5,
+        "cache_creation": 85772,
+        "cache_read": 18353
+      },
+      "tokens_out": 288,
+      "cost_usd": 0.5524764999999999,
+      "latency_ms": 18884,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "opus",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2017/II/75#agenda-9#act-79",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.82,
+        "level_of_justification": 2,
+        "content_of_justification": "mixed",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "se menține un impozit care nu are nicio justificare în acest moment. Vorbim de o piață care este dereglementată"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.82,
+            "rationale_short": "Oferă un motiv specific: piața fiind dereglementată, impozitul nu mai are justificare economică — raționament cauzal substanțial."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "mixed",
+            "evidence": {
+              "text": "un impozit care, până la urmă, va ajunge tot în buzunarele noastre"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.93,
+            "marker_confidence": 0.7,
+            "rationale_short": "Apel la coerența reglementării (bun comun) combinat cu apelul la povara fiscală asupra cetățenilor/consumatorilor."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "domnule președinte"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.78,
+            "rationale_short": "Doar adresare convențională în sală; niciun out-group invocat explicit — neutru standard."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "așa cum a spus și reprezentantul Guvernului și așa cum s-a spus la comisie"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.94,
+            "marker_confidence": 0.7,
+            "rationale_short": "Recunoaște existența poziției Guvernului fără a-i contesta legitimitatea, dar nici fără a o valida explicit — non-angajament."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "argumentul dat de Guvern în comisie la întrebarea pentru ce menținem acest impozit a fost simplu: că există și în alte țări. O astfel de argumentare nu cred că este ceea ce trebuie să stea în spatele unui impozit"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.94,
+            "marker_confidence": 0.78,
+            "rationale_short": "Reformulează argumentul Guvernului și îl respinge sumar, fără o combatere substanțială multi-pas — recunoaștere cu angajament minimal."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Grupul PNL nu susține această propunere legislativă"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.96,
+            "marker_confidence": 0.92,
+            "rationale_short": "Poziție de grup declarată; nicio alternativă concretă sau mediere propusă."
+          }
+        ],
+        "rationale": "Discurs scurt de opoziție, cu calitate deliberativă mixtă. Vorbitorul oferă o justificare calificată (level_of_justification=2): leagă opoziția față de impozit de faptul că piața este dereglementată, ceea ce constituie un raționament cauzal specific, nu o simplă afirmație. Conținutul justificării este mixt — apelează atât la coerența reglementării (bun comun) cât și la povara fiscală asupra cetățenilor („va ajunge tot în buzunarele noastre\"). Angajamentul cu contraargumentul Guvernului este recunoscut (reformulează argumentul „există și în alte țări\") dar respins sumar fără o combatere multi-pas, deci scor 1. Respectul pentru grupuri și pentru cereri rămâne neutru — nicio derogare, nicio recunoaștere explicită de legitimitate. Caracter constructiv pur pozițional: anunță votul grupului PNL fără a propune un amendament alternativ. Profil tipic de explicare-a-votului cu o justificare substanțială dar fără medieri sau alternative."
+      },
+      "raw_response": "{\"framework_version\":\"steiner-bachtiger@2017\",\"score_unit\":\"dqi_multi\",\"framework_confidence\":0.82,\"level_of_justification\":2,\"content_of_justification\":\"mixed\",\"respect_for_groups\":1,\"respect_for_demands\":1,\"respect_for_counterarguments\":1,\"constructive_politics\":\"positional\",\"markers\":[{\"kind\":\"level_of_justification\",\"value\":2,\"evidence\":{\"text\":\"se menține un impozit care nu are nicio justificare în acest moment. Vorbim de o piață care este dereglementată\"},\"preliminary_voice\":\"speaker_first_person\",\"preliminary_voice_confidence\":0.95,\"marker_confidence\":0.82,\"rationale_short\":\"Oferă un motiv specific: piața fiind dereglementată, impozitul nu mai are justificare economică — raționament cauzal substanțial.\"},{\"kind\":\"content_of_justification\",\"value\":\"mixed\",\"evidence\":{\"text\":\"un impozit care, până la urmă, va ajunge tot în buzunarele noastre\"},\"preliminary_voice\":\"speaker_first_person\",\"preliminary_voice_confidence\":0.93,\"marker_confidence\":0.7,\"rationale_short\":\"Apel la coerența reglementării (bun comun) combinat cu apelul la povara fiscală asupra cetățenilor/consumatorilor.\"},{\"kind\":\"respect_for_groups\",\"value\":1,\"evidence\":{\"text\":\"domnule președinte\"},\"preliminary_voice\":\"speaker_first_person\",\"preliminary_voice_confidence\":0.95,\"marker_confidence\":0.78,\"rationale_short\":\"Doar adresare convențională în sală; niciun out-group invocat explicit — neutru standard.\"},{\"kind\":\"respect_for_demands\",\"value\":1,\"evidence\":{\"text\":\"așa cum a spus și reprezentantul Guvernului și așa cum s-a spus la comisie\"},\"preliminary_voice\":\"speaker_first_person\",\"preliminary_voice_confidence\":0.94,\"marker_confidence\":0.7,\"rationale_short\":\"Recunoaște existența poziției Guvernului fără a-i contesta legitimitatea, dar nici fără a o valida explicit — non-angajament.\"},{\"kind\":\"respect_for_counterarguments\",\"value\":1,\"evidence\":{\"text\":\"argumentul dat de Guvern în comisie la întrebarea pentru ce menținem acest impozit a fost simplu: că există și în alte țări. O astfel de argumentare nu cred că este ceea ce trebuie să stea în spatele unui impozit\"},\"preliminary_voice\":\"speaker_first_person\",\"preliminary_voice_confidence\":0.94,\"marker_confidence\":0.78,\"rationale_short\":\"Reformulează argumentul Guvernului și îl respinge sumar, fără o combatere substanțială multi-pas — recunoaștere cu angajament minimal.\"},{\"kind\":\"constructive_politics\",\"value\":\"positional\",\"evidence\":{\"text\":\"Grupul PNL nu susține această propunere legislativă\"},\"preliminary_voice\":\"speaker_first_person\",\"preliminary_voice_confidence\":0.96,\"marker_confidence\":0.92,\"rationale_short\":\"Poziție de grup declarată; nicio alternativă concretă sau mediere propusă.\"}],\"rationale\":\"Discurs scurt de opoziție, cu calitate deliberativă mixtă. Vorbitorul oferă o justificare calificată (level_of_justification=2): leagă opoziția față de impozit de faptul că piața este dereglementată, ceea ce constituie un raționament cauzal specific, nu o simplă afirmație. Conținutul justificării este mixt — apelează atât la coerența reglementării (bun comun) cât și la povara fiscală asupra cetățenilor („va ajunge tot în buzunarele noastre\\\"). Angajamentul cu contraargumentul Guvernului este recunoscut (reformulează argumentul „există și în alte țări\\\") dar respins sumar fără o combatere multi-pas, deci scor 1. Respectul pentru grupuri și pentru cereri rămâne neutru — nicio derogare, nicio recunoaștere explicită de legitimitate. Caracter constructiv pur pozițional: anunță votul grupului PNL fără a propune un amendament alternativ. Profil tipic de explicare-a-votului cu o justificare substanțială dar fără medieri sau alternative.\"}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 102121,
+      "tokens_in_breakdown": {
+        "fresh": 5,
+        "cache_creation": 83763,
+        "cache_read": 18353
+      },
+      "tokens_out": 1503,
+      "cost_usd": 0.57029525,
+      "latency_ms": 28196,
+      "retries_used": 0
+    }
+  }
+}

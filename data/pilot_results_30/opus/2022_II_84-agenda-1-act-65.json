@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2022/II/84#agenda-1#act-65",
+  "tier": "moderate",
+  "speaker": {
+    "id": "citu-florin",
+    "name": "Florin-Vasile Cîțu",
+    "raw": "Domnul Florin-Vasile Cîțu",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": "2022-05-30",
+    "year": 2022,
+    "legislature": "IX",
+    "delivery_mode": null
+  },
+  "model_key": "opus",
+  "model_label": "claude-opus-4.7",
+  "results": {
+    "hawkins": {
+      "model_key": "opus",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2022/II/84#agenda-1#act-65",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discurs strict procedural de prezidare a ședinței: închiderea dezbaterilor pe un punct, anunțul votului final, deschiderea dezbaterilor pe punctul 4 (L237/2022 privind profesia de consilier juridic), invitarea inițiatorului și a Guvernului la cuvânt și indicații tehnice privind microfonul. Nu există cadru popor-vs-elită, nici maniheism moralizator, nici invocarea unei voințe populare omogene sau a unei elite malefice. Vorbitorul rămâne în registrul conducerii ședinței, fără niciun marker populist. Hawkins=0 cu încredere foarte ridicată."
+      },
+      "raw_response": "{\"score\":0,\"score_unit\":\"ordinal_0_2\",\"framework_version\":\"hawkins@2018\",\"framework_confidence\":0.98,\"markers\":[],\"rationale\":\"Discurs strict procedural de prezidare a ședinței: închiderea dezbaterilor pe un punct, anunțul votului final, deschiderea dezbaterilor pe punctul 4 (L237/2022 privind profesia de consilier juridic), invitarea inițiatorului și a Guvernului la cuvânt și indicații tehnice privind microfonul. Nu există cadru popor-vs-elită, nici maniheism moralizator, nici invocarea unei voințe populare omogene sau a unei elite malefice. Vorbitorul rămâne în registrul conducerii ședinței, fără niciun marker populist. Hawkins=0 cu încredere foarte ridicată.\"}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 104140,
+      "tokens_in_breakdown": {
+        "fresh": 5,
+        "cache_creation": 85782,
+        "cache_read": 18353
+      },
+      "tokens_out": 296,
+      "cost_usd": 0.552739,
+      "latency_ms": 10729,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "opus",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2022/II/84#agenda-1#act-65",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.38,
+        "level_of_justification": 0,
+        "content_of_justification": "none",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 0,
+            "evidence": {
+              "text": "declar încheiate dezbaterile"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.82,
+            "rationale_short": "Intervenție pur procedurală a președintelui de ședință; nicio poziție substanțială și nicio justificare oferită."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "none",
+            "evidence": {
+              "text": "declar încheiate dezbaterile"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.82,
+            "rationale_short": "Nicio justificare oferită; conținutul justificării este, prin urmare, nedefinit."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Vă mulțumesc, domnule senator"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.7,
+            "rationale_short": "Adresare convențională în sală; niciun out-group invocat; neutru standard."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Dacă mai sunt alte intervenții?"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.62,
+            "rationale_short": "Niciun angajament cu cereri adverse; doar gestionare procedurală a turului de cuvânt."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "Dacă mai sunt alte intervenții?\n\nNu mai sunt, declar încheiate dezbaterile"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.6,
+            "rationale_short": "Cadru procedural deschis interventiilor, fără angajament substanțial cu argumente; neutru implicit."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Inițiativa legislativă rămâne la vot final"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.78,
+            "rationale_short": "Acțiune procedurală de trimitere la vot final; nicio alternativă sau mediere oferită."
+          }
+        ],
+        "rationale": "Discurs pur procedural al președintelui de ședință: închide dezbaterile pe un punct, anunță următorul punct de pe ordinea de zi (L237/2022 privind profesia de consilier juridic), deschide dezbaterile generale și gestionează accesul la microfon. Nu există nicio poziție substanțială asupra fondului inițiativei și, prin urmare, nicio justificare (level_of_justification=0, content=none). Dimensiunile de respect rămân la valorile neutre implicite — adresările convenționale („domnule senator\", „doamnă, vă rog\") și invitarea inițiatorului la pupitru sunt curtoazie de cameră, nu angajament substanțial cu cereri sau contraargumente. Constructive_politics este pozițional prin default: trimiterea la vot final este un act procedural, nu o propunere alternativă sau mediatoare. framework_confidence este scăzut (~0.38) fiindcă discursul este intervenție de prezidiu, nu deliberare codabilă DQI; consumatorii care filtrează după framework_confidence > 0.7 îl vor exclude corect."
+      },
+      "raw_response": "{\"framework_version\":\"steiner-bachtiger@2017\",\"score_unit\":\"dqi_multi\",\"framework_confidence\":0.38,\"level_of_justification\":0,\"content_of_justification\":\"none\",\"respect_for_groups\":1,\"respect_for_demands\":1,\"respect_for_counterarguments\":1,\"constructive_politics\":\"positional\",\"markers\":[{\"kind\":\"level_of_justification\",\"value\":0,\"evidence\":{\"text\":\"declar încheiate dezbaterile\"},\"preliminary_voice\":\"speaker_first_person\",\"preliminary_voice_confidence\":0.95,\"marker_confidence\":0.82,\"rationale_short\":\"Intervenție pur procedurală a președintelui de ședință; nicio poziție substanțială și nicio justificare oferită.\"},{\"kind\":\"content_of_justification\",\"value\":\"none\",\"evidence\":{\"text\":\"declar încheiate dezbaterile\"},\"preliminary_voice\":\"speaker_first_person\",\"preliminary_voice_confidence\":0.95,\"marker_confidence\":0.82,\"rationale_short\":\"Nicio justificare oferită; conținutul justificării este, prin urmare, nedefinit.\"},{\"kind\":\"respect_for_groups\",\"value\":1,\"evidence\":{\"text\":\"Vă mulțumesc, domnule senator\"},\"preliminary_voice\":\"speaker_first_person\",\"preliminary_voice_confidence\":0.95,\"marker_confidence\":0.7,\"rationale_short\":\"Adresare convențională în sală; niciun out-group invocat; neutru standard.\"},{\"kind\":\"respect_for_demands\",\"value\":1,\"evidence\":{\"text\":\"Dacă mai sunt alte intervenții?\"},\"preliminary_voice\":\"speaker_first_person\",\"preliminary_voice_confidence\":0.95,\"marker_confidence\":0.62,\"rationale_short\":\"Niciun angajament cu cereri adverse; doar gestionare procedurală a turului de cuvânt.\"},{\"kind\":\"respect_for_counterarguments\",\"value\":1,\"evidence\":{\"text\":\"Dacă mai sunt alte intervenții?\\n\\nNu mai sunt, declar încheiate dezbaterile\"},\"preliminary_voice\":\"speaker_first_person\",\"preliminary_voice_confidence\":0.95,\"marker_confidence\":0.6,\"rationale_short\":\"Cadru procedural deschis interventiilor, fără angajament substanțial cu argumente; neutru implicit.\"},{\"kind\":\"constructive_politics\",\"value\":\"positional\",\"evidence\":{\"text\":\"Inițiativa legislativă rămâne la vot final\"},\"preliminary_voice\":\"speaker_first_person\",\"preliminary_voice_confidence\":0.95,\"marker_confidence\":0.78,\"rationale_short\":\"Acțiune procedurală de trimitere la vot final; nicio alternativă sau mediere oferită.\"}],\"rationale\":\"Discurs pur procedural al președintelui de ședință: închide dezbaterile pe un punct, anunță următorul punct de pe ordinea de zi (L237/2022 privind profesia de consilier juridic), deschide dezbaterile generale și gestionează accesul la microfon. Nu există nicio poziție substanțială asupra fondului inițiativei și, prin urmare, nicio justificare (level_of_justification=0, content=none). Dimensiunile de respect rămân la valorile neutre implicite — adresările convenționale („domnule senator\\\", „doamnă, vă rog\\\") și invitarea inițiatorului la pupitru sunt curtoazie de cameră, nu angajament substanțial cu cereri sau contraargumente. Constructive_politics este pozițional prin default: trimiterea la vot final este un act procedural, nu o propunere alternativă sau mediatoare. framework_confidence este scăzut (~0.38) fiindcă discursul este intervenție de prezidiu, nu deliberare codabilă DQI; consumatorii care filtrează după framework_confidence > 0.7 îl vor exclude corect.\"}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 102131,
+      "tokens_in_breakdown": {
+        "fresh": 5,
+        "cache_creation": 83773,
+        "cache_read": 18353
+      },
+      "tokens_out": 1347,
+      "cost_usd": 0.56645775,
+      "latency_ms": 23422,
+      "retries_used": 0
+    }
+  }
+}

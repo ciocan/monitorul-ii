@@ -1,0 +1,52 @@
+{
+  "speech_id": "mo://2001/II/39#agenda-11#act-95",
+  "tier": "calibration",
+  "speaker": {
+    "id": "paunescu-adrian",
+    "name": "Adrian Pãunescu",
+    "raw": "Domnul Adrian Pãunescu",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": null,
+    "year": 2001,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": null,
+    "voice": null,
+    "dqi": null,
+    "vparty": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "vparty",
+      "speech_id": "mo://2001/II/39#agenda-11#act-95",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "vparty@2020 + vdem-attacks-on@v13",
+        "framework_confidence": 0.95,
+        "markers": [],
+        "rationale": "Discursul utilizează un ton sarcastic și metafore violente (precum „tunuri”) pentru a critica subfinanțarea cronică a culturii și a instituțiilor teatrale, însă acest registru nu constituie un atac anti-pluralist asupra instituțiilor democratice. Vorbitorul critică deciziile guvernamentale și politicile bugetare, nu delegitimează însăși existența sau legitimitatea instituțiilor statului, a justiției, a presei sau a opoziției. Deși retorica este agresivă, ea rămâne în sfera criticii politice parlamentare, fără a atinge pragul de delegitimizare a ordinii democratice sau a pluralismului."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"vparty@2020 + vdem-attacks-on@v13\",\n  \"framework_confidence\": 0.95,\n  \"markers\": [],\n  \"rationale\": \"Discursul utilizează un ton sarcastic și metafore violente (precum „tunuri”) pentru a critica subfinanțarea cronică a culturii și a instituțiilor teatrale, însă acest registru nu constituie un atac anti-pluralist asupra instituțiilor democratice. Vorbitorul critică deciziile guvernamentale și politicile bugetare, nu delegitimează însăși existența sau legitimitatea instituțiilor statului, a justiției, a presei sau a opoziției. Deși retorica este agresivă, ea rămâne în sfera criticii politice parlamentare, fără a atinge pragul de delegitimizare a ordinii democratice sau a pluralismului.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13456,
+      "tokens_in_breakdown": {
+        "fresh": 13456,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 231,
+      "cost_usd": null,
+      "latency_ms": 1930,
+      "retries_used": 0
+    }
+  }
+}

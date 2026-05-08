@@ -1,0 +1,52 @@
+{
+  "speech_id": "mo://2016/II/147#agenda-4#act-76",
+  "tier": "calibration",
+  "speaker": {
+    "id": "chelaru-ioan",
+    "name": "Ioan Chelaru",
+    "raw": "Domnul Ioan Chelaru",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": "2016-10-17",
+    "year": 2016,
+    "legislature": "VII",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": null,
+    "voice": null,
+    "dqi": null,
+    "vparty": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "vparty",
+      "speech_id": "mo://2016/II/147#agenda-4#act-76",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "vparty@2020 + vdem-attacks-on@v13",
+        "framework_confidence": 1.0,
+        "markers": [],
+        "rationale": "Discursul este unul pur procedural, axat pe gestionarea ordinii de zi și a regulamentului în cadrul ședinței Senatului. Vorbitorul face apel la respectarea normelor parlamentare și la legitimitatea votului ca mecanism de decizie, fără a ataca nicio instituție democratică sau a folosi retorică anti-pluralistă. Nu există nicio delegitimizare a opoziției, presei, justiției sau a altor actori sociali. Discursul se încadrează perfect în registrul democratic-procedural standard."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"vparty@2020 + vdem-attacks-on@v13\",\n  \"framework_confidence\": 1.0,\n  \"markers\": [],\n  \"rationale\": \"Discursul este unul pur procedural, axat pe gestionarea ordinii de zi și a regulamentului în cadrul ședinței Senatului. Vorbitorul face apel la respectarea normelor parlamentare și la legitimitatea votului ca mecanism de decizie, fără a ataca nicio instituție democratică sau a folosi retorică anti-pluralistă. Nu există nicio delegitimizare a opoziției, presei, justiției sau a altor actori sociali. Discursul se încadrează perfect în registrul democratic-procedural standard.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12909,
+      "tokens_in_breakdown": {
+        "fresh": 12909,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 204,
+      "cost_usd": null,
+      "latency_ms": 1779,
+      "retries_used": 0
+    }
+  }
+}

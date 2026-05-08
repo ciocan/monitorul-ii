@@ -1,0 +1,152 @@
+{
+  "speech_id": "mo://2012/II/90#agenda-10#act-46",
+  "tier": "calibration",
+  "speaker": {
+    "id": "cristea-victor",
+    "name": "Victor Cristea",
+    "raw": "Domnul Victor Cristea",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2012-10-02",
+    "year": 2012,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2012/II/90#agenda-10#act-46",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.95,
+        "markers": [],
+        "rationale": "Discursul se concentrează pe critici punctuale privind managementul investițiilor locale (campusul din Vaslui, Palatul elevilor) și competența inspectoratelor școlare. Deși menționează „criza” și „vremea liderilor”, acestea sunt utilizate în contextul unei dezbateri despre eficiența administrativă și necesitatea muncii în echipă, nu ca parte a unui cadru maniheist popor-vs-elită. Nu există o invocare a unei voințe populare omogene sau a unei elite malefice structurale. Discursul rămâne în registrul criticii politice convenționale, fără a atinge pragul unei viziuni populiste."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.95,\n  \"markers\": [],\n  \"rationale\": \"Discursul se concentrează pe critici punctuale privind managementul investițiilor locale (campusul din Vaslui, Palatul elevilor) și competența inspectoratelor școlare. Deși menționează „criza” și „vremea liderilor”, acestea sunt utilizate în contextul unei dezbateri despre eficiența administrativă și necesitatea muncii în echipă, nu ca parte a unui cadru maniheist popor-vs-elită. Nu există o invocare a unei voințe populare omogene sau a unei elite malefice structurale. Discursul rămâne în registrul criticii politice convenționale, fără a atinge pragul unei viziuni populiste.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13688,
+      "tokens_in_breakdown": {
+        "fresh": 13688,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 221,
+      "cost_usd": null,
+      "latency_ms": 2094,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2012/II/90#agenda-10#act-46",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.72,
+        "level_of_justification": 1,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 1,
+            "evidence": {
+              "text": "De aici trag concluzia că învățământul și întreaga economie, situație reală din țară, că învățământul nu trebuie să fie în criză, ci trebuie să dea soluții pentru criză."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Vorbitorul oferă o concluzie generală despre învățământ, dar fără a conecta poziția la un mecanism cauzal sau dovezi specifice."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "să dăm învățământului rolul pe care-l are și care este stipulat în Constituție!"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Apelul este universalizabil, vizând rolul constituțional al învățământului pentru întreaga societate."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Inspectoratele școlare au fost încadrate cu oameni fără competență"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.88,
+            "rationale_short": "Critica vizează competența profesională a unor numiri, nu derogă un grup social sau identitar."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "vremea liderilor de a-și impune punctul de vedere a trecut"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.82,
+            "rationale_short": "Vorbitorul respinge stilul de conducere al adversarilor fără a angaja legitimitatea cererilor lor specifice."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "lucru pe care dumneavoastră nu l-ați arătat."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Vorbitorul ignoră raționamentele opoziției, limitându-se la o critică generală a stilului lor de lucru."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "vremea liderilor de a-și impune punctul de vedere a trecut și a venit vremea echipelor"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Discursul avansează o viziune politică proprie fără a propune un amendament sau o soluție de compromis concretă."
+          }
+        ],
+        "rationale": "Discursul prezintă o calitate deliberativă modestă, fiind marcat de o justificare inferioară (level_of_justification=1) care se bazează pe concluzii generale mai degrabă decât pe lanțuri cauzale. Deși apelul la Constituție indică o orientare către binele comun, vorbitorul nu angajează contraargumentele opoziției, ci se limitează la o critică a stilului lor de conducere. Nu există nicio propunere alternativă sau mediere, discursul rămânând în sfera pozițională. Respectul pentru grupuri și cereri este neutru, neexistând atacuri directe la demnitatea persoanelor, dar nici recunoașterea legitimității pozițiilor adverse. Profilul este cel al unei critici politice standard, lipsită de densitate deliberativă."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.72,\n  \"level_of_justification\": 1,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 0,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"De aici trag concluzia că învățământul și întreaga economie, situație reală din țară, că învățământul nu trebuie să fie în criză, ci trebuie să dea soluții pentru criză.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Vorbitorul oferă o concluzie generală despre învățământ, dar fără a conecta poziția la un mecanism cauzal sau dovezi specifice.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"să dăm învățământului rolul pe care-l are și care este stipulat în Constituție!\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Apelul este universalizabil, vizând rolul constituțional al învățământului pentru întreaga societate.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Inspectoratele școlare au fost încadrate cu oameni fără competență\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Critica vizează competența profesională a unor numiri, nu derogă un grup social sau identitar.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"vremea liderilor de a-și impune punctul de vedere a trecut\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.82,\n      \"rationale_short\": \"Vorbitorul respinge stilul de conducere al adversarilor fără a angaja legitimitatea cererilor lor specifice.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"lucru pe care dumneavoastră nu l-ați arătat.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Vorbitorul ignoră raționamentele opoziției, limitându-se la o critică generală a stilului lor de lucru.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"vremea liderilor de a-și impune punctul de vedere a trecut și a venit vremea echipelor\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Discursul avansează o viziune politică proprie fără a propune un amendament sau o soluție de compromis concretă.\"\n    }\n  ],\n  \"rationale\": \"Discursul prezintă o calitate deliberativă modestă, fiind marcat de o justificare inferioară (level_of_justification=1) care se bazează pe concluzii generale mai degrabă decât pe lanțuri cauzale. Deși apelul la Constituție indică o orientare către binele comun, vorbitorul nu angajează contraargumentele opoziției, ci se limitează la o critică a stilului lor de conducere. Nu există nicio propunere alternativă sau mediere, discursul rămânând în sfera pozițională. Respectul pentru grupuri și cereri este neutru, neexistând atacuri directe la demnitatea persoanelor, dar nici recunoașterea legitimității pozițiilor adverse. Profilul este cel al unei critici politice standard, lipsită de densitate deliberativă.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [
+        "Inspectoratele școlare au fost încadrate cu oameni fără competență"
+      ],
+      "parse_repaired": false,
+      "tokens_in": 12489,
+      "tokens_in_breakdown": {
+        "fresh": 12489,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1239,
+      "cost_usd": null,
+      "latency_ms": 4431,
+      "retries_used": 0
+    }
+  }
+}

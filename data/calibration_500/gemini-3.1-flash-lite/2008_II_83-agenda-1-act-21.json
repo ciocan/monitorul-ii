@@ -1,0 +1,152 @@
+{
+  "speech_id": "mo://2008/II/83#agenda-1#act-21",
+  "tier": "calibration",
+  "speaker": {
+    "id": "dorneanu-valer",
+    "name": "Valer Dorneanu",
+    "raw": "Domnul Valer Dorneanu",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2008-09-22",
+    "year": 2008,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2008/II/83#agenda-1#act-21",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul este unul pur procedural, axat pe interpelări administrative privind restituirea proprietăților și finanțarea cursurilor de formare profesională pentru cadrele didactice. Vorbitorul prezintă argumente tehnice și solicitări specifice către ministere, fără a utiliza un cadru maniheist popor-vs-elită sau alte tropi populiste. Menționarea salariilor mici din învățământ este făcută în contextul unei argumentații de politici publice, nu ca parte a unei retorici populiste. Hawkins=0 cu încredere ridicată."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul este unul pur procedural, axat pe interpelări administrative privind restituirea proprietăților și finanțarea cursurilor de formare profesională pentru cadrele didactice. Vorbitorul prezintă argumente tehnice și solicitări specifice către ministere, fără a utiliza un cadru maniheist popor-vs-elită sau alte tropi populiste. Menționarea salariilor mici din învățământ este făcută în contextul unei argumentații de politici publice, nu ca parte a unei retorici populiste. Hawkins=0 cu încredere ridicată.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13836,
+      "tokens_in_breakdown": {
+        "fresh": 13836,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 196,
+      "cost_usd": null,
+      "latency_ms": 1823,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2008/II/83#agenda-1#act-21",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.85,
+        "level_of_justification": 2,
+        "content_of_justification": "group_interest",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "Susțin demersul acestor cadre didactice, deoarece, pe de o parte, salariile din învățământul preuniversitar sunt foarte mici și nu-și pot plăti cursurile, care costă 48 de milioane, iar, pe de altă parte, există un precedent la Universitatea „Alexandru Ioan Cuza”, unde profesorii au beneficiat gratuit de programe de conversie postuniversitare"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Vorbitorul oferă motive cauzale specifice (salarii mici, precedent la altă universitate) pentru a susține solicitarea."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "group_interest",
+            "evidence": {
+              "text": "Susțin demersul acestor cadre didactice"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Justificarea este ancorată în interesul specific al unei categorii profesionale (cadrele didactice)."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "cadrele didactice din învățământul preuniversitar"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Grupul este menționat funcțional în contextul interpelării; atitudine neutră."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Susțin demersul acestor cadre didactice"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Vorbitorul își exprimă susținerea fără a angaja cereri adverse; non-angajament."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "Am făcut această interpelare deoarece cursurile sunt necesare"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.8,
+            "rationale_short": "Nu există contraargumente adresate; vorbitorul se concentrează pe propria argumentație."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Susțin demersul acestor cadre didactice"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Vorbitorul susține o poziție specifică fără a propune o alternativă sau mediere la nivelul dezbaterii."
+          }
+        ],
+        "rationale": "Discursul reprezintă o interpelare parlamentară standard, caracterizată printr-o justificare calificată (level_of_justification=2) bazată pe argumente economice și precedente administrative. Justificarea este orientată către interesul unui grup profesional specific (cadrele didactice), ceea ce o plasează în categoria group_interest. Nu există elemente de dispreț sau angajament substanțial cu opoziția, menținând dimensiunile de respect la un nivel neutru (1). Discursul este pozițional, nefiind o propunere de mediere sau o alternativă la o politică aflată în dezbatere directă. Calitatea deliberativă este solidă pentru genul interpelării, fiind clară și argumentată, deși limitată la interese sectoriale."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.85,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"group_interest\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"Susțin demersul acestor cadre didactice, deoarece, pe de o parte, salariile din învățământul preuniversitar sunt foarte mici și nu-și pot plăti cursurile, care costă 48 de milioane, iar, pe de altă parte, există un precedent la Universitatea „Alexandru Ioan Cuza”, unde profesorii au beneficiat gratuit de programe de conversie postuniversitare\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Vorbitorul oferă motive cauzale specifice (salarii mici, precedent la altă universitate) pentru a susține solicitarea.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"group_interest\",\n      \"evidence\": {\n        \"text\": \"Susțin demersul acestor cadre didactice\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Justificarea este ancorată în interesul specific al unei categorii profesionale (cadrele didactice).\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"cadrele didactice din învățământul preuniversitar\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Grupul este menționat funcțional în contextul interpelării; atitudine neutră.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Susțin demersul acestor cadre didactice\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Vorbitorul își exprimă susținerea fără a angaja cereri adverse; non-angajament.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Am făcut această interpelare deoarece cursurile sunt necesare\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.8,\n      \"rationale_short\": \"Nu există contraargumente adresate; vorbitorul se concentrează pe propria argumentație.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"Susțin demersul acestor cadre didactice\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Vorbitorul susține o poziție specifică fără a propune o alternativă sau mediere la nivelul dezbaterii.\"\n    }\n  ],\n  \"rationale\": \"Discursul reprezintă o interpelare parlamentară standard, caracterizată printr-o justificare calificată (level_of_justification=2) bazată pe argumente economice și precedente administrative. Justificarea este orientată către interesul unui grup profesional specific (cadrele didactice), ceea ce o plasează în categoria group_interest. Nu există elemente de dispreț sau angajament substanțial cu opoziția, menținând dimensiunile de respect la un nivel neutru (1). Discursul este pozițional, nefiind o propunere de mediere sau o alternativă la o politică aflată în dezbatere directă. Calitatea deliberativă este solidă pentru genul interpelării, fiind clară și argumentată, deși limitată la interese sectoriale.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [
+        "cadrele didactice din învățământul preuniversitar"
+      ],
+      "parse_repaired": false,
+      "tokens_in": 12637,
+      "tokens_in_breakdown": {
+        "fresh": 12637,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1208,
+      "cost_usd": null,
+      "latency_ms": 4500,
+      "retries_used": 0
+    }
+  }
+}

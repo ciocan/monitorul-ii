@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2018/II/68#agenda-2#act-55",
+  "tier": "calibration",
+  "speaker": {
+    "id": "badulescu-dorin-valeriu",
+    "name": "Dorin Valeriu Bădulescu",
+    "raw": "Domnul Dorin Valeriu Bădulescu",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": "2018-04-18",
+    "year": 2018,
+    "legislature": "VIII",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2018/II/68#agenda-2#act-55",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul este unul pur procedural și tehnic, concentrat pe clarificarea unei propuneri legislative privind munca în folosul comunității pentru beneficiarii de ajutor social. Nu există nicio tentativă de a construi un cadru maniheist, de a invoca o voință populară omogenă sau de a ataca o elită coruptă. Limbajul utilizat este specific dezbaterii parlamentare administrative, fără nicio trăsătură populistă. Hawkins=0 cu încredere maximă."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul este unul pur procedural și tehnic, concentrat pe clarificarea unei propuneri legislative privind munca în folosul comunității pentru beneficiarii de ajutor social. Nu există nicio tentativă de a construi un cadru maniheist, de a invoca o voință populară omogenă sau de a ataca o elită coruptă. Limbajul utilizat este specific dezbaterii parlamentare administrative, fără nicio trăsătură populistă. Hawkins=0 cu încredere maximă.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13695,
+      "tokens_in_breakdown": {
+        "fresh": 13695,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 183,
+      "cost_usd": null,
+      "latency_ms": 1730,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2018/II/68#agenda-2#act-55",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.82,
+        "level_of_justification": 1,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "alternative_proposal",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 1,
+            "evidence": {
+              "text": "proiectul de lege vine și propune ca această muncă, acest ajutor să fie prestat în cazul... în cadrul ideii de serviciu voluntar pentru situații de urgență"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Vorbitorul propune o schimbare, dar justificarea este vagă și se bazează pe o simplă asociere de idei, nu pe un lanț cauzal."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "ocupație care să ajute în același timp comunitatea"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Apelul este la utilitatea pentru comunitate, un principiu universalizabil."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "persoanele cu venituri mici"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Grupul vizat este menționat neutru, fără conotații pozitive sau negative."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "proiectul de lege vine și propune"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Nu există o adresare a cererilor opoziției; vorbitorul își prezintă propria inițiativă."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "Urmează să vă rog să o votăm în forma în care a fost prezentată."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Vorbitorul ignoră complet orice potențială critică sau contraargument."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "alternative_proposal",
+            "evidence": {
+              "text": "proiectul de lege vine și propune ca această muncă, acest ajutor să fie prestat în cazul... în cadrul ideii de serviciu voluntar pentru situații de urgență"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.88,
+            "rationale_short": "Vorbitorul propune o modificare concretă a modului în care se prestează munca în folosul comunității."
+          }
+        ],
+        "rationale": "Discursul prezintă o propunere legislativă specifică, ceea ce îi conferă un caracter constructiv (alternative_proposal). Totuși, nivelul de justificare rămâne scăzut (level_of_justification=1), deoarece vorbitorul nu oferă o argumentație cauzală solidă pentru eficiența serviciului voluntar, ci doar o afirmație generală despre utilitatea pentru comunitate. Nu există nicio interacțiune cu opoziția sau cu posibile contraargumente, ceea ce duce la un scor de 0 pentru respect_for_counterarguments. Tonul este neutru și procedural, fără a viza grupuri specifice în mod derogatoriu. În ansamblu, este o intervenție tehnică, dar cu o densitate deliberativă limitată."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.82,\n  \"level_of_justification\": 1,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 0,\n  \"constructive_politics\": \"alternative_proposal\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"proiectul de lege vine și propune ca această muncă, acest ajutor să fie prestat în cazul... în cadrul ideii de serviciu voluntar pentru situații de urgență\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Vorbitorul propune o schimbare, dar justificarea este vagă și se bazează pe o simplă asociere de idei, nu pe un lanț cauzal.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"ocupație care să ajute în același timp comunitatea\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Apelul este la utilitatea pentru comunitate, un principiu universalizabil.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"persoanele cu venituri mici\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Grupul vizat este menționat neutru, fără conotații pozitive sau negative.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"proiectul de lege vine și propune\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Nu există o adresare a cererilor opoziției; vorbitorul își prezintă propria inițiativă.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"Urmează să vă rog să o votăm în forma în care a fost prezentată.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Vorbitorul ignoră complet orice potențială critică sau contraargument.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"alternative_proposal\",\n      \"evidence\": {\n        \"text\": \"proiectul de lege vine și propune ca această muncă, acest ajutor să fie prestat în cazul... în cadrul ideii de serviciu voluntar pentru situații de urgență\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Vorbitorul propune o modificare concretă a modului în care se prestează munca în folosul comunității.\"\n    }\n  ],\n  \"rationale\": \"Discursul prezintă o propunere legislativă specifică, ceea ce îi conferă un caracter constructiv (alternative_proposal). Totuși, nivelul de justificare rămâne scăzut (level_of_justification=1), deoarece vorbitorul nu oferă o argumentație cauzală solidă pentru eficiența serviciului voluntar, ci doar o afirmație generală despre utilitatea pentru comunitate. Nu există nicio interacțiune cu opoziția sau cu posibile contraargumente, ceea ce duce la un scor de 0 pentru respect_for_counterarguments. Tonul este neutru și procedural, fără a viza grupuri specifice în mod derogatoriu. În ansamblu, este o intervenție tehnică, dar cu o densitate deliberativă limitată.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12496,
+      "tokens_in_breakdown": {
+        "fresh": 12496,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1182,
+      "cost_usd": null,
+      "latency_ms": 4827,
+      "retries_used": 0
+    }
+  }
+}

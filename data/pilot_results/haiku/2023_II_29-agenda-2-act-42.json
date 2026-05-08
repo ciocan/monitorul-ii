@@ -1,0 +1,225 @@
+{
+  "speech_id": "mo://2023/II/29#agenda-2#act-42",
+  "tier": "populist",
+  "speaker": {
+    "id": "damureanu-ringo",
+    "name": "Ringo Dămureanu",
+    "raw": "Domnul Ringo Dămureanu",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2023-02-28",
+    "year": 2023,
+    "legislature": "IX",
+    "delivery_mode": null
+  },
+  "model_key": "haiku",
+  "model_label": "claude-haiku-4.5",
+  "results": {
+    "hawkins": {
+      "model_key": "haiku",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2023/II/29#agenda-2#act-42",
+      "output": {
+        "score": 1,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.79,
+        "markers": [
+          {
+            "kind": "people_vs_elite",
+            "evidence": {
+              "text": "cât vor mai îndura craiovenii și oltenii incompetența dovedită a PSD și PNL"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.94,
+            "marker_confidence": 0.92,
+            "rationale_short": "Cadru popor-vs-elită: oltenii și craiovenii (oameni virtuoși) suferinzi vs PSD/PNL (elită incompetentă care îi obligă să aștepte)."
+          },
+          {
+            "kind": "homogeneous_people",
+            "evidence": {
+              "text": "S-au obișnuit oltenii cu așteptarea"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.91,
+            "rationale_short": "Oltenii tratați ca subiect singular și omogen, cu experiență comună (obișnuirea cu așteptarea)."
+          },
+          {
+            "kind": "crisis_invocation",
+            "evidence": {
+              "text": "situația în domeniul feroviar este dezastruoasă"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.92,
+            "marker_confidence": 0.68,
+            "rationale_short": "Caracterizarea situației ca 'dezastruoasă' invocă urgență și pericol, deși contextul este mai tehnic decât retoric."
+          }
+        ],
+        "rationale": "Discursul este structurat în jurul cadrului popor-vs-elită (oltenii și craiovenii suferinzi vs incompetența dovedită a PSD/PNL) și invocă poporul ca subiect omogen care așteptă și endură. Totuși, aproximativ 70% din discurs conține detalii tehnice și factuale despre probleme specifice de infrastructură — drumuri distruse, poduri nerefăcute, deraiamente cu date precise. Registrul populist apare în deschidere (regiunea ca o cenușăreasă) și se concentrează în închidere (\"oare cât vor mai îndura...\", \"Garantat, nu multă vreme!\"), dar nu conduce argumentația tehnică din mijloc. Fără cadrul populist, discursul ar rămâne o critică substanțială și procedurală asupra problemelor regionale. Hawkins=1 fiindcă viziunea populistă este prezentă și marcată dar nu pervazivă — înconjoară nucleul substantiv, nu îl penetrează pe întreg drumul discursului."
+      },
+      "raw_response": "```json\n{\n  \"score\": 1,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.79,\n  \"markers\": [\n    {\n      \"kind\": \"people_vs_elite\",\n      \"evidence\": {\n        \"text\": \"cât vor mai îndura craiovenii și oltenii incompetența dovedită a PSD și PNL\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.94,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Cadru popor-vs-elită: oltenii și craiovenii (oameni virtuoși) suferinzi vs PSD/PNL (elită incompetentă care îi obligă să aștepte).\"\n    },\n    {\n      \"kind\": \"homogeneous_people\",\n      \"evidence\": {\n        \"text\": \"S-au obișnuit oltenii cu așteptarea\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.91,\n      \"rationale_short\": \"Oltenii tratați ca subiect singular și omogen, cu experiență comună (obișnuirea cu așteptarea).\"\n    },\n    {\n      \"kind\": \"crisis_invocation\",\n      \"evidence\": {\n        \"text\": \"situația în domeniul feroviar este dezastruoasă\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.92,\n      \"marker_confidence\": 0.68,\n      \"rationale_short\": \"Caracterizarea situației ca 'dezastruoasă' invocă urgență și pericol, deși contextul este mai tehnic decât retoric.\"\n    }\n  ],\n  \"rationale\": \"Discursul este structurat în jurul cadrului popor-vs-elită (oltenii și craiovenii suferinzi vs incompetența dovedită a PSD/PNL) și invocă poporul ca subiect omogen care așteptă și endură. Totuși, aproximativ 70% din discurs conține detalii tehnice și factuale despre probleme specifice de infrastructură — drumuri distruse, poduri nerefăcute, deraiamente cu date precise. Registrul populist apare în deschidere (regiunea ca o cenușăreasă) și se concentrează în închidere (\\\"oare cât vor mai îndura...\\\", \\\"Garantat, nu multă vreme!\\\"), dar nu conduce argumentația tehnică din mijloc. Fără cadrul populist, discursul ar rămâne o critică substanțială și procedurală asupra problemelor regionale. Hawkins=1 fiindcă viziunea populistă este prezentă și marcată dar nu pervazivă — înconjoară nucleul substantiv, nu îl penetrează pe întreg drumul discursului.\"\n}\n```",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [
+        "situația în domeniul feroviar este dezastruoasă"
+      ],
+      "parse_repaired": false,
+      "tokens_in": 117183,
+      "tokens_in_breakdown": {
+        "fresh": 9,
+        "cache_creation": 59537,
+        "cache_read": 57637
+      },
+      "tokens_out": 6319,
+      "cost_usd": 0.11178895,
+      "latency_ms": 65260,
+      "retries_used": 0
+    },
+    "voice": {
+      "model_key": "haiku",
+      "prompt_kind": "voice",
+      "speech_id": "mo://2023/II/29#agenda-2#act-42",
+      "output": {
+        "classifications": [
+          {
+            "marker_id": "m_0",
+            "voice": "speaker_first_person",
+            "voice_confidence": 0.88,
+            "voice_evidence": null,
+            "attributed_to": null,
+            "rationale_short": "Afirmație directă a vorbitorul asupra incompetenței PSD și PNL; fără citat, raport sau negație; vorbitorul și-o asumă retoric."
+          },
+          {
+            "marker_id": "m_1",
+            "voice": "speaker_first_person",
+            "voice_confidence": 0.92,
+            "voice_evidence": null,
+            "attributed_to": null,
+            "rationale_short": "Observație directă a vorbitorul asupra adaptării Olteniei la așteptare; fără atribuire, citare sau negație; asertare proprie a vorbitorul."
+          }
+        ]
+      },
+      "raw_response": "```json\n{\n  \"classifications\": [\n    {\n      \"marker_id\": \"m_0\",\n      \"voice\": \"speaker_first_person\",\n      \"voice_confidence\": 0.88,\n      \"voice_evidence\": null,\n      \"attributed_to\": null,\n      \"rationale_short\": \"Afirmație directă a vorbitorul asupra incompetenței PSD și PNL; fără citat, raport sau negație; vorbitorul și-o asumă retoric.\"\n    },\n    {\n      \"marker_id\": \"m_1\",\n      \"voice\": \"speaker_first_person\",\n      \"voice_confidence\": 0.92,\n      \"voice_evidence\": null,\n      \"attributed_to\": null,\n      \"rationale_short\": \"Observație directă a vorbitorul asupra adaptării Olteniei la așteptare; fără atribuire, citare sau negație; asertare proprie a vorbitorul.\"\n    }\n  ]\n}\n```",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 114741,
+      "tokens_in_breakdown": {
+        "fresh": 9,
+        "cache_creation": 57095,
+        "cache_read": 57637
+      },
+      "tokens_out": 1556,
+      "cost_usd": 0.08492145,
+      "latency_ms": 18885,
+      "retries_used": 0
+    },
+    "dqi": {
+      "model_key": "haiku",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2023/II/29#agenda-2#act-42",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.83,
+        "level_of_justification": 2,
+        "content_of_justification": "group_interest",
+        "respect_for_groups": 1,
+        "respect_for_demands": 0,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "În noiembrie 2022, în Halta Răcari, Regionala CF Craiova, nouă vagoane cu cărbune au deraiat, închizând circulația trenurilor pe ambele fire. În septembrie 2009, într-un accident feroviar cu un tren de călători, între haltele Banu Mărăcine și Malu Mare, s-a produs deraierea locomotivei și a altor șapte vagoane. În august 2018, pe magistrala 100 Timișoara–București, un marfar cu 23 de vagoane a deraiat pe viaductul de la Cârcea."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.83,
+            "rationale_short": "Enumerație specifică de incidente datate (2022, 2009, 2018) care ancorez neglijența infrastructurii."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "group_interest",
+            "evidence": {
+              "text": "Județul Dolj, pe care îl reprezint în Parlament, și, implicit, regiunea Oltenia, par a fi un soi de cenușăreasă, când vine vorba de legăturile lor cu lumea, fie ele rutiere sau feroviare."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.96,
+            "marker_confidence": 0.88,
+            "rationale_short": "Justificarea apelează explicit la interesul regional (Dolj și Oltenia neglijate), nu la principii universale."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Municipiul Craiova, cu o populație de peste 300.000 de locuitori, capitală de regiune europeană"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.94,
+            "marker_confidence": 0.85,
+            "rationale_short": "Referință funcțională la grupuri afectate fără derogare explicită; neutru implicit."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 0,
+            "evidence": {
+              "text": "cât vor mai îndura craiovenii și oltenii incompetența dovedită a PSD și PNL?"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.92,
+            "rationale_short": "Cererile adverse sunt caracterizate ca rezultate ale incompetenței; nicio recunoaștere a legitimității."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "Garantat, nu multă vreme! Ați dovedit ceea ce era de dovedit."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.96,
+            "marker_confidence": 0.91,
+            "rationale_short": "Vorbitorul nu se angajează cu raționamentele guvernului; conchide prin respingere."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Ne întrebăm și vă întrebăm: oare cât vor mai avea de așteptat Doljul și Oltenia pentru a se bucura de beneficiile civilizației"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.96,
+            "marker_confidence": 0.89,
+            "rationale_short": "Plângere și întrebare retorică; nicio propunere alternativă sau mediere oferită."
+          }
+        ],
+        "rationale": "Discurs de plângere cu justificare moderat calificată, dar lipsit de ambițiune deliberativă. Vorbitorul documentează cu specificitate cinci-șase incidente datate (deraiamente, poduri neasanate pe 8+ ani) care ancorez revendicarea privind neglijența infrastructurii regionale; justificarea apelează la interesul grupului regional (Dolj, Oltenia), nu la principii constituționale sau universale. Cu toate acestea, respinge fără angajament substanțial cererile și raționamentele PSD/PNL, caracterizând situația strict ca incompetență a guvernanților. Vorbitorul nu recunoaște legitimitatea preocupărilor adverse și nu propune nici alternative constructive, nici mediere. Profilul deliberativ este pozițional-acuzator: catalog de fapte documentate cu detaliu, dar zero mișcare constructivă către soluții. Voce consecventă în persoană întâi; ton acuzator, fără caracter deliberativ."
+      },
+      "raw_response": "```json\n{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.83,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"group_interest\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 0,\n  \"respect_for_counterarguments\": 0,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"În noiembrie 2022, în Halta Răcari, Regionala CF Craiova, nouă vagoane cu cărbune au deraiat, închizând circulația trenurilor pe ambele fire. În septembrie 2009, într-un accident feroviar cu un tren de călători, între haltele Banu Mărăcine și Malu Mare, s-a produs deraierea locomotivei și a altor șapte vagoane. În august 2018, pe magistrala 100 Timișoara–București, un marfar cu 23 de vagoane a deraiat pe viaductul de la Cârcea.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.83,\n      \"rationale_short\": \"Enumerație specifică de incidente datate (2022, 2009, 2018) care ancorez neglijența infrastructurii.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"group_interest\",\n      \"evidence\": {\n        \"text\": \"Județul Dolj, pe care îl reprezint în Parlament, și, implicit, regiunea Oltenia, par a fi un soi de cenușăreasă, când vine vorba de legăturile lor cu lumea, fie ele rutiere sau feroviare.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.96,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Justificarea apelează explicit la interesul regional (Dolj și Oltenia neglijate), nu la principii universale.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Municipiul Craiova, cu o populație de peste 300.000 de locuitori, capitală de regiune europeană\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.94,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Referință funcțională la grupuri afectate fără derogare explicită; neutru implicit.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"cât vor mai îndura craiovenii și oltenii incompetența dovedită a PSD și PNL?\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Cererile adverse sunt caracterizate ca rezultate ale incompetenței; nicio recunoaștere a legitimității.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"Garantat, nu multă vreme! Ați dovedit ceea ce era de dovedit.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.96,\n      \"marker_confidence\": 0.91,\n      \"rationale_short\": \"Vorbitorul nu se angajează cu raționamentele guvernului; conchide prin respingere.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"Ne întrebăm și vă întrebăm: oare cât vor mai avea de așteptat Doljul și Oltenia pentru a se bucura de beneficiile civilizației\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.96,\n      \"marker_confidence\": 0.89,\n      \"rationale_short\": \"Plângere și întrebare retorică; nicio propunere alternativă sau mediere oferită.\"\n    }\n  ],\n  \"rationale\": \"Discurs de plângere cu justificare moderat calificată, dar lipsit de ambițiune deliberativă. Vorbitorul documentează cu specificitate cinci-șase incidente datate (deraiamente, poduri neasanate pe 8+ ani) care ancorez revendicarea privind neglijența infrastructurii regionale; justificarea apelează la interesul grupului regional (Dolj, Oltenia), nu la principii constituționale sau universale. Cu toate acestea, respinge fără angajament substanțial cererile și raționamentele PSD/PNL, caracterizând situația strict ca incompetență a guvernanților. Vorbitorul nu recunoaște legitimitatea preocupărilor adverse și nu propune nici alternative constructive, nici mediere. Profilul deliberativ este pozițional-acuzator: catalog de fapte documentate cu detaliu, dar zero mișcare constructivă către soluții. Voce consecventă în persoană întâi; ton acuzator, fără caracter deliberativ.\"\n}\n```",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [
+        "În noiembrie 2022, în Halta Răcari, Regionala CF Craiova, nouă vagoane cu cărbune au deraiat, închizând circulația trenurilor pe ambele fire. În septembrie 2009, într-un accident feroviar cu un tren de călători, între haltele Banu Mărăcine și Malu Mare, s-a produs deraierea locomotivei și a altor șapte vagoane. În august 2018, pe magistrala 100 Timișoara–București, un marfar cu 23 de vagoane a deraiat pe viaductul de la Cârcea.",
+        "Garantat, nu multă vreme! Ați dovedit ceea ce era de dovedit."
+      ],
+      "parse_repaired": false,
+      "tokens_in": 115814,
+      "tokens_in_breakdown": {
+        "fresh": 9,
+        "cache_creation": 58168,
+        "cache_read": 57637
+      },
+      "tokens_out": 12242,
+      "cost_usd": 0.1396927,
+      "latency_ms": 102288,
+      "retries_used": 0
+    }
+  }
+}

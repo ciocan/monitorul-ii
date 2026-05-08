@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2000/II/115#agenda-1#act-22",
+  "tier": "calibration",
+  "speaker": {
+    "id": "blejan-constantin",
+    "name": "Constantin Blejan",
+    "raw": "Domnul Constantin Blejan",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": null,
+    "year": 2000,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2000/II/115#agenda-1#act-22",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul este pur procedural, concentrându-se pe organizarea ordinii de zi a ședinței parlamentare și pe logistica dezbaterii unor proiecte de lege. Nu există nicio referire la un cadru popor-vs-elită, nicio invocare a unei voințe populare omogene și niciun element de maniheism moral. Vorbitorul se limitează la argumente tehnice privind eficiența procedurilor parlamentare. Hawkins=0 cu încredere ridicată."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul este pur procedural, concentrându-se pe organizarea ordinii de zi a ședinței parlamentare și pe logistica dezbaterii unor proiecte de lege. Nu există nicio referire la un cadru popor-vs-elită, nicio invocare a unei voințe populare omogene și niciun element de maniheism moral. Vorbitorul se limitează la argumente tehnice privind eficiența procedurilor parlamentare. Hawkins=0 cu încredere ridicată.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13678,
+      "tokens_in_breakdown": {
+        "fresh": 13678,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 179,
+      "cost_usd": null,
+      "latency_ms": 2061,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2000/II/115#agenda-1#act-22",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.85,
+        "level_of_justification": 1,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 1,
+            "evidence": {
+              "text": "nu ar trebui sã aprobãm aceastã solicitare, având în vedere cã pe locul 13 este o altã ordonanþã de urgenþã care priveºte modificarea Legii asigurãrilor sociale de sãnãtate"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Vorbitorul oferă un motiv procedural (proximitatea ordonanțelor), dar fără o justificare substanțială a impactului politic."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "o lege care este foarte importantã"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Apelul la importanța legii asigurărilor sociale vizează interesul general al cetățenilor."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Domnule preºedinte, Domnilor senatori"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.99,
+            "marker_confidence": 0.95,
+            "rationale_short": "Adresare formală standard; niciun grup nu este vizat sau derogatoriu menționat."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "solicitarea de a se discuta punctul 12 pe locul 4"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Vorbitorul se opune unei solicitări procedurale fără a o discredita, menținând o postură neutră."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "cu care unii nu suntem de acord"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.88,
+            "rationale_short": "Recunoaște existența dezacordului fără a angaja substanțial argumentele opoziției."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Vã rog, aºadar, sã lãsãm ordinea de zi aºa cum este"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.94,
+            "rationale_short": "Vorbitorul susține menținerea ordinii de zi curente; poziție procedurală fără alternativă."
+          }
+        ],
+        "rationale": "Discursul este o intervenție procedurală scurtă, caracterizată printr-o calitate deliberativă moderată. Vorbitorul oferă o justificare de nivel 1, bazată pe proximitatea logică a două ordonanțe, fără a dezvolta un argument complex. Apelul la importanța legii asigurărilor sociale indică o orientare către binele comun, deși justificarea rămâne superficială. Nu există elemente de dispreț sau respect explicit față de grupuri, iar cererile procedurale sunt tratate neutru. Deși recunoaște existența unui dezacord, vorbitorul nu angajează argumentele opoziției, limitându-se la o poziție procedurală de menținere a ordinii de zi. Profilul este cel al unei intervenții de rutină parlamentară."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.85,\n  \"level_of_justification\": 1,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"nu ar trebui sã aprobãm aceastã solicitare, având în vedere cã pe locul 13 este o altã ordonanþã de urgenþã care priveºte modificarea Legii asigurãrilor sociale de sãnãtate\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Vorbitorul oferă un motiv procedural (proximitatea ordonanțelor), dar fără o justificare substanțială a impactului politic.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"o lege care este foarte importantã\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Apelul la importanța legii asigurărilor sociale vizează interesul general al cetățenilor.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Domnule preºedinte, Domnilor senatori\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.99,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Adresare formală standard; niciun grup nu este vizat sau derogatoriu menționat.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"solicitarea de a se discuta punctul 12 pe locul 4\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.90,\n      \"rationale_short\": \"Vorbitorul se opune unei solicitări procedurale fără a o discredita, menținând o postură neutră.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"cu care unii nu suntem de acord\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Recunoaște existența dezacordului fără a angaja substanțial argumentele opoziției.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"Vã rog, aºadar, sã lãsãm ordinea de zi aºa cum este\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.94,\n      \"rationale_short\": \"Vorbitorul susține menținerea ordinii de zi curente; poziție procedurală fără alternativă.\"\n    }\n  ],\n  \"rationale\": \"Discursul este o intervenție procedurală scurtă, caracterizată printr-o calitate deliberativă moderată. Vorbitorul oferă o justificare de nivel 1, bazată pe proximitatea logică a două ordonanțe, fără a dezvolta un argument complex. Apelul la importanța legii asigurărilor sociale indică o orientare către binele comun, deși justificarea rămâne superficială. Nu există elemente de dispreț sau respect explicit față de grupuri, iar cererile procedurale sunt tratate neutru. Deși recunoaște existența unui dezacord, vorbitorul nu angajează argumentele opoziției, limitându-se la o poziție procedurală de menținere a ordinii de zi. Profilul este cel al unei intervenții de rutină parlamentară.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12479,
+      "tokens_in_breakdown": {
+        "fresh": 12479,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1190,
+      "cost_usd": null,
+      "latency_ms": 4715,
+      "retries_used": 0
+    }
+  }
+}

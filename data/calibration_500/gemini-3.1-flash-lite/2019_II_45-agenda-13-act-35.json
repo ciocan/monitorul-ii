@@ -1,0 +1,152 @@
+{
+  "speech_id": "mo://2019/II/45#agenda-13#act-35",
+  "tier": "calibration",
+  "speaker": {
+    "id": "wiener-adrian",
+    "name": "Adrian Wiener",
+    "raw": "Domnul Adrian Wiener",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": "2019-03-25",
+    "year": 2019,
+    "legislature": "VIII",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2019/II/45#agenda-13#act-35",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul este unul tehnic, axat pe o propunere legislativă concretă privind unitățile mobile de servicii medicale. Vorbitorul prezintă date statistice, argumentează necesitatea suportului legislativ pentru voluntari și critică raportul de respingere din comisie pe baze procedurale și de eficiență a politicilor publice. Deși există o mențiune critică la adresa „raportului de respingere” și a „cauzei” acestuia, discursul nu construiește un cadru manihean popor-vs-elită, nu invocă o voință populară omogenă și nu folosește retorică populistă. Este un discurs parlamentar standard de susținere a unui proiect de lege, încadrându-se clar la scorul 0."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul este unul tehnic, axat pe o propunere legislativă concretă privind unitățile mobile de servicii medicale. Vorbitorul prezintă date statistice, argumentează necesitatea suportului legislativ pentru voluntari și critică raportul de respingere din comisie pe baze procedurale și de eficiență a politicilor publice. Deși există o mențiune critică la adresa „raportului de respingere” și a „cauzei” acestuia, discursul nu construiește un cadru manihean popor-vs-elită, nu invocă o voință populară omogenă și nu folosește retorică populistă. Este un discurs parlamentar standard de susținere a unui proiect de lege, încadrându-se clar la scorul 0.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13895,
+      "tokens_in_breakdown": {
+        "fresh": 13895,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 249,
+      "cost_usd": null,
+      "latency_ms": 2188,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2019/II/45#agenda-13#act-35",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.85,
+        "level_of_justification": 2,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "în România există între 400 și 600 de localități care nu au medic de familie, iar, conform rapoartelor europene, accesul la servicii de sănătate este unul dintre cele mai proaste din Europa"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Vorbitorul oferă date empirice specifice (400-600 localități) și surse externe (rapoarte europene) pentru a justifica necesitatea legii."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "accesul la servicii de sănătate este unul dintre cele mai proaste din Europa"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Justificarea se bazează pe interesul general al populației privind accesul la sănătate, nu pe interese de grup."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Gândiți-vă că acești oameni fac această activitate în regim de voluntariat"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Referință neutră la voluntari; nicio derogare sau respect explicit deosebit."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Nu înțeleg raportul de respingere"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.88,
+            "rationale_short": "Vorbitorul exprimă neînțelegerea față de decizia comisiei, dar nu angajează legitimitatea cererii lor."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "nu l-am înțeles nici în comisie, nu-l înțeleg nici acum"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Menționează existența raportului de respingere fără a angaja substanțial argumentele din spatele acestuia."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "recunoașterea formală în Legea sănătății publice... a acestui tip de furnizare de servicii medicale eu cred că era foarte importantă"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Vorbitorul susține propria inițiativă legislativă fără a propune o alternativă sau o mediere la respingerea primită."
+          }
+        ],
+        "rationale": "Discursul prezintă o calitate deliberativă medie, marcată de o justificare calificată (level_of_justification=2) bazată pe date empirice și rapoarte europene, orientată către binele comun. Deși vorbitorul încearcă să argumenteze necesitatea legii, acesta nu reușește să angajeze substanțial contraargumentele comisiei, limitându-se la a exprima neînțelegerea față de raportul de respingere (respect_for_counterarguments=1). Poziția rămâne una de susținere a propriei inițiative (constructive_politics=positional), fără a oferi o cale de mediere sau un amendament alternativ. Respectul pentru grupuri și cereri rămâne neutru, reflectând o postură de dezbatere standard, dar lipsită de deschidere deliberativă profundă."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.85,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"în România există între 400 și 600 de localități care nu au medic de familie, iar, conform rapoartelor europene, accesul la servicii de sănătate este unul dintre cele mai proaste din Europa\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Vorbitorul oferă date empirice specifice (400-600 localități) și surse externe (rapoarte europene) pentru a justifica necesitatea legii.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"accesul la servicii de sănătate este unul dintre cele mai proaste din Europa\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Justificarea se bazează pe interesul general al populației privind accesul la sănătate, nu pe interese de grup.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Gândiți-vă că acești oameni fac această activitate în regim de voluntariat\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Referință neutră la voluntari; nicio derogare sau respect explicit deosebit.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Nu înțeleg raportul de respingere\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Vorbitorul exprimă neînțelegerea față de decizia comisiei, dar nu angajează legitimitatea cererii lor.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"nu l-am înțeles nici în comisie, nu-l înțeleg nici acum\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Menționează existența raportului de respingere fără a angaja substanțial argumentele din spatele acestuia.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"recunoașterea formală în Legea sănătății publice... a acestui tip de furnizare de servicii medicale eu cred că era foarte importantă\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.90,\n      \"rationale_short\": \"Vorbitorul susține propria inițiativă legislativă fără a propune o alternativă sau o mediere la respingerea primită.\"\n    }\n  ],\n  \"rationale\": \"Discursul prezintă o calitate deliberativă medie, marcată de o justificare calificată (level_of_justification=2) bazată pe date empirice și rapoarte europene, orientată către binele comun. Deși vorbitorul încearcă să argumenteze necesitatea legii, acesta nu reușește să angajeze substanțial contraargumentele comisiei, limitându-se la a exprima neînțelegerea față de raportul de respingere (respect_for_counterarguments=1). Poziția rămâne una de susținere a propriei inițiative (constructive_politics=positional), fără a oferi o cale de mediere sau un amendament alternativ. Respectul pentru grupuri și cereri rămâne neutru, reflectând o postură de dezbatere standard, dar lipsită de deschidere deliberativă profundă.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [
+        "recunoașterea formală în Legea sănătății publice... a acestui tip de furnizare de servicii medicale eu cred că era foarte importantă"
+      ],
+      "parse_repaired": false,
+      "tokens_in": 12696,
+      "tokens_in_breakdown": {
+        "fresh": 12696,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1256,
+      "cost_usd": null,
+      "latency_ms": 4630,
+      "retries_used": 0
+    }
+  }
+}

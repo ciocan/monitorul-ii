@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2019/II/110#agenda-20#act-49",
+  "tier": "calibration",
+  "speaker": {
+    "id": "popescu-tariceanu-calin",
+    "name": "Călin Constantin Anton Popescu-Tăriceanu",
+    "raw": "Domnul Călin Constantin Anton Popescu-Tăriceanu",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": "2019-10-02",
+    "year": 2019,
+    "legislature": "VIII",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2019/II/110#agenda-20#act-49",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul este unul pur procedural, axat pe interpretarea regulamentului Senatului, legalitatea înființării unui grup parlamentar și aplicarea unitară a normelor interne pentru senatori. Nu există nicio tentativă de a construi un cadru maniheist popor-vs-elită, nicio invocare a unei voințe populare omogene și niciun element de retorică populistă. Vorbitorul se limitează la argumente tehnice și procedurale, încadrându-se perfect în registrul parlamentar standard. Hawkins=0 cu încredere maximă."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul este unul pur procedural, axat pe interpretarea regulamentului Senatului, legalitatea înființării unui grup parlamentar și aplicarea unitară a normelor interne pentru senatori. Nu există nicio tentativă de a construi un cadru maniheist popor-vs-elită, nicio invocare a unei voințe populare omogene și niciun element de retorică populistă. Vorbitorul se limitează la argumente tehnice și procedurale, încadrându-se perfect în registrul parlamentar standard. Hawkins=0 cu încredere maximă.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13919,
+      "tokens_in_breakdown": {
+        "fresh": 13919,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 199,
+      "cost_usd": null,
+      "latency_ms": 2291,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2019/II/110#agenda-20#act-49",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.85,
+        "level_of_justification": 2,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 2,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "art. 53 alin. (3): „Pierderea calității de membru al unui grup parlamentar atrage încetarea de drept a funcției de conducere în cadrul unei comisii parlamentare.”"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Vorbitorul invocă un articol specific din regulament pentru a susține cererea sa."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "vă rog să aplicați, dacă nu vă cer prea mult, aceeași unitate de măsură pentru toți. Pentru toți senatorii."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.92,
+            "rationale_short": "Apelul la egalitatea de tratament pentru toți senatorii este un principiu universalizabil."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Cei de la PSD"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.96,
+            "marker_confidence": 0.88,
+            "rationale_short": "Referință funcțională la grupul politic advers, fără derogare sau respect explicit."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "domnul Preda a venit să facă acest anunț"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.85,
+            "rationale_short": "Vorbitorul nu abordează cererile opoziției, ci se concentrează pe propria argumentație procedurală."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 2,
+            "evidence": {
+              "text": "Domnul senator Zamfir a trecut de la grupul nostru la dumneavoastră, la PSD. Deci el nu mai are cum să..., dacă aplicați regulamentul, în speță art. 53 alin. (3)"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.94,
+            "rationale_short": "Identifică o situație factuală și o combate prin aplicarea directă a unei norme regulamentare."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "vă rog să le supuneți la vot pe amândouă, da?"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Vorbitorul insistă pe o procedură specifică, fără a oferi o alternativă sau mediere."
+          }
+        ],
+        "rationale": "Discursul prezintă o calitate deliberativă medie-ridicată, bazată pe o argumentație procedurală solidă. Vorbitorul oferă o justificare calificată (level_of_justification=2) prin invocarea directă a articolului 53 din regulament, ancorând apelul său în principiul egalității de tratament (common_good). Respectul pentru counterarguments este ridicat (score=2) deoarece vorbitorul identifică o inconsecvență în aplicarea regulamentului și o combate prin referință normativă. Totuși, discursul rămâne positional, nefiind oferită o soluție de compromis sau o alternativă politică, ci doar o cerere de aplicare a regulilor. Respectul pentru grupuri și cereri rămâne neutru, fiind o intervenție de tip procedural."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.85,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 2,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"art. 53 alin. (3): „Pierderea calității de membru al unui grup parlamentar atrage încetarea de drept a funcției de conducere în cadrul unei comisii parlamentare.”\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Vorbitorul invocă un articol specific din regulament pentru a susține cererea sa.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"vă rog să aplicați, dacă nu vă cer prea mult, aceeași unitate de măsură pentru toți. Pentru toți senatorii.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Apelul la egalitatea de tratament pentru toți senatorii este un principiu universalizabil.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Cei de la PSD\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.96,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Referință funcțională la grupul politic advers, fără derogare sau respect explicit.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"domnul Preda a venit să facă acest anunț\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Vorbitorul nu abordează cererile opoziției, ci se concentrează pe propria argumentație procedurală.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"Domnul senator Zamfir a trecut de la grupul nostru la dumneavoastră, la PSD. Deci el nu mai are cum să..., dacă aplicați regulamentul, în speță art. 53 alin. (3)\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"marker_confidence\": 0.94,\n      \"rationale_short\": \"Identifică o situație factuală și o combate prin aplicarea directă a unei norme regulamentare.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"vă rog să le supuneți la vot pe amândouă, da?\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Vorbitorul insistă pe o procedură specifică, fără a oferi o alternativă sau mediere.\"\n    }\n  ],\n  \"rationale\": \"Discursul prezintă o calitate deliberativă medie-ridicată, bazată pe o argumentație procedurală solidă. Vorbitorul oferă o justificare calificată (level_of_justification=2) prin invocarea directă a articolului 53 din regulament, ancorând apelul său în principiul egalității de tratament (common_good). Respectul pentru counterarguments este ridicat (score=2) deoarece vorbitorul identifică o inconsecvență în aplicarea regulamentului și o combate prin referință normativă. Totuși, discursul rămâne positional, nefiind oferită o soluție de compromis sau o alternativă politică, ci doar o cerere de aplicare a regulilor. Respectul pentru grupuri și cereri rămâne neutru, fiind o intervenție de tip procedural.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12720,
+      "tokens_in_breakdown": {
+        "fresh": 12720,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1208,
+      "cost_usd": null,
+      "latency_ms": 4598,
+      "retries_used": 0
+    }
+  }
+}

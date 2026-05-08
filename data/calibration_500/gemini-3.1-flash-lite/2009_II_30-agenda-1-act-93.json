@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2009/II/30#agenda-1#act-93",
+  "tier": "calibration",
+  "speaker": {
+    "id": "grebla-toni",
+    "name": "Toni Greblă",
+    "raw": "Domnul Toni Greblă",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": "2009-03-11",
+    "year": 2009,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2009/II/30#agenda-1#act-93",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul este unul pur procedural și tehnic, concentrat pe amendarea unui proiect de lege privind pașapoartele electronice. Vorbitorul discută despre terminologie, proceduri administrative și impactul birocratic al amendamentelor asupra cetățeanului, fără a invoca un cadru popor-vs-elită, maniheism moral sau vreo formă de populism. Nu există nicio tentativă de a mobiliza o voință populară împotriva instituțiilor, discursul rămânând strict în sfera dezbaterii parlamentare de specialitate."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul este unul pur procedural și tehnic, concentrat pe amendarea unui proiect de lege privind pașapoartele electronice. Vorbitorul discută despre terminologie, proceduri administrative și impactul birocratic al amendamentelor asupra cetățeanului, fără a invoca un cadru popor-vs-elită, maniheism moral sau vreo formă de populism. Nu există nicio tentativă de a mobiliza o voință populară împotriva instituțiilor, discursul rămânând strict în sfera dezbaterii parlamentare de specialitate.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13648,
+      "tokens_in_breakdown": {
+        "fresh": 13648,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 196,
+      "cost_usd": null,
+      "latency_ms": 2056,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2009/II/30#agenda-1#act-93",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.88,
+        "level_of_justification": 2,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "alternative_proposal",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "am îngreunat situația cetățeanului care, în loc să solicite pașaportul simplu – și organele abilitate erau obligate să i-l înmâneze –, trebuie acum să dovedească că din motive de conștiință sau religioase solicită acest pașaport simplu"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Vorbitorul explică mecanismul cauzal prin care amendamentul îngreunează procedura pentru cetățean."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "am îngreunat situația cetățeanului"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Justificarea se concentrează pe drepturile și sarcina administrativă a cetățeanului în general, nu pe un grup specific."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "persoanelor care, din motive de conștiință sau religioase, nu acceptă pașapoartele biometrice"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Grupul este menționat neutru, în contextul dreptului lor de a opta pentru un pașaport simplu."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "În textul inițial se permite persoanelor, fără nicio justificare, să solicite și să obțină pașaport obișnuit."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Vorbitorul analizează textul inițial fără a angaja explicit legitimitatea cererilor opoziției."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "Prin acest amendament, practic, am îngreunat situația cetățeanului"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.88,
+            "rationale_short": "Vorbitorul critică efectele amendamentului fără a cita sau combate direct un argument specific al susținătorilor."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "alternative_proposal",
+            "evidence": {
+              "text": "să opteze pentru pașaportul simplu"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Vorbitorul propune o alternativă procedurală pentru a facilita accesul cetățenilor la pașaportul simplu."
+          }
+        ],
+        "rationale": "Discursul prezintă o calitate deliberativă moderată, axată pe analiza critică a unui amendament. Vorbitorul oferă o justificare calificată (level_of_justification=2) explicând mecanismul prin care noua procedură îngreunează accesul cetățenilor la pașaportul simplu, apelând la binele comun (content_of_justification=common_good). Deși discursul este constructiv prin propunerea unei alternative (constructive_politics=alternative_proposal), acesta nu angajează direct contraargumentele susținătorilor amendamentului, limitându-se la o critică a efectelor practice. Respectul pentru grupuri și cereri rămâne neutru, fiind o analiză tehnică a textului legislativ. Profilul este unul de critică legislativă argumentată, fără a atinge nivelul de sofisticare al unei dezbateri academice."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.88,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"alternative_proposal\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"am îngreunat situația cetățeanului care, în loc să solicite pașaportul simplu – și organele abilitate erau obligate să i-l înmâneze –, trebuie acum să dovedească că din motive de conștiință sau religioase solicită acest pașaport simplu\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Vorbitorul explică mecanismul cauzal prin care amendamentul îngreunează procedura pentru cetățean.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"am îngreunat situația cetățeanului\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Justificarea se concentrează pe drepturile și sarcina administrativă a cetățeanului în general, nu pe un grup specific.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"persoanelor care, din motive de conștiință sau religioase, nu acceptă pașapoartele biometrice\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Grupul este menționat neutru, în contextul dreptului lor de a opta pentru un pașaport simplu.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"În textul inițial se permite persoanelor, fără nicio justificare, să solicite și să obțină pașaport obișnuit.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Vorbitorul analizează textul inițial fără a angaja explicit legitimitatea cererilor opoziției.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Prin acest amendament, practic, am îngreunat situația cetățeanului\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Vorbitorul critică efectele amendamentului fără a cita sau combate direct un argument specific al susținătorilor.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"alternative_proposal\",\n      \"evidence\": {\n        \"text\": \"să opteze pentru pașaportul simplu\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Vorbitorul propune o alternativă procedurală pentru a facilita accesul cetățenilor la pașaportul simplu.\"\n    }\n  ],\n  \"rationale\": \"Discursul prezintă o calitate deliberativă moderată, axată pe analiza critică a unui amendament. Vorbitorul oferă o justificare calificată (level_of_justification=2) explicând mecanismul prin care noua procedură îngreunează accesul cetățenilor la pașaportul simplu, apelând la binele comun (content_of_justification=common_good). Deși discursul este constructiv prin propunerea unei alternative (constructive_politics=alternative_proposal), acesta nu angajează direct contraargumentele susținătorilor amendamentului, limitându-se la o critică a efectelor practice. Respectul pentru grupuri și cereri rămâne neutru, fiind o analiză tehnică a textului legislativ. Profilul este unul de critică legislativă argumentată, fără a atinge nivelul de sofisticare al unei dezbateri academice.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12449,
+      "tokens_in_breakdown": {
+        "fresh": 12449,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1261,
+      "cost_usd": null,
+      "latency_ms": 4483,
+      "retries_used": 0
+    }
+  }
+}

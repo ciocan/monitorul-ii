@@ -1,0 +1,52 @@
+{
+  "speech_id": "mo://2018/II/35#agenda-3#act-117",
+  "tier": "calibration",
+  "speaker": {
+    "id": "dumitrescu-iulian",
+    "name": "Iulian Dumitrescu",
+    "raw": "Domnul Iulian Dumitrescu",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": "2018-02-26",
+    "year": 2018,
+    "legislature": "VIII",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": null,
+    "voice": null,
+    "dqi": null,
+    "vparty": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "vparty",
+      "speech_id": "mo://2018/II/35#agenda-3#act-117",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "vparty@2020 + vdem-attacks-on@v13",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul este o intervenție parlamentară standard, axată pe argumente economice și tehnice împotriva unei inițiative legislative. Vorbitorul critică activitatea Băncii Naționale și a băncilor comerciale, dar o face în termeni de nemulțumire față de norme și servicii, fără a delegitima instituțiile ca atare sau a folosi retorică anti-pluralistă. Nu există atacuri la adresa justiției, opoziției, presei, ONG-urilor, minorităților sau a normelor democratice. Discursul rămâne în limitele dezbaterii politice legitime."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"vparty@2020 + vdem-attacks-on@v13\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul este o intervenție parlamentară standard, axată pe argumente economice și tehnice împotriva unei inițiative legislative. Vorbitorul critică activitatea Băncii Naționale și a băncilor comerciale, dar o face în termeni de nemulțumire față de norme și servicii, fără a delegitima instituțiile ca atare sau a folosi retorică anti-pluralistă. Nu există atacuri la adresa justiției, opoziției, presei, ONG-urilor, minorităților sau a normelor democratice. Discursul rămâne în limitele dezbaterii politice legitime.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13131,
+      "tokens_in_breakdown": {
+        "fresh": 13131,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 221,
+      "cost_usd": null,
+      "latency_ms": 1792,
+      "retries_used": 0
+    }
+  }
+}

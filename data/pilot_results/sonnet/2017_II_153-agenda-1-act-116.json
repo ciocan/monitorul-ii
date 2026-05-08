@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2017/II/153#agenda-1#act-116",
+  "tier": "register_shift",
+  "speaker": {
+    "id": "basescu-traian",
+    "name": "Traian Băsescu",
+    "raw": "Domnul Traian Băsescu",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": "2017-10-24",
+    "year": 2017,
+    "legislature": "VIII",
+    "delivery_mode": null
+  },
+  "model_key": "sonnet",
+  "model_label": "claude-sonnet-4.6",
+  "results": {
+    "hawkins": {
+      "model_key": "sonnet",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2017/II/153#agenda-1#act-116",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.93,
+        "markers": [],
+        "rationale": "Discursul este o intervenție procedurală scurtă despre jurisdicția instituțională a Monitorului Oficial — revenirea din subordinea Secretariatului General al Guvernului la Camera Deputaților. Critica față de Executiv este formulată exclusiv în registrul juridico-constituțional (încălcarea Constituției, nerespectarea legii, jonglarea cu actele normative) și nu invocă niciun cadru popor-vs-elită, niciun popor omogen ca subiect moral, niciun binarism manihean bine-rău și nicio supremație a voinței populare asupra procedurilor sau instituțiilor. Avertismentul adresat majorității este un argument pragmatic-instituțional, nu o mobilizare populistă. Niciun marker Hawkins nu se aprinde la persoana întâi; discursul rămâne integral în registrul răspunderii parlamentare față de Executiv. Hawkins=0 cu încredere ridicată."
+      },
+      "raw_response": "```json\n{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.93,\n  \"markers\": [],\n  \"rationale\": \"Discursul este o intervenție procedurală scurtă despre jurisdicția instituțională a Monitorului Oficial — revenirea din subordinea Secretariatului General al Guvernului la Camera Deputaților. Critica față de Executiv este formulată exclusiv în registrul juridico-constituțional (încălcarea Constituției, nerespectarea legii, jonglarea cu actele normative) și nu invocă niciun cadru popor-vs-elită, niciun popor omogen ca subiect moral, niciun binarism manihean bine-rău și nicio supremație a voinței populare asupra procedurilor sau instituțiilor. Avertismentul adresat majorității este un argument pragmatic-instituțional, nu o mobilizare populistă. Niciun marker Hawkins nu se aprinde la persoana întâi; discursul rămâne integral în registrul răspunderii parlamentare față de Executiv. Hawkins=0 cu încredere ridicată.\"\n}\n```",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 73657,
+      "tokens_in_breakdown": {
+        "fresh": 2,
+        "cache_creation": 60509,
+        "cache_read": 13146
+      },
+      "tokens_out": 2169,
+      "cost_usd": 0.26339355,
+      "latency_ms": 41145,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "sonnet",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2017/II/153#agenda-1#act-116",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.76,
+        "level_of_justification": 1,
+        "content_of_justification": "mixed",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 1,
+            "evidence": {
+              "text": "a fost o mișcare politică ce a decurs din nevoia de a genera ilegalități: încălcarea Constituției și nerespectarea legii"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.76,
+            "rationale_short": "Motiv invocat (ilegalitate constituțională) fără citarea unor articole sau decizii CCR specifice — justificare inferioară, nu calificată."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "mixed",
+            "evidence": {
+              "text": "Nu trebuie să perpetuăm dreptul Executivului, pe care avem pretenția că-l controlăm, să jongleze cu actele normative în funcție de nevoile lui"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.73,
+            "rationale_short": "Argument principial universalizabil (supraveghere parlamentară) plus avertisment pragmatic adresat intereselor proprii ale majorității — ambele prezente și nebanale."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Vă mulțumesc, domnule președinte"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.7,
+            "rationale_short": "Niciun out-group social invocat explicit; nicio derogare sau recunoaștere specială — ton neutru standard."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "susținem fără rezerve varianta revenirii Monitorului Oficial acolo unde îi este locul"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.74,
+            "rationale_short": "Vorbitorul înaintează propria poziție fără a comenta legitimitatea cererilor adverse — neangajare implicită."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "susținem fără rezerve varianta revenirii Monitorului Oficial acolo unde îi este locul, adică în subordinea Parlamentului României, în speță a Camerei Deputaților"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.96,
+            "marker_confidence": 0.83,
+            "rationale_short": "Nicio referire la argumentele formulate de cealaltă parte în apărarea transferului la Secretariatul General al Guvernului."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "susțin fără rezerve revenirea Monitorului Oficial în subordinea Camerei Deputaților"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.96,
+            "marker_confidence": 0.88,
+            "rationale_short": "Poziție fermă de revenire la status-quo-ul parlamentar; nicio propunere alternativă sau de mediere."
+          }
+        ],
+        "rationale": "Discurs politic scurt, pozițional, cu justificare inferioară. Vorbitorul susține revenirea Monitorului Oficial în subordinea Camerei Deputaților pe baza unui argument constituțional formulat generic (încălcarea Constituției și a legii), fără citarea unor articole sau decizii CCR specifice — de aceea level_of_justification=1, nu 2. Justificarea combină un principiu de control parlamentar universalizabil (supravegherea parlamentară a executivului) cu un avertisment pragmatic adresat majorității pe baza propriilor interese politice viitoare, ceea ce motivează content_of_justification=mixed. Respectul pentru grupuri este neutru implicit — niciun out-group social specific nu este invocat și nu există derogare. Cererile taberei pro-transfer nu sunt angajate explicit nici ca legitime, nici ca respinse (respect_for_demands=1), iar eventualele contraargumente ale Guvernului sau majorității sunt complet absente din discurs (respect_for_counterarguments=0). Nu este propusă nicio alternativă sau mediere — poziția este categorică și unilaterală (constructive_politics=positional). Profilul deliberativ este cel al unui discurs de tribună: susținere fermă a unei poziții, justificare principială slabă fără ancore normative specifice, și fără angajament dialectic cu cealaltă parte."
+      },
+      "raw_response": "```json\n{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.76,\n  \"level_of_justification\": 1,\n  \"content_of_justification\": \"mixed\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 0,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 1,\n      \"evidence\": { \"text\": \"a fost o mișcare politică ce a decurs din nevoia de a genera ilegalități: încălcarea Constituției și nerespectarea legii\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.76,\n      \"rationale_short\": \"Motiv invocat (ilegalitate constituțională) fără citarea unor articole sau decizii CCR specifice — justificare inferioară, nu calificată.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"mixed\",\n      \"evidence\": { \"text\": \"Nu trebuie să perpetuăm dreptul Executivului, pe care avem pretenția că-l controlăm, să jongleze cu actele normative în funcție de nevoile lui\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.73,\n      \"rationale_short\": \"Argument principial universalizabil (supraveghere parlamentară) plus avertisment pragmatic adresat intereselor proprii ale majorității — ambele prezente și nebanale.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": { \"text\": \"Vă mulțumesc, domnule președinte\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.70,\n      \"rationale_short\": \"Niciun out-group social invocat explicit; nicio derogare sau recunoaștere specială — ton neutru standard.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": { \"text\": \"susținem fără rezerve varianta revenirii Monitorului Oficial acolo unde îi este locul\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.74,\n      \"rationale_short\": \"Vorbitorul înaintează propria poziție fără a comenta legitimitatea cererilor adverse — neangajare implicită.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 0,\n      \"evidence\": { \"text\": \"susținem fără rezerve varianta revenirii Monitorului Oficial acolo unde îi este locul, adică în subordinea Parlamentului României, în speță a Camerei Deputaților\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.96,\n      \"marker_confidence\": 0.83,\n      \"rationale_short\": \"Nicio referire la argumentele formulate de cealaltă parte în apărarea transferului la Secretariatul General al Guvernului.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": { \"text\": \"susțin fără rezerve revenirea Monitorului Oficial în subordinea Camerei Deputaților\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.96,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Poziție fermă de revenire la status-quo-ul parlamentar; nicio propunere alternativă sau de mediere.\"\n    }\n  ],\n  \"rationale\": \"Discurs politic scurt, pozițional, cu justificare inferioară. Vorbitorul susține revenirea Monitorului Oficial în subordinea Camerei Deputaților pe baza unui argument constituțional formulat generic (încălcarea Constituției și a legii), fără citarea unor articole sau decizii CCR specifice — de aceea level_of_justification=1, nu 2. Justificarea combină un principiu de control parlamentar universalizabil (supravegherea parlamentară a executivului) cu un avertisment pragmatic adresat majorității pe baza propriilor interese politice viitoare, ceea ce motivează content_of_justification=mixed. Respectul pentru grupuri este neutru implicit — niciun out-group social specific nu este invocat și nu există derogare. Cererile taberei pro-transfer nu sunt angajate explicit nici ca legitime, nici ca respinse (respect_for_demands=1), iar eventualele contraargumente ale Guvernului sau majorității sunt complet absente din discurs (respect_for_counterarguments=0). Nu este propusă nicio alternativă sau mediere — poziția este categorică și unilaterală (constructive_politics=positional). Profilul deliberativ este cel al unui discurs de tribună: susținere fermă a unei poziții, justificare principială slabă fără ancore normative specifice, și fără angajament dialectic cu cealaltă parte.\"\n}\n```",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 72288,
+      "tokens_in_breakdown": {
+        "fresh": 2,
+        "cache_creation": 59140,
+        "cache_read": 13146
+      },
+      "tokens_out": 8577,
+      "cost_usd": 0.3543798,
+      "latency_ms": 102437,
+      "retries_used": 0
+    }
+  }
+}

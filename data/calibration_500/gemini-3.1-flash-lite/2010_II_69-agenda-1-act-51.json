@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2010/II/69#agenda-1#act-51",
+  "tier": "calibration",
+  "speaker": {
+    "id": "movila-petru",
+    "name": "Petru Movilă",
+    "raw": "Domnul Petru Movilă",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2010-05-03",
+    "year": 2010,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2010/II/69#agenda-1#act-51",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul este unul pur procedural, axat pe procesul legislativ de adoptare a unei ordonanțe de urgență și pe coordonarea inițiativelor parlamentare. Nu există nicio urmă de cadru popor-vs-elită, maniheism moral sau invocare a unei voințe populare omogene. Vorbitorul se limitează la argumente tehnice despre eficiența procedurii parlamentare și susținerea unei poziții de grup, fără a recurge la retorică populistă. Hawkins=0 cu încredere ridicată."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul este unul pur procedural, axat pe procesul legislativ de adoptare a unei ordonanțe de urgență și pe coordonarea inițiativelor parlamentare. Nu există nicio urmă de cadru popor-vs-elită, maniheism moral sau invocare a unei voințe populare omogene. Vorbitorul se limitează la argumente tehnice despre eficiența procedurii parlamentare și susținerea unei poziții de grup, fără a recurge la retorică populistă. Hawkins=0 cu încredere ridicată.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13638,
+      "tokens_in_breakdown": {
+        "fresh": 13638,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 192,
+      "cost_usd": null,
+      "latency_ms": 2006,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2010/II/69#agenda-1#act-51",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.78,
+        "level_of_justification": 1,
+        "content_of_justification": "group_interest",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 1,
+            "evidence": {
+              "text": "este important ca această ordonanță de urgență să-și intre rapid în drepturi"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Justificarea invocă importanța rapidității fără a oferi un mecanism cauzal sau dovezi specifice."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "group_interest",
+            "evidence": {
+              "text": "Grupul parlamentar al PDL susține proiectul de lege"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.99,
+            "marker_confidence": 0.92,
+            "rationale_short": "Justificarea este ancorată în susținerea politică a grupului parlamentar."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "parlamentari mai buni sau mai răi"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.88,
+            "rationale_short": "Referință neutră la colegi; nu există derogare sau respect explicit."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "cele două propuneri legislative care vor veni, sigur, pot fi analizate la pachet"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.96,
+            "marker_confidence": 0.82,
+            "rationale_short": "Vorbitorul menționează alte inițiative fără a angaja legitimitatea cererilor opoziției."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "Grupul parlamentar al PDL susține proiectul de lege pentru aprobarea ordonanței de urgență"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Vorbitorul ignoră argumentele contra și se concentrează exclusiv pe poziția proprie."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Grupul parlamentar al PDL susține proiectul de lege"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.99,
+            "marker_confidence": 0.95,
+            "rationale_short": "Discursul este pur pozițional, exprimând susținerea pentru proiect fără a propune alternative."
+          }
+        ],
+        "rationale": "Discursul este unul de susținere procedurală a unei ordonanțe de urgență, caracterizat printr-o calitate deliberativă modestă. Justificarea este de nivel 1, bazându-se pe necesitatea rapidității fără a detalia mecanismele cauzale, iar conținutul acesteia este orientat spre interesul de grup (PDL). Nu există un angajament substanțial cu contraargumentele sau cu cererile opoziției, discursul fiind în esență pozițional. Respectul pentru grupuri și cereri rămâne la un nivel neutru, fără a depăși convențiile formale ale dezbaterii parlamentare. Profilul general este cel al unui discurs de susținere politică standard, lipsit de profunzime deliberativă."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.78,\n  \"level_of_justification\": 1,\n  \"content_of_justification\": \"group_interest\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 0,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 1,\n      \"evidence\": { \"text\": \"este important ca această ordonanță de urgență să-și intre rapid în drepturi\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Justificarea invocă importanța rapidității fără a oferi un mecanism cauzal sau dovezi specifice.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"group_interest\",\n      \"evidence\": { \"text\": \"Grupul parlamentar al PDL susține proiectul de lege\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.99,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Justificarea este ancorată în susținerea politică a grupului parlamentar.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": { \"text\": \"parlamentari mai buni sau mai răi\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Referință neutră la colegi; nu există derogare sau respect explicit.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": { \"text\": \"cele două propuneri legislative care vor veni, sigur, pot fi analizate la pachet\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.96,\n      \"marker_confidence\": 0.82,\n      \"rationale_short\": \"Vorbitorul menționează alte inițiative fără a angaja legitimitatea cererilor opoziției.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 0,\n      \"evidence\": { \"text\": \"Grupul parlamentar al PDL susține proiectul de lege pentru aprobarea ordonanței de urgență\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.90,\n      \"rationale_short\": \"Vorbitorul ignoră argumentele contra și se concentrează exclusiv pe poziția proprie.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": { \"text\": \"Grupul parlamentar al PDL susține proiectul de lege\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.99,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Discursul este pur pozițional, exprimând susținerea pentru proiect fără a propune alternative.\"\n    }\n  ],\n  \"rationale\": \"Discursul este unul de susținere procedurală a unei ordonanțe de urgență, caracterizat printr-o calitate deliberativă modestă. Justificarea este de nivel 1, bazându-se pe necesitatea rapidității fără a detalia mecanismele cauzale, iar conținutul acesteia este orientat spre interesul de grup (PDL). Nu există un angajament substanțial cu contraargumentele sau cu cererile opoziției, discursul fiind în esență pozițional. Respectul pentru grupuri și cereri rămâne la un nivel neutru, fără a depăși convențiile formale ale dezbaterii parlamentare. Profilul general este cel al unui discurs de susținere politică standard, lipsit de profunzime deliberativă.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12439,
+      "tokens_in_breakdown": {
+        "fresh": 12439,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1110,
+      "cost_usd": null,
+      "latency_ms": 4530,
+      "retries_used": 0
+    }
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "speech_id": "mo://2015/II/37#agenda-1#act-79",
+  "tier": "calibration",
+  "speaker": {
+    "id": "caprar-dorel-gheorghe",
+    "name": "Dorel Gheorghe Căprar",
+    "raw": "Domnul Dorel Gheorghe Căprar",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2015-03-10",
+    "year": 2015,
+    "legislature": "VII",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": null,
+    "voice": null,
+    "dqi": null,
+    "vparty": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "vparty",
+      "speech_id": "mo://2015/II/37#agenda-1#act-79",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "vparty@2020 + vdem-attacks-on@v13",
+        "framework_confidence": 0.95,
+        "markers": [],
+        "rationale": "Discursul reprezintă o critică politică acerbă la adresa opoziției liberale și a primarului din Arad, folosind un limbaj polemic (ex: „mascaradă politică”, „politruci”, „clica clientelismului”). Cu toate acestea, atacurile vizează actori politici specifici și practici administrative, nu delegitimează instituțiile democratice ca clasă. Nu există atacuri la adresa justiției, presei, ONG-urilor sau minorităților, iar discursul nu respinge normele democratice sau procesul electoral. Este un exemplu de confruntare politică parlamentară intensă, dar care rămâne în limitele pluralismului democratic."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"vparty@2020 + vdem-attacks-on@v13\",\n  \"framework_confidence\": 0.95,\n  \"markers\": [],\n  \"rationale\": \"Discursul reprezintă o critică politică acerbă la adresa opoziției liberale și a primarului din Arad, folosind un limbaj polemic (ex: „mascaradă politică”, „politruci”, „clica clientelismului”). Cu toate acestea, atacurile vizează actori politici specifici și practici administrative, nu delegitimează instituțiile democratice ca clasă. Nu există atacuri la adresa justiției, presei, ONG-urilor sau minorităților, iar discursul nu respinge normele democratice sau procesul electoral. Este un exemplu de confruntare politică parlamentară intensă, dar care rămâne în limitele pluralismului democratic.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13411,
+      "tokens_in_breakdown": {
+        "fresh": 13411,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 233,
+      "cost_usd": null,
+      "latency_ms": 1823,
+      "retries_used": 0
+    }
+  }
+}

@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2014/II/134#agenda-1#act-46",
+  "tier": "calibration",
+  "speaker": {
+    "id": "stefan-viorel",
+    "name": "Viorel Ștefan",
+    "raw": "Domnul Viorel Ștefan",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2014-12-19",
+    "year": 2014,
+    "legislature": "VII",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2014/II/134#agenda-1#act-46",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 1.0,
+        "markers": [],
+        "rationale": "Discursul este unul pur procedural, limitat la prezentarea raportului unei comisii parlamentare. Vorbitorul citează articole din Regulament și Constituție, menționează avizele instituționale și descrie obiectul tehnic al proiectului de lege (modificări la Codul fiscal). Nu există nicio urmă de cadru popor-vs-elită, maniheism moral sau invocare a unei voințe populare suverane. Discursul se înscrie integral în registrul tehnic-administrativ, primind scorul 0 cu încredere maximă."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 1.0,\n  \"markers\": [],\n  \"rationale\": \"Discursul este unul pur procedural, limitat la prezentarea raportului unei comisii parlamentare. Vorbitorul citează articole din Regulament și Constituție, menționează avizele instituționale și descrie obiectul tehnic al proiectului de lege (modificări la Codul fiscal). Nu există nicio urmă de cadru popor-vs-elită, maniheism moral sau invocare a unei voințe populare suverane. Discursul se înscrie integral în registrul tehnic-administrativ, primind scorul 0 cu încredere maximă.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13878,
+      "tokens_in_breakdown": {
+        "fresh": 13878,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 196,
+      "cost_usd": null,
+      "latency_ms": 2089,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2014/II/134#agenda-1#act-46",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.45,
+        "level_of_justification": 0,
+        "content_of_justification": "none",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 0,
+            "evidence": {
+              "text": "Voi da citire raportului suplimentar întocmit de comisia noastră"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Discurs pur procedural de prezentare a unui raport; nicio justificare argumentativă oferită."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "none",
+            "evidence": {
+              "text": "Voi da citire raportului suplimentar"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Nicio justificare prezentă; conținutul este nedefinit."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "domnule președinte"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Adresare formală neutră; nicio referire la grupuri sociale sau politice."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "proiectul a fost retrimis comisiei pentru o examinare suplimentară"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Prezentare neutră a procedurii parlamentare; nicio cerere adversă angajată."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "Membrii comisiei au reexaminat proiectul în 18 decembrie 2014."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Discursul nu conține nicio dezbatere sau contraargumentare; este un raport tehnic."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "deputații prezenți la dezbatere au hotărât să supună spre dezbatere și adoptare plenului Camerei Deputaților Proiectul de lege"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Raportarea unei decizii procedurale; nu este o propunere politică alternativă."
+          }
+        ],
+        "rationale": "Acest discurs este un raport procedural standard prezentat de un raportor de comisie, având un caracter pur tehnic și administrativ. Nu conține argumentație deliberativă, justificare a unei poziții sau angajament cu contraargumente, fiind o simplă expunere a pașilor procedurali urmați conform regulamentului. Din acest motiv, scorurile pe dimensiunile deliberative sunt la nivelul minim (0 sau 1), iar încrederea în framework este scăzută, deoarece discursul nu reprezintă o intervenție deliberativă în sensul Steiner & Bächtiger. Este un exemplu de discurs procedural care trebuie filtrat în analizele de calitate a dezbaterii."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.45,\n  \"level_of_justification\": 0,\n  \"content_of_justification\": \"none\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 0,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 0,\n      \"evidence\": { \"text\": \"Voi da citire raportului suplimentar întocmit de comisia noastră\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Discurs pur procedural de prezentare a unui raport; nicio justificare argumentativă oferită.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"none\",\n      \"evidence\": { \"text\": \"Voi da citire raportului suplimentar\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Nicio justificare prezentă; conținutul este nedefinit.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": { \"text\": \"domnule președinte\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Adresare formală neutră; nicio referire la grupuri sociale sau politice.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": { \"text\": \"proiectul a fost retrimis comisiei pentru o examinare suplimentară\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Prezentare neutră a procedurii parlamentare; nicio cerere adversă angajată.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 0,\n      \"evidence\": { \"text\": \"Membrii comisiei au reexaminat proiectul în 18 decembrie 2014.\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Discursul nu conține nicio dezbatere sau contraargumentare; este un raport tehnic.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": { \"text\": \"deputații prezenți la dezbatere au hotărât să supună spre dezbatere și adoptare plenului Camerei Deputaților Proiectul de lege\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Raportarea unei decizii procedurale; nu este o propunere politică alternativă.\"\n    }\n  ],\n  \"rationale\": \"Acest discurs este un raport procedural standard prezentat de un raportor de comisie, având un caracter pur tehnic și administrativ. Nu conține argumentație deliberativă, justificare a unei poziții sau angajament cu contraargumente, fiind o simplă expunere a pașilor procedurali urmați conform regulamentului. Din acest motiv, scorurile pe dimensiunile deliberative sunt la nivelul minim (0 sau 1), iar încrederea în framework este scăzută, deoarece discursul nu reprezintă o intervenție deliberativă în sensul Steiner & Bächtiger. Este un exemplu de discurs procedural care trebuie filtrat în analizele de calitate a dezbaterii.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12679,
+      "tokens_in_breakdown": {
+        "fresh": 12679,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1078,
+      "cost_usd": null,
+      "latency_ms": 3806,
+      "retries_used": 0
+    }
+  }
+}

@@ -1,0 +1,192 @@
+{
+  "speech_id": "mo://2011/II/9#agenda-1#act-24",
+  "tier": "calibration",
+  "speaker": {
+    "id": "balan-ioan",
+    "name": "Ioan Balan",
+    "raw": "Domnul Ioan Balan",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2011-02-15",
+    "year": 2011,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2011/II/9#agenda-1#act-24",
+      "output": {
+        "score": 1,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.85,
+        "markers": [
+          {
+            "kind": "crisis_invocation",
+            "evidence": {
+              "text": "isteria internațională determinată de o potențială criză alimentară bate la ușă"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.85,
+            "rationale_short": "Invocă o criză alimentară iminentă ca argument pentru urgența schimbării viziunii agricole."
+          }
+        ],
+        "rationale": "Discursul se concentrează în principal pe o critică tehnică a politicilor agricole postdecembriste și propune o viziune alternativă de dezvoltare rurală. Deși conține un element de invocare a unei crize (criza alimentară), acesta este utilizat pentru a susține o propunere de politică publică, nu pentru a construi un cadru maniheist popor-vs-elită. Nu există o dihotomie morală între un popor virtuos și o elită coruptă, iar discursul rămâne în registrul dezbaterii economice. Scor 1 acordat pentru prezența unui marker de criză care, deși nu este structural-portant, depășește registrul pur procedural."
+      },
+      "raw_response": "{\n  \"score\": 1,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.85,\n  \"markers\": [\n    {\n      \"kind\": \"crisis_invocation\",\n      \"evidence\": {\n        \"text\": \"isteria internațională determinată de o potențială criză alimentară bate la ușă\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Invocă o criză alimentară iminentă ca argument pentru urgența schimbării viziunii agricole.\"\n    }\n  ],\n  \"rationale\": \"Discursul se concentrează în principal pe o critică tehnică a politicilor agricole postdecembriste și propune o viziune alternativă de dezvoltare rurală. Deși conține un element de invocare a unei crize (criza alimentară), acesta este utilizat pentru a susține o propunere de politică publică, nu pentru a construi un cadru maniheist popor-vs-elită. Nu există o dihotomie morală între un popor virtuos și o elită coruptă, iar discursul rămâne în registrul dezbaterii economice. Scor 1 acordat pentru prezența unui marker de criză care, deși nu este structural-portant, depășește registrul pur procedural.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 14102,
+      "tokens_in_breakdown": {
+        "fresh": 14102,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 370,
+      "cost_usd": null,
+      "latency_ms": 2350,
+      "retries_used": 0
+    },
+    "voice": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "voice",
+      "speech_id": "mo://2011/II/9#agenda-1#act-24",
+      "output": {
+        "classifications": [
+          {
+            "marker_id": "m_0",
+            "voice": "speaker_first_person",
+            "voice_confidence": 0.95,
+            "voice_evidence": null,
+            "attributed_to": null,
+            "rationale_short": "Afirmație directă a vorbitorului, fără indicii de citare, raportare sau distanțare retorică; vorbitorul își asumă perspectiva asupra crizei alimentare."
+          }
+        ]
+      },
+      "raw_response": "{\n  \"classifications\": [\n    {\n      \"marker_id\": \"m_0\",\n      \"voice\": \"speaker_first_person\",\n      \"voice_confidence\": 0.95,\n      \"voice_evidence\": null,\n      \"attributed_to\": null,\n      \"rationale_short\": \"Afirmație directă a vorbitorului, fără indicii de citare, raportare sau distanțare retorică; vorbitorul își asumă perspectiva asupra crizei alimentare.\"\n    }\n  ]\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 11653,
+      "tokens_in_breakdown": {
+        "fresh": 11653,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 125,
+      "cost_usd": null,
+      "latency_ms": 1044,
+      "retries_used": 0
+    },
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2011/II/9#agenda-1#act-24",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.85,
+        "level_of_justification": 2,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "alternative_proposal",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "Prin crearea de microîntreprinderi la sat, s-ar răspunde și ratei uriașe a șomajului care afectează populația rurală și ar aduce și un plus de venituri administrațiilor sărace din mediul rural."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Vorbitorul oferă un mecanism cauzal clar (microîntreprinderi -> reducerea șomajului -> venituri locale)."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "Obiectivele acestei viziuni asupra agriculturii sunt acelea de a face din această activitate o reală generatoare de venituri și bogăție"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Apelul este la dezvoltarea economică generală și la securitatea alimentară a țării."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "producătorii români să dispară"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.88,
+            "rationale_short": "Grupul este menționat într-un context de victimizare economică, fără derogare sau respect explicit."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Mulți dintre fermieri poate că nici nu și-au dorit ca statul să le dea ajutoare directe"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.96,
+            "marker_confidence": 0.85,
+            "rationale_short": "Vorbitorul menționează dorințele fermierilor fără a le trata ca pe o cerere politică adversă."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "Nu cred că mai este necesar să fac o descriere detaliată a stadiului rudimentar"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Vorbitorul ignoră argumentele opoziției, concentrându-se exclusiv pe propria viziune."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "alternative_proposal",
+            "evidence": {
+              "text": "Prin crearea de microîntreprinderi la sat, s-ar răspunde și ratei uriașe a șomajului"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.93,
+            "rationale_short": "Propune un model alternativ de dezvoltare (economie rurală cu microîntreprinderi) față de status-quo."
+          }
+        ],
+        "rationale": "Discursul prezintă o viziune coerentă asupra dezvoltării rurale, oferind justificări calificate prin mecanisme cauzale (level_of_justification=2) și apelând la binele comun (content_of_justification=common_good). Deși discursul este constructiv prin propunerea unui model alternativ de economie rurală (constructive_politics=alternative_proposal), acesta eșuează în a angaja contraargumente sau cereri adverse, rămânând într-o zonă de monolog politic (respect_for_counterarguments=0). Respectul pentru grupuri și cereri rămâne neutru, fiind axat pe descrierea situației fermierilor. Calitatea deliberativă este medie, fiind susținută de densitatea argumentativă, dar limitată de lipsa dialogului cu opoziția."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.85,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 0,\n  \"constructive_politics\": \"alternative_proposal\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"Prin crearea de microîntreprinderi la sat, s-ar răspunde și ratei uriașe a șomajului care afectează populația rurală și ar aduce și un plus de venituri administrațiilor sărace din mediul rural.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Vorbitorul oferă un mecanism cauzal clar (microîntreprinderi -> reducerea șomajului -> venituri locale).\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"Obiectivele acestei viziuni asupra agriculturii sunt acelea de a face din această activitate o reală generatoare de venituri și bogăție\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Apelul este la dezvoltarea economică generală și la securitatea alimentară a țării.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"producătorii români să dispară\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Grupul este menționat într-un context de victimizare economică, fără derogare sau respect explicit.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Mulți dintre fermieri poate că nici nu și-au dorit ca statul să le dea ajutoare directe\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.96,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Vorbitorul menționează dorințele fermierilor fără a le trata ca pe o cerere politică adversă.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"Nu cred că mai este necesar să fac o descriere detaliată a stadiului rudimentar\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.90,\n      \"rationale_short\": \"Vorbitorul ignoră argumentele opoziției, concentrându-se exclusiv pe propria viziune.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"alternative_proposal\",\n      \"evidence\": {\n        \"text\": \"Prin crearea de microîntreprinderi la sat, s-ar răspunde și ratei uriașe a șomajului\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.93,\n      \"rationale_short\": \"Propune un model alternativ de dezvoltare (economie rurală cu microîntreprinderi) față de status-quo.\"\n    }\n  ],\n  \"rationale\": \"Discursul prezintă o viziune coerentă asupra dezvoltării rurale, oferind justificări calificate prin mecanisme cauzale (level_of_justification=2) și apelând la binele comun (content_of_justification=common_good). Deși discursul este constructiv prin propunerea unui model alternativ de economie rurală (constructive_politics=alternative_proposal), acesta eșuează în a angaja contraargumente sau cereri adverse, rămânând într-o zonă de monolog politic (respect_for_counterarguments=0). Respectul pentru grupuri și cereri rămâne neutru, fiind axat pe descrierea situației fermierilor. Calitatea deliberativă este medie, fiind susținută de densitatea argumentativă, dar limitată de lipsa dialogului cu opoziția.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12903,
+      "tokens_in_breakdown": {
+        "fresh": 12903,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1251,
+      "cost_usd": null,
+      "latency_ms": 4454,
+      "retries_used": 0
+    }
+  }
+}

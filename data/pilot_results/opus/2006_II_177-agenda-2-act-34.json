@@ -1,0 +1,148 @@
+{
+  "speech_id": "mo://2006/II/177#agenda-2#act-34",
+  "tier": "register_shift",
+  "speaker": {
+    "id": "ponta-victor-viorel",
+    "name": "Victor Viorel Ponta",
+    "raw": "Domnul Victor Viorel Ponta",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": null,
+    "session_date": null,
+    "year": 2006,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "opus",
+  "model_label": "claude-opus-4.7",
+  "results": {
+    "hawkins": {
+      "model_key": "opus",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2006/II/177#agenda-2#act-34",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discurs strict procedural de dezbatere pe articole a unui proiect de lege în cadrul comisiei, cu enumerarea mecanică a punctelor (1-22), formula repetată „Obiecțiuni? Nu există. Adoptat\" și referințe tehnice la OUG nr. 48/2006, Legea nr. 217/2005 și procedura de urgență ca Cameră decizională. Nu există cadru popor-vs-elită, fără maniheism moral, fără invocarea unei voințe populare omogene, fără elită malefică sau cadru de criză. Vorbitorul (președintele de ședință) operează exclusiv în registrul tehnic-procedural al dezbaterii pe articole. Hawkins=0 cu încredere foarte ridicată."
+      },
+      "raw_response": "{\"score\":0,\"score_unit\":\"ordinal_0_2\",\"framework_version\":\"hawkins@2018\",\"framework_confidence\":0.98,\"markers\":[],\"rationale\":\"Discurs strict procedural de dezbatere pe articole a unui proiect de lege în cadrul comisiei, cu enumerarea mecanică a punctelor (1-22), formula repetată „Obiecțiuni? Nu există. Adoptat\\\" și referințe tehnice la OUG nr. 48/2006, Legea nr. 217/2005 și procedura de urgență ca Cameră decizională. Nu există cadru popor-vs-elită, fără maniheism moral, fără invocarea unei voințe populare omogene, fără elită malefică sau cadru de criză. Vorbitorul (președintele de ședință) operează exclusiv în registrul tehnic-procedural al dezbaterii pe articole. Hawkins=0 cu încredere foarte ridicată.\"}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "tokens_in": 105177,
+      "tokens_in_breakdown": {
+        "fresh": 5,
+        "cache_creation": 86819,
+        "cache_read": 18353
+      },
+      "tokens_out": 327,
+      "cost_usd": 0.5599952499999999,
+      "latency_ms": 17580,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "opus",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2006/II/177#agenda-2#act-34",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.38,
+        "level_of_justification": 0,
+        "content_of_justification": "none",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 0,
+            "evidence": {
+              "text": "Obiec˛iuni? Nu exist„. Adoptat."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.9,
+            "marker_confidence": 0.85,
+            "rationale_short": "Discurs procedural de prezidare; nicio justificare substanțială oferită — doar adoptarea articol cu articol."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "none",
+            "evidence": {
+              "text": "Nu sunt obiec˛iuni. Adoptat."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.9,
+            "marker_confidence": 0.84,
+            "rationale_short": "Nicio justificare oferită; conținutul este nedefinit într-un context strict procedural."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Domnul deputat Mircia Giurgiu, dac„ dori˛i."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.9,
+            "marker_confidence": 0.7,
+            "rationale_short": "Adresare convențională a președintelui; niciun out-group invocat — neutru standard."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Alte opinii din partea colegilor? Nu sunt."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.9,
+            "marker_confidence": 0.65,
+            "rationale_short": "Președintele invită opiniile, dar nicio cerere adversă nu este formulată — neutru implicit."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "Dac„ exist„ obiec˛iuni? Nu exist„."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.9,
+            "marker_confidence": 0.65,
+            "rationale_short": "Spațiu deschis formal pentru obiecțiuni, dar niciun contraargument efectiv nu este invocat sau combătut."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Legea a fost adoptat„ pe articole."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.9,
+            "marker_confidence": 0.8,
+            "rationale_short": "Conducerea procedurală a votului pe articole; nicio alternativă sau mediere propusă în acest fragment."
+          }
+        ],
+        "rationale": "Fragmentul este un discurs procedural de prezidare a ședinței — președintele de ședință parcurge punct cu punct articolele unui raport de comisie, întreabă formal de obiecțiuni și anunță adoptarea fiecărui articol. Nu este o intervenție deliberativă în sensul DQI: vorbitorul nu argumentează o poziție de fond, ci administrează ordinea de zi (level_of_justification=0, content=none, constructive=positional). Dimensiunile de respect rămân la valoarea neutră — există invitații formale la opinii și obiecțiuni, dar niciun grup nu este derogat sau respectat explicit, nicio cerere adversă nu este nici respinsă, nici recunoscută substanțial. framework_confidence este scăzut (~0.38) pentru că genul speech-act-ului (chair-conduct procedural) cade în afara domeniului DQI; consumatorii care filtrează după framework_confidence > 0.7 vor exclude corect acest tip de fragment, iar valorile dimensiunilor sunt biasate spre default conform regulii pentru fragmente necodabile."
+      },
+      "raw_response": "{\"framework_version\":\"steiner-bachtiger@2017\",\"score_unit\":\"dqi_multi\",\"framework_confidence\":0.38,\"level_of_justification\":0,\"content_of_justification\":\"none\",\"respect_for_groups\":1,\"respect_for_demands\":1,\"respect_for_counterarguments\":1,\"constructive_politics\":\"positional\",\"markers\":[{\"kind\":\"level_of_justification\",\"value\":0,\"evidence\":{\"text\":\"Obiec˛iuni? Nu exist„. Adoptat.\"},\"preliminary_voice\":\"speaker_first_person\",\"preliminary_voice_confidence\":0.9,\"marker_confidence\":0.85,\"rationale_short\":\"Discurs procedural de prezidare; nicio justificare substanțială oferită — doar adoptarea articol cu articol.\"},{\"kind\":\"content_of_justification\",\"value\":\"none\",\"evidence\":{\"text\":\"Nu sunt obiec˛iuni. Adoptat.\"},\"preliminary_voice\":\"speaker_first_person\",\"preliminary_voice_confidence\":0.9,\"marker_confidence\":0.84,\"rationale_short\":\"Nicio justificare oferită; conținutul este nedefinit într-un context strict procedural.\"},{\"kind\":\"respect_for_groups\",\"value\":1,\"evidence\":{\"text\":\"Domnul deputat Mircia Giurgiu, dac„ dori˛i.\"},\"preliminary_voice\":\"speaker_first_person\",\"preliminary_voice_confidence\":0.9,\"marker_confidence\":0.7,\"rationale_short\":\"Adresare convențională a președintelui; niciun out-group invocat — neutru standard.\"},{\"kind\":\"respect_for_demands\",\"value\":1,\"evidence\":{\"text\":\"Alte opinii din partea colegilor? Nu sunt.\"},\"preliminary_voice\":\"speaker_first_person\",\"preliminary_voice_confidence\":0.9,\"marker_confidence\":0.65,\"rationale_short\":\"Președintele invită opiniile, dar nicio cerere adversă nu este formulată — neutru implicit.\"},{\"kind\":\"respect_for_counterarguments\",\"value\":1,\"evidence\":{\"text\":\"Dac„ exist„ obiec˛iuni? Nu exist„.\"},\"preliminary_voice\":\"speaker_first_person\",\"preliminary_voice_confidence\":0.9,\"marker_confidence\":0.65,\"rationale_short\":\"Spațiu deschis formal pentru obiecțiuni, dar niciun contraargument efectiv nu este invocat sau combătut.\"},{\"kind\":\"constructive_politics\",\"value\":\"positional\",\"evidence\":{\"text\":\"Legea a fost adoptat„ pe articole.\"},\"preliminary_voice\":\"speaker_first_person\",\"preliminary_voice_confidence\":0.9,\"marker_confidence\":0.8,\"rationale_short\":\"Conducerea procedurală a votului pe articole; nicio alternativă sau mediere propusă în acest fragment.\"}],\"rationale\":\"Fragmentul este un discurs procedural de prezidare a ședinței — președintele de ședință parcurge punct cu punct articolele unui raport de comisie, întreabă formal de obiecțiuni și anunță adoptarea fiecărui articol. Nu este o intervenție deliberativă în sensul DQI: vorbitorul nu argumentează o poziție de fond, ci administrează ordinea de zi (level_of_justification=0, content=none, constructive=positional). Dimensiunile de respect rămân la valoarea neutră — există invitații formale la opinii și obiecțiuni, dar niciun grup nu este derogat sau respectat explicit, nicio cerere adversă nu este nici respinsă, nici recunoscută substanțial. framework_confidence este scăzut (~0.38) pentru că genul speech-act-ului (chair-conduct procedural) cade în afara domeniului DQI; consumatorii care filtrează după framework_confidence > 0.7 vor exclude corect acest tip de fragment, iar valorile dimensiunilor sunt biasate spre default conform regulii pentru fragmente necodabile.\"}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "tokens_in": 103168,
+      "tokens_in_breakdown": {
+        "fresh": 5,
+        "cache_creation": 84810,
+        "cache_read": 18353
+      },
+      "tokens_out": 1376,
+      "cost_usd": 0.573664,
+      "latency_ms": 25587,
+      "retries_used": 0
+    }
+  }
+}

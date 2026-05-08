@@ -1,0 +1,153 @@
+{
+  "speech_id": "mo://2002/II/44#agenda-6#act-52",
+  "tier": "calibration",
+  "speaker": {
+    "id": "puskas-valentin-zoltan",
+    "name": "Puskás Valentin-Zoltán",
+    "raw": "Domnul Puskás Valentin-Zoltán",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": null,
+    "year": 2002,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2002/II/44#agenda-6#act-52",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.95,
+        "markers": [],
+        "rationale": "Discursul este unul procedural, axat pe dezbaterea unei moțiuni simple în Senat, cu referințe tehnice la infrastructura energetică, randamentul centralelor termice și necesitatea investițiilor. Deși vorbitorul menționează „voința politică” și „programul de guvernare”, acestea sunt utilizate în contextul standard al responsabilității guvernamentale, nu ca elemente ale unui cadru populist maniheist. Nu există nicio invocare a unui popor omogen opus unei elite malefice, nici retorică de criză existențială sau moralism binar. Discursul rămâne ferm în registrul parlamentar pluralist și tehnic, motiv pentru care scorul este 0."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.95,\n  \"markers\": [],\n  \"rationale\": \"Discursul este unul procedural, axat pe dezbaterea unei moțiuni simple în Senat, cu referințe tehnice la infrastructura energetică, randamentul centralelor termice și necesitatea investițiilor. Deși vorbitorul menționează „voința politică” și „programul de guvernare”, acestea sunt utilizate în contextul standard al responsabilității guvernamentale, nu ca elemente ale unui cadru populist maniheist. Nu există nicio invocare a unui popor omogen opus unei elite malefice, nici retorică de criză existențială sau moralism binar. Discursul rămâne ferm în registrul parlamentar pluralist și tehnic, motiv pentru care scorul este 0.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 15033,
+      "tokens_in_breakdown": {
+        "fresh": 15033,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 230,
+      "cost_usd": null,
+      "latency_ms": 2061,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2002/II/44#agenda-6#act-52",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.78,
+        "level_of_justification": 1,
+        "content_of_justification": "group_interest",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 1,
+            "evidence": {
+              "text": "Noi, U.D.M.R.-ul, credem Ón capacitatea Guvernului de a lua asemenea m„suri ∫i vom sprijini toate eforturile depuse Ón aceast„ direcþie de c„tre Guvern"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Justificarea se bazează pe încrederea politică în Guvern, nu pe o analiză cauzală sau dovezi empirice."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "group_interest",
+            "evidence": {
+              "text": "Noi, U.D.M.R.-ul, credem Ón capacitatea Guvernului de a lua asemenea m„suri"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.82,
+            "rationale_short": "Apelul este explicit ancorat în poziția și interesele formațiunii politice (UDMR)."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "colegii mei de la opoziþie"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.9,
+            "rationale_short": "Referință neutră la opoziție; nicio derogare sau respect explicit."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "aceast„ moþiune simpl„ care se refer„ la Óntreþinere trebuie s„ fie un lucru care trebuie analizat Ón complexitatea sa"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.96,
+            "marker_confidence": 0.88,
+            "rationale_short": "Vorbitorul recunoaște importanța temei, dar nu angajează legitimitatea cererii opoziției."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "a∫a cum am ascultat expunerea domnului ministru Dan-Ioan Popescu, deja au fost luate anumite m„suri"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.85,
+            "rationale_short": "Menționează argumentele opoziției doar pentru a le contracara prin referință la acțiunile Guvernului, fără angajament substanțial."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "U.D.M.R. va vota, bineÓnþeles, Ómpotriva moþiunii"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Discursul este o susținere a poziției Guvernului, fără a propune o alternativă sau mediere."
+          }
+        ],
+        "rationale": "Discursul reprezintă o intervenție tipică de susținere a Guvernului în cadrul unei moțiuni simple. Justificarea este de nivel 1, bazându-se pe încrederea politică în programul de guvernare mai degrabă decât pe argumente cauzale sau dovezi. Conținutul justificării este orientat spre interesul de grup (UDMR). Respectul pentru opoziție este neutru, iar angajamentul față de contraargumente este superficial, limitându-se la a invoca măsurile Guvernului. Discursul este pozițional, fără a oferi alternative concrete sau medieri, reflectând o logică de bloc politic."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.78,\n  \"level_of_justification\": 1,\n  \"content_of_justification\": \"group_interest\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 1,\n      \"evidence\": { \"text\": \"Noi, U.D.M.R.-ul, credem Ón capacitatea Guvernului de a lua asemenea m„suri ∫i vom sprijini toate eforturile depuse Ón aceast„ direcþie de c„tre Guvern\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Justificarea se bazează pe încrederea politică în Guvern, nu pe o analiză cauzală sau dovezi empirice.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"group_interest\",\n      \"evidence\": { \"text\": \"Noi, U.D.M.R.-ul, credem Ón capacitatea Guvernului de a lua asemenea m„suri\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.82,\n      \"rationale_short\": \"Apelul este explicit ancorat în poziția și interesele formațiunii politice (UDMR).\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": { \"text\": \"colegii mei de la opoziþie\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"marker_confidence\": 0.90,\n      \"rationale_short\": \"Referință neutră la opoziție; nicio derogare sau respect explicit.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": { \"text\": \"aceast„ moþiune simpl„ care se refer„ la Óntreþinere trebuie s„ fie un lucru care trebuie analizat Ón complexitatea sa\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.96,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Vorbitorul recunoaște importanța temei, dar nu angajează legitimitatea cererii opoziției.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": { \"text\": \"a∫a cum am ascultat expunerea domnului ministru Dan-Ioan Popescu, deja au fost luate anumite m„suri\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Menționează argumentele opoziției doar pentru a le contracara prin referință la acțiunile Guvernului, fără angajament substanțial.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": { \"text\": \"U.D.M.R. va vota, bineÓnþeles, Ómpotriva moþiunii\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Discursul este o susținere a poziției Guvernului, fără a propune o alternativă sau mediere.\"\n    }\n  ],\n  \"rationale\": \"Discursul reprezintă o intervenție tipică de susținere a Guvernului în cadrul unei moțiuni simple. Justificarea este de nivel 1, bazându-se pe încrederea politică în programul de guvernare mai degrabă decât pe argumente cauzale sau dovezi. Conținutul justificării este orientat spre interesul de grup (UDMR). Respectul pentru opoziție este neutru, iar angajamentul față de contraargumente este superficial, limitându-se la a invoca măsurile Guvernului. Discursul este pozițional, fără a oferi alternative concrete sau medieri, reflectând o logică de bloc politic.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [
+        "aceast„ moþiune simpl„ care se refer„ la Óntreþinere trebuie s„ fie un lucru care trebuie analizat Ón complexitatea sa",
+        "a∫a cum am ascultat expunerea domnului ministru Dan-Ioan Popescu, deja au fost luate anumite m„suri"
+      ],
+      "parse_repaired": false,
+      "tokens_in": 13834,
+      "tokens_in_breakdown": {
+        "fresh": 13834,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1204,
+      "cost_usd": null,
+      "latency_ms": 4601,
+      "retries_used": 0
+    }
+  }
+}

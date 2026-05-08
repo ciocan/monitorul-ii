@@ -1,0 +1,52 @@
+{
+  "speech_id": "mo://2009/II/5#agenda-1#act-221",
+  "tier": "calibration",
+  "speaker": {
+    "id": "vasilescu-lia-olguta",
+    "name": "Lia Olguța Vasilescu",
+    "raw": "Doamna Lia Olguța Vasilescu",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": "2009-02-04",
+    "year": 2009,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": null,
+    "voice": null,
+    "dqi": null,
+    "vparty": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "vparty",
+      "speech_id": "mo://2009/II/5#agenda-1#act-221",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "vparty@2020 + vdem-attacks-on@v13",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul se concentrează pe teme de politică publică, respectiv finanțarea monumentelor istorice și sprijinul pentru comunitățile românești din afara granițelor. Vorbitorul critică Ministerul Culturii și Ministerul Educației pentru lipsa de acțiune, însă această critică rămâne în registrul normal al dezbaterii parlamentare și nu delegitimează instituțiile ca atare. Nu există atacuri la adresa justiției, presei, opoziției, ONG-urilor sau a normelor democratice. Discursul respectă cadrul pluralist și procedurile parlamentare, încadrându-se clar la scorul 0."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"vparty@2020 + vdem-attacks-on@v13\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul se concentrează pe teme de politică publică, respectiv finanțarea monumentelor istorice și sprijinul pentru comunitățile românești din afara granițelor. Vorbitorul critică Ministerul Culturii și Ministerul Educației pentru lipsa de acțiune, însă această critică rămâne în registrul normal al dezbaterii parlamentare și nu delegitimează instituțiile ca atare. Nu există atacuri la adresa justiției, presei, opoziției, ONG-urilor sau a normelor democratice. Discursul respectă cadrul pluralist și procedurile parlamentare, încadrându-se clar la scorul 0.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13232,
+      "tokens_in_breakdown": {
+        "fresh": 13232,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 228,
+      "cost_usd": null,
+      "latency_ms": 1928,
+      "retries_used": 0
+    }
+  }
+}

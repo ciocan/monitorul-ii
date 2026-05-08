@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2020/II/65#agenda-1#act-917",
+  "tier": "calibration",
+  "speaker": {
+    "id": "varga-vasile",
+    "name": "Vasile Varga",
+    "raw": "Domnul Vasile Varga",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2020-06-17",
+    "year": 2020,
+    "legislature": "VIII",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2020/II/65#agenda-1#act-917",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul este unul pur tehnic și procedural, axat pe stadiul lucrărilor la podul suspendat peste Dunăre și pe beneficiile economice ale acestui proiect de infrastructură. Vorbitorul utilizează un registru administrativ, menționând instituții, termene de execuție și impactul asupra forței de muncă, fără a apela la cadre populiste. Nu există nicio tentativă de a construi o dihotomie popor-vs-elită, nici invocarea unei voințe populare omogene sau a unui maniheism moral. Discursul se înscrie în registrul dezbaterii de politici publice, motiv pentru care scorul este 0."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul este unul pur tehnic și procedural, axat pe stadiul lucrărilor la podul suspendat peste Dunăre și pe beneficiile economice ale acestui proiect de infrastructură. Vorbitorul utilizează un registru administrativ, menționând instituții, termene de execuție și impactul asupra forței de muncă, fără a apela la cadre populiste. Nu există nicio tentativă de a construi o dihotomie popor-vs-elită, nici invocarea unei voințe populare omogene sau a unui maniheism moral. Discursul se înscrie în registrul dezbaterii de politici publice, motiv pentru care scorul este 0.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13978,
+      "tokens_in_breakdown": {
+        "fresh": 13978,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 222,
+      "cost_usd": null,
+      "latency_ms": 2011,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2020/II/65#agenda-1#act-917",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.85,
+        "level_of_justification": 2,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "investiția în podul de la Brăila va genera, în mai multe domenii de activitate, mii locuri de muncă esențiale pentru ocuparea forței de muncă din această regiune."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Vorbitorul oferă un mecanism cauzal clar: investiția generează locuri de muncă, justificând astfel importanța proiectului."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "mai presus de orice orgolii trebuie să primeze interesul binelui comun."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Justificarea este ancorată explicit în interesul binelui comun și dezvoltarea economică regională."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Șantierul Naval Brăila și combinatul din Galați"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Grupuri economice menționate funcțional, fără derogare sau laudă explicită."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "am cerut, de la toate instituțiile implicate, informații privind derularea lucrărilor"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Vorbitorul se concentrează pe propria activitate de monitorizare; nu există cereri adverse angajate."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "Acest proiect ambițios al autorităților române, atât de la nivel local, cât și de la nivel central, va avea în mine un ferm susținător!"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Discursul este pur afirmativ și de susținere, ignorând orice potențiale contraargumente."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Acest proiect ambițios al autorităților române, atât de la nivel local, cât și de la nivel central, va avea în mine un ferm susținător!"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Vorbitorul își declară susținerea pentru proiectul existent, fără a propune alternative sau medieri."
+          }
+        ],
+        "rationale": "Discursul prezintă o calitate deliberativă moderată, fiind centrat pe susținerea unui proiect de infrastructură. Vorbitorul oferă o justificare calificată (level_of_justification=2) prin legarea investiției de crearea de locuri de muncă și dezvoltarea regională, apelând la binele comun (content_of_justification=common_good). Totuși, discursul este pur pozițional (constructive_politics=positional), neexistând o dezbatere cu opoziția sau propuneri alternative. Respectul pentru grupuri este neutru, iar respectul pentru contraargumente este absent, deoarece vorbitorul nu abordează nicio critică sau opinie divergentă. Este un discurs de informare și susținere politică, nu unul de deliberare contradictorie."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.85,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 0,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"investiția în podul de la Brăila va genera, în mai multe domenii de activitate, mii locuri de muncă esențiale pentru ocuparea forței de muncă din această regiune.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Vorbitorul oferă un mecanism cauzal clar: investiția generează locuri de muncă, justificând astfel importanța proiectului.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"mai presus de orice orgolii trebuie să primeze interesul binelui comun.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Justificarea este ancorată explicit în interesul binelui comun și dezvoltarea economică regională.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Șantierul Naval Brăila și combinatul din Galați\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Grupuri economice menționate funcțional, fără derogare sau laudă explicită.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"am cerut, de la toate instituțiile implicate, informații privind derularea lucrărilor\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Vorbitorul se concentrează pe propria activitate de monitorizare; nu există cereri adverse angajate.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"Acest proiect ambițios al autorităților române, atât de la nivel local, cât și de la nivel central, va avea în mine un ferm susținător!\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Discursul este pur afirmativ și de susținere, ignorând orice potențiale contraargumente.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"Acest proiect ambițios al autorităților române, atât de la nivel local, cât și de la nivel central, va avea în mine un ferm susținător!\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Vorbitorul își declară susținerea pentru proiectul existent, fără a propune alternative sau medieri.\"\n    }\n  ],\n  \"rationale\": \"Discursul prezintă o calitate deliberativă moderată, fiind centrat pe susținerea unui proiect de infrastructură. Vorbitorul oferă o justificare calificată (level_of_justification=2) prin legarea investiției de crearea de locuri de muncă și dezvoltarea regională, apelând la binele comun (content_of_justification=common_good). Totuși, discursul este pur pozițional (constructive_politics=positional), neexistând o dezbatere cu opoziția sau propuneri alternative. Respectul pentru grupuri este neutru, iar respectul pentru contraargumente este absent, deoarece vorbitorul nu abordează nicio critică sau opinie divergentă. Este un discurs de informare și susținere politică, nu unul de deliberare contradictorie.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12779,
+      "tokens_in_breakdown": {
+        "fresh": 12779,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1226,
+      "cost_usd": null,
+      "latency_ms": 5056,
+      "retries_used": 0
+    }
+  }
+}

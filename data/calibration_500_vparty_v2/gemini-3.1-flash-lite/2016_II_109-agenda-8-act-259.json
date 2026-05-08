@@ -1,0 +1,52 @@
+{
+  "speech_id": "mo://2016/II/109#agenda-8#act-259",
+  "tier": "calibration",
+  "speaker": {
+    "id": "coca-laurentiu-florian",
+    "name": "Laurențiu Florian Coca",
+    "raw": "Domnul Laurențiu Florian Coca",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": "2016-06-21",
+    "year": 2016,
+    "legislature": "VII",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": null,
+    "voice": null,
+    "dqi": null,
+    "vparty": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "vparty",
+      "speech_id": "mo://2016/II/109#agenda-8#act-259",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "vparty@2020 + vdem-attacks-on@v13",
+        "framework_confidence": 1.0,
+        "markers": [],
+        "rationale": "Acest text reprezintă un proces-verbal administrativ de numărare a voturilor în cadrul unei proceduri parlamentare standard. Nu conține nicio formă de delegitimizare a instituțiilor democratice, a opoziției, a presei, a societății civile sau a minorităților. Procedura de vot secret și rezultatul acesteia sunt prezentate ca un act formal, respectând normele parlamentare și constituționale. Discursul este pur procedural și nu exprimă nicio viziune anti-pluralistă."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"vparty@2020 + vdem-attacks-on@v13\",\n  \"framework_confidence\": 1.0,\n  \"markers\": [],\n  \"rationale\": \"Acest text reprezintă un proces-verbal administrativ de numărare a voturilor în cadrul unei proceduri parlamentare standard. Nu conține nicio formă de delegitimizare a instituțiilor democratice, a opoziției, a presei, a societății civile sau a minorităților. Procedura de vot secret și rezultatul acesteia sunt prezentate ca un act formal, respectând normele parlamentare și constituționale. Discursul este pur procedural și nu exprimă nicio viziune anti-pluralistă.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13111,
+      "tokens_in_breakdown": {
+        "fresh": 13111,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 192,
+      "cost_usd": null,
+      "latency_ms": 1722,
+      "retries_used": 0
+    }
+  }
+}

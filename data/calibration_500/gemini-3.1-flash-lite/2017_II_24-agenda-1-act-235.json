@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2017/II/24#agenda-1#act-235",
+  "tier": "calibration",
+  "speaker": {
+    "id": "florea-oana-consuela",
+    "name": "Oana Consuela Florea",
+    "raw": "Doamna Oana Consuela Florea",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2017-02-14",
+    "year": 2017,
+    "legislature": "VIII",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2017/II/24#agenda-1#act-235",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 1.0,
+        "markers": [],
+        "rationale": "Discursul reprezintă un raport tehnic standard al unei comisii parlamentare privind o propunere legislativă de modificare a Legii societăților. Textul se limitează la prezentarea procedurilor parlamentare, a avizelor instituționale și a argumentelor juridice pentru respingerea propunerii, fără a utiliza nicio retorică populistă. Nu există nicio referire la un cadru popor-vs-elită, maniheism moral sau invocarea unei voințe populare suverane. Discursul este pur procedural și tehnic, încadrându-se perfect în scorul 0."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 1.0,\n  \"markers\": [],\n  \"rationale\": \"Discursul reprezintă un raport tehnic standard al unei comisii parlamentare privind o propunere legislativă de modificare a Legii societăților. Textul se limitează la prezentarea procedurilor parlamentare, a avizelor instituționale și a argumentelor juridice pentru respingerea propunerii, fără a utiliza nicio retorică populistă. Nu există nicio referire la un cadru popor-vs-elită, maniheism moral sau invocarea unei voințe populare suverane. Discursul este pur procedural și tehnic, încadrându-se perfect în scorul 0.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13806,
+      "tokens_in_breakdown": {
+        "fresh": 13806,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 200,
+      "cost_usd": null,
+      "latency_ms": 1922,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2017/II/24#agenda-1#act-235",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.95,
+        "level_of_justification": 2,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "apreciindu-se că obiectivele de reglementare ale propunerii sunt deja realizate, cel puțin parțial, prin modificările intervenite în anul 2014 în legislația insolvenței, respectiv prin Legea nr. 85/2014"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Justificare calificată prin referință la un act normativ specific (Legea 85/2014) pentru a susține respingerea."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "obiectivele de reglementare ale propunerii sunt deja realizate"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Apelul la evitarea redundanței legislative vizează eficiența sistemului juridic, un interes general."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Membrii Comisiei juridice, de disciplină și imunități"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Referință neutră la membrii comisiei; nicio derogare sau respect explicit."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "să propună plenului Camerei Deputaților respingerea propunerii legislative"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.94,
+            "rationale_short": "Poziție procedurală de respingere fără angajament explicit cu cererea inițiatorului."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "apreciindu-se că obiectivele de reglementare ale propunerii sunt deja realizate"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.93,
+            "rationale_short": "Menționează implicit raționamentul propunerii pentru a-l contracara, dar fără un dialog direct."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "să propună plenului Camerei Deputaților respingerea propunerii legislative"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.96,
+            "rationale_short": "Discursul susține o poziție de respingere, fără a oferi o alternativă sau mediere."
+          }
+        ],
+        "rationale": "Acesta este un raport de comisie standard, caracterizat printr-un ton neutru și procedural. Vorbitorul oferă o justificare calificată (level_of_justification=2) prin invocarea Legii nr. 85/2014 pentru a demonstra redundanța propunerii, apelând la binele comun al coerenței legislative. Respectul pentru grupuri și cereri este neutru, fiind o prezentare tehnică a deciziei comisiei. Nu există un angajament deliberativ profund cu argumentele inițiatorului, ci doar o respingere bazată pe argumente tehnice. Discursul este pozițional, reflectând rolul instituțional al raportorului de a prezenta o recomandare de vot."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.95,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"apreciindu-se că obiectivele de reglementare ale propunerii sunt deja realizate, cel puțin parțial, prin modificările intervenite în anul 2014 în legislația insolvenței, respectiv prin Legea nr. 85/2014\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Justificare calificată prin referință la un act normativ specific (Legea 85/2014) pentru a susține respingerea.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"obiectivele de reglementare ale propunerii sunt deja realizate\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Apelul la evitarea redundanței legislative vizează eficiența sistemului juridic, un interes general.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Membrii Comisiei juridice, de disciplină și imunități\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Referință neutră la membrii comisiei; nicio derogare sau respect explicit.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"să propună plenului Camerei Deputaților respingerea propunerii legislative\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.94,\n      \"rationale_short\": \"Poziție procedurală de respingere fără angajament explicit cu cererea inițiatorului.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"apreciindu-se că obiectivele de reglementare ale propunerii sunt deja realizate\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.93,\n      \"rationale_short\": \"Menționează implicit raționamentul propunerii pentru a-l contracara, dar fără un dialog direct.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"să propună plenului Camerei Deputaților respingerea propunerii legislative\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.96,\n      \"rationale_short\": \"Discursul susține o poziție de respingere, fără a oferi o alternativă sau mediere.\"\n    }\n  ],\n  \"rationale\": \"Acesta este un raport de comisie standard, caracterizat printr-un ton neutru și procedural. Vorbitorul oferă o justificare calificată (level_of_justification=2) prin invocarea Legii nr. 85/2014 pentru a demonstra redundanța propunerii, apelând la binele comun al coerenței legislative. Respectul pentru grupuri și cereri este neutru, fiind o prezentare tehnică a deciziei comisiei. Nu există un angajament deliberativ profund cu argumentele inițiatorului, ci doar o respingere bazată pe argumente tehnice. Discursul este pozițional, reflectând rolul instituțional al raportorului de a prezenta o recomandare de vot.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12607,
+      "tokens_in_breakdown": {
+        "fresh": 12607,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1190,
+      "cost_usd": null,
+      "latency_ms": 4445,
+      "retries_used": 0
+    }
+  }
+}

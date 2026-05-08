@@ -1,0 +1,52 @@
+{
+  "speech_id": "mo://2013/II/23#agenda-1#act-126",
+  "tier": "calibration",
+  "speaker": {
+    "id": "cadar-leonard",
+    "name": "Leonard Cadăr",
+    "raw": "Domnul Leonard Cadăr",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": "2013-02-26",
+    "year": 2013,
+    "legislature": "VII",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": null,
+    "voice": null,
+    "dqi": null,
+    "vparty": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "vparty",
+      "speech_id": "mo://2013/II/23#agenda-1#act-126",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "vparty@2020 + vdem-attacks-on@v13",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul este unul pur procedural și legislativ, axat pe o inițiativă de reglementare a furtului de materiale electrice. Vorbitorul critică opoziția pentru tergiversare, dar o face în limitele uzuale ale dezbaterii parlamentare, fără a delegitima opoziția ca entitate sau a ataca instituții democratice. Nu există nicio urmă de retorică anti-pluralistă, scapegoating sau respingere a normelor democratice. Discursul respectă pe deplin cadrul pluralist de contestare politică."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"vparty@2020 + vdem-attacks-on@v13\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul este unul pur procedural și legislativ, axat pe o inițiativă de reglementare a furtului de materiale electrice. Vorbitorul critică opoziția pentru tergiversare, dar o face în limitele uzuale ale dezbaterii parlamentare, fără a delegitima opoziția ca entitate sau a ataca instituții democratice. Nu există nicio urmă de retorică anti-pluralistă, scapegoating sau respingere a normelor democratice. Discursul respectă pe deplin cadrul pluralist de contestare politică.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12980,
+      "tokens_in_breakdown": {
+        "fresh": 12980,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 206,
+      "cost_usd": null,
+      "latency_ms": 1668,
+      "retries_used": 0
+    }
+  }
+}

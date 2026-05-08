@@ -1,0 +1,52 @@
+{
+  "speech_id": "mo://2018/II/126#agenda-1#act-74",
+  "tier": "calibration",
+  "speaker": {
+    "id": "rotaru-razvan-ilie",
+    "name": "Răzvan Ilie Rotaru",
+    "raw": "Domnul Răzvan Ilie Rotaru",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2018-09-05",
+    "year": 2018,
+    "legislature": "VIII",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": null,
+    "voice": null,
+    "dqi": null,
+    "vparty": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "vparty",
+      "speech_id": "mo://2018/II/126#agenda-1#act-74",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "vparty@2020 + vdem-attacks-on@v13",
+        "framework_confidence": 0.95,
+        "markers": [],
+        "rationale": "Discursul reprezintă o critică politică dură la adresa președintelui Klaus Iohannis, acuzându-l de partizanat politic și obstrucționarea activității guvernamentale. Deși limbajul este acuzator, acesta rămâne în sfera disputei politice parlamentare obișnuite, vizând acțiunile și agenda unui actor politic specific, nu delegitimarea instituțiilor democratice ca atare. Nu există atacuri la adresa justiției, presei, ONG-urilor sau minorităților, iar referințele la Constituție sunt folosite pentru a critica conduita președintelui, nu pentru a respinge ordinea constituțională. Discursul se concentrează pe argumente economice și procedurale, încadrându-se în registrul democratic de contestare."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"vparty@2020 + vdem-attacks-on@v13\",\n  \"framework_confidence\": 0.95,\n  \"markers\": [],\n  \"rationale\": \"Discursul reprezintă o critică politică dură la adresa președintelui Klaus Iohannis, acuzându-l de partizanat politic și obstrucționarea activității guvernamentale. Deși limbajul este acuzator, acesta rămâne în sfera disputei politice parlamentare obișnuite, vizând acțiunile și agenda unui actor politic specific, nu delegitimarea instituțiilor democratice ca atare. Nu există atacuri la adresa justiției, presei, ONG-urilor sau minorităților, iar referințele la Constituție sunt folosite pentru a critica conduita președintelui, nu pentru a respinge ordinea constituțională. Discursul se concentrează pe argumente economice și procedurale, încadrându-se în registrul democratic de contestare.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13659,
+      "tokens_in_breakdown": {
+        "fresh": 13659,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 256,
+      "cost_usd": null,
+      "latency_ms": 1994,
+      "retries_used": 0
+    }
+  }
+}

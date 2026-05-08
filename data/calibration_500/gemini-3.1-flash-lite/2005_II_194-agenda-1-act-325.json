@@ -1,0 +1,153 @@
+{
+  "speech_id": "mo://2005/II/194#agenda-1#act-325",
+  "tier": "calibration",
+  "speaker": {
+    "id": "funar-gheorghe",
+    "name": "Gheorghe Funar",
+    "raw": "Domnul Gheorghe Funar",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": null,
+    "year": 2005,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2005/II/194#agenda-1#act-325",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul este unul pur procedural, axat pe analiza tehnică a bugetului Curții de Conturi și pe propunerea unui amendament specific de reducere a cheltuielilor salariale. Nu există nicio urmă de cadru popor-vs-elită, maniheism moral sau invocare a unei voințe populare omogene. Deși vorbitorul critică o „risipă de bani publici”, aceasta este încadrată strict în registrul controlului parlamentar asupra execuției bugetare, nu în cel al unei retorici populiste. Hawkins=0 cu încredere ridicată."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul este unul pur procedural, axat pe analiza tehnică a bugetului Curții de Conturi și pe propunerea unui amendament specific de reducere a cheltuielilor salariale. Nu există nicio urmă de cadru popor-vs-elită, maniheism moral sau invocare a unei voințe populare omogene. Deși vorbitorul critică o „risipă de bani publici”, aceasta este încadrată strict în registrul controlului parlamentar asupra execuției bugetare, nu în cel al unei retorici populiste. Hawkins=0 cu încredere ridicată.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13780,
+      "tokens_in_breakdown": {
+        "fresh": 13780,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 205,
+      "cost_usd": null,
+      "latency_ms": 2053,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2005/II/194#agenda-1#act-325",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.88,
+        "level_of_justification": 2,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "alternative_proposal",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "am propus modificarea bugetului Cur˛ii de Conturi, prin diminuarea aloc„rii de la Capitolul 5101 — îAutorit„˛i publice ∫i ac˛iuni externe“, Titlul 10 — îCheltuieli de personal“, art. 01 — îCheltuieli salariale Ón bani“ alin. 30 — îAlte drepturi salariale Ón bani“, de la 9.128 mii lei la 892,29 mii lei"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Vorbitorul oferă o justificare bazată pe date bugetare specifice și propune o corecție concretă."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "am constatat o alt„ risip„ de bani publici"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Justificarea se bazează pe protejarea banului public, un interes universalizabil."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Doamnelor ∫i domnilor parlamentari"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.99,
+            "marker_confidence": 0.95,
+            "rationale_short": "Adresare formală standard; niciun grup nu este vizat sau respectat explicit."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "am propus modificarea bugetului"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Vorbitorul își urmărește propria agendă fără a menționa sau angaja cererile altora."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "am constatat o alt„ risip„ de bani publici"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Nu există nicio referire la argumentele care au dus la creșterea bugetară inițială."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "alternative_proposal",
+            "evidence": {
+              "text": "am propus modificarea bugetului Cur˛ii de Conturi, prin diminuarea aloc„rii"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.96,
+            "rationale_short": "Vorbitorul oferă o alternativă concretă la bugetul propus, sub formă de amendament."
+          }
+        ],
+        "rationale": "Discursul prezintă o calitate deliberativă medie-ridicată prin natura sa constructivă și justificată. Vorbitorul identifică o problemă specifică (creșterea nejustificată a cheltuielilor salariale) și propune o alternativă concretă (amendamentul de reducere a bugetului), ceea ce îi conferă un caracter constructiv (alternative_proposal). Justificarea este calificată (level_of_justification=2) prin utilizarea datelor bugetare și a referințelor la capitolele de cheltuieli, apelând la binele comun (protejarea banului public). Totuși, discursul nu angajează contraargumentele sau cererile altor părți, rămânând într-o zonă de poziționare unilaterală. Respectul pentru grupuri și cereri rămâne neutru, fiind o intervenție procedurală axată pe cifre."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.88,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 0,\n  \"constructive_politics\": \"alternative_proposal\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"am propus modificarea bugetului Cur˛ii de Conturi, prin diminuarea aloc„rii de la Capitolul 5101 — îAutorit„˛i publice ∫i ac˛iuni externe“, Titlul 10 — îCheltuieli de personal“, art. 01 — îCheltuieli salariale Ón bani“ alin. 30 — îAlte drepturi salariale Ón bani“, de la 9.128 mii lei la 892,29 mii lei\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Vorbitorul oferă o justificare bazată pe date bugetare specifice și propune o corecție concretă.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"am constatat o alt„ risip„ de bani publici\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Justificarea se bazează pe protejarea banului public, un interes universalizabil.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Doamnelor ∫i domnilor parlamentari\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.99,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Adresare formală standard; niciun grup nu este vizat sau respectat explicit.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"am propus modificarea bugetului\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Vorbitorul își urmărește propria agendă fără a menționa sau angaja cererile altora.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"am constatat o alt„ risip„ de bani publici\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.90,\n      \"rationale_short\": \"Nu există nicio referire la argumentele care au dus la creșterea bugetară inițială.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"alternative_proposal\",\n      \"evidence\": {\n        \"text\": \"am propus modificarea bugetului Cur˛ii de Conturi, prin diminuarea aloc„rii\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.96,\n      \"rationale_short\": \"Vorbitorul oferă o alternativă concretă la bugetul propus, sub formă de amendament.\"\n    }\n  ],\n  \"rationale\": \"Discursul prezintă o calitate deliberativă medie-ridicată prin natura sa constructivă și justificată. Vorbitorul identifică o problemă specifică (creșterea nejustificată a cheltuielilor salariale) și propune o alternativă concretă (amendamentul de reducere a bugetului), ceea ce îi conferă un caracter constructiv (alternative_proposal). Justificarea este calificată (level_of_justification=2) prin utilizarea datelor bugetare și a referințelor la capitolele de cheltuieli, apelând la binele comun (protejarea banului public). Totuși, discursul nu angajează contraargumentele sau cererile altor părți, rămânând într-o zonă de poziționare unilaterală. Respectul pentru grupuri și cereri rămâne neutru, fiind o intervenție procedurală axată pe cifre.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [
+        "am constatat o alt„ risip„ de bani publici",
+        "am constatat o alt„ risip„ de bani publici"
+      ],
+      "parse_repaired": false,
+      "tokens_in": 12581,
+      "tokens_in_breakdown": {
+        "fresh": 12581,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1253,
+      "cost_usd": null,
+      "latency_ms": 4484,
+      "retries_used": 0
+    }
+  }
+}

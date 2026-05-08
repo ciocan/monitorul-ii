@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2001/II/10#agenda-1#act-363",
+  "tier": "calibration",
+  "speaker": {
+    "id": "oltean-ioan",
+    "name": "Ioan Oltean",
+    "raw": "Domnul Ioan Oltean",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": null,
+    "year": 2001,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2001/II/10#agenda-1#act-363",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 1.0,
+        "markers": [],
+        "rationale": "Discursul este pur procedural, concentrându-se pe clarificarea textului unui articol din regulamentul de funcționare a consiliului. Vorbitorul propune o modificare tehnică pentru a elimina o repetiție redundantă, fără a invoca nicio temă populistă, maniheistă sau de mobilizare a poporului împotriva unei elite. Nu există niciun marker populist prezent, iar registrul este strict administrativ și tehnic."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 1.0,\n  \"markers\": [],\n  \"rationale\": \"Discursul este pur procedural, concentrându-se pe clarificarea textului unui articol din regulamentul de funcționare a consiliului. Vorbitorul propune o modificare tehnică pentru a elimina o repetiție redundantă, fără a invoca nicio temă populistă, maniheistă sau de mobilizare a poporului împotriva unei elite. Nu există niciun marker populist prezent, iar registrul este strict administrativ și tehnic.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13680,
+      "tokens_in_breakdown": {
+        "fresh": 13680,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 167,
+      "cost_usd": null,
+      "latency_ms": 1990,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2001/II/10#agenda-1#act-363",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.88,
+        "level_of_justification": 2,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "alternative_proposal",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "Aº propune eliminarea expresiei ”de constituireÒ pentru a-i da mai multã clarviziune textului din punct de vedere literal."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Vorbitorul oferă un motiv clar (claritatea literală a textului) pentru amendamentul propus."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "pentru a-i da mai multã clarviziune textului din punct de vedere literal"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Justificarea vizează calitatea legislativă (binele comun), nu un interes de grup."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Domnilor colegi"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.99,
+            "marker_confidence": 0.95,
+            "rationale_short": "Adresare convențională neutră; niciun grup vizat sau derogatoriu."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Aº propune eliminarea expresiei ”de constituireÒ"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Vorbitorul își prezintă propunerea fără a angaja cereri adverse; neutru."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "finalul acestui articol pare puþin stânjenitor printr-o repetiþie a douã cuvinte"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.88,
+            "rationale_short": "Identifică o problemă în textul existent, dar nu angajează un contraargument al unui oponent."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "alternative_proposal",
+            "evidence": {
+              "text": "Eu propun eliminarea ”de constituireÒ. ªi atunci ar suna astfel: ”Consilierul care a condus ºedinþa declarã consiliul legal constituit.Ò"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.96,
+            "rationale_short": "Vorbitorul oferă o modificare concretă și specifică a textului legislativ."
+          }
+        ],
+        "rationale": "Discursul este o intervenție tehnică de îmbunătățire a clarității unui text legislativ. Vorbitorul oferă o justificare calificată (level_of_justification=2) bazată pe nevoia de claritate literală, apelând la binele comun al calității legii (content_of_justification=common_good). Deși nu există un conflict politic direct, vorbitorul propune o alternativă concretă (constructive_politics=alternative_proposal) pentru a corecta o repetiție redundantă. Respectul pentru grupuri și cereri este neutru, deoarece intervenția este pur procedurală și tehnică. Calitatea deliberativă este ridicată în contextul unei dezbateri de redactare, fiind un exemplu de argumentare constructivă și specifică."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.88,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"alternative_proposal\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"Aº propune eliminarea expresiei ”de constituireÒ pentru a-i da mai multã clarviziune textului din punct de vedere literal.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Vorbitorul oferă un motiv clar (claritatea literală a textului) pentru amendamentul propus.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"pentru a-i da mai multã clarviziune textului din punct de vedere literal\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Justificarea vizează calitatea legislativă (binele comun), nu un interes de grup.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Domnilor colegi\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.99,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Adresare convențională neutră; niciun grup vizat sau derogatoriu.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Aº propune eliminarea expresiei ”de constituireÒ\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.90,\n      \"rationale_short\": \"Vorbitorul își prezintă propunerea fără a angaja cereri adverse; neutru.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"finalul acestui articol pare puþin stânjenitor printr-o repetiþie a douã cuvinte\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Identifică o problemă în textul existent, dar nu angajează un contraargument al unui oponent.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"alternative_proposal\",\n      \"evidence\": {\n        \"text\": \"Eu propun eliminarea ”de constituireÒ. ªi atunci ar suna astfel: ”Consilierul care a condus ºedinþa declarã consiliul legal constituit.Ò\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.96,\n      \"rationale_short\": \"Vorbitorul oferă o modificare concretă și specifică a textului legislativ.\"\n    }\n  ],\n  \"rationale\": \"Discursul este o intervenție tehnică de îmbunătățire a clarității unui text legislativ. Vorbitorul oferă o justificare calificată (level_of_justification=2) bazată pe nevoia de claritate literală, apelând la binele comun al calității legii (content_of_justification=common_good). Deși nu există un conflict politic direct, vorbitorul propune o alternativă concretă (constructive_politics=alternative_proposal) pentru a corecta o repetiție redundantă. Respectul pentru grupuri și cereri este neutru, deoarece intervenția este pur procedurală și tehnică. Calitatea deliberativă este ridicată în contextul unei dezbateri de redactare, fiind un exemplu de argumentare constructivă și specifică.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12481,
+      "tokens_in_breakdown": {
+        "fresh": 12481,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1174,
+      "cost_usd": null,
+      "latency_ms": 4787,
+      "retries_used": 0
+    }
+  }
+}

@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2009/II/16#agenda-1#act-67",
+  "tier": "calibration",
+  "speaker": {
+    "id": "stanciu-anghel",
+    "name": "Anghel Stanciu",
+    "raw": "Domnul Anghel Stanciu",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2009-02-19",
+    "year": 2009,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2009/II/16#agenda-1#act-67",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul este unul pur procedural, axat pe solicitări de respectare a regulamentului parlamentar și pe o anecdotă literară (citatul din Winston Churchill). Nu există nicio tentativă de a construi un cadru manihean popor-vs-elită, nicio invocare a unei voințe populare omogene și nicio retorică populistă. Vorbitorul utilizează cadrul parlamentar pentru a critica stilul de lucru al colegilor, nu pentru a promova o viziune populistă. Hawkins=0 cu încredere ridicată."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul este unul pur procedural, axat pe solicitări de respectare a regulamentului parlamentar și pe o anecdotă literară (citatul din Winston Churchill). Nu există nicio tentativă de a construi un cadru manihean popor-vs-elită, nicio invocare a unei voințe populare omogene și nicio retorică populistă. Vorbitorul utilizează cadrul parlamentar pentru a critica stilul de lucru al colegilor, nu pentru a promova o viziune populistă. Hawkins=0 cu încredere ridicată.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13839,
+      "tokens_in_breakdown": {
+        "fresh": 13839,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 195,
+      "cost_usd": null,
+      "latency_ms": 1836,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2009/II/16#agenda-1#act-67",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.65,
+        "level_of_justification": 0,
+        "content_of_justification": "none",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 0,
+            "evidence": {
+              "text": "O să-mi permiteți, pe o chestiune de procedură, să fac două scurte comentarii."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Discursul este pur procedural, fără a oferi argumente pentru o poziție politică."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "none",
+            "evidence": {
+              "text": "O să-mi permiteți, pe o chestiune de procedură, să fac două scurte comentarii."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Nicio justificare oferită; conținutul este nedefinit."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Stimate doamne și stimați domni senatori și deputați"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.99,
+            "marker_confidence": 0.9,
+            "rationale_short": "Adresare formală standard; niciun grup nu este vizat pentru respect sau derogare."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Când se mai solicită procedură, aș ruga să indicați distinșilor noștri colegi să ne nominalizeze articolul și alineatul"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.85,
+            "rationale_short": "Solicitare procedurală neutră; nu se angajează cu legitimitatea cererilor adverse."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "„Nu îndrăznesc să vă spun cum să cugetați. «E la articolul 90, alineatul prostie»."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.88,
+            "rationale_short": "Vorbitorul folosește un citat pentru a ironiza colegii, evitând orice angajament cu argumentele lor."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "aș ruga să indicați distinșilor noștri colegi să ne nominalizeze articolul și alineatul"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.92,
+            "rationale_short": "Intervenție procedurală; nicio propunere alternativă sau mediere."
+          }
+        ],
+        "rationale": "Discursul este o intervenție procedurală cu caracter ironic, lipsită de substanță deliberativă. Vorbitorul nu oferă nicio justificare pentru poziția sa (level_of_justification=0), limitându-se la cerințe de formă și citate sarcastice. Respectul pentru grupuri și cereri rămâne neutru, fiind o chestiune de etichetă parlamentară, în timp ce respectul pentru contraargumente este absent, fiind înlocuit de ironie. Nu există nicio propunere constructivă, discursul fiind pur pozițional în cadrul regulamentului. Calitatea deliberativă este scăzută, reflectând un stil retoric mai degrabă decât unul argumentativ."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.65,\n  \"level_of_justification\": 0,\n  \"content_of_justification\": \"none\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 0,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"O să-mi permiteți, pe o chestiune de procedură, să fac două scurte comentarii.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Discursul este pur procedural, fără a oferi argumente pentru o poziție politică.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"none\",\n      \"evidence\": {\n        \"text\": \"O să-mi permiteți, pe o chestiune de procedură, să fac două scurte comentarii.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Nicio justificare oferită; conținutul este nedefinit.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Stimate doamne și stimați domni senatori și deputați\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.99,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Adresare formală standard; niciun grup nu este vizat pentru respect sau derogare.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Când se mai solicită procedură, aș ruga să indicați distinșilor noștri colegi să ne nominalizeze articolul și alineatul\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Solicitare procedurală neutră; nu se angajează cu legitimitatea cererilor adverse.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"„Nu îndrăznesc să vă spun cum să cugetați. «E la articolul 90, alineatul prostie».\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Vorbitorul folosește un citat pentru a ironiza colegii, evitând orice angajament cu argumentele lor.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"aș ruga să indicați distinșilor noștri colegi să ne nominalizeze articolul și alineatul\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Intervenție procedurală; nicio propunere alternativă sau mediere.\"\n    }\n  ],\n  \"rationale\": \"Discursul este o intervenție procedurală cu caracter ironic, lipsită de substanță deliberativă. Vorbitorul nu oferă nicio justificare pentru poziția sa (level_of_justification=0), limitându-se la cerințe de formă și citate sarcastice. Respectul pentru grupuri și cereri rămâne neutru, fiind o chestiune de etichetă parlamentară, în timp ce respectul pentru contraargumente este absent, fiind înlocuit de ironie. Nu există nicio propunere constructivă, discursul fiind pur pozițional în cadrul regulamentului. Calitatea deliberativă este scăzută, reflectând un stil retoric mai degrabă decât unul argumentativ.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12640,
+      "tokens_in_breakdown": {
+        "fresh": 12640,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1153,
+      "cost_usd": null,
+      "latency_ms": 4489,
+      "retries_used": 0
+    }
+  }
+}

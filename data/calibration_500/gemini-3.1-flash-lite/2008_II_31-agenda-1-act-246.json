@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2008/II/31#agenda-1#act-246",
+  "tier": "calibration",
+  "speaker": {
+    "id": "munteanu-ioan",
+    "name": "Ioan Munteanu",
+    "raw": "Domnul Ioan Munteanu",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2008-03-18",
+    "year": 2008,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2008/II/31#agenda-1#act-246",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul este unul tehnic, axat pe o inițiativă legislativă specifică privind sprijinul pentru producătorii agricoli și pomicultură. Deși conține termeni precum „dezastrul din pomicultură”, aceștia sunt utilizați în contextul unei analize de politici publice și al unor probleme economice concrete, nu ca parte a unui cadru maniheist popor-vs-elită. Nu există nicio invocare a unei voințe populare omogene care să se opună instituțiilor, nici o demonizare a unei elite. Discursul rămâne în registrul procedural și constructiv, specific dezbaterilor parlamentare de specialitate."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul este unul tehnic, axat pe o inițiativă legislativă specifică privind sprijinul pentru producătorii agricoli și pomicultură. Deși conține termeni precum „dezastrul din pomicultură”, aceștia sunt utilizați în contextul unei analize de politici publice și al unor probleme economice concrete, nu ca parte a unui cadru maniheist popor-vs-elită. Nu există nicio invocare a unei voințe populare omogene care să se opună instituțiilor, nici o demonizare a unei elite. Discursul rămâne în registrul procedural și constructiv, specific dezbaterilor parlamentare de specialitate.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13714,
+      "tokens_in_breakdown": {
+        "fresh": 13714,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 217,
+      "cost_usd": null,
+      "latency_ms": 1940,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2008/II/31#agenda-1#act-246",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.82,
+        "level_of_justification": 1,
+        "content_of_justification": "group_interest",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 1,
+            "evidence": {
+              "text": "Dăm astfel posibilitatea pomicultorilor din România, atâția câți au mai rămas la această oră, să realizeze lucrările agricole în livezi. În acest fel cred că vom reuși să creștem producția internă de fructe"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Justificarea este bazată pe o presupunere cauzală generală, fără dovezi empirice sau principii specifice."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "group_interest",
+            "evidence": {
+              "text": "din punctul de vedere al Grupului parlamentar al PSD"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.99,
+            "marker_confidence": 0.92,
+            "rationale_short": "Apelul este explicit ancorat în interesul grupului parlamentar al PSD."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "pomicultorilor din România"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.9,
+            "rationale_short": "Grupul vizat este menționat funcțional, fără derogare sau respect explicit."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "susținem această inițiativă legislativă a domnului senator Stan"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.88,
+            "rationale_short": "Nu există o angajare cu cereri adverse; discursul este pur susținător."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "credem că și alte grupuri parlamentare înțeleg că numai astfel nu vom ajunge să avem în loc de livezi doar câmpuri pline de bălării"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.96,
+            "marker_confidence": 0.85,
+            "rationale_short": "Vorbitorul ignoră contraargumentele și presupune consensul fără a aborda opoziția."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "susținem această inițiativă legislativă"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.99,
+            "marker_confidence": 0.95,
+            "rationale_short": "Discursul este o susținere a unei poziții existente, fără a propune alternative sau medieri."
+          }
+        ],
+        "rationale": "Discursul prezintă o calitate deliberativă limitată, fiind centrat pe susținerea unei inițiative legislative din perspectiva interesului de grup (PSD). Justificarea oferită este de nivel 1, bazându-se pe o logică cauzală simplistă („vom reuși să creștem producția”) fără a invoca date sau principii riguroase. Nu există un angajament cu contraargumente sau cereri adverse, vorbitorul preferând să presupună un consens general. Respectul pentru grupuri rămâne neutru, iar caracterul politic este pur pozițional. Discursul servește mai degrabă ca o declarație de susținere politică decât ca o contribuție deliberativă substanțială."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.82,\n  \"level_of_justification\": 1,\n  \"content_of_justification\": \"group_interest\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 0,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Dăm astfel posibilitatea pomicultorilor din România, atâția câți au mai rămas la această oră, să realizeze lucrările agricole în livezi. În acest fel cred că vom reuși să creștem producția internă de fructe\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Justificarea este bazată pe o presupunere cauzală generală, fără dovezi empirice sau principii specifice.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"group_interest\",\n      \"evidence\": {\n        \"text\": \"din punctul de vedere al Grupului parlamentar al PSD\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.99,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Apelul este explicit ancorat în interesul grupului parlamentar al PSD.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"pomicultorilor din România\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"marker_confidence\": 0.90,\n      \"rationale_short\": \"Grupul vizat este menționat funcțional, fără derogare sau respect explicit.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"susținem această inițiativă legislativă a domnului senator Stan\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Nu există o angajare cu cereri adverse; discursul este pur susținător.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"credem că și alte grupuri parlamentare înțeleg că numai astfel nu vom ajunge să avem în loc de livezi doar câmpuri pline de bălării\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.96,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Vorbitorul ignoră contraargumentele și presupune consensul fără a aborda opoziția.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"susținem această inițiativă legislativă\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.99,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Discursul este o susținere a unei poziții existente, fără a propune alternative sau medieri.\"\n    }\n  ],\n  \"rationale\": \"Discursul prezintă o calitate deliberativă limitată, fiind centrat pe susținerea unei inițiative legislative din perspectiva interesului de grup (PSD). Justificarea oferită este de nivel 1, bazându-se pe o logică cauzală simplistă („vom reuși să creștem producția”) fără a invoca date sau principii riguroase. Nu există un angajament cu contraargumente sau cereri adverse, vorbitorul preferând să presupună un consens general. Respectul pentru grupuri rămâne neutru, iar caracterul politic este pur pozițional. Discursul servește mai degrabă ca o declarație de susținere politică decât ca o contribuție deliberativă substanțială.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12515,
+      "tokens_in_breakdown": {
+        "fresh": 12515,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1155,
+      "cost_usd": null,
+      "latency_ms": 4370,
+      "retries_used": 0
+    }
+  }
+}

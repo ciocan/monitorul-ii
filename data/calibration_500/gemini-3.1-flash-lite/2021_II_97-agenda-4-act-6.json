@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2021/II/97#agenda-4#act-6",
+  "tier": "calibration",
+  "speaker": {
+    "id": "pruna-cristina-madalina",
+    "name": "Cristina-Mădălina Prună",
+    "raw": "Doamna Cristina-Mădălina Prună",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2021-06-14",
+    "year": 2021,
+    "legislature": "IX",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2021/II/97#agenda-4#act-6",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 1.0,
+        "markers": [],
+        "rationale": "Discursul este unul pur procedural, axat pe organizarea dezbaterii unei moțiuni simple și alocarea timpilor de vorbire pentru grupurile parlamentare. Nu există nicio urmă de retorică populistă, maniheism moral sau invocare a unei voințe populare omogene. Vorbitorul acționează în calitate de moderator al ședinței, respectând regulamentul intern al Camerei Deputaților. Hawkins=0 cu încredere maximă."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 1.0,\n  \"markers\": [],\n  \"rationale\": \"Discursul este unul pur procedural, axat pe organizarea dezbaterii unei moțiuni simple și alocarea timpilor de vorbire pentru grupurile parlamentare. Nu există nicio urmă de retorică populistă, maniheism moral sau invocare a unei voințe populare omogene. Vorbitorul acționează în calitate de moderator al ședinței, respectând regulamentul intern al Camerei Deputaților. Hawkins=0 cu încredere maximă.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13825,
+      "tokens_in_breakdown": {
+        "fresh": 13825,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 172,
+      "cost_usd": null,
+      "latency_ms": 1747,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2021/II/97#agenda-4#act-6",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.55,
+        "level_of_justification": 0,
+        "content_of_justification": "none",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 0,
+            "evidence": {
+              "text": "Pentru dezbaterea moțiunii, Biroul permanent și Comitetul liderilor grupurilor parlamentare vă propun următoarele."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Discursul este pur procedural, fără argumente sau justificări pentru o poziție politică."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "none",
+            "evidence": {
+              "text": "Pentru dezbaterea moțiunii, Biroul permanent și Comitetul liderilor grupurilor parlamentare vă propun următoarele."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Nicio justificare oferită; conținutul este nedefinit."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Stimați colegi"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.99,
+            "marker_confidence": 0.9,
+            "rationale_short": "Adresare convențională neutră; niciun grup nu este vizat sau derogatoriu."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Întreb dacă sunt obiecții. Nu sunt."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Procedură administrativă neutră; nu există cereri politice opuse de gestionat."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "Întreb dacă sunt obiecții. Nu sunt."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Nu există contraargumente în acest context procedural."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Pentru dezbaterea moțiunii, Biroul permanent și Comitetul liderilor grupurilor parlamentare vă propun următoarele."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Discursul se limitează la stabilirea regulilor de procedură, fără a propune alternative politice."
+          }
+        ],
+        "rationale": "Acest discurs este pur procedural, având rolul de a organiza ordinea de zi și timpii de dezbatere pentru o moțiune simplă. Deoarece nu conține argumentație politică, justificare sau angajament cu opoziția, toate dimensiunile DQI sunt codate la valorile lor implicite (neutru/pozițional). Framework_confidence este scăzut deoarece discursul nu reprezintă o deliberare în sensul Steiner & Bächtiger, ci o intervenție administrativă de conducere a ședinței. Nu există elemente de respect sau dispreț, iar caracterul constructiv este limitat la organizarea tehnică a lucrărilor parlamentare."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.55,\n  \"level_of_justification\": 0,\n  \"content_of_justification\": \"none\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 0,\n      \"evidence\": { \"text\": \"Pentru dezbaterea moțiunii, Biroul permanent și Comitetul liderilor grupurilor parlamentare vă propun următoarele.\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Discursul este pur procedural, fără argumente sau justificări pentru o poziție politică.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"none\",\n      \"evidence\": { \"text\": \"Pentru dezbaterea moțiunii, Biroul permanent și Comitetul liderilor grupurilor parlamentare vă propun următoarele.\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Nicio justificare oferită; conținutul este nedefinit.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": { \"text\": \"Stimați colegi\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.99,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Adresare convențională neutră; niciun grup nu este vizat sau derogatoriu.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": { \"text\": \"Întreb dacă sunt obiecții. Nu sunt.\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Procedură administrativă neutră; nu există cereri politice opuse de gestionat.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": { \"text\": \"Întreb dacă sunt obiecții. Nu sunt.\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Nu există contraargumente în acest context procedural.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": { \"text\": \"Pentru dezbaterea moțiunii, Biroul permanent și Comitetul liderilor grupurilor parlamentare vă propun următoarele.\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Discursul se limitează la stabilirea regulilor de procedură, fără a propune alternative politice.\"\n    }\n  ],\n  \"rationale\": \"Acest discurs este pur procedural, având rolul de a organiza ordinea de zi și timpii de dezbatere pentru o moțiune simplă. Deoarece nu conține argumentație politică, justificare sau angajament cu opoziția, toate dimensiunile DQI sunt codate la valorile lor implicite (neutru/pozițional). Framework_confidence este scăzut deoarece discursul nu reprezintă o deliberare în sensul Steiner & Bächtiger, ci o intervenție administrativă de conducere a ședinței. Nu există elemente de respect sau dispreț, iar caracterul constructiv este limitat la organizarea tehnică a lucrărilor parlamentare.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12626,
+      "tokens_in_breakdown": {
+        "fresh": 12626,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1067,
+      "cost_usd": null,
+      "latency_ms": 4304,
+      "retries_used": 0
+    }
+  }
+}

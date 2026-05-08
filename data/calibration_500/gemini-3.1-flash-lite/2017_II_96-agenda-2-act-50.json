@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2017/II/96#agenda-2#act-50",
+  "tier": "calibration",
+  "speaker": {
+    "id": "ciofu-tamara-dorina",
+    "name": "Tamara Dorina Ciofu",
+    "raw": "Doamna Tamara Dorina Ciofu",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2017-06-07",
+    "year": 2017,
+    "legislature": "VIII",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2017/II/96#agenda-2#act-50",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul este unul pur tehnic și procedural, axat pe probleme administrative specifice ale Serviciului Regim Permise de Conducere și Înmatriculare a Autovehiculelor. Vorbitorul identifică o problemă de resurse umane și condiții de muncă, propunând soluții legislative concrete (amendamente la Legea salarizării unitare) fără a apela la cadre populiste. Nu există nicio tentativă de a construi un conflict maniheist între popor și elită, nicio invocare a unei voințe populare omogene și nicio retorică de criză existențială. Discursul rămâne în limitele dezbaterii parlamentare de rutină."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul este unul pur tehnic și procedural, axat pe probleme administrative specifice ale Serviciului Regim Permise de Conducere și Înmatriculare a Autovehiculelor. Vorbitorul identifică o problemă de resurse umane și condiții de muncă, propunând soluții legislative concrete (amendamente la Legea salarizării unitare) fără a apela la cadre populiste. Nu există nicio tentativă de a construi un conflict maniheist între popor și elită, nicio invocare a unei voințe populare omogene și nicio retorică de criză existențială. Discursul rămâne în limitele dezbaterii parlamentare de rutină.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 14161,
+      "tokens_in_breakdown": {
+        "fresh": 14161,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 227,
+      "cost_usd": null,
+      "latency_ms": 2522,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2017/II/96#agenda-2#act-50",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.88,
+        "level_of_justification": 2,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "alternative_proposal",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "Având în vedere faptul că personalul contractual civil lucrează în fiecare zi peste program, realizează și activități care nu sunt incluse în fișa postului, operează cu date cu caracter personal și utilizează documente cu secret de serviciu, consider că și aceștia trebuie să beneficieze de condiții speciale sau deosebite de muncă"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Vorbitorul conectează propunerea de salarizare la o serie de responsabilități factuale și riscuri specifice, oferind o justificare bazată pe un mecanism logic."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "consider că și aceștia trebuie să beneficieze de condiții speciale sau deosebite de muncă, asemenea agenților de poliție."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Apelul este la echitatea tratamentului în cadrul serviciului public, vizând un principiu universalizabil de drepturi ale muncii."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "personalul contractual civil din cadrul Serviciului Regim Permise de Conducere și Înmatriculare a Autovehiculelor"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.9,
+            "rationale_short": "Grupul profesional este menționat funcțional, fără a fi derogate sau lăudate explicit; atitudine neutră."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "De aceea, vă propun să aducem mai multe amendamente la Legea salarizării unitare"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.88,
+            "rationale_short": "Vorbitorul își prezintă propria cerere fără a aborda explicit cererile opoziției; non-angajament."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "problemele nu s-au rezolvat, întrucât timpul de așteptare este în continuare foarte ridicat"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.96,
+            "marker_confidence": 0.9,
+            "rationale_short": "Vorbitorul ignoră argumentele contrare privind eficiența măsurilor luate de minister, concentrându-se doar pe propria linie argumentativă."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "alternative_proposal",
+            "evidence": {
+              "text": "vă propun să aducem mai multe amendamente la Legea salarizării unitare, astfel încât personalul contractual civil din cadrul Serviciului Regim Permise de Conducere și Înmatriculare a Autovehiculelor să fie încadrat în corpul funcționarilor publici"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Vorbitorul oferă o soluție legislativă concretă (amendament la Legea salarizării) pentru a rezolva problema identificată."
+          }
+        ],
+        "rationale": "Discursul prezintă o calitate deliberativă medie, fiind marcat de o propunere constructivă clară (alternative_proposal) și o justificare logică bine structurată (level_of_justification=2). Vorbitorul ancorează argumentul în realitatea muncii de la ghișeu și în riscurile profesionale, apelând la principii de echitate (common_good). Totuși, discursul suferă la capitolul respectului pentru contraargumente, ignorând complet raționamentele ministerului care a implementat deja măsuri, și nu angajează cererile opoziției. Respectul pentru grupuri rămâne neutru, fiind o referință funcțională la personalul contractual. Profilul este cel al unui parlamentar care propune o soluție tehnică, dar care evită dezbaterea cu cei care au gestionat problema anterior."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.88,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 0,\n  \"constructive_politics\": \"alternative_proposal\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"Având în vedere faptul că personalul contractual civil lucrează în fiecare zi peste program, realizează și activități care nu sunt incluse în fișa postului, operează cu date cu caracter personal și utilizează documente cu secret de serviciu, consider că și aceștia trebuie să beneficieze de condiții speciale sau deosebite de muncă\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Vorbitorul conectează propunerea de salarizare la o serie de responsabilități factuale și riscuri specifice, oferind o justificare bazată pe un mecanism logic.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"consider că și aceștia trebuie să beneficieze de condiții speciale sau deosebite de muncă, asemenea agenților de poliție.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Apelul este la echitatea tratamentului în cadrul serviciului public, vizând un principiu universalizabil de drepturi ale muncii.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"personalul contractual civil din cadrul Serviciului Regim Permise de Conducere și Înmatriculare a Autovehiculelor\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Grupul profesional este menționat funcțional, fără a fi derogate sau lăudate explicit; atitudine neutră.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"De aceea, vă propun să aducem mai multe amendamente la Legea salarizării unitare\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Vorbitorul își prezintă propria cerere fără a aborda explicit cererile opoziției; non-angajament.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"problemele nu s-au rezolvat, întrucât timpul de așteptare este în continuare foarte ridicat\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.96,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Vorbitorul ignoră argumentele contrare privind eficiența măsurilor luate de minister, concentrându-se doar pe propria linie argumentativă.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"alternative_proposal\",\n      \"evidence\": {\n        \"text\": \"vă propun să aducem mai multe amendamente la Legea salarizării unitare, astfel încât personalul contractual civil din cadrul Serviciului Regim Permise de Conducere și Înmatriculare a Autovehiculelor să fie încadrat în corpul funcționarilor publici\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Vorbitorul oferă o soluție legislativă concretă (amendament la Legea salarizării) pentru a rezolva problema identificată.\"\n    }\n  ],\n  \"rationale\": \"Discursul prezintă o calitate deliberativă medie, fiind marcat de o propunere constructivă clară (alternative_proposal) și o justificare logică bine structurată (level_of_justification=2). Vorbitorul ancorează argumentul în realitatea muncii de la ghișeu și în riscurile profesionale, apelând la principii de echitate (common_good). Totuși, discursul suferă la capitolul respectului pentru contraargumente, ignorând complet raționamentele ministerului care a implementat deja măsuri, și nu angajează cererile opoziției. Respectul pentru grupuri rămâne neutru, fiind o referință funcțională la personalul contractual. Profilul este cel al unui parlamentar care propune o soluție tehnică, dar care evită dezbaterea cu cei care au gestionat problema anterior.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12962,
+      "tokens_in_breakdown": {
+        "fresh": 12962,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1373,
+      "cost_usd": null,
+      "latency_ms": 5323,
+      "retries_used": 0
+    }
+  }
+}

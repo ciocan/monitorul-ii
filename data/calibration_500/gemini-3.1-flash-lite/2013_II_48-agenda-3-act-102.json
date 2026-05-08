@@ -1,0 +1,152 @@
+{
+  "speech_id": "mo://2013/II/48#agenda-3#act-102",
+  "tier": "calibration",
+  "speaker": {
+    "id": "peres-alexandru",
+    "name": "Alexandru Pereș",
+    "raw": "Domnul Alexandru Pereș",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": "2013-04-15",
+    "year": 2013,
+    "legislature": "VII",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2013/II/48#agenda-3#act-102",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul senatorului Alexandru Pereș este un demers parlamentar tipic, axat pe probleme administrative concrete: fluidizarea traficului rutier în Alba Iulia și combaterea tăierilor ilegale de păduri. Deși utilizează termeni precum „abuzuri” sau „pagubă”, aceștia sunt ancorați în rapoarte oficiale (Curtea de Conturi) și în contextul unor politici publice specifice, nu într-un cadru maniheist popor-vs-elită. Nu există nicio invocare a unei voințe populare omogene care să se opună instituțiilor, nici o retorică de criză existențială sau moralism binar. Discursul rămâne în registrul procedural și tehnic, motiv pentru care scorul este 0."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul senatorului Alexandru Pereș este un demers parlamentar tipic, axat pe probleme administrative concrete: fluidizarea traficului rutier în Alba Iulia și combaterea tăierilor ilegale de păduri. Deși utilizează termeni precum „abuzuri” sau „pagubă”, aceștia sunt ancorați în rapoarte oficiale (Curtea de Conturi) și în contextul unor politici publice specifice, nu într-un cadru maniheist popor-vs-elită. Nu există nicio invocare a unei voințe populare omogene care să se opună instituțiilor, nici o retorică de criză existențială sau moralism binar. Discursul rămâne în registrul procedural și tehnic, motiv pentru care scorul este 0.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 14212,
+      "tokens_in_breakdown": {
+        "fresh": 14212,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 245,
+      "cost_usd": null,
+      "latency_ms": 2076,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2013/II/48#agenda-3#act-102",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.85,
+        "level_of_justification": 2,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "suprafața fondului forestier al țării s-a redus cu 3.028.762 de hectare. Conform acestui raport, s-a constatat că cea mai stridentă problemă, cu care ne confruntăm încă din anul 1990 și până în prezent, este cea legată de tăierile ilegale de păduri"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Justificare calificată prin citarea unui raport oficial al Curții de Conturi și date statistice specifice."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "Stoparea distrugerii pădurilor!"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Apelul vizează protejarea resurselor naturale naționale, un interes universalizabil pentru cetățeni."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "locuitorii zonelor montane"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Grupul este menționat funcțional în contextul impactului politicilor, fără conotații derogatorii sau laudative."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Vă întreb, doamnă ministru, care sunt măsurile pe care le veți propune"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.88,
+            "rationale_short": "Interpelare procedurală standard; nu există cereri adverse angajate sau respinse."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "Vă întreb dacă aveți în vedere responsabilizarea și găsirea de soluții eficiente"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Discursul este o interpelare de tip întrebare-răspuns, fără a aborda contraargumente ale altor actori."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Solicit răspuns în scris."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.94,
+            "rationale_short": "Vorbitorul solicită acțiuni și informații, dar nu propune o alternativă legislativă sau mediere."
+          }
+        ],
+        "rationale": "Discursul senatorului Alexandru Pereș este o interpelare parlamentară structurată, care atinge un nivel de justificare calificată (level_of_justification=2) prin utilizarea datelor din raportul Curții de Conturi pentru a susține necesitatea protejării fondului forestier. Justificarea este orientată către binele comun (content_of_justification=common_good). Deși discursul este informativ și bine documentat, acesta rămâne în sfera interpelării procedurale, fără a angaja contraargumente (respect_for_counterarguments=0) sau a propune soluții legislative alternative (constructive_politics=positional). Respectul pentru grupuri și cereri este neutru, reflectând natura formală a interpelării. Calitatea deliberativă este solidă pentru acest gen de intervenție, fiind bazată pe dovezi, dar limitată de formatul de întrebare-răspuns."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.85,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 0,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"suprafața fondului forestier al țării s-a redus cu 3.028.762 de hectare. Conform acestui raport, s-a constatat că cea mai stridentă problemă, cu care ne confruntăm încă din anul 1990 și până în prezent, este cea legată de tăierile ilegale de păduri\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Justificare calificată prin citarea unui raport oficial al Curții de Conturi și date statistice specifice.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"Stoparea distrugerii pădurilor!\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Apelul vizează protejarea resurselor naturale naționale, un interes universalizabil pentru cetățeni.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"locuitorii zonelor montane\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.90,\n      \"rationale_short\": \"Grupul este menționat funcțional în contextul impactului politicilor, fără conotații derogatorii sau laudative.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Vă întreb, doamnă ministru, care sunt măsurile pe care le veți propune\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Interpelare procedurală standard; nu există cereri adverse angajate sau respinse.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"Vă întreb dacă aveți în vedere responsabilizarea și găsirea de soluții eficiente\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Discursul este o interpelare de tip întrebare-răspuns, fără a aborda contraargumente ale altor actori.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"Solicit răspuns în scris.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.94,\n      \"rationale_short\": \"Vorbitorul solicită acțiuni și informații, dar nu propune o alternativă legislativă sau mediere.\"\n    }\n  ],\n  \"rationale\": \"Discursul senatorului Alexandru Pereș este o interpelare parlamentară structurată, care atinge un nivel de justificare calificată (level_of_justification=2) prin utilizarea datelor din raportul Curții de Conturi pentru a susține necesitatea protejării fondului forestier. Justificarea este orientată către binele comun (content_of_justification=common_good). Deși discursul este informativ și bine documentat, acesta rămâne în sfera interpelării procedurale, fără a angaja contraargumente (respect_for_counterarguments=0) sau a propune soluții legislative alternative (constructive_politics=positional). Respectul pentru grupuri și cereri este neutru, reflectând natura formală a interpelării. Calitatea deliberativă este solidă pentru acest gen de intervenție, fiind bazată pe dovezi, dar limitată de formatul de întrebare-răspuns.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [
+        "suprafața fondului forestier al țării s-a redus cu 3.028.762 de hectare. Conform acestui raport, s-a constatat că cea mai stridentă problemă, cu care ne confruntăm încă din anul 1990 și până în prezent, este cea legată de tăierile ilegale de păduri"
+      ],
+      "parse_repaired": false,
+      "tokens_in": 13013,
+      "tokens_in_breakdown": {
+        "fresh": 13013,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1233,
+      "cost_usd": null,
+      "latency_ms": 4399,
+      "retries_used": 0
+    }
+  }
+}

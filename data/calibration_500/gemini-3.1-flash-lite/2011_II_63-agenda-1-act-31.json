@@ -1,0 +1,192 @@
+{
+  "speech_id": "mo://2011/II/63#agenda-1#act-31",
+  "tier": "calibration",
+  "speaker": {
+    "id": "popa-cornel",
+    "name": "Cornel Popa",
+    "raw": "Domnul Cornel Popa",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": "2011-05-18",
+    "year": 2011,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2011/II/63#agenda-1#act-31",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.95,
+        "markers": [
+          {
+            "kind": "evil_elite",
+            "evidence": {
+              "text": "Este evident că prioritățile României nu coincid cu ale Domniilor Lor."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.65,
+            "rationale_short": "Critica la adresa priorităților clasei politice este formulată ca o divergență de interese, nu ca o conspirație sau trădare malignă."
+          }
+        ],
+        "rationale": "Discursul se concentrează pe o problemă specifică de infrastructură (Autostrada Transilvania) și pe critica activității unui fost ministru, înscriindu-se într-un registru de opoziție parlamentară standard. Deși vorbitorul folosește un ton critic și contrastează interesele sale cu cele ale „Domniilor Lor\", nu există un cadru maniheist popor-vs-elită, nicio invocare a unei voințe populare omogene și nicio retorică de criză existențială. Critica este una de eficiență administrativă și prioritizare bugetară, nu una populistă. Hawkins=0 cu încredere ridicată."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.95,\n  \"markers\": [\n    {\n      \"kind\": \"evil_elite\",\n      \"evidence\": {\n        \"text\": \"Este evident că prioritățile României nu coincid cu ale Domniilor Lor.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.65,\n      \"rationale_short\": \"Critica la adresa priorităților clasei politice este formulată ca o divergență de interese, nu ca o conspirație sau trădare malignă.\"\n    }\n  ],\n  \"rationale\": \"Discursul se concentrează pe o problemă specifică de infrastructură (Autostrada Transilvania) și pe critica activității unui fost ministru, înscriindu-se într-un registru de opoziție parlamentară standard. Deși vorbitorul folosește un ton critic și contrastează interesele sale cu cele ale „Domniilor Lor\\\", nu există un cadru maniheist popor-vs-elită, nicio invocare a unei voințe populare omogene și nicio retorică de criză existențială. Critica este una de eficiență administrativă și prioritizare bugetară, nu una populistă. Hawkins=0 cu încredere ridicată.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13909,
+      "tokens_in_breakdown": {
+        "fresh": 13909,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 368,
+      "cost_usd": null,
+      "latency_ms": 2349,
+      "retries_used": 0
+    },
+    "voice": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "voice",
+      "speech_id": "mo://2011/II/63#agenda-1#act-31",
+      "output": {
+        "classifications": [
+          {
+            "marker_id": "m_0",
+            "voice": "speaker_first_person",
+            "voice_confidence": 0.95,
+            "voice_evidence": null,
+            "attributed_to": null,
+            "rationale_short": "Afirmație directă a vorbitorului, exprimată în nume propriu, fără a fi atribuită unei surse externe sau încadrată într-un context ipotetic/negat."
+          }
+        ]
+      },
+      "raw_response": "{\n  \"classifications\": [\n    {\n      \"marker_id\": \"m_0\",\n      \"voice\": \"speaker_first_person\",\n      \"voice_confidence\": 0.95,\n      \"voice_evidence\": null,\n      \"attributed_to\": null,\n      \"rationale_short\": \"Afirmație directă a vorbitorului, exprimată în nume propriu, fără a fi atribuită unei surse externe sau încadrată într-un context ipotetic/negat.\"\n    }\n  ]\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 11451,
+      "tokens_in_breakdown": {
+        "fresh": 11451,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 127,
+      "cost_usd": null,
+      "latency_ms": 1096,
+      "retries_used": 0
+    },
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2011/II/63#agenda-1#act-31",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.78,
+        "level_of_justification": 1,
+        "content_of_justification": "group_interest",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 1,
+            "evidence": {
+              "text": "Autostrada Transilvania este prioritatea mea, ca senator trimis de județul Bihor"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Justificarea se bazează pe reprezentarea interesului local (județul Bihor), fără un raționament cauzal complex."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "group_interest",
+            "evidence": {
+              "text": "ca senator trimis de județul Bihor"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Apelul este explicit la interesul unui grup geografic/electoral specific (județul Bihor)."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "miniștrilor actualei puteri"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.88,
+            "rationale_short": "Referință funcțională la adversarii politici; nu există derogare explicită sau respect."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "nu avem de-a face cu o prioritate națională"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.96,
+            "marker_confidence": 0.82,
+            "rationale_short": "Vorbitorul ignoră cererile sau raționamentele opoziției, concentrându-se pe propria agendă."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "Acum înțeleg și răspunsurile evazive la interpelările pe care le-am făcut de-a lungul timpului"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.89,
+            "rationale_short": "Vorbitorul acuză opoziția de evaziune, refuzând angajamentul cu argumentele lor."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Autostrada Transilvania este prioritatea mea"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Discursul este o expunere a unei poziții politice, fără a propune o alternativă sau o mediere."
+          }
+        ],
+        "rationale": "Discursul este un exemplu tipic de retorică de opoziție, axat pe promovarea intereselor locale (județul Bihor) și criticarea priorităților guvernului. Nivelul de justificare este inferior (1), deoarece se bazează pe reprezentarea electorală mai degrabă decât pe o argumentație cauzală sau principială. Nu există un angajament substanțial cu contraargumentele guvernului, vorbitorul limitându-se la a eticheta răspunsurile primite drept „evazive”. Respectul pentru grupuri și cereri rămâne neutru, fiind o critică politică standard. Discursul este pur pozițional, fără a oferi soluții alternative sau propuneri de mediere, ceea ce îi limitează calitatea deliberativă."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.78,\n  \"level_of_justification\": 1,\n  \"content_of_justification\": \"group_interest\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 0,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 1,\n      \"evidence\": { \"text\": \"Autostrada Transilvania este prioritatea mea, ca senator trimis de județul Bihor\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Justificarea se bazează pe reprezentarea interesului local (județul Bihor), fără un raționament cauzal complex.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"group_interest\",\n      \"evidence\": { \"text\": \"ca senator trimis de județul Bihor\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Apelul este explicit la interesul unui grup geografic/electoral specific (județul Bihor).\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": { \"text\": \"miniștrilor actualei puteri\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Referință funcțională la adversarii politici; nu există derogare explicită sau respect.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": { \"text\": \"nu avem de-a face cu o prioritate națională\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.96,\n      \"marker_confidence\": 0.82,\n      \"rationale_short\": \"Vorbitorul ignoră cererile sau raționamentele opoziției, concentrându-se pe propria agendă.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 0,\n      \"evidence\": { \"text\": \"Acum înțeleg și răspunsurile evazive la interpelările pe care le-am făcut de-a lungul timpului\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"marker_confidence\": 0.89,\n      \"rationale_short\": \"Vorbitorul acuză opoziția de evaziune, refuzând angajamentul cu argumentele lor.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": { \"text\": \"Autostrada Transilvania este prioritatea mea\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Discursul este o expunere a unei poziții politice, fără a propune o alternativă sau o mediere.\"\n    }\n  ],\n  \"rationale\": \"Discursul este un exemplu tipic de retorică de opoziție, axat pe promovarea intereselor locale (județul Bihor) și criticarea priorităților guvernului. Nivelul de justificare este inferior (1), deoarece se bazează pe reprezentarea electorală mai degrabă decât pe o argumentație cauzală sau principială. Nu există un angajament substanțial cu contraargumentele guvernului, vorbitorul limitându-se la a eticheta răspunsurile primite drept „evazive”. Respectul pentru grupuri și cereri rămâne neutru, fiind o critică politică standard. Discursul este pur pozițional, fără a oferi soluții alternative sau propuneri de mediere, ceea ce îi limitează calitatea deliberativă.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12710,
+      "tokens_in_breakdown": {
+        "fresh": 12710,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1125,
+      "cost_usd": null,
+      "latency_ms": 4171,
+      "retries_used": 0
+    }
+  }
+}

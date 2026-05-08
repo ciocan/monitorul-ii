@@ -1,0 +1,52 @@
+{
+  "speech_id": "mo://2014/II/25#agenda-9#act-33",
+  "tier": "calibration",
+  "speaker": {
+    "id": "pop-gheorghe",
+    "name": "Gheorghe Pop",
+    "raw": "Domnul Gheorghe Pop",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": "2014-03-10",
+    "year": 2014,
+    "legislature": "VII",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": null,
+    "voice": null,
+    "dqi": null,
+    "vparty": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "vparty",
+      "speech_id": "mo://2014/II/25#agenda-9#act-33",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "vparty@2020 + vdem-attacks-on@v13",
+        "framework_confidence": 1.0,
+        "markers": [],
+        "rationale": "Discursul reprezintă o interpelare parlamentară standard, axată pe o problemă administrativă concretă din sistemul de învățământ. Senatorul solicită clarificări privind planul-cadru și situația profesională a cadrelor didactice, utilizând un limbaj procedural și respectuos. Nu există nicio formă de delegitimizare a instituțiilor democratice, a opoziției, a presei sau a altor grupuri sociale. Discursul se încadrează perfect în registrul democratic de contestare și propunere de politici publice."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"vparty@2020 + vdem-attacks-on@v13\",\n  \"framework_confidence\": 1.0,\n  \"markers\": [],\n  \"rationale\": \"Discursul reprezintă o interpelare parlamentară standard, axată pe o problemă administrativă concretă din sistemul de învățământ. Senatorul solicită clarificări privind planul-cadru și situația profesională a cadrelor didactice, utilizând un limbaj procedural și respectuos. Nu există nicio formă de delegitimizare a instituțiilor democratice, a opoziției, a presei sau a altor grupuri sociale. Discursul se încadrează perfect în registrul democratic de contestare și propunere de politici publice.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13040,
+      "tokens_in_breakdown": {
+        "fresh": 13040,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 203,
+      "cost_usd": null,
+      "latency_ms": 1780,
+      "retries_used": 0
+    }
+  }
+}

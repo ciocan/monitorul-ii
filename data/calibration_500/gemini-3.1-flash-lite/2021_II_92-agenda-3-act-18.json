@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2021/II/92#agenda-3#act-18",
+  "tier": "calibration",
+  "speaker": {
+    "id": "dinica-silvia-monica",
+    "name": "Silvia-Monica Dinică",
+    "raw": "Doamna Silvia-Monica Dinică",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": "2021-06-02",
+    "year": 2021,
+    "legislature": "IX",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2021/II/92#agenda-3#act-18",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul este unul pur procedural și tehnic, axat pe argumente juridice privind competența Guvernului și aplicarea Legii nr. 17/2007. Vorbitorul se concentrează pe detalii administrative, structuri organizatorice și priorități de politici publice (educație, cercetare, inovare), fără a utiliza nicio retorică populistă. Nu există nicio tentativă de a crea un cadru maniheist popor-vs-elită, nicio invocare a unei voințe populare omogene și nicio retorică de criză sau moralizatoare. Discursul respectă normele dezbaterii parlamentare constructive, fiind un exemplu clar de scor 0."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul este unul pur procedural și tehnic, axat pe argumente juridice privind competența Guvernului și aplicarea Legii nr. 17/2007. Vorbitorul se concentrează pe detalii administrative, structuri organizatorice și priorități de politici publice (educație, cercetare, inovare), fără a utiliza nicio retorică populistă. Nu există nicio tentativă de a crea un cadru maniheist popor-vs-elită, nicio invocare a unei voințe populare omogene și nicio retorică de criză sau moralizatoare. Discursul respectă normele dezbaterii parlamentare constructive, fiind un exemplu clar de scor 0.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 14097,
+      "tokens_in_breakdown": {
+        "fresh": 14097,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 231,
+      "cost_usd": null,
+      "latency_ms": 1953,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2021/II/92#agenda-3#act-18",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.88,
+        "level_of_justification": 2,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "alternative_proposal",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "acest proiect de lege nu poate fi susținut în forma aceasta – și nu am spus-o noi în comisiile de specialitate, a spus-o chiar Consiliul Legislativ –, pentru că avem înființarea unei structuri organizatorice în cadrul unui organ de specialitate în subordinea Ministerului Educației și aceasta este o măsură a executării Legii nr. 17/2007"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Justificare calificată prin referință la avizul Consiliului Legislativ și la cadrul legal existent (Legea 17/2007)."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "vrem să pregătim tineri care să aducă aport de cercetare și inovare în domenii strategice și de interes național"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.9,
+            "rationale_short": "Apelul este la interesul național și la dezvoltarea resurselor strategice ale țării, nu la interese de grup."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Stimați colegi"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.99,
+            "marker_confidence": 0.95,
+            "rationale_short": "Adresare convențională, neutră; nu există referințe derogatorii sau de respect explicit către out-group-uri."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "acest vot nu este un vot pentru a respinge o inițiativă legislativă care privește tinerii supradotați, ci este pe forma în care este făcută această lege"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.96,
+            "marker_confidence": 0.88,
+            "rationale_short": "Vorbitorul clarifică poziția proprie fără a angaja direct legitimitatea cererii opoziției; atitudine neutră."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "acest proiect de lege nu poate fi susținut în forma aceasta – și nu am spus-o noi în comisiile de specialitate, a spus-o chiar Consiliul Legislativ"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.85,
+            "rationale_short": "Menționează avizul negativ al Consiliului Legislativ ca argument, dar nu angajează direct contraargumentele susținătorilor proiectului."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "alternative_proposal",
+            "evidence": {
+              "text": "avem toate premisele să ne organizăm și să venim cu niște inițiative care să-i stimuleze pe aceștia"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.82,
+            "rationale_short": "Propune o abordare alternativă constructivă în cadrul comisiei, dincolo de simpla respingere a proiectului actual."
+          }
+        ],
+        "rationale": "Discursul prezintă o calitate deliberativă solidă, caracterizată printr-o justificare calificată (level_of_justification=2) bazată pe avizul Consiliului Legislativ și pe cadrul legal existent. Vorbitorul se concentrează pe binele comun (interesul național în cercetare și inovare) și adoptă o poziție constructivă, propunând o colaborare viitoare în comisie în loc de o simplă respingere (constructive_politics=alternative_proposal). Respectul pentru grupuri și cereri rămâne neutru, fiind o intervenție procedurală și tehnică. Deși nu angajează direct contraargumentele opoziției, discursul este argumentat și orientat spre soluții, evitând retorica populistă sau disprețuitoare."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.88,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"alternative_proposal\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"acest proiect de lege nu poate fi susținut în forma aceasta – și nu am spus-o noi în comisiile de specialitate, a spus-o chiar Consiliul Legislativ –, pentru că avem înființarea unei structuri organizatorice în cadrul unui organ de specialitate în subordinea Ministerului Educației și aceasta este o măsură a executării Legii nr. 17/2007\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Justificare calificată prin referință la avizul Consiliului Legislativ și la cadrul legal existent (Legea 17/2007).\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"vrem să pregătim tineri care să aducă aport de cercetare și inovare în domenii strategice și de interes național\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Apelul este la interesul național și la dezvoltarea resurselor strategice ale țării, nu la interese de grup.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Stimați colegi\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.99,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Adresare convențională, neutră; nu există referințe derogatorii sau de respect explicit către out-group-uri.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"acest vot nu este un vot pentru a respinge o inițiativă legislativă care privește tinerii supradotați, ci este pe forma în care este făcută această lege\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.96,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Vorbitorul clarifică poziția proprie fără a angaja direct legitimitatea cererii opoziției; atitudine neutră.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"acest proiect de lege nu poate fi susținut în forma aceasta – și nu am spus-o noi în comisiile de specialitate, a spus-o chiar Consiliul Legislativ\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Menționează avizul negativ al Consiliului Legislativ ca argument, dar nu angajează direct contraargumentele susținătorilor proiectului.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"alternative_proposal\",\n      \"evidence\": {\n        \"text\": \"avem toate premisele să ne organizăm și să venim cu niște inițiative care să-i stimuleze pe aceștia\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.82,\n      \"rationale_short\": \"Propune o abordare alternativă constructivă în cadrul comisiei, dincolo de simpla respingere a proiectului actual.\"\n    }\n  ],\n  \"rationale\": \"Discursul prezintă o calitate deliberativă solidă, caracterizată printr-o justificare calificată (level_of_justification=2) bazată pe avizul Consiliului Legislativ și pe cadrul legal existent. Vorbitorul se concentrează pe binele comun (interesul național în cercetare și inovare) și adoptă o poziție constructivă, propunând o colaborare viitoare în comisie în loc de o simplă respingere (constructive_politics=alternative_proposal). Respectul pentru grupuri și cereri rămâne neutru, fiind o intervenție procedurală și tehnică. Deși nu angajează direct contraargumentele opoziției, discursul este argumentat și orientat spre soluții, evitând retorica populistă sau disprețuitoare.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12898,
+      "tokens_in_breakdown": {
+        "fresh": 12898,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1328,
+      "cost_usd": null,
+      "latency_ms": 5171,
+      "retries_used": 0
+    }
+  }
+}

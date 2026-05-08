@@ -1,0 +1,52 @@
+{
+  "speech_id": "mo://2001/II/148#agenda-1#act-182",
+  "tier": "calibration",
+  "speaker": {
+    "id": "dorneanu-valer",
+    "name": "Valer Dorneanu",
+    "raw": "Domnul Valer Dorneanu",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": null,
+    "year": 2001,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": null,
+    "voice": null,
+    "dqi": null,
+    "vparty": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "vparty",
+      "speech_id": "mo://2001/II/148#agenda-1#act-182",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "vparty@2020 + vdem-attacks-on@v13",
+        "framework_confidence": 1.0,
+        "markers": [],
+        "rationale": "Discursul este unul pur procedural, axat pe gestionarea amendamentelor legislative în cadrul unei ședințe parlamentare. Vorbitorul se limitează la aspecte tehnice, redacționale și la coordonarea votului, fără a exprima nicio opinie politică sau a ataca vreo instituție democratică. Nu există niciun element de anti-pluralism, discursul fiind un exemplu tipic de activitate parlamentară de rutină."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"vparty@2020 + vdem-attacks-on@v13\",\n  \"framework_confidence\": 1.0,\n  \"markers\": [],\n  \"rationale\": \"Discursul este unul pur procedural, axat pe gestionarea amendamentelor legislative în cadrul unei ședințe parlamentare. Vorbitorul se limitează la aspecte tehnice, redacționale și la coordonarea votului, fără a exprima nicio opinie politică sau a ataca vreo instituție democratică. Nu există niciun element de anti-pluralism, discursul fiind un exemplu tipic de activitate parlamentară de rutină.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13044,
+      "tokens_in_breakdown": {
+        "fresh": 13044,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 176,
+      "cost_usd": null,
+      "latency_ms": 1715,
+      "retries_used": 0
+    }
+  }
+}

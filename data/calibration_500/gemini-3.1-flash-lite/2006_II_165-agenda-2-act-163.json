@@ -1,0 +1,152 @@
+{
+  "speech_id": "mo://2006/II/165#agenda-2#act-163",
+  "tier": "calibration",
+  "speaker": {
+    "id": "mereuta-mircea-gheorghe",
+    "name": "Mircea Gheorghe Mereu˛„",
+    "raw": "Domnul Mircea Gheorghe Mereu˛„",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": null,
+    "year": 2006,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2006/II/165#agenda-2#act-163",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul reprezintă o interpelare parlamentară standard, axată pe solicitarea de informații tehnice și rapoarte de activitate de la ministrul justiției. Deși sunt menționate fenomene precum corupția și clasamente internaționale, acestea sunt utilizate ca date statistice pentru a fundamenta o cerere de transparență administrativă, nu ca elemente ale unui cadru maniheist popor-vs-elită. Nu există nicio invocare a unei voințe populare omogene sau a unei lupte morale între bine și rău. Discursul se înscrie în registrul procedural și de control parlamentar, primind astfel scorul 0."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul reprezintă o interpelare parlamentară standard, axată pe solicitarea de informații tehnice și rapoarte de activitate de la ministrul justiției. Deși sunt menționate fenomene precum corupția și clasamente internaționale, acestea sunt utilizate ca date statistice pentru a fundamenta o cerere de transparență administrativă, nu ca elemente ale unui cadru maniheist popor-vs-elită. Nu există nicio invocare a unei voințe populare omogene sau a unei lupte morale între bine și rău. Discursul se înscrie în registrul procedural și de control parlamentar, primind astfel scorul 0.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 14035,
+      "tokens_in_breakdown": {
+        "fresh": 14035,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 216,
+      "cost_usd": null,
+      "latency_ms": 2170,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2006/II/165#agenda-2#act-163",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.85,
+        "level_of_justification": 2,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "Un raport al îThe State of World Democracy“ analizeaz„ starea de democra˛ie Ón 150 de state ale lumii, rezultatul const‚nd Óntr-un clasament care are ca indicator de baz„ respectarea drepturilor omului, libertatea politic„, libertatea de exprimare ∫i corup˛ia Ón administra˛ia public„."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Vorbitorul utilizează date din rapoarte internaționale pentru a fundamenta necesitatea reformei."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "respectarea drepturilor omului, libertatea politic„, libertatea de exprimare ∫i corup˛ia Ón administra˛ia public„"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Justificarea se bazează pe principii universale de democrație și bună guvernare."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "doamnei ministru Monica Luisa Macovei"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.99,
+            "marker_confidence": 0.9,
+            "rationale_short": "Adresare formală, neutră, fără derogări sau laude explicite."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "v„ rog s„ ne preciza˛i"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Interpelare procedurală standard; nu există cereri adverse de evaluat."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "v„ rog s„ ne preciza˛i"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Nu există contraargumente în acest context de interpelare."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "v„ rog s„ ne preciza˛i: 1. Care este stadiul reformelor propuse de dumneavoastr„"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Interpelare care solicită informații; nu propune o alternativă sau mediere."
+          }
+        ],
+        "rationale": "Această interpelare parlamentară demonstrează o calitate deliberativă moderată, fiind ancorată în date empirice și rapoarte internaționale pentru a justifica necesitatea reformei (level_of_justification=2). Justificarea vizează binele comun, invocând principii democratice fundamentale (content_of_justification=common_good). Deși discursul este politicos și formal, acesta rămâne în zona neutră a respectului pentru grupuri și nu angajează contraargumente, deoarece este o solicitare de informații (respect_for_demands=1, respect_for_counterarguments=1). Din punct de vedere constructiv, discursul este pozițional, limitându-se la a cere clarificări și rapoarte de la ministrul justiției. Profilul este cel al unei interpelări standard, bine documentate, dar care nu atinge nivelul de dezbatere deliberativă complexă."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.85,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"Un raport al îThe State of World Democracy“ analizeaz„ starea de democra˛ie Ón 150 de state ale lumii, rezultatul const‚nd Óntr-un clasament care are ca indicator de baz„ respectarea drepturilor omului, libertatea politic„, libertatea de exprimare ∫i corup˛ia Ón administra˛ia public„.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Vorbitorul utilizează date din rapoarte internaționale pentru a fundamenta necesitatea reformei.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"respectarea drepturilor omului, libertatea politic„, libertatea de exprimare ∫i corup˛ia Ón administra˛ia public„\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Justificarea se bazează pe principii universale de democrație și bună guvernare.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"doamnei ministru Monica Luisa Macovei\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.99,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Adresare formală, neutră, fără derogări sau laude explicite.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"v„ rog s„ ne preciza˛i\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Interpelare procedurală standard; nu există cereri adverse de evaluat.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"v„ rog s„ ne preciza˛i\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Nu există contraargumente în acest context de interpelare.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"v„ rog s„ ne preciza˛i: 1. Care este stadiul reformelor propuse de dumneavoastr„\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Interpelare care solicită informații; nu propune o alternativă sau mediere.\"\n    }\n  ],\n  \"rationale\": \"Această interpelare parlamentară demonstrează o calitate deliberativă moderată, fiind ancorată în date empirice și rapoarte internaționale pentru a justifica necesitatea reformei (level_of_justification=2). Justificarea vizează binele comun, invocând principii democratice fundamentale (content_of_justification=common_good). Deși discursul este politicos și formal, acesta rămâne în zona neutră a respectului pentru grupuri și nu angajează contraargumente, deoarece este o solicitare de informații (respect_for_demands=1, respect_for_counterarguments=1). Din punct de vedere constructiv, discursul este pozițional, limitându-se la a cere clarificări și rapoarte de la ministrul justiției. Profilul este cel al unei interpelări standard, bine documentate, dar care nu atinge nivelul de dezbatere deliberativă complexă.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [
+        "v„ rog s„ ne preciza˛i: 1. Care este stadiul reformelor propuse de dumneavoastr„"
+      ],
+      "parse_repaired": false,
+      "tokens_in": 12836,
+      "tokens_in_breakdown": {
+        "fresh": 12836,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1215,
+      "cost_usd": null,
+      "latency_ms": 4549,
+      "retries_used": 0
+    }
+  }
+}

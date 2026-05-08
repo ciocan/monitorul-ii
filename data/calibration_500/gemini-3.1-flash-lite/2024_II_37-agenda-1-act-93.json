@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2024/II/37#agenda-1#act-93",
+  "tier": "calibration",
+  "speaker": {
+    "id": "roman-florin-claudiu",
+    "name": "Florin-Claudiu Roman",
+    "raw": "Domnul Florin-Claudiu Roman",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2024-03-04",
+    "year": 2024,
+    "legislature": "IX",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2024/II/37#agenda-1#act-93",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.95,
+        "markers": [],
+        "rationale": "Discursul se concentrează pe activitatea parlamentară procedurală, respectiv depunerea de amendamente și proiecte de lege, criticând opoziția pentru lipsa de eficiență legislativă. Deși tonul este combativ și partizan, acesta nu utilizează un cadru maniheist popor-vs-elită, nu invocă o voință populară omogenă ca autoritate supremă și nu încadrează conflictul politic în termeni existențiali sau de criză. Referințele la „români” sunt punctuale și nu susțin o viziune populistă pervazivă. Prin urmare, discursul rămâne în registrul dezbaterii politice convenționale, primind scorul 0."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.95,\n  \"markers\": [],\n  \"rationale\": \"Discursul se concentrează pe activitatea parlamentară procedurală, respectiv depunerea de amendamente și proiecte de lege, criticând opoziția pentru lipsa de eficiență legislativă. Deși tonul este combativ și partizan, acesta nu utilizează un cadru maniheist popor-vs-elită, nu invocă o voință populară omogenă ca autoritate supremă și nu încadrează conflictul politic în termeni existențiali sau de criză. Referințele la „români” sunt punctuale și nu susțin o viziune populistă pervazivă. Prin urmare, discursul rămâne în registrul dezbaterii politice convenționale, primind scorul 0.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13890,
+      "tokens_in_breakdown": {
+        "fresh": 13890,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 232,
+      "cost_usd": null,
+      "latency_ms": 2025,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2024/II/37#agenda-1#act-93",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.72,
+        "level_of_justification": 1,
+        "content_of_justification": "group_interest",
+        "respect_for_groups": 1,
+        "respect_for_demands": 0,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 1,
+            "evidence": {
+              "text": "Noi suntem cei care au depus acel amendament, prin care am asigurat trei lucruri: nicio taxă și niciun impozit, în 2024"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Justificarea se bazează pe acțiunea partidului, fără a explica mecanismul cauzal al beneficiului economic."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "group_interest",
+            "evidence": {
+              "text": "Partidul Național Liberal a depus un amendament"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Apelul este centrat pe realizările și identitatea Partidului Național Liberal."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "stimați colegi"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.99,
+            "marker_confidence": 0.88,
+            "rationale_short": "Adresare convențională; nu există derogări sau recunoașteri explicite ale out-group-urilor."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 0,
+            "evidence": {
+              "text": "Nu vă place munca. Așa, eu vă înțeleg: vi se trage de la președintele vostru!"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.91,
+            "rationale_short": "Atac la persoană și la etica muncii opoziției în loc de angajament cu cererile lor."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "în Parlament nu contează zgomotul, ci contează amendamentul"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.9,
+            "rationale_short": "Vorbitorul ignoră argumentele opoziției, reducându-le la „zgomot”."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Noi suntem cei care au depus acel amendament"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.94,
+            "rationale_short": "Discursul este axat pe promovarea propriei poziții și a realizărilor trecute, fără propuneri noi."
+          }
+        ],
+        "rationale": "Discursul prezintă un profil deliberativ scăzut, caracterizat prin auto-laudă și atacuri retorice la adresa opoziției. Justificarea este de nivel 1, bazându-se pe acțiunile partidului (PNL) fără a oferi o analiză cauzală a politicilor propuse. Conținutul justificării este orientat către interesul de grup, subliniind rolul partidului în blocarea unor măsuri. Respectul pentru grupuri este neutru, însă respectul pentru cererile și argumentele opoziției este absent, fiind înlocuit de atacuri la persoană și dismissivitate. Discursul rămâne strict pozițional, fără a oferi alternative sau medieri, ceea ce limitează calitatea deliberativă a intervenției."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.72,\n  \"level_of_justification\": 1,\n  \"content_of_justification\": \"group_interest\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 0,\n  \"respect_for_counterarguments\": 0,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 1,\n      \"evidence\": { \"text\": \"Noi suntem cei care au depus acel amendament, prin care am asigurat trei lucruri: nicio taxă și niciun impozit, în 2024\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Justificarea se bazează pe acțiunea partidului, fără a explica mecanismul cauzal al beneficiului economic.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"group_interest\",\n      \"evidence\": { \"text\": \"Partidul Național Liberal a depus un amendament\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Apelul este centrat pe realizările și identitatea Partidului Național Liberal.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": { \"text\": \"stimați colegi\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.99,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Adresare convențională; nu există derogări sau recunoașteri explicite ale out-group-urilor.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 0,\n      \"evidence\": { \"text\": \"Nu vă place munca. Așa, eu vă înțeleg: vi se trage de la președintele vostru!\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.91,\n      \"rationale_short\": \"Atac la persoană și la etica muncii opoziției în loc de angajament cu cererile lor.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 0,\n      \"evidence\": { \"text\": \"în Parlament nu contează zgomotul, ci contează amendamentul\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"marker_confidence\": 0.90,\n      \"rationale_short\": \"Vorbitorul ignoră argumentele opoziției, reducându-le la „zgomot”.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": { \"text\": \"Noi suntem cei care au depus acel amendament\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.94,\n      \"rationale_short\": \"Discursul este axat pe promovarea propriei poziții și a realizărilor trecute, fără propuneri noi.\"\n    }\n  ],\n  \"rationale\": \"Discursul prezintă un profil deliberativ scăzut, caracterizat prin auto-laudă și atacuri retorice la adresa opoziției. Justificarea este de nivel 1, bazându-se pe acțiunile partidului (PNL) fără a oferi o analiză cauzală a politicilor propuse. Conținutul justificării este orientat către interesul de grup, subliniind rolul partidului în blocarea unor măsuri. Respectul pentru grupuri este neutru, însă respectul pentru cererile și argumentele opoziției este absent, fiind înlocuit de atacuri la persoană și dismissivitate. Discursul rămâne strict pozițional, fără a oferi alternative sau medieri, ceea ce limitează calitatea deliberativă a intervenției.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12691,
+      "tokens_in_breakdown": {
+        "fresh": 12691,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1137,
+      "cost_usd": null,
+      "latency_ms": 4605,
+      "retries_used": 0
+    }
+  }
+}

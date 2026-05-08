@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2004/II/157#agenda-1#act-68",
+  "tier": "calibration",
+  "speaker": {
+    "id": "dinu-gheorghe",
+    "name": "Gheorghe Dinu",
+    "raw": "Domnul Gheorghe Dinu",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": null,
+    "year": 2004,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2004/II/157#agenda-1#act-68",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul este unul pur procedural, axat pe o problemă tehnică de alocare bugetară între Ministerul Transporturilor și Ministerul Muncii. Vorbitorul argumentează pe baza legilor speciale și a competențelor administrative, fără a invoca un cadru popor-vs-elită, maniheism moral sau alte tropi populiste. Nu există nicio tentativă de a mobiliza o voință populară împotriva instituțiilor, discursul rămânând strict în registrul dezbaterii parlamentare tehnice. Hawkins=0 cu încredere ridicată."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul este unul pur procedural, axat pe o problemă tehnică de alocare bugetară între Ministerul Transporturilor și Ministerul Muncii. Vorbitorul argumentează pe baza legilor speciale și a competențelor administrative, fără a invoca un cadru popor-vs-elită, maniheism moral sau alte tropi populiste. Nu există nicio tentativă de a mobiliza o voință populară împotriva instituțiilor, discursul rămânând strict în registrul dezbaterii parlamentare tehnice. Hawkins=0 cu încredere ridicată.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13848,
+      "tokens_in_breakdown": {
+        "fresh": 13848,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 201,
+      "cost_usd": null,
+      "latency_ms": 1899,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2004/II/157#agenda-1#act-68",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.88,
+        "level_of_justification": 2,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 2,
+        "constructive_politics": "alternative_proposal",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "Eu am propus eliminarea alin. 11, pentru c„ Ministerul Transporturilor se ocup„ de cu totul altceva. Este atributul Ministerului Muncii ∫i Solidarit„˛ii Sociale s„ preia aceast„ sarcin„"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Vorbitorul oferă un motiv cauzal clar pentru propunerea sa, bazat pe competențele administrative ale ministerelor."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "nu este corect ca cineva care nu are nici o treab„ cu a∫a ceva s„ suporte cheltuielile acestea"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.89,
+            "rationale_short": "Apelul la corectitudinea administrativă și eficiența bugetară vizează interesul general al statului."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Domnilor pre∫edin˛i, Domnilor deputa˛i ∫i senatori"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.99,
+            "marker_confidence": 0.95,
+            "rationale_short": "Adresare formală standard; nicio referință derogatorie sau laudativă la adresa unor grupuri."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "De altminteri, ∫i Ón motivul respingerii mi se spune aici c„"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.85,
+            "rationale_short": "Vorbitorul menționează motivul respingerii fără a-l evalua explicit ca legitim sau nelegitim."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 2,
+            "evidence": {
+              "text": "De altminteri, ∫i Ón motivul respingerii mi se spune aici c„, îpotrivit legilor speciale care reglementeaz„ acordarea unor facilit„˛i la transport pentru anumite categorii de persoane se prevede“ — v„d c„ este pu˛in cam gre∫it redactat — îc„ din bugetul de stat, prin bugetul Ministerului Muncii, Solidarit„˛ii Sociale ∫i Familiei se asigur„ plata drepturilor b„ne∫ti cuvenite acestor categorii“."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.96,
+            "marker_confidence": 0.91,
+            "rationale_short": "Vorbitorul citează argumentul respingerii și îl combate prin demonstrarea contradicției cu legea."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "alternative_proposal",
+            "evidence": {
+              "text": "Eu am propus eliminarea alin. 11"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.94,
+            "rationale_short": "Vorbitorul propune o modificare concretă a textului legislativ pentru a corecta alocarea bugetară."
+          }
+        ],
+        "rationale": "Discursul prezintă o calitate deliberativă solidă, caracterizată prin argumentație logică și propuneri concrete. Vorbitorul oferă o justificare calificată (level_of_justification=2) pentru amendamentul său, bazându-se pe competențele legale ale ministerelor, ceea ce constituie un apel la binele comun (content_of_justification=common_good). De asemenea, vorbitorul demonstrează un angajament substanțial cu argumentul opoziției (respect_for_counterarguments=2), citând motivul respingerii și demonstrând eroarea acestuia prin referire la cadrul legal. Propunerea de eliminare a articolului reprezintă o alternativă constructivă (constructive_politics=alternative_proposal). Respectul pentru grupuri și cereri rămâne neutru, fiind axat pe procedură și logică administrativă."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.88,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 2,\n  \"constructive_politics\": \"alternative_proposal\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"Eu am propus eliminarea alin. 11, pentru c„ Ministerul Transporturilor se ocup„ de cu totul altceva. Este atributul Ministerului Muncii ∫i Solidarit„˛ii Sociale s„ preia aceast„ sarcin„\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Vorbitorul oferă un motiv cauzal clar pentru propunerea sa, bazat pe competențele administrative ale ministerelor.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"nu este corect ca cineva care nu are nici o treab„ cu a∫a ceva s„ suporte cheltuielile acestea\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.89,\n      \"rationale_short\": \"Apelul la corectitudinea administrativă și eficiența bugetară vizează interesul general al statului.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Domnilor pre∫edin˛i, Domnilor deputa˛i ∫i senatori\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.99,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Adresare formală standard; nicio referință derogatorie sau laudativă la adresa unor grupuri.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"De altminteri, ∫i Ón motivul respingerii mi se spune aici c„\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Vorbitorul menționează motivul respingerii fără a-l evalua explicit ca legitim sau nelegitim.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"De altminteri, ∫i Ón motivul respingerii mi se spune aici c„, îpotrivit legilor speciale care reglementeaz„ acordarea unor facilit„˛i la transport pentru anumite categorii de persoane se prevede“ — v„d c„ este pu˛in cam gre∫it redactat — îc„ din bugetul de stat, prin bugetul Ministerului Muncii, Solidarit„˛ii Sociale ∫i Familiei se asigur„ plata drepturilor b„ne∫ti cuvenite acestor categorii“.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.96,\n      \"marker_confidence\": 0.91,\n      \"rationale_short\": \"Vorbitorul citează argumentul respingerii și îl combate prin demonstrarea contradicției cu legea.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"alternative_proposal\",\n      \"evidence\": {\n        \"text\": \"Eu am propus eliminarea alin. 11\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.94,\n      \"rationale_short\": \"Vorbitorul propune o modificare concretă a textului legislativ pentru a corecta alocarea bugetară.\"\n    }\n  ],\n  \"rationale\": \"Discursul prezintă o calitate deliberativă solidă, caracterizată prin argumentație logică și propuneri concrete. Vorbitorul oferă o justificare calificată (level_of_justification=2) pentru amendamentul său, bazându-se pe competențele legale ale ministerelor, ceea ce constituie un apel la binele comun (content_of_justification=common_good). De asemenea, vorbitorul demonstrează un angajament substanțial cu argumentul opoziției (respect_for_counterarguments=2), citând motivul respingerii și demonstrând eroarea acestuia prin referire la cadrul legal. Propunerea de eliminare a articolului reprezintă o alternativă constructivă (constructive_politics=alternative_proposal). Respectul pentru grupuri și cereri rămâne neutru, fiind axat pe procedură și logică administrativă.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12649,
+      "tokens_in_breakdown": {
+        "fresh": 12649,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1334,
+      "cost_usd": null,
+      "latency_ms": 4806,
+      "retries_used": 0
+    }
+  }
+}

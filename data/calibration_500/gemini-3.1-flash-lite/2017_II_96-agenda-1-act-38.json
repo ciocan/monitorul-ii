@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2017/II/96#agenda-1#act-38",
+  "tier": "calibration",
+  "speaker": {
+    "id": "dobrovie-matei-adrian",
+    "name": "Matei Adrian Dobrovie",
+    "raw": "Domnul Matei Adrian Dobrovie",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2017-06-07",
+    "year": 2017,
+    "legislature": "VIII",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2017/II/96#agenda-1#act-38",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul este unul pur procedural și tehnic, axat pe modificarea Legii cetățeniei nr. 21/1991 și pe rezolvarea unor blocaje administrative între instituții (Autoritatea Națională pentru Cetățenie și Direcția Generală de Pașapoarte). Vorbitorul analizează proiectul de lege, identifică aspecte pozitive și negative, și propune o soluție pentru o problemă specifică a minorilor. Nu există nicio urmă de cadru popor-vs-elită, maniheism moral sau invocare a unei voințe populare omogene. Discursul se încadrează perfect în registrul dezbaterii parlamentare de politici publice, motiv pentru care scorul este 0."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul este unul pur procedural și tehnic, axat pe modificarea Legii cetățeniei nr. 21/1991 și pe rezolvarea unor blocaje administrative între instituții (Autoritatea Națională pentru Cetățenie și Direcția Generală de Pașapoarte). Vorbitorul analizează proiectul de lege, identifică aspecte pozitive și negative, și propune o soluție pentru o problemă specifică a minorilor. Nu există nicio urmă de cadru popor-vs-elită, maniheism moral sau invocare a unei voințe populare omogene. Discursul se încadrează perfect în registrul dezbaterii parlamentare de politici publice, motiv pentru care scorul este 0.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13871,
+      "tokens_in_breakdown": {
+        "fresh": 13871,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 234,
+      "cost_usd": null,
+      "latency_ms": 1842,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2017/II/96#agenda-1#act-38",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.85,
+        "level_of_justification": 2,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "Necesitatea modificării acestei legi a rezultat din blocajul apărut la nivelul eliberării unor noi documente oficiale românești persoanelor care, minore fiind, au dobândit cetățenia română odată cu părinții lor, pe motiv că nu au fost trecute în certificatul de cetățenie al acestora."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Vorbitorul identifică o problemă cauzală specifică (blocajul administrativ) care justifică necesitatea modificării legii."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "Necesitatea modificării acestei legi a rezultat din blocajul apărut la nivelul eliberării unor noi documente oficiale românești persoanelor care, minore fiind, au dobândit cetățenia română odată cu părinții lor"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Justificarea vizează rezolvarea unei probleme administrative pentru cetățeni, un apel universalizabil la binele comun."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Ministerul Justiției"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Referință funcțională la instituția statului; niciun out-group derogatoriu sau respectat explicit."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Vestea proastă însă este că cei afectați la momentul actual de comunicarea deficitară dintre Autoritatea Națională pentru Cetățenie și Direcția Generală de Pașapoarte nu au primit nicio soluție concretă"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.88,
+            "rationale_short": "Vorbitorul critică deficiențele administrative fără a angaja direct cereri opuse din partea altor actori politici."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "Vestea proastă însă este că cei afectați la momentul actual de comunicarea deficitară dintre Autoritatea Națională pentru Cetățenie și Direcția Generală de Pașapoarte nu au primit nicio soluție concretă"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Nu există contraargumente din partea opoziției abordate; discursul se concentrează pe expunerea problemei."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Vestea proastă însă este că cei afectați la momentul actual de comunicarea deficitară dintre Autoritatea Națională pentru Cetățenie și Direcția Generală de Pașapoarte nu au primit nicio soluție concretă"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Vorbitorul semnalează o problemă, dar nu propune o alternativă legislativă concretă în acest fragment."
+          }
+        ],
+        "rationale": "Discursul prezintă o calitate deliberativă moderată, fiind centrat pe expunerea unei probleme administrative concrete. Vorbitorul oferă o justificare calificată (level_of_justification=2) prin identificarea cauzei blocajului legislativ, apelând la binele comun al cetățenilor afectați. Nu există elemente de dispreț sau respect explicit față de grupuri, menținând o postură neutră. Deoarece nu există o dezbatere activă cu opoziția în acest fragment, respectul pentru cereri și contraargumente este codat ca neutru sau absent. Discursul rămâne în sfera pozițională, semnalând o deficiență fără a avansa o soluție legislativă alternativă în textul furnizat."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.85,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 0,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"Necesitatea modificării acestei legi a rezultat din blocajul apărut la nivelul eliberării unor noi documente oficiale românești persoanelor care, minore fiind, au dobândit cetățenia română odată cu părinții lor, pe motiv că nu au fost trecute în certificatul de cetățenie al acestora.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Vorbitorul identifică o problemă cauzală specifică (blocajul administrativ) care justifică necesitatea modificării legii.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"Necesitatea modificării acestei legi a rezultat din blocajul apărut la nivelul eliberării unor noi documente oficiale românești persoanelor care, minore fiind, au dobândit cetățenia română odată cu părinții lor\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Justificarea vizează rezolvarea unei probleme administrative pentru cetățeni, un apel universalizabil la binele comun.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Ministerul Justiției\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Referință funcțională la instituția statului; niciun out-group derogatoriu sau respectat explicit.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Vestea proastă însă este că cei afectați la momentul actual de comunicarea deficitară dintre Autoritatea Națională pentru Cetățenie și Direcția Generală de Pașapoarte nu au primit nicio soluție concretă\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Vorbitorul critică deficiențele administrative fără a angaja direct cereri opuse din partea altor actori politici.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"Vestea proastă însă este că cei afectați la momentul actual de comunicarea deficitară dintre Autoritatea Națională pentru Cetățenie și Direcția Generală de Pașapoarte nu au primit nicio soluție concretă\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Nu există contraargumente din partea opoziției abordate; discursul se concentrează pe expunerea problemei.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"Vestea proastă însă este că cei afectați la momentul actual de comunicarea deficitară dintre Autoritatea Națională pentru Cetățenie și Direcția Generală de Pașapoarte nu au primit nicio soluție concretă\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Vorbitorul semnalează o problemă, dar nu propune o alternativă legislativă concretă în acest fragment.\"\n    }\n  ],\n  \"rationale\": \"Discursul prezintă o calitate deliberativă moderată, fiind centrat pe expunerea unei probleme administrative concrete. Vorbitorul oferă o justificare calificată (level_of_justification=2) prin identificarea cauzei blocajului legislativ, apelând la binele comun al cetățenilor afectați. Nu există elemente de dispreț sau respect explicit față de grupuri, menținând o postură neutră. Deoarece nu există o dezbatere activă cu opoziția în acest fragment, respectul pentru cereri și contraargumente este codat ca neutru sau absent. Discursul rămâne în sfera pozițională, semnalând o deficiență fără a avansa o soluție legislativă alternativă în textul furnizat.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12672,
+      "tokens_in_breakdown": {
+        "fresh": 12672,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1349,
+      "cost_usd": null,
+      "latency_ms": 5082,
+      "retries_used": 0
+    }
+  }
+}

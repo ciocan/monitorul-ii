@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2012/II/10#agenda-2#act-184",
+  "tier": "calibration",
+  "speaker": {
+    "id": "anastase-roberta",
+    "name": "Roberta Alma Anastase",
+    "raw": "Doamna Roberta Alma Anastase",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2012-02-21",
+    "year": 2012,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2012/II/10#agenda-2#act-184",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 1.0,
+        "markers": [],
+        "rationale": "Discursul este pur procedural și tehnic, limitându-se la prezentarea punctului de vedere al Guvernului cu privire la o inițiativă legislativă specifică (modificarea Legii nr. 571 din 2003). Nu există nicio urmă de retorică populistă, nicio invocare a unui conflict între popor și elită, niciun maniheism moral și nicio referire la o voință populară suverană. Vorbitorul se încadrează strict în registrul administrativ-tehnocratic, motiv pentru care scorul este 0 cu încredere maximă."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 1.0,\n  \"markers\": [],\n  \"rationale\": \"Discursul este pur procedural și tehnic, limitându-se la prezentarea punctului de vedere al Guvernului cu privire la o inițiativă legislativă specifică (modificarea Legii nr. 571 din 2003). Nu există nicio urmă de retorică populistă, nicio invocare a unui conflict între popor și elită, niciun maniheism moral și nicio referire la o voință populară suverană. Vorbitorul se încadrează strict în registrul administrativ-tehnocratic, motiv pentru care scorul este 0 cu încredere maximă.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13681,
+      "tokens_in_breakdown": {
+        "fresh": 13681,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 207,
+      "cost_usd": null,
+      "latency_ms": 1943,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2012/II/10#agenda-2#act-184",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.85,
+        "level_of_justification": 1,
+        "content_of_justification": "none",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 1,
+            "evidence": {
+              "text": "Având în vedere motivațiile legate de prevederile legii anterioare, Guvernul nu susține adoptarea acestei inițiative legislative."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.88,
+            "rationale_short": "Justificarea este vagă, invocând „motivații” fără a specifica mecanismul sau principiul cauzal."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "none",
+            "evidence": {
+              "text": "Guvernul nu susține adoptarea acestei inițiative legislative."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Nicio justificare substanțială oferită; conținutul este nedefinit."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "domnule Ghizdeanu"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.9,
+            "rationale_short": "Adresare procedurală neutră; niciun grup vizat."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Guvernul nu susține adoptarea acestei inițiative legislative."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Poziție de respingere fără angajament cu legitimitatea cererii."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "Având în vedere motivațiile legate de prevederile legii anterioare"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.82,
+            "rationale_short": "Mențiune vagă a legii anterioare fără angajament substanțial cu argumentele opoziției."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Guvernul nu susține adoptarea acestei inițiative legislative."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Poziție declarată; nicio alternativă sau mediere propusă."
+          }
+        ],
+        "rationale": "Discursul reprezintă o intervenție procedurală standard a unui reprezentant al Guvernului. Vorbitorul își exprimă poziția de respingere a inițiativei legislative fără a oferi o justificare detaliată sau un raționament cauzal clar (level_of_justification=1). Nu există un apel explicit la binele comun sau la interese de grup, iar respectul pentru cererile sau argumentele opoziției rămâne la un nivel neutru, de non-angajament. Discursul este pur pozițional, fără a oferi alternative sau soluții de compromis. Calitatea deliberativă este scăzută, fiind un discurs de tip administrativ-procedural."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.85,\n  \"level_of_justification\": 1,\n  \"content_of_justification\": \"none\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Având în vedere motivațiile legate de prevederile legii anterioare, Guvernul nu susține adoptarea acestei inițiative legislative.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Justificarea este vagă, invocând „motivații” fără a specifica mecanismul sau principiul cauzal.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"none\",\n      \"evidence\": {\n        \"text\": \"Guvernul nu susține adoptarea acestei inițiative legislative.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Nicio justificare substanțială oferită; conținutul este nedefinit.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"domnule Ghizdeanu\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Adresare procedurală neutră; niciun grup vizat.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Guvernul nu susține adoptarea acestei inițiative legislative.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Poziție de respingere fără angajament cu legitimitatea cererii.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Având în vedere motivațiile legate de prevederile legii anterioare\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.82,\n      \"rationale_short\": \"Mențiune vagă a legii anterioare fără angajament substanțial cu argumentele opoziției.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"Guvernul nu susține adoptarea acestei inițiative legislative.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Poziție declarată; nicio alternativă sau mediere propusă.\"\n    }\n  ],\n  \"rationale\": \"Discursul reprezintă o intervenție procedurală standard a unui reprezentant al Guvernului. Vorbitorul își exprimă poziția de respingere a inițiativei legislative fără a oferi o justificare detaliată sau un raționament cauzal clar (level_of_justification=1). Nu există un apel explicit la binele comun sau la interese de grup, iar respectul pentru cererile sau argumentele opoziției rămâne la un nivel neutru, de non-angajament. Discursul este pur pozițional, fără a oferi alternative sau soluții de compromis. Calitatea deliberativă este scăzută, fiind un discurs de tip administrativ-procedural.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12482,
+      "tokens_in_breakdown": {
+        "fresh": 12482,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1095,
+      "cost_usd": null,
+      "latency_ms": 4294,
+      "retries_used": 0
+    }
+  }
+}

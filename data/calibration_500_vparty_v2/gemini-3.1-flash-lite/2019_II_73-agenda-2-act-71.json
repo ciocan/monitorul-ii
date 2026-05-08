@@ -1,0 +1,52 @@
+{
+  "speech_id": "mo://2019/II/73#agenda-2#act-71",
+  "tier": "calibration",
+  "speaker": {
+    "id": "boroianu-aurel-robert",
+    "name": "Aurel Robert Boroianu",
+    "raw": "Domnul Aurel Robert Boroianu",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2019-06-12",
+    "year": 2019,
+    "legislature": "VIII",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": null,
+    "voice": null,
+    "dqi": null,
+    "vparty": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "vparty",
+      "speech_id": "mo://2019/II/73#agenda-2#act-71",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "vparty@2020 + vdem-attacks-on@v13",
+        "framework_confidence": 0.95,
+        "markers": [],
+        "rationale": "Discursul reprezintă o critică politică dură la adresa modului în care Guvernul și Ministerul Afacerilor Externe au organizat procesul electoral în diaspora. Deși vorbitorul folosește un limbaj incisiv, acuzând intenția politică din spatele proastei organizări, acesta rămâne în limitele contestării democratice a unei decizii administrative și a responsabilității politice a unui ministru. Nu sunt delegitimizate instituții ca atare, ci este criticată performanța executivului în gestionarea unui drept constituțional. Nu există elemente de anti-pluralism sistemic, atacuri la adresa justiției, presei, minorităților sau a normelor democratice fundamentale."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"vparty@2020 + vdem-attacks-on@v13\",\n  \"framework_confidence\": 0.95,\n  \"markers\": [],\n  \"rationale\": \"Discursul reprezintă o critică politică dură la adresa modului în care Guvernul și Ministerul Afacerilor Externe au organizat procesul electoral în diaspora. Deși vorbitorul folosește un limbaj incisiv, acuzând intenția politică din spatele proastei organizări, acesta rămâne în limitele contestării democratice a unei decizii administrative și a responsabilității politice a unui ministru. Nu sunt delegitimizate instituții ca atare, ci este criticată performanța executivului în gestionarea unui drept constituțional. Nu există elemente de anti-pluralism sistemic, atacuri la adresa justiției, presei, minorităților sau a normelor democratice fundamentale.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13374,
+      "tokens_in_breakdown": {
+        "fresh": 13374,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 244,
+      "cost_usd": null,
+      "latency_ms": 1996,
+      "retries_used": 0
+    }
+  }
+}

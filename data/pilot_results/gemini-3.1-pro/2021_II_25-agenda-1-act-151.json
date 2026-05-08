@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2021/II/25#agenda-1#act-151",
+  "tier": "moderate",
+  "speaker": {
+    "id": "orban-ludovic",
+    "name": "Ludovic Orban",
+    "raw": "Domnul Ludovic Orban",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2021-02-17",
+    "year": 2021,
+    "legislature": "IX",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-pro",
+  "model_label": "gemini-3.1-pro-preview",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-pro",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2021/II/25#agenda-1#act-151",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.95,
+        "markers": [],
+        "rationale": "Discursul este un apel la echitate și responsabilitate democratică privind eliminarea pensiilor speciale pentru parlamentari. Vorbitorul se adresează colegilor cerându-le să renunțe explicit la „populism” și „demagogie”, argumentând pe baza corectitudinii față de cetățenii care primesc pensii de contributivitate. Deși contrastează parlamentarii cu milioanele de români, o face din perspectiva unei inechități de politici publice, nu ca parte a unui cadru manihean popor-vs-elită. Nu există invocarea unei voințe populare omogene sau a unei elite malefice. Scor 0 cu încredere ridicată."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.95,\n  \"markers\": [],\n  \"rationale\": \"Discursul este un apel la echitate și responsabilitate democratică privind eliminarea pensiilor speciale pentru parlamentari. Vorbitorul se adresează colegilor cerându-le să renunțe explicit la „populism” și „demagogie”, argumentând pe baza corectitudinii față de cetățenii care primesc pensii de contributivitate. Deși contrastează parlamentarii cu milioanele de români, o face din perspectiva unei inechități de politici publice, nu ca parte a unui cadru manihean popor-vs-elită. Nu există invocarea unei voințe populare omogene sau a unei elite malefice. Scor 0 cu încredere ridicată.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13641,
+      "tokens_in_breakdown": {
+        "fresh": 13641,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1671,
+      "cost_usd": null,
+      "latency_ms": 17437,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-pro",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2021/II/25#agenda-1#act-151",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.88,
+        "level_of_justification": 2,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "că nu este drept ca parlamentarii României să-și dea pensii speciale, în timp ce milioane de români sunt la pensie și trăiesc din pensie de contributivitate"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.92,
+            "rationale_short": "Justificare ancorată în principiul echității și comparația specifică cu sistemul de contributivitate al cetățenilor."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "Sănătatea democrației românești depinde de capacitatea noastră de a-i reprezenta în mod onest, cinstit, corect pe cetățenii români."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.96,
+            "marker_confidence": 0.9,
+            "rationale_short": "Apel explicit la binele comun, la sănătatea democrației și la reprezentarea corectă a tuturor cetățenilor."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Stimați colegi,"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Adresare convențională; nicio referință explicită de respect sau lipsă de respect față de un out-group."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Am acceptat pentru că erați gata să blocați adoptarea acestui act normativ."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.94,
+            "marker_confidence": 0.82,
+            "rationale_short": "Menționează acțiunea opoziției de a bloca actul, dar nu angajează sau respinge explicit legitimitatea cererilor lor."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "Noi trebuie să votăm desființarea pensiilor speciale pentru parlamentari"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.93,
+            "rationale_short": "Vorbitorul își susține propria poziție fără a menționa sau combate vreun contraargument al opoziției."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Noi trebuie să votăm desființarea pensiilor speciale pentru parlamentari"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.95,
+            "rationale_short": "Susținere fermă a unei poziții clare, fără a oferi o alternativă sau o propunere de mediere."
+          }
+        ],
+        "rationale": "Discurs pozițional cu o justificare calificată (nivel 2). Vorbitorul argumentează pentru desființarea pensiilor speciale invocând principiul echității față de cetățenii care trăiesc din pensii de contributivitate. Acest argument reprezintă un apel clar la binele comun și la moralitatea publică. Cu toate acestea, discursul rămâne pur pozițional, nepropunând nicio mediere sau compromis. Respectul pentru grupuri și cereri este neutru, menționând doar tangențial blocajul opoziției. Contraargumentele opoziției sunt complet ignorate. Calitatea deliberativă este așadar mixtă: puternică pe axa justificării, dar slabă pe interactivitate și angajament cu tabăra adversă."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.88,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 0,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"că nu este drept ca parlamentarii României să-și dea pensii speciale, în timp ce milioane de români sunt la pensie și trăiesc din pensie de contributivitate\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Justificare ancorată în principiul echității și comparația specifică cu sistemul de contributivitate al cetățenilor.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"Sănătatea democrației românești depinde de capacitatea noastră de a-i reprezenta în mod onest, cinstit, corect pe cetățenii români.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.96,\n      \"marker_confidence\": 0.90,\n      \"rationale_short\": \"Apel explicit la binele comun, la sănătatea democrației și la reprezentarea corectă a tuturor cetățenilor.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Stimați colegi,\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Adresare convențională; nicio referință explicită de respect sau lipsă de respect față de un out-group.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Am acceptat pentru că erați gata să blocați adoptarea acestui act normativ.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.94,\n      \"marker_confidence\": 0.82,\n      \"rationale_short\": \"Menționează acțiunea opoziției de a bloca actul, dar nu angajează sau respinge explicit legitimitatea cererilor lor.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"Noi trebuie să votăm desființarea pensiilor speciale pentru parlamentari\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"marker_confidence\": 0.93,\n      \"rationale_short\": \"Vorbitorul își susține propria poziție fără a menționa sau combate vreun contraargument al opoziției.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"Noi trebuie să votăm desființarea pensiilor speciale pentru parlamentari\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Susținere fermă a unei poziții clare, fără a oferi o alternativă sau o propunere de mediere.\"\n    }\n  ],\n  \"rationale\": \"Discurs pozițional cu o justificare calificată (nivel 2). Vorbitorul argumentează pentru desființarea pensiilor speciale invocând principiul echității față de cetățenii care trăiesc din pensii de contributivitate. Acest argument reprezintă un apel clar la binele comun și la moralitatea publică. Cu toate acestea, discursul rămâne pur pozițional, nepropunând nicio mediere sau compromis. Respectul pentru grupuri și cereri este neutru, menționând doar tangențial blocajul opoziției. Contraargumentele opoziției sunt complet ignorate. Calitatea deliberativă este așadar mixtă: puternică pe axa justificării, dar slabă pe interactivitate și angajament cu tabăra adversă.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12442,
+      "tokens_in_breakdown": {
+        "fresh": 12442,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 3231,
+      "cost_usd": null,
+      "latency_ms": 26440,
+      "retries_used": 0
+    }
+  }
+}

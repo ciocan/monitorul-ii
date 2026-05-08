@@ -1,0 +1,215 @@
+{
+  "speech_id": "mo://2026/II/3#agenda-7#act-9",
+  "tier": "calibration",
+  "speaker": {
+    "id": "popa-stefan-ovidiu",
+    "name": "Ștefan-Ovidiu Popa",
+    "raw": "Domnul Ștefan-Ovidiu Popa",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2025-12-22",
+    "year": 2026,
+    "legislature": "X",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2026/II/3#agenda-7#act-9",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.95,
+        "markers": [
+          {
+            "kind": "evil_elite",
+            "evidence": {
+              "text": "o mulțime de acuze nefondate. Pe scurt: o mistificare a adevărului și jocuri periculoase politice, marca AUR"
+            },
+            "preliminary_voice": "quoted",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.85,
+            "rationale_short": "Vorbitorul citează și critică retorica AUR, atribuind-o acestora, nu propriei viziuni."
+          },
+          {
+            "kind": "evil_elite",
+            "evidence": {
+              "text": "AUR afirmă că ministrul justiției este „autoritatea politică responsabilă atunci când actul de justiție este afectat în mod sistemic”"
+            },
+            "preliminary_voice": "quoted",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Citat din discursul AUR pentru a fi ulterior demontat prin argumente constituționale."
+          }
+        ],
+        "rationale": "Discursul este o critică procedurală și constituțională la adresa unei moțiuni depuse de AUR. Vorbitorul citează retorica populistă a opoziției doar pentru a o demonta, explicând limitele constituționale ale ministrului justiției și importanța independenței justiției. Nu există nicio asumare a unui cadru populist de către vorbitor; dimpotrivă, acesta respinge explicit „tezele false” și „mistificarea adevărului”. Scor 0 cu încredere ridicată, deoarece markerii identificați sunt în voce citată și servesc scopului anti-populist al vorbitorului."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.95,\n  \"markers\": [\n    {\n      \"kind\": \"evil_elite\",\n      \"evidence\": {\n        \"text\": \"o mulțime de acuze nefondate. Pe scurt: o mistificare a adevărului și jocuri periculoase politice, marca AUR\"\n      },\n      \"preliminary_voice\": \"quoted\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Vorbitorul citează și critică retorica AUR, atribuind-o acestora, nu propriei viziuni.\"\n    },\n    {\n      \"kind\": \"evil_elite\",\n      \"evidence\": {\n        \"text\": \"AUR afirmă că ministrul justiției este „autoritatea politică responsabilă atunci când actul de justiție este afectat în mod sistemic”\"\n      },\n      \"preliminary_voice\": \"quoted\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Citat din discursul AUR pentru a fi ulterior demontat prin argumente constituționale.\"\n    }\n  ],\n  \"rationale\": \"Discursul este o critică procedurală și constituțională la adresa unei moțiuni depuse de AUR. Vorbitorul citează retorica populistă a opoziției doar pentru a o demonta, explicând limitele constituționale ale ministrului justiției și importanța independenței justiției. Nu există nicio asumare a unui cadru populist de către vorbitor; dimpotrivă, acesta respinge explicit „tezele false” și „mistificarea adevărului”. Scor 0 cu încredere ridicată, deoarece markerii identificați sunt în voce citată și servesc scopului anti-populist al vorbitorului.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13780,
+      "tokens_in_breakdown": {
+        "fresh": 13780,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 496,
+      "cost_usd": null,
+      "latency_ms": 2822,
+      "retries_used": 0
+    },
+    "voice": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "voice",
+      "speech_id": "mo://2026/II/3#agenda-7#act-9",
+      "output": {
+        "classifications": [
+          {
+            "marker_id": "m_0",
+            "voice": "speaker_first_person",
+            "voice_confidence": 0.95,
+            "voice_evidence": null,
+            "attributed_to": null,
+            "rationale_short": "Vorbitorul își asumă direct afirmația critică la adresa AUR, fără a folosi un cadru de citare sau raportare."
+          },
+          {
+            "marker_id": "m_1",
+            "voice": "reported",
+            "voice_confidence": 0.98,
+            "voice_evidence": {
+              "text": "AUR afirmă că"
+            },
+            "attributed_to": {
+              "raw": "AUR",
+              "kind": "institution"
+            },
+            "rationale_short": "Markerul este introdus prin „AUR afirmă că”, indicând o parafrază a poziției instituționale a partidului AUR."
+          }
+        ]
+      },
+      "raw_response": "{\n  \"classifications\": [\n    {\n      \"marker_id\": \"m_0\",\n      \"voice\": \"speaker_first_person\",\n      \"voice_confidence\": 0.95,\n      \"voice_evidence\": null,\n      \"attributed_to\": null,\n      \"rationale_short\": \"Vorbitorul își asumă direct afirmația critică la adresa AUR, fără a folosi un cadru de citare sau raportare.\"\n    },\n    {\n      \"marker_id\": \"m_1\",\n      \"voice\": \"reported\",\n      \"voice_confidence\": 0.98,\n      \"voice_evidence\": {\n        \"text\": \"AUR afirmă că\"\n      },\n      \"attributed_to\": {\n        \"raw\": \"AUR\",\n        \"kind\": \"institution\"\n      },\n      \"rationale_short\": \"Markerul este introdus prin „AUR afirmă că”, indicând o parafrază a poziției instituționale a partidului AUR.\"\n    }\n  ]\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 11423,
+      "tokens_in_breakdown": {
+        "fresh": 11423,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 239,
+      "cost_usd": null,
+      "latency_ms": 1343,
+      "retries_used": 0
+    },
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2026/II/3#agenda-7#act-9",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.82,
+        "level_of_justification": 2,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 0,
+        "respect_for_demands": 0,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "Ministrul justiției nu conduce instanțele, nu dă ordine magistraților și nu poate interveni în actul de judecată fără a încălca independența justiției."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Vorbitorul explică mecanismul constituțional care limitează atribuțiile ministrului, oferind o justificare bazată pe principii."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "Exact acest principiu, fundamental într-un stat de drept, pare să fie ignorat"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Justificarea se ancorează în principiul statului de drept, un bun comun universalizabil."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 0,
+            "evidence": {
+              "text": "jocuri periculoase politice, marca AUR"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Vorbitorul folosește un ton derogatoriu la adresa grupului politic AUR, etichetându-le acțiunile drept mistificări."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 0,
+            "evidence": {
+              "text": "Asistăm la o serie de teze false și o mulțime de acuze nefondate."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.93,
+            "rationale_short": "Cererile opoziției sunt respinse din start ca fiind false și nefondate, fără a le recunoaște legitimitatea."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "AUR afirmă că ministrul justiției este „autoritatea politică responsabilă atunci când actul de justiție este afectat în mod sistemic”."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.88,
+            "rationale_short": "Vorbitorul citează argumentul opoziției, dar trece rapid la respingerea lui fără o analiză detaliată a raționamentului lor."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Acesta este rezumatul moțiunii simple depuse de AUR împotriva ministrului justiției."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.94,
+            "rationale_short": "Discursul este pur pozițional, apărând ministrul fără a propune o alternativă sau o mediere."
+          }
+        ],
+        "rationale": "Discursul prezintă o calitate deliberativă mixtă. Deși vorbitorul oferă o justificare calificată (level_of_justification=2) bazată pe principiul constituțional al independenței justiției, acesta adoptă un ton disprețuitor față de grupul politic AUR (respect_for_groups=0). Argumentele opoziției sunt respinse ca fiind false (respect_for_demands=0) și, deși sunt menționate, nu sunt angajate substanțial (respect_for_counterarguments=1). Discursul rămâne strict pozițional, fără a oferi soluții constructive. Profilul este cel al unei apărări politice care utilizează argumente tehnice, dar care eșuează în a menține un respect procedural față de adversari."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.82,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 0,\n  \"respect_for_demands\": 0,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"Ministrul justiției nu conduce instanțele, nu dă ordine magistraților și nu poate interveni în actul de judecată fără a încălca independența justiției.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Vorbitorul explică mecanismul constituțional care limitează atribuțiile ministrului, oferind o justificare bazată pe principii.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"Exact acest principiu, fundamental într-un stat de drept, pare să fie ignorat\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Justificarea se ancorează în principiul statului de drept, un bun comun universalizabil.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"jocuri periculoase politice, marca AUR\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Vorbitorul folosește un ton derogatoriu la adresa grupului politic AUR, etichetându-le acțiunile drept mistificări.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"Asistăm la o serie de teze false și o mulțime de acuze nefondate.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.93,\n      \"rationale_short\": \"Cererile opoziției sunt respinse din start ca fiind false și nefondate, fără a le recunoaște legitimitatea.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"AUR afirmă că ministrul justiției este „autoritatea politică responsabilă atunci când actul de justiție este afectat în mod sistemic”.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Vorbitorul citează argumentul opoziției, dar trece rapid la respingerea lui fără o analiză detaliată a raționamentului lor.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"Acesta este rezumatul moțiunii simple depuse de AUR împotriva ministrului justiției.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.94,\n      \"rationale_short\": \"Discursul este pur pozițional, apărând ministrul fără a propune o alternativă sau o mediere.\"\n    }\n  ],\n  \"rationale\": \"Discursul prezintă o calitate deliberativă mixtă. Deși vorbitorul oferă o justificare calificată (level_of_justification=2) bazată pe principiul constituțional al independenței justiției, acesta adoptă un ton disprețuitor față de grupul politic AUR (respect_for_groups=0). Argumentele opoziției sunt respinse ca fiind false (respect_for_demands=0) și, deși sunt menționate, nu sunt angajate substanțial (respect_for_counterarguments=1). Discursul rămâne strict pozițional, fără a oferi soluții constructive. Profilul este cel al unei apărări politice care utilizează argumente tehnice, dar care eșuează în a menține un respect procedural față de adversari.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12581,
+      "tokens_in_breakdown": {
+        "fresh": 12581,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1234,
+      "cost_usd": null,
+      "latency_ms": 4801,
+      "retries_used": 0
+    }
+  }
+}

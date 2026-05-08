@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2013/II/162#agenda-1#act-440",
+  "tier": "calibration",
+  "speaker": {
+    "id": "francisc-marton-arpad",
+    "name": "Márton Árpád Francisc",
+    "raw": "Domnul Márton Árpád Francisc",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2013-12-10",
+    "year": 2013,
+    "legislature": "VII",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2013/II/162#agenda-1#act-440",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.95,
+        "markers": [],
+        "rationale": "Discursul se concentrează pe o analiză tehnică și juridică a unui articol de lege (art. 9[1] din Legea nr. 255), vizând constituționalitatea procedurii de expropriere. Deși vorbitorul menționează conflictul dintre cetățean și entitățile private, acesta rămâne în registrul dezbaterii parlamentare procedurale, fără a construi un cadru maniheist popor-vs-elită sau a invoca o voință populară omogenă ca forță politică. Nu există elemente de moralism, criză existențială sau elită malefică, discursul fiind o critică de specialitate a legislației. Hawkins=0 cu încredere ridicată."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.95,\n  \"markers\": [],\n  \"rationale\": \"Discursul se concentrează pe o analiză tehnică și juridică a unui articol de lege (art. 9[1] din Legea nr. 255), vizând constituționalitatea procedurii de expropriere. Deși vorbitorul menționează conflictul dintre cetățean și entitățile private, acesta rămâne în registrul dezbaterii parlamentare procedurale, fără a construi un cadru maniheist popor-vs-elită sau a invoca o voință populară omogenă ca forță politică. Nu există elemente de moralism, criză existențială sau elită malefică, discursul fiind o critică de specialitate a legislației. Hawkins=0 cu încredere ridicată.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13719,
+      "tokens_in_breakdown": {
+        "fresh": 13719,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 238,
+      "cost_usd": null,
+      "latency_ms": 1868,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2013/II/162#agenda-1#act-440",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.85,
+        "level_of_justification": 2,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "Mi se pare, încă o dată vă spun, că această interpretare a cauzei de utilitate publică prevăzută în art. 9[1 ] – deci întregul art. 9[1] , că pozițiile sunt luate pe articole – este neconstituțională."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Vorbitorul invocă neconstituționalitatea ca motiv specific pentru respingerea articolului 9[1]."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "Mi se pare, încă o dată vă spun, că această interpretare a cauzei de utilitate publică prevăzută în art. 9[1 ] – deci întregul art. 9[1] , că pozițiile sunt luate pe articole – este neconstituțională."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.88,
+            "rationale_short": "Apelul la constituționalitate reprezintă un argument universalizabil, orientat către binele comun."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Deci cetățeanului i se ia proprietatea ca un alt privat să beneficieze de posibilitățile economice ale acelei proprietăți."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.85,
+            "rationale_short": "Referința la cetățean este descriptivă și funcțională, fără a fi derogatorie sau explicit respectuoasă."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Solicit să supuneți votului și, colegii care cât de cât cunoașteți Constituția României,"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.96,
+            "marker_confidence": 0.82,
+            "rationale_short": "Vorbitorul nu abordează cererile opoziției, ci își susține propria poziție procedurală."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "Deci cetățeanului i se ia proprietatea ca un alt privat să beneficieze de posibilitățile economice ale acelei proprietăți."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.9,
+            "rationale_short": "Vorbitorul ignoră argumentele pro-expropriere, concentrându-se exclusiv pe propria critică."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Solicit să supuneți votului"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.96,
+            "marker_confidence": 0.94,
+            "rationale_short": "Vorbitorul adoptă o poziție fermă de respingere fără a propune o alternativă sau o mediere."
+          }
+        ],
+        "rationale": "Discursul prezintă o justificare calificată (level_of_justification=2) prin invocarea neconstituționalității, ancorată în binele comun (content_of_justification=common_good). Deși argumentația este logică, vorbitorul nu se angajează în dialog cu opoziția, ignorând contraargumentele (respect_for_counterarguments=0) și menținând o postură pur pozițională (constructive_politics=positional). Respectul pentru grupuri și cereri rămâne neutru, fiind o intervenție axată pe critică juridică. Calitatea deliberativă este medie, limitată de lipsa angajamentului cu cealaltă parte a dezbaterii."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.85,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 0,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"Mi se pare, încă o dată vă spun, că această interpretare a cauzei de utilitate publică prevăzută în art. 9[1 ] – deci întregul art. 9[1] , că pozițiile sunt luate pe articole – este neconstituțională.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Vorbitorul invocă neconstituționalitatea ca motiv specific pentru respingerea articolului 9[1].\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"Mi se pare, încă o dată vă spun, că această interpretare a cauzei de utilitate publică prevăzută în art. 9[1 ] – deci întregul art. 9[1] , că pozițiile sunt luate pe articole – este neconstituțională.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Apelul la constituționalitate reprezintă un argument universalizabil, orientat către binele comun.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Deci cetățeanului i se ia proprietatea ca un alt privat să beneficieze de posibilitățile economice ale acelei proprietăți.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Referința la cetățean este descriptivă și funcțională, fără a fi derogatorie sau explicit respectuoasă.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Solicit să supuneți votului și, colegii care cât de cât cunoașteți Constituția României,\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.96,\n      \"marker_confidence\": 0.82,\n      \"rationale_short\": \"Vorbitorul nu abordează cererile opoziției, ci își susține propria poziție procedurală.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"Deci cetățeanului i se ia proprietatea ca un alt privat să beneficieze de posibilitățile economice ale acelei proprietăți.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"marker_confidence\": 0.90,\n      \"rationale_short\": \"Vorbitorul ignoră argumentele pro-expropriere, concentrându-se exclusiv pe propria critică.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"Solicit să supuneți votului\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.96,\n      \"marker_confidence\": 0.94,\n      \"rationale_short\": \"Vorbitorul adoptă o poziție fermă de respingere fără a propune o alternativă sau o mediere.\"\n    }\n  ],\n  \"rationale\": \"Discursul prezintă o justificare calificată (level_of_justification=2) prin invocarea neconstituționalității, ancorată în binele comun (content_of_justification=common_good). Deși argumentația este logică, vorbitorul nu se angajează în dialog cu opoziția, ignorând contraargumentele (respect_for_counterarguments=0) și menținând o postură pur pozițională (constructive_politics=positional). Respectul pentru grupuri și cereri rămâne neutru, fiind o intervenție axată pe critică juridică. Calitatea deliberativă este medie, limitată de lipsa angajamentului cu cealaltă parte a dezbaterii.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12520,
+      "tokens_in_breakdown": {
+        "fresh": 12520,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1261,
+      "cost_usd": null,
+      "latency_ms": 4322,
+      "retries_used": 0
+    }
+  }
+}

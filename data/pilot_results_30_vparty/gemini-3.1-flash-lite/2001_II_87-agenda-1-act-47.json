@@ -1,0 +1,73 @@
+{
+  "speech_id": "mo://2001/II/87#agenda-1#act-47",
+  "tier": "populist",
+  "speaker": {
+    "id": "tudor-corneliu-vadim",
+    "name": "Corneliu Vadim Tudor",
+    "raw": "Domnul Corneliu Vadim Tudor",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": null,
+    "year": 2001,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": null,
+    "voice": null,
+    "dqi": null,
+    "vparty": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "vparty",
+      "speech_id": "mo://2001/II/87#agenda-1#act-47",
+      "output": {
+        "score": 1,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "vparty@2020 + vdem-attacks-on@v13",
+        "framework_confidence": 0.85,
+        "markers": [
+          {
+            "kind": "media_hostility",
+            "evidence": {
+              "text": "Este o televiziune antinaþionalã, unde, din pãcate, în ultimii ani, au proliferat structuri de tip mafiot."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.88,
+            "rationale_short": "Televiziunea publică este delegitimată ca instituție antinațională și mafiotă."
+          },
+          {
+            "kind": "media_hostility",
+            "evidence": {
+              "text": "practicã o dezinformare gravã a populaþiei României"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.85,
+            "rationale_short": "Acuzație de dezinformare sistemică la adresa instituției media publice."
+          }
+        ],
+        "rationale": "Discursul conține elemente de ostilitate față de media (TVR), pe care vorbitorul o etichetează drept „antinațională” și „mafiotă”, delegitimând-o ca instituție publică. Deși discursul include și critici politice partizane (lipsa de reflectare a PRM, negocieri pentru schimbarea conducerii), cadrul de „dezinformare gravă” și „structuri mafiote” depășește critica procedurală. Totuși, discursul rămâne în mare parte în registrul unei dispute politice privind controlul instituțiilor publice, fără a ataca alte instituții democratice sau a respinge pluralismul ca atare. Scor 1, reflectând prezența unor momente de ostilitate media într-un discurs altfel axat pe lupta politică pentru controlul instituțiilor."
+      },
+      "raw_response": "{\n  \"score\": 1,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"vparty@2020 + vdem-attacks-on@v13\",\n  \"framework_confidence\": 0.85,\n  \"markers\": [\n    {\n      \"kind\": \"media_hostility\",\n      \"evidence\": {\n        \"text\": \"Este o televiziune antinaþionalã, unde, din pãcate, în ultimii ani, au proliferat structuri de tip mafiot.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Televiziunea publică este delegitimată ca instituție antinațională și mafiotă.\"\n    },\n    {\n      \"kind\": \"media_hostility\",\n      \"evidence\": {\n        \"text\": \"practicã o dezinformare gravã a populaþiei României\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Acuzație de dezinformare sistemică la adresa instituției media publice.\"\n    }\n  ],\n  \"rationale\": \"Discursul conține elemente de ostilitate față de media (TVR), pe care vorbitorul o etichetează drept „antinațională” și „mafiotă”, delegitimând-o ca instituție publică. Deși discursul include și critici politice partizane (lipsa de reflectare a PRM, negocieri pentru schimbarea conducerii), cadrul de „dezinformare gravă” și „structuri mafiote” depășește critica procedurală. Totuși, discursul rămâne în mare parte în registrul unei dispute politice privind controlul instituțiilor publice, fără a ataca alte instituții democratice sau a respinge pluralismul ca atare. Scor 1, reflectând prezența unor momente de ostilitate media într-un discurs altfel axat pe lupta politică pentru controlul instituțiilor.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12175,
+      "tokens_in_breakdown": {
+        "fresh": 12175,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 542,
+      "cost_usd": null,
+      "latency_ms": 2729,
+      "retries_used": 0
+    }
+  }
+}

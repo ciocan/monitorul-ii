@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2014/II/120#agenda-1#act-18",
+  "tier": "calibration",
+  "speaker": {
+    "id": "mitrea-miron-tudor",
+    "name": "Miron Tudor Mitrea",
+    "raw": "Domnul Miron Tudor Mitrea",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2014-12-02",
+    "year": 2014,
+    "legislature": "VII",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2014/II/120#agenda-1#act-18",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 1.0,
+        "markers": [],
+        "rationale": "Discursul este pur procedural, constând în gestionarea ordinii de zi a ședinței parlamentare, invitarea vorbitorilor și anunțarea procedurilor de vot. Nu există nicio urmă de cadru populist, maniheism moral sau invocare a unei voințe populare omogene. Limbajul este tehnic și administrativ, specific activității curente de secretariat a Parlamentului. Hawkins=0 cu încredere maximă."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 1.0,\n  \"markers\": [],\n  \"rationale\": \"Discursul este pur procedural, constând în gestionarea ordinii de zi a ședinței parlamentare, invitarea vorbitorilor și anunțarea procedurilor de vot. Nu există nicio urmă de cadru populist, maniheism moral sau invocare a unei voințe populare omogene. Limbajul este tehnic și administrativ, specific activității curente de secretariat a Parlamentului. Hawkins=0 cu încredere maximă.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13760,
+      "tokens_in_breakdown": {
+        "fresh": 13760,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 162,
+      "cost_usd": null,
+      "latency_ms": 1785,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2014/II/120#agenda-1#act-18",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.45,
+        "level_of_justification": 0,
+        "content_of_justification": "none",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 0,
+            "evidence": {
+              "text": "Continuăm."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.9,
+            "rationale_short": "Discursul este pur procedural, fără nicio argumentare sau justificare."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "none",
+            "evidence": {
+              "text": "Continuăm."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.9,
+            "rationale_short": "Nicio justificare oferită; conținutul este nedefinit."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Stimați colegi"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.8,
+            "rationale_short": "Adresare convențională neutră; niciun grup vizat."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Cine dorește să ia cuvântul?"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.8,
+            "rationale_short": "Intervenție procedurală neutră; nu există cereri opuse de evaluat."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "La textul hotărârii dacă există intervenții? Nimeni."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.85,
+            "rationale_short": "Nu există contraargumente, deci nici angajament."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Deci mergem la punctul 7"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.9,
+            "rationale_short": "Discurs pur procedural de gestionare a ordinii de zi."
+          }
+        ],
+        "rationale": "Acest fragment reprezintă un discurs pur procedural al președintelui de ședință, care gestionează ordinea de zi și invită la luări de cuvânt. Deoarece nu conține nicio argumentare, justificare sau dezbatere substanțială, toate dimensiunile DQI sunt codate la valorile lor implicite (neutru/procedural). Fragmentul nu constituie deliberare în sensul Steiner & Bächtiger, motiv pentru care framework_confidence este scăzut. Nu există nicio încercare de a convinge sau de a media, ci doar exercitarea funcției administrative de conducere a ședinței."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.45,\n  \"level_of_justification\": 0,\n  \"content_of_justification\": \"none\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 0,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 0,\n      \"evidence\": { \"text\": \"Continuăm.\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Discursul este pur procedural, fără nicio argumentare sau justificare.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"none\",\n      \"evidence\": { \"text\": \"Continuăm.\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Nicio justificare oferită; conținutul este nedefinit.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": { \"text\": \"Stimați colegi\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.8,\n      \"rationale_short\": \"Adresare convențională neutră; niciun grup vizat.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": { \"text\": \"Cine dorește să ia cuvântul?\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.8,\n      \"rationale_short\": \"Intervenție procedurală neutră; nu există cereri opuse de evaluat.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 0,\n      \"evidence\": { \"text\": \"La textul hotărârii dacă există intervenții? Nimeni.\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Nu există contraargumente, deci nici angajament.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": { \"text\": \"Deci mergem la punctul 7\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Discurs pur procedural de gestionare a ordinii de zi.\"\n    }\n  ],\n  \"rationale\": \"Acest fragment reprezintă un discurs pur procedural al președintelui de ședință, care gestionează ordinea de zi și invită la luări de cuvânt. Deoarece nu conține nicio argumentare, justificare sau dezbatere substanțială, toate dimensiunile DQI sunt codate la valorile lor implicite (neutru/procedural). Fragmentul nu constituie deliberare în sensul Steiner & Bächtiger, motiv pentru care framework_confidence este scăzut. Nu există nicio încercare de a convinge sau de a media, ci doar exercitarea funcției administrative de conducere a ședinței.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12561,
+      "tokens_in_breakdown": {
+        "fresh": 12561,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 967,
+      "cost_usd": null,
+      "latency_ms": 3458,
+      "retries_used": 0
+    }
+  }
+}

@@ -1,0 +1,197 @@
+{
+  "speech_id": "mo://2022/II/24#agenda-2#act-163",
+  "tier": "calibration",
+  "speaker": {
+    "id": "damureanu-ringo",
+    "name": "Ringo Dămureanu",
+    "raw": "Domnul Ringo Dămureanu",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2022-02-21",
+    "year": 2022,
+    "legislature": "IX",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2022/II/24#agenda-2#act-163",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [
+          {
+            "kind": "evil_elite",
+            "evidence": {
+              "text": "„Să nu mirosim, când venim la muncă, a transpirație. Să nu împrăștiem o aromă de sconcs, care face să capituleze olfactiv oricare operator economic”"
+            },
+            "preliminary_voice": "quoted",
+            "preliminary_voice_confidence": 0.99,
+            "marker_confidence": 0.95,
+            "rationale_short": "Citatul redă o declarație a unui oficial, nu poziția vorbitorului; este folosit pentru a critica conduita acestuia."
+          }
+        ],
+        "rationale": "Discursul este o interpelare parlamentară standard, axată pe solicitarea de explicații privind conduita unui funcționar public (Horia-Miron Constantinescu). Deși vorbitorul citează declarații controversate ale acestuia, o face în scopul de a critica comportamentul oficialului, nu pentru a promova o viziune populistă. Nu există un cadru maniheist popor-vs-elită, nicio invocare a unei voințe populare omogene sau a unei crize existențiale. Discursul rămâne în limitele controlului parlamentar asupra executivului, scorul fiind 0."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [\n    {\n      \"kind\": \"evil_elite\",\n      \"evidence\": {\n        \"text\": \"„Să nu mirosim, când venim la muncă, a transpirație. Să nu împrăștiem o aromă de sconcs, care face să capituleze olfactiv oricare operator economic”\"\n      },\n      \"preliminary_voice\": \"quoted\",\n      \"preliminary_voice_confidence\": 0.99,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Citatul redă o declarație a unui oficial, nu poziția vorbitorului; este folosit pentru a critica conduita acestuia.\"\n    }\n  ],\n  \"rationale\": \"Discursul este o interpelare parlamentară standard, axată pe solicitarea de explicații privind conduita unui funcționar public (Horia-Miron Constantinescu). Deși vorbitorul citează declarații controversate ale acestuia, o face în scopul de a critica comportamentul oficialului, nu pentru a promova o viziune populistă. Nu există un cadru maniheist popor-vs-elită, nicio invocare a unei voințe populare omogene sau a unei crize existențiale. Discursul rămâne în limitele controlului parlamentar asupra executivului, scorul fiind 0.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13990,
+      "tokens_in_breakdown": {
+        "fresh": 13990,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 372,
+      "cost_usd": null,
+      "latency_ms": 2463,
+      "retries_used": 0
+    },
+    "voice": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "voice",
+      "speech_id": "mo://2022/II/24#agenda-2#act-163",
+      "output": {
+        "classifications": [
+          {
+            "marker_id": "m_0",
+            "voice": "quoted",
+            "voice_confidence": 1.0,
+            "voice_evidence": {
+              "text": "a spus domnul Constantinescu, citat de publicația menționată."
+            },
+            "attributed_to": {
+              "raw": "Horia-Miron Constantinescu",
+              "kind": "individual"
+            },
+            "rationale_short": "Markerul este o citare directă, marcată prin ghilimele și atribuită explicit domnului Constantinescu prin verbul „a spus” și mențiunea „citat de”."
+          }
+        ]
+      },
+      "raw_response": "{\n  \"classifications\": [\n    {\n      \"marker_id\": \"m_0\",\n      \"voice\": \"quoted\",\n      \"voice_confidence\": 1.0,\n      \"voice_evidence\": {\n        \"text\": \"a spus domnul Constantinescu, citat de publicația menționată.\"\n      },\n      \"attributed_to\": {\n        \"raw\": \"Horia-Miron Constantinescu\",\n        \"kind\": \"individual\"\n      },\n      \"rationale_short\": \"Markerul este o citare directă, marcată prin ghilimele și atribuită explicit domnului Constantinescu prin verbul „a spus” și mențiunea „citat de”.\"\n    }\n  ]\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 11568,
+      "tokens_in_breakdown": {
+        "fresh": 11568,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 171,
+      "cost_usd": null,
+      "latency_ms": 1290,
+      "retries_used": 0
+    },
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2022/II/24#agenda-2#act-163",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.72,
+        "level_of_justification": 1,
+        "content_of_justification": "group_interest",
+        "respect_for_groups": 0,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 1,
+            "evidence": {
+              "text": "Un alt atac la adresa funcționarilor publici din cadrul acestei autorități este cel potrivit căruia în cadrul instituției există persoane care sunt mai puțin pregătite și care nu își fac treaba corespunzător"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.85,
+            "rationale_short": "Vorbitorul critică conduita altuia, dar argumentația rămâne la nivel de descriere a unor afirmații, fără o justificare cauzală proprie."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "group_interest",
+            "evidence": {
+              "text": "Conduita domnului Horia-Miron Constantinescu, președintele ANPC, insultătoare la adresa lucrătorilor"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Justificarea se concentrează pe protejarea intereselor unui grup specific (lucrătorii ANPC)."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 0,
+            "evidence": {
+              "text": "Un alt atac la adresa funcționarilor publici din cadrul acestei autorități este cel potrivit căruia în cadrul instituției există persoane care sunt mai puțin pregătite"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.88,
+            "rationale_short": "Vorbitorul citează un atac denigrator la adresa funcționarilor, validând retorica de dispreț."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Care au fost valorile morale și competențele profesionale ale domnului Horia-Miron Costantinescu care v-au convins să îl numiți în funcția de președinte al ANPC?"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.96,
+            "marker_confidence": 0.8,
+            "rationale_short": "Interpelarea este procedurală, fără a angaja legitimitatea unor cereri adverse."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "Cunoașteți cazuri de funcționari publici în cadrul ANPC sau al altor instituții guvernamentale care miros a transpirație la locul de muncă?"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.96,
+            "marker_confidence": 0.9,
+            "rationale_short": "Vorbitorul folosește ironia pentru a ignora substanța argumentelor invocate de oficialul vizat."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "vă rog să ne răspundeți"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Discursul este o interpelare de tip pozițional, fără a propune alternative sau soluții de mediere."
+          }
+        ],
+        "rationale": "Discursul este o interpelare parlamentară axată pe criticarea conduitei unui oficial public. Din punct de vedere deliberativ, acesta prezintă o justificare de nivel 1, bazată pe citarea unor declarații controversate, fără a dezvolta un raționament cauzal complex. Apelul este orientat către interesul unui grup specific (funcționarii ANPC). Respectul pentru grupuri este scăzut, deoarece vorbitorul preia și amplifică un conflict bazat pe denigrare. Nu există un angajament substanțial cu contraargumentele, iar natura interpelării este pur pozițională, solicitând explicații fără a oferi o alternativă constructivă. Calitatea deliberativă este limitată de caracterul acuzator al textului."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.72,\n  \"level_of_justification\": 1,\n  \"content_of_justification\": \"group_interest\",\n  \"respect_for_groups\": 0,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 0,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Un alt atac la adresa funcționarilor publici din cadrul acestei autorități este cel potrivit căruia în cadrul instituției există persoane care sunt mai puțin pregătite și care nu își fac treaba corespunzător\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Vorbitorul critică conduita altuia, dar argumentația rămâne la nivel de descriere a unor afirmații, fără o justificare cauzală proprie.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"group_interest\",\n      \"evidence\": {\n        \"text\": \"Conduita domnului Horia-Miron Constantinescu, președintele ANPC, insultătoare la adresa lucrătorilor\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Justificarea se concentrează pe protejarea intereselor unui grup specific (lucrătorii ANPC).\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"Un alt atac la adresa funcționarilor publici din cadrul acestei autorități este cel potrivit căruia în cadrul instituției există persoane care sunt mai puțin pregătite\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Vorbitorul citează un atac denigrator la adresa funcționarilor, validând retorica de dispreț.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Care au fost valorile morale și competențele profesionale ale domnului Horia-Miron Costantinescu care v-au convins să îl numiți în funcția de președinte al ANPC?\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.96,\n      \"marker_confidence\": 0.8,\n      \"rationale_short\": \"Interpelarea este procedurală, fără a angaja legitimitatea unor cereri adverse.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"Cunoașteți cazuri de funcționari publici în cadrul ANPC sau al altor instituții guvernamentale care miros a transpirație la locul de muncă?\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.96,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Vorbitorul folosește ironia pentru a ignora substanța argumentelor invocate de oficialul vizat.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"vă rog să ne răspundeți\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Discursul este o interpelare de tip pozițional, fără a propune alternative sau soluții de mediere.\"\n    }\n  ],\n  \"rationale\": \"Discursul este o interpelare parlamentară axată pe criticarea conduitei unui oficial public. Din punct de vedere deliberativ, acesta prezintă o justificare de nivel 1, bazată pe citarea unor declarații controversate, fără a dezvolta un raționament cauzal complex. Apelul este orientat către interesul unui grup specific (funcționarii ANPC). Respectul pentru grupuri este scăzut, deoarece vorbitorul preia și amplifică un conflict bazat pe denigrare. Nu există un angajament substanțial cu contraargumentele, iar natura interpelării este pur pozițională, solicitând explicații fără a oferi o alternativă constructivă. Calitatea deliberativă este limitată de caracterul acuzator al textului.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12791,
+      "tokens_in_breakdown": {
+        "fresh": 12791,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1257,
+      "cost_usd": null,
+      "latency_ms": 4739,
+      "retries_used": 0
+    }
+  }
+}

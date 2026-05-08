@@ -1,0 +1,152 @@
+{
+  "speech_id": "mo://2008/II/62#agenda-1#act-25",
+  "tier": "calibration",
+  "speaker": {
+    "id": "ungureanu-petre",
+    "name": "Petre Ungureanu",
+    "raw": "Domnul Petre Ungureanu",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2008-06-23",
+    "year": 2008,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2008/II/62#agenda-1#act-25",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.95,
+        "markers": [],
+        "rationale": "Discursul este unul procedural, axat pe dezbaterea juridică privind ridicarea imunității parlamentare a unor colegi (Mitrea, Năstase). Deși vorbitorul folosește un ton critic și polemic la adresa colegilor și a Curții Constituționale, acesta rămâne în limitele registrului parlamentar și juridic, fără a construi un cadru maniheist popor-vs-elită. Nu există invocarea unei voințe populare omogene sau a unei elite malefice ca structură de bază a discursului. Hawkins=0 cu încredere ridicată."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.95,\n  \"markers\": [],\n  \"rationale\": \"Discursul este unul procedural, axat pe dezbaterea juridică privind ridicarea imunității parlamentare a unor colegi (Mitrea, Năstase). Deși vorbitorul folosește un ton critic și polemic la adresa colegilor și a Curții Constituționale, acesta rămâne în limitele registrului parlamentar și juridic, fără a construi un cadru maniheist popor-vs-elită. Nu există invocarea unei voințe populare omogene sau a unei elite malefice ca structură de bază a discursului. Hawkins=0 cu încredere ridicată.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 14729,
+      "tokens_in_breakdown": {
+        "fresh": 14729,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 204,
+      "cost_usd": null,
+      "latency_ms": 2137,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2008/II/62#agenda-1#act-25",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.78,
+        "level_of_justification": 1,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 1,
+            "evidence": {
+              "text": "vom cere începerea urmăririi penale."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Poziția este clară, dar argumentația se bazează pe apeluri la autoritate și retorică, fără un lanț cauzal explicit."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "N-ar fi mare lucru dacă începând... Noi dăm aprobarea, începe urmărirea penală, iar domnul Mitrea sau domnul Năstase primesc o altă soluție decât trimiterea în judecată."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.82,
+            "rationale_short": "Apelul este la funcționarea justiției ca bine comun, nu la interesele specifice ale partidului."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Colegi care în cazul domnului Mitrea au constatat cu toții – și aici am auzit alte păreri – că n-au fost încălcate drepturile procedurale"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.96,
+            "marker_confidence": 0.88,
+            "rationale_short": "Referințele la colegi sunt critice, dar rămân în limitele dezbaterii parlamentare fără a deveni derogatorii."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Am vrut doar să spun, așa cum am susținut și în Comisia juridică, regret profund faptul că dezbaterile din Comisia juridică, de disciplină și imunități, cele 3-4 ore de dezbateri din cazurile Mitrea și Năstase, n-au fost publice."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.85,
+            "rationale_short": "Vorbitorul critică lipsa transparenței, dar nu angajează direct legitimitatea cererilor opoziției."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "Colegi care în cazul domnului Mitrea au constatat cu toții – și aici am auzit alte păreri – că n-au fost încălcate drepturile procedurale... iar în cazul domnului Năstase au întors-o ca la Ploiești."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.96,
+            "marker_confidence": 0.8,
+            "rationale_short": "Vorbitorul menționează schimbarea de opinie a colegilor, dar nu oferă o contra-argumentare substanțială."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "vom cere începerea urmăririi penale."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Discursul susține o poziție clară de vot, fără a propune o alternativă sau o mediere."
+          }
+        ],
+        "rationale": "Discursul reflectă o poziție politică fermă, dar cu o calitate deliberativă limitată. Deși vorbitorul invocă binele comun (funcționarea justiției), argumentația rămâne la nivelul 1, bazându-se mai mult pe retorică și critică decât pe dovezi cauzale. Respectul pentru grupuri și cereri este neutru, marcând o atitudine critică față de colegi fără a cădea în derogare explicită. Nu există un angajament substanțial cu contraargumentele, ci mai degrabă o observare a schimbării de poziție a opoziției. Discursul este în esență pozițional, vizând clarificarea votului partidului, ceea ce îl plasează într-o zonă de calitate deliberativă medie-scăzută."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.78,\n  \"level_of_justification\": 1,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 1,\n      \"evidence\": { \"text\": \"vom cere începerea urmăririi penale.\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Poziția este clară, dar argumentația se bazează pe apeluri la autoritate și retorică, fără un lanț cauzal explicit.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": { \"text\": \"N-ar fi mare lucru dacă începând... Noi dăm aprobarea, începe urmărirea penală, iar domnul Mitrea sau domnul Năstase primesc o altă soluție decât trimiterea în judecată.\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.82,\n      \"rationale_short\": \"Apelul este la funcționarea justiției ca bine comun, nu la interesele specifice ale partidului.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": { \"text\": \"Colegi care în cazul domnului Mitrea au constatat cu toții – și aici am auzit alte păreri – că n-au fost încălcate drepturile procedurale\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.96,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Referințele la colegi sunt critice, dar rămân în limitele dezbaterii parlamentare fără a deveni derogatorii.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": { \"text\": \"Am vrut doar să spun, așa cum am susținut și în Comisia juridică, regret profund faptul că dezbaterile din Comisia juridică, de disciplină și imunități, cele 3-4 ore de dezbateri din cazurile Mitrea și Năstase, n-au fost publice.\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Vorbitorul critică lipsa transparenței, dar nu angajează direct legitimitatea cererilor opoziției.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": { \"text\": \"Colegi care în cazul domnului Mitrea au constatat cu toții – și aici am auzit alte păreri – că n-au fost încălcate drepturile procedurale... iar în cazul domnului Năstase au întors-o ca la Ploiești.\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.96,\n      \"marker_confidence\": 0.80,\n      \"rationale_short\": \"Vorbitorul menționează schimbarea de opinie a colegilor, dar nu oferă o contra-argumentare substanțială.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": { \"text\": \"vom cere începerea urmăririi penale.\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Discursul susține o poziție clară de vot, fără a propune o alternativă sau o mediere.\"\n    }\n  ],\n  \"rationale\": \"Discursul reflectă o poziție politică fermă, dar cu o calitate deliberativă limitată. Deși vorbitorul invocă binele comun (funcționarea justiției), argumentația rămâne la nivelul 1, bazându-se mai mult pe retorică și critică decât pe dovezi cauzale. Respectul pentru grupuri și cereri este neutru, marcând o atitudine critică față de colegi fără a cădea în derogare explicită. Nu există un angajament substanțial cu contraargumentele, ci mai degrabă o observare a schimbării de poziție a opoziției. Discursul este în esență pozițional, vizând clarificarea votului partidului, ceea ce îl plasează într-o zonă de calitate deliberativă medie-scăzută.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [
+        "Colegi care în cazul domnului Mitrea au constatat cu toții – și aici am auzit alte păreri – că n-au fost încălcate drepturile procedurale... iar în cazul domnului Năstase au întors-o ca la Ploiești."
+      ],
+      "parse_repaired": false,
+      "tokens_in": 13530,
+      "tokens_in_breakdown": {
+        "fresh": 13530,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1293,
+      "cost_usd": null,
+      "latency_ms": 4706,
+      "retries_used": 0
+    }
+  }
+}

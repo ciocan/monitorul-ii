@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2026/II/39#agenda-1#act-107",
+  "tier": "calibration",
+  "speaker": {
+    "id": "csoma-botond",
+    "name": "Csoma Botond",
+    "raw": "Domnul Csoma Botond",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2026-03-25",
+    "year": 2026,
+    "legislature": "X",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2026/II/39#agenda-1#act-107",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul se concentrează pe o problemă de politică publică (prevenirea și combaterea femicidului) și pe necesitatea aplicării legii de către autorități. Deși vorbitorul critică autoritățile pentru o eventuală ineficiență, această critică este formulată în termeni de responsabilitate instituțională și eficiență administrativă, nu printr-un cadru maniheist popor-vs-elită. Nu există apeluri la o voință populară omogenă sau la o elită malefică, iar discursul rămâne în registrul dezbaterii parlamentare constructive. Hawkins=0 cu încredere ridicată."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul se concentrează pe o problemă de politică publică (prevenirea și combaterea femicidului) și pe necesitatea aplicării legii de către autorități. Deși vorbitorul critică autoritățile pentru o eventuală ineficiență, această critică este formulată în termeni de responsabilitate instituțională și eficiență administrativă, nu printr-un cadru maniheist popor-vs-elită. Nu există apeluri la o voință populară omogenă sau la o elită malefică, iar discursul rămâne în registrul dezbaterii parlamentare constructive. Hawkins=0 cu încredere ridicată.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13860,
+      "tokens_in_breakdown": {
+        "fresh": 13860,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 217,
+      "cost_usd": null,
+      "latency_ms": 2040,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2026/II/39#agenda-1#act-107",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.82,
+        "level_of_justification": 2,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "Această lege este importantă, deoarece nu se limitează doar la sancțiuni, ci are un element care se referă la prevenție – și această latură este cea mai importantă, prevenția"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Vorbitorul oferă o justificare bazată pe un mecanism cauzal (prevenția vs. sancțiunea) pentru eficacitatea legii."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "viețile femeilor să fie protejate, în această țară"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Apelul este universalizabil, vizând protecția vieții cetățenilor ca bine comun."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "noi, bărbații, trebuie să fim solidari cu femeile"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Referință neutră/solidară la grupuri; nu există derogare sau respect explicit de out-group."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Pentru prima dată în istoria României a fost elaborat un proiect de lege dedicat prevenirii și combaterii femicidului"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.88,
+            "rationale_short": "Vorbitorul își prezintă inițiativa fără a angaja explicit cereri adverse; neutru."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "dacă autoritățile nu-și fac treaba, putem adopta oricâte legi, în acest Parlament, pentru că nu vom ajunge la o soluție dorită"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Vorbitorul ignoră contraargumentele opoziției, concentrându-se pe propria viziune asupra implementării."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Această lege este importantă, deoarece nu se limitează doar la sancțiuni, ci are un element care se referă la prevenție"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.91,
+            "rationale_short": "Vorbitorul susține proiectul existent; nu propune o alternativă sau o mediere între poziții."
+          }
+        ],
+        "rationale": "Discursul prezintă o calitate deliberativă moderată, fiind bine justificat prin accentul pus pe prevenție ca mecanism de eficacitate (level_of_justification=2). Apelul la protejarea vieții femeilor este universalizabil, încadrându-se în binele comun (content_of_justification=common_good). Totuși, discursul rămâne pozițional, fără a oferi alternative sau medieri, și nu angajează contraargumente, ignorând dezbaterea parlamentară mai largă. Respectul pentru grupuri și cereri este neutru, reflectând o postură de susținere a propriei inițiative legislative. Profilul este cel al unui discurs de promovare a unei legi, cu o argumentare logică solidă, dar fără un angajament deliberativ cu opoziția."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.82,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 0,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"Această lege este importantă, deoarece nu se limitează doar la sancțiuni, ci are un element care se referă la prevenție – și această latură este cea mai importantă, prevenția\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Vorbitorul oferă o justificare bazată pe un mecanism cauzal (prevenția vs. sancțiunea) pentru eficacitatea legii.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"viețile femeilor să fie protejate, în această țară\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Apelul este universalizabil, vizând protecția vieții cetățenilor ca bine comun.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"noi, bărbații, trebuie să fim solidari cu femeile\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Referință neutră/solidară la grupuri; nu există derogare sau respect explicit de out-group.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Pentru prima dată în istoria României a fost elaborat un proiect de lege dedicat prevenirii și combaterii femicidului\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Vorbitorul își prezintă inițiativa fără a angaja explicit cereri adverse; neutru.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"dacă autoritățile nu-și fac treaba, putem adopta oricâte legi, în acest Parlament, pentru că nu vom ajunge la o soluție dorită\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.90,\n      \"rationale_short\": \"Vorbitorul ignoră contraargumentele opoziției, concentrându-se pe propria viziune asupra implementării.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"Această lege este importantă, deoarece nu se limitează doar la sancțiuni, ci are un element care se referă la prevenție\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.91,\n      \"rationale_short\": \"Vorbitorul susține proiectul existent; nu propune o alternativă sau o mediere între poziții.\"\n    }\n  ],\n  \"rationale\": \"Discursul prezintă o calitate deliberativă moderată, fiind bine justificat prin accentul pus pe prevenție ca mecanism de eficacitate (level_of_justification=2). Apelul la protejarea vieții femeilor este universalizabil, încadrându-se în binele comun (content_of_justification=common_good). Totuși, discursul rămâne pozițional, fără a oferi alternative sau medieri, și nu angajează contraargumente, ignorând dezbaterea parlamentară mai largă. Respectul pentru grupuri și cereri este neutru, reflectând o postură de susținere a propriei inițiative legislative. Profilul este cel al unui discurs de promovare a unei legi, cu o argumentare logică solidă, dar fără un angajament deliberativ cu opoziția.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12661,
+      "tokens_in_breakdown": {
+        "fresh": 12661,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1234,
+      "cost_usd": null,
+      "latency_ms": 4818,
+      "retries_used": 0
+    }
+  }
+}

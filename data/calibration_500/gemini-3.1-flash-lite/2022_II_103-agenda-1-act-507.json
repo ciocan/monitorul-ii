@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2022/II/103#agenda-1#act-507",
+  "tier": "calibration",
+  "speaker": {
+    "id": "suciu-daniel-vasile",
+    "name": "Vasile-Daniel Suciu",
+    "raw": "Domnul Vasile-Daniel Suciu",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2022-06-29",
+    "year": 2022,
+    "legislature": "IX",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2022/II/103#agenda-1#act-507",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 1.0,
+        "markers": [],
+        "rationale": "Discursul este pur procedural, constând în gestionarea ordinii de zi a ședinței parlamentare, verificarea obiecțiilor la titluri și articole și solicitarea rapoartelor comisiilor. Nu există nicio urmă de cadru populist, maniheism sau invocare a unei voințe populare în opoziție cu elitele. Limbajul este tehnic și administrativ, specific activității curente de legiferare. Hawkins=0 cu încredere maximă."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 1.0,\n  \"markers\": [],\n  \"rationale\": \"Discursul este pur procedural, constând în gestionarea ordinii de zi a ședinței parlamentare, verificarea obiecțiilor la titluri și articole și solicitarea rapoartelor comisiilor. Nu există nicio urmă de cadru populist, maniheism sau invocare a unei voințe populare în opoziție cu elitele. Limbajul este tehnic și administrativ, specific activității curente de legiferare. Hawkins=0 cu încredere maximă.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13673,
+      "tokens_in_breakdown": {
+        "fresh": 13673,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 174,
+      "cost_usd": null,
+      "latency_ms": 1890,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2022/II/103#agenda-1#act-507",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.45,
+        "level_of_justification": 0,
+        "content_of_justification": "none",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 0,
+            "evidence": {
+              "text": "Proiectul rămâne la votul final."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.95,
+            "rationale_short": "Discurs pur procedural, fără nicio justificare sau argumentare."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "none",
+            "evidence": {
+              "text": "Proiectul rămâne la votul final."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.95,
+            "rationale_short": "Nicio justificare oferită; conținutul este nedefinit."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "domnule Moșteanu"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.85,
+            "rationale_short": "Adresare procedurală neutră; niciun grup vizat."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Mai există înscrieri la cuvânt?"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.9,
+            "rationale_short": "Intervenție procedurală fără angajament cu cereri politice."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "Ați văzut că și două minute de dezbateri erau multe, domnule Moșteanu!"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.8,
+            "rationale_short": "Comentariu ironic la adresa opoziției, fără angajament cu argumente."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Proiectul rămâne la votul final."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.9,
+            "rationale_short": "Discurs pur procedural, fără propuneri alternative sau mediere."
+          }
+        ],
+        "rationale": "Acest fragment reprezintă un discurs pur procedural de conducere a ședinței, lipsit de orice substanță deliberativă. Vorbitorul se limitează la gestionarea ordinii de zi și la interacțiuni formale, ceea ce face ca toate dimensiunile DQI să fie fie neutre, fie absente. Ironia adresată domnului Moșteanu nu constituie un angajament deliberativ, ci o remarcă de context. Din cauza naturii procedurale a textului, framework_confidence este scăzut, deoarece rubricile DQI nu sunt concepute pentru a evalua gestionarea administrativă a ședințelor parlamentare."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.45,\n  \"level_of_justification\": 0,\n  \"content_of_justification\": \"none\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 0,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 0,\n      \"evidence\": { \"text\": \"Proiectul rămâne la votul final.\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Discurs pur procedural, fără nicio justificare sau argumentare.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"none\",\n      \"evidence\": { \"text\": \"Proiectul rămâne la votul final.\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Nicio justificare oferită; conținutul este nedefinit.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": { \"text\": \"domnule Moșteanu\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Adresare procedurală neutră; niciun grup vizat.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": { \"text\": \"Mai există înscrieri la cuvânt?\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Intervenție procedurală fără angajament cu cereri politice.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 0,\n      \"evidence\": { \"text\": \"Ați văzut că și două minute de dezbateri erau multe, domnule Moșteanu!\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.8,\n      \"rationale_short\": \"Comentariu ironic la adresa opoziției, fără angajament cu argumente.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": { \"text\": \"Proiectul rămâne la votul final.\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Discurs pur procedural, fără propuneri alternative sau mediere.\"\n    }\n  ],\n  \"rationale\": \"Acest fragment reprezintă un discurs pur procedural de conducere a ședinței, lipsit de orice substanță deliberativă. Vorbitorul se limitează la gestionarea ordinii de zi și la interacțiuni formale, ceea ce face ca toate dimensiunile DQI să fie fie neutre, fie absente. Ironia adresată domnului Moșteanu nu constituie un angajament deliberativ, ci o remarcă de context. Din cauza naturii procedurale a textului, framework_confidence este scăzut, deoarece rubricile DQI nu sunt concepute pentru a evalua gestionarea administrativă a ședințelor parlamentare.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12474,
+      "tokens_in_breakdown": {
+        "fresh": 12474,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 994,
+      "cost_usd": null,
+      "latency_ms": 4020,
+      "retries_used": 0
+    }
+  }
+}

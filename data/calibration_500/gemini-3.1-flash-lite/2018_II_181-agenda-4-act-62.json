@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2018/II/181#agenda-4#act-62",
+  "tier": "calibration",
+  "speaker": {
+    "id": "iancu-iulian",
+    "name": "Iulian Iancu",
+    "raw": "Domnul Iulian Iancu",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2018-11-28",
+    "year": 2018,
+    "legislature": "VIII",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2018/II/181#agenda-4#act-62",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 1.0,
+        "markers": [],
+        "rationale": "Discursul este unul pur procedural, axat pe prezentarea avizelor primite de la Comisia juridică și Consiliul Legislativ, precum și pe descrierea tehnică a obiectului reglementării (drepturile consumatorului, returnarea produselor). Nu există nicio urmă de cadru popor-vs-elită, maniheism moral sau invocare a unei voințe populare omogene. Vorbitorul se limitează la rolul său instituțional de raportor, fără a utiliza nicio retorică populistă. Hawkins=0 cu încredere maximă."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 1.0,\n  \"markers\": [],\n  \"rationale\": \"Discursul este unul pur procedural, axat pe prezentarea avizelor primite de la Comisia juridică și Consiliul Legislativ, precum și pe descrierea tehnică a obiectului reglementării (drepturile consumatorului, returnarea produselor). Nu există nicio urmă de cadru popor-vs-elită, maniheism moral sau invocare a unei voințe populare omogene. Vorbitorul se limitează la rolul său instituțional de raportor, fără a utiliza nicio retorică populistă. Hawkins=0 cu încredere maximă.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13672,
+      "tokens_in_breakdown": {
+        "fresh": 13672,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 196,
+      "cost_usd": null,
+      "latency_ms": 1992,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2018/II/181#agenda-4#act-62",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.85,
+        "level_of_justification": 1,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 1,
+            "evidence": {
+              "text": "această îmbunătățire se adresează reglementărilor ce privesc obligațiile comerciantului, drepturile consumatorului"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Vorbitorul descrie obiectul legii fără a oferi un raționament cauzal sau principial pentru adoptare."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "drepturile consumatorului atunci când sunt achiziționate produse de folosință îndelungată"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Apelul la drepturile consumatorului este universalizabil și vizează binele comun."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Stimați colegi"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.99,
+            "marker_confidence": 0.95,
+            "rationale_short": "Adresare convențională, neutră, fără referințe la out-group-uri."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Comisia a fost sesizată pentru dezbatere în fond cu proiectul de lege menționat."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Discurs procedural de raportor; nu există cereri adverse angajate."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "are avizul Consiliului Legislativ, a fost adoptat de Senat și, de asemenea, are avizul favorabil de la Comisia juridică."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.88,
+            "rationale_short": "Menționarea avizelor este o recunoaștere formală a procesului, nu un angajament cu contraargumente."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "membrii comisiei propun plenului adoptarea proiectului de lege."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Poziție procedurală de raportor; nu propune o alternativă sau mediere."
+          }
+        ],
+        "rationale": "Acesta este un discurs tipic de raportor de comisie, axat pe prezentarea procedurală a avizelor și a obiectului reglementării. Nivelul de justificare este 1, deoarece vorbitorul descrie conținutul legii fără a oferi un raționament cauzal profund pentru necesitatea acesteia. Apelul la drepturile consumatorului indică o orientare către binele comun. Respectul pentru grupuri și cereri este neutru, fiind un discurs formal, iar angajamentul cu contraargumente este absent, limitându-se la enumerarea avizelor favorabile. Discursul este pozițional, având rolul de a prezenta raportul comisiei plenului, fără a introduce elemente de mediere sau alternative noi."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.85,\n  \"level_of_justification\": 1,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"această îmbunătățire se adresează reglementărilor ce privesc obligațiile comerciantului, drepturile consumatorului\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Vorbitorul descrie obiectul legii fără a oferi un raționament cauzal sau principial pentru adoptare.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"drepturile consumatorului atunci când sunt achiziționate produse de folosință îndelungată\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Apelul la drepturile consumatorului este universalizabil și vizează binele comun.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Stimați colegi\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.99,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Adresare convențională, neutră, fără referințe la out-group-uri.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Comisia a fost sesizată pentru dezbatere în fond cu proiectul de lege menționat.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Discurs procedural de raportor; nu există cereri adverse angajate.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"are avizul Consiliului Legislativ, a fost adoptat de Senat și, de asemenea, are avizul favorabil de la Comisia juridică.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Menționarea avizelor este o recunoaștere formală a procesului, nu un angajament cu contraargumente.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"membrii comisiei propun plenului adoptarea proiectului de lege.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Poziție procedurală de raportor; nu propune o alternativă sau mediere.\"\n    }\n  ],\n  \"rationale\": \"Acesta este un discurs tipic de raportor de comisie, axat pe prezentarea procedurală a avizelor și a obiectului reglementării. Nivelul de justificare este 1, deoarece vorbitorul descrie conținutul legii fără a oferi un raționament cauzal profund pentru necesitatea acesteia. Apelul la drepturile consumatorului indică o orientare către binele comun. Respectul pentru grupuri și cereri este neutru, fiind un discurs formal, iar angajamentul cu contraargumente este absent, limitându-se la enumerarea avizelor favorabile. Discursul este pozițional, având rolul de a prezenta raportul comisiei plenului, fără a introduce elemente de mediere sau alternative noi.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12473,
+      "tokens_in_breakdown": {
+        "fresh": 12473,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1151,
+      "cost_usd": null,
+      "latency_ms": 4670,
+      "retries_used": 0
+    }
+  }
+}

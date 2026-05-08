@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2023/II/1#agenda-1#act-480",
+  "tier": "calibration",
+  "speaker": {
+    "id": "suciu-daniel-vasile",
+    "name": "Vasile-Daniel Suciu",
+    "raw": "Domnul Vasile-Daniel Suciu",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2022-12-13",
+    "year": 2023,
+    "legislature": "IX",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2023/II/1#agenda-1#act-480",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 1.0,
+        "markers": [],
+        "rationale": "Discursul reprezintă o succesiune de proceduri parlamentare standard: votarea unor proiecte de lege, ordonanțe de urgență și explicarea votului. Nu există nicio urmă de retorică populistă, cadru maniheist sau invocare a unei voințe populare omogene. Limbajul este strict tehnic și procedural, specific activității curente din plenul Parlamentului. Hawkins=0 cu încredere maximă."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 1.0,\n  \"markers\": [],\n  \"rationale\": \"Discursul reprezintă o succesiune de proceduri parlamentare standard: votarea unor proiecte de lege, ordonanțe de urgență și explicarea votului. Nu există nicio urmă de retorică populistă, cadru maniheist sau invocare a unei voințe populare omogene. Limbajul este strict tehnic și procedural, specific activității curente din plenul Parlamentului. Hawkins=0 cu încredere maximă.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 14250,
+      "tokens_in_breakdown": {
+        "fresh": 14250,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 164,
+      "cost_usd": null,
+      "latency_ms": 1653,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2023/II/1#agenda-1#act-480",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.45,
+        "level_of_justification": 0,
+        "content_of_justification": "none",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 0,
+            "evidence": {
+              "text": "Vot, vă rog."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.95,
+            "rationale_short": "Fragmentul conține doar proceduri de vot și anunțuri administrative, fără nicio justificare."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "none",
+            "evidence": {
+              "text": "Vot, vă rog."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.95,
+            "rationale_short": "Nicio justificare oferită; conținutul este nedefinit."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Doamna Alexandru Victoria-Violeta, vă rog, explicarea votului."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.9,
+            "rationale_short": "Interacțiune procedurală neutră cu un alt membru al camerei."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Vot, vă rog."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.9,
+            "rationale_short": "Nu există cereri politice opuse în acest fragment procedural."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "Vot, vă rog."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.9,
+            "rationale_short": "Absența oricărui argument sau contraargument în acest context pur procedural."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Vot, vă rog."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.9,
+            "rationale_short": "Fragmentul este pur procedural, fără propuneri alternative sau mediere."
+          }
+        ],
+        "rationale": "Fragmentul analizat reprezintă o succesiune de proceduri parlamentare de vot și anunțuri administrative, nefiind un discurs deliberativ în sensul indicelui DQI. Vorbitorul nu oferă nicio justificare, nu angajează contraargumente și nu propune alternative, limitându-se la gestionarea ordinii de zi. Din acest motiv, toate dimensiunile sunt codate la valorile lor implicite (neutru/pozițional/none). framework_confidence este scăzut deoarece textul nu conține substanță argumentativă, fiind un caz de procedură pură care nu suportă o analiză deliberativă calitativă."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.45,\n  \"level_of_justification\": 0,\n  \"content_of_justification\": \"none\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 0,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 0,\n      \"evidence\": { \"text\": \"Vot, vă rog.\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Fragmentul conține doar proceduri de vot și anunțuri administrative, fără nicio justificare.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"none\",\n      \"evidence\": { \"text\": \"Vot, vă rog.\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Nicio justificare oferită; conținutul este nedefinit.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": { \"text\": \"Doamna Alexandru Victoria-Violeta, vă rog, explicarea votului.\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Interacțiune procedurală neutră cu un alt membru al camerei.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": { \"text\": \"Vot, vă rog.\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Nu există cereri politice opuse în acest fragment procedural.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 0,\n      \"evidence\": { \"text\": \"Vot, vă rog.\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Absența oricărui argument sau contraargument în acest context pur procedural.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": { \"text\": \"Vot, vă rog.\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Fragmentul este pur procedural, fără propuneri alternative sau mediere.\"\n    }\n  ],\n  \"rationale\": \"Fragmentul analizat reprezintă o succesiune de proceduri parlamentare de vot și anunțuri administrative, nefiind un discurs deliberativ în sensul indicelui DQI. Vorbitorul nu oferă nicio justificare, nu angajează contraargumente și nu propune alternative, limitându-se la gestionarea ordinii de zi. Din acest motiv, toate dimensiunile sunt codate la valorile lor implicite (neutru/pozițional/none). framework_confidence este scăzut deoarece textul nu conține substanță argumentativă, fiind un caz de procedură pură care nu suportă o analiză deliberativă calitativă.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13051,
+      "tokens_in_breakdown": {
+        "fresh": 13051,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 982,
+      "cost_usd": null,
+      "latency_ms": 4141,
+      "retries_used": 0
+    }
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "speech_id": "mo://2003/II/24#agenda-6#act-180",
+  "tier": "calibration",
+  "speaker": {
+    "id": "petrescu-cameliu-ovidiu",
+    "name": "Ovidiu Cameliu Petrescu",
+    "raw": "Domnul Ovidiu Cameliu Petrescu",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": null,
+    "year": 2003,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": null,
+    "voice": null,
+    "dqi": null,
+    "vparty": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "vparty",
+      "speech_id": "mo://2003/II/24#agenda-6#act-180",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "vparty@2020 + vdem-attacks-on@v13",
+        "framework_confidence": 1.0,
+        "markers": [],
+        "rationale": "Discursul este unul pur administrativ și procedural, constând în răspunsul unui secretar de stat la o interpelare parlamentară privind un proiect de investiții pentru prevenirea inundațiilor. Nu există nicio urmă de retorică anti-pluralistă; vorbitorul se limitează la detalii tehnice, termene de execuție și surse de finanțare. Instituțiile menționate (Ministerul Apelor, Banca Europeană de Investiții) sunt invocate în contextul lor funcțional normal. Discursul respectă pe deplin normele democratice și nu conține niciunul dintre markerii de delegitimizare a instituțiilor sau a actorilor politici."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"vparty@2020 + vdem-attacks-on@v13\",\n  \"framework_confidence\": 1.0,\n  \"markers\": [],\n  \"rationale\": \"Discursul este unul pur administrativ și procedural, constând în răspunsul unui secretar de stat la o interpelare parlamentară privind un proiect de investiții pentru prevenirea inundațiilor. Nu există nicio urmă de retorică anti-pluralistă; vorbitorul se limitează la detalii tehnice, termene de execuție și surse de finanțare. Instituțiile menționate (Ministerul Apelor, Banca Europeană de Investiții) sunt invocate în contextul lor funcțional normal. Discursul respectă pe deplin normele democratice și nu conține niciunul dintre markerii de delegitimizare a instituțiilor sau a actorilor politici.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13214,
+      "tokens_in_breakdown": {
+        "fresh": 13214,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 228,
+      "cost_usd": null,
+      "latency_ms": 1781,
+      "retries_used": 0
+    }
+  }
+}

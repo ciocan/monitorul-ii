@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2021/II/80#agenda-1#act-117",
+  "tier": "calibration",
+  "speaker": {
+    "id": "moisin-radu-marin",
+    "name": "Radu-Marin Moisin",
+    "raw": "Domnul Radu-Marin Moisin",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2021-05-18",
+    "year": 2021,
+    "legislature": "IX",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2021/II/80#agenda-1#act-117",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul este unul tehnic, axat pe argumente științifice și date medicale (studii Harvard, Comisia Europeană) pentru a susține o inițiativă legislativă privind sănătatea publică. Nu există nicio urmă de cadru popor-vs-elită, maniheism moral sau invocare a unei voințe populare omogene care să prevaleze asupra procedurilor. Vorbitorul se înscrie într-un registru de dezbatere parlamentară bazată pe dovezi, nu pe mobilizare populistă. Hawkins=0 cu încredere ridicată."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul este unul tehnic, axat pe argumente științifice și date medicale (studii Harvard, Comisia Europeană) pentru a susține o inițiativă legislativă privind sănătatea publică. Nu există nicio urmă de cadru popor-vs-elită, maniheism moral sau invocare a unei voințe populare omogene care să prevaleze asupra procedurilor. Vorbitorul se înscrie într-un registru de dezbatere parlamentară bazată pe dovezi, nu pe mobilizare populistă. Hawkins=0 cu încredere ridicată.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13854,
+      "tokens_in_breakdown": {
+        "fresh": 13854,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 201,
+      "cost_usd": null,
+      "latency_ms": 1873,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2021/II/80#agenda-1#act-117",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.85,
+        "level_of_justification": 2,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "S-au detectat în particulele emergente din aceste țigări electronice metale precum nichel, precum argintul, s-au descoperit compuși chimici toxici, precum benzen, fenoli, formaldehidă"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Vorbitorul invocă dovezi științifice specifice (studii Harvard/CE) pentru a justifica necesitatea reglementării."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "Ea este inițiată pentru sănătatea noastră, a românilor."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Justificarea se bazează pe interesul general al sănătății publice, nu pe interese de grup."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Stimate colege, Stimați colegi"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.99,
+            "marker_confidence": 0.9,
+            "rationale_short": "Adresare convențională, neutră, fără referințe derogatorii sau de respect explicit către out-group-uri."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Vă rog frumos, această inițiativă nu trebuie respinsă, ci trebuie aprobată."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Vorbitorul își susține poziția fără a aborda direct cererile opoziției de respingere."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "Vă rog frumos, această inițiativă nu trebuie respinsă, ci trebuie aprobată."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.88,
+            "rationale_short": "Argumentele opoziției pentru respingere nu sunt menționate sau angajate substanțial."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "această inițiativă nu trebuie respinsă, ci trebuie aprobată."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Vorbitorul susține aprobarea inițiativei fără a propune un amendament sau o mediere specifică."
+          }
+        ],
+        "rationale": "Discursul prezintă o calitate deliberativă medie, marcată de o justificare calificată (level_of_justification=2) prin apelul la studii științifice recente (Harvard, Comisia Europeană) pentru a susține sănătatea publică (common_good). Deși vorbitorul este persuasiv, acesta nu se angajează în mod deliberativ cu contraargumentele opoziției, ignorându-le complet (respect_for_counterarguments=0). Poziția este fermă, dar nu oferă alternative sau medieri (constructive_politics=positional). Respectul pentru colegi rămâne la nivelul convențiilor formale (respect_for_groups=1). În ansamblu, discursul este bine fundamentat factual, dar rămâne într-o paradigmă de confruntare pozițională."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.85,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 0,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"S-au detectat în particulele emergente din aceste țigări electronice metale precum nichel, precum argintul, s-au descoperit compuși chimici toxici, precum benzen, fenoli, formaldehidă\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Vorbitorul invocă dovezi științifice specifice (studii Harvard/CE) pentru a justifica necesitatea reglementării.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"Ea este inițiată pentru sănătatea noastră, a românilor.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Justificarea se bazează pe interesul general al sănătății publice, nu pe interese de grup.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Stimate colege, Stimați colegi\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.99,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Adresare convențională, neutră, fără referințe derogatorii sau de respect explicit către out-group-uri.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Vă rog frumos, această inițiativă nu trebuie respinsă, ci trebuie aprobată.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Vorbitorul își susține poziția fără a aborda direct cererile opoziției de respingere.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"Vă rog frumos, această inițiativă nu trebuie respinsă, ci trebuie aprobată.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Argumentele opoziției pentru respingere nu sunt menționate sau angajate substanțial.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"această inițiativă nu trebuie respinsă, ci trebuie aprobată.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Vorbitorul susține aprobarea inițiativei fără a propune un amendament sau o mediere specifică.\"\n    }\n  ],\n  \"rationale\": \"Discursul prezintă o calitate deliberativă medie, marcată de o justificare calificată (level_of_justification=2) prin apelul la studii științifice recente (Harvard, Comisia Europeană) pentru a susține sănătatea publică (common_good). Deși vorbitorul este persuasiv, acesta nu se angajează în mod deliberativ cu contraargumentele opoziției, ignorându-le complet (respect_for_counterarguments=0). Poziția este fermă, dar nu oferă alternative sau medieri (constructive_politics=positional). Respectul pentru colegi rămâne la nivelul convențiilor formale (respect_for_groups=1). În ansamblu, discursul este bine fundamentat factual, dar rămâne într-o paradigmă de confruntare pozițională.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12655,
+      "tokens_in_breakdown": {
+        "fresh": 12655,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1210,
+      "cost_usd": null,
+      "latency_ms": 4786,
+      "retries_used": 0
+    }
+  }
+}

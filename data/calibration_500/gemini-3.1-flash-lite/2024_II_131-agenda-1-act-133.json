@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2024/II/131#agenda-1#act-133",
+  "tier": "calibration",
+  "speaker": {
+    "id": "chirila-virgil-alin",
+    "name": "Virgil Alin Chirilă",
+    "raw": "Domnul Virgil Alin Chirilă",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2024-11-11",
+    "year": 2024,
+    "legislature": "IX",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2024/II/131#agenda-1#act-133",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 1.0,
+        "markers": [],
+        "rationale": "Discursul este un raport procedural standard prezentat de un membru al comisiei, limitându-se la enumerarea etapelor legislative, a avizelor primite și a deciziei finale de respingere. Nu există nicio urmă de cadru popor-vs-elită, maniheism moral sau invocare a unei voințe populare omogene. Limbajul este strict tehnic și administrativ, specific activității parlamentare de rutină. Hawkins=0 cu încredere maximă."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 1.0,\n  \"markers\": [],\n  \"rationale\": \"Discursul este un raport procedural standard prezentat de un membru al comisiei, limitându-se la enumerarea etapelor legislative, a avizelor primite și a deciziei finale de respingere. Nu există nicio urmă de cadru popor-vs-elită, maniheism moral sau invocare a unei voințe populare omogene. Limbajul este strict tehnic și administrativ, specific activității parlamentare de rutină. Hawkins=0 cu încredere maximă.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13846,
+      "tokens_in_breakdown": {
+        "fresh": 13846,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 174,
+      "cost_usd": null,
+      "latency_ms": 1889,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2024/II/131#agenda-1#act-133",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.45,
+        "level_of_justification": 0,
+        "content_of_justification": "none",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 0,
+            "evidence": {
+              "text": "În urma dezbaterilor, membrii celor două comisii au hotărât, cu majoritate de voturi, respingerea propunerii legislative."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Discursul este un raport procedural de comisie, fără argumentație proprie."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "none",
+            "evidence": {
+              "text": "În urma dezbaterilor, membrii celor două comisii au hotărât, cu majoritate de voturi, respingerea propunerii legislative."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Nicio justificare oferită; conținut nedefinit."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Comisia juridică, de disciplină și imunități și Comisia pentru administrație publică și amenajarea teritoriului"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Referințe neutre la instituții și comisii."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Senatul, în calitate de primă Cameră sesizată, a respins propunerea legislativă."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Prezentare neutră a parcursului legislativ, fără angajament cu cererile."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "Ministerul Justiției a transmis anumite observații"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Menționare neutră a observațiilor, fără angajament substanțial."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "membrii celor două comisii au hotărât, cu majoritate de voturi, respingerea propunerii legislative."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Raportarea unei decizii procedurale; nu este o propunere alternativă sau mediere."
+          }
+        ],
+        "rationale": "Acest discurs reprezintă un raport procedural standard prezentat de un raportor de comisie, având un caracter pur informativ și administrativ. Nu conține argumentație deliberativă, justificare sau angajament cu contraargumente, ci doar enumeră etapele parcurse și decizia finală a comisiilor. Deoarece discursul nu reprezintă o intervenție deliberativă în sensul DQI, framework_confidence este scăzut, iar toate dimensiunile sunt codate la valorile lor implicite. Discursul este un instrument de lucru parlamentar, nu o dezbatere de idei."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.45,\n  \"level_of_justification\": 0,\n  \"content_of_justification\": \"none\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 0,\n      \"evidence\": { \"text\": \"În urma dezbaterilor, membrii celor două comisii au hotărât, cu majoritate de voturi, respingerea propunerii legislative.\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Discursul este un raport procedural de comisie, fără argumentație proprie.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"none\",\n      \"evidence\": { \"text\": \"În urma dezbaterilor, membrii celor două comisii au hotărât, cu majoritate de voturi, respingerea propunerii legislative.\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Nicio justificare oferită; conținut nedefinit.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": { \"text\": \"Comisia juridică, de disciplină și imunități și Comisia pentru administrație publică și amenajarea teritoriului\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Referințe neutre la instituții și comisii.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": { \"text\": \"Senatul, în calitate de primă Cameră sesizată, a respins propunerea legislativă.\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Prezentare neutră a parcursului legislativ, fără angajament cu cererile.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": { \"text\": \"Ministerul Justiției a transmis anumite observații\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Menționare neutră a observațiilor, fără angajament substanțial.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": { \"text\": \"membrii celor două comisii au hotărât, cu majoritate de voturi, respingerea propunerii legislative.\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Raportarea unei decizii procedurale; nu este o propunere alternativă sau mediere.\"\n    }\n  ],\n  \"rationale\": \"Acest discurs reprezintă un raport procedural standard prezentat de un raportor de comisie, având un caracter pur informativ și administrativ. Nu conține argumentație deliberativă, justificare sau angajament cu contraargumente, ci doar enumeră etapele parcurse și decizia finală a comisiilor. Deoarece discursul nu reprezintă o intervenție deliberativă în sensul DQI, framework_confidence este scăzut, iar toate dimensiunile sunt codate la valorile lor implicite. Discursul este un instrument de lucru parlamentar, nu o dezbatere de idei.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12647,
+      "tokens_in_breakdown": {
+        "fresh": 12647,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1084,
+      "cost_usd": null,
+      "latency_ms": 4243,
+      "retries_used": 0
+    }
+  }
+}

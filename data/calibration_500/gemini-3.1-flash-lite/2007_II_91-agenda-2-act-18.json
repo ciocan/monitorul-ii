@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2007/II/91#agenda-2#act-18",
+  "tier": "calibration",
+  "speaker": {
+    "id": "soporan-vasile-filip",
+    "name": "Vasile Filip Soporan",
+    "raw": "Domnul Vasile Filip Soporan",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": null,
+    "session_date": null,
+    "year": 2007,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2007/II/91#agenda-2#act-18",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.95,
+        "markers": [],
+        "rationale": "Discursul este un demers critic de opoziție axat pe indicatori economici (deficit, datorie externă, PIB, ineficiență energetică) și pe solicitarea unor politici publice concrete. Deși vorbitorul menționează „populismul” ca pe un fenomen de evitat și critică „Alianța D.A.”, acesta nu construiește un cadru maniheist popor-vs-elită, ci rămâne în registrul dezbaterii tehnocratice și parlamentare. Nu există invocarea unei voințe populare omogene ca autoritate supremă, nici demonizarea elitei ca entitate malefică, ci o critică a performanței guvernamentale. Discursul se încadrează în registrul procedural și pluralist, neîndeplinind criteriile pentru un scor populist."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.95,\n  \"markers\": [],\n  \"rationale\": \"Discursul este un demers critic de opoziție axat pe indicatori economici (deficit, datorie externă, PIB, ineficiență energetică) și pe solicitarea unor politici publice concrete. Deși vorbitorul menționează „populismul” ca pe un fenomen de evitat și critică „Alianța D.A.”, acesta nu construiește un cadru maniheist popor-vs-elită, ci rămâne în registrul dezbaterii tehnocratice și parlamentare. Nu există invocarea unei voințe populare omogene ca autoritate supremă, nici demonizarea elitei ca entitate malefică, ci o critică a performanței guvernamentale. Discursul se încadrează în registrul procedural și pluralist, neîndeplinind criteriile pentru un scor populist.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 14668,
+      "tokens_in_breakdown": {
+        "fresh": 14668,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 253,
+      "cost_usd": null,
+      "latency_ms": 2132,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2007/II/91#agenda-2#act-18",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.82,
+        "level_of_justification": 2,
+        "content_of_justification": "mixed",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "alternative_proposal",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "deficitul de cont curent care va fi cu 166% mai mare dec‚t cel de anul trecut; datoria extern„ total„, care a urcat Ón primele dou„ luni ale anului 2007 la 29 miliarde de euro; men˛inerea cheltuielilor publice pentru educa˛ie la 5% din P.I.B."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Vorbitorul oferă date economice specifice pentru a justifica criticile aduse guvernării."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "mixed",
+            "evidence": {
+              "text": "solicit prezentarea de urgen˛„ a politicilor Guvernului, care vizeaz„: cre∫terea utiliz„rii finan˛„rilor nerambursabile din fondurile structurale europene, Óncurajarea economisirii"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Justificarea îmbină interesele economice ale grupurilor sociale cu obiective de bine comun (fonduri europene, eficiență)."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Guvernan˛ii prezen˛i ∫i cei trecu˛i ai Alian˛ei D.A."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.88,
+            "rationale_short": "Referință funcțională la coaliția de guvernare; tonul este critic, dar nu derogatoriu."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Opozi˛ia ar dori o asemenea confruntare."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.96,
+            "marker_confidence": 0.82,
+            "rationale_short": "Vorbitorul își exprimă dorința pentru o confruntare, fără a angaja direct legitimitatea cererilor adverse."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "Discut‚nd, cum facem ast„zi, f„r„ a Ón˛elege profund problemele majore pe care le are Rom‚nia real„"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.8,
+            "rationale_short": "Menționează dezbaterea curentă fără a angaja substanțial argumentele opoziției."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "alternative_proposal",
+            "evidence": {
+              "text": "solicit prezentarea de urgen˛„ a politicilor Guvernului, care vizeaz„: cre∫terea utiliz„rii finan˛„rilor nerambursabile din fondurile structurale europene, Óncurajarea economisirii"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Vorbitorul propune măsuri concrete de politică economică ca alternativă la situația actuală."
+          }
+        ],
+        "rationale": "Discursul prezintă o calitate deliberativă medie, caracterizată printr-o justificare bazată pe date economice concrete (level_of_justification=2), ceea ce îi conferă o substanță analitică. Vorbitorul apelează la o justificare mixtă, vizând atât interesele economice ale cetățenilor, cât și obiective de interes general (binele comun). Deși critică guvernarea, limbajul rămâne în limitele respectului procedural (respect_for_groups=1), fără a cădea în derogări. Angajamentul față de contraargumente este limitat la o mențiune generală a dezbaterii, fără o respingere detaliată (respect_for_counterarguments=1). Caracterul constructiv este susținut prin propunerea unor politici alternative clare, deși nu reprezintă o mediere între poziții opuse."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.82,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"mixed\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"alternative_proposal\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"deficitul de cont curent care va fi cu 166% mai mare dec‚t cel de anul trecut; datoria extern„ total„, care a urcat Ón primele dou„ luni ale anului 2007 la 29 miliarde de euro; men˛inerea cheltuielilor publice pentru educa˛ie la 5% din P.I.B.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Vorbitorul oferă date economice specifice pentru a justifica criticile aduse guvernării.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"mixed\",\n      \"evidence\": {\n        \"text\": \"solicit prezentarea de urgen˛„ a politicilor Guvernului, care vizeaz„: cre∫terea utiliz„rii finan˛„rilor nerambursabile din fondurile structurale europene, Óncurajarea economisirii\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Justificarea îmbină interesele economice ale grupurilor sociale cu obiective de bine comun (fonduri europene, eficiență).\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Guvernan˛ii prezen˛i ∫i cei trecu˛i ai Alian˛ei D.A.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Referință funcțională la coaliția de guvernare; tonul este critic, dar nu derogatoriu.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Opozi˛ia ar dori o asemenea confruntare.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.96,\n      \"marker_confidence\": 0.82,\n      \"rationale_short\": \"Vorbitorul își exprimă dorința pentru o confruntare, fără a angaja direct legitimitatea cererilor adverse.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Discut‚nd, cum facem ast„zi, f„r„ a Ón˛elege profund problemele majore pe care le are Rom‚nia real„\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"marker_confidence\": 0.80,\n      \"rationale_short\": \"Menționează dezbaterea curentă fără a angaja substanțial argumentele opoziției.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"alternative_proposal\",\n      \"evidence\": {\n        \"text\": \"solicit prezentarea de urgen˛„ a politicilor Guvernului, care vizeaz„: cre∫terea utiliz„rii finan˛„rilor nerambursabile din fondurile structurale europene, Óncurajarea economisirii\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.90,\n      \"rationale_short\": \"Vorbitorul propune măsuri concrete de politică economică ca alternativă la situația actuală.\"\n    }\n  ],\n  \"rationale\": \"Discursul prezintă o calitate deliberativă medie, caracterizată printr-o justificare bazată pe date economice concrete (level_of_justification=2), ceea ce îi conferă o substanță analitică. Vorbitorul apelează la o justificare mixtă, vizând atât interesele economice ale cetățenilor, cât și obiective de interes general (binele comun). Deși critică guvernarea, limbajul rămâne în limitele respectului procedural (respect_for_groups=1), fără a cădea în derogări. Angajamentul față de contraargumente este limitat la o mențiune generală a dezbaterii, fără o respingere detaliată (respect_for_counterarguments=1). Caracterul constructiv este susținut prin propunerea unor politici alternative clare, deși nu reprezintă o mediere între poziții opuse.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13469,
+      "tokens_in_breakdown": {
+        "fresh": 13469,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1339,
+      "cost_usd": null,
+      "latency_ms": 5375,
+      "retries_used": 0
+    }
+  }
+}

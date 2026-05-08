@@ -1,0 +1,231 @@
+{
+  "speech_id": "mo://2019/II/55#agenda-4#act-67",
+  "tier": "calibration",
+  "speaker": {
+    "id": "movila-petru",
+    "name": "Petru Movilă",
+    "raw": "Domnul Petru Movilă",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2019-04-15",
+    "year": 2019,
+    "legislature": "VIII",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2019/II/55#agenda-4#act-67",
+      "output": {
+        "score": 1,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.85,
+        "markers": [
+          {
+            "kind": "people_vs_elite",
+            "evidence": {
+              "text": "cei care ne privesc acum, fie că vorbim de cetățeni care plătesc gaz sau energie în gospodăriile proprii, fie că vorbim de consumatori economici sau instituții ale statului, aceștia plătesc cu 20% mai mult prețul la energie față de 2016"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.75,
+            "rationale_short": "Contrastul dintre cetățenii care plătesc mai mult și decidenții politici este folosit ca pivot retoric."
+          },
+          {
+            "kind": "evil_elite",
+            "evidence": {
+              "text": "proiectele zac și sunt în funcție de bunăvoința, disponibilitatea unor decidenți politici, ceea ce este foarte grav."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.8,
+            "rationale_short": "Elita politică este descrisă ca fiind responsabilă pentru blocaje prin lipsa de bunăvoință."
+          },
+          {
+            "kind": "homogeneous_people",
+            "evidence": {
+              "text": "cei 75% din români care nu au gaz"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.7,
+            "rationale_short": "Invocă o masă omogenă de cetățeni privați de resurse ca subiect al voinței politice."
+          }
+        ],
+        "rationale": "Discursul combină critica tehnică a sectorului energetic cu elemente de retorică populistă. Deși vorbitorul folosește date concrete, el pivotează către un cadru de tip popor-vs-elită, acuzând decidenții politici de blocaje și lipsă de bunăvoință. Totuși, discursul rămâne ancorat în contextul unei moțiuni parlamentare și nu atinge nivelul de maniheism moralist sau de supremație a voinței populare necesar pentru un scor 2. Este un discurs de opoziție care utilizează accente populiste pentru a sublinia ineficiența guvernării, încadrându-se astfel la scorul 1."
+      },
+      "raw_response": "{\n  \"score\": 1,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.85,\n  \"markers\": [\n    {\n      \"kind\": \"people_vs_elite\",\n      \"evidence\": {\n        \"text\": \"cei care ne privesc acum, fie că vorbim de cetățeni care plătesc gaz sau energie în gospodăriile proprii, fie că vorbim de consumatori economici sau instituții ale statului, aceștia plătesc cu 20% mai mult prețul la energie față de 2016\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.75,\n      \"rationale_short\": \"Contrastul dintre cetățenii care plătesc mai mult și decidenții politici este folosit ca pivot retoric.\"\n    },\n    {\n      \"kind\": \"evil_elite\",\n      \"evidence\": {\n        \"text\": \"proiectele zac și sunt în funcție de bunăvoința, disponibilitatea unor decidenți politici, ceea ce este foarte grav.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.8,\n      \"rationale_short\": \"Elita politică este descrisă ca fiind responsabilă pentru blocaje prin lipsa de bunăvoință.\"\n    },\n    {\n      \"kind\": \"homogeneous_people\",\n      \"evidence\": {\n        \"text\": \"cei 75% din români care nu au gaz\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.7,\n      \"rationale_short\": \"Invocă o masă omogenă de cetățeni privați de resurse ca subiect al voinței politice.\"\n    }\n  ],\n  \"rationale\": \"Discursul combină critica tehnică a sectorului energetic cu elemente de retorică populistă. Deși vorbitorul folosește date concrete, el pivotează către un cadru de tip popor-vs-elită, acuzând decidenții politici de blocaje și lipsă de bunăvoință. Totuși, discursul rămâne ancorat în contextul unei moțiuni parlamentare și nu atinge nivelul de maniheism moralist sau de supremație a voinței populare necesar pentru un scor 2. Este un discurs de opoziție care utilizează accente populiste pentru a sublinia ineficiența guvernării, încadrându-se astfel la scorul 1.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13951,
+      "tokens_in_breakdown": {
+        "fresh": 13951,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 678,
+      "cost_usd": null,
+      "latency_ms": 3373,
+      "retries_used": 0
+    },
+    "voice": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "voice",
+      "speech_id": "mo://2019/II/55#agenda-4#act-67",
+      "output": {
+        "classifications": [
+          {
+            "marker_id": "m_0",
+            "voice": "speaker_first_person",
+            "voice_confidence": 0.95,
+            "voice_evidence": null,
+            "attributed_to": null,
+            "rationale_short": "Afirmație directă a vorbitorului despre realitatea economică; nu există indicii de citare, raportare sau disclaimer."
+          },
+          {
+            "marker_id": "m_1",
+            "voice": "speaker_first_person",
+            "voice_confidence": 0.95,
+            "voice_evidence": null,
+            "attributed_to": null,
+            "rationale_short": "Vorbitorul își exprimă propria opinie critică despre starea proiectelor; afirmație directă la persoana întâi."
+          },
+          {
+            "marker_id": "m_2",
+            "voice": "speaker_first_person",
+            "voice_confidence": 0.95,
+            "voice_evidence": null,
+            "attributed_to": null,
+            "rationale_short": "Afirmație directă a vorbitorului în cadrul argumentației sale proprii; nu este o atribuire către terți."
+          }
+        ]
+      },
+      "raw_response": "{\n  \"classifications\": [\n    {\n      \"marker_id\": \"m_0\",\n      \"voice\": \"speaker_first_person\",\n      \"voice_confidence\": 0.95,\n      \"voice_evidence\": null,\n      \"attributed_to\": null,\n      \"rationale_short\": \"Afirmație directă a vorbitorului despre realitatea economică; nu există indicii de citare, raportare sau disclaimer.\"\n    },\n    {\n      \"marker_id\": \"m_1\",\n      \"voice\": \"speaker_first_person\",\n      \"voice_confidence\": 0.95,\n      \"voice_evidence\": null,\n      \"attributed_to\": null,\n      \"rationale_short\": \"Vorbitorul își exprimă propria opinie critică despre starea proiectelor; afirmație directă la persoana întâi.\"\n    },\n    {\n      \"marker_id\": \"m_2\",\n      \"voice\": \"speaker_first_person\",\n      \"voice_confidence\": 0.95,\n      \"voice_evidence\": null,\n      \"attributed_to\": null,\n      \"rationale_short\": \"Afirmație directă a vorbitorului în cadrul argumentației sale proprii; nu este o atribuire către terți.\"\n    }\n  ]\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 11695,
+      "tokens_in_breakdown": {
+        "fresh": 11695,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 308,
+      "cost_usd": null,
+      "latency_ms": 1440,
+      "retries_used": 0
+    },
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2019/II/55#agenda-4#act-67",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.82,
+        "level_of_justification": 2,
+        "content_of_justification": "mixed",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "aceștia plătesc cu 20% mai mult prețul la energie față de 2016 și cu 15% mai mult prețul la gaz decât în 2015."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Vorbitorul oferă date empirice comparative (2016 vs 2015) pentru a justifica critica adusă prețurilor la energie."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "mixed",
+            "evidence": {
+              "text": "cei 75% din români care nu au gaz, fie că sunt în localități rurale sau urbane, în următorii 3 ani, prin investiții ale statului... să beneficieze de gaz."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Justificarea îmbină interesul unui grup specific (cetățenii fără acces la gaz) cu un apel la binele comun (dezvoltarea infrastructurii naționale)."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "colegii de la PSD–ALDE"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Referință neutră la grupul politic advers; nicio derogare sau respect explicit."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Ați transformat această moțiune simplă într-un dialog și acuzații personale"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.88,
+            "rationale_short": "Vorbitorul critică modul în care a fost tratată moțiunea, dar nu angajează cererile opoziției în mod substanțial."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "Am auzit foarte multe lucruri aici care nu au legătură cu realitatea."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Vorbitorul respinge argumentele opoziției fără a le restabili sau a le combate cu dovezi."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "PMP va vota această moțiune, ca un avertisment"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.94,
+            "rationale_short": "Discursul este pozițional, axat pe susținerea moțiunii ca avertisment politic, fără a propune o alternativă legislativă concretă."
+          }
+        ],
+        "rationale": "Discursul prezintă o calitate deliberativă mixtă. Vorbitorul oferă o justificare calificată prin utilizarea datelor statistice privind prețurile la energie (level_of_justification=2), apelând la o combinație de interese de grup și binele comun. Totuși, discursul eșuează în a respecta contraargumentele, respingându-le generic ca fiind rupte de realitate (respect_for_counterarguments=0). Deși critică lipsa de strategie, vorbitorul rămâne într-o postură pozițională, folosind moțiunea ca instrument de avertisment politic mai degrabă decât ca platformă pentru o alternativă legislativă detaliată. Respectul pentru grupuri și cereri rămâne neutru, reflectând o retorică parlamentară standard de opoziție."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.82,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"mixed\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 0,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"aceștia plătesc cu 20% mai mult prețul la energie față de 2016 și cu 15% mai mult prețul la gaz decât în 2015.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Vorbitorul oferă date empirice comparative (2016 vs 2015) pentru a justifica critica adusă prețurilor la energie.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"mixed\",\n      \"evidence\": {\n        \"text\": \"cei 75% din români care nu au gaz, fie că sunt în localități rurale sau urbane, în următorii 3 ani, prin investiții ale statului... să beneficieze de gaz.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Justificarea îmbină interesul unui grup specific (cetățenii fără acces la gaz) cu un apel la binele comun (dezvoltarea infrastructurii naționale).\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"colegii de la PSD–ALDE\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Referință neutră la grupul politic advers; nicio derogare sau respect explicit.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Ați transformat această moțiune simplă într-un dialog și acuzații personale\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Vorbitorul critică modul în care a fost tratată moțiunea, dar nu angajează cererile opoziției în mod substanțial.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"Am auzit foarte multe lucruri aici care nu au legătură cu realitatea.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Vorbitorul respinge argumentele opoziției fără a le restabili sau a le combate cu dovezi.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"PMP va vota această moțiune, ca un avertisment\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.94,\n      \"rationale_short\": \"Discursul este pozițional, axat pe susținerea moțiunii ca avertisment politic, fără a propune o alternativă legislativă concretă.\"\n    }\n  ],\n  \"rationale\": \"Discursul prezintă o calitate deliberativă mixtă. Vorbitorul oferă o justificare calificată prin utilizarea datelor statistice privind prețurile la energie (level_of_justification=2), apelând la o combinație de interese de grup și binele comun. Totuși, discursul eșuează în a respecta contraargumentele, respingându-le generic ca fiind rupte de realitate (respect_for_counterarguments=0). Deși critică lipsa de strategie, vorbitorul rămâne într-o postură pozițională, folosind moțiunea ca instrument de avertisment politic mai degrabă decât ca platformă pentru o alternativă legislativă detaliată. Respectul pentru grupuri și cereri rămâne neutru, reflectând o retorică parlamentară standard de opoziție.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [
+        "cei 75% din români care nu au gaz, fie că sunt în localități rurale sau urbane, în următorii 3 ani, prin investiții ale statului... să beneficieze de gaz.",
+        "Ați transformat această moțiune simplă într-un dialog și acuzații personale"
+      ],
+      "parse_repaired": false,
+      "tokens_in": 12752,
+      "tokens_in_breakdown": {
+        "fresh": 12752,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1247,
+      "cost_usd": null,
+      "latency_ms": 5060,
+      "retries_used": 0
+    }
+  }
+}

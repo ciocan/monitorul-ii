@@ -1,0 +1,153 @@
+{
+  "speech_id": "mo://2006/II/177#agenda-2#act-34",
+  "tier": "register_shift",
+  "speaker": {
+    "id": "ponta-victor-viorel",
+    "name": "Victor Viorel Ponta",
+    "raw": "Domnul Victor Viorel Ponta",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": null,
+    "session_date": null,
+    "year": 2006,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "haiku",
+  "model_label": "claude-haiku-4.5",
+  "results": {
+    "hawkins": {
+      "model_key": "haiku",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2006/II/177#agenda-2#act-34",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.97,
+        "markers": [],
+        "rationale": "Discursul este exclusiv procedural — o succesiune de puncte legislative supuse votului conform agendei parlamentare: „Punctul N. Se propune reformularea textului art. X. Obiecţiuni? Nu sunt. Adoptat.\" Fără cadru popor-vs-elită, fără maniheism moral, fără invocarea unei voințe populare omogene sau depictarea unei elite malefice. Registrul este tehnic-parlamentar, respectând procedurile legislative. Finalul discursului menţionează procedura de urgenţă și integrazione legislativă, cu cererea de a-și prezinta Guvernul punctul de vedere — tot limbaj procedural standard, nu populist. Hawkins=0 cu încredere foarte ridicată.\""
+      },
+      "raw_response": "```json\n{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.97,\n  \"markers\": [],\n  \"rationale\": \"Discursul este exclusiv procedural — o succesiune de puncte legislative supuse votului conform agendei parlamentare: „Punctul N. Se propune reformularea textului art. X. Obiecţiuni? Nu sunt. Adoptat.\" Fără cadru popor-vs-elită, fără maniheism moral, fără invocarea unei voințe populare omogene sau depictarea unei elite malefice. Registrul este tehnic-parlamentar, respectând procedurile legislative. Finalul discursului menţionează procedura de urgenţă și integrazione legislativă, cu cererea de a-și prezinta Guvernul punctul de vedere — tot limbaj procedural standard, nu populist. Hawkins=0 cu încredere foarte ridicată.\"\n}\n```",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": true,
+      "tokens_in": 117284,
+      "tokens_in_breakdown": {
+        "fresh": 9,
+        "cache_creation": 59638,
+        "cache_read": 57637
+      },
+      "tokens_out": 1141,
+      "cost_usd": 0.0860252,
+      "latency_ms": 18867,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "haiku",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2006/II/177#agenda-2#act-34",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.36,
+        "level_of_justification": 0,
+        "content_of_justification": "none",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 0,
+            "evidence": {
+              "text": "Obiec˛iuni? Nu exist„. Adoptat."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.96,
+            "marker_confidence": 0.92,
+            "rationale_short": "Administrație pură de procedure; nicio justificare pentru poziții luate, doar constatări."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "none",
+            "evidence": {
+              "text": "Punctul 1, capitolul I — îDispozi˛ii generale\". Obiec˛iuni? Nu exist„. Adoptat."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.9,
+            "rationale_short": "Nicio justificare oferită; conținut justificării este nedefinit în context procedural pur."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "V„ mul˛umesc, domnule deputat."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.96,
+            "marker_confidence": 0.77,
+            "rationale_short": "Doar adresare convențională de deschidere; niciun out-group invocat în discurs; neutru implicit."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Punctul 4, art. 2 alin. (1) al legii. Obiec˛iuni? Nu exist„. Adoptat."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.96,
+            "marker_confidence": 0.83,
+            "rationale_short": "Administrație mecanică a articolelor; niciun angajament substanțial cu cereri adverse."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "Nu sunt obiec˛iuni. Adoptat."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.81,
+            "rationale_short": "Niciun raționament opus nu este prezentat; procedură neutrală administrativă."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Urmeaz„ s„ fie supus„ votului final."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.94,
+            "marker_confidence": 0.88,
+            "rationale_short": "Administrare de procedură legislativă; nu se propun alternative sau mediere, doar trecere."
+          }
+        ],
+        "rationale": "Discurs pur procedural în care președintele sesiunii administrează rapid trecerea unei liste de amendamente la un proiect de lege prin formula repetitivă «Obiecțiuni? Nu există. Adoptat.» Nicio justificare nu este oferită (level_of_justification=0), fiindcă scopul nu este deliberativ, ci administrativ — procesul legislativ nu cere argumente în această fază. Cea mai mare parte a discursului este o serie mecanică de puncte numerotate cu verificare procedurală pe fiecare, fără angajament substanțial cu conținut, contraargumente sau cereri adverse. Respectul pentru grupuri și cereri rămân neutri (1) fiindcă nu există interacțiune deliberativă autentică. DQI este conceptualizat explicit pentru dezbaterea deliberativă și raționament argumentativ, nu pentru administrația de sesiune. framework_confidence este scăzut (~0.36) fiindcă discursul cade în afara domeniului DQI și ar trebui exclus prin filtrare în aval pe baza încrederii reduse."
+      },
+      "raw_response": "```json\n{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.36,\n  \"level_of_justification\": 0,\n  \"content_of_justification\": \"none\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"Obiec˛iuni? Nu exist„. Adoptat.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.96,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Administrație pură de procedure; nicio justificare pentru poziții luate, doar constatări.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"none\",\n      \"evidence\": {\n        \"text\": \"Punctul 1, capitolul I — îDispozi˛ii generale\\\". Obiec˛iuni? Nu exist„. Adoptat.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.90,\n      \"rationale_short\": \"Nicio justificare oferită; conținut justificării este nedefinit în context procedural pur.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"V„ mul˛umesc, domnule deputat.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.96,\n      \"marker_confidence\": 0.77,\n      \"rationale_short\": \"Doar adresare convențională de deschidere; niciun out-group invocat în discurs; neutru implicit.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Punctul 4, art. 2 alin. (1) al legii. Obiec˛iuni? Nu exist„. Adoptat.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.96,\n      \"marker_confidence\": 0.83,\n      \"rationale_short\": \"Administrație mecanică a articolelor; niciun angajament substanțial cu cereri adverse.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Nu sunt obiec˛iuni. Adoptat.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"marker_confidence\": 0.81,\n      \"rationale_short\": \"Niciun raționament opus nu este prezentat; procedură neutrală administrativă.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"Urmeaz„ s„ fie supus„ votului final.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.94,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Administrare de procedură legislativă; nu se propun alternative sau mediere, doar trecere.\"\n    }\n  ],\n  \"rationale\": \"Discurs pur procedural în care președintele sesiunii administrează rapid trecerea unei liste de amendamente la un proiect de lege prin formula repetitivă «Obiecțiuni? Nu există. Adoptat.» Nicio justificare nu este oferită (level_of_justification=0), fiindcă scopul nu este deliberativ, ci administrativ — procesul legislativ nu cere argumente în această fază. Cea mai mare parte a discursului este o serie mecanică de puncte numerotate cu verificare procedurală pe fiecare, fără angajament substanțial cu conținut, contraargumente sau cereri adverse. Respectul pentru grupuri și cereri rămân neutri (1) fiindcă nu există interacțiune deliberativă autentică. DQI este conceptualizat explicit pentru dezbaterea deliberativă și raționament argumentativ, nu pentru administrația de sesiune. framework_confidence este scăzut (~0.36) fiindcă discursul cade în afara domeniului DQI și ar trebui exclus prin filtrare în aval pe baza încrederii reduse.\"\n}\n```",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [
+        "Punctul 1, capitolul I — îDispozi˛ii generale\". Obiec˛iuni? Nu exist„. Adoptat.",
+        "Punctul 4, art. 2 alin. (1) al legii. Obiec˛iuni? Nu exist„. Adoptat."
+      ],
+      "parse_repaired": false,
+      "tokens_in": 115915,
+      "tokens_in_breakdown": {
+        "fresh": 9,
+        "cache_creation": 58269,
+        "cache_read": 57637
+      },
+      "tokens_out": 5473,
+      "cost_usd": 0.10597395,
+      "latency_ms": 48996,
+      "retries_used": 0
+    }
+  }
+}

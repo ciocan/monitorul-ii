@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2022/II/28#agenda-1#act-23",
+  "tier": "calibration",
+  "speaker": {
+    "id": "tanasa-dan",
+    "name": "Dan Tanasă",
+    "raw": "Domnul Dan Tanasă",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2022-03-01",
+    "year": 2022,
+    "legislature": "IX",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2022/II/28#agenda-1#act-23",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul este o declarație politică omagială dedicată sculptorului Vida Gheza, concentrată pe biografia artistului și pe semnificația istorică a operelor sale. Deși textul menționează „regimul barbar” și „ocupația horthystă”, aceste referințe sunt ancorate în contextul istoric al celui de-al Doilea Război Mondial și nu constituie un cadru populist maniheist de tip popor-vs-elită. Nu există nicio invocare a unei voințe populare omogene care să se opună instituțiilor actuale, nici un cadru de criză sau de elită malefică contemporană. Discursul rămâne în registrul comemorativ și cultural, fără a exprima o viziune populistă."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul este o declarație politică omagială dedicată sculptorului Vida Gheza, concentrată pe biografia artistului și pe semnificația istorică a operelor sale. Deși textul menționează „regimul barbar” și „ocupația horthystă”, aceste referințe sunt ancorate în contextul istoric al celui de-al Doilea Război Mondial și nu constituie un cadru populist maniheist de tip popor-vs-elită. Nu există nicio invocare a unei voințe populare omogene care să se opună instituțiilor actuale, nici un cadru de criză sau de elită malefică contemporană. Discursul rămâne în registrul comemorativ și cultural, fără a exprima o viziune populistă.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 14297,
+      "tokens_in_breakdown": {
+        "fresh": 14297,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 244,
+      "cost_usd": null,
+      "latency_ms": 2050,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2022/II/28#agenda-1#act-23",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.72,
+        "level_of_justification": 1,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 0,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 1,
+            "evidence": {
+              "text": "Este datoria noastră să păstrăm vie memoria acestor mari artiști ai României, să condamnăm formele totalitare de ocupație care au dus la mutilarea României și să omagiem martirii și eroii evocați prin operele sculptorului Vida Gheza."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Justificarea se bazează pe apeluri la datorie morală și memorie colectivă, fără un raționament cauzal sau dovezi empirice."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "Este datoria noastră să păstrăm vie memoria acestor mari artiști ai României"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Apelul este universalizabil, vizând memoria culturală a întregii națiuni."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 0,
+            "evidence": {
+              "text": "regimul barbar care ocupa partea de nord a Transilvaniei l-a supus acestui tratament nedrept. Observăm, așadar, cât de oarbă a fost ura manifestată de acel regim cotropitor. Calitatea umană, potențialul sau numele nu au avut nicio valoare în fața unui invadator profund antisemit și antiromân!"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.94,
+            "rationale_short": "Folosirea unor termeni precum „regim barbar” și „invadator” pentru a caracteriza un grup istoric constituie o formă de derogare."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Declarația mea politică de astăzi se intitulează „109 ani de la nașterea sculptorului Vida Gheza”."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.99,
+            "marker_confidence": 0.9,
+            "rationale_short": "Discursul este o declarație omagială, nu o dezbatere pe cereri politice; neutru implicit."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "Declarația mea politică de astăzi se intitulează „109 ani de la nașterea sculptorului Vida Gheza”."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.99,
+            "marker_confidence": 0.9,
+            "rationale_short": "Nu există contraargumente adresate; discursul este monolog omagial."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Este datoria noastră să păstrăm vie memoria acestor mari artiști ai României"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Discursul susține o poziție de comemorare, fără a propune alternative politice sau medieri."
+          }
+        ],
+        "rationale": "Discursul este o declarație politică omagială, ceea ce limitează aplicabilitatea rubricii DQI, fiind în esență un monolog narativ. Justificarea este de nivel 1, bazându-se pe datorii morale și valori naționale, fără a oferi un raționament cauzal complex. Respectul pentru grupuri este codat ca 0 din cauza limbajului derogatoriu utilizat la adresa regimului de ocupație istoric. Deoarece nu există o dezbatere activă, dimensiunile de respect pentru cereri și contraargumente rămân neutre (1). Discursul este pur pozițional, nefiind o propunere de politică publică. Calitatea deliberativă este scăzută, dar acest lucru este inerent genului discursiv al declarației omagiale."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.72,\n  \"level_of_justification\": 1,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 0,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 1,\n      \"evidence\": { \"text\": \"Este datoria noastră să păstrăm vie memoria acestor mari artiști ai României, să condamnăm formele totalitare de ocupație care au dus la mutilarea României și să omagiem martirii și eroii evocați prin operele sculptorului Vida Gheza.\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Justificarea se bazează pe apeluri la datorie morală și memorie colectivă, fără un raționament cauzal sau dovezi empirice.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": { \"text\": \"Este datoria noastră să păstrăm vie memoria acestor mari artiști ai României\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Apelul este universalizabil, vizând memoria culturală a întregii națiuni.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 0,\n      \"evidence\": { \"text\": \"regimul barbar care ocupa partea de nord a Transilvaniei l-a supus acestui tratament nedrept. Observăm, așadar, cât de oarbă a fost ura manifestată de acel regim cotropitor. Calitatea umană, potențialul sau numele nu au avut nicio valoare în fața unui invadator profund antisemit și antiromân!\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"marker_confidence\": 0.94,\n      \"rationale_short\": \"Folosirea unor termeni precum „regim barbar” și „invadator” pentru a caracteriza un grup istoric constituie o formă de derogare.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": { \"text\": \"Declarația mea politică de astăzi se intitulează „109 ani de la nașterea sculptorului Vida Gheza”.\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.99,\n      \"marker_confidence\": 0.90,\n      \"rationale_short\": \"Discursul este o declarație omagială, nu o dezbatere pe cereri politice; neutru implicit.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": { \"text\": \"Declarația mea politică de astăzi se intitulează „109 ani de la nașterea sculptorului Vida Gheza”.\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.99,\n      \"marker_confidence\": 0.90,\n      \"rationale_short\": \"Nu există contraargumente adresate; discursul este monolog omagial.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": { \"text\": \"Este datoria noastră să păstrăm vie memoria acestor mari artiști ai României\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Discursul susține o poziție de comemorare, fără a propune alternative politice sau medieri.\"\n    }\n  ],\n  \"rationale\": \"Discursul este o declarație politică omagială, ceea ce limitează aplicabilitatea rubricii DQI, fiind în esență un monolog narativ. Justificarea este de nivel 1, bazându-se pe datorii morale și valori naționale, fără a oferi un raționament cauzal complex. Respectul pentru grupuri este codat ca 0 din cauza limbajului derogatoriu utilizat la adresa regimului de ocupație istoric. Deoarece nu există o dezbatere activă, dimensiunile de respect pentru cereri și contraargumente rămân neutre (1). Discursul este pur pozițional, nefiind o propunere de politică publică. Calitatea deliberativă este scăzută, dar acest lucru este inerent genului discursiv al declarației omagiale.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13098,
+      "tokens_in_breakdown": {
+        "fresh": 13098,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1285,
+      "cost_usd": null,
+      "latency_ms": 5250,
+      "retries_used": 0
+    }
+  }
+}

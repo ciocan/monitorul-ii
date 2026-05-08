@@ -1,0 +1,210 @@
+{
+  "speech_id": "mo://2008/II/90#agenda-1#act-49",
+  "tier": "calibration",
+  "speaker": {
+    "id": "tudor-constantin",
+    "name": "Constantin Tudor",
+    "raw": "Domnul Constantin Tudor",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2008-09-30",
+    "year": 2008,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2008/II/90#agenda-1#act-49",
+      "output": {
+        "score": 1,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.85,
+        "markers": [
+          {
+            "kind": "evil_elite",
+            "evidence": {
+              "text": "Prea miroase a mită electorală!"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.85,
+            "rationale_short": "Sugerează că distribuirea ajutoarelor este o manevră coruptă a elitei pentru a cumpăra voturi."
+          },
+          {
+            "kind": "evil_elite",
+            "evidence": {
+              "text": "primarul Dragu a mai tolerat încălcarea legii în domeniul autorizării construcțiilor"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.88,
+            "rationale_short": "Acuzație directă de complicitate și tolerare a ilegalității la adresa unei figuri din elita locală."
+          }
+        ],
+        "rationale": "Discursul conține două secțiuni distincte care critică autoritățile locale și guvernamentale. Deși mare parte din text este informativ și procedural (detalii despre ajutoare, rapoarte IJC), vorbitorul introduce elemente de retorică populistă prin acuzații de corupție și complicitate (mită electorală, tolerarea ilegalității). Acestea sunt momente critice care atacă integritatea elitei, dar nu constituie un cadru manihean pervaziv pe tot parcursul textului. Scor 1, deoarece populismul apare ca o critică punctiformă, nu ca o viziune structurală."
+      },
+      "raw_response": "{\n  \"score\": 1,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.85,\n  \"markers\": [\n    {\n      \"kind\": \"evil_elite\",\n      \"evidence\": {\n        \"text\": \"Prea miroase a mită electorală!\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Sugerează că distribuirea ajutoarelor este o manevră coruptă a elitei pentru a cumpăra voturi.\"\n    },\n    {\n      \"kind\": \"evil_elite\",\n      \"evidence\": {\n        \"text\": \"primarul Dragu a mai tolerat încălcarea legii în domeniul autorizării construcțiilor\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Acuzație directă de complicitate și tolerare a ilegalității la adresa unei figuri din elita locală.\"\n    }\n  ],\n  \"rationale\": \"Discursul conține două secțiuni distincte care critică autoritățile locale și guvernamentale. Deși mare parte din text este informativ și procedural (detalii despre ajutoare, rapoarte IJC), vorbitorul introduce elemente de retorică populistă prin acuzații de corupție și complicitate (mită electorală, tolerarea ilegalității). Acestea sunt momente critice care atacă integritatea elitei, dar nu constituie un cadru manihean pervaziv pe tot parcursul textului. Scor 1, deoarece populismul apare ca o critică punctiformă, nu ca o viziune structurală.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 14692,
+      "tokens_in_breakdown": {
+        "fresh": 14692,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 478,
+      "cost_usd": null,
+      "latency_ms": 2652,
+      "retries_used": 0
+    },
+    "voice": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "voice",
+      "speech_id": "mo://2008/II/90#agenda-1#act-49",
+      "output": {
+        "classifications": [
+          {
+            "marker_id": "m_0",
+            "voice": "speaker_first_person",
+            "voice_confidence": 0.95,
+            "voice_evidence": null,
+            "attributed_to": null,
+            "rationale_short": "Afirmație directă a autorului articolului, exprimând o opinie proprie fără a fi citat sau raportat."
+          },
+          {
+            "marker_id": "m_1",
+            "voice": "speaker_first_person",
+            "voice_confidence": 0.92,
+            "voice_evidence": null,
+            "attributed_to": null,
+            "rationale_short": "Autorul își asumă direct acuzația la adresa primarului, bazându-se pe observațiile proprii și pe intervențiile anterioare menționate."
+          }
+        ]
+      },
+      "raw_response": "{\n  \"classifications\": [\n    {\n      \"marker_id\": \"m_0\",\n      \"voice\": \"speaker_first_person\",\n      \"voice_confidence\": 0.95,\n      \"voice_evidence\": null,\n      \"attributed_to\": null,\n      \"rationale_short\": \"Afirmație directă a autorului articolului, exprimând o opinie proprie fără a fi citat sau raportat.\"\n    },\n    {\n      \"marker_id\": \"m_1\",\n      \"voice\": \"speaker_first_person\",\n      \"voice_confidence\": 0.92,\n      \"voice_evidence\": null,\n      \"attributed_to\": null,\n      \"rationale_short\": \"Autorul își asumă direct acuzația la adresa primarului, bazându-se pe observațiile proprii și pe intervențiile anterioare menționate.\"\n    }\n  ]\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12313,
+      "tokens_in_breakdown": {
+        "fresh": 12313,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 215,
+      "cost_usd": null,
+      "latency_ms": 1491,
+      "retries_used": 0
+    },
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2008/II/90#agenda-1#act-49",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.65,
+        "level_of_justification": 1,
+        "content_of_justification": "group_interest",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 1,
+            "evidence": {
+              "text": "Prea miroase a mită electorală!"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.85,
+            "rationale_short": "Afirmația este o concluzie politică fără un lanț cauzal sau dovezi care să lege măsura de intenția electorală."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "group_interest",
+            "evidence": {
+              "text": "persoanele defavorizate din județul nostru"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.88,
+            "rationale_short": "Justificarea se concentrează pe interesele unui grup specific (persoanele defavorizate din județ)."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "persoanele defavorizate din județul nostru"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.9,
+            "rationale_short": "Grupul este menționat neutru, fără conotații derogatorii sau de respect explicit."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Nu suntem farisei ca să nu recunoaștem că acest demers este unul bine-venit"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.8,
+            "rationale_short": "Recunoașterea utilității măsurii este o poziție neutră, fără angajament cu cererile opoziției."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "Prea miroase a mită electorală!"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.85,
+            "rationale_short": "Vorbitorul ignoră raționamentul oficial al guvernului, reducându-l la o acuzație de mită."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Prea miroase a mită electorală!"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.9,
+            "rationale_short": "Discursul este pur critic, fără a propune o alternativă sau o mediere a situației."
+          }
+        ],
+        "rationale": "Textul prezintă o critică politică axată pe suspiciunea de mită electorală, fără a oferi o justificare substanțială sau un lanț cauzal clar. Deși recunoaște utilitatea socială a ajutoarelor, vorbitorul nu angajează argumentele guvernului, ci le respinge printr-o etichetă politică. Calitatea deliberativă este limitată de caracterul pozițional și de lipsa unei alternative constructive. Justificarea este ancorată în interesul grupului local, iar respectul pentru contraargumente este absent, fiind înlocuit de o retorică de tip acuzație. Profilul general este unul de opoziție critică, cu o densitate deliberativă scăzută."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.65,\n  \"level_of_justification\": 1,\n  \"content_of_justification\": \"group_interest\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 0,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Prea miroase a mită electorală!\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Afirmația este o concluzie politică fără un lanț cauzal sau dovezi care să lege măsura de intenția electorală.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"group_interest\",\n      \"evidence\": {\n        \"text\": \"persoanele defavorizate din județul nostru\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Justificarea se concentrează pe interesele unui grup specific (persoanele defavorizate din județ).\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"persoanele defavorizate din județul nostru\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Grupul este menționat neutru, fără conotații derogatorii sau de respect explicit.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Nu suntem farisei ca să nu recunoaștem că acest demers este unul bine-venit\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.8,\n      \"rationale_short\": \"Recunoașterea utilității măsurii este o poziție neutră, fără angajament cu cererile opoziției.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"Prea miroase a mită electorală!\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Vorbitorul ignoră raționamentul oficial al guvernului, reducându-l la o acuzație de mită.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"Prea miroase a mită electorală!\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Discursul este pur critic, fără a propune o alternativă sau o mediere a situației.\"\n    }\n  ],\n  \"rationale\": \"Textul prezintă o critică politică axată pe suspiciunea de mită electorală, fără a oferi o justificare substanțială sau un lanț cauzal clar. Deși recunoaște utilitatea socială a ajutoarelor, vorbitorul nu angajează argumentele guvernului, ci le respinge printr-o etichetă politică. Calitatea deliberativă este limitată de caracterul pozițional și de lipsa unei alternative constructive. Justificarea este ancorată în interesul grupului local, iar respectul pentru contraargumente este absent, fiind înlocuit de o retorică de tip acuzație. Profilul general este unul de opoziție critică, cu o densitate deliberativă scăzută.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13493,
+      "tokens_in_breakdown": {
+        "fresh": 13493,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1118,
+      "cost_usd": null,
+      "latency_ms": 5023,
+      "retries_used": 0
+    }
+  }
+}

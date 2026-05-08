@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2017/II/153#agenda-1#act-116",
+  "tier": "register_shift",
+  "speaker": {
+    "id": "basescu-traian",
+    "name": "Traian Băsescu",
+    "raw": "Domnul Traian Băsescu",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": "2017-10-24",
+    "year": 2017,
+    "legislature": "VIII",
+    "delivery_mode": null
+  },
+  "model_key": "gpt-5.4-mini",
+  "model_label": "gpt-5.4-mini",
+  "results": {
+    "hawkins": {
+      "model_key": "gpt-5.4-mini",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2017/II/153#agenda-1#act-116",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.96,
+        "markers": [],
+        "rationale": "Discursul este unul procedural-instituțional despre locul Monitorului Oficial și despre controlul Executivului, cu argumente bazate pe Constituție și lege. Deși apar formulări critice la adresa Guvernului, ele nu construiesc un cadru popor-vs-elită și nu invocă un „popor” omogen ca subiect moral al acțiunii politice. Nu există maniheism, supremația voinței populare asupra instituțiilor și nici o criză cu valențe existențiale; este mai degrabă o dispută de organizare instituțională. Prin urmare, Hawkins=0."
+      },
+      "raw_response": "{\"score\":0,\"score_unit\":\"ordinal_0_2\",\"framework_version\":\"hawkins@2018\",\"framework_confidence\":0.96,\"markers\":[],\"rationale\":\"Discursul este unul procedural-instituțional despre locul Monitorului Oficial și despre controlul Executivului, cu argumente bazate pe Constituție și lege. Deși apar formulări critice la adresa Guvernului, ele nu construiesc un cadru popor-vs-elită și nu invocă un „popor” omogen ca subiect moral al acțiunii politice. Nu există maniheism, supremația voinței populare asupra instituțiilor și nici o criză cu valențe existențiale; este mai degrabă o dispută de organizare instituțională. Prin urmare, Hawkins=0.\"}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13543,
+      "tokens_in_breakdown": {
+        "fresh": 13543,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 194,
+      "cost_usd": null,
+      "latency_ms": 2505,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gpt-5.4-mini",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2017/II/153#agenda-1#act-116",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.84,
+        "level_of_justification": 2,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 0,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "alternative_proposal",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "Trecerea Monitorului Oficial la Guvern, la Secretariatul General al Guvernului, a fost o mișcare politică ce a decurs din nevoia de a genera ilegalități: încălcarea Constituției și nerespectarea legii."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.89,
+            "rationale_short": "Oferă un lanț cauzal explicit între mutare și încălcarea Constituției/legii, deci justificare calificată."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "încălcarea Constituției și nerespectarea legii"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.87,
+            "rationale_short": "Apelul este la legalitate constituțională, deci la un principiu de interes general."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "majoritate"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.96,
+            "marker_confidence": 0.68,
+            "rationale_short": "Grupul politic este menționat funcțional, fără derogare explicită și fără respect out-group explicit."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 0,
+            "evidence": {
+              "text": "Nu trebuie să perpetuăm dreptul Executivului, pe care avem pretenția că-l controlăm, să jongleze cu actele normative în funcție de nevoile lui."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.77,
+            "rationale_short": "Cererea/poziția adversă a Executivului este respinsă ca abuzivă, fără recunoașterea legitimității ei."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "Nu trebuie să perpetuăm dreptul Executivului, pe care avem pretenția că-l controlăm, să jongleze cu actele normative în funcție de nevoile lui."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.76,
+            "rationale_short": "Nu se restatează și nu se combate un contraargument specific; discursul îl ignoră practic."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "alternative_proposal",
+            "evidence": {
+              "text": "susținem fără rezerve varianta revenirii Monitorului Oficial acolo unde îi este locul, adică în subordinea Parlamentului României, în speță a Camerei Deputaților."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.88,
+            "rationale_short": "Propune explicit o alternativă concretă: revenirea Monitorului Oficial în subordinea Camerei Deputaților."
+          }
+        ],
+        "rationale": "Discursul are o calitate deliberativă moderat bună, fiindcă oferă o justificare clară pentru poziție prin legarea mutării Monitorului Oficial de încălcarea Constituției și a legii. Totuși, justificarea rămâne relativ scurtă și nu atinge sofisticarea unui argument în mai mulți pași, deci nivelul 2 este mai potrivit decât 3. Conținutul justificării se ancorează în legalitate și control constituțional, deci în binele comun, nu în interes de grup. Din punct de vedere al respectului, nu apare un angajament real cu cereri sau contraargumente adverse; pasajul despre „majoritate” este funcțional, iar formularea despre Executiv are un ton de respingere, nu de recunoaștere a legitimității. În plan constructiv, textul merge dincolo de simpla poziționare și oferă o alternativă concretă: revenirea Monitorului Oficial în subordinea Camerei Deputaților. Profilul general este astfel de opoziție justificată și constructivă, dar cu angajament deliberativ limitat față de partea adversă."
+      },
+      "raw_response": "{\"framework_version\":\"steiner-bachtiger@2017\",\"score_unit\":\"dqi_multi\",\"framework_confidence\":0.84,\"level_of_justification\":2,\"content_of_justification\":\"common_good\",\"respect_for_groups\":1,\"respect_for_demands\":0,\"respect_for_counterarguments\":0,\"constructive_politics\":\"alternative_proposal\",\"markers\":[{\"kind\":\"level_of_justification\",\"value\":2,\"evidence\":{\"text\":\"Trecerea Monitorului Oficial la Guvern, la Secretariatul General al Guvernului, a fost o mișcare politică ce a decurs din nevoia de a genera ilegalități: încălcarea Constituției și nerespectarea legii.\"},\"preliminary_voice\":\"speaker_first_person\",\"preliminary_voice_confidence\":0.98,\"marker_confidence\":0.89,\"rationale_short\":\"Oferă un lanț cauzal explicit între mutare și încălcarea Constituției/legii, deci justificare calificată.\"},{\"kind\":\"content_of_justification\",\"value\":\"common_good\",\"evidence\":{\"text\":\"încălcarea Constituției și nerespectarea legii\"},\"preliminary_voice\":\"speaker_first_person\",\"preliminary_voice_confidence\":0.98,\"marker_confidence\":0.87,\"rationale_short\":\"Apelul este la legalitate constituțională, deci la un principiu de interes general.\"},{\"kind\":\"respect_for_groups\",\"value\":1,\"evidence\":{\"text\":\"majoritate\"},\"preliminary_voice\":\"speaker_first_person\",\"preliminary_voice_confidence\":0.96,\"marker_confidence\":0.68,\"rationale_short\":\"Grupul politic este menționat funcțional, fără derogare explicită și fără respect out-group explicit.\"},{\"kind\":\"respect_for_demands\",\"value\":0,\"evidence\":{\"text\":\"Nu trebuie să perpetuăm dreptul Executivului, pe care avem pretenția că-l controlăm, să jongleze cu actele normative în funcție de nevoile lui.\"},\"preliminary_voice\":\"speaker_first_person\",\"preliminary_voice_confidence\":0.97,\"marker_confidence\":0.77,\"rationale_short\":\"Cererea/poziția adversă a Executivului este respinsă ca abuzivă, fără recunoașterea legitimității ei.\"},{\"kind\":\"respect_for_counterarguments\",\"value\":0,\"evidence\":{\"text\":\"Nu trebuie să perpetuăm dreptul Executivului, pe care avem pretenția că-l controlăm, să jongleze cu actele normative în funcție de nevoile lui.\"},\"preliminary_voice\":\"speaker_first_person\",\"preliminary_voice_confidence\":0.97,\"marker_confidence\":0.76,\"rationale_short\":\"Nu se restatează și nu se combate un contraargument specific; discursul îl ignoră practic.\"},{\"kind\":\"constructive_politics\",\"value\":\"alternative_proposal\",\"evidence\":{\"text\":\"susținem fără rezerve varianta revenirii Monitorului Oficial acolo unde îi este locul, adică în subordinea Parlamentului României, în speță a Camerei Deputaților.\"},\"preliminary_voice\":\"speaker_first_person\",\"preliminary_voice_confidence\":0.98,\"marker_confidence\":0.88,\"rationale_short\":\"Propune explicit o alternativă concretă: revenirea Monitorului Oficial în subordinea Camerei Deputaților.\"}],\"rationale\":\"Discursul are o calitate deliberativă moderat bună, fiindcă oferă o justificare clară pentru poziție prin legarea mutării Monitorului Oficial de încălcarea Constituției și a legii. Totuși, justificarea rămâne relativ scurtă și nu atinge sofisticarea unui argument în mai mulți pași, deci nivelul 2 este mai potrivit decât 3. Conținutul justificării se ancorează în legalitate și control constituțional, deci în binele comun, nu în interes de grup. Din punct de vedere al respectului, nu apare un angajament real cu cereri sau contraargumente adverse; pasajul despre „majoritate” este funcțional, iar formularea despre Executiv are un ton de respingere, nu de recunoaștere a legitimității. În plan constructiv, textul merge dincolo de simpla poziționare și oferă o alternativă concretă: revenirea Monitorului Oficial în subordinea Camerei Deputaților. Profilul general este astfel de opoziție justificată și constructivă, dar cu angajament deliberativ limitat față de partea adversă.\"}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12193,
+      "tokens_in_breakdown": {
+        "fresh": 12193,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 989,
+      "cost_usd": null,
+      "latency_ms": 6821,
+      "retries_used": 0
+    }
+  }
+}

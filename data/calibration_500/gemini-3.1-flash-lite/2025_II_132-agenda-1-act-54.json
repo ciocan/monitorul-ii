@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2025/II/132#agenda-1#act-54",
+  "tier": "calibration",
+  "speaker": {
+    "id": "dobos-elena",
+    "name": "Elena Doboș",
+    "raw": "Doamna Elena Doboș",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2025-10-27",
+    "year": 2025,
+    "legislature": "X",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2025/II/132#agenda-1#act-54",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 1.0,
+        "markers": [],
+        "rationale": "Discursul reprezintă o prezentare tehnică și procedurală a activității Comisiei pentru afaceri europene, enumerând documente, strategii și recomandări instituționale. Limbajul utilizat este pur administrativ, axat pe cooperare interinstituțională, securitate și proceduri legislative, fără a conține elemente de retorică populistă. Nu există nicio invocare a unui cadru maniheist popor-vs-elită, nicio referire la o voință populară omogenă și nicio critică moralizatoare. Discursul se încadrează perfect în registrul procedural standard al activității parlamentare."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 1.0,\n  \"markers\": [],\n  \"rationale\": \"Discursul reprezintă o prezentare tehnică și procedurală a activității Comisiei pentru afaceri europene, enumerând documente, strategii și recomandări instituționale. Limbajul utilizat este pur administrativ, axat pe cooperare interinstituțională, securitate și proceduri legislative, fără a conține elemente de retorică populistă. Nu există nicio invocare a unui cadru maniheist popor-vs-elită, nicio referire la o voință populară omogenă și nicio critică moralizatoare. Discursul se încadrează perfect în registrul procedural standard al activității parlamentare.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13908,
+      "tokens_in_breakdown": {
+        "fresh": 13908,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 209,
+      "cost_usd": null,
+      "latency_ms": 1996,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2025/II/132#agenda-1#act-54",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.45,
+        "level_of_justification": 0,
+        "content_of_justification": "none",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 0,
+            "evidence": {
+              "text": "Supunem aprobării plenului Camerei Deputaților opinia, în forma adoptată de Comisia pentru afaceri europene."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.9,
+            "rationale_short": "Discursul este pur procedural, prezentând o opinie deja adoptată fără a oferi o justificare proprie."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "none",
+            "evidence": {
+              "text": "Supunem aprobării plenului Camerei Deputaților opinia"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.9,
+            "rationale_short": "Nicio justificare oferită; conținutul justificării este nedefinit."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Comisia pentru afaceri europene"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.8,
+            "rationale_short": "Referințe funcționale la instituții; niciun out-group vizat."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Supunem aprobării plenului Camerei Deputaților opinia"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.8,
+            "rationale_short": "Discursul nu abordează cereri opuse, ci prezintă un raport de comisie."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "Supunem aprobării plenului Camerei Deputaților opinia"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.8,
+            "rationale_short": "Nu există nicio încercare de a adresa contraargumente; discursul este pur informativ."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Supunem aprobării plenului Camerei Deputaților opinia"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.9,
+            "rationale_short": "Prezentarea unei opinii adoptate este o acțiune procedurală, nu o propunere alternativă sau mediatoare."
+          }
+        ],
+        "rationale": "Acest discurs este un raport procedural de prezentare a unei opinii adoptate de Comisia pentru afaceri europene. Vorbitorul nu oferă argumente proprii sau justificări, ci doar enumeră punctele susținute de comisie și solicită aprobarea plenului. Deoarece discursul este pur informativ și procedural, nu există deliberare substanțială, ceea ce duce la scoruri minime pe toate dimensiunile DQI. Framework_confidence este scăzut deoarece acest tip de intervenție nu reprezintă o dezbatere deliberativă în sensul Steiner & Bächtiger."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.45,\n  \"level_of_justification\": 0,\n  \"content_of_justification\": \"none\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 0,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"Supunem aprobării plenului Camerei Deputaților opinia, în forma adoptată de Comisia pentru afaceri europene.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Discursul este pur procedural, prezentând o opinie deja adoptată fără a oferi o justificare proprie.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"none\",\n      \"evidence\": {\n        \"text\": \"Supunem aprobării plenului Camerei Deputaților opinia\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Nicio justificare oferită; conținutul justificării este nedefinit.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Comisia pentru afaceri europene\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.8,\n      \"rationale_short\": \"Referințe funcționale la instituții; niciun out-group vizat.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Supunem aprobării plenului Camerei Deputaților opinia\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.8,\n      \"rationale_short\": \"Discursul nu abordează cereri opuse, ci prezintă un raport de comisie.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"Supunem aprobării plenului Camerei Deputaților opinia\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.8,\n      \"rationale_short\": \"Nu există nicio încercare de a adresa contraargumente; discursul este pur informativ.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"Supunem aprobării plenului Camerei Deputaților opinia\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Prezentarea unei opinii adoptate este o acțiune procedurală, nu o propunere alternativă sau mediatoare.\"\n    }\n  ],\n  \"rationale\": \"Acest discurs este un raport procedural de prezentare a unei opinii adoptate de Comisia pentru afaceri europene. Vorbitorul nu oferă argumente proprii sau justificări, ci doar enumeră punctele susținute de comisie și solicită aprobarea plenului. Deoarece discursul este pur informativ și procedural, nu există deliberare substanțială, ceea ce duce la scoruri minime pe toate dimensiunile DQI. Framework_confidence este scăzut deoarece acest tip de intervenție nu reprezintă o dezbatere deliberativă în sensul Steiner & Bächtiger.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12709,
+      "tokens_in_breakdown": {
+        "fresh": 12709,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1071,
+      "cost_usd": null,
+      "latency_ms": 4020,
+      "retries_used": 0
+    }
+  }
+}

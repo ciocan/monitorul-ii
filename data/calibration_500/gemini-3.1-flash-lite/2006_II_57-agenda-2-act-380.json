@@ -1,0 +1,153 @@
+{
+  "speech_id": "mo://2006/II/57#agenda-2#act-380",
+  "tier": "calibration",
+  "speaker": {
+    "id": "vacaroiu-nicolae",
+    "name": "Nicolae V„c„roiu",
+    "raw": "Domnul Nicolae V„c„roiu",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": null,
+    "year": 2006,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2006/II/57#agenda-2#act-380",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul este unul pur procedural și tehnic, axat pe prezentarea unei inițiative legislative privind sprijinirea persoanelor afectate de calamități naturale. Vorbitorul detaliază istoricul proiectului, motivele tehnice pentru care este necesară o lege-cadru și mecanismele administrative propuse (anchete sociale, buget de stat, ajutoare materiale). Nu există nicio urmă de cadru popor-vs-elită, maniheism moral sau invocare a unei voințe populare suverane care să prevaleze asupra instituțiilor. Discursul se înscrie în registrul parlamentar standard de dezbatere a politicilor publice, motiv pentru care scorul este 0."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul este unul pur procedural și tehnic, axat pe prezentarea unei inițiative legislative privind sprijinirea persoanelor afectate de calamități naturale. Vorbitorul detaliază istoricul proiectului, motivele tehnice pentru care este necesară o lege-cadru și mecanismele administrative propuse (anchete sociale, buget de stat, ajutoare materiale). Nu există nicio urmă de cadru popor-vs-elită, maniheism moral sau invocare a unei voințe populare suverane care să prevaleze asupra instituțiilor. Discursul se înscrie în registrul parlamentar standard de dezbatere a politicilor publice, motiv pentru care scorul este 0.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 14238,
+      "tokens_in_breakdown": {
+        "fresh": 14238,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 222,
+      "cost_usd": null,
+      "latency_ms": 1898,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2006/II/57#agenda-2#act-380",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.88,
+        "level_of_justification": 2,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "alternative_proposal",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "Opiniem c„ este nevoie de o astfel de lege, Óntruc‚t, a∫a cum se cunoa∫te, avem o realitate trist„ Ón Rom‚nia, ˛ara este lovit„ frecvent ∫i sistematic de calamit„˛i naturale."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Vorbitorul leagă necesitatea legii de realitatea frecvenței calamităților naturale, oferind o justificare cauzală."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "se justific„, este imperios necesar s„ cre„m un cadru legislativ adecvat, deoarece at‚t organele centrale, c‚t ∫i cele ale administra˛iei publice locale s„ ac˛ioneze concertat ∫i eficient pentru sprijinirea popula˛iei afectate."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.91,
+            "rationale_short": "Apelul este universalizabil, vizând sprijinirea populației afectate de calamități, nu un grup specific."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Doamnelor ∫i domnilor senatori"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.99,
+            "marker_confidence": 0.95,
+            "rationale_short": "Adresare formală standard; nu există referințe derogatorii sau de respect explicit către grupuri."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "am ajuns la concluzia c„ ar fi necesar„ o lege-cadru Ón sprijinul familiilor ∫i persoanelor afectate de calamit„˛i naturale."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Vorbitorul își prezintă propunerea fără a angaja explicit cererile opoziției; atitudine neutră."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "Proiectul de lege are o istorie mai veche. El a fost depus Ón toamna anului trecut ∫i viza, Ón esen˛„, sprijinirea familiilor ∫i persoanelor singure afectate de calamit„˛i Ón anul 2005."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.88,
+            "rationale_short": "Menționează istoricul proiectului și faptul că a fost uitat, dar nu angajează argumente adverse."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "alternative_proposal",
+            "evidence": {
+              "text": "Legea prevede, Ón esen˛„, c‚teva lucruri pe care a∫ vrea s„ le prezint foarte sintetic: 1. Sprijinirea popula˛iei afectate care s„ se realizeze Ón baza unor anchete sociale"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.94,
+            "rationale_short": "Vorbitorul prezintă o inițiativă legislativă concretă cu mecanisme de implementare clare."
+          }
+        ],
+        "rationale": "Discursul inițiatorului prezintă o propunere legislativă cu o justificare calificată, bazată pe realitatea frecvenței calamităților naturale în România (level_of_justification=2). Apelul este orientat către binele comun, vizând protecția populației afectate. Deși discursul este constructiv prin natura sa de inițiativă legislativă (constructive_politics=alternative_proposal), acesta nu angajează substanțial contraargumente sau cereri adverse, limitându-se la o prezentare a proiectului. Respectul pentru grupuri și cereri rămâne neutru, fiind un discurs de prezentare a unei propuneri. Calitatea deliberativă este solidă pentru un discurs de inițiator, fiind clar, justificat și orientat spre soluții."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.88,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"alternative_proposal\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"Opiniem c„ este nevoie de o astfel de lege, Óntruc‚t, a∫a cum se cunoa∫te, avem o realitate trist„ Ón Rom‚nia, ˛ara este lovit„ frecvent ∫i sistematic de calamit„˛i naturale.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Vorbitorul leagă necesitatea legii de realitatea frecvenței calamităților naturale, oferind o justificare cauzală.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"se justific„, este imperios necesar s„ cre„m un cadru legislativ adecvat, deoarece at‚t organele centrale, c‚t ∫i cele ale administra˛iei publice locale s„ ac˛ioneze concertat ∫i eficient pentru sprijinirea popula˛iei afectate.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.91,\n      \"rationale_short\": \"Apelul este universalizabil, vizând sprijinirea populației afectate de calamități, nu un grup specific.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Doamnelor ∫i domnilor senatori\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.99,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Adresare formală standard; nu există referințe derogatorii sau de respect explicit către grupuri.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"am ajuns la concluzia c„ ar fi necesar„ o lege-cadru Ón sprijinul familiilor ∫i persoanelor afectate de calamit„˛i naturale.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Vorbitorul își prezintă propunerea fără a angaja explicit cererile opoziției; atitudine neutră.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Proiectul de lege are o istorie mai veche. El a fost depus Ón toamna anului trecut ∫i viza, Ón esen˛„, sprijinirea familiilor ∫i persoanelor singure afectate de calamit„˛i Ón anul 2005.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Menționează istoricul proiectului și faptul că a fost uitat, dar nu angajează argumente adverse.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"alternative_proposal\",\n      \"evidence\": {\n        \"text\": \"Legea prevede, Ón esen˛„, c‚teva lucruri pe care a∫ vrea s„ le prezint foarte sintetic: 1. Sprijinirea popula˛iei afectate care s„ se realizeze Ón baza unor anchete sociale\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.94,\n      \"rationale_short\": \"Vorbitorul prezintă o inițiativă legislativă concretă cu mecanisme de implementare clare.\"\n    }\n  ],\n  \"rationale\": \"Discursul inițiatorului prezintă o propunere legislativă cu o justificare calificată, bazată pe realitatea frecvenței calamităților naturale în România (level_of_justification=2). Apelul este orientat către binele comun, vizând protecția populației afectate. Deși discursul este constructiv prin natura sa de inițiativă legislativă (constructive_politics=alternative_proposal), acesta nu angajează substanțial contraargumente sau cereri adverse, limitându-se la o prezentare a proiectului. Respectul pentru grupuri și cereri rămâne neutru, fiind un discurs de prezentare a unei propuneri. Calitatea deliberativă este solidă pentru un discurs de inițiator, fiind clar, justificat și orientat spre soluții.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [
+        "Proiectul de lege are o istorie mai veche. El a fost depus Ón toamna anului trecut ∫i viza, Ón esen˛„, sprijinirea familiilor ∫i persoanelor singure afectate de calamit„˛i Ón anul 2005.",
+        "Legea prevede, Ón esen˛„, c‚teva lucruri pe care a∫ vrea s„ le prezint foarte sintetic: 1. Sprijinirea popula˛iei afectate care s„ se realizeze Ón baza unor anchete sociale"
+      ],
+      "parse_repaired": false,
+      "tokens_in": 13039,
+      "tokens_in_breakdown": {
+        "fresh": 13039,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1374,
+      "cost_usd": null,
+      "latency_ms": 4868,
+      "retries_used": 0
+    }
+  }
+}

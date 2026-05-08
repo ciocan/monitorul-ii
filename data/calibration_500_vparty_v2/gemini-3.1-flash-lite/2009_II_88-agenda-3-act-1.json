@@ -1,0 +1,52 @@
+{
+  "speech_id": "mo://2009/II/88#agenda-3#act-1",
+  "tier": "calibration",
+  "speaker": {
+    "id": "cristian-horia",
+    "name": "Horia Cristian",
+    "raw": "Domnul Horia Cristian",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2009-06-23",
+    "year": 2009,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": null,
+    "voice": null,
+    "dqi": null,
+    "vparty": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "vparty",
+      "speech_id": "mo://2009/II/88#agenda-3#act-1",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "vparty@2020 + vdem-attacks-on@v13",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul reprezintă o critică politică standard la adresa unui ministru și a modului în care instituția condusă de acesta a gestionat comunicarea publică. Deși vorbitorul acuză ministerul de „calomnie” și „ilegalitate” în context electoral, aceste acuzații vizează acțiuni administrative specifice și comportamentul politic al liderilor PD-L, nu delegitimează instituțiile statului ca clasă. Nu există atacuri la adresa justiției, presei, ONG-urilor sau minorităților, iar apelul la anchetă administrativă este un demers procedural legitim. Discursul rămâne în limitele contestării democratice obișnuite."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"vparty@2020 + vdem-attacks-on@v13\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul reprezintă o critică politică standard la adresa unui ministru și a modului în care instituția condusă de acesta a gestionat comunicarea publică. Deși vorbitorul acuză ministerul de „calomnie” și „ilegalitate” în context electoral, aceste acuzații vizează acțiuni administrative specifice și comportamentul politic al liderilor PD-L, nu delegitimează instituțiile statului ca clasă. Nu există atacuri la adresa justiției, presei, ONG-urilor sau minorităților, iar apelul la anchetă administrativă este un demers procedural legitim. Discursul rămâne în limitele contestării democratice obișnuite.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13327,
+      "tokens_in_breakdown": {
+        "fresh": 13327,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 233,
+      "cost_usd": null,
+      "latency_ms": 2450,
+      "retries_used": 0
+    }
+  }
+}

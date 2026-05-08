@@ -1,0 +1,192 @@
+{
+  "speech_id": "mo://2026/II/30#agenda-1#act-178",
+  "tier": "calibration",
+  "speaker": {
+    "id": "paun-ana-cynthia-ioana",
+    "name": "Ana-Cynthia-Ioana Păun",
+    "raw": "Doamna Ana-Cynthia-Ioana Păun",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": "2026-03-04",
+    "year": 2026,
+    "legislature": "X",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2026/II/30#agenda-1#act-178",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [
+          {
+            "kind": "people_vs_elite",
+            "evidence": {
+              "text": "dragi suveraniști"
+            },
+            "preliminary_voice": "sarcastic",
+            "preliminary_voice_confidence": 0.85,
+            "marker_confidence": 0.7,
+            "rationale_short": "Vorbitorul folosește termenul „suveraniști” într-un context ironic, criticând viziunea lor izolatoristă."
+          }
+        ],
+        "rationale": "Discursul este un argument pro-integrare europeană și pro-tehnologie, bazat pe raționamente economice și strategice. Deși vorbitorul folosește un ton polemic la adresa „suveraniștilor”, acesta nu construiește un cadru maniheist popor-vs-elită, ci critică o viziune politică specifică în favoarea unei abordări pragmatice. Nu există invocarea unei voințe populare omogene sau a unei elite malefice, ci o pledoarie pentru cooperare instituțională. Discursul se înscrie în registrul dezbaterii politice pluraliste, nu al populismului."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [\n    {\n      \"kind\": \"people_vs_elite\",\n      \"evidence\": {\n        \"text\": \"dragi suveraniști\"\n      },\n      \"preliminary_voice\": \"sarcastic\",\n      \"preliminary_voice_confidence\": 0.85,\n      \"marker_confidence\": 0.7,\n      \"rationale_short\": \"Vorbitorul folosește termenul „suveraniști” într-un context ironic, criticând viziunea lor izolatoristă.\"\n    }\n  ],\n  \"rationale\": \"Discursul este un argument pro-integrare europeană și pro-tehnologie, bazat pe raționamente economice și strategice. Deși vorbitorul folosește un ton polemic la adresa „suveraniștilor”, acesta nu construiește un cadru maniheist popor-vs-elită, ci critică o viziune politică specifică în favoarea unei abordări pragmatice. Nu există invocarea unei voințe populare omogene sau a unei elite malefice, ci o pledoarie pentru cooperare instituțională. Discursul se înscrie în registrul dezbaterii politice pluraliste, nu al populismului.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13770,
+      "tokens_in_breakdown": {
+        "fresh": 13770,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 345,
+      "cost_usd": null,
+      "latency_ms": 2155,
+      "retries_used": 0
+    },
+    "voice": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "voice",
+      "speech_id": "mo://2026/II/30#agenda-1#act-178",
+      "output": {
+        "classifications": [
+          {
+            "marker_id": "m_0",
+            "voice": "speaker_first_person",
+            "voice_confidence": 0.95,
+            "voice_evidence": null,
+            "attributed_to": null,
+            "rationale_short": "Vorbitorul se adresează direct opoziției politice în nume propriu, fără a cita sau raporta o sursă externă."
+          }
+        ]
+      },
+      "raw_response": "{\n  \"classifications\": [\n    {\n      \"marker_id\": \"m_0\",\n      \"voice\": \"speaker_first_person\",\n      \"voice_confidence\": 0.95,\n      \"voice_evidence\": null,\n      \"attributed_to\": null,\n      \"rationale_short\": \"Vorbitorul se adresează direct opoziției politice în nume propriu, fără a cita sau raporta o sursă externă.\"\n    }\n  ]\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 11291,
+      "tokens_in_breakdown": {
+        "fresh": 11291,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 116,
+      "cost_usd": null,
+      "latency_ms": 1052,
+      "retries_used": 0
+    },
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2026/II/30#agenda-1#act-178",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.85,
+        "level_of_justification": 2,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "România singură nu ar putea să facă acest lucru și la această scară. Nu am putea finanța singuri supercalculatoare, ecosisteme industriale integrate sau centre medicale digitale de ultimă generație, dar, ca parte a Uniunii Europene, avem acces la toate acestea."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Vorbitorul oferă un raționament cauzal clar despre avantajele economice ale integrării europene în contextul tehnologic."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "Uniunea Europeană a decis să nu rămână în urmă. Construiește infrastructură comună, finanțează cercetări, finanțează IMM-uri, integrează inteligența artificială în sănătate, în industrie, în administrație și în apărare."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Justificarea se bazează pe dezvoltarea economică și tehnologică a întregii societăți, nu pe interese de grup."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "dragi suveraniști"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Referință ironică la un grup politic, dar fără a depăși pragul de derogare sau dispreț explicit."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "În timp ce dumneavoastră visați la izolare și poate la industria calului"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.88,
+            "rationale_short": "Vorbitorul ignoră cererile opoziției, preferând să le ridiculizeze retoric în loc să le abordeze legitimitatea."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "SUA și China nu dezbat dacă tehnologia este globalistă; o dezvoltă."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.82,
+            "rationale_short": "Menționează implicit argumentul opoziției despre globalism, dar nu îl angajează substanțial, trecând direct la contra-argument."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Poți să fii suveran în discurs sau poți să fii competitiv în economie, alături de familia ta, numită Uniunea Europeană."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Discursul susține o poziție politică clară fără a propune un amendament sau o mediere concretă."
+          }
+        ],
+        "rationale": "Discursul prezintă o calitate deliberativă mixtă. Vorbitorul oferă o justificare calificată (level_of_justification=2) pentru integrarea europeană, bazată pe argumente economice și tehnologice, apelând la binele comun. Totuși, respectul pentru opoziție este limitat; deși nu atinge pragul de dispreț (respect_for_groups=1), vorbitorul folosește ironia pentru a evita angajamentul substanțial cu cererile și argumentele opoziției (respect_for_demands=1, respect_for_counterarguments=1). Discursul rămâne în sfera pozițională, fără a oferi alternative concrete sau medieri. Calitatea deliberativă este susținută de claritatea raționamentului, dar diminuată de stilul retoric care evită dialogul real cu adversarii politici."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.85,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"România singură nu ar putea să facă acest lucru și la această scară. Nu am putea finanța singuri supercalculatoare, ecosisteme industriale integrate sau centre medicale digitale de ultimă generație, dar, ca parte a Uniunii Europene, avem acces la toate acestea.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Vorbitorul oferă un raționament cauzal clar despre avantajele economice ale integrării europene în contextul tehnologic.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"Uniunea Europeană a decis să nu rămână în urmă. Construiește infrastructură comună, finanțează cercetări, finanțează IMM-uri, integrează inteligența artificială în sănătate, în industrie, în administrație și în apărare.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Justificarea se bazează pe dezvoltarea economică și tehnologică a întregii societăți, nu pe interese de grup.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"dragi suveraniști\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Referință ironică la un grup politic, dar fără a depăși pragul de derogare sau dispreț explicit.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"În timp ce dumneavoastră visați la izolare și poate la industria calului\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Vorbitorul ignoră cererile opoziției, preferând să le ridiculizeze retoric în loc să le abordeze legitimitatea.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"SUA și China nu dezbat dacă tehnologia este globalistă; o dezvoltă.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.82,\n      \"rationale_short\": \"Menționează implicit argumentul opoziției despre globalism, dar nu îl angajează substanțial, trecând direct la contra-argument.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"Poți să fii suveran în discurs sau poți să fii competitiv în economie, alături de familia ta, numită Uniunea Europeană.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.90,\n      \"rationale_short\": \"Discursul susține o poziție politică clară fără a propune un amendament sau o mediere concretă.\"\n    }\n  ],\n  \"rationale\": \"Discursul prezintă o calitate deliberativă mixtă. Vorbitorul oferă o justificare calificată (level_of_justification=2) pentru integrarea europeană, bazată pe argumente economice și tehnologice, apelând la binele comun. Totuși, respectul pentru opoziție este limitat; deși nu atinge pragul de dispreț (respect_for_groups=1), vorbitorul folosește ironia pentru a evita angajamentul substanțial cu cererile și argumentele opoziției (respect_for_demands=1, respect_for_counterarguments=1). Discursul rămâne în sfera pozițională, fără a oferi alternative concrete sau medieri. Calitatea deliberativă este susținută de claritatea raționamentului, dar diminuată de stilul retoric care evită dialogul real cu adversarii politici.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12571,
+      "tokens_in_breakdown": {
+        "fresh": 12571,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1300,
+      "cost_usd": null,
+      "latency_ms": 5166,
+      "retries_used": 0
+    }
+  }
+}

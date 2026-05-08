@@ -1,0 +1,52 @@
+{
+  "speech_id": "mo://2009/II/72#agenda-1#act-129",
+  "tier": "calibration",
+  "speaker": {
+    "id": "hasotti-puiu",
+    "name": "Puiu Hașotti",
+    "raw": "Domnul Puiu Hașotti",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": "2009-05-20",
+    "year": 2009,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": null,
+    "voice": null,
+    "dqi": null,
+    "vparty": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "vparty",
+      "speech_id": "mo://2009/II/72#agenda-1#act-129",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "vparty@2020 + vdem-attacks-on@v13",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul este unul procedural și tehnic, axat pe susținerea unei inițiative legislative privind rolul arhitecților în administrația locală. Vorbitorul critică argumentele Guvernului într-un registru parlamentar uzual, folosind ironia la adresa Executivului fără a delegitima instituția ca atare sau a ataca fundamentele democratice. Nu există nicio urmă de delegitimizare a justiției, opoziției, presei, ONG-urilor sau minorităților. Discursul respectă normele democratice de contestare și dezbatere."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"vparty@2020 + vdem-attacks-on@v13\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul este unul procedural și tehnic, axat pe susținerea unei inițiative legislative privind rolul arhitecților în administrația locală. Vorbitorul critică argumentele Guvernului într-un registru parlamentar uzual, folosind ironia la adresa Executivului fără a delegitima instituția ca atare sau a ataca fundamentele democratice. Nu există nicio urmă de delegitimizare a justiției, opoziției, presei, ONG-urilor sau minorităților. Discursul respectă normele democratice de contestare și dezbatere.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13135,
+      "tokens_in_breakdown": {
+        "fresh": 13135,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 211,
+      "cost_usd": null,
+      "latency_ms": 1861,
+      "retries_used": 0
+    }
+  }
+}

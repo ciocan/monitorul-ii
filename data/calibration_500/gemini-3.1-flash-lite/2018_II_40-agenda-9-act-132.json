@@ -1,0 +1,210 @@
+{
+  "speech_id": "mo://2018/II/40#agenda-9#act-132",
+  "tier": "calibration",
+  "speaker": {
+    "id": "turcan-raluca",
+    "name": "Raluca Turcan",
+    "raw": "Doamna Raluca Turcan",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2018-03-07",
+    "year": 2018,
+    "legislature": "VIII",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2018/II/40#agenda-9#act-132",
+      "output": {
+        "score": 1,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.85,
+        "markers": [
+          {
+            "kind": "evil_elite",
+            "evidence": {
+              "text": "votați, cu un buton, aici, soarta a milioane de oameni, într-un cinism înfiorător"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.85,
+            "rationale_short": "Elita politică este descrisă ca fiind cinică și indiferentă la soarta oamenilor, acționând mecanic împotriva intereselor acestora."
+          },
+          {
+            "kind": "people_vs_elite",
+            "evidence": {
+              "text": "oamenii se uită cu speranță, pentru că îi umiliți pur și simplu, prin deciziile statului român"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.82,
+            "rationale_short": "Se conturează un conflict între cetățenii care speră și statul/elita care îi umilește, marcând o dihotomie populistă."
+          }
+        ],
+        "rationale": "Discursul combină elemente de critică procedurală (procedura de dezbatere, sesizarea CCR) cu un registru populist episodic. Vorbitorul utilizează un limbaj moralizator pentru a descrie acțiunile elitei parlamentare ca fiind cinice și umilitoare pentru cetățeni. Deși discursul conține referințe la mecanisme parlamentare, cadrul de „oameni vs. elită” este prezent și susține argumentația, justificând un scor de 1. Nu atinge pragul de 2 deoarece discursul rămâne ancorat în contextul specific al unei proceduri parlamentare și nu dezvoltă o viziune maniheistă pervazivă pe tot parcursul intervenției."
+      },
+      "raw_response": "{\n  \"score\": 1,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.85,\n  \"markers\": [\n    {\n      \"kind\": \"evil_elite\",\n      \"evidence\": {\n        \"text\": \"votați, cu un buton, aici, soarta a milioane de oameni, într-un cinism înfiorător\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Elita politică este descrisă ca fiind cinică și indiferentă la soarta oamenilor, acționând mecanic împotriva intereselor acestora.\"\n    },\n    {\n      \"kind\": \"people_vs_elite\",\n      \"evidence\": {\n        \"text\": \"oamenii se uită cu speranță, pentru că îi umiliți pur și simplu, prin deciziile statului român\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.82,\n      \"rationale_short\": \"Se conturează un conflict între cetățenii care speră și statul/elita care îi umilește, marcând o dihotomie populistă.\"\n    }\n  ],\n  \"rationale\": \"Discursul combină elemente de critică procedurală (procedura de dezbatere, sesizarea CCR) cu un registru populist episodic. Vorbitorul utilizează un limbaj moralizator pentru a descrie acțiunile elitei parlamentare ca fiind cinice și umilitoare pentru cetățeni. Deși discursul conține referințe la mecanisme parlamentare, cadrul de „oameni vs. elită” este prezent și susține argumentația, justificând un scor de 1. Nu atinge pragul de 2 deoarece discursul rămâne ancorat în contextul specific al unei proceduri parlamentare și nu dezvoltă o viziune maniheistă pervazivă pe tot parcursul intervenției.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13939,
+      "tokens_in_breakdown": {
+        "fresh": 13939,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 532,
+      "cost_usd": null,
+      "latency_ms": 2927,
+      "retries_used": 0
+    },
+    "voice": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "voice",
+      "speech_id": "mo://2018/II/40#agenda-9#act-132",
+      "output": {
+        "classifications": [
+          {
+            "marker_id": "m_0",
+            "voice": "speaker_first_person",
+            "voice_confidence": 0.98,
+            "voice_evidence": null,
+            "attributed_to": null,
+            "rationale_short": "Afirmație directă la persoana a doua (plural) adresată președintelui de ședință; vorbitorul își asumă criticile fără nicio mediere."
+          },
+          {
+            "marker_id": "m_1",
+            "voice": "speaker_first_person",
+            "voice_confidence": 0.98,
+            "voice_evidence": null,
+            "attributed_to": null,
+            "rationale_short": "Afirmație directă a vorbitorului despre modul în care sunt tratați oamenii; nu există nicio sursă terță sau cadru ipotetic."
+          }
+        ]
+      },
+      "raw_response": "{\n  \"classifications\": [\n    {\n      \"marker_id\": \"m_0\",\n      \"voice\": \"speaker_first_person\",\n      \"voice_confidence\": 0.98,\n      \"voice_evidence\": null,\n      \"attributed_to\": null,\n      \"rationale_short\": \"Afirmație directă la persoana a doua (plural) adresată președintelui de ședință; vorbitorul își asumă criticile fără nicio mediere.\"\n    },\n    {\n      \"marker_id\": \"m_1\",\n      \"voice\": \"speaker_first_person\",\n      \"voice_confidence\": 0.98,\n      \"voice_evidence\": null,\n      \"attributed_to\": null,\n      \"rationale_short\": \"Afirmație directă a vorbitorului despre modul în care sunt tratați oamenii; nu există nicio sursă terță sau cadru ipotetic.\"\n    }\n  ]\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 11584,
+      "tokens_in_breakdown": {
+        "fresh": 11584,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 228,
+      "cost_usd": null,
+      "latency_ms": 1319,
+      "retries_used": 0
+    },
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2018/II/40#agenda-9#act-132",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.85,
+        "level_of_justification": 1,
+        "content_of_justification": "group_interest",
+        "respect_for_groups": 1,
+        "respect_for_demands": 0,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 1,
+            "evidence": {
+              "text": "Nu se poate ca în sistemul de educație, de exemplu, personalul auxiliar să fie pur și simplu șters cu buretele, pentru că dumneavoastră vă grăbiți"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Justificare bazată pe o afirmație generală despre impactul negativ, fără un mecanism cauzal sau sursă specifică."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "group_interest",
+            "evidence": {
+              "text": "personalul auxiliar să fie pur și simplu șters cu buretele"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.88,
+            "rationale_short": "Apelul este centrat pe interesele unei categorii profesionale specifice (personalul auxiliar)."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "dumneavoastră votați, cu un buton, aici, soarta a milioane de oameni, într-un cinism înfiorător"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Critica vizează comportamentul politic al majorității, nu un grup social protejat; neutru în context parlamentar."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 0,
+            "evidence": {
+              "text": "Suntem la un simulacru de dezbatere parlamentară"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.94,
+            "rationale_short": "Procesul parlamentar și cererile majorității sunt respinse ca fiind un simulacru."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "Este revoltător! Sfidați rolul de dezbatere al instituției fundamentale a democrației."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.93,
+            "rationale_short": "Vorbitorul ignoră argumentele substanțiale ale opoziției, concentrându-se pe atacul la adresa procedurii."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Partidul Național Liberal pur și simplu nu poate îngădui un astfel de comportament politic"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Discursul este pur pozițional, axat pe denunțarea procedurii fără a oferi o alternativă legislativă concretă."
+          }
+        ],
+        "rationale": "Discursul Ralucăi Turcan este un exemplu tipic de intervenție procedurală cu calitate deliberativă scăzută. Vorbitorul se concentrează pe denunțarea modului de lucru al majorității, folosind un ton acuzator și retorică de tip „simulacru”. Justificarea este de nivel 1, fiind bazată pe impactul social perceput fără a oferi dovezi sau mecanisme cauzale detaliate. Nu există un angajament real cu argumentele contrare, iar respectul pentru cererile majorității este inexistent, fiind catalogate drept sfidare. Discursul rămâne strict pozițional, fără a propune soluții alternative, încadrându-se în registrul de opoziție combativă."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.85,\n  \"level_of_justification\": 1,\n  \"content_of_justification\": \"group_interest\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 0,\n  \"respect_for_counterarguments\": 0,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Nu se poate ca în sistemul de educație, de exemplu, personalul auxiliar să fie pur și simplu șters cu buretele, pentru că dumneavoastră vă grăbiți\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Justificare bazată pe o afirmație generală despre impactul negativ, fără un mecanism cauzal sau sursă specifică.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"group_interest\",\n      \"evidence\": {\n        \"text\": \"personalul auxiliar să fie pur și simplu șters cu buretele\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Apelul este centrat pe interesele unei categorii profesionale specifice (personalul auxiliar).\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"dumneavoastră votați, cu un buton, aici, soarta a milioane de oameni, într-un cinism înfiorător\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Critica vizează comportamentul politic al majorității, nu un grup social protejat; neutru în context parlamentar.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"Suntem la un simulacru de dezbatere parlamentară\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.94,\n      \"rationale_short\": \"Procesul parlamentar și cererile majorității sunt respinse ca fiind un simulacru.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"Este revoltător! Sfidați rolul de dezbatere al instituției fundamentale a democrației.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.93,\n      \"rationale_short\": \"Vorbitorul ignoră argumentele substanțiale ale opoziției, concentrându-se pe atacul la adresa procedurii.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"Partidul Național Liberal pur și simplu nu poate îngădui un astfel de comportament politic\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Discursul este pur pozițional, axat pe denunțarea procedurii fără a oferi o alternativă legislativă concretă.\"\n    }\n  ],\n  \"rationale\": \"Discursul Ralucăi Turcan este un exemplu tipic de intervenție procedurală cu calitate deliberativă scăzută. Vorbitorul se concentrează pe denunțarea modului de lucru al majorității, folosind un ton acuzator și retorică de tip „simulacru”. Justificarea este de nivel 1, fiind bazată pe impactul social perceput fără a oferi dovezi sau mecanisme cauzale detaliate. Nu există un angajament real cu argumentele contrare, iar respectul pentru cererile majorității este inexistent, fiind catalogate drept sfidare. Discursul rămâne strict pozițional, fără a propune soluții alternative, încadrându-se în registrul de opoziție combativă.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12740,
+      "tokens_in_breakdown": {
+        "fresh": 12740,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1200,
+      "cost_usd": null,
+      "latency_ms": 4820,
+      "retries_used": 0
+    }
+  }
+}

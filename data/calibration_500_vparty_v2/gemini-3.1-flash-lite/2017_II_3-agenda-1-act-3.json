@@ -1,0 +1,52 @@
+{
+  "speech_id": "mo://2017/II/3#agenda-1#act-3",
+  "tier": "calibration",
+  "speaker": {
+    "id": "dragnea-nicolae-liviu",
+    "name": "Nicolae Liviu Dragnea",
+    "raw": "Domnul Nicolae Liviu Dragnea",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2017-01-04",
+    "year": 2017,
+    "legislature": "VIII",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": null,
+    "voice": null,
+    "dqi": null,
+    "vparty": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "vparty",
+      "speech_id": "mo://2017/II/3#agenda-1#act-3",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "vparty@2020 + vdem-attacks-on@v13",
+        "framework_confidence": 1.0,
+        "markers": [],
+        "rationale": "Discursul reprezintă o intervenție procedurală standard în cadrul unei ședințe comune a Parlamentului pentru învestirea Guvernului. Vorbitorul se limitează la formalități, mulțumiri și prezentarea echipei guvernamentale, fără a ataca nicio instituție democratică sau a folosi retorică anti-pluralistă. Referințele la Curtea Constituțională și Curtea de Conturi sunt neutre, în contextul protocolului oficial. Nu există niciun element de delegitimizare a opoziției, presei, societății civile sau a normelor democratice."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"vparty@2020 + vdem-attacks-on@v13\",\n  \"framework_confidence\": 1.0,\n  \"markers\": [],\n  \"rationale\": \"Discursul reprezintă o intervenție procedurală standard în cadrul unei ședințe comune a Parlamentului pentru învestirea Guvernului. Vorbitorul se limitează la formalități, mulțumiri și prezentarea echipei guvernamentale, fără a ataca nicio instituție democratică sau a folosi retorică anti-pluralistă. Referințele la Curtea Constituțională și Curtea de Conturi sunt neutre, în contextul protocolului oficial. Nu există niciun element de delegitimizare a opoziției, presei, societății civile sau a normelor democratice.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13249,
+      "tokens_in_breakdown": {
+        "fresh": 13249,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 209,
+      "cost_usd": null,
+      "latency_ms": 1609,
+      "retries_used": 0
+    }
+  }
+}

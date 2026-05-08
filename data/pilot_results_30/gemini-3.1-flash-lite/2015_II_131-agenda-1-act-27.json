@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2015/II/131#agenda-1#act-27",
+  "tier": "moderate",
+  "speaker": {
+    "id": "orban-ludovic",
+    "name": "Ludovic Orban",
+    "raw": "Domnul Ludovic Orban",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2015-06-29",
+    "year": 2015,
+    "legislature": "VII",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2015/II/131#agenda-1#act-27",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul este un schimb procedural și personal între doi parlamentari, concentrat pe interpretarea Regulamentului Camerei Deputaților și pe competențele profesionale ale unui coleg. Nu există nicio tentativă de a construi un cadru maniheist popor-vs-elită, nicio invocare a unei voințe populare omogene și nicio retorică populistă. Discursul rămâne strict în registrul dezbaterii parlamentare curente, fiind un exemplu clar de scor 0."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul este un schimb procedural și personal între doi parlamentari, concentrat pe interpretarea Regulamentului Camerei Deputaților și pe competențele profesionale ale unui coleg. Nu există nicio tentativă de a construi un cadru maniheist popor-vs-elită, nicio invocare a unei voințe populare omogene și nicio retorică populistă. Discursul rămâne strict în registrul dezbaterii parlamentare curente, fiind un exemplu clar de scor 0.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13662,
+      "tokens_in_breakdown": {
+        "fresh": 13662,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 180,
+      "cost_usd": null,
+      "latency_ms": 1859,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2015/II/131#agenda-1#act-27",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.72,
+        "level_of_justification": 1,
+        "content_of_justification": "none",
+        "respect_for_groups": 0,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 1,
+            "evidence": {
+              "text": "în conformitate cu Regulamentul Camerei Deputaților, în cadrul orei Guvernului, solicitarea de prezență a unui ministru și tema sunt semnate de liderul de grup."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Justificarea se bazează pe o normă procedurală (Regulament), dar este folosită pentru a respinge o critică personală, nu pentru a susține o poziție politică."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "none",
+            "evidence": {
+              "text": "Ca atare, nu competența mea pe agricultură m-a făcut să fiu semnatarul solicitării de prezență, ci calitatea de lider de grup."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.88,
+            "rationale_short": "Justificarea este pur defensivă și procedurală, fără a invoca un interes public sau de grup."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 0,
+            "evidence": {
+              "text": "sper ca domnul Daniel Constantin să nu se arate ca fiind cel mai bun deputat din Ministerul Agriculturii și cel mai bun agricultor din Parlamentul României"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.92,
+            "rationale_short": "Vorbitorul folosește un ton ironic și disprețuitor la adresa competenței colegului său, ceea ce constituie o formă de nerespect."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "sper că știe ceva mai mult despre politica agricolă comună, despre interesele agricultorilor din România decât știe despre Regulamentul Camerei"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.82,
+            "rationale_short": "Cererile sau criticile opoziției nu sunt abordate direct, ci sunt ignorate în favoarea unui atac la persoană."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "ne-a arătat că nu-l cunoaște deloc."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.8,
+            "rationale_short": "Argumentul opoziției este menționat doar pentru a fi ridiculizat, fără o contra-argumentare substanțială."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Ca atare, nu competența mea pe agricultură m-a făcut să fiu semnatarul solicitării de prezență, ci calitatea de lider de grup."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Discursul este pur defensiv și pozițional, fără a oferi alternative sau soluții constructive."
+          }
+        ],
+        "rationale": "Discursul este marcat de un ton defensiv și personal, concentrându-se pe clarificarea rolului procedural al vorbitorului în detrimentul unei dezbateri substanțiale. Justificarea este limitată la aspecte procedurale (level_of_justification=1), iar conținutul nu vizează binele comun. Respectul pentru grupuri este scăzut (respect_for_groups=0) din cauza ironiei și a atacului la adresa competenței colegului. Nu există un angajament real cu argumentele opoziției, ci doar o respingere a acestora prin discreditare. Discursul rămâne strict pozițional, fără a contribui constructiv la agenda parlamentară."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.72,\n  \"level_of_justification\": 1,\n  \"content_of_justification\": \"none\",\n  \"respect_for_groups\": 0,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"în conformitate cu Regulamentul Camerei Deputaților, în cadrul orei Guvernului, solicitarea de prezență a unui ministru și tema sunt semnate de liderul de grup.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Justificarea se bazează pe o normă procedurală (Regulament), dar este folosită pentru a respinge o critică personală, nu pentru a susține o poziție politică.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"none\",\n      \"evidence\": {\n        \"text\": \"Ca atare, nu competența mea pe agricultură m-a făcut să fiu semnatarul solicitării de prezență, ci calitatea de lider de grup.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Justificarea este pur defensivă și procedurală, fără a invoca un interes public sau de grup.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"sper ca domnul Daniel Constantin să nu se arate ca fiind cel mai bun deputat din Ministerul Agriculturii și cel mai bun agricultor din Parlamentul României\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Vorbitorul folosește un ton ironic și disprețuitor la adresa competenței colegului său, ceea ce constituie o formă de nerespect.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"sper că știe ceva mai mult despre politica agricolă comună, despre interesele agricultorilor din România decât știe despre Regulamentul Camerei\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.82,\n      \"rationale_short\": \"Cererile sau criticile opoziției nu sunt abordate direct, ci sunt ignorate în favoarea unui atac la persoană.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"ne-a arătat că nu-l cunoaște deloc.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.80,\n      \"rationale_short\": \"Argumentul opoziției este menționat doar pentru a fi ridiculizat, fără o contra-argumentare substanțială.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"Ca atare, nu competența mea pe agricultură m-a făcut să fiu semnatarul solicitării de prezență, ci calitatea de lider de grup.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Discursul este pur defensiv și pozițional, fără a oferi alternative sau soluții constructive.\"\n    }\n  ],\n  \"rationale\": \"Discursul este marcat de un ton defensiv și personal, concentrându-se pe clarificarea rolului procedural al vorbitorului în detrimentul unei dezbateri substanțiale. Justificarea este limitată la aspecte procedurale (level_of_justification=1), iar conținutul nu vizează binele comun. Respectul pentru grupuri este scăzut (respect_for_groups=0) din cauza ironiei și a atacului la adresa competenței colegului. Nu există un angajament real cu argumentele opoziției, ci doar o respingere a acestora prin discreditare. Discursul rămâne strict pozițional, fără a contribui constructiv la agenda parlamentară.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12463,
+      "tokens_in_breakdown": {
+        "fresh": 12463,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1263,
+      "cost_usd": null,
+      "latency_ms": 4560,
+      "retries_used": 0
+    }
+  }
+}

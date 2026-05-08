@@ -1,0 +1,152 @@
+{
+  "speech_id": "mo://2018/II/133#agenda-1#act-91",
+  "tier": "calibration",
+  "speaker": {
+    "id": "roman-florin-claudiu",
+    "name": "Florin Claudiu Roman",
+    "raw": "Domnul Florin Claudiu Roman",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2018-09-19",
+    "year": 2018,
+    "legislature": "VIII",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2018/II/133#agenda-1#act-91",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.95,
+        "markers": [],
+        "rationale": "Discursul se înscrie într-un registru procedural și tehnic, concentrându-se pe rectificarea bugetară, cotele defalcate din impozitul pe venit și finanțele publice locale. Deși vorbitorul critică Guvernul și menționează dificultățile primarilor, argumentația este bazată pe amendamente legislative, propuneri de modificare a legii și date economice, nu pe un cadru maniheist popor-vs-elită. Nu există invocarea unei voințe populare omogene ca entitate suverană deasupra instituțiilor, nici retorică moralizatoare sau existențială. Discursul rămâne în limitele dezbaterii parlamentare standard, motiv pentru care scorul este 0."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.95,\n  \"markers\": [],\n  \"rationale\": \"Discursul se înscrie într-un registru procedural și tehnic, concentrându-se pe rectificarea bugetară, cotele defalcate din impozitul pe venit și finanțele publice locale. Deși vorbitorul critică Guvernul și menționează dificultățile primarilor, argumentația este bazată pe amendamente legislative, propuneri de modificare a legii și date economice, nu pe un cadru maniheist popor-vs-elită. Nu există invocarea unei voințe populare omogene ca entitate suverană deasupra instituțiilor, nici retorică moralizatoare sau existențială. Discursul rămâne în limitele dezbaterii parlamentare standard, motiv pentru care scorul este 0.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 14229,
+      "tokens_in_breakdown": {
+        "fresh": 14229,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 236,
+      "cost_usd": null,
+      "latency_ms": 2089,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2018/II/133#agenda-1#act-91",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.85,
+        "level_of_justification": 2,
+        "content_of_justification": "mixed",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "alternative_proposal",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "pierderi care survin ca urmare a reducerii impozitului pe venit de la 16% la 10% și a diminuării cotelor defalcate din TVA"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Vorbitorul leagă pierderile bugetare de măsuri fiscale specifice, oferind un mecanism cauzal clar."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "mixed",
+            "evidence": {
+              "text": "asigurarea finanțării administrațiilor publice locale măcar la nivelul anului fiscal 2017"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.88,
+            "rationale_short": "Justificarea îmbină interesul specific al UAT-urilor cu nevoia generală de funcționare a administrației."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "colegilor parlamentari din arcul guvernamental"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.9,
+            "rationale_short": "Referință funcțională la grupul politic advers, fără derogare sau respect explicit."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Le solicit pe această cale colegilor parlamentari din arcul guvernamental să susțină ultima mea propunere legislativă"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.85,
+            "rationale_short": "Vorbitorul își promovează propria agendă fără a aborda cererile opoziției; non-angajament."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "Guvernul Dăncilă a OUG nr. 78/2018 cu privire la rectificarea bugetului de stat pe anul 2018"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.88,
+            "rationale_short": "Menționează acțiunea guvernului, dar nu angajează substanțial raționamentul din spatele acesteia."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "alternative_proposal",
+            "evidence": {
+              "text": "am inițiat două propuneri legislative cu privire la modificarea Legii nr. 273/2006 privind finanțele publice locale"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Vorbitorul propune modificări legislative concrete ca alternativă la situația curentă."
+          }
+        ],
+        "rationale": "Discursul prezintă o calitate deliberativă medie-ridicată, caracterizată prin justificări bazate pe mecanisme fiscale clare (level_of_justification=2) și o abordare constructivă prin propuneri legislative alternative. Justificarea este mixtă, vizând atât interesele UAT-urilor, cât și stabilitatea administrativă generală. Deși vorbitorul este critic la adresa guvernului, nu recurge la dispreț, menținând un respect neutru pentru grupurile adverse. Totuși, angajamentul față de contraargumentele guvernului rămâne superficial, limitându-se la menționarea actelor normative fără o dezbatere a rațiunilor acestora. Profilul este cel al unui parlamentar care își susține poziția prin soluții tehnice, dar fără a media cu opoziția politică."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.85,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"mixed\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"alternative_proposal\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"pierderi care survin ca urmare a reducerii impozitului pe venit de la 16% la 10% și a diminuării cotelor defalcate din TVA\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Vorbitorul leagă pierderile bugetare de măsuri fiscale specifice, oferind un mecanism cauzal clar.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"mixed\",\n      \"evidence\": {\n        \"text\": \"asigurarea finanțării administrațiilor publice locale măcar la nivelul anului fiscal 2017\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Justificarea îmbină interesul specific al UAT-urilor cu nevoia generală de funcționare a administrației.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"colegilor parlamentari din arcul guvernamental\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Referință funcțională la grupul politic advers, fără derogare sau respect explicit.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Le solicit pe această cale colegilor parlamentari din arcul guvernamental să susțină ultima mea propunere legislativă\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Vorbitorul își promovează propria agendă fără a aborda cererile opoziției; non-angajament.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Guvernul Dăncilă a OUG nr. 78/2018 cu privire la rectificarea bugetului de stat pe anul 2018\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Menționează acțiunea guvernului, dar nu angajează substanțial raționamentul din spatele acesteia.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"alternative_proposal\",\n      \"evidence\": {\n        \"text\": \"am inițiat două propuneri legislative cu privire la modificarea Legii nr. 273/2006 privind finanțele publice locale\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Vorbitorul propune modificări legislative concrete ca alternativă la situația curentă.\"\n    }\n  ],\n  \"rationale\": \"Discursul prezintă o calitate deliberativă medie-ridicată, caracterizată prin justificări bazate pe mecanisme fiscale clare (level_of_justification=2) și o abordare constructivă prin propuneri legislative alternative. Justificarea este mixtă, vizând atât interesele UAT-urilor, cât și stabilitatea administrativă generală. Deși vorbitorul este critic la adresa guvernului, nu recurge la dispreț, menținând un respect neutru pentru grupurile adverse. Totuși, angajamentul față de contraargumentele guvernului rămâne superficial, limitându-se la menționarea actelor normative fără o dezbatere a rațiunilor acestora. Profilul este cel al unui parlamentar care își susține poziția prin soluții tehnice, dar fără a media cu opoziția politică.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [
+        "asigurarea finanțării administrațiilor publice locale măcar la nivelul anului fiscal 2017"
+      ],
+      "parse_repaired": false,
+      "tokens_in": 13030,
+      "tokens_in_breakdown": {
+        "fresh": 13030,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1237,
+      "cost_usd": null,
+      "latency_ms": 5239,
+      "retries_used": 0
+    }
+  }
+}

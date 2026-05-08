@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2026/II/26#agenda-6#act-73",
+  "tier": "calibration",
+  "speaker": {
+    "id": "rusu-sebastian-mihai",
+    "name": "Sebastian-Mihai Rusu",
+    "raw": "Domnul Sebastian-Mihai Rusu",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2026-03-04",
+    "year": 2026,
+    "legislature": "X",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2026/II/26#agenda-6#act-73",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul este unul de natură tehnică și procedurală, axat pe propunerea unor măsuri fiscale concrete (deduceri pentru părinți) și argumentarea beneficiilor economice ale acestora (combaterea muncii la negru, reducerea abandonului școlar). Deși utilizează termeni precum „vocea viitorului” sau „temelia societății”, aceștia sunt folosiți în contextul unei dezbateri de politici publice, nu ca parte a unui cadru manihean popor-vs-elită. Nu există nicio invocare a unei elite malefice, a unei voințe populare suverane care să ignore instituțiile sau a unei crize existențiale. Discursul rămâne în registrul pluralist și constructiv, specific dezbaterilor parlamentare de specialitate."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul este unul de natură tehnică și procedurală, axat pe propunerea unor măsuri fiscale concrete (deduceri pentru părinți) și argumentarea beneficiilor economice ale acestora (combaterea muncii la negru, reducerea abandonului școlar). Deși utilizează termeni precum „vocea viitorului” sau „temelia societății”, aceștia sunt folosiți în contextul unei dezbateri de politici publice, nu ca parte a unui cadru manihean popor-vs-elită. Nu există nicio invocare a unei elite malefice, a unei voințe populare suverane care să ignore instituțiile sau a unei crize existențiale. Discursul rămâne în registrul pluralist și constructiv, specific dezbaterilor parlamentare de specialitate.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 14118,
+      "tokens_in_breakdown": {
+        "fresh": 14118,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 249,
+      "cost_usd": null,
+      "latency_ms": 2191,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2026/II/26#agenda-6#act-73",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.88,
+        "level_of_justification": 2,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "alternative_proposal",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "Așadar, vă propun o soluție concretă: deduceri fiscale directe pentru părinții care muncesc. Această măsură poate produce efecte imediate pe trei planuri."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Vorbitorul propune o măsură specifică (deduceri fiscale) și explică mecanismele cauzale pentru trei obiective."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "Această voce aparține tinerilor și familiilor care aleg să își crească copiii aici, în România."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.9,
+            "rationale_short": "Apelul este universalizabil la nivelul întregii societăți românești, vizând viitorul demografic al țării."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Stimați colegi"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.99,
+            "marker_confidence": 0.85,
+            "rationale_short": "Adresare convențională; nu există referințe derogatorii sau de respect explicit către grupuri specifice."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Am înțeles că anul trecut am fost forțați să facem tăieri și creșteri de taxe"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.96,
+            "marker_confidence": 0.88,
+            "rationale_short": "Mențiune neutră a contextului politic anterior fără angajament cu cererile opoziției."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "Această viziune nu este o noutate; ea se regăsește în fundamentul programului nostru de guvernare."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.91,
+            "rationale_short": "Vorbitorul ignoră argumentele opoziției, concentrându-se exclusiv pe propria agendă și programul de guvernare."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "alternative_proposal",
+            "evidence": {
+              "text": "vă propun o soluție concretă: deduceri fiscale directe pentru părinții care muncesc."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Vorbitorul oferă o alternativă concretă la politicile curente de sprijin social."
+          }
+        ],
+        "rationale": "Discursul prezintă o calitate deliberativă medie-ridicată, marcată de o propunere constructivă clară (deduceri fiscale) susținută de o justificare logică (level_of_justification=2). Vorbitorul ancorează argumentele în binele comun (viitorul demografic al României), evitând interesele de grup înguste. Totuși, discursul eșuează în a angaja contraargumentele opoziției (respect_for_counterarguments=0), preferând să-și valideze propria viziune prin referințe la programul de guvernare. Respectul pentru grupuri și cereri rămâne neutru, fiind un discurs de promovare a unei politici proprii mai degrabă decât unul de dezbatere inter-partidă. Profilul este unul de 'propunere constructivă' cu o justificare tehnică solidă, dar cu o deschidere deliberativă limitată față de critici."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.88,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 0,\n  \"constructive_politics\": \"alternative_proposal\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"Așadar, vă propun o soluție concretă: deduceri fiscale directe pentru părinții care muncesc. Această măsură poate produce efecte imediate pe trei planuri.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Vorbitorul propune o măsură specifică (deduceri fiscale) și explică mecanismele cauzale pentru trei obiective.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"Această voce aparține tinerilor și familiilor care aleg să își crească copiii aici, în România.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"marker_confidence\": 0.90,\n      \"rationale_short\": \"Apelul este universalizabil la nivelul întregii societăți românești, vizând viitorul demografic al țării.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Stimați colegi\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.99,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Adresare convențională; nu există referințe derogatorii sau de respect explicit către grupuri specifice.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Am înțeles că anul trecut am fost forțați să facem tăieri și creșteri de taxe\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.96,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Mențiune neutră a contextului politic anterior fără angajament cu cererile opoziției.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"Această viziune nu este o noutate; ea se regăsește în fundamentul programului nostru de guvernare.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"marker_confidence\": 0.91,\n      \"rationale_short\": \"Vorbitorul ignoră argumentele opoziției, concentrându-se exclusiv pe propria agendă și programul de guvernare.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"alternative_proposal\",\n      \"evidence\": {\n        \"text\": \"vă propun o soluție concretă: deduceri fiscale directe pentru părinții care muncesc.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Vorbitorul oferă o alternativă concretă la politicile curente de sprijin social.\"\n    }\n  ],\n  \"rationale\": \"Discursul prezintă o calitate deliberativă medie-ridicată, marcată de o propunere constructivă clară (deduceri fiscale) susținută de o justificare logică (level_of_justification=2). Vorbitorul ancorează argumentele în binele comun (viitorul demografic al României), evitând interesele de grup înguste. Totuși, discursul eșuează în a angaja contraargumentele opoziției (respect_for_counterarguments=0), preferând să-și valideze propria viziune prin referințe la programul de guvernare. Respectul pentru grupuri și cereri rămâne neutru, fiind un discurs de promovare a unei politici proprii mai degrabă decât unul de dezbatere inter-partidă. Profilul este unul de 'propunere constructivă' cu o justificare tehnică solidă, dar cu o deschidere deliberativă limitată față de critici.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12919,
+      "tokens_in_breakdown": {
+        "fresh": 12919,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1257,
+      "cost_usd": null,
+      "latency_ms": 5083,
+      "retries_used": 0
+    }
+  }
+}

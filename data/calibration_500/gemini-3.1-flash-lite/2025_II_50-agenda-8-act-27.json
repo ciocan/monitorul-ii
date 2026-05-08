@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2025/II/50#agenda-8#act-27",
+  "tier": "calibration",
+  "speaker": {
+    "id": "pruna-cristina-madalina",
+    "name": "Cristina-Mădălina Prună",
+    "raw": "Doamna Cristina-Mădălina Prună",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2025-04-08",
+    "year": 2025,
+    "legislature": "X",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2025/II/50#agenda-8#act-27",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul este unul pur procedural, axat pe critica administrativă a unei ordonanțe de urgență și pe lipsa de claritate a obiectivelor unei agenții guvernamentale. Deși vorbitorul menționează „bune intenții am mai văzut noi venind de la Guvernul României”, această observație rămâne în registrul criticii politice obișnuite și nu constituie un cadru maniheist popor-vs-elită. Nu există nicio invocare a unei voințe populare omogene, a unei elite malefice sau a unei crize existențiale. Discursul se încadrează în registrul tehnic-parlamentar, motiv pentru care scorul este 0."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul este unul pur procedural, axat pe critica administrativă a unei ordonanțe de urgență și pe lipsa de claritate a obiectivelor unei agenții guvernamentale. Deși vorbitorul menționează „bune intenții am mai văzut noi venind de la Guvernul României”, această observație rămâne în registrul criticii politice obișnuite și nu constituie un cadru maniheist popor-vs-elită. Nu există nicio invocare a unei voințe populare omogene, a unei elite malefice sau a unei crize existențiale. Discursul se încadrează în registrul tehnic-parlamentar, motiv pentru care scorul este 0.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13763,
+      "tokens_in_breakdown": {
+        "fresh": 13763,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 232,
+      "cost_usd": null,
+      "latency_ms": 2119,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2025/II/50#agenda-8#act-27",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.82,
+        "level_of_justification": 1,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 1,
+            "evidence": {
+              "text": "ordonanța de urgență încă face referire la Agenția Națională Antidrog, agenție care s-a desființat și care a fost reînființată și este acum în subordinea SGG"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Vorbitorul identifică o problemă tehnică (referință la o agenție desființată), dar raționamentul rămâne descriptiv, fără a oferi o justificare cauzală complexă."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "sper că, totuși, această structură face măcar ce ar trebui să facă sau ce trebuia să facă Agenția Națională Antidrog"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.82,
+            "rationale_short": "Apelul vizează funcționalitatea instituției în interesul public, nu un interes de grup specific."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Oamenii care au venit în comisiile parlamentare"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Referință neutră la funcționarii din comisii; nicio derogare sau respect explicit."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Sigur că vom susține și noi acest proiect de lege."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.88,
+            "rationale_short": "Vorbitorul susține proiectul, dar nu angajează cererile opoziției; atitudine neutră."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "bune intenții am mai văzut noi venind de la Guvernul României, dar rezultatele nu au fost pe măsură"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Menționează argumentul guvernului despre bunele intenții, dar nu îl combate substanțial, limitându-se la o observație generală."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Sigur că vom susține și noi acest proiect de lege."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Vorbitorul își declară susținerea fără a propune un amendament sau o mediere concretă."
+          }
+        ],
+        "rationale": "Discursul este unul de susținere condiționată, marcat de o observație tehnică privind neconcordanțele legislative din ordonanță. Justificarea este de nivel 1, deoarece vorbitorul semnalează o eroare tehnică fără a dezvolta un raționament cauzal complex sau a oferi dovezi externe. Apelul la binele comun este prezent prin dorința ca agenția să funcționeze corect, însă discursul rămâne pozițional, fără a oferi o alternativă concretă sau un amendament. Respectul pentru grupuri și cereri este neutru, iar angajamentul față de argumentele guvernului este superficial, limitându-se la o critică generală a rezultatelor trecute. Calitatea deliberativă este moderată, fiind un discurs tipic de monitorizare parlamentară."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.82,\n  \"level_of_justification\": 1,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"ordonanța de urgență încă face referire la Agenția Națională Antidrog, agenție care s-a desființat și care a fost reînființată și este acum în subordinea SGG\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Vorbitorul identifică o problemă tehnică (referință la o agenție desființată), dar raționamentul rămâne descriptiv, fără a oferi o justificare cauzală complexă.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"sper că, totuși, această structură face măcar ce ar trebui să facă sau ce trebuia să facă Agenția Națională Antidrog\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.82,\n      \"rationale_short\": \"Apelul vizează funcționalitatea instituției în interesul public, nu un interes de grup specific.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Oamenii care au venit în comisiile parlamentare\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Referință neutră la funcționarii din comisii; nicio derogare sau respect explicit.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Sigur că vom susține și noi acest proiect de lege.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Vorbitorul susține proiectul, dar nu angajează cererile opoziției; atitudine neutră.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"bune intenții am mai văzut noi venind de la Guvernul României, dar rezultatele nu au fost pe măsură\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Menționează argumentul guvernului despre bunele intenții, dar nu îl combate substanțial, limitându-se la o observație generală.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"Sigur că vom susține și noi acest proiect de lege.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Vorbitorul își declară susținerea fără a propune un amendament sau o mediere concretă.\"\n    }\n  ],\n  \"rationale\": \"Discursul este unul de susținere condiționată, marcat de o observație tehnică privind neconcordanțele legislative din ordonanță. Justificarea este de nivel 1, deoarece vorbitorul semnalează o eroare tehnică fără a dezvolta un raționament cauzal complex sau a oferi dovezi externe. Apelul la binele comun este prezent prin dorința ca agenția să funcționeze corect, însă discursul rămâne pozițional, fără a oferi o alternativă concretă sau un amendament. Respectul pentru grupuri și cereri este neutru, iar angajamentul față de argumentele guvernului este superficial, limitându-se la o critică generală a rezultatelor trecute. Calitatea deliberativă este moderată, fiind un discurs tipic de monitorizare parlamentară.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12564,
+      "tokens_in_breakdown": {
+        "fresh": 12564,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1240,
+      "cost_usd": null,
+      "latency_ms": 5301,
+      "retries_used": 0
+    }
+  }
+}

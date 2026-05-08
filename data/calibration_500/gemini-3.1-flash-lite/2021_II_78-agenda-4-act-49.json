@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2021/II/78#agenda-4#act-49",
+  "tier": "calibration",
+  "speaker": {
+    "id": "banu-claudia-mihaela",
+    "name": "Claudia-Mihaela Banu",
+    "raw": "Doamna Claudia-Mihaela Banu",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": "2021-05-12",
+    "year": 2021,
+    "legislature": "IX",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2021/II/78#agenda-4#act-49",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul este unul de natură procedurală și de mobilizare civică în contextul campaniei de vaccinare, fără a utiliza un cadru maniheist popor-vs-elită. Deși vorbitoarea menționează „dezbinări” și „degradarea discursului public”, acestea sunt invocate ca probleme de coeziune socială, nu ca rezultat al unei conspirații a unei elite malefice. Nu există apeluri la supremația voinței populare asupra instituțiilor sau o viziune populistă pervazivă. Discursul se înscrie în registrul instituțional și de responsabilitate civică, primind astfel scorul 0."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul este unul de natură procedurală și de mobilizare civică în contextul campaniei de vaccinare, fără a utiliza un cadru maniheist popor-vs-elită. Deși vorbitoarea menționează „dezbinări” și „degradarea discursului public”, acestea sunt invocate ca probleme de coeziune socială, nu ca rezultat al unei conspirații a unei elite malefice. Nu există apeluri la supremația voinței populare asupra instituțiilor sau o viziune populistă pervazivă. Discursul se înscrie în registrul instituțional și de responsabilitate civică, primind astfel scorul 0.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 14218,
+      "tokens_in_breakdown": {
+        "fresh": 14218,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 217,
+      "cost_usd": null,
+      "latency_ms": 1945,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2021/II/78#agenda-4#act-49",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.78,
+        "level_of_justification": 1,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 1,
+            "evidence": {
+              "text": "Vaccinarea rămâne singura armă eficientă în lupta anti-COVID, salvează vieți și asigură reluarea normalității."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Afirmație despre eficacitatea vaccinării fără un lanț cauzal detaliat sau surse externe specifice."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "sprijiniți acest demers menit să însănătoșească România"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Apelul este universalizabil, vizând sănătatea publică a întregii țări."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Stimați colegi"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.99,
+            "marker_confidence": 0.95,
+            "rationale_short": "Adresare convențională; nu există referințe derogatorii sau de respect explicit către out-group-uri."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "vă rog să o sprijinim cu toții cu maximă responsabilitate"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.88,
+            "rationale_short": "Vorbitorul își promovează agenda fără a aborda sau recunoaște cereri opuse specifice."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "Am fost martorii dezbinărilor, ai degradării discursului public"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.82,
+            "rationale_short": "Vorbitorul menționează dezbinarea, dar nu angajează substanțial niciun contraargument specific."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Fac un apel la dumneavoastră ca prin fiecare mijloc posibil, în circumscripțiile pe care le reprezentați, să sprijiniți acest demers"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Discursul este un apel la susținerea unei poziții existente, fără a propune alternative sau medieri."
+          }
+        ],
+        "rationale": "Discursul Claudiei-Mihaela Banu este un apel politic standard pentru susținerea campaniei de vaccinare, caracterizat printr-o calitate deliberativă moderată. Justificarea este de nivel 1, bazându-se pe afirmații generale despre eficacitatea vaccinului fără a oferi dovezi empirice sau mecanisme cauzale detaliate. Apelul este orientat către binele comun, însă discursul nu angajează contraargumente sau cereri opuse, rămânând într-o zonă pozițională. Respectul pentru grupuri și cereri este neutru, limitându-se la formule de politețe parlamentară. În ansamblu, discursul servește scopului de mobilizare politică, dar nu atinge standardele unei deliberări argumentative complexe."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.78,\n  \"level_of_justification\": 1,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 0,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Vaccinarea rămâne singura armă eficientă în lupta anti-COVID, salvează vieți și asigură reluarea normalității.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Afirmație despre eficacitatea vaccinării fără un lanț cauzal detaliat sau surse externe specifice.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"sprijiniți acest demers menit să însănătoșească România\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Apelul este universalizabil, vizând sănătatea publică a întregii țări.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Stimați colegi\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.99,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Adresare convențională; nu există referințe derogatorii sau de respect explicit către out-group-uri.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"vă rog să o sprijinim cu toții cu maximă responsabilitate\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Vorbitorul își promovează agenda fără a aborda sau recunoaște cereri opuse specifice.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"Am fost martorii dezbinărilor, ai degradării discursului public\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.82,\n      \"rationale_short\": \"Vorbitorul menționează dezbinarea, dar nu angajează substanțial niciun contraargument specific.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"Fac un apel la dumneavoastră ca prin fiecare mijloc posibil, în circumscripțiile pe care le reprezentați, să sprijiniți acest demers\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.90,\n      \"rationale_short\": \"Discursul este un apel la susținerea unei poziții existente, fără a propune alternative sau medieri.\"\n    }\n  ],\n  \"rationale\": \"Discursul Claudiei-Mihaela Banu este un apel politic standard pentru susținerea campaniei de vaccinare, caracterizat printr-o calitate deliberativă moderată. Justificarea este de nivel 1, bazându-se pe afirmații generale despre eficacitatea vaccinului fără a oferi dovezi empirice sau mecanisme cauzale detaliate. Apelul este orientat către binele comun, însă discursul nu angajează contraargumente sau cereri opuse, rămânând într-o zonă pozițională. Respectul pentru grupuri și cereri este neutru, limitându-se la formule de politețe parlamentară. În ansamblu, discursul servește scopului de mobilizare politică, dar nu atinge standardele unei deliberări argumentative complexe.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13019,
+      "tokens_in_breakdown": {
+        "fresh": 13019,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1169,
+      "cost_usd": null,
+      "latency_ms": 4914,
+      "retries_used": 0
+    }
+  }
+}

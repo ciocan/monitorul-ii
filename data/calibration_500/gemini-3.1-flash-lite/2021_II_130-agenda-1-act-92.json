@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2021/II/130#agenda-1#act-92",
+  "tier": "calibration",
+  "speaker": {
+    "id": "moisin-radu-marin",
+    "name": "Radu-Marin Moisin",
+    "raw": "Domnul Radu-Marin Moisin",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2021-09-07",
+    "year": 2021,
+    "legislature": "IX",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2021/II/130#agenda-1#act-92",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul este unul pur tehnic și procedural, axat pe prezentarea unor date statistice privind sistemul de sănătate, citarea unor rapoarte internaționale (OMS, Comisia Europeană) și detalierea unui acord de împrumut cu BIRD pentru investiții specifice. Nu există nicio urmă de cadru popor-vs-elită, maniheism moral sau invocare a unei voințe populare omogene. Discursul se înscrie în registrul administrativ-tehnocratic, fiind lipsit de orice element populist. Hawkins=0 cu încredere maximă."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul este unul pur tehnic și procedural, axat pe prezentarea unor date statistice privind sistemul de sănătate, citarea unor rapoarte internaționale (OMS, Comisia Europeană) și detalierea unui acord de împrumut cu BIRD pentru investiții specifice. Nu există nicio urmă de cadru popor-vs-elită, maniheism moral sau invocare a unei voințe populare omogene. Discursul se înscrie în registrul administrativ-tehnocratic, fiind lipsit de orice element populist. Hawkins=0 cu încredere maximă.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 14308,
+      "tokens_in_breakdown": {
+        "fresh": 14308,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 198,
+      "cost_usd": null,
+      "latency_ms": 1951,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2021/II/130#agenda-1#act-92",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.88,
+        "level_of_justification": 2,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "proiectul privind reforma în sectorul sanitar era finanțat, inițial, cu 250 milioane de euro, iar acest acord aduce în plus 150 de milioane de euro pentru îmbunătățirea sistemului sanitar și sporirea eficienței acestuia."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Justificare calificată prin date financiare specifice și mecanismul de îmbunătățire a eficienței sistemului."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "cetățenii români trebuie să beneficieze de servicii medicale la standarde europene"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Apelul este universalizabil, vizând interesul cetățenilor români în ansamblu."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Toate sistemele de sănătate europene se confruntă cu aceleași provocări"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.9,
+            "rationale_short": "Referință neutră la sistemele europene; nicio derogare sau respect explicit."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Guvernul a aprobat recent un proiect de lege pentru ratificarea Acordului de împrumut"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Discursul se concentrează pe prezentarea acțiunii guvernamentale fără a aborda cereri opuse."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "Investițiile în domeniul sanitar, o prioritate absolută pentru Guvern!"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.99,
+            "marker_confidence": 0.9,
+            "rationale_short": "Discursul este pur informativ și de susținere, ignorând orice contraargumente."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Guvernul a aprobat recent un proiect de lege pentru ratificarea Acordului de împrumut"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.93,
+            "rationale_short": "Vorbitorul prezintă o poziție guvernamentală fără a propune alternative sau medieri."
+          }
+        ],
+        "rationale": "Discursul prezintă o justificare calificată (level_of_justification=2) prin utilizarea datelor financiare și a contextului european pentru a susține necesitatea investițiilor în sănătate. Apelul este orientat către binele comun (content_of_justification=common_good), vizând îmbunătățirea serviciilor pentru toți cetățenii. Deși informativ și bine structurat, discursul rămâne pozițional (constructive_politics=positional), neangajând contraargumente sau cereri opuse (respect_for_counterarguments=0, respect_for_demands=1). Respectul pentru grupuri este neutru, reflectând o postură funcțională. Calitatea deliberativă este solidă în ceea ce privește argumentarea proprie, dar limitată în ceea ce privește interacțiunea cu alte perspective."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.88,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 0,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"proiectul privind reforma în sectorul sanitar era finanțat, inițial, cu 250 milioane de euro, iar acest acord aduce în plus 150 de milioane de euro pentru îmbunătățirea sistemului sanitar și sporirea eficienței acestuia.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Justificare calificată prin date financiare specifice și mecanismul de îmbunătățire a eficienței sistemului.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"cetățenii români trebuie să beneficieze de servicii medicale la standarde europene\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Apelul este universalizabil, vizând interesul cetățenilor români în ansamblu.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Toate sistemele de sănătate europene se confruntă cu aceleași provocări\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Referință neutră la sistemele europene; nicio derogare sau respect explicit.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Guvernul a aprobat recent un proiect de lege pentru ratificarea Acordului de împrumut\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Discursul se concentrează pe prezentarea acțiunii guvernamentale fără a aborda cereri opuse.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"Investițiile în domeniul sanitar, o prioritate absolută pentru Guvern!\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.99,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Discursul este pur informativ și de susținere, ignorând orice contraargumente.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"Guvernul a aprobat recent un proiect de lege pentru ratificarea Acordului de împrumut\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.93,\n      \"rationale_short\": \"Vorbitorul prezintă o poziție guvernamentală fără a propune alternative sau medieri.\"\n    }\n  ],\n  \"rationale\": \"Discursul prezintă o justificare calificată (level_of_justification=2) prin utilizarea datelor financiare și a contextului european pentru a susține necesitatea investițiilor în sănătate. Apelul este orientat către binele comun (content_of_justification=common_good), vizând îmbunătățirea serviciilor pentru toți cetățenii. Deși informativ și bine structurat, discursul rămâne pozițional (constructive_politics=positional), neangajând contraargumente sau cereri opuse (respect_for_counterarguments=0, respect_for_demands=1). Respectul pentru grupuri este neutru, reflectând o postură funcțională. Calitatea deliberativă este solidă în ceea ce privește argumentarea proprie, dar limitată în ceea ce privește interacțiunea cu alte perspective.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13109,
+      "tokens_in_breakdown": {
+        "fresh": 13109,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1216,
+      "cost_usd": null,
+      "latency_ms": 4644,
+      "retries_used": 0
+    }
+  }
+}

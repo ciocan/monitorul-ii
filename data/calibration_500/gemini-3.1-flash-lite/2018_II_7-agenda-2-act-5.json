@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2018/II/7#agenda-2#act-5",
+  "tier": "calibration",
+  "speaker": {
+    "id": "marussi-george-nicolae",
+    "name": "George Nicolae Marussi",
+    "raw": "Domnul George Nicolae Marussi",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": "2017-12-20",
+    "year": 2018,
+    "legislature": "VIII",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2018/II/7#agenda-2#act-5",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.95,
+        "markers": [],
+        "rationale": "Discursul este unul procedural, axat pe o solicitare de modificare a ordinii de zi a ședinței parlamentare. Deși vorbitorul menționează „o mare parte a societății românești”, aceasta este folosită ca argument pentru amânarea votului, nu ca parte a unui cadru maniheist popor-vs-elită. Nu există elemente de moralism, invocarea unei voințe populare suverane împotriva instituțiilor sau atacuri la adresa unei elite malefice. Discursul rămâne în registrul parlamentar uzual de negociere a procedurilor."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.95,\n  \"markers\": [],\n  \"rationale\": \"Discursul este unul procedural, axat pe o solicitare de modificare a ordinii de zi a ședinței parlamentare. Deși vorbitorul menționează „o mare parte a societății românești”, aceasta este folosită ca argument pentru amânarea votului, nu ca parte a unui cadru maniheist popor-vs-elită. Nu există elemente de moralism, invocarea unei voințe populare suverane împotriva instituțiilor sau atacuri la adresa unei elite malefice. Discursul rămâne în registrul parlamentar uzual de negociere a procedurilor.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13670,
+      "tokens_in_breakdown": {
+        "fresh": 13670,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 201,
+      "cost_usd": null,
+      "latency_ms": 2054,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2018/II/7#agenda-2#act-5",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.82,
+        "level_of_justification": 1,
+        "content_of_justification": "group_interest",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "alternative_proposal",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 1,
+            "evidence": {
+              "text": "O mare parte a societății românești este nemulțumită de modul în care aceste legi au fost promovate"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Justificarea invocă nemulțumirea publică generală fără a oferi un mecanism cauzal sau dovezi specifice."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "group_interest",
+            "evidence": {
+              "text": "Grupul USR vă propune scoaterea de pe ordinea de zi"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.88,
+            "rationale_short": "Apelul este ancorat în poziția și interesele grupului politic (USR) și ale electoratului lor."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Stimați colegi"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.99,
+            "marker_confidence": 0.95,
+            "rationale_short": "Adresare convențională; nu există derogări sau recunoașteri explicite ale out-group-urilor."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "nu vedem urgența acestor... promovării acestor legi în regim de urgență"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.82,
+            "rationale_short": "Vorbitorul ignoră cererea de urgență a majorității fără a o angaja sau a-i recunoaște legitimitatea."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "nu vedem urgența acestor... promovării acestor legi în regim de urgență"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Argumentele pentru urgență nu sunt adresate; vorbitorul pur și simplu își afirmă opoziția."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "alternative_proposal",
+            "evidence": {
+              "text": "vă propunem amânarea, cu termen de două săptămâni; putem veni chiar și în ianuarie sau în sesiunea următoare"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Vorbitorul oferă o alternativă concretă (amânarea cu două săptămâni) la procedura curentă."
+          }
+        ],
+        "rationale": "Discursul prezintă o calitate deliberativă mixtă. Deși vorbitorul oferă o propunere alternativă concretă (amânarea cu două săptămâni), justificarea rămâne la un nivel inferior (level_of_justification=1), bazându-se pe o nemulțumire publică vagă și pe interesele grupului politic (content_of_justification=group_interest). Nu există un angajament substanțial cu raționamentul majorității privind urgența (respect_for_counterarguments=0), iar respectul pentru cererile adverse este neutru (respect_for_demands=1). Discursul este constructiv prin propunerea de amânare, dar îi lipsește profunzimea analitică necesară pentru o deliberare de înaltă calitate."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.82,\n  \"level_of_justification\": 1,\n  \"content_of_justification\": \"group_interest\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 0,\n  \"constructive_politics\": \"alternative_proposal\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"O mare parte a societății românești este nemulțumită de modul în care aceste legi au fost promovate\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Justificarea invocă nemulțumirea publică generală fără a oferi un mecanism cauzal sau dovezi specifice.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"group_interest\",\n      \"evidence\": {\n        \"text\": \"Grupul USR vă propune scoaterea de pe ordinea de zi\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Apelul este ancorat în poziția și interesele grupului politic (USR) și ale electoratului lor.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Stimați colegi\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.99,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Adresare convențională; nu există derogări sau recunoașteri explicite ale out-group-urilor.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"nu vedem urgența acestor... promovării acestor legi în regim de urgență\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.82,\n      \"rationale_short\": \"Vorbitorul ignoră cererea de urgență a majorității fără a o angaja sau a-i recunoaște legitimitatea.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"nu vedem urgența acestor... promovării acestor legi în regim de urgență\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Argumentele pentru urgență nu sunt adresate; vorbitorul pur și simplu își afirmă opoziția.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"alternative_proposal\",\n      \"evidence\": {\n        \"text\": \"vă propunem amânarea, cu termen de două săptămâni; putem veni chiar și în ianuarie sau în sesiunea următoare\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Vorbitorul oferă o alternativă concretă (amânarea cu două săptămâni) la procedura curentă.\"\n    }\n  ],\n  \"rationale\": \"Discursul prezintă o calitate deliberativă mixtă. Deși vorbitorul oferă o propunere alternativă concretă (amânarea cu două săptămâni), justificarea rămâne la un nivel inferior (level_of_justification=1), bazându-se pe o nemulțumire publică vagă și pe interesele grupului politic (content_of_justification=group_interest). Nu există un angajament substanțial cu raționamentul majorității privind urgența (respect_for_counterarguments=0), iar respectul pentru cererile adverse este neutru (respect_for_demands=1). Discursul este constructiv prin propunerea de amânare, dar îi lipsește profunzimea analitică necesară pentru o deliberare de înaltă calitate.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12471,
+      "tokens_in_breakdown": {
+        "fresh": 12471,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1200,
+      "cost_usd": null,
+      "latency_ms": 4764,
+      "retries_used": 0
+    }
+  }
+}

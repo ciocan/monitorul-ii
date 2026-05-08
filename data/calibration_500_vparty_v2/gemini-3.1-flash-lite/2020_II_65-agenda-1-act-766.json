@@ -1,0 +1,52 @@
+{
+  "speech_id": "mo://2020/II/65#agenda-1#act-766",
+  "tier": "calibration",
+  "speaker": {
+    "id": "ciolacu-marcel",
+    "name": "Ion Marcel Ciolacu",
+    "raw": "Domnul Ion Marcel Ciolacu",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2020-06-17",
+    "year": 2020,
+    "legislature": "VIII",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": null,
+    "voice": null,
+    "dqi": null,
+    "vparty": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "vparty",
+      "speech_id": "mo://2020/II/65#agenda-1#act-766",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "vparty@2020 + vdem-attacks-on@v13",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul este unul de natură istorică și comemorativă, axat pe recunoașterea suferințelor comunității rome în timpul regimului antonescian. Vorbitorul face apel la reconciliere, dreptate și echitate, utilizând cadrul instituțional parlamentar pentru a promova un proiect de lege. Nu există nicio delegitimizare a instituțiilor democratice, a opoziției, a presei sau a altor grupuri, discursul fiind unul incluziv și respectuos față de normele democratice. V-Party=0 cu încredere ridicată."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"vparty@2020 + vdem-attacks-on@v13\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul este unul de natură istorică și comemorativă, axat pe recunoașterea suferințelor comunității rome în timpul regimului antonescian. Vorbitorul face apel la reconciliere, dreptate și echitate, utilizând cadrul instituțional parlamentar pentru a promova un proiect de lege. Nu există nicio delegitimizare a instituțiilor democratice, a opoziției, a presei sau a altor grupuri, discursul fiind unul incluziv și respectuos față de normele democratice. V-Party=0 cu încredere ridicată.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13708,
+      "tokens_in_breakdown": {
+        "fresh": 13708,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 216,
+      "cost_usd": null,
+      "latency_ms": 2027,
+      "retries_used": 0
+    }
+  }
+}

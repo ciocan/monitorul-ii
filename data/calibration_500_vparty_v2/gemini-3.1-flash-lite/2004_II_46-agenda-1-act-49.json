@@ -1,0 +1,52 @@
+{
+  "speech_id": "mo://2004/II/46#agenda-1#act-49",
+  "tier": "calibration",
+  "speaker": {
+    "id": "nicolaescu-sergiu",
+    "name": "Sergiu Nicolaescu",
+    "raw": "Domnul Sergiu Nicolaescu",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": null,
+    "year": 2004,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": null,
+    "voice": null,
+    "dqi": null,
+    "vparty": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "vparty",
+      "speech_id": "mo://2004/II/46#agenda-1#act-49",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "vparty@2020 + vdem-attacks-on@v13",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul reprezintă o prezentare tehnică a raportului comun al Comisiei juridice și al Comisiei pentru politică externă privind o cerere de reexaminare a unui proiect de lege. Vorbitorul analizează argumentele constituționale și procedurale într-un registru parlamentar standard, fără a ataca instituțiile democratice ca clasă sau a folosi retorică anti-pluralistă. Referințele la Constituție și la procedurile parlamentare sunt utilizate pentru a justifica decizia comisiei, nu pentru a delegitima ordinea democratică. Discursul respectă normele de contestare instituțională și nu conține niciunul dintre markerii de anti-pluralism."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"vparty@2020 + vdem-attacks-on@v13\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul reprezintă o prezentare tehnică a raportului comun al Comisiei juridice și al Comisiei pentru politică externă privind o cerere de reexaminare a unui proiect de lege. Vorbitorul analizează argumentele constituționale și procedurale într-un registru parlamentar standard, fără a ataca instituțiile democratice ca clasă sau a folosi retorică anti-pluralistă. Referințele la Constituție și la procedurile parlamentare sunt utilizate pentru a justifica decizia comisiei, nu pentru a delegitima ordinea democratică. Discursul respectă normele de contestare instituțională și nu conține niciunul dintre markerii de anti-pluralism.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13271,
+      "tokens_in_breakdown": {
+        "fresh": 13271,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 232,
+      "cost_usd": null,
+      "latency_ms": 2081,
+      "retries_used": 0
+    }
+  }
+}

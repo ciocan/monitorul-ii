@@ -1,0 +1,192 @@
+{
+  "speech_id": "mo://2020/II/94#agenda-1#act-16",
+  "tier": "calibration",
+  "speaker": {
+    "id": "romascanu-lucian",
+    "name": "Lucian Romașcanu",
+    "raw": "Domnul Lucian Romașcanu",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2020-08-20",
+    "year": 2020,
+    "legislature": "VIII",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2020/II/94#agenda-1#act-16",
+      "output": {
+        "score": 1,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.85,
+        "markers": [
+          {
+            "kind": "evil_elite",
+            "evidence": {
+              "text": "Trebuie oprit jaful din banul public pe care îl practică acum PNL."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.85,
+            "rationale_short": "Elita politică (PNL) este acuzată direct de „jaf din banul public\", o formă de malefic activ."
+          }
+        ],
+        "rationale": "Discursul este predominant tehnic și programatic, concentrându-se pe măsuri economice, educaționale și de digitalizare, ceea ce indică un registru de guvernare mai degrabă decât unul populist. Totuși, discursul conține un moment de retorică populistă prin acuzarea directă a PNL de „jaf din banul public\", marcând o elită ca fiind activ malefică. Deoarece acest element nu este structural-portant pentru întregul discurs, ci apare ca o critică punctuală într-un text altfel axat pe politici publice, scorul este 1. Nu există o viziune maniheistă pervazivă sau o invocare a unei voințe populare omogene care să justifice un scor 2."
+      },
+      "raw_response": "{\n  \"score\": 1,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.85,\n  \"markers\": [\n    {\n      \"kind\": \"evil_elite\",\n      \"evidence\": {\n        \"text\": \"Trebuie oprit jaful din banul public pe care îl practică acum PNL.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Elita politică (PNL) este acuzată direct de „jaf din banul public\\\", o formă de malefic activ.\"\n    }\n  ],\n  \"rationale\": \"Discursul este predominant tehnic și programatic, concentrându-se pe măsuri economice, educaționale și de digitalizare, ceea ce indică un registru de guvernare mai degrabă decât unul populist. Totuși, discursul conține un moment de retorică populistă prin acuzarea directă a PNL de „jaf din banul public\\\", marcând o elită ca fiind activ malefică. Deoarece acest element nu este structural-portant pentru întregul discurs, ci apare ca o critică punctuală într-un text altfel axat pe politici publice, scorul este 1. Nu există o viziune maniheistă pervazivă sau o invocare a unei voințe populare omogene care să justifice un scor 2.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 14734,
+      "tokens_in_breakdown": {
+        "fresh": 14734,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 376,
+      "cost_usd": null,
+      "latency_ms": 2606,
+      "retries_used": 0
+    },
+    "voice": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "voice",
+      "speech_id": "mo://2020/II/94#agenda-1#act-16",
+      "output": {
+        "classifications": [
+          {
+            "marker_id": "m_0",
+            "voice": "speaker_first_person",
+            "voice_confidence": 0.95,
+            "voice_evidence": null,
+            "attributed_to": null,
+            "rationale_short": "Afirmație directă la persoana întâi; vorbitorul își asumă acuzația la adresa PNL fără a folosi un cadru de citare sau raportare."
+          }
+        ]
+      },
+      "raw_response": "{\n  \"classifications\": [\n    {\n      \"marker_id\": \"m_0\",\n      \"voice\": \"speaker_first_person\",\n      \"voice_confidence\": 0.95,\n      \"voice_evidence\": null,\n      \"attributed_to\": null,\n      \"rationale_short\": \"Afirmație directă la persoana întâi; vorbitorul își asumă acuzația la adresa PNL fără a folosi un cadru de citare sau raportare.\"\n    }\n  ]\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12314,
+      "tokens_in_breakdown": {
+        "fresh": 12314,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 123,
+      "cost_usd": null,
+      "latency_ms": 1002,
+      "retries_used": 0
+    },
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2020/II/94#agenda-1#act-16",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.78,
+        "level_of_justification": 1,
+        "content_of_justification": "mixed",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "alternative_proposal",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 1,
+            "evidence": {
+              "text": "Locurile de muncă bine plătite reprezintă cea mai bună formă de protecție socială activă. Prin urmare, propunem o schemă de ajutor de stat"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Propuneri avansate, dar legătura cauzală între măsură și rezultat este mai degrabă declarativă decât fundamentată."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "mixed",
+            "evidence": {
+              "text": "Creșterea nivelului de trai al populației și a puterii de cumpărare trebuie să reprezinte principalele obiective ale oricărui program de guvernare."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.82,
+            "rationale_short": "Apeluri la binele comun (nivel de trai) împletite cu interese specifice de grup (electoratul PSD, companii românești)."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "PSD consideră că toate companiile care produc în România, plătesc taxe și impozite în mod corect, remunerează decent munca lucrătorilor români și ajută la dezvoltarea României sunt companii românești"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.88,
+            "rationale_short": "Referință neutră și incluzivă la companii, fără a viza sau denigra grupuri specifice."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Trebuie oprit jaful din banul public pe care îl practică acum PNL."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.96,
+            "marker_confidence": 0.75,
+            "rationale_short": "Critica politică este prezentă, dar nu se angajează cu cererile opoziției, ci le ignoră în favoarea propriei agende."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "Trebuie oprit jaful din banul public pe care îl practică acum PNL."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.96,
+            "marker_confidence": 0.8,
+            "rationale_short": "Absența totală a angajamentului cu argumentele opoziției; discursul este pur programatic."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "alternative_proposal",
+            "evidence": {
+              "text": "PSD propune un program de relansare a producției în România, prin stimularea investițiilor mari de tip Greenfield și prin crearea unui fond de industrializare pe bază de licențe."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Vorbitorul oferă o serie de propuneri concrete de politici publice ca alternativă la status-quo."
+          }
+        ],
+        "rationale": "Discursul este un program politic dens, caracterizat printr-o abordare constructivă (alternative_proposal) prin prezentarea unor scheme de investiții și programe de sprijin. Justificarea este însă de nivel 1, bazându-se pe afirmații programatice fără a detalia mecanismele cauzale sau a cita surse externe. Conținutul justificării este mixt, apelând atât la binele comun (nivel de trai), cât și la interesele specifice ale companiilor românești. Respectul pentru grupuri este neutru, iar respectul pentru cererile și argumentele opoziției este scăzut, discursul fiind orientat exclusiv către promovarea propriei agende. Deși discursul este coerent, îi lipsește angajamentul deliberativ cu pozițiile adverse, limitându-se la o prezentare de soluții."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.78,\n  \"level_of_justification\": 1,\n  \"content_of_justification\": \"mixed\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 0,\n  \"constructive_politics\": \"alternative_proposal\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Locurile de muncă bine plătite reprezintă cea mai bună formă de protecție socială activă. Prin urmare, propunem o schemă de ajutor de stat\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Propuneri avansate, dar legătura cauzală între măsură și rezultat este mai degrabă declarativă decât fundamentată.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"mixed\",\n      \"evidence\": {\n        \"text\": \"Creșterea nivelului de trai al populației și a puterii de cumpărare trebuie să reprezinte principalele obiective ale oricărui program de guvernare.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.82,\n      \"rationale_short\": \"Apeluri la binele comun (nivel de trai) împletite cu interese specifice de grup (electoratul PSD, companii românești).\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"PSD consideră că toate companiile care produc în România, plătesc taxe și impozite în mod corect, remunerează decent munca lucrătorilor români și ajută la dezvoltarea României sunt companii românești\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Referință neutră și incluzivă la companii, fără a viza sau denigra grupuri specifice.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Trebuie oprit jaful din banul public pe care îl practică acum PNL.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.96,\n      \"marker_confidence\": 0.75,\n      \"rationale_short\": \"Critica politică este prezentă, dar nu se angajează cu cererile opoziției, ci le ignoră în favoarea propriei agende.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"Trebuie oprit jaful din banul public pe care îl practică acum PNL.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.96,\n      \"marker_confidence\": 0.80,\n      \"rationale_short\": \"Absența totală a angajamentului cu argumentele opoziției; discursul este pur programatic.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"alternative_proposal\",\n      \"evidence\": {\n        \"text\": \"PSD propune un program de relansare a producției în România, prin stimularea investițiilor mari de tip Greenfield și prin crearea unui fond de industrializare pe bază de licențe.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Vorbitorul oferă o serie de propuneri concrete de politici publice ca alternativă la status-quo.\"\n    }\n  ],\n  \"rationale\": \"Discursul este un program politic dens, caracterizat printr-o abordare constructivă (alternative_proposal) prin prezentarea unor scheme de investiții și programe de sprijin. Justificarea este însă de nivel 1, bazându-se pe afirmații programatice fără a detalia mecanismele cauzale sau a cita surse externe. Conținutul justificării este mixt, apelând atât la binele comun (nivel de trai), cât și la interesele specifice ale companiilor românești. Respectul pentru grupuri este neutru, iar respectul pentru cererile și argumentele opoziției este scăzut, discursul fiind orientat exclusiv către promovarea propriei agende. Deși discursul este coerent, îi lipsește angajamentul deliberativ cu pozițiile adverse, limitându-se la o prezentare de soluții.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13535,
+      "tokens_in_breakdown": {
+        "fresh": 13535,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1299,
+      "cost_usd": null,
+      "latency_ms": 5273,
+      "retries_used": 0
+    }
+  }
+}

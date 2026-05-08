@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2015/II/131#agenda-1#act-27",
+  "tier": "moderate",
+  "speaker": {
+    "id": "orban-ludovic",
+    "name": "Ludovic Orban",
+    "raw": "Domnul Ludovic Orban",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2015-06-29",
+    "year": 2015,
+    "legislature": "VII",
+    "delivery_mode": null
+  },
+  "model_key": "opus",
+  "model_label": "claude-opus-4.7",
+  "results": {
+    "hawkins": {
+      "model_key": "opus",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2015/II/131#agenda-1#act-27",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.95,
+        "markers": [],
+        "rationale": "Discurs strict procedural-parlamentar, centrat pe Regulamentul Camerei Deputaților și pe atribuția de lider de grup în cadrul „orei Guvernului\". Vorbitorul îl atacă personal pe un coleg deputat (Daniel Constantin) pentru necunoașterea regulamentului și competența pe agricultură, dar registrul rămâne polemic-procedural, nu populist. Nu există cadru popor-vs-elită, nici invocarea unei voințe populare omogene, nici maniheism moral, nici cadru de criză sau mize cosmice. Atacul ad-hominem și ironia nu sunt, prin ele însele, markeri populiști. Hawkins=0 cu încredere ridicată."
+      },
+      "raw_response": "{\"score\":0,\"score_unit\":\"ordinal_0_2\",\"framework_version\":\"hawkins@2018\",\"framework_confidence\":0.95,\"markers\":[],\"rationale\":\"Discurs strict procedural-parlamentar, centrat pe Regulamentul Camerei Deputaților și pe atribuția de lider de grup în cadrul „orei Guvernului\\\". Vorbitorul îl atacă personal pe un coleg deputat (Daniel Constantin) pentru necunoașterea regulamentului și competența pe agricultură, dar registrul rămâne polemic-procedural, nu populist. Nu există cadru popor-vs-elită, nici invocarea unei voințe populare omogene, nici maniheism moral, nici cadru de criză sau mize cosmice. Atacul ad-hominem și ironia nu sunt, prin ele însele, markeri populiști. Hawkins=0 cu încredere ridicată.\"}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 104149,
+      "tokens_in_breakdown": {
+        "fresh": 5,
+        "cache_creation": 85791,
+        "cache_read": 18353
+      },
+      "tokens_out": 318,
+      "cost_usd": 0.55334525,
+      "latency_ms": 12316,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "opus",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2015/II/131#agenda-1#act-27",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.78,
+        "level_of_justification": 1,
+        "content_of_justification": "group_interest",
+        "respect_for_groups": 0,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 1,
+            "evidence": {
+              "text": "în conformitate cu Regulamentul Camerei Deputaților, în cadrul orei Guvernului, solicitarea de prezență a unui ministru și tema sunt semnate de liderul de grup. Ca atare, nu competența mea pe agricultură m-a făcut să fiu semnatarul solicitării de prezență, ci calitatea de lider de grup"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.82,
+            "rationale_short": "Invocă o regulă procedurală (Regulamentul Camerei) ca motiv pentru semnătură, dar fără citare specifică de articol — justificare procedurală minimă."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "group_interest",
+            "evidence": {
+              "text": "calitatea de lider de grup"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.93,
+            "marker_confidence": 0.7,
+            "rationale_short": "Justificarea se ancorează în rolul de grup parlamentar, nu într-un principiu universalizabil."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 0,
+            "evidence": {
+              "text": "sper ca domnul Daniel Constantin să nu se arate ca fiind cel mai bun deputat din Ministerul Agriculturii și cel mai bun agricultor din Parlamentul României"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.94,
+            "marker_confidence": 0.85,
+            "rationale_short": "Sarcasm derogator la adresa unui coleg deputat, ridiculizându-l prin ironie — derogare individuală directă."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Probabil, dacă domnul deputat ar fi călcat mai des pe la Camera Deputaților"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.94,
+            "marker_confidence": 0.7,
+            "rationale_short": "Cererea adversă (justificare a competenței interpelării) este atinsă tangențial fără respingere explicită; non-angajare."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "în conformitate cu Regulamentul Camerei Deputaților, în cadrul orei Guvernului, solicitarea de prezență a unui ministru și tema sunt semnate de liderul de grup"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.93,
+            "marker_confidence": 0.74,
+            "rationale_short": "Recunoaște implicit obiecția privind competența și răspunde cu o referință procedurală, dar fără reformulare exactă a argumentului advers."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "nu competența mea pe agricultură m-a făcut să fiu semnatarul solicitării de prezență, ci calitatea de lider de grup"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.94,
+            "marker_confidence": 0.88,
+            "rationale_short": "Apărare poziționară a propriei legitimități procedurale; nicio alternativă sau mediere oferită."
+          }
+        ],
+        "rationale": "Discurs scurt de replică defensiv-sarcastic în registrul de schimb personal între deputați. Vorbitorul oferă o justificare procedurală minimă (level_of_justification=1) invocând Regulamentul Camerei pentru a respinge obiecția privind competența sa în agricultură, dar fără citare specifică de articol; conținutul justificării se ancorează în rolul de grup parlamentar (group_interest), nu într-un principiu universalizabil. Respectul pentru grupuri este scăzut (respect_for_groups=0) din cauza sarcasmului derogator la adresa colegului — ridiculizarea prin ipostazierea „cel mai bun deputat din Ministerul Agriculturii\" funcționează ca derogare directă. Angajamentul cu cererile și contraargumentele adverse este superficial: obiecția este atinsă, dar fără reformulare substanțială sau rebutare argumentată (respect_for_demands=1, respect_for_counterarguments=1). Profilul este pur poziționar — apărarea propriei legitimități procedurale fără ofertă constructivă. Calitate deliberativă scăzută cu un strat de derogare individuală peste un schelet procedural."
+      },
+      "raw_response": "{\"framework_version\":\"steiner-bachtiger@2017\",\"score_unit\":\"dqi_multi\",\"framework_confidence\":0.78,\"level_of_justification\":1,\"content_of_justification\":\"group_interest\",\"respect_for_groups\":0,\"respect_for_demands\":1,\"respect_for_counterarguments\":1,\"constructive_politics\":\"positional\",\"markers\":[{\"kind\":\"level_of_justification\",\"value\":1,\"evidence\":{\"text\":\"în conformitate cu Regulamentul Camerei Deputaților, în cadrul orei Guvernului, solicitarea de prezență a unui ministru și tema sunt semnate de liderul de grup. Ca atare, nu competența mea pe agricultură m-a făcut să fiu semnatarul solicitării de prezență, ci calitatea de lider de grup\"},\"preliminary_voice\":\"speaker_first_person\",\"preliminary_voice_confidence\":0.95,\"marker_confidence\":0.82,\"rationale_short\":\"Invocă o regulă procedurală (Regulamentul Camerei) ca motiv pentru semnătură, dar fără citare specifică de articol — justificare procedurală minimă.\"},{\"kind\":\"content_of_justification\",\"value\":\"group_interest\",\"evidence\":{\"text\":\"calitatea de lider de grup\"},\"preliminary_voice\":\"speaker_first_person\",\"preliminary_voice_confidence\":0.93,\"marker_confidence\":0.7,\"rationale_short\":\"Justificarea se ancorează în rolul de grup parlamentar, nu într-un principiu universalizabil.\"},{\"kind\":\"respect_for_groups\",\"value\":0,\"evidence\":{\"text\":\"sper ca domnul Daniel Constantin să nu se arate ca fiind cel mai bun deputat din Ministerul Agriculturii și cel mai bun agricultor din Parlamentul României\"},\"preliminary_voice\":\"speaker_first_person\",\"preliminary_voice_confidence\":0.94,\"marker_confidence\":0.85,\"rationale_short\":\"Sarcasm derogator la adresa unui coleg deputat, ridiculizându-l prin ironie — derogare individuală directă.\"},{\"kind\":\"respect_for_demands\",\"value\":1,\"evidence\":{\"text\":\"Probabil, dacă domnul deputat ar fi călcat mai des pe la Camera Deputaților\"},\"preliminary_voice\":\"speaker_first_person\",\"preliminary_voice_confidence\":0.94,\"marker_confidence\":0.7,\"rationale_short\":\"Cererea adversă (justificare a competenței interpelării) este atinsă tangențial fără respingere explicită; non-angajare.\"},{\"kind\":\"respect_for_counterarguments\",\"value\":1,\"evidence\":{\"text\":\"în conformitate cu Regulamentul Camerei Deputaților, în cadrul orei Guvernului, solicitarea de prezență a unui ministru și tema sunt semnate de liderul de grup\"},\"preliminary_voice\":\"speaker_first_person\",\"preliminary_voice_confidence\":0.93,\"marker_confidence\":0.74,\"rationale_short\":\"Recunoaște implicit obiecția privind competența și răspunde cu o referință procedurală, dar fără reformulare exactă a argumentului advers.\"},{\"kind\":\"constructive_politics\",\"value\":\"positional\",\"evidence\":{\"text\":\"nu competența mea pe agricultură m-a făcut să fiu semnatarul solicitării de prezență, ci calitatea de lider de grup\"},\"preliminary_voice\":\"speaker_first_person\",\"preliminary_voice_confidence\":0.94,\"marker_confidence\":0.88,\"rationale_short\":\"Apărare poziționară a propriei legitimități procedurale; nicio alternativă sau mediere oferită.\"}],\"rationale\":\"Discurs scurt de replică defensiv-sarcastic în registrul de schimb personal între deputați. Vorbitorul oferă o justificare procedurală minimă (level_of_justification=1) invocând Regulamentul Camerei pentru a respinge obiecția privind competența sa în agricultură, dar fără citare specifică de articol; conținutul justificării se ancorează în rolul de grup parlamentar (group_interest), nu într-un principiu universalizabil. Respectul pentru grupuri este scăzut (respect_for_groups=0) din cauza sarcasmului derogator la adresa colegului — ridiculizarea prin ipostazierea „cel mai bun deputat din Ministerul Agriculturii\\\" funcționează ca derogare directă. Angajamentul cu cererile și contraargumentele adverse este superficial: obiecția este atinsă, dar fără reformulare substanțială sau rebutare argumentată (respect_for_demands=1, respect_for_counterarguments=1). Profilul este pur poziționar — apărarea propriei legitimități procedurale fără ofertă constructivă. Calitate deliberativă scăzută cu un strat de derogare individuală peste un schelet procedural.\"}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 102140,
+      "tokens_in_breakdown": {
+        "fresh": 5,
+        "cache_creation": 83782,
+        "cache_read": 18353
+      },
+      "tokens_out": 1682,
+      "cost_usd": 0.574889,
+      "latency_ms": 30555,
+      "retries_used": 0
+    }
+  }
+}

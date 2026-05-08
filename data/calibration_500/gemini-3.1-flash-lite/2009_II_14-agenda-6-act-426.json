@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2009/II/14#agenda-6#act-426",
+  "tier": "calibration",
+  "speaker": {
+    "id": "motreanu-dan-stefan",
+    "name": "Dan Ștefan Motreanu",
+    "raw": "Domnul Dan Ștefan Motreanu",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2009-02-17",
+    "year": 2009,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2009/II/14#agenda-6#act-426",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul este unul procedural, axat pe o solicitare specifică de investiții pentru o comună și pe argumente de ordin administrativ. Deși menționează statutul de „primar independent” și „așteptarea locuitorilor”, acestea sunt folosite în contextul unei dezbateri parlamentare obișnuite despre alocarea resurselor, fără a construi un cadru maniheist popor-vs-elită sau a invoca o voință populară suverană împotriva instituțiilor. Nu există niciun marker populist prezent, discursul rămânând în registrul tehnic și pluralist al activității parlamentare."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul este unul procedural, axat pe o solicitare specifică de investiții pentru o comună și pe argumente de ordin administrativ. Deși menționează statutul de „primar independent” și „așteptarea locuitorilor”, acestea sunt folosite în contextul unei dezbateri parlamentare obișnuite despre alocarea resurselor, fără a construi un cadru maniheist popor-vs-elită sau a invoca o voință populară suverană împotriva instituțiilor. Nu există niciun marker populist prezent, discursul rămânând în registrul tehnic și pluralist al activității parlamentare.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13619,
+      "tokens_in_breakdown": {
+        "fresh": 13619,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 211,
+      "cost_usd": null,
+      "latency_ms": 2471,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2009/II/14#agenda-6#act-426",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.72,
+        "level_of_justification": 1,
+        "content_of_justification": "group_interest",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 1,
+            "evidence": {
+              "text": "Oamenii sunt foarte implicați în activitatea sportivă și de aceea cred că avem nevoie de o bază sportivă."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Justificarea este bazată pe o generalizare despre implicarea oamenilor, fără dovezi empirice sau mecanisme cauzale specifice."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "group_interest",
+            "evidence": {
+              "text": "există o mare așteptare a locuitorilor din acea comună"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.88,
+            "rationale_short": "Apelul este direcționat către interesele specifice ale locuitorilor unei comune, nu către un principiu universal."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "nu este un primar al Partidului Național Liberal"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.82,
+            "rationale_short": "Referința la partid este funcțională și politică, fără a fi explicit derogatorie sau respectuoasă."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "poate vă veți gândi să votați"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.75,
+            "rationale_short": "Nu există cereri adverse specifice adresate, deci atitudinea rămâne neutră/non-angajată."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "poate vă veți gândi să votați"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.8,
+            "rationale_short": "Vorbitorul ignoră orice contraargumente potențiale, concentrându-se exclusiv pe persuasiunea politică."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "cred că avem nevoie de o bază sportivă"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Vorbitorul susține o poziție fără a propune un mecanism alternativ sau o mediere între părți."
+          }
+        ],
+        "rationale": "Discursul prezintă o calitate deliberativă limitată, fiind centrat pe susținerea unei investiții locale. Justificarea este de nivel 1, bazându-se pe o nevoie percepută a comunității fără a oferi date concrete sau argumente cauzale riguroase. Conținutul justificării este orientat către interesul de grup (locuitorii comunei). Nu există un angajament substanțial cu contraargumente sau cereri adverse, iar discursul rămâne în sfera pozițională, folosind apartenența politică a primarului ca argument retoric. Calitatea deliberativă este scăzută, reflectând un stil de discurs de tip lobby local."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.72,\n  \"level_of_justification\": 1,\n  \"content_of_justification\": \"group_interest\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 0,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Oamenii sunt foarte implicați în activitatea sportivă și de aceea cred că avem nevoie de o bază sportivă.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Justificarea este bazată pe o generalizare despre implicarea oamenilor, fără dovezi empirice sau mecanisme cauzale specifice.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"group_interest\",\n      \"evidence\": {\n        \"text\": \"există o mare așteptare a locuitorilor din acea comună\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Apelul este direcționat către interesele specifice ale locuitorilor unei comune, nu către un principiu universal.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"nu este un primar al Partidului Național Liberal\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.82,\n      \"rationale_short\": \"Referința la partid este funcțională și politică, fără a fi explicit derogatorie sau respectuoasă.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"poate vă veți gândi să votați\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.75,\n      \"rationale_short\": \"Nu există cereri adverse specifice adresate, deci atitudinea rămâne neutră/non-angajată.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"poate vă veți gândi să votați\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.80,\n      \"rationale_short\": \"Vorbitorul ignoră orice contraargumente potențiale, concentrându-se exclusiv pe persuasiunea politică.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"cred că avem nevoie de o bază sportivă\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Vorbitorul susține o poziție fără a propune un mecanism alternativ sau o mediere între părți.\"\n    }\n  ],\n  \"rationale\": \"Discursul prezintă o calitate deliberativă limitată, fiind centrat pe susținerea unei investiții locale. Justificarea este de nivel 1, bazându-se pe o nevoie percepută a comunității fără a oferi date concrete sau argumente cauzale riguroase. Conținutul justificării este orientat către interesul de grup (locuitorii comunei). Nu există un angajament substanțial cu contraargumente sau cereri adverse, iar discursul rămâne în sfera pozițională, folosind apartenența politică a primarului ca argument retoric. Calitatea deliberativă este scăzută, reflectând un stil de discurs de tip lobby local.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12420,
+      "tokens_in_breakdown": {
+        "fresh": 12420,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1124,
+      "cost_usd": null,
+      "latency_ms": 4567,
+      "retries_used": 0
+    }
+  }
+}

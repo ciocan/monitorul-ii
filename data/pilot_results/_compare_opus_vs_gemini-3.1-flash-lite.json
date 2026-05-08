@@ -1,0 +1,99 @@
+{
+  "gold": "opus",
+  "candidate": "gemini-3.1-flash-lite",
+  "n_paired": 10,
+  "missing_in_gold": [],
+  "missing_in_candidate": [],
+  "hawkins_agreement": {
+    "metric": "hawkins_score",
+    "n_pairs_compared": 10,
+    "n_pairs_with_null": 0,
+    "matches": 9,
+    "exact_match_rate": 0.9,
+    "cumulative_abs_delta": 1,
+    "mean_abs_delta": 0.1
+  },
+  "dqi_agreement": {
+    "metric": "dqi_level_of_justification",
+    "n_pairs_compared": 10,
+    "n_pairs_with_null": 0,
+    "matches": 9,
+    "exact_match_rate": 0.9,
+    "cumulative_abs_delta": 1,
+    "mean_abs_delta": 0.1
+  },
+  "hawkins_distribution_gold": {
+    "1": 3,
+    "0": 6,
+    "2": 1
+  },
+  "hawkins_distribution_candidate": {
+    "1": 2,
+    "0": 7,
+    "2": 1
+  },
+  "dqi_distribution_gold": {
+    "1": 4,
+    "2": 2,
+    "0": 4
+  },
+  "dqi_distribution_candidate": {
+    "1": 5,
+    "2": 1,
+    "0": 4
+  },
+  "operational_totals_gold": {
+    "calls": 24,
+    "latency_ms": 613266,
+    "tokens_in": 2472245,
+    "tokens_out": 25423,
+    "errors": 0,
+    "retries": 1,
+    "repairs": 0,
+    "fragments_missed": 1,
+    "markers_emitted": 82
+  },
+  "operational_totals_candidate": {
+    "calls": 23,
+    "latency_ms": 92822,
+    "tokens_in": 303249,
+    "tokens_out": 15649,
+    "errors": 0,
+    "retries": 0,
+    "repairs": 0,
+    "fragments_missed": 3,
+    "markers_emitted": 78
+  },
+  "voice_distribution_gold": {
+    "speaker_first_person": 10,
+    "hypothetical": 1
+  },
+  "voice_distribution_candidate": {
+    "hypothetical": 2,
+    "speaker_first_person": 7
+  },
+  "hawkins_disagreements": [
+    {
+      "speech_id": "mo://2021/II/25#agenda-1#act-151",
+      "year": 2021,
+      "tier": "moderate",
+      "speaker": "Ludovic Orban",
+      "gold": 1,
+      "candidate": 0,
+      "gold_confidence": 0.7,
+      "candidate_confidence": 0.95,
+      "gold_marker_count": 1,
+      "candidate_marker_count": 0
+    }
+  ],
+  "dqi_disagreements": [
+    {
+      "speech_id": "mo://2023/II/29#agenda-2#act-42",
+      "year": 2023,
+      "tier": "populist",
+      "speaker": "Ringo Dămureanu",
+      "gold": 2,
+      "candidate": 1
+    }
+  ]
+}

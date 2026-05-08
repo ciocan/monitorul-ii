@@ -1,0 +1,52 @@
+{
+  "speech_id": "mo://2008/II/83#agenda-1#act-21",
+  "tier": "calibration",
+  "speaker": {
+    "id": "dorneanu-valer",
+    "name": "Valer Dorneanu",
+    "raw": "Domnul Valer Dorneanu",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2008-09-22",
+    "year": 2008,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": null,
+    "voice": null,
+    "dqi": null,
+    "vparty": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "vparty",
+      "speech_id": "mo://2008/II/83#agenda-1#act-21",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "vparty@2020 + vdem-attacks-on@v13",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul reprezintă o intervenție parlamentară procedurală standard, axată pe interpelări administrative și susținerea unor revendicări profesionale ale cadrelor didactice. Vorbitorul critică ineficiența proceselor de restituire și solicită finanțare pentru educație, utilizând un limbaj tehnic și constructiv. Nu există nicio delegitimizare a instituțiilor democratice, a opoziției, a presei sau a altor grupuri sociale. Discursul se încadrează pe deplin în registrul democratic-pluralist."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"vparty@2020 + vdem-attacks-on@v13\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul reprezintă o intervenție parlamentară procedurală standard, axată pe interpelări administrative și susținerea unor revendicări profesionale ale cadrelor didactice. Vorbitorul critică ineficiența proceselor de restituire și solicită finanțare pentru educație, utilizând un limbaj tehnic și constructiv. Nu există nicio delegitimizare a instituțiilor democratice, a opoziției, a presei sau a altor grupuri sociale. Discursul se încadrează pe deplin în registrul democratic-pluralist.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13118,
+      "tokens_in_breakdown": {
+        "fresh": 13118,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 203,
+      "cost_usd": null,
+      "latency_ms": 1936,
+      "retries_used": 0
+    }
+  }
+}

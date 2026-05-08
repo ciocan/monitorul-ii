@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2011/II/8#agenda-2#act-152",
+  "tier": "calibration",
+  "speaker": {
+    "id": "chelaru-ioan",
+    "name": "Ioan Chelaru",
+    "raw": "Domnul Ioan Chelaru",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": "2011-02-14",
+    "year": 2011,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2011/II/8#agenda-2#act-152",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 1.0,
+        "markers": [],
+        "rationale": "Discursul reprezintă o procedură administrativă standard de încheiere a unei ședințe de Senat, incluzând enumerarea senatorilor care au depus întrebări și interpelări. Nu există nicio urmă de retorică populistă, cadru maniheist sau invocare a unei voințe populare. Textul este pur procedural și tehnic, încadrându-se perfect în registrul non-populist (Hawkins=0)."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 1.0,\n  \"markers\": [],\n  \"rationale\": \"Discursul reprezintă o procedură administrativă standard de încheiere a unei ședințe de Senat, incluzând enumerarea senatorilor care au depus întrebări și interpelări. Nu există nicio urmă de retorică populistă, cadru maniheist sau invocare a unei voințe populare. Textul este pur procedural și tehnic, încadrându-se perfect în registrul non-populist (Hawkins=0).\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 14366,
+      "tokens_in_breakdown": {
+        "fresh": 14366,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 165,
+      "cost_usd": null,
+      "latency_ms": 1613,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2011/II/8#agenda-2#act-152",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.45,
+        "level_of_justification": 0,
+        "content_of_justification": "none",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 0,
+            "evidence": {
+              "text": "Declar încheiată ședința Senatului de astăzi, 14 februarie 2011."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.99,
+            "marker_confidence": 0.99,
+            "rationale_short": "Discurs pur procedural de încheiere a ședinței; nicio justificare oferită."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "none",
+            "evidence": {
+              "text": "Declar încheiată ședința Senatului de astăzi, 14 februarie 2011."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.99,
+            "marker_confidence": 0.99,
+            "rationale_short": "Nicio justificare prezentă; conținut nedefinit."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Au mai depus întrebări domnii senatori"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.99,
+            "marker_confidence": 0.95,
+            "rationale_short": "Referință neutră și funcțională la grupurile parlamentare."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Au mai depus întrebări domnii senatori"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.99,
+            "marker_confidence": 0.95,
+            "rationale_short": "Enumerare procedurală a interpelărilor; nicio cerere politică angajată."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "Vă aduc la cunoștință, de asemenea, că răspunsurile orale la întrebările și interpelările programate pentru această ședință vor fi transmise în scris."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.99,
+            "marker_confidence": 0.95,
+            "rationale_short": "Comunicare administrativă fără angajament cu argumente opuse."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Declar încheiată ședința Senatului de astăzi"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.99,
+            "marker_confidence": 0.99,
+            "rationale_short": "Acțiune procedurală standard; nu reprezintă o propunere politică."
+          }
+        ],
+        "rationale": "Fragmentul reprezintă un discurs pur procedural de încheiere a ședinței Senatului, constând în enumerarea interpelărilor depuse și anunțuri administrative. Nu există nicio argumentație, justificare sau dezbatere politică, ceea ce face ca toate dimensiunile DQI să fie fie neutre, fie absente. Calitatea deliberativă este nulă deoarece textul nu conține deliberare, ci doar formalități de secretariat. Încrederea în framework este scăzută deoarece acest tip de discurs nu se pretează la analiza calității argumentării, fiind un act pur tehnic."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.45,\n  \"level_of_justification\": 0,\n  \"content_of_justification\": \"none\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 0,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 0,\n      \"evidence\": { \"text\": \"Declar încheiată ședința Senatului de astăzi, 14 februarie 2011.\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.99,\n      \"marker_confidence\": 0.99,\n      \"rationale_short\": \"Discurs pur procedural de încheiere a ședinței; nicio justificare oferită.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"none\",\n      \"evidence\": { \"text\": \"Declar încheiată ședința Senatului de astăzi, 14 februarie 2011.\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.99,\n      \"marker_confidence\": 0.99,\n      \"rationale_short\": \"Nicio justificare prezentă; conținut nedefinit.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": { \"text\": \"Au mai depus întrebări domnii senatori\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.99,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Referință neutră și funcțională la grupurile parlamentare.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": { \"text\": \"Au mai depus întrebări domnii senatori\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.99,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Enumerare procedurală a interpelărilor; nicio cerere politică angajată.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 0,\n      \"evidence\": { \"text\": \"Vă aduc la cunoștință, de asemenea, că răspunsurile orale la întrebările și interpelările programate pentru această ședință vor fi transmise în scris.\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.99,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Comunicare administrativă fără angajament cu argumente opuse.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": { \"text\": \"Declar încheiată ședința Senatului de astăzi\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.99,\n      \"marker_confidence\": 0.99,\n      \"rationale_short\": \"Acțiune procedurală standard; nu reprezintă o propunere politică.\"\n    }\n  ],\n  \"rationale\": \"Fragmentul reprezintă un discurs pur procedural de încheiere a ședinței Senatului, constând în enumerarea interpelărilor depuse și anunțuri administrative. Nu există nicio argumentație, justificare sau dezbatere politică, ceea ce face ca toate dimensiunile DQI să fie fie neutre, fie absente. Calitatea deliberativă este nulă deoarece textul nu conține deliberare, ci doar formalități de secretariat. Încrederea în framework este scăzută deoarece acest tip de discurs nu se pretează la analiza calității argumentării, fiind un act pur tehnic.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13167,
+      "tokens_in_breakdown": {
+        "fresh": 13167,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1053,
+      "cost_usd": null,
+      "latency_ms": 3983,
+      "retries_used": 0
+    }
+  }
+}

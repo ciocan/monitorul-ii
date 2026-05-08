@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2020/II/105#agenda-5#act-222",
+  "tier": "calibration",
+  "speaker": {
+    "id": "talpos-ioan-iustin",
+    "name": "Ioan Iustin Talpoș",
+    "raw": "Domnul Ioan Iustin Talpoș",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": "2020-09-08",
+    "year": 2020,
+    "legislature": "VIII",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2020/II/105#agenda-5#act-222",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 1.0,
+        "markers": [],
+        "rationale": "Discursul este pur procedural, constând exclusiv în saluturi protocolare și enumerarea votului pentru o serie de puncte de pe ordinea de zi. Nu există nicio urmă de retorică populistă, cadru popor-vs-elită, maniheism sau invocare a unei voințe populare. Vorbitorul se limitează strict la exercitarea mandatului parlamentar într-un registru tehnic și neutru. Hawkins=0 cu încredere maximă."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 1.0,\n  \"markers\": [],\n  \"rationale\": \"Discursul este pur procedural, constând exclusiv în saluturi protocolare și enumerarea votului pentru o serie de puncte de pe ordinea de zi. Nu există nicio urmă de retorică populistă, cadru popor-vs-elită, maniheism sau invocare a unei voințe populare. Vorbitorul se limitează strict la exercitarea mandatului parlamentar într-un registru tehnic și neutru. Hawkins=0 cu încredere maximă.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13635,
+      "tokens_in_breakdown": {
+        "fresh": 13635,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 173,
+      "cost_usd": null,
+      "latency_ms": 2078,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2020/II/105#agenda-5#act-222",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.45,
+        "level_of_justification": 0,
+        "content_of_justification": "none",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 0,
+            "evidence": {
+              "text": "Votul meu pentru astăzi este următorul"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Discursul este pur procedural, enumerând voturi fără a oferi nicio justificare pentru acestea."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "none",
+            "evidence": {
+              "text": "Votul meu pentru astăzi este următorul"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Nicio justificare oferită; conținutul justificării este nedefinit."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Bună ziua, dragi colegi!"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Adresare convențională; niciun grup vizat sau derogatoriu."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Votul meu pentru astăzi este următorul"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Nu există cereri adverse abordate; discursul este pur tehnic."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "Votul meu pentru astăzi este următorul"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Nicio contraargumentare prezentă; discursul ignoră orice dezbatere."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Votul meu pentru astăzi este următorul"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Vorbitorul își exprimă poziția de vot fără a propune alternative sau medieri."
+          }
+        ],
+        "rationale": "Acest discurs este pur procedural, având rolul exclusiv de a înregistra voturile senatorului pentru o serie de puncte de pe ordinea de zi. Nu există nicio formă de argumentare, justificare sau angajament deliberativ, ceea ce face ca toate dimensiunile DQI să fie la valorile lor implicite sau neutre. Deoarece discursul nu conține substanță deliberativă, framework_confidence este scăzut, reflectând faptul că acest tip de intervenție nu este destinat dezbaterii parlamentare. Nu există nicio încercare de a convinge sau de a media, ci doar o simplă exercitare a dreptului de vot."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.45,\n  \"level_of_justification\": 0,\n  \"content_of_justification\": \"none\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 0,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 0,\n      \"evidence\": { \"text\": \"Votul meu pentru astăzi este următorul\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Discursul este pur procedural, enumerând voturi fără a oferi nicio justificare pentru acestea.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"none\",\n      \"evidence\": { \"text\": \"Votul meu pentru astăzi este următorul\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Nicio justificare oferită; conținutul justificării este nedefinit.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": { \"text\": \"Bună ziua, dragi colegi!\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Adresare convențională; niciun grup vizat sau derogatoriu.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": { \"text\": \"Votul meu pentru astăzi este următorul\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Nu există cereri adverse abordate; discursul este pur tehnic.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 0,\n      \"evidence\": { \"text\": \"Votul meu pentru astăzi este următorul\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Nicio contraargumentare prezentă; discursul ignoră orice dezbatere.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": { \"text\": \"Votul meu pentru astăzi este următorul\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Vorbitorul își exprimă poziția de vot fără a propune alternative sau medieri.\"\n    }\n  ],\n  \"rationale\": \"Acest discurs este pur procedural, având rolul exclusiv de a înregistra voturile senatorului pentru o serie de puncte de pe ordinea de zi. Nu există nicio formă de argumentare, justificare sau angajament deliberativ, ceea ce face ca toate dimensiunile DQI să fie la valorile lor implicite sau neutre. Deoarece discursul nu conține substanță deliberativă, framework_confidence este scăzut, reflectând faptul că acest tip de intervenție nu este destinat dezbaterii parlamentare. Nu există nicio încercare de a convinge sau de a media, ci doar o simplă exercitare a dreptului de vot.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12436,
+      "tokens_in_breakdown": {
+        "fresh": 12436,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1012,
+      "cost_usd": null,
+      "latency_ms": 4110,
+      "retries_used": 0
+    }
+  }
+}

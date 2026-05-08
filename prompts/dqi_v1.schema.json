@@ -1,0 +1,157 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "dqi_v1",
+  "title": "DQI deliberative-quality classification output",
+  "description": "Schema for dqi_v1.md output. Consumed by structured-output APIs (OpenAI Structured Outputs, Anthropic tool-use, Mistral JSON mode). Field semantics, sub-coding rubric, and few-shot examples live in the companion .md prompt; this file only enforces shape.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "framework_version",
+    "score_unit",
+    "framework_confidence",
+    "level_of_justification",
+    "content_of_justification",
+    "respect_for_groups",
+    "respect_for_demands",
+    "respect_for_counterarguments",
+    "constructive_politics",
+    "markers",
+    "rationale"
+  ],
+  "properties": {
+    "framework_version": {
+      "type": "string",
+      "enum": ["steiner-bachtiger@2017"]
+    },
+    "score_unit": {
+      "type": "string",
+      "enum": ["dqi_multi"]
+    },
+    "framework_confidence": {
+      "type": "number",
+      "minimum": 0.0,
+      "maximum": 1.0,
+      "description": "Overall confidence across the six sub-codings; bounded above by the weakest individual judgment."
+    },
+    "level_of_justification": {
+      "type": "integer",
+      "enum": [0, 1, 2, 3]
+    },
+    "content_of_justification": {
+      "type": "string",
+      "enum": ["none", "group_interest", "common_good", "mixed"]
+    },
+    "respect_for_groups": {
+      "type": "integer",
+      "enum": [0, 1, 2]
+    },
+    "respect_for_demands": {
+      "type": "integer",
+      "enum": [0, 1, 2]
+    },
+    "respect_for_counterarguments": {
+      "type": "integer",
+      "enum": [0, 1, 2]
+    },
+    "constructive_politics": {
+      "type": "string",
+      "enum": ["positional", "alternative_proposal", "mediating_proposal"]
+    },
+    "markers": {
+      "type": "array",
+      "description": "One marker per sub-coding (six markers in the typical case); more when a dimension has multiple equally-diagnostic anchors.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "kind",
+          "value",
+          "evidence",
+          "preliminary_voice",
+          "preliminary_voice_confidence",
+          "marker_confidence",
+          "rationale_short"
+        ],
+        "properties": {
+          "kind": {
+            "type": "string",
+            "enum": [
+              "level_of_justification",
+              "content_of_justification",
+              "respect_for_groups",
+              "respect_for_demands",
+              "respect_for_counterarguments",
+              "constructive_politics"
+            ]
+          },
+          "value": {
+            "description": "Integer 0–3 for level_of_justification; integer 0–2 for the three respect dimensions; enum string for content_of_justification and constructive_politics. Must match the corresponding top-level sub-coding value.",
+            "anyOf": [
+              { "type": "integer", "minimum": 0, "maximum": 3 },
+              {
+                "type": "string",
+                "enum": [
+                  "none",
+                  "group_interest",
+                  "common_good",
+                  "mixed",
+                  "positional",
+                  "alternative_proposal",
+                  "mediating_proposal"
+                ]
+              }
+            ]
+          },
+          "evidence": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["text"],
+            "properties": {
+              "text": {
+                "type": "string",
+                "minLength": 1,
+                "description": "Exact substring from the speech excerpt. char_offsets are computed downstream by the harness via string search."
+              }
+            }
+          },
+          "preliminary_voice": {
+            "type": "string",
+            "enum": [
+              "speaker_first_person",
+              "quoted",
+              "reported",
+              "negated",
+              "hypothetical",
+              "apophasis_disclaimed",
+              "weasel_attribution",
+              "sarcastic",
+              "uncertain"
+            ],
+            "description": "Default speaker_first_person for DQI (the framework intrinsically assesses the speaker's own argumentation); voice_classifier_v1 may refine downstream."
+          },
+          "preliminary_voice_confidence": {
+            "type": "number",
+            "minimum": 0.0,
+            "maximum": 1.0
+          },
+          "marker_confidence": {
+            "type": "number",
+            "minimum": 0.0,
+            "maximum": 1.0
+          },
+          "rationale_short": {
+            "type": "string",
+            "description": "One sentence in Romanian, ≤ 200 characters.",
+            "minLength": 1,
+            "maxLength": 200
+          }
+        }
+      }
+    },
+    "rationale": {
+      "type": "string",
+      "description": "One paragraph (4–8 sentences) in Romanian explaining how the six dimensions jointly characterise the speech's deliberative quality.",
+      "minLength": 1
+    }
+  }
+}

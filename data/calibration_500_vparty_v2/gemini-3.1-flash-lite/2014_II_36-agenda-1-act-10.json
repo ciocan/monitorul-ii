@@ -1,0 +1,63 @@
+{
+  "speech_id": "mo://2014/II/36#agenda-1#act-10",
+  "tier": "calibration",
+  "speaker": {
+    "id": "grama-horia",
+    "name": "Horia Grama",
+    "raw": "Domnul Horia Grama",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2014-03-25",
+    "year": 2014,
+    "legislature": "VII",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": null,
+    "voice": null,
+    "dqi": null,
+    "vparty": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "vparty",
+      "speech_id": "mo://2014/II/36#agenda-1#act-10",
+      "output": {
+        "score": 1,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "vparty@2020 + vdem-attacks-on@v13",
+        "framework_confidence": 0.85,
+        "markers": [
+          {
+            "kind": "minority_scapegoating",
+            "evidence": {
+              "text": "contaminând etnicii maghiari cu boala separatismului"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.88,
+            "rationale_short": "Folosirea metaforei bolii pentru a descrie aspirațiile unei minorități etnice constituie un cadru de tip scapegoating."
+          }
+        ],
+        "rationale": "Discursul conține un moment clar de scapegoating etnic prin utilizarea metaforei „bolii separatismului” aplicată minorității maghiare, ceea ce justifică marcarea ca anti-pluralism de grad 1. Deși vorbitorul critică lideri politici și organizații specifice (Garda Maghiară, Jobbik) pe baze care pot fi interpretate ca fiind legate de securitatea națională și respectarea Constituției, limbajul generalizat despre „contaminarea” etnicilor maghiari depășește critica politică legitimă. Totuși, discursul nu atinge pragul de grad 2, deoarece nu delegitimează instituții democratice ca clasă și nu respinge pluralismul ca mod de guvernare, păstrându-se în limitele unei retorici naționaliste care, deși problematică, nu devine o structură anti-pluralistă pervazivă."
+      },
+      "raw_response": "{\n  \"score\": 1,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"vparty@2020 + vdem-attacks-on@v13\",\n  \"framework_confidence\": 0.85,\n  \"markers\": [\n    {\n      \"kind\": \"minority_scapegoating\",\n      \"evidence\": {\n        \"text\": \"contaminând etnicii maghiari cu boala separatismului\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Folosirea metaforei bolii pentru a descrie aspirațiile unei minorități etnice constituie un cadru de tip scapegoating.\"\n    }\n  ],\n  \"rationale\": \"Discursul conține un moment clar de scapegoating etnic prin utilizarea metaforei „bolii separatismului” aplicată minorității maghiare, ceea ce justifică marcarea ca anti-pluralism de grad 1. Deși vorbitorul critică lideri politici și organizații specifice (Garda Maghiară, Jobbik) pe baze care pot fi interpretate ca fiind legate de securitatea națională și respectarea Constituției, limbajul generalizat despre „contaminarea” etnicilor maghiari depășește critica politică legitimă. Totuși, discursul nu atinge pragul de grad 2, deoarece nu delegitimează instituții democratice ca clasă și nu respinge pluralismul ca mod de guvernare, păstrându-se în limitele unei retorici naționaliste care, deși problematică, nu devine o structură anti-pluralistă pervazivă.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13670,
+      "tokens_in_breakdown": {
+        "fresh": 13670,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 421,
+      "cost_usd": null,
+      "latency_ms": 2633,
+      "retries_used": 0
+    }
+  }
+}

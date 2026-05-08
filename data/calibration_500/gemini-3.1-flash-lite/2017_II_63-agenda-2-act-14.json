@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2017/II/63#agenda-2#act-14",
+  "tier": "calibration",
+  "speaker": {
+    "id": "bichinet-corneliu",
+    "name": "Corneliu Bichineț",
+    "raw": "Domnul Corneliu Bichineț",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2017-04-19",
+    "year": 2017,
+    "legislature": "VIII",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2017/II/63#agenda-2#act-14",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.95,
+        "markers": [],
+        "rationale": "Discursul este un amestec de critică politică partizană, ironie și observații locale specifice județului Vaslui, fără a articula un cadru populist coerent. Deși vorbitorul folosește un ton sarcastic și critică direct lideri politici (Dragnea, Firea, Ghiță), acesta nu construiește o dihotomie maniheistă între un popor omogen și o elită malefică, ci se concentrează pe probleme administrative și politice punctuale. Nu există invocarea unei voințe populare suverane care să prevaleze asupra instituțiilor, nici o viziune existențială sau moralistă care să pervadeze discursul. Hawkins=0 cu încredere ridicată."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.95,\n  \"markers\": [],\n  \"rationale\": \"Discursul este un amestec de critică politică partizană, ironie și observații locale specifice județului Vaslui, fără a articula un cadru populist coerent. Deși vorbitorul folosește un ton sarcastic și critică direct lideri politici (Dragnea, Firea, Ghiță), acesta nu construiește o dihotomie maniheistă între un popor omogen și o elită malefică, ci se concentrează pe probleme administrative și politice punctuale. Nu există invocarea unei voințe populare suverane care să prevaleze asupra instituțiilor, nici o viziune existențială sau moralistă care să pervadeze discursul. Hawkins=0 cu încredere ridicată.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 14352,
+      "tokens_in_breakdown": {
+        "fresh": 14352,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 233,
+      "cost_usd": null,
+      "latency_ms": 2375,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2017/II/63#agenda-2#act-14",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.65,
+        "level_of_justification": 0,
+        "content_of_justification": "none",
+        "respect_for_groups": 0,
+        "respect_for_demands": 0,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 0,
+            "evidence": {
+              "text": "Știți, domnule Liviu Dragnea, președintele PSD-ului, președintele Camerei Deputaților, că în județul nostru există 1.000 de kilometri de drum județean, din care pe 300 de kilometri nimeni n-a pus niciodată, nici măcar cu praștia, vreo piatră?"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.9,
+            "rationale_short": "Discursul conține acuzații retorice și ironii, dar nu oferă o justificare cauzală pentru o poziție politică."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "none",
+            "evidence": {
+              "text": "Știți, domnule Liviu Dragnea, că de la Vaslui spre Bacău, de la Negrești spre Roman, de la Vaslui spre Iași, pe drumurile naționale asfaltate de comuniști, acum se circulă pe sărite, din groapă în groapă?"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.9,
+            "rationale_short": "Lipsa unei justificări substanțiale face ca conținutul să fie nedefinit."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 0,
+            "evidence": {
+              "text": "cele mai supărate sunt fetele masate la ieșirile dinspre Bârlad spre Vaslui și spre Galați, care fac semne disperate cu mâna spre gură, semnalând astfel că ele sunt la muncă și să nu le confunde nimeni cu navetistele, că n-au și ele o centură."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.9,
+            "marker_confidence": 0.85,
+            "rationale_short": "Utilizarea unor referințe degradante la adresa unor grupuri de femei pentru a puncta politic."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 0,
+            "evidence": {
+              "text": "Însă ea a inundat casele românilor cu trăirile metafizice și religioase."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.9,
+            "marker_confidence": 0.8,
+            "rationale_short": "Respingerea batjocoritoare a activității politice a adversarilor."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "Domnul Sebastian Ghiță s-a predat. S-a predat vecinilor, și nu s-a predat celei ce-l aștepta cu brațele deschise în țară."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.9,
+            "marker_confidence": 0.85,
+            "rationale_short": "Vorbitorul ignoră orice contraargument, preferând atacul la persoană și ironia."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Dacă vreți și puteți, trimiteți-i pe cei de la drumuri naționale, care, dacă nu vor putea așterne un covor asfaltic, măcar să astupe găurile."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.9,
+            "marker_confidence": 0.85,
+            "rationale_short": "Discursul este pur pozițional, bazat pe critică și ironie, fără propuneri alternative concrete."
+          }
+        ],
+        "rationale": "Discursul este marcat de un stil retoric agresiv, bazat pe ironie și atacuri la persoană, mai degrabă decât pe deliberare. Nu există o justificare cauzală a pozițiilor (level_of_justification=0), iar conținutul justificării este inexistent. Respectul pentru grupuri și pentru cererile adversarilor este scăzut (0), fiind utilizate stereotipuri și batjocură. Nu există nicio încercare de a angaja contraargumente, iar discursul rămâne strict pozițional, fără a oferi alternative constructive. Calitatea deliberativă este minimă, fiind un exemplu de retorică populistă de confruntare."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.65,\n  \"level_of_justification\": 0,\n  \"content_of_justification\": \"none\",\n  \"respect_for_groups\": 0,\n  \"respect_for_demands\": 0,\n  \"respect_for_counterarguments\": 0,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"Știți, domnule Liviu Dragnea, președintele PSD-ului, președintele Camerei Deputaților, că în județul nostru există 1.000 de kilometri de drum județean, din care pe 300 de kilometri nimeni n-a pus niciodată, nici măcar cu praștia, vreo piatră?\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Discursul conține acuzații retorice și ironii, dar nu oferă o justificare cauzală pentru o poziție politică.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"none\",\n      \"evidence\": {\n        \"text\": \"Știți, domnule Liviu Dragnea, că de la Vaslui spre Bacău, de la Negrești spre Roman, de la Vaslui spre Iași, pe drumurile naționale asfaltate de comuniști, acum se circulă pe sărite, din groapă în groapă?\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Lipsa unei justificări substanțiale face ca conținutul să fie nedefinit.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"cele mai supărate sunt fetele masate la ieșirile dinspre Bârlad spre Vaslui și spre Galați, care fac semne disperate cu mâna spre gură, semnalând astfel că ele sunt la muncă și să nu le confunde nimeni cu navetistele, că n-au și ele o centură.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.9,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Utilizarea unor referințe degradante la adresa unor grupuri de femei pentru a puncta politic.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"Însă ea a inundat casele românilor cu trăirile metafizice și religioase.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.9,\n      \"marker_confidence\": 0.8,\n      \"rationale_short\": \"Respingerea batjocoritoare a activității politice a adversarilor.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"Domnul Sebastian Ghiță s-a predat. S-a predat vecinilor, și nu s-a predat celei ce-l aștepta cu brațele deschise în țară.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.9,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Vorbitorul ignoră orice contraargument, preferând atacul la persoană și ironia.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"Dacă vreți și puteți, trimiteți-i pe cei de la drumuri naționale, care, dacă nu vor putea așterne un covor asfaltic, măcar să astupe găurile.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.9,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Discursul este pur pozițional, bazat pe critică și ironie, fără propuneri alternative concrete.\"\n    }\n  ],\n  \"rationale\": \"Discursul este marcat de un stil retoric agresiv, bazat pe ironie și atacuri la persoană, mai degrabă decât pe deliberare. Nu există o justificare cauzală a pozițiilor (level_of_justification=0), iar conținutul justificării este inexistent. Respectul pentru grupuri și pentru cererile adversarilor este scăzut (0), fiind utilizate stereotipuri și batjocură. Nu există nicio încercare de a angaja contraargumente, iar discursul rămâne strict pozițional, fără a oferi alternative constructive. Calitatea deliberativă este minimă, fiind un exemplu de retorică populistă de confruntare.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13153,
+      "tokens_in_breakdown": {
+        "fresh": 13153,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1339,
+      "cost_usd": null,
+      "latency_ms": 4765,
+      "retries_used": 0
+    }
+  }
+}

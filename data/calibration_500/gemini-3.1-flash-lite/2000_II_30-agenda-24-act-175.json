@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2000/II/30#agenda-24#act-175",
+  "tier": "calibration",
+  "speaker": {
+    "id": "chiliman-andrei-ioan",
+    "name": "Andrei-Ioan Chiliman",
+    "raw": "Domnul Andrei-Ioan Chiliman",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": null,
+    "year": 2000,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2000/II/30#agenda-24#act-175",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 1.0,
+        "markers": [],
+        "rationale": "Fragmentul furnizat reprezintă exclusiv o listă de prezență a parlamentarilor în cadrul unei ședințe, fără niciun discurs politic, argumentație sau retorică. Nu există nicio formă de discurs, deci niciun cadru populist, nicio invocare a poporului sau a elitei și niciun element de maniheism moral. Clasificarea este 0 cu încredere maximă, deoarece textul este pur administrativ."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 1.0,\n  \"markers\": [],\n  \"rationale\": \"Fragmentul furnizat reprezintă exclusiv o listă de prezență a parlamentarilor în cadrul unei ședințe, fără niciun discurs politic, argumentație sau retorică. Nu există nicio formă de discurs, deci niciun cadru populist, nicio invocare a poporului sau a elitei și niciun element de maniheism moral. Clasificarea este 0 cu încredere maximă, deoarece textul este pur administrativ.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 18097,
+      "tokens_in_breakdown": {
+        "fresh": 18097,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 167,
+      "cost_usd": null,
+      "latency_ms": 2223,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2000/II/30#agenda-24#act-175",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.45,
+        "level_of_justification": 0,
+        "content_of_justification": "none",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 0,
+            "evidence": {
+              "text": "Verificã domnul secretar ºi vã informãm"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.95,
+            "rationale_short": "Intervenție pur procedurală fără nicio justificare argumentativă."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "none",
+            "evidence": {
+              "text": "Verificã domnul secretar ºi vã informãm"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.95,
+            "rationale_short": "Nicio justificare oferită; conținutul este nedefinit."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Stimaþi colegi"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Adresare convențională neutră; niciun grup vizat."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "putem trece la lucru"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.9,
+            "rationale_short": "Intervenție procedurală fără angajament cu cereri politice."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "putem trece la lucru"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.9,
+            "rationale_short": "Absența oricărui argument advers; nu există angajament."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "putem trece la lucru"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.9,
+            "rationale_short": "Intervenție procedurală de rutină, fără propuneri alternative."
+          }
+        ],
+        "rationale": "Fragmentul reprezintă o intervenție pur procedurală a secretarului de ședință pentru verificarea cvorumului și organizarea lucrărilor parlamentare. Nu există nicio argumentare, justificare sau dezbatere politică, ceea ce face ca toate dimensiunile DQI să fie codate la valorile lor implicite de bază. Discursul nu conține substanță deliberativă, fiind o simplă formalitate administrativă. Din acest motiv, framework_confidence este scăzut, reflectând faptul că acest tip de intervenție nu este destinat analizei calității deliberative."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.45,\n  \"level_of_justification\": 0,\n  \"content_of_justification\": \"none\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 0,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"Verificã domnul secretar ºi vã informãm\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Intervenție pur procedurală fără nicio justificare argumentativă.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"none\",\n      \"evidence\": {\n        \"text\": \"Verificã domnul secretar ºi vã informãm\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Nicio justificare oferită; conținutul este nedefinit.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Stimaþi colegi\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Adresare convențională neutră; niciun grup vizat.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"putem trece la lucru\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Intervenție procedurală fără angajament cu cereri politice.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"putem trece la lucru\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Absența oricărui argument advers; nu există angajament.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"putem trece la lucru\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Intervenție procedurală de rutină, fără propuneri alternative.\"\n    }\n  ],\n  \"rationale\": \"Fragmentul reprezintă o intervenție pur procedurală a secretarului de ședință pentru verificarea cvorumului și organizarea lucrărilor parlamentare. Nu există nicio argumentare, justificare sau dezbatere politică, ceea ce face ca toate dimensiunile DQI să fie codate la valorile lor implicite de bază. Discursul nu conține substanță deliberativă, fiind o simplă formalitate administrativă. Din acest motiv, framework_confidence este scăzut, reflectând faptul că acest tip de intervenție nu este destinat analizei calității deliberative.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 16898,
+      "tokens_in_breakdown": {
+        "fresh": 16898,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 985,
+      "cost_usd": null,
+      "latency_ms": 3730,
+      "retries_used": 0
+    }
+  }
+}

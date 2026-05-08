@@ -1,0 +1,192 @@
+{
+  "speech_id": "mo://2004/II/33#agenda-4#act-195",
+  "tier": "calibration",
+  "speaker": {
+    "id": "negoita-gheorghe-liviu",
+    "name": "Liviu Gheorghe Negoi˛„",
+    "raw": "Domnul Liviu Gheorghe Negoi˛„",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": null,
+    "session_date": null,
+    "year": 2004,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2004/II/33#agenda-4#act-195",
+      "output": {
+        "score": 1,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.85,
+        "markers": [
+          {
+            "kind": "evil_elite",
+            "evidence": {
+              "text": "ded‚ndu-se la ∫antaj, la fel ∫i fel de alte manopere care nu au leg„tur„ cu democra˛ia, cre‚ndu-se o majoritate, a∫a cum s-a ajuns ast„zi, c„ mai avem pu˛in ∫i ajungem la partid unic"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.85,
+            "rationale_short": "Elita politică este acuzată de șantaj și manopere antidemocratice, fiind comparată cu un partid unic."
+          }
+        ],
+        "rationale": "Discursul începe într-un registru procedural, discutând amendamente și legi electorale, dar pivotează spre un registru populist prin atacul la adresa majorității parlamentare. Vorbitorul acuză elita de șantaj și manopere antidemocratice, invocând spectrul „partidului unic”, ceea ce constituie un marker de elită-malefică. Deși discursul conține elemente populiste, acestea nu sunt pervazive, iar argumentația rămâne ancorată în contextul legislativ al momentului. Scor 1 cu încredere ridicată, reflectând natura episodică a populismului în acest discurs."
+      },
+      "raw_response": "{\n  \"score\": 1,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.85,\n  \"markers\": [\n    {\n      \"kind\": \"evil_elite\",\n      \"evidence\": {\n        \"text\": \"ded‚ndu-se la ∫antaj, la fel ∫i fel de alte manopere care nu au leg„tur„ cu democra˛ia, cre‚ndu-se o majoritate, a∫a cum s-a ajuns ast„zi, c„ mai avem pu˛in ∫i ajungem la partid unic\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Elita politică este acuzată de șantaj și manopere antidemocratice, fiind comparată cu un partid unic.\"\n    }\n  ],\n  \"rationale\": \"Discursul începe într-un registru procedural, discutând amendamente și legi electorale, dar pivotează spre un registru populist prin atacul la adresa majorității parlamentare. Vorbitorul acuză elita de șantaj și manopere antidemocratice, invocând spectrul „partidului unic”, ceea ce constituie un marker de elită-malefică. Deși discursul conține elemente populiste, acestea nu sunt pervazive, iar argumentația rămâne ancorată în contextul legislativ al momentului. Scor 1 cu încredere ridicată, reflectând natura episodică a populismului în acest discurs.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13940,
+      "tokens_in_breakdown": {
+        "fresh": 13940,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 407,
+      "cost_usd": null,
+      "latency_ms": 2683,
+      "retries_used": 0
+    },
+    "voice": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "voice",
+      "speech_id": "mo://2004/II/33#agenda-4#act-195",
+      "output": {
+        "classifications": [
+          {
+            "marker_id": "m_0",
+            "voice": "speaker_first_person",
+            "voice_confidence": 0.95,
+            "voice_evidence": null,
+            "attributed_to": null,
+            "rationale_short": "Afirmație directă a vorbitorului în cadrul unui discurs la persoana întâi; nu există indicii de citare, raportare sau alte cadre de distanțare."
+          }
+        ]
+      },
+      "raw_response": "{\n  \"classifications\": [\n    {\n      \"marker_id\": \"m_0\",\n      \"voice\": \"speaker_first_person\",\n      \"voice_confidence\": 0.95,\n      \"voice_evidence\": null,\n      \"attributed_to\": null,\n      \"rationale_short\": \"Afirmație directă a vorbitorului în cadrul unui discurs la persoana întâi; nu există indicii de citare, raportare sau alte cadre de distanțare.\"\n    }\n  ]\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 11535,
+      "tokens_in_breakdown": {
+        "fresh": 11535,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 123,
+      "cost_usd": null,
+      "latency_ms": 1122,
+      "retries_used": 0
+    },
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2004/II/33#agenda-4#act-195",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.78,
+        "level_of_justification": 1,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 1,
+            "evidence": {
+              "text": "eu cred c„ tot efectul acestei legi bune se anuleaz„"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Vorbitorul afirmă că legea își pierde efectul, dar nu oferă un mecanism cauzal specific sau dovezi."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "dac„ dore∫te s„ dea un semnal credibil c„tre institu˛iile europene"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.88,
+            "rationale_short": "Apelul este la credibilitatea statului în fața instituțiilor europene, un interes universalizabil."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Stima˛i colegi"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.99,
+            "marker_confidence": 0.95,
+            "rationale_short": "Adresare convențională; nu există derogări sau aprecieri explicite ale unor grupuri."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "venim cu respingerea acestui amendament"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.82,
+            "rationale_short": "Vorbitorul se concentrează pe propria poziție fără a angaja legitimitatea cererilor opoziției."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "Degeaba vrem s„ avem un limbaj la extern ∫i un alt limbaj la intern."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.89,
+            "rationale_short": "Vorbitorul ignoră raționamentul opoziției, preferând o critică retorică generală."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Haide˛i s„ ducem demersul p‚n„ la cap„t!"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Vorbitorul îndeamnă la acțiune fără a propune o alternativă concretă sau un mecanism de mediere."
+          }
+        ],
+        "rationale": "Discursul prezintă o calitate deliberativă limitată, fiind predominant pozițional și retoric. Deși vorbitorul invocă binele comun prin referirea la credibilitatea europeană, justificarea rămâne la nivelul 1, lipsind argumentele cauzale detaliate. Nu există un angajament substanțial cu contraargumentele opoziției, iar respectul pentru grupuri și cereri rămâne neutru, limitat la convenții parlamentare. Discursul nu oferă o alternativă concretă, ci se rezumă la o critică a majorității, încadrându-se în categoria pozițională. Calitatea deliberativă este scăzută, reflectând un stil de dezbatere mai degrabă politic decât argumentativ."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.78,\n  \"level_of_justification\": 1,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 0,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"eu cred c„ tot efectul acestei legi bune se anuleaz„\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Vorbitorul afirmă că legea își pierde efectul, dar nu oferă un mecanism cauzal specific sau dovezi.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"dac„ dore∫te s„ dea un semnal credibil c„tre institu˛iile europene\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Apelul este la credibilitatea statului în fața instituțiilor europene, un interes universalizabil.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Stima˛i colegi\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.99,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Adresare convențională; nu există derogări sau aprecieri explicite ale unor grupuri.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"venim cu respingerea acestui amendament\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.82,\n      \"rationale_short\": \"Vorbitorul se concentrează pe propria poziție fără a angaja legitimitatea cererilor opoziției.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"Degeaba vrem s„ avem un limbaj la extern ∫i un alt limbaj la intern.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"marker_confidence\": 0.89,\n      \"rationale_short\": \"Vorbitorul ignoră raționamentul opoziției, preferând o critică retorică generală.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"Haide˛i s„ ducem demersul p‚n„ la cap„t!\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Vorbitorul îndeamnă la acțiune fără a propune o alternativă concretă sau un mecanism de mediere.\"\n    }\n  ],\n  \"rationale\": \"Discursul prezintă o calitate deliberativă limitată, fiind predominant pozițional și retoric. Deși vorbitorul invocă binele comun prin referirea la credibilitatea europeană, justificarea rămâne la nivelul 1, lipsind argumentele cauzale detaliate. Nu există un angajament substanțial cu contraargumentele opoziției, iar respectul pentru grupuri și cereri rămâne neutru, limitat la convenții parlamentare. Discursul nu oferă o alternativă concretă, ci se rezumă la o critică a majorității, încadrându-se în categoria pozițională. Calitatea deliberativă este scăzută, reflectând un stil de dezbatere mai degrabă politic decât argumentativ.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12741,
+      "tokens_in_breakdown": {
+        "fresh": 12741,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1143,
+      "cost_usd": null,
+      "latency_ms": 4383,
+      "retries_used": 0
+    }
+  }
+}

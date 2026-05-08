@@ -1,0 +1,210 @@
+{
+  "speech_id": "mo://2012/II/24#agenda-1#act-28",
+  "tier": "calibration",
+  "speaker": {
+    "id": "marcu-gheorghe",
+    "name": "Gheorghe Marcu",
+    "raw": "Domnul Gheorghe Marcu",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": "2012-03-19",
+    "year": 2012,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2012/II/24#agenda-1#act-28",
+      "output": {
+        "score": 1,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.85,
+        "markers": [
+          {
+            "kind": "evil_elite",
+            "evidence": {
+              "text": "Constat cu revoltă că degeaba îi plătim din banii românilor onești și cinstiți pe alți români care reprezintă instituții ale statului, dar din păcate aceștia nu sunt loiali națiunii române."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Elita instituțională este acuzată de neloialitate față de națiune, fiind contrastată cu românii onești."
+          },
+          {
+            "kind": "people_vs_elite",
+            "evidence": {
+              "text": "banii românilor onești și cinstiți pe alți români care reprezintă instituții ale statului"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.88,
+            "rationale_short": "Contrast direct între cetățenii cinstiți și cei care ocupă instituțiile statului, conturând un cadru popor-vs-elită."
+          }
+        ],
+        "rationale": "Discursul îmbină critica tehnică a privatizării și a managementului companiilor de stat cu un registru populist spre final. Deși argumentația este în mare parte ancorată în proceduri și politici economice, discursul pivotează către un cadru manihean în ultima frază, opunând „românii onești și cinstiți” unor reprezentanți ai instituțiilor statului acuzați de neloialitate. Această tranziție marchează un moment populist clar, dar nu transformă întregul discurs într-un manifest, deoarece argumentele principale rămân legate de eficiența economică și contracte. Scor 1 cu încredere ridicată, reflectând natura episodică a populismului în acest text."
+      },
+      "raw_response": "{\n  \"score\": 1,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.85,\n  \"markers\": [\n    {\n      \"kind\": \"evil_elite\",\n      \"evidence\": {\n        \"text\": \"Constat cu revoltă că degeaba îi plătim din banii românilor onești și cinstiți pe alți români care reprezintă instituții ale statului, dar din păcate aceștia nu sunt loiali națiunii române.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Elita instituțională este acuzată de neloialitate față de națiune, fiind contrastată cu românii onești.\"\n    },\n    {\n      \"kind\": \"people_vs_elite\",\n      \"evidence\": {\n        \"text\": \"banii românilor onești și cinstiți pe alți români care reprezintă instituții ale statului\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Contrast direct între cetățenii cinstiți și cei care ocupă instituțiile statului, conturând un cadru popor-vs-elită.\"\n    }\n  ],\n  \"rationale\": \"Discursul îmbină critica tehnică a privatizării și a managementului companiilor de stat cu un registru populist spre final. Deși argumentația este în mare parte ancorată în proceduri și politici economice, discursul pivotează către un cadru manihean în ultima frază, opunând „românii onești și cinstiți” unor reprezentanți ai instituțiilor statului acuzați de neloialitate. Această tranziție marchează un moment populist clar, dar nu transformă întregul discurs într-un manifest, deoarece argumentele principale rămân legate de eficiența economică și contracte. Scor 1 cu încredere ridicată, reflectând natura episodică a populismului în acest text.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 14072,
+      "tokens_in_breakdown": {
+        "fresh": 14072,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 556,
+      "cost_usd": null,
+      "latency_ms": 2982,
+      "retries_used": 0
+    },
+    "voice": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "voice",
+      "speech_id": "mo://2012/II/24#agenda-1#act-28",
+      "output": {
+        "classifications": [
+          {
+            "marker_id": "m_0",
+            "voice": "speaker_first_person",
+            "voice_confidence": 0.98,
+            "voice_evidence": null,
+            "attributed_to": null,
+            "rationale_short": "Afirmație directă la persoana întâi; vorbitorul își exprimă propria opinie și revoltă fără a cita sau raporta pe altcineva."
+          },
+          {
+            "marker_id": "m_1",
+            "voice": "speaker_first_person",
+            "voice_confidence": 0.98,
+            "voice_evidence": null,
+            "attributed_to": null,
+            "rationale_short": "Fragmentul face parte din afirmația directă a vorbitorului; nu există nicio atribuire sau distanțare retorică."
+          }
+        ]
+      },
+      "raw_response": "{\n  \"classifications\": [\n    {\n      \"marker_id\": \"m_0\",\n      \"voice\": \"speaker_first_person\",\n      \"voice_confidence\": 0.98,\n      \"voice_evidence\": null,\n      \"attributed_to\": null,\n      \"rationale_short\": \"Afirmație directă la persoana întâi; vorbitorul își exprimă propria opinie și revoltă fără a cita sau raporta pe altcineva.\"\n    },\n    {\n      \"marker_id\": \"m_1\",\n      \"voice\": \"speaker_first_person\",\n      \"voice_confidence\": 0.98,\n      \"voice_evidence\": null,\n      \"attributed_to\": null,\n      \"rationale_short\": \"Fragmentul face parte din afirmația directă a vorbitorului; nu există nicio atribuire sau distanțare retorică.\"\n    }\n  ]\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 11734,
+      "tokens_in_breakdown": {
+        "fresh": 11734,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 218,
+      "cost_usd": null,
+      "latency_ms": 1319,
+      "retries_used": 0
+    },
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2012/II/24#agenda-1#act-28",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.82,
+        "level_of_justification": 2,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "nu înțeleg privatizarea patrimoniului energetic acum, când piața este în scădere și prețul obținut nu este cel real."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.88,
+            "rationale_short": "Vorbitorul oferă un raționament cauzal specific (piața în scădere = preț nereal) pentru a justifica opoziția față de privatizare."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "nu înțeleg privatizarea patrimoniului energetic acum, când piața este în scădere și prețul obținut nu este cel real."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Justificarea se referă la interesul național privind patrimoniul energetic, un apel universalizabil la binele comun."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Stimați colegi"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.99,
+            "marker_confidence": 0.95,
+            "rationale_short": "Adresare convențională; nu există derogări sau recunoașteri explicite ale unor grupuri."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Apreciez dorința Guvernului Ungureanu de a crește încasările la bugetul de stat"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.82,
+            "rationale_short": "Recunoașterea obiectivului guvernului este o politețe procedurală, nu o angajare cu legitimitatea cererii."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "Apreciez dorința Guvernului Ungureanu de a crește încasările la bugetul de stat și de a dispune de noi fonduri în administrarea țării, dar nu înțeleg privatizarea"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.8,
+            "rationale_short": "Menționează argumentul guvernului dar trece imediat la propria poziție fără a-l combate substanțial."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "nu înțeleg privatizarea patrimoniului energetic acum"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Vorbitorul își exprimă opoziția față de privatizare fără a propune o alternativă concretă sau un mecanism de mediere."
+          }
+        ],
+        "rationale": "Discursul prezintă o calitate deliberativă medie. Vorbitorul oferă o justificare calificată (level_of_justification=2) bazată pe un raționament economic (piața în scădere), apelând la binele comun (patrimoniul național). Deși există o politețe formală, respectul pentru cererile și argumentele guvernului rămâne la nivelul de non-angajament (respect_for_demands=1, respect_for_counterarguments=1), deoarece vorbitorul doar menționează poziția adversă pentru a o contracara imediat. Discursul este în esență pozițional, fără a oferi o alternativă constructivă sau un compromis. Profilul este cel al unei opoziții critice, dar care rămâne în limitele unei argumentări raționale."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.82,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"nu înțeleg privatizarea patrimoniului energetic acum, când piața este în scădere și prețul obținut nu este cel real.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Vorbitorul oferă un raționament cauzal specific (piața în scădere = preț nereal) pentru a justifica opoziția față de privatizare.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"nu înțeleg privatizarea patrimoniului energetic acum, când piața este în scădere și prețul obținut nu este cel real.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Justificarea se referă la interesul național privind patrimoniul energetic, un apel universalizabil la binele comun.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Stimați colegi\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.99,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Adresare convențională; nu există derogări sau recunoașteri explicite ale unor grupuri.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Apreciez dorința Guvernului Ungureanu de a crește încasările la bugetul de stat\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.82,\n      \"rationale_short\": \"Recunoașterea obiectivului guvernului este o politețe procedurală, nu o angajare cu legitimitatea cererii.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Apreciez dorința Guvernului Ungureanu de a crește încasările la bugetul de stat și de a dispune de noi fonduri în administrarea țării, dar nu înțeleg privatizarea\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.80,\n      \"rationale_short\": \"Menționează argumentul guvernului dar trece imediat la propria poziție fără a-l combate substanțial.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"nu înțeleg privatizarea patrimoniului energetic acum\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Vorbitorul își exprimă opoziția față de privatizare fără a propune o alternativă concretă sau un mecanism de mediere.\"\n    }\n  ],\n  \"rationale\": \"Discursul prezintă o calitate deliberativă medie. Vorbitorul oferă o justificare calificată (level_of_justification=2) bazată pe un raționament economic (piața în scădere), apelând la binele comun (patrimoniul național). Deși există o politețe formală, respectul pentru cererile și argumentele guvernului rămâne la nivelul de non-angajament (respect_for_demands=1, respect_for_counterarguments=1), deoarece vorbitorul doar menționează poziția adversă pentru a o contracara imediat. Discursul este în esență pozițional, fără a oferi o alternativă constructivă sau un compromis. Profilul este cel al unei opoziții critice, dar care rămâne în limitele unei argumentări raționale.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12873,
+      "tokens_in_breakdown": {
+        "fresh": 12873,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1231,
+      "cost_usd": null,
+      "latency_ms": 4187,
+      "retries_used": 0
+    }
+  }
+}

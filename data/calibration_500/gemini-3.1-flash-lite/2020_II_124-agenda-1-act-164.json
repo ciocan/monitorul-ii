@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2020/II/124#agenda-1#act-164",
+  "tier": "calibration",
+  "speaker": {
+    "id": "iordache-florin",
+    "name": "Florin Iordache",
+    "raw": "Domnul Florin Iordache",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2020-11-03",
+    "year": 2020,
+    "legislature": "VIII",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2020/II/124#agenda-1#act-164",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 1.0,
+        "markers": [],
+        "rationale": "Discursul reprezintă un raport tehnic de comisie parlamentară privind aprobarea unei ordonanțe de urgență. Textul se limitează la descrierea obiectului reglementării (achiziții de echipamente IT și medicale) și la menționarea procedurilor parlamentare (votul în comisie, anexele cu amendamente). Nu există nicio urmă de cadru populist, maniheism sau invocare a unei voințe populare suverane. Este un discurs pur procedural, fără elemente de retorică populistă."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 1.0,\n  \"markers\": [],\n  \"rationale\": \"Discursul reprezintă un raport tehnic de comisie parlamentară privind aprobarea unei ordonanțe de urgență. Textul se limitează la descrierea obiectului reglementării (achiziții de echipamente IT și medicale) și la menționarea procedurilor parlamentare (votul în comisie, anexele cu amendamente). Nu există nicio urmă de cadru populist, maniheism sau invocare a unei voințe populare suverane. Este un discurs pur procedural, fără elemente de retorică populistă.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13941,
+      "tokens_in_breakdown": {
+        "fresh": 13941,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 184,
+      "cost_usd": null,
+      "latency_ms": 2046,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2020/II/124#agenda-1#act-164",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.85,
+        "level_of_justification": 1,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 1,
+            "evidence": {
+              "text": "Proiectul de lege supus dezbaterii are ca obiect de reglementare alocarea de fonduri externe nerambursabile necesare desfășurării activităților didactice"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.9,
+            "rationale_short": "Prezentarea obiectului legii este descriptivă, nu oferă un raționament cauzal pentru necesitatea măsurii."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "alocarea de fonduri externe nerambursabile necesare desfășurării în condiții de prevenție a activităților didactice"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.85,
+            "rationale_short": "Justificarea implicită vizează interesul general al sistemului educațional în context pandemic."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "deputații prezenți au hotărât"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.9,
+            "rationale_short": "Referință neutră la activitatea parlamentară; niciun grup nu este vizat sau derogatoriu."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Amendamentele respinse se regăsesc în anexa nr. 2."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.85,
+            "rationale_short": "Menționarea procedurală a amendamentelor fără angajament substanțial cu cererile opoziției."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "În urma dezbaterii proiectului de lege și a opiniilor exprimate"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.85,
+            "rationale_short": "Recunoașterea formală a existenței dezbaterii fără a detalia sau a răspunde argumentelor."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "să propună plenului Camerei Deputaților un raport de adoptare"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.9,
+            "rationale_short": "Raportul este o poziție procedurală de adoptare, nu o propunere alternativă sau mediere."
+          }
+        ],
+        "rationale": "Acest discurs reprezintă o prezentare tehnică a unui raport de comisie, fiind un text procedural prin excelență. Nivelul de justificare este limitat la descrierea obiectului legii, fără a oferi argumente cauzale complexe (level_of_justification=1). Apelul la binele comun este implicit prin natura măsurilor educaționale propuse. Respectul pentru grupuri, cereri și contraargumente rămâne la un nivel neutru, deoarece vorbitorul se limitează la a consemna rezultatul votului și existența amendamentelor fără a intra în dialog cu opoziția. Caracterul constructiv este pur procedural (positional), reflectând rolul de raportor. Calitatea deliberativă este scăzută, dar adecvată contextului instituțional al prezentării unui raport."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.85,\n  \"level_of_justification\": 1,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Proiectul de lege supus dezbaterii are ca obiect de reglementare alocarea de fonduri externe nerambursabile necesare desfășurării activităților didactice\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Prezentarea obiectului legii este descriptivă, nu oferă un raționament cauzal pentru necesitatea măsurii.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"alocarea de fonduri externe nerambursabile necesare desfășurării în condiții de prevenție a activităților didactice\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Justificarea implicită vizează interesul general al sistemului educațional în context pandemic.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"deputații prezenți au hotărât\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Referință neutră la activitatea parlamentară; niciun grup nu este vizat sau derogatoriu.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Amendamentele respinse se regăsesc în anexa nr. 2.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Menționarea procedurală a amendamentelor fără angajament substanțial cu cererile opoziției.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"În urma dezbaterii proiectului de lege și a opiniilor exprimate\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Recunoașterea formală a existenței dezbaterii fără a detalia sau a răspunde argumentelor.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"să propună plenului Camerei Deputaților un raport de adoptare\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Raportul este o poziție procedurală de adoptare, nu o propunere alternativă sau mediere.\"\n    }\n  ],\n  \"rationale\": \"Acest discurs reprezintă o prezentare tehnică a unui raport de comisie, fiind un text procedural prin excelență. Nivelul de justificare este limitat la descrierea obiectului legii, fără a oferi argumente cauzale complexe (level_of_justification=1). Apelul la binele comun este implicit prin natura măsurilor educaționale propuse. Respectul pentru grupuri, cereri și contraargumente rămâne la un nivel neutru, deoarece vorbitorul se limitează la a consemna rezultatul votului și existența amendamentelor fără a intra în dialog cu opoziția. Caracterul constructiv este pur procedural (positional), reflectând rolul de raportor. Calitatea deliberativă este scăzută, dar adecvată contextului instituțional al prezentării unui raport.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12742,
+      "tokens_in_breakdown": {
+        "fresh": 12742,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1185,
+      "cost_usd": null,
+      "latency_ms": 4758,
+      "retries_used": 0
+    }
+  }
+}

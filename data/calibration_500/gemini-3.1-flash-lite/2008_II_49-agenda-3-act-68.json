@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2008/II/49#agenda-3#act-68",
+  "tier": "calibration",
+  "speaker": {
+    "id": "barbara-kibedi-katalin",
+    "name": "Kibedi Katalin Barbara",
+    "raw": "Doamna Kibedi Katalin Barbara",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": "2008-05-06",
+    "year": 2008,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2008/II/49#agenda-3#act-68",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul este unul pur tehnic și procedural, axat pe armonizarea legislației interne cu normele Uniunii Europene și cu Convenția Europeană pentru Apărarea Drepturilor Omului. Vorbitorul analizează concepte juridice (libertatea de exprimare, infracțiuni prevăzute de Codul penal) și oferă o justificare bazată pe argumente de drept, fără a invoca un cadru maniheist popor-vs-elită. Nu există nicio referire la o voință populară omogenă sau la o elită malefică, discursul fiind ancorat în logica legislativă și în respectarea procedurilor democratice. Hawkins=0 cu încredere ridicată."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul este unul pur tehnic și procedural, axat pe armonizarea legislației interne cu normele Uniunii Europene și cu Convenția Europeană pentru Apărarea Drepturilor Omului. Vorbitorul analizează concepte juridice (libertatea de exprimare, infracțiuni prevăzute de Codul penal) și oferă o justificare bazată pe argumente de drept, fără a invoca un cadru maniheist popor-vs-elită. Nu există nicio referire la o voință populară omogenă sau la o elită malefică, discursul fiind ancorat în logica legislativă și în respectarea procedurilor democratice. Hawkins=0 cu încredere ridicată.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13811,
+      "tokens_in_breakdown": {
+        "fresh": 13811,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 227,
+      "cost_usd": null,
+      "latency_ms": 1797,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2008/II/49#agenda-3#act-68",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.92,
+        "level_of_justification": 2,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "articolul 10 alineatul (2) din Convenție ne obligă ca libertatea de exprimare — care este un drept fundamental, limitările să fie foarte concrete, pe înțelesul tuturor"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Vorbitorul justifică modificarea legislativă prin referință directă la obligațiile din Convenția Europeană a Drepturilor Omului."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "încălca dreptul fundamental la libertatea de expresie"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.94,
+            "rationale_short": "Justificarea se bazează pe protejarea unui drept fundamental universal, nu pe interese de grup."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Distins Senat"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.99,
+            "marker_confidence": 0.95,
+            "rationale_short": "Adresare formală standard; niciun grup vizat sau derogatoriu."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "pentru ceea ce se susține, să nu uităm că avem alte infracțiuni"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.88,
+            "rationale_short": "Vorbitorul abordează preocupările opoziției prin indicarea altor pârghii legale, fără a le respinge sau valida explicit."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "pentru ceea ce se susține, să nu uităm că avem alte infracțiuni: instigarea și apologia, prevăzute de articolul 324 din Codul penal"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.89,
+            "rationale_short": "Menționează argumentele opoziției privind necesitatea sancțiunilor, dar le tratează prin enumerarea altor prevederi legale."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Cam aceasta este justificarea pentru care s-a făcut modificarea textului"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Vorbitorul explică și apără poziția inițiatorului fără a propune o alternativă sau o mediere."
+          }
+        ],
+        "rationale": "Discursul prezintă o calitate deliberativă solidă, caracterizată printr-o justificare calificată (level_of_justification=2) bazată pe norme internaționale (CEDO) și principii constituționale. Vorbitorul apelează la binele comun (libertatea de exprimare) și menține un ton neutru și respectuos față de instituție. Deși abordează preocupările opoziției prin indicarea altor prevederi din Codul penal, nu există o angajare substanțială cu raționamentul lor (respect_for_counterarguments=1), iar discursul rămâne în sfera pozițională (constructive_politics=positional). Este un discurs tehnic, bine structurat, care evită retorica populistă sau disprețuitoare."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.92,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"articolul 10 alineatul (2) din Convenție ne obligă ca libertatea de exprimare — care este un drept fundamental, limitările să fie foarte concrete, pe înțelesul tuturor\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Vorbitorul justifică modificarea legislativă prin referință directă la obligațiile din Convenția Europeană a Drepturilor Omului.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"încălca dreptul fundamental la libertatea de expresie\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.94,\n      \"rationale_short\": \"Justificarea se bazează pe protejarea unui drept fundamental universal, nu pe interese de grup.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Distins Senat\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.99,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Adresare formală standard; niciun grup vizat sau derogatoriu.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"pentru ceea ce se susține, să nu uităm că avem alte infracțiuni\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Vorbitorul abordează preocupările opoziției prin indicarea altor pârghii legale, fără a le respinge sau valida explicit.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"pentru ceea ce se susține, să nu uităm că avem alte infracțiuni: instigarea și apologia, prevăzute de articolul 324 din Codul penal\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"marker_confidence\": 0.89,\n      \"rationale_short\": \"Menționează argumentele opoziției privind necesitatea sancțiunilor, dar le tratează prin enumerarea altor prevederi legale.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"Cam aceasta este justificarea pentru care s-a făcut modificarea textului\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Vorbitorul explică și apără poziția inițiatorului fără a propune o alternativă sau o mediere.\"\n    }\n  ],\n  \"rationale\": \"Discursul prezintă o calitate deliberativă solidă, caracterizată printr-o justificare calificată (level_of_justification=2) bazată pe norme internaționale (CEDO) și principii constituționale. Vorbitorul apelează la binele comun (libertatea de exprimare) și menține un ton neutru și respectuos față de instituție. Deși abordează preocupările opoziției prin indicarea altor prevederi din Codul penal, nu există o angajare substanțială cu raționamentul lor (respect_for_counterarguments=1), iar discursul rămâne în sfera pozițională (constructive_politics=positional). Este un discurs tehnic, bine structurat, care evită retorica populistă sau disprețuitoare.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12612,
+      "tokens_in_breakdown": {
+        "fresh": 12612,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1201,
+      "cost_usd": null,
+      "latency_ms": 4466,
+      "retries_used": 0
+    }
+  }
+}

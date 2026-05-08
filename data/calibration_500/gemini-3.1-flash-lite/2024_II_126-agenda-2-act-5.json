@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2024/II/126#agenda-2#act-5",
+  "tier": "calibration",
+  "speaker": {
+    "id": "andronache-gabriel",
+    "name": "Gabriel Andronache",
+    "raw": "Domnul Gabriel Andronache",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2024-10-29",
+    "year": 2024,
+    "legislature": "IX",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2024/II/126#agenda-2#act-5",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul este unul pur procedural, axat pe reglementarea tehnică a desfășurării unui referendum local simultan cu alegerile prezidențiale. Vorbitorul se concentrează pe mecanismele de numărare a voturilor, procesele-verbale și competențele Biroului Electoral Central, fără a invoca un cadru maniheist popor-vs-elită. Mențiunea sondajelor de opinie este utilizată ca argument de oportunitate politică, nu ca apel la o voință populară suverană care să ignore procedurile. Discursul nu conține niciunul dintre markerii populiști, încadrându-se în registrul parlamentar standard."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul este unul pur procedural, axat pe reglementarea tehnică a desfășurării unui referendum local simultan cu alegerile prezidențiale. Vorbitorul se concentrează pe mecanismele de numărare a voturilor, procesele-verbale și competențele Biroului Electoral Central, fără a invoca un cadru maniheist popor-vs-elită. Mențiunea sondajelor de opinie este utilizată ca argument de oportunitate politică, nu ca apel la o voință populară suverană care să ignore procedurile. Discursul nu conține niciunul dintre markerii populiști, încadrându-se în registrul parlamentar standard.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13872,
+      "tokens_in_breakdown": {
+        "fresh": 13872,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 223,
+      "cost_usd": null,
+      "latency_ms": 2062,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2024/II/126#agenda-2#act-5",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.85,
+        "level_of_justification": 2,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "modificare pe care noi o considerăm necesară pentru a permite desfășurarea unui referendum local în același timp cu alegerile prezidențiale sau cu alegerile parlamentare."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Vorbitorul oferă o justificare cauzală specifică pentru necesitatea modificării procedurale."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "cetățenii municipiului București doresc desfășurarea referendumului local în același timp cu alegerile prezidențiale."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.89,
+            "rationale_short": "Apelul este la dorința cetățenilor (binele comun), nu la un interes de partid specific."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Grupului parlamentar al PNL"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Referință neutră la propriul grup parlamentar; nicio derogare sau respect explicit pentru out-group."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "am solicitat dezbaterea acestei ordonanțe de urgență"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.88,
+            "rationale_short": "Vorbitorul își urmărește propria agendă fără a aborda cererile opoziției; non-angajament."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "Procedura ce urmează a fi instituită prin votul dumneavoastră"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.91,
+            "rationale_short": "Vorbitorul ignoră complet orice contraargumente, concentrându-se exclusiv pe expunerea procedurii."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "vă adresăm rugămintea de a vota ordonanța de urgență"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.94,
+            "rationale_short": "Discursul este o susținere a unei poziții existente; nicio alternativă sau mediere propusă."
+          }
+        ],
+        "rationale": "Discursul prezintă o calitate deliberativă moderată, fiind axat pe explicarea unei proceduri tehnice necesare pentru organizarea unui referendum. Vorbitorul oferă o justificare calificată (level_of_justification=2) legând modificarea de eficiența procesului electoral, apelând la interesul cetățenilor (common_good). Totuși, discursul rămâne pur pozițional (constructive_politics=positional) și nu angajează deloc opoziția sau contraargumentele acesteia (respect_for_counterarguments=0). Respectul pentru grupuri și cereri este neutru, limitându-se la o postură funcțională. Este un discurs tipic de susținere a unei inițiative legislative, clar și argumentat, dar lipsit de dimensiunea deliberativă a dialogului cu cealaltă parte."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.85,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 0,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"modificare pe care noi o considerăm necesară pentru a permite desfășurarea unui referendum local în același timp cu alegerile prezidențiale sau cu alegerile parlamentare.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Vorbitorul oferă o justificare cauzală specifică pentru necesitatea modificării procedurale.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"cetățenii municipiului București doresc desfășurarea referendumului local în același timp cu alegerile prezidențiale.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.89,\n      \"rationale_short\": \"Apelul este la dorința cetățenilor (binele comun), nu la un interes de partid specific.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Grupului parlamentar al PNL\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Referință neutră la propriul grup parlamentar; nicio derogare sau respect explicit pentru out-group.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"am solicitat dezbaterea acestei ordonanțe de urgență\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Vorbitorul își urmărește propria agendă fără a aborda cererile opoziției; non-angajament.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"Procedura ce urmează a fi instituită prin votul dumneavoastră\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.91,\n      \"rationale_short\": \"Vorbitorul ignoră complet orice contraargumente, concentrându-se exclusiv pe expunerea procedurii.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"vă adresăm rugămintea de a vota ordonanța de urgență\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.94,\n      \"rationale_short\": \"Discursul este o susținere a unei poziții existente; nicio alternativă sau mediere propusă.\"\n    }\n  ],\n  \"rationale\": \"Discursul prezintă o calitate deliberativă moderată, fiind axat pe explicarea unei proceduri tehnice necesare pentru organizarea unui referendum. Vorbitorul oferă o justificare calificată (level_of_justification=2) legând modificarea de eficiența procesului electoral, apelând la interesul cetățenilor (common_good). Totuși, discursul rămâne pur pozițional (constructive_politics=positional) și nu angajează deloc opoziția sau contraargumentele acesteia (respect_for_counterarguments=0). Respectul pentru grupuri și cereri este neutru, limitându-se la o postură funcțională. Este un discurs tipic de susținere a unei inițiative legislative, clar și argumentat, dar lipsit de dimensiunea deliberativă a dialogului cu cealaltă parte.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12673,
+      "tokens_in_breakdown": {
+        "fresh": 12673,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1201,
+      "cost_usd": null,
+      "latency_ms": 4541,
+      "retries_used": 0
+    }
+  }
+}

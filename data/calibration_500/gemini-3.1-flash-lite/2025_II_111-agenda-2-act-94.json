@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2025/II/111#agenda-2#act-94",
+  "tier": "calibration",
+  "speaker": {
+    "id": "pruna-cristina-madalina",
+    "name": "Cristina-Mădălina Prună",
+    "raw": "Doamna Cristina-Mădălina Prună",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2025-09-17",
+    "year": 2025,
+    "legislature": "X",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2025/II/111#agenda-2#act-94",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul este unul pur tehnic și procedural, axat pe mecanisme financiare (fonduri europene, instrumente financiare, subvenționarea dobânzii) și pe critica unor măsuri administrative specifice (schema de plafonare-compensare, piața liberă). Deși vorbitorul critică deciziile guvernului și menționează decizii ale Curții Constituționale, acesta nu utilizează un cadru maniheist popor-vs-elită, nu invocă o voință populară omogenă și nu recurge la retorică populistă. Argumentația rămâne în sfera dezbaterii de politici publice, motiv pentru care scorul este 0."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul este unul pur tehnic și procedural, axat pe mecanisme financiare (fonduri europene, instrumente financiare, subvenționarea dobânzii) și pe critica unor măsuri administrative specifice (schema de plafonare-compensare, piața liberă). Deși vorbitorul critică deciziile guvernului și menționează decizii ale Curții Constituționale, acesta nu utilizează un cadru maniheist popor-vs-elită, nu invocă o voință populară omogenă și nu recurge la retorică populistă. Argumentația rămâne în sfera dezbaterii de politici publice, motiv pentru care scorul este 0.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13983,
+      "tokens_in_breakdown": {
+        "fresh": 13983,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 222,
+      "cost_usd": null,
+      "latency_ms": 2047,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2025/II/111#agenda-2#act-94",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.85,
+        "level_of_justification": 2,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "alternative_proposal",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "Mai degrabă trebuiau create acele instrumente financiare prin care companiile să se împrumute, iar statul, cu acele fonduri europene, să subvenționeze dobânda, ceea ce ar fi creat mai mulți bani în piață"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Vorbitorul propune un mecanism economic specific (subvenționarea dobânzii) ca alternativă la granturi."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "investițiile sunt cele care ne vor scoate din această criză a prețurilor la energie"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Justificarea se concentrează pe soluționarea crizei energetice pentru binele general al economiei."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Curtea Constituțională a spus că e neconstituțională"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.85,
+            "rationale_short": "Referință neutră la o instituție; nicio derogare sau respect explicit pentru grupuri sociale."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "s-a menționat aici faptul că România a luat niște măsuri, în 2022 și în criză energetică. Au fost extrem de proaste"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.96,
+            "marker_confidence": 0.88,
+            "rationale_short": "Vorbitorul critică măsurile anterioare fără a angaja legitimitatea cererilor care au stat la baza lor."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "s-a menționat Fondul de modernizare. Sigur, am avut în jur de 14 miliarde de euro, s-a cheltuit o parte din ei, dar ideea că dai doar granturi pentru diverse firme, să facă investiții, nu a fost una bună."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.89,
+            "rationale_short": "Menționează argumentul privind Fondul de modernizare, dar îl respinge fără o dezbatere detaliată."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "alternative_proposal",
+            "evidence": {
+              "text": "Mai degrabă trebuiau create acele instrumente financiare prin care companiile să se împrumute, iar statul, cu acele fonduri europene, să subvenționeze dobânda"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Vorbitorul oferă o alternativă concretă la politica de granturi existentă."
+          }
+        ],
+        "rationale": "Discursul prezintă o calitate deliberativă medie-ridicată, caracterizată prin oferirea unor soluții economice alternative (subvenționarea dobânzii în loc de granturi) și o justificare bazată pe mecanisme economice (level_of_justification=2). Vorbitorul se concentrează pe binele comun (criza energetică), menținând un ton neutru față de grupuri și instituții. Deși critică măsurile anterioare, nu angajează profund contraargumentele, limitându-se la o respingere a eficienței acestora (respect_for_counterarguments=1). Constructivitatea este prezentă prin propunerea alternativă, dar nu atinge nivelul de mediere. Profilul este unul de critică constructivă, orientată spre eficiența politicilor publice."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.85,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"alternative_proposal\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"Mai degrabă trebuiau create acele instrumente financiare prin care companiile să se împrumute, iar statul, cu acele fonduri europene, să subvenționeze dobânda, ceea ce ar fi creat mai mulți bani în piață\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Vorbitorul propune un mecanism economic specific (subvenționarea dobânzii) ca alternativă la granturi.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"investițiile sunt cele care ne vor scoate din această criză a prețurilor la energie\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Justificarea se concentrează pe soluționarea crizei energetice pentru binele general al economiei.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Curtea Constituțională a spus că e neconstituțională\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Referință neutră la o instituție; nicio derogare sau respect explicit pentru grupuri sociale.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"s-a menționat aici faptul că România a luat niște măsuri, în 2022 și în criză energetică. Au fost extrem de proaste\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.96,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Vorbitorul critică măsurile anterioare fără a angaja legitimitatea cererilor care au stat la baza lor.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"s-a menționat Fondul de modernizare. Sigur, am avut în jur de 14 miliarde de euro, s-a cheltuit o parte din ei, dar ideea că dai doar granturi pentru diverse firme, să facă investiții, nu a fost una bună.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"marker_confidence\": 0.89,\n      \"rationale_short\": \"Menționează argumentul privind Fondul de modernizare, dar îl respinge fără o dezbatere detaliată.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"alternative_proposal\",\n      \"evidence\": {\n        \"text\": \"Mai degrabă trebuiau create acele instrumente financiare prin care companiile să se împrumute, iar statul, cu acele fonduri europene, să subvenționeze dobânda\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Vorbitorul oferă o alternativă concretă la politica de granturi existentă.\"\n    }\n  ],\n  \"rationale\": \"Discursul prezintă o calitate deliberativă medie-ridicată, caracterizată prin oferirea unor soluții economice alternative (subvenționarea dobânzii în loc de granturi) și o justificare bazată pe mecanisme economice (level_of_justification=2). Vorbitorul se concentrează pe binele comun (criza energetică), menținând un ton neutru față de grupuri și instituții. Deși critică măsurile anterioare, nu angajează profund contraargumentele, limitându-se la o respingere a eficienței acestora (respect_for_counterarguments=1). Constructivitatea este prezentă prin propunerea alternativă, dar nu atinge nivelul de mediere. Profilul este unul de critică constructivă, orientată spre eficiența politicilor publice.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12784,
+      "tokens_in_breakdown": {
+        "fresh": 12784,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1300,
+      "cost_usd": null,
+      "latency_ms": 4710,
+      "retries_used": 0
+    }
+  }
+}

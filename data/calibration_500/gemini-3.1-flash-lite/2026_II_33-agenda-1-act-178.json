@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2026/II/33#agenda-1#act-178",
+  "tier": "calibration",
+  "speaker": {
+    "id": "cazan-mihai",
+    "name": "Mihai Coteț",
+    "raw": "Domnul Mihai Coteț",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": "2026-03-11",
+    "year": 2026,
+    "legislature": "X",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2026/II/33#agenda-1#act-178",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul este unul de susținere a unei inițiative legislative tehnice privind profesionalizarea jurnaliștilor sportivi. Vorbitorul utilizează un registru instituțional, făcând referire la Asociația Presei Sportive, la standarde etice și la istoricul instituției, fără a invoca un cadru manihean popor-vs-elită. Nu există nicio tentativă de a opune o voință populară omogenă unor instituții sau de a încadra conflictul politic în termeni existențiali. Discursul rămâne în limitele procedurale ale activității parlamentare."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul este unul de susținere a unei inițiative legislative tehnice privind profesionalizarea jurnaliștilor sportivi. Vorbitorul utilizează un registru instituțional, făcând referire la Asociația Presei Sportive, la standarde etice și la istoricul instituției, fără a invoca un cadru manihean popor-vs-elită. Nu există nicio tentativă de a opune o voință populară omogenă unor instituții sau de a încadra conflictul politic în termeni existențiali. Discursul rămâne în limitele procedurale ale activității parlamentare.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13969,
+      "tokens_in_breakdown": {
+        "fresh": 13969,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 205,
+      "cost_usd": null,
+      "latency_ms": 1811,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2026/II/33#agenda-1#act-178",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.72,
+        "level_of_justification": 1,
+        "content_of_justification": "group_interest",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 1,
+            "evidence": {
+              "text": "Asociația Presei Sportive din România și-a asumat scopul nobil de a profesionaliza breasla de jurnalist sportiv"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Justificarea invocă scopul nobil al asociației, dar lipsește o legătură cauzală substanțială pentru modificarea legii."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "group_interest",
+            "evidence": {
+              "text": "Asociația Presei Sportive din România este o instituție care funcționează încă din anul 1927"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.88,
+            "rationale_short": "Apelul este centrat pe interesele și prestigiul unei organizații profesionale specifice."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Stimați colegi"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.99,
+            "marker_confidence": 0.95,
+            "rationale_short": "Adresare convențională; nu există referințe derogatorii sau de respect explicit către out-group-uri."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "haideți să votăm acest proiect!"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.99,
+            "marker_confidence": 0.92,
+            "rationale_short": "Vorbitorul își promovează propria inițiativă fără a aborda cereri opuse; neutru implicit."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "haideți să votăm acest proiect!"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.99,
+            "marker_confidence": 0.9,
+            "rationale_short": "Nu există nicio mențiune sau angajament față de eventuale contraargumente."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "haideți să votăm acest proiect!"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.99,
+            "marker_confidence": 0.95,
+            "rationale_short": "Discursul este o pledoarie pentru susținerea inițiativei, fără a oferi alternative sau medieri."
+          }
+        ],
+        "rationale": "Discursul deputatului Paraschiv este unul de susținere a unei inițiative legislative, bazat în principal pe apelul la prestigiul unei asociații profesionale (Asociația Presei Sportive din România). Justificarea este de nivel 1, deoarece se bazează pe valoarea percepută a asociației și pe argumente emoționale, fără a oferi o analiză cauzală a impactului modificării legislative propuse. Conținutul justificării este orientat către interesul de grup (breasla jurnaliștilor sportivi). Nu există un angajament cu contraargumente sau cereri opuse, iar discursul rămâne pur pozițional. Respectul pentru grupuri și cereri este neutru, limitându-se la formulele de politețe parlamentară. Calitatea deliberativă este scăzută, fiind un discurs de promovare a unui proiect fără dezbatere critică."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.72,\n  \"level_of_justification\": 1,\n  \"content_of_justification\": \"group_interest\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 0,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Asociația Presei Sportive din România și-a asumat scopul nobil de a profesionaliza breasla de jurnalist sportiv\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Justificarea invocă scopul nobil al asociației, dar lipsește o legătură cauzală substanțială pentru modificarea legii.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"group_interest\",\n      \"evidence\": {\n        \"text\": \"Asociația Presei Sportive din România este o instituție care funcționează încă din anul 1927\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Apelul este centrat pe interesele și prestigiul unei organizații profesionale specifice.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Stimați colegi\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.99,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Adresare convențională; nu există referințe derogatorii sau de respect explicit către out-group-uri.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"haideți să votăm acest proiect!\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.99,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Vorbitorul își promovează propria inițiativă fără a aborda cereri opuse; neutru implicit.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"haideți să votăm acest proiect!\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.99,\n      \"marker_confidence\": 0.90,\n      \"rationale_short\": \"Nu există nicio mențiune sau angajament față de eventuale contraargumente.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"haideți să votăm acest proiect!\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.99,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Discursul este o pledoarie pentru susținerea inițiativei, fără a oferi alternative sau medieri.\"\n    }\n  ],\n  \"rationale\": \"Discursul deputatului Paraschiv este unul de susținere a unei inițiative legislative, bazat în principal pe apelul la prestigiul unei asociații profesionale (Asociația Presei Sportive din România). Justificarea este de nivel 1, deoarece se bazează pe valoarea percepută a asociației și pe argumente emoționale, fără a oferi o analiză cauzală a impactului modificării legislative propuse. Conținutul justificării este orientat către interesul de grup (breasla jurnaliștilor sportivi). Nu există un angajament cu contraargumente sau cereri opuse, iar discursul rămâne pur pozițional. Respectul pentru grupuri și cereri este neutru, limitându-se la formulele de politețe parlamentară. Calitatea deliberativă este scăzută, fiind un discurs de promovare a unui proiect fără dezbatere critică.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12770,
+      "tokens_in_breakdown": {
+        "fresh": 12770,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1170,
+      "cost_usd": null,
+      "latency_ms": 4603,
+      "retries_used": 0
+    }
+  }
+}

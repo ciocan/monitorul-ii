@@ -1,0 +1,152 @@
+{
+  "speech_id": "mo://2017/II/76#agenda-4#act-38",
+  "tier": "calibration",
+  "speaker": {
+    "id": "cretu-gabriela",
+    "name": "Gabriela Crețu",
+    "raw": "Doamna Gabriela Crețu",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": "2017-05-09",
+    "year": 2017,
+    "legislature": "VIII",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2017/II/76#agenda-4#act-38",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul este un raport tehnic și procedural privind transpunerea unei directive europene (COM 864) în legislația națională. Vorbitorul se concentrează pe aspecte juridice, competențe partajate, subsidiaritate și detalii tehnice ale pieței energetice, fără a utiliza nicio retorică populistă. Nu există nicio invocare a unui cadru maniheist popor-vs-elită, nicio referire la o voință populară omogenă și nicio critică moralizatoare a elitelor. Discursul rămâne strict în registrul instituțional și tehnocratic, fiind un exemplu clar de scor 0."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul este un raport tehnic și procedural privind transpunerea unei directive europene (COM 864) în legislația națională. Vorbitorul se concentrează pe aspecte juridice, competențe partajate, subsidiaritate și detalii tehnice ale pieței energetice, fără a utiliza nicio retorică populistă. Nu există nicio invocare a unui cadru maniheist popor-vs-elită, nicio referire la o voință populară omogenă și nicio critică moralizatoare a elitelor. Discursul rămâne strict în registrul instituțional și tehnocratic, fiind un exemplu clar de scor 0.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 14666,
+      "tokens_in_breakdown": {
+        "fresh": 14666,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 217,
+      "cost_usd": null,
+      "latency_ms": 2259,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2017/II/76#agenda-4#act-38",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.85,
+        "level_of_justification": 2,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "alternative_proposal",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "Dispariția din definiția serviciului universal a sintagmei „prețuri rezonabile” poate să genereze suspiciunea interpretării, și anume eventuale, anumite abuzuri asupra clienților prin practicarea unor prețuri mai mari."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Vorbitorul oferă o justificare cauzală specifică pentru menținerea unei sintagme, legând-o de riscul de abuz asupra consumatorilor."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "asigurarea securității energetice, înverzire, mediu etc."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Justificarea se bazează pe obiective universale precum securitatea energetică și protecția mediului."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "reprezentanți ai Ministerului Energiei, ANRE și ai Ministerului Afacerilor Externe"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Referințe funcționale la instituțiile statului; ton neutru și profesional."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "am decis, în urma dezbaterilor, să trimitem o opinie Comisiei Europene care să conțină câteva observații de fond."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Vorbitorul raportează procesul de consultare fără a angaja explicit legitimitatea cererilor adverse."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "Susținem, în genere, liberalizarea pieței energiei, dar și menținerea derogării pentru aplicarea tarifelor reglementate"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.88,
+            "rationale_short": "Menționează poziția generală de liberalizare, dar nu angajează substanțial contraargumentele specifice ale opoziției."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "alternative_proposal",
+            "evidence": {
+              "text": "propun să adoptăm articolele 1–3 acum și să trimitem articolele 4–7 în comisie pentru reexaminare în 30 de zile."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Vorbitorul propune observații concrete de fond și amendamente la textul directivei, depășind simpla poziționare."
+          }
+        ],
+        "rationale": "Discursul raportorului prezintă o calitate deliberativă solidă, caracteristică rolului instituțional. Vorbitorul oferă justificări calificate (level_of_justification=2) pentru observațiile de fond, ancorându-le în interesele consumatorilor și în obiectivele de securitate energetică (common_good). Deși respectul pentru grupuri și cereri rămâne neutru (1), discursul este constructiv prin propunerea unor observații specifice pentru Comisia Europeană (alternative_proposal). Angajamentul cu contraargumentele este limitat la o recunoaștere a dezbaterii, fără o respingere detaliată a unor puncte opuse specifice. Profilul este cel al unui raportor tehnic care mediază între cerințele europene și realitățile naționale."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.85,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"alternative_proposal\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"Dispariția din definiția serviciului universal a sintagmei „prețuri rezonabile” poate să genereze suspiciunea interpretării, și anume eventuale, anumite abuzuri asupra clienților prin practicarea unor prețuri mai mari.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Vorbitorul oferă o justificare cauzală specifică pentru menținerea unei sintagme, legând-o de riscul de abuz asupra consumatorilor.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"asigurarea securității energetice, înverzire, mediu etc.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Justificarea se bazează pe obiective universale precum securitatea energetică și protecția mediului.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"reprezentanți ai Ministerului Energiei, ANRE și ai Ministerului Afacerilor Externe\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.90,\n      \"rationale_short\": \"Referințe funcționale la instituțiile statului; ton neutru și profesional.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"am decis, în urma dezbaterilor, să trimitem o opinie Comisiei Europene care să conțină câteva observații de fond.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Vorbitorul raportează procesul de consultare fără a angaja explicit legitimitatea cererilor adverse.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Susținem, în genere, liberalizarea pieței energiei, dar și menținerea derogării pentru aplicarea tarifelor reglementate\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Menționează poziția generală de liberalizare, dar nu angajează substanțial contraargumentele specifice ale opoziției.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"alternative_proposal\",\n      \"evidence\": {\n        \"text\": \"propun să adoptăm articolele 1–3 acum și să trimitem articolele 4–7 în comisie pentru reexaminare în 30 de zile.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.90,\n      \"rationale_short\": \"Vorbitorul propune observații concrete de fond și amendamente la textul directivei, depășind simpla poziționare.\"\n    }\n  ],\n  \"rationale\": \"Discursul raportorului prezintă o calitate deliberativă solidă, caracteristică rolului instituțional. Vorbitorul oferă justificări calificate (level_of_justification=2) pentru observațiile de fond, ancorându-le în interesele consumatorilor și în obiectivele de securitate energetică (common_good). Deși respectul pentru grupuri și cereri rămâne neutru (1), discursul este constructiv prin propunerea unor observații specifice pentru Comisia Europeană (alternative_proposal). Angajamentul cu contraargumentele este limitat la o recunoaștere a dezbaterii, fără o respingere detaliată a unor puncte opuse specifice. Profilul este cel al unui raportor tehnic care mediază între cerințele europene și realitățile naționale.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [
+        "propun să adoptăm articolele 1–3 acum și să trimitem articolele 4–7 în comisie pentru reexaminare în 30 de zile."
+      ],
+      "parse_repaired": false,
+      "tokens_in": 13467,
+      "tokens_in_breakdown": {
+        "fresh": 13467,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1268,
+      "cost_usd": null,
+      "latency_ms": 5048,
+      "retries_used": 0
+    }
+  }
+}

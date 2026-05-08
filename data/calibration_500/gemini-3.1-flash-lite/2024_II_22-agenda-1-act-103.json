@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2024/II/22#agenda-1#act-103",
+  "tier": "calibration",
+  "speaker": {
+    "id": "toma-vasilica",
+    "name": "Vasilică Toma",
+    "raw": "Domnul Vasilică Toma",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2024-02-07",
+    "year": 2024,
+    "legislature": "IX",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2024/II/22#agenda-1#act-103",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul se concentrează pe o critică tehnică și procedurală a managementului sistemului de sănătate, punând accent pe lipsa datelor statistice și a planificării riguroase. Vorbitorul utilizează un registru orientat către eficiență, transparență și fundamentare numerică, fără a apela la cadre maniheiste, la o dihotomie popor-vs-elită sau la invocarea unei voințe populare omogene. Deși tonul este critic, acesta rămâne în limitele dezbaterii de politici publice, nefiind identificat niciun marker populist. Hawkins=0 cu încredere ridicată."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul se concentrează pe o critică tehnică și procedurală a managementului sistemului de sănătate, punând accent pe lipsa datelor statistice și a planificării riguroase. Vorbitorul utilizează un registru orientat către eficiență, transparență și fundamentare numerică, fără a apela la cadre maniheiste, la o dihotomie popor-vs-elită sau la invocarea unei voințe populare omogene. Deși tonul este critic, acesta rămâne în limitele dezbaterii de politici publice, nefiind identificat niciun marker populist. Hawkins=0 cu încredere ridicată.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 14136,
+      "tokens_in_breakdown": {
+        "fresh": 14136,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 213,
+      "cost_usd": null,
+      "latency_ms": 2016,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2024/II/22#agenda-1#act-103",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.72,
+        "level_of_justification": 1,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 1,
+            "evidence": {
+              "text": "discuțiile se rezumă la expresii precum „vom face”, „este nevoie de”, „trebuie să creștem”, „trebuie să scădem”, dar, fără a avea un fundament numeric, aceste afirmații rămân la nivel de retorică."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Vorbitorul critică lipsa datelor, dar nu oferă el însuși dovezi sau mecanisme cauzale specifice pentru propunerea sa."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "îmbunătățirea stării sistemului nostru de sănătate"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Apelul este universalizabil, vizând interesul public pentru un sistem de sănătate mai eficient."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "fiecare dintre noi"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.8,
+            "rationale_short": "Referință neutră la cetățeni; nicio derogare sau respect explicit pentru grupuri specifice."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "discuțiile despre sănătate se transformă adesea într-un fel de „roman al sistemului sanitar”"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.75,
+            "rationale_short": "Critica retoricii curente este generală, fără a aborda cereri specifice ale opoziției."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "Observăm cu toții că discuțiile despre sănătate se transformă adesea într-un fel de „roman al sistemului sanitar”."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.8,
+            "rationale_short": "Vorbitorul ignoră argumentele opuse, concentrându-se pe propria critică a stilului de dezbatere."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Haideți să lucrăm împreună pentru a transforma aceste „orientări” în acțiuni concrete"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Apelul la colaborare este o poziție generală, nu o propunere alternativă sau un mecanism de mediere."
+          }
+        ],
+        "rationale": "Discursul se concentrează pe o critică a calității dezbaterii parlamentare, subliniind absența datelor concrete în sistemul de sănătate. Deși vorbitorul pledează pentru transparență și rigoare (common_good), argumentația rămâne la nivelul de observație critică fără a oferi o justificare cauzală sau dovezi empirice (level_of_justification=1). Nu există un angajament substanțial cu contraargumente sau cereri specifice, iar apelul final la colaborare este mai degrabă o poziție retorică decât o propunere alternativă concretă. Calitatea deliberativă este limitată de caracterul general al discursului, care evită să intre în detalii tehnice sau să răspundă unor poziții adverse specifice."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.72,\n  \"level_of_justification\": 1,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 0,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"discuțiile se rezumă la expresii precum „vom face”, „este nevoie de”, „trebuie să creștem”, „trebuie să scădem”, dar, fără a avea un fundament numeric, aceste afirmații rămân la nivel de retorică.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Vorbitorul critică lipsa datelor, dar nu oferă el însuși dovezi sau mecanisme cauzale specifice pentru propunerea sa.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"îmbunătățirea stării sistemului nostru de sănătate\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Apelul este universalizabil, vizând interesul public pentru un sistem de sănătate mai eficient.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"fiecare dintre noi\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.8,\n      \"rationale_short\": \"Referință neutră la cetățeni; nicio derogare sau respect explicit pentru grupuri specifice.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"discuțiile despre sănătate se transformă adesea într-un fel de „roman al sistemului sanitar”\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.75,\n      \"rationale_short\": \"Critica retoricii curente este generală, fără a aborda cereri specifice ale opoziției.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"Observăm cu toții că discuțiile despre sănătate se transformă adesea într-un fel de „roman al sistemului sanitar”.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.8,\n      \"rationale_short\": \"Vorbitorul ignoră argumentele opuse, concentrându-se pe propria critică a stilului de dezbatere.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"Haideți să lucrăm împreună pentru a transforma aceste „orientări” în acțiuni concrete\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Apelul la colaborare este o poziție generală, nu o propunere alternativă sau un mecanism de mediere.\"\n    }\n  ],\n  \"rationale\": \"Discursul se concentrează pe o critică a calității dezbaterii parlamentare, subliniind absența datelor concrete în sistemul de sănătate. Deși vorbitorul pledează pentru transparență și rigoare (common_good), argumentația rămâne la nivelul de observație critică fără a oferi o justificare cauzală sau dovezi empirice (level_of_justification=1). Nu există un angajament substanțial cu contraargumente sau cereri specifice, iar apelul final la colaborare este mai degrabă o poziție retorică decât o propunere alternativă concretă. Calitatea deliberativă este limitată de caracterul general al discursului, care evită să intre în detalii tehnice sau să răspundă unor poziții adverse specifice.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12937,
+      "tokens_in_breakdown": {
+        "fresh": 12937,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1219,
+      "cost_usd": null,
+      "latency_ms": 4714,
+      "retries_used": 0
+    }
+  }
+}

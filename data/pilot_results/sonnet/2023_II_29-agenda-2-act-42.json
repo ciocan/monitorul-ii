@@ -1,0 +1,152 @@
+{
+  "speech_id": "mo://2023/II/29#agenda-2#act-42",
+  "tier": "populist",
+  "speaker": {
+    "id": "damureanu-ringo",
+    "name": "Ringo Dămureanu",
+    "raw": "Domnul Ringo Dămureanu",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2023-02-28",
+    "year": 2023,
+    "legislature": "IX",
+    "delivery_mode": null
+  },
+  "model_key": "sonnet",
+  "model_label": "claude-sonnet-4.6",
+  "results": {
+    "hawkins": {
+      "model_key": "sonnet",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2023/II/29#agenda-2#act-42",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.93,
+        "markers": [],
+        "rationale": "Discursul este o pledoarie tipică de circumscripție pe infrastructură: vorbitorul cataloghează deficiențe specifice (poduri nerefăcute de 8 ani pe DN 55, viaductul de la Cârcea nereabilitat, accidentele feroviare din 2009, 2018, 2022 și din săptămâna curentă, cu date, locații și detalii tehnice exacte). Registrul este predominant tehnic-factual, nu mobilizator-maniheic. Întrebarea retorică de încheiere — „cât vor mai îndura craiovenii și oltenii incompetența dovedită a PSD și PNL?\" — este o imputare partizană convențională bazată pe incompetență (nu pe maleficitate sau trădare), iar „craiovenii și oltenii\" sunt invocați ca victime ale neglijenței administrative, nu ca subiect politic suveran cu voință colectivă. Niciun marker din setul Hawkins nu se aprinde: nu există cadru popor-vs-elită structural-portant, nu există maniheism moralist, nu există invocarea unei voințe populare omogene, nu există elită malefică, nu există supremație a voinței poporului față de instituții, nu există criză retorică de tip „acum-sau-niciodată\", nu există proporții cosmice. Hawkins=0 cu încredere ridicată."
+      },
+      "raw_response": "```json\n{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.93,\n  \"markers\": [],\n  \"rationale\": \"Discursul este o pledoarie tipică de circumscripție pe infrastructură: vorbitorul cataloghează deficiențe specifice (poduri nerefăcute de 8 ani pe DN 55, viaductul de la Cârcea nereabilitat, accidentele feroviare din 2009, 2018, 2022 și din săptămâna curentă, cu date, locații și detalii tehnice exacte). Registrul este predominant tehnic-factual, nu mobilizator-maniheic. Întrebarea retorică de încheiere — „cât vor mai îndura craiovenii și oltenii incompetența dovedită a PSD și PNL?\" — este o imputare partizană convențională bazată pe incompetență (nu pe maleficitate sau trădare), iar „craiovenii și oltenii\" sunt invocați ca victime ale neglijenței administrative, nu ca subiect politic suveran cu voință colectivă. Niciun marker din setul Hawkins nu se aprinde: nu există cadru popor-vs-elită structural-portant, nu există maniheism moralist, nu există invocarea unei voințe populare omogene, nu există elită malefică, nu există supremație a voinței poporului față de instituții, nu există criză retorică de tip „acum-sau-niciodată\", nu există proporții cosmice. Hawkins=0 cu încredere ridicată.\"\n}\n```",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": true,
+      "tokens_in": 74379,
+      "tokens_in_breakdown": {
+        "fresh": 2,
+        "cache_creation": 61231,
+        "cache_read": 13146
+      },
+      "tokens_out": 2400,
+      "cost_usd": 0.26956605,
+      "latency_ms": 60972,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "sonnet",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2023/II/29#agenda-2#act-42",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.79,
+        "level_of_justification": 2,
+        "content_of_justification": "group_interest",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "În august 2018, pe magistrala 100 Timișoara–București, în apropierea Craiovei, un marfar cu 23 de vagoane a deraiat pe viaductul de la Cârcea. Podul s-a rupt, iar șase vagoane au căzut de pe șine într-o râpă, cu tot cu acea parte a podului. Nici până astăzi nu s-au demarat lucrările de reparare a viaductului, iar trenurile circulă doar pe un singur fir."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.94,
+            "marker_confidence": 0.8,
+            "rationale_short": "Incidente feroviare datate, localizate și cu consecințe concrete ancorează empiric afirmația că infrastructura regiunii este neglijată."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "group_interest",
+            "evidence": {
+              "text": "Județul Dolj, pe care îl reprezint în Parlament, și, implicit, regiunea Oltenia, par a fi un soi de cenușăreasă, când vine vorba de legăturile lor cu lumea"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.86,
+            "rationale_short": "Justificarea este construită explicit în jurul intereselor județului Dolj și regiunii Oltenia, nu al unui principiu universal aplicabil tuturor cetățenilor."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Stimați colegi, Doamnelor și domnilor deputați"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.72,
+            "rationale_short": "Adresare convențională de sală; niciun grup social sau demografic nu este derogate ori recunoscut explicit; atitudine neutră."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Ne întrebăm și vă întrebăm: oare cât vor mai avea de așteptat Doljul și Oltenia pentru a se bucura de beneficiile civilizației"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.76,
+            "rationale_short": "Discursul nu abordează și nu recunoaște nicio cerere sau poziție adversă; non-angajament implicit, neutru."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "cât vor mai îndura craiovenii și oltenii incompetența dovedită a PSD și PNL?"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.96,
+            "marker_confidence": 0.88,
+            "rationale_short": "Niciun argument advers nu este menționat, reformulat sau combătut; discursul procedează ca și cum partea cealaltă nu ar fi argumentat nimic."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Ne întrebăm și vă întrebăm: oare cât vor mai avut de așteptat Doljul și Oltenia pentru a se bucura de beneficiile civilizației și cât vor mai îndura craiovenii și oltenii incompetența dovedită a PSD și PNL?"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.91,
+            "rationale_short": "Discursul formulează o plângere și acuză partidele de incompetență, fără a propune nicio alternativă concretă sau soluție de mediere."
+          }
+        ],
+        "rationale": "Discurs de plângere regională cu profil DQI mixt, tipic genului de advocacy teritorial din parlamentul român. Vorbitorul oferă o justificare calificată (level_of_justification=2) prin enumerarea unor incidente feroviare și rutiere specifice, datate și localizate (Răcari 2022, Banu Mărăcine 2009, Cârcea 2018, Ișalnița 2023), care ancorează empiric afirmația că infrastructura Dolj-Oltenia este neglijată; justificarea apelează însă explicit la interesul de grup regional (conținut=group_interest), nu la un principiu universalizabil. Respectul față de grupuri și față de cereri adverse este neutru — niciun grup social nu este derogate și nicio cerere a opoziției sau coaliției nu este abordată. Respectul față de contraargumente este absent (score=0): nicio poziție a altor actori politici nu este reformulată sau combătută, discursul funcționând ca un monolog de denunț fără dialog argumentativ. Politica constructivă lipsește (positional): în ciuda listei detaliate de disfuncții, vorbitorul nu propune nicio alternativă concretă sau măsură de remediere, încheindu-se cu o acuzație de incompetență a PSD și PNL neancorat cauzal în faptele enumerate. Confidența generală este limitată (0.79) de ambiguitatea frontieră pe level_of_justification (1 vs. 2) și de absența oricărui angajament deliberativ cu ceilalți actori."
+      },
+      "raw_response": "```json\n{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.79,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"group_interest\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 0,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"În august 2018, pe magistrala 100 Timișoara–București, în apropierea Craiovei, un marfar cu 23 de vagoane a deraiat pe viaductul de la Cârcea. Podul s-a rupt, iar șase vagoane au căzut de pe șine într-o râpă, cu tot cu acea parte a podului. Nici până astăzi nu s-au demarat lucrările de reparare a viaductului, iar trenurile circulă doar pe un singur fir.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.94,\n      \"marker_confidence\": 0.80,\n      \"rationale_short\": \"Incidente feroviare datate, localizate și cu consecințe concrete ancorează empiric afirmația că infrastructura regiunii este neglijată.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"group_interest\",\n      \"evidence\": {\n        \"text\": \"Județul Dolj, pe care îl reprezint în Parlament, și, implicit, regiunea Oltenia, par a fi un soi de cenușăreasă, când vine vorba de legăturile lor cu lumea\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.86,\n      \"rationale_short\": \"Justificarea este construită explicit în jurul intereselor județului Dolj și regiunii Oltenia, nu al unui principiu universal aplicabil tuturor cetățenilor.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Stimați colegi, Doamnelor și domnilor deputați\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.72,\n      \"rationale_short\": \"Adresare convențională de sală; niciun grup social sau demografic nu este derogate ori recunoscut explicit; atitudine neutră.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Ne întrebăm și vă întrebăm: oare cât vor mai avea de așteptat Doljul și Oltenia pentru a se bucura de beneficiile civilizației\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.76,\n      \"rationale_short\": \"Discursul nu abordează și nu recunoaște nicio cerere sau poziție adversă; non-angajament implicit, neutru.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"cât vor mai îndura craiovenii și oltenii incompetența dovedită a PSD și PNL?\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.96,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Niciun argument advers nu este menționat, reformulat sau combătut; discursul procedează ca și cum partea cealaltă nu ar fi argumentat nimic.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"Ne întrebăm și vă întrebăm: oare cât vor mai avut de așteptat Doljul și Oltenia pentru a se bucura de beneficiile civilizației și cât vor mai îndura craiovenii și oltenii incompetența dovedită a PSD și PNL?\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.91,\n      \"rationale_short\": \"Discursul formulează o plângere și acuză partidele de incompetență, fără a propune nicio alternativă concretă sau soluție de mediere.\"\n    }\n  ],\n  \"rationale\": \"Discurs de plângere regională cu profil DQI mixt, tipic genului de advocacy teritorial din parlamentul român. Vorbitorul oferă o justificare calificată (level_of_justification=2) prin enumerarea unor incidente feroviare și rutiere specifice, datate și localizate (Răcari 2022, Banu Mărăcine 2009, Cârcea 2018, Ișalnița 2023), care ancorează empiric afirmația că infrastructura Dolj-Oltenia este neglijată; justificarea apelează însă explicit la interesul de grup regional (conținut=group_interest), nu la un principiu universalizabil. Respectul față de grupuri și față de cereri adverse este neutru — niciun grup social nu este derogate și nicio cerere a opoziției sau coaliției nu este abordată. Respectul față de contraargumente este absent (score=0): nicio poziție a altor actori politici nu este reformulată sau combătută, discursul funcționând ca un monolog de denunț fără dialog argumentativ. Politica constructivă lipsește (positional): în ciuda listei detaliate de disfuncții, vorbitorul nu propune nicio alternativă concretă sau măsură de remediere, încheindu-se cu o acuzație de incompetență a PSD și PNL neancorat cauzal în faptele enumerate. Confidența generală este limitată (0.79) de ambiguitatea frontieră pe level_of_justification (1 vs. 2) și de absența oricărui angajament deliberativ cu ceilalți actori.\"\n}\n```",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [
+        "Ne întrebăm și vă întrebăm: oare cât vor mai avut de așteptat Doljul și Oltenia pentru a se bucura de beneficiile civilizației și cât vor mai îndura craiovenii și oltenii incompetența dovedită a PSD și PNL?"
+      ],
+      "parse_repaired": false,
+      "tokens_in": 73010,
+      "tokens_in_breakdown": {
+        "fresh": 2,
+        "cache_creation": 59862,
+        "cache_read": 13146
+      },
+      "tokens_out": 7436,
+      "cost_usd": 0.3399723,
+      "latency_ms": 126963,
+      "retries_used": 0
+    }
+  }
+}

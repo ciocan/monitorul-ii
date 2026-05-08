@@ -1,0 +1,148 @@
+{
+  "speech_id": "mo://2017/II/153#agenda-1#act-116",
+  "tier": "register_shift",
+  "speaker": {
+    "id": "basescu-traian",
+    "name": "Traian Băsescu",
+    "raw": "Domnul Traian Băsescu",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": "2017-10-24",
+    "year": 2017,
+    "legislature": "VIII",
+    "delivery_mode": null
+  },
+  "model_key": "opus",
+  "model_label": "claude-opus-4.7",
+  "results": {
+    "hawkins": {
+      "model_key": "opus",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2017/II/153#agenda-1#act-116",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.93,
+        "markers": [],
+        "rationale": "Discurs procedural-instituțional despre subordonarea Monitorului Oficial, cu argumentație juridică (încălcarea Constituției, nerespectarea legii) și un argument de echilibru între puteri (Parlament vs Executiv). Vorbitorul critică o mișcare politică a Executivului și avertizează majoritatea că Guvernul poate deveni problematic și pentru ei — un argument tehnocratic-instituțional, nu unul popor-vs-elită. Nu există invocarea unui popor omogen, niciun cadru manihean bine-vs-rău, nicio supremație a voinței populare deasupra instituțiilor, nicio elită malefică conspirațională, niciun cadru de criză existențială. Hawkins=0 cu încredere ridicată."
+      },
+      "raw_response": "{\"score\":0,\"score_unit\":\"ordinal_0_2\",\"framework_version\":\"hawkins@2018\",\"framework_confidence\":0.93,\"markers\":[],\"rationale\":\"Discurs procedural-instituțional despre subordonarea Monitorului Oficial, cu argumentație juridică (încălcarea Constituției, nerespectarea legii) și un argument de echilibru între puteri (Parlament vs Executiv). Vorbitorul critică o mișcare politică a Executivului și avertizează majoritatea că Guvernul poate deveni problematic și pentru ei — un argument tehnocratic-instituțional, nu unul popor-vs-elită. Nu există invocarea unui popor omogen, niciun cadru manihean bine-vs-rău, nicio supremație a voinței populare deasupra instituțiilor, nicio elită malefică conspirațională, niciun cadru de criză existențială. Hawkins=0 cu încredere ridicată.\"}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "tokens_in": 104099,
+      "tokens_in_breakdown": {
+        "fresh": 5,
+        "cache_creation": 85741,
+        "cache_read": 18353
+      },
+      "tokens_out": 329,
+      "cost_usd": 0.55330775,
+      "latency_ms": 16709,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "opus",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2017/II/153#agenda-1#act-116",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.78,
+        "level_of_justification": 1,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 1,
+            "evidence": {
+              "text": "Trecerea Monitorului Oficial la Guvern, la Secretariatul General al Guvernului, a fost o mișcare politică ce a decurs din nevoia de a genera ilegalități: încălcarea Constituției și nerespectarea legii."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.82,
+            "rationale_short": "Invocă „încălcarea Constituției\" și „nerespectarea legii\" ca motive, dar fără articol, decizie sau mecanism specific — justificare inferioară."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "Nu trebuie să perpetuăm dreptul Executivului, pe care avem pretenția că-l controlăm, să jongleze cu actele normative în funcție de nevoile lui."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.78,
+            "rationale_short": "Apel la un principiu universalizabil — controlul parlamentar asupra actelor normative — nu la interes de partid sau grup."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Și un avertisment și pentru majoritate: mâine-poimâine s-ar putea să vă treziți că nu vă convine nici vouă ce vă face Guvernul cu Monitorul Oficial"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.94,
+            "marker_confidence": 0.72,
+            "rationale_short": "Majoritatea este referită funcțional, cu un avertisment pragmatic; nici derogare, nici recunoaștere explicită — neutru."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "susținem fără rezerve varianta revenirii Monitorului Oficial acolo unde îi este locul"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.7,
+            "rationale_short": "Cererile părții adverse (păstrarea MO la Guvern) nu sunt nici respinse explicit, nici recunoscute ca legitime — non-angajament."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "mâine-poimâine s-ar putea să vă treziți că nu vă convine nici vouă ce vă face Guvernul cu Monitorul Oficial"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.94,
+            "marker_confidence": 0.7,
+            "rationale_short": "Aluzie indirectă la poziția majorității printr-un argument prudențial pro futuro, fără reformulare sau combatere a raționamentului efectiv al acesteia."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "susțin fără rezerve revenirea Monitorului Oficial în subordinea Camerei Deputaților"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.96,
+            "marker_confidence": 0.9,
+            "rationale_short": "Poziție declarată ferm (revenirea MO la Camera Deputaților); nicio alternativă intermediară sau mediere propusă."
+          }
+        ],
+        "rationale": "Discurs scurt, pozițional, cu calitate deliberativă moderat-scăzută. Vorbitorul oferă motive (încălcarea Constituției, jonglarea cu actele normative de către Executiv), dar fără ancore specifice — articole, decizii CCR, mecanisme concrete — așa că justificarea rămâne la nivelul 1 (inferioară). Conținutul justificării se ancorează totuși pe un principiu universalizabil (controlul parlamentar asupra actelor normative ca apărare împotriva ilegalităților), încadrându-se în common_good. Dimensiunile de respect rămân neutre: majoritatea este avertizată pragmatic, nu derogată, dar nici nu există recunoaștere substanțială a legitimității poziției adverse sau angajament cu raționamentul ei. Construcția este pur pozițională — propune revenirea MO la Camera Deputaților fără variantă intermediară sau punte. Profil tipic de discurs scurt de opoziție: justificare prezentă dar superficială, registru civilizat fără angajament deliberativ substanțial."
+      },
+      "raw_response": "{\"framework_version\":\"steiner-bachtiger@2017\",\"score_unit\":\"dqi_multi\",\"framework_confidence\":0.78,\"level_of_justification\":1,\"content_of_justification\":\"common_good\",\"respect_for_groups\":1,\"respect_for_demands\":1,\"respect_for_counterarguments\":1,\"constructive_politics\":\"positional\",\"markers\":[{\"kind\":\"level_of_justification\",\"value\":1,\"evidence\":{\"text\":\"Trecerea Monitorului Oficial la Guvern, la Secretariatul General al Guvernului, a fost o mișcare politică ce a decurs din nevoia de a genera ilegalități: încălcarea Constituției și nerespectarea legii.\"},\"preliminary_voice\":\"speaker_first_person\",\"preliminary_voice_confidence\":0.95,\"marker_confidence\":0.82,\"rationale_short\":\"Invocă „încălcarea Constituției\\\" și „nerespectarea legii\\\" ca motive, dar fără articol, decizie sau mecanism specific — justificare inferioară.\"},{\"kind\":\"content_of_justification\",\"value\":\"common_good\",\"evidence\":{\"text\":\"Nu trebuie să perpetuăm dreptul Executivului, pe care avem pretenția că-l controlăm, să jongleze cu actele normative în funcție de nevoile lui.\"},\"preliminary_voice\":\"speaker_first_person\",\"preliminary_voice_confidence\":0.95,\"marker_confidence\":0.78,\"rationale_short\":\"Apel la un principiu universalizabil — controlul parlamentar asupra actelor normative — nu la interes de partid sau grup.\"},{\"kind\":\"respect_for_groups\",\"value\":1,\"evidence\":{\"text\":\"Și un avertisment și pentru majoritate: mâine-poimâine s-ar putea să vă treziți că nu vă convine nici vouă ce vă face Guvernul cu Monitorul Oficial\"},\"preliminary_voice\":\"speaker_first_person\",\"preliminary_voice_confidence\":0.94,\"marker_confidence\":0.72,\"rationale_short\":\"Majoritatea este referită funcțional, cu un avertisment pragmatic; nici derogare, nici recunoaștere explicită — neutru.\"},{\"kind\":\"respect_for_demands\",\"value\":1,\"evidence\":{\"text\":\"susținem fără rezerve varianta revenirii Monitorului Oficial acolo unde îi este locul\"},\"preliminary_voice\":\"speaker_first_person\",\"preliminary_voice_confidence\":0.95,\"marker_confidence\":0.7,\"rationale_short\":\"Cererile părții adverse (păstrarea MO la Guvern) nu sunt nici respinse explicit, nici recunoscute ca legitime — non-angajament.\"},{\"kind\":\"respect_for_counterarguments\",\"value\":1,\"evidence\":{\"text\":\"mâine-poimâine s-ar putea să vă treziți că nu vă convine nici vouă ce vă face Guvernul cu Monitorul Oficial\"},\"preliminary_voice\":\"speaker_first_person\",\"preliminary_voice_confidence\":0.94,\"marker_confidence\":0.7,\"rationale_short\":\"Aluzie indirectă la poziția majorității printr-un argument prudențial pro futuro, fără reformulare sau combatere a raționamentului efectiv al acesteia.\"},{\"kind\":\"constructive_politics\",\"value\":\"positional\",\"evidence\":{\"text\":\"susțin fără rezerve revenirea Monitorului Oficial în subordinea Camerei Deputaților\"},\"preliminary_voice\":\"speaker_first_person\",\"preliminary_voice_confidence\":0.96,\"marker_confidence\":0.9,\"rationale_short\":\"Poziție declarată ferm (revenirea MO la Camera Deputaților); nicio alternativă intermediară sau mediere propusă.\"}],\"rationale\":\"Discurs scurt, pozițional, cu calitate deliberativă moderat-scăzută. Vorbitorul oferă motive (încălcarea Constituției, jonglarea cu actele normative de către Executiv), dar fără ancore specifice — articole, decizii CCR, mecanisme concrete — așa că justificarea rămâne la nivelul 1 (inferioară). Conținutul justificării se ancorează totuși pe un principiu universalizabil (controlul parlamentar asupra actelor normative ca apărare împotriva ilegalităților), încadrându-se în common_good. Dimensiunile de respect rămân neutre: majoritatea este avertizată pragmatic, nu derogată, dar nici nu există recunoaștere substanțială a legitimității poziției adverse sau angajament cu raționamentul ei. Construcția este pur pozițională — propune revenirea MO la Camera Deputaților fără variantă intermediară sau punte. Profil tipic de discurs scurt de opoziție: justificare prezentă dar superficială, registru civilizat fără angajament deliberativ substanțial.\"}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "tokens_in": 102090,
+      "tokens_in_breakdown": {
+        "fresh": 5,
+        "cache_creation": 83732,
+        "cache_read": 18353
+      },
+      "tokens_out": 1675,
+      "cost_usd": 0.5744015,
+      "latency_ms": 35256,
+      "retries_used": 0
+    }
+  }
+}

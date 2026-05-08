@@ -1,0 +1,152 @@
+{
+  "speech_id": "mo://2012/II/21#agenda-1#act-18",
+  "tier": "calibration",
+  "speaker": {
+    "id": "filip-petru",
+    "name": "Petru Filip",
+    "raw": "Domnul Petru Filip",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": "2012-03-12",
+    "year": 2012,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2012/II/21#agenda-1#act-18",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.95,
+        "markers": [],
+        "rationale": "Cele două discursuri sunt de natură procedurală și tehnică. Primul discurs critică blocajul parlamentar al USL prin prisma obligațiilor de reprezentare și a procedurilor democratice, fără a invoca un cadru maniheist popor-vs-elită. Al doilea discurs discută măsuri economice (salariile bugetarilor) și responsabilitatea guvernamentală, folosind un limbaj de politici publice și argumentație logică. Niciunul dintre discursuri nu conține markeri populiști la persoana întâi, iar registrul rămâne unul de dezbatere parlamentară convențională."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.95,\n  \"markers\": [],\n  \"rationale\": \"Cele două discursuri sunt de natură procedurală și tehnică. Primul discurs critică blocajul parlamentar al USL prin prisma obligațiilor de reprezentare și a procedurilor democratice, fără a invoca un cadru maniheist popor-vs-elită. Al doilea discurs discută măsuri economice (salariile bugetarilor) și responsabilitatea guvernamentală, folosind un limbaj de politici publice și argumentație logică. Niciunul dintre discursuri nu conține markeri populiști la persoana întâi, iar registrul rămâne unul de dezbatere parlamentară convențională.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 14743,
+      "tokens_in_breakdown": {
+        "fresh": 14743,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 209,
+      "cost_usd": null,
+      "latency_ms": 1933,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2012/II/21#agenda-1#act-18",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.78,
+        "level_of_justification": 2,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "Alocarea de resurse pentru readucerea nivelului salarial al bugetarilor la cel din 2009 nu este deloc în contradicție cu austeritatea bugetară de până acum. A găsi resurse și a le aloca pentru creșterea salariilor este, din punct de vedere logic, o acțiune ulterioară măsurilor de austeritate."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Vorbitorul oferă o justificare logică bazată pe succesiunea etapelor de guvernare (austeritate urmată de creștere)."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "Este de bun-simț și ține de principiile guvernării de a găsi soluții pentru ca nivelul de trai al oamenilor să fie corespunzător."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Apelul este la principiile guvernării și la nivelul de trai al cetățenilor în general, nu la un grup specific."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Dintre toate categoriile, bugetarii au suferit"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Referință neutră la categoria bugetarilor; nicio derogare sau laudă explicită."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Dacă ar fi să luăm în serios nedumerirea opoziției"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.8,
+            "rationale_short": "Opoziția este menționată, dar cererile lor nu sunt angajate substanțial; atitudine de non-angajament."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "tot acest spectacol al indignării față de creșterea salariilor este unul fals, profund politizat și incorect."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Vorbitorul menționează indignarea opoziției dar o respinge ca fiind falsă fără a angaja argumentele lor."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "dacă există resurse pentru readucerea salariilor bugetarilor la nivelul din 2009, atunci ele trebuie alocate fără ezitare."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Vorbitorul susține o poziție fermă fără a propune un amendament sau o mediere concretă."
+          }
+        ],
+        "rationale": "Discursul prezintă o justificare calificată (level 2) prin argumentarea logică a succesiunii între austeritate și creștere economică, ancorată în binele comun. Deși vorbitorul menționează opoziția, nu există un angajament substanțial cu argumentele acestora, ci mai degrabă o respingere a indignării lor ca fiind politizată. Respectul pentru grupuri și cereri rămâne neutru, iar discursul este în esență pozițional, fără a oferi o alternativă legislativă concretă. Calitatea deliberativă este medie, fiind un discurs de susținere a unei măsuri guvernamentale."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.78,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"Alocarea de resurse pentru readucerea nivelului salarial al bugetarilor la cel din 2009 nu este deloc în contradicție cu austeritatea bugetară de până acum. A găsi resurse și a le aloca pentru creșterea salariilor este, din punct de vedere logic, o acțiune ulterioară măsurilor de austeritate.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Vorbitorul oferă o justificare logică bazată pe succesiunea etapelor de guvernare (austeritate urmată de creștere).\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"Este de bun-simț și ține de principiile guvernării de a găsi soluții pentru ca nivelul de trai al oamenilor să fie corespunzător.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Apelul este la principiile guvernării și la nivelul de trai al cetățenilor în general, nu la un grup specific.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Dintre toate categoriile, bugetarii au suferit\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Referință neutră la categoria bugetarilor; nicio derogare sau laudă explicită.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Dacă ar fi să luăm în serios nedumerirea opoziției\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.8,\n      \"rationale_short\": \"Opoziția este menționată, dar cererile lor nu sunt angajate substanțial; atitudine de non-angajament.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"tot acest spectacol al indignării față de creșterea salariilor este unul fals, profund politizat și incorect.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Vorbitorul menționează indignarea opoziției dar o respinge ca fiind falsă fără a angaja argumentele lor.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"dacă există resurse pentru readucerea salariilor bugetarilor la nivelul din 2009, atunci ele trebuie alocate fără ezitare.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Vorbitorul susține o poziție fermă fără a propune un amendament sau o mediere concretă.\"\n    }\n  ],\n  \"rationale\": \"Discursul prezintă o justificare calificată (level 2) prin argumentarea logică a succesiunii între austeritate și creștere economică, ancorată în binele comun. Deși vorbitorul menționează opoziția, nu există un angajament substanțial cu argumentele acestora, ci mai degrabă o respingere a indignării lor ca fiind politizată. Respectul pentru grupuri și cereri rămâne neutru, iar discursul este în esență pozițional, fără a oferi o alternativă legislativă concretă. Calitatea deliberativă este medie, fiind un discurs de susținere a unei măsuri guvernamentale.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [
+        "dacă există resurse pentru readucerea salariilor bugetarilor la nivelul din 2009, atunci ele trebuie alocate fără ezitare."
+      ],
+      "parse_repaired": false,
+      "tokens_in": 13544,
+      "tokens_in_breakdown": {
+        "fresh": 13544,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1251,
+      "cost_usd": null,
+      "latency_ms": 4552,
+      "retries_used": 0
+    }
+  }
+}

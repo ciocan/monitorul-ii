@@ -1,0 +1,192 @@
+{
+  "speech_id": "mo://2019/II/80#agenda-7#act-184",
+  "tier": "calibration",
+  "speaker": {
+    "id": "vasilescu-lia-olguta",
+    "name": "Lia Olguța Vasilescu",
+    "raw": "Doamna Lia Olguța Vasilescu",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2019-06-26",
+    "year": 2019,
+    "legislature": "VIII",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2019/II/80#agenda-7#act-184",
+      "output": {
+        "score": 1,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.85,
+        "markers": [
+          {
+            "kind": "evil_elite",
+            "evidence": {
+              "text": "Ipocrizia ucide!"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.85,
+            "rationale_short": "Folosește un limbaj moralizator extrem pentru a ataca opoziția, etichetând-o drept ipocrită într-un mod care sugerează o vinovăție malignă."
+          }
+        ],
+        "rationale": "Discursul este în mare parte tehnic, concentrându-se pe simulări, procente și mecanisme de calcul al pensiilor, ceea ce indică un registru procedural. Totuși, vorbitoarea introduce elemente de retorică populistă prin atacuri la adresa opoziției, folosind termeni precum „minciună” și „ipocrizie” pentru a delegitima adversarii politici. Deși există o tentativă de a crea un contrast între „noi” (guvernul care a plafonat pensiile) și „ei” (opoziția ipocrită), cadrul nu este suficient de pervaziv pentru a susține un scor 2. Este un discurs de tip 1, unde elementele populiste apar ca momente de confruntare într-o argumentare altfel bazată pe date."
+      },
+      "raw_response": "{\n  \"score\": 1,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.85,\n  \"markers\": [\n    {\n      \"kind\": \"evil_elite\",\n      \"evidence\": {\n        \"text\": \"Ipocrizia ucide!\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Folosește un limbaj moralizator extrem pentru a ataca opoziția, etichetând-o drept ipocrită într-un mod care sugerează o vinovăție malignă.\"\n    }\n  ],\n  \"rationale\": \"Discursul este în mare parte tehnic, concentrându-se pe simulări, procente și mecanisme de calcul al pensiilor, ceea ce indică un registru procedural. Totuși, vorbitoarea introduce elemente de retorică populistă prin atacuri la adresa opoziției, folosind termeni precum „minciună” și „ipocrizie” pentru a delegitima adversarii politici. Deși există o tentativă de a crea un contrast între „noi” (guvernul care a plafonat pensiile) și „ei” (opoziția ipocrită), cadrul nu este suficient de pervaziv pentru a susține un scor 2. Este un discurs de tip 1, unde elementele populiste apar ca momente de confruntare într-o argumentare altfel bazată pe date.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 14153,
+      "tokens_in_breakdown": {
+        "fresh": 14153,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 393,
+      "cost_usd": null,
+      "latency_ms": 2724,
+      "retries_used": 0
+    },
+    "voice": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "voice",
+      "speech_id": "mo://2019/II/80#agenda-7#act-184",
+      "output": {
+        "classifications": [
+          {
+            "marker_id": "m_0",
+            "voice": "speaker_first_person",
+            "voice_confidence": 0.95,
+            "voice_evidence": null,
+            "attributed_to": null,
+            "rationale_short": "Afirmație directă, asumată de vorbitor la finalul discursului, fără elemente de citare, raportare sau ironie explicită."
+          }
+        ]
+      },
+      "raw_response": "{\n  \"classifications\": [\n    {\n      \"marker_id\": \"m_0\",\n      \"voice\": \"speaker_first_person\",\n      \"voice_confidence\": 0.95,\n      \"voice_evidence\": null,\n      \"attributed_to\": null,\n      \"rationale_short\": \"Afirmație directă, asumată de vorbitor la finalul discursului, fără elemente de citare, raportare sau ironie explicită.\"\n    }\n  ]\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 11700,
+      "tokens_in_breakdown": {
+        "fresh": 11700,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 118,
+      "cost_usd": null,
+      "latency_ms": 1154,
+      "retries_used": 0
+    },
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2019/II/80#agenda-7#act-184",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.82,
+        "level_of_justification": 2,
+        "content_of_justification": "mixed",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 2,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "Și o să vedeți acolo că un profesor universitar va ajunge cu o pensie de 8.000 de lei. Atenție, raportat la salariul pe care îl avea în 2017, nu la salariile pe care le au acum în plată!"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Vorbitorul oferă un mecanism cauzal specific și date de referință pentru a justifica impactul legii."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "mixed",
+            "evidence": {
+              "text": "Suntem singurul Guvern care a plafonat pensiile speciale încă din iunie 2017. Și asta ne-a costat la vot."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Justificarea combină interesul politic de grup (costul electoral) cu apelul la o măsură de interes public (plafonarea)."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Suntem singurul Guvern care a plafonat pensiile speciale"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.88,
+            "rationale_short": "Referințe funcționale la grupuri profesionale și politice fără derogare sau respect explicit."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Ni se tot spune că există o lege a USR-ului care vrea să taie pensiile speciale."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Cererile opoziției sunt menționate, dar nu se recunoaște legitimitatea lor, ci sunt respinse ca minciună."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 2,
+            "evidence": {
+              "text": "Ce spune legea dumneavoastră? Că se iese cu 85% din ultimul salariu, ceea ce e chiar mai avantajos, dragii mei. Ipocrizia ucide!"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.91,
+            "rationale_short": "Vorbitorul identifică argumentul opoziției, îl reformulează și îl combate printr-o analiză comparativă a procentelor."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "noi credem că în 3 ani de zile el se va așeza"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Vorbitorul își susține propria poziție și legea propusă fără a oferi un amendament sau o mediere."
+          }
+        ],
+        "rationale": "Discursul prezintă o calitate deliberativă mixtă. Vorbitorul oferă justificări calificate prin simulări și date concrete (level_of_justification=2), apelând la o combinație de interese de grup și bine comun (content_of_justification=mixed). Deși respectul pentru grupuri și cereri rămâne neutru sau dismissiv, vorbitorul demonstrează un angajament substanțial cu contraargumentele opoziției, reformulând și combatând logic propunerea USR (respect_for_counterarguments=2). Totuși, discursul rămâne în esență pozițional, fără a oferi o alternativă constructivă sau o mediere. Tonul este combativ, dar argumentația este ancorată în date, ceea ce ridică scorul peste media discursurilor pur retorice."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.82,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"mixed\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 2,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"Și o să vedeți acolo că un profesor universitar va ajunge cu o pensie de 8.000 de lei. Atenție, raportat la salariul pe care îl avea în 2017, nu la salariile pe care le au acum în plată!\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Vorbitorul oferă un mecanism cauzal specific și date de referință pentru a justifica impactul legii.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"mixed\",\n      \"evidence\": {\n        \"text\": \"Suntem singurul Guvern care a plafonat pensiile speciale încă din iunie 2017. Și asta ne-a costat la vot.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Justificarea combină interesul politic de grup (costul electoral) cu apelul la o măsură de interes public (plafonarea).\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Suntem singurul Guvern care a plafonat pensiile speciale\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Referințe funcționale la grupuri profesionale și politice fără derogare sau respect explicit.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Ni se tot spune că există o lege a USR-ului care vrea să taie pensiile speciale.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Cererile opoziției sunt menționate, dar nu se recunoaște legitimitatea lor, ci sunt respinse ca minciună.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"Ce spune legea dumneavoastră? Că se iese cu 85% din ultimul salariu, ceea ce e chiar mai avantajos, dragii mei. Ipocrizia ucide!\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.91,\n      \"rationale_short\": \"Vorbitorul identifică argumentul opoziției, îl reformulează și îl combate printr-o analiză comparativă a procentelor.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"noi credem că în 3 ani de zile el se va așeza\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.90,\n      \"rationale_short\": \"Vorbitorul își susține propria poziție și legea propusă fără a oferi un amendament sau o mediere.\"\n    }\n  ],\n  \"rationale\": \"Discursul prezintă o calitate deliberativă mixtă. Vorbitorul oferă justificări calificate prin simulări și date concrete (level_of_justification=2), apelând la o combinație de interese de grup și bine comun (content_of_justification=mixed). Deși respectul pentru grupuri și cereri rămâne neutru sau dismissiv, vorbitorul demonstrează un angajament substanțial cu contraargumentele opoziției, reformulând și combatând logic propunerea USR (respect_for_counterarguments=2). Totuși, discursul rămâne în esență pozițional, fără a oferi o alternativă constructivă sau o mediere. Tonul este combativ, dar argumentația este ancorată în date, ceea ce ridică scorul peste media discursurilor pur retorice.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12954,
+      "tokens_in_breakdown": {
+        "fresh": 12954,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1274,
+      "cost_usd": null,
+      "latency_ms": 4979,
+      "retries_used": 0
+    }
+  }
+}

@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2002/II/165#agenda-2#act-21",
+  "tier": "calibration",
+  "speaker": {
+    "id": "filipas-avram",
+    "name": "Avram Filipaº",
+    "raw": "Domnul Avram Filipaº",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": null,
+    "year": 2002,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2002/II/165#agenda-2#act-21",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul este pur procedural, concentrându-se pe natura juridică a unui act normativ (lege ordinară vs. organică) și pe necesitatea analizei acestuia în cadrul Comisiei juridice. Nu există nicio referire la un cadru popor-vs-elită, nicio invocare a unei voințe populare omogene și niciun element de maniheism moral. Vorbitorul se limitează la o discuție tehnică despre procedurile parlamentare, ceea ce încadrează discursul în registrul non-populist."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul este pur procedural, concentrându-se pe natura juridică a unui act normativ (lege ordinară vs. organică) și pe necesitatea analizei acestuia în cadrul Comisiei juridice. Nu există nicio referire la un cadru popor-vs-elită, nicio invocare a unei voințe populare omogene și niciun element de maniheism moral. Vorbitorul se limitează la o discuție tehnică despre procedurile parlamentare, ceea ce încadrează discursul în registrul non-populist.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13691,
+      "tokens_in_breakdown": {
+        "fresh": 13691,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 194,
+      "cost_usd": null,
+      "latency_ms": 1854,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2002/II/165#agenda-2#act-21",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.82,
+        "level_of_justification": 2,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "s-ar putea vãdi faptul cã aceste implicaþii sunt, în realitate, ale unei legi organice ºi acest lucru fãrã îndoialã cã trebuie sã treacã pe la Comisia juridicã"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.88,
+            "rationale_short": "Vorbitorul oferă un raționament cauzal bazat pe natura juridică a actului normativ și procedura parlamentară necesară."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "trebuie sã treacã pe la Comisia juridicã, de numiri, disciplinã, imunitãþi ºi validãri, sã fie analizat cu toatã pertinenþa"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.85,
+            "rationale_short": "Apelul la respectarea procedurilor parlamentare și a constituționalității legilor vizează binele comun al procesului legislativ."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "plenului Senatului"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.9,
+            "rationale_short": "Referință neutră la instituția Senatului; nicio derogare sau respect explicit pentru grupuri."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "În nici un caz însã, subliniez încã o datã, cu privire la votul pe care noi trebuie sã-l dãm acum"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.8,
+            "rationale_short": "Vorbitorul își susține poziția fără a aborda cererile opoziției; atitudine neutră de non-angajament."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "S-ar putea întâmpla, eu asta am vrut sã vã spun, ca dupã natura juridicã a actului normativ acesta sã fie o lege ordinarã"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.82,
+            "rationale_short": "Recunoaște ipotetic o altă interpretare juridică, dar nu o angajează substanțial prin contra-argumentare."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "cred cã trebuie sã fie un vot pozitiv"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.9,
+            "rationale_short": "Vorbitorul își exprimă clar poziția de vot fără a propune o alternativă sau o mediere."
+          }
+        ],
+        "rationale": "Discursul prezintă o calitate deliberativă moderată, axată pe clarificarea procedurilor juridice. Vorbitorul oferă o justificare calificată (level_of_justification=2) prin explicarea necesității analizei în Comisia juridică pentru legile organice, apelând la binele comun al corectitudinii legislative. Respectul pentru grupuri și cereri rămâne neutru, deoarece vorbitorul se concentrează pe mecanismul procedural mai degrabă decât pe angajarea opoziției. Deși recunoaște ipotetic o altă interpretare juridică, nu o combate direct, menținând un nivel de respect pentru contraargumente de 1. Discursul este în final pozițional, susținând un vot pozitiv, fără a oferi o alternativă sau o mediere."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.82,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"s-ar putea vãdi faptul cã aceste implicaþii sunt, în realitate, ale unei legi organice ºi acest lucru fãrã îndoialã cã trebuie sã treacã pe la Comisia juridicã\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Vorbitorul oferă un raționament cauzal bazat pe natura juridică a actului normativ și procedura parlamentară necesară.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"trebuie sã treacã pe la Comisia juridicã, de numiri, disciplinã, imunitãþi ºi validãri, sã fie analizat cu toatã pertinenþa\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Apelul la respectarea procedurilor parlamentare și a constituționalității legilor vizează binele comun al procesului legislativ.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"plenului Senatului\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Referință neutră la instituția Senatului; nicio derogare sau respect explicit pentru grupuri.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"În nici un caz însã, subliniez încã o datã, cu privire la votul pe care noi trebuie sã-l dãm acum\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.8,\n      \"rationale_short\": \"Vorbitorul își susține poziția fără a aborda cererile opoziției; atitudine neutră de non-angajament.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"S-ar putea întâmpla, eu asta am vrut sã vã spun, ca dupã natura juridicã a actului normativ acesta sã fie o lege ordinarã\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.82,\n      \"rationale_short\": \"Recunoaște ipotetic o altă interpretare juridică, dar nu o angajează substanțial prin contra-argumentare.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"cred cã trebuie sã fie un vot pozitiv\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Vorbitorul își exprimă clar poziția de vot fără a propune o alternativă sau o mediere.\"\n    }\n  ],\n  \"rationale\": \"Discursul prezintă o calitate deliberativă moderată, axată pe clarificarea procedurilor juridice. Vorbitorul oferă o justificare calificată (level_of_justification=2) prin explicarea necesității analizei în Comisia juridică pentru legile organice, apelând la binele comun al corectitudinii legislative. Respectul pentru grupuri și cereri rămâne neutru, deoarece vorbitorul se concentrează pe mecanismul procedural mai degrabă decât pe angajarea opoziției. Deși recunoaște ipotetic o altă interpretare juridică, nu o combate direct, menținând un nivel de respect pentru contraargumente de 1. Discursul este în final pozițional, susținând un vot pozitiv, fără a oferi o alternativă sau o mediere.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12492,
+      "tokens_in_breakdown": {
+        "fresh": 12492,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1268,
+      "cost_usd": null,
+      "latency_ms": 4903,
+      "retries_used": 0
+    }
+  }
+}

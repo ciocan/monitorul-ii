@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2005/II/128#agenda-8#act-82",
+  "tier": "calibration",
+  "speaker": {
+    "id": "moisoiu-adrian",
+    "name": "Adrian Moisoiu",
+    "raw": "Domnul Adrian Moisoiu",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": null,
+    "session_date": null,
+    "year": 2005,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2005/II/128#agenda-8#act-82",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.95,
+        "markers": [],
+        "rationale": "Discursul este o analiză tehnică și critică a stării sistemului de învățământ, structurată pe trei piloni: cadrul didactic, elevul și baza materială. Vorbitorul utilizează date statistice (procente de suplinitori, număr de posturi, procente din PIB) pentru a argumenta subfinanțarea cronică și problemele de management. Deși tonul este critic la adresa Guvernului și a primăriilor, acesta rămâne în registrul dezbaterii de politici publice, fără a construi un cadru maniheist popor-vs-elită sau a invoca o voință populară omogenă ca forță politică suverană. Hawkins=0 cu încredere ridicată."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.95,\n  \"markers\": [],\n  \"rationale\": \"Discursul este o analiză tehnică și critică a stării sistemului de învățământ, structurată pe trei piloni: cadrul didactic, elevul și baza materială. Vorbitorul utilizează date statistice (procente de suplinitori, număr de posturi, procente din PIB) pentru a argumenta subfinanțarea cronică și problemele de management. Deși tonul este critic la adresa Guvernului și a primăriilor, acesta rămâne în registrul dezbaterii de politici publice, fără a construi un cadru maniheist popor-vs-elită sau a invoca o voință populară omogenă ca forță politică suverană. Hawkins=0 cu încredere ridicată.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 14745,
+      "tokens_in_breakdown": {
+        "fresh": 14745,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 238,
+      "cost_usd": null,
+      "latency_ms": 2121,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2005/II/128#agenda-8#act-82",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.85,
+        "level_of_justification": 2,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "Din cele 242.890 de posturi didactice, 108.300 sunt ocupate de suplinitori ∫i necalifica˛i, adic„ 44,59%. Din 34.400 de profesori examina˛i la concursul de ocupare a posturilor didactice, 7.865 au fost repeten˛i, ob˛in‚nd note sub 5."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Vorbitorul oferă date statistice concrete pentru a susține argumentul privind calitatea slabă a cadrelor didactice."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "Pentru a arunca o scurt„ privire asupra Ónv„˛„m‚ntului rom‚nesc, va trebui s„ m„ refer la c‚˛iva factori care influen˛eaz„ buna desf„∫urare a procesului instructiveducativ."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.99,
+            "marker_confidence": 0.95,
+            "rationale_short": "Justificarea se concentrează pe interesul public al sistemului de învățământ, nu pe interese de grup."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Situa˛ia dasc„lului rom‚n este umilitoare"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.88,
+            "rationale_short": "Grupul profesional este menționat în contextul dificultăților, fără a fi derogatoriu sau explicit respectuos."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Guvernul nu acord„ sporul de p‚n„ la 85% pentru mediul rural"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.96,
+            "marker_confidence": 0.85,
+            "rationale_short": "Critica la adresa guvernului este funcțională, fără a angaja legitimitatea cererilor acestuia."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "Se spune c„ vom avea un P.I.B. de 5%, fa˛„ de 3,81% c‚t era Ón 2004. Deci nu cred c„ vom ob˛ine Ón continuare un P.I.B. corespunz„tor."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.82,
+            "rationale_short": "Vorbitorul ignoră argumentele contrare privind finanțarea, limitându-se la propria interpretare."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Pentru a arunca o scurt„ privire asupra Ónv„˛„m‚ntului rom‚nesc, va trebui s„ m„ refer la c‚˛iva factori"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Discursul este o expunere a problemelor, fără a propune soluții alternative sau mecanisme de mediere."
+          }
+        ],
+        "rationale": "Discursul prezintă o analiză detaliată a problemelor din sistemul de învățământ, susținută de date statistice (level_of_justification=2), ceea ce îi conferă o calitate analitică solidă. Justificarea este orientată către binele comun, vizând îmbunătățirea procesului instructiv-educativ. Totuși, discursul rămâne pozițional, fără a oferi alternative concrete sau a angaja contraargumente (respect_for_counterarguments=0). Respectul pentru grupuri și cereri este neutru, fiind o critică funcțională la adresa politicilor guvernamentale. Profilul deliberativ este unul de diagnostic critic, bine fundamentat, dar lipsit de deschidere constructivă către opoziție."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.85,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 0,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"Din cele 242.890 de posturi didactice, 108.300 sunt ocupate de suplinitori ∫i necalifica˛i, adic„ 44,59%. Din 34.400 de profesori examina˛i la concursul de ocupare a posturilor didactice, 7.865 au fost repeten˛i, ob˛in‚nd note sub 5.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Vorbitorul oferă date statistice concrete pentru a susține argumentul privind calitatea slabă a cadrelor didactice.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"Pentru a arunca o scurt„ privire asupra Ónv„˛„m‚ntului rom‚nesc, va trebui s„ m„ refer la c‚˛iva factori care influen˛eaz„ buna desf„∫urare a procesului instructiveducativ.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.99,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Justificarea se concentrează pe interesul public al sistemului de învățământ, nu pe interese de grup.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Situa˛ia dasc„lului rom‚n este umilitoare\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Grupul profesional este menționat în contextul dificultăților, fără a fi derogatoriu sau explicit respectuos.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Guvernul nu acord„ sporul de p‚n„ la 85% pentru mediul rural\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.96,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Critica la adresa guvernului este funcțională, fără a angaja legitimitatea cererilor acestuia.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"Se spune c„ vom avea un P.I.B. de 5%, fa˛„ de 3,81% c‚t era Ón 2004. Deci nu cred c„ vom ob˛ine Ón continuare un P.I.B. corespunz„tor.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.82,\n      \"rationale_short\": \"Vorbitorul ignoră argumentele contrare privind finanțarea, limitându-se la propria interpretare.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"Pentru a arunca o scurt„ privire asupra Ónv„˛„m‚ntului rom‚nesc, va trebui s„ m„ refer la c‚˛iva factori\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.90,\n      \"rationale_short\": \"Discursul este o expunere a problemelor, fără a propune soluții alternative sau mecanisme de mediere.\"\n    }\n  ],\n  \"rationale\": \"Discursul prezintă o analiză detaliată a problemelor din sistemul de învățământ, susținută de date statistice (level_of_justification=2), ceea ce îi conferă o calitate analitică solidă. Justificarea este orientată către binele comun, vizând îmbunătățirea procesului instructiv-educativ. Totuși, discursul rămâne pozițional, fără a oferi alternative concrete sau a angaja contraargumente (respect_for_counterarguments=0). Respectul pentru grupuri și cereri este neutru, fiind o critică funcțională la adresa politicilor guvernamentale. Profilul deliberativ este unul de diagnostic critic, bine fundamentat, dar lipsit de deschidere constructivă către opoziție.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13546,
+      "tokens_in_breakdown": {
+        "fresh": 13546,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1354,
+      "cost_usd": null,
+      "latency_ms": 4911,
+      "retries_used": 0
+    }
+  }
+}

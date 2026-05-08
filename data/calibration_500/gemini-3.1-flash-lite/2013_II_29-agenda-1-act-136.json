@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2013/II/29#agenda-1#act-136",
+  "tier": "calibration",
+  "speaker": {
+    "id": "oltean-ioan",
+    "name": "Ioan Oltean",
+    "raw": "Domnul Ioan Oltean",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2013-03-11",
+    "year": 2013,
+    "legislature": "VII",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2013/II/29#agenda-1#act-136",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 1.0,
+        "markers": [],
+        "rationale": "Discursul reprezintă o intervenție pur procedurală și administrativă în cadrul ședinței parlamentare. Vorbitorul se limitează la gestionarea ordinii de zi, a prezenței miniștrilor și a procedurilor de comunicare a răspunsurilor scrise. Nu există nicio urmă de cadru popor-vs-elită, maniheism moral sau invocare a unei voințe populare, discursul fiind complet lipsit de elemente populiste. Hawkins=0 cu încredere maximă."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 1.0,\n  \"markers\": [],\n  \"rationale\": \"Discursul reprezintă o intervenție pur procedurală și administrativă în cadrul ședinței parlamentare. Vorbitorul se limitează la gestionarea ordinii de zi, a prezenței miniștrilor și a procedurilor de comunicare a răspunsurilor scrise. Nu există nicio urmă de cadru popor-vs-elită, maniheism moral sau invocare a unei voințe populare, discursul fiind complet lipsit de elemente populiste. Hawkins=0 cu încredere maximă.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13885,
+      "tokens_in_breakdown": {
+        "fresh": 13885,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 179,
+      "cost_usd": null,
+      "latency_ms": 1798,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2013/II/29#agenda-1#act-136",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.45,
+        "level_of_justification": 0,
+        "content_of_justification": "none",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 0,
+            "evidence": {
+              "text": "Amânăm răspunsul pentru altă dată"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Intervenție pur procedurală fără nicio justificare argumentativă."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "none",
+            "evidence": {
+              "text": "Amânăm răspunsul pentru altă dată"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Nicio justificare oferită; conținutul este nedefinit."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "domnule ministru"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Adresare convențională, neutră."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Amânăm răspunsul pentru altă dată"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Procedură administrativă, nu angajament cu cereri politice."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "Nu este prezentă."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Absența interlocutorului împiedică orice angajament cu argumente."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Amânăm răspunsul pentru altă dată"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Decizie procedurală, nu propunere politică alternativă."
+          }
+        ],
+        "rationale": "Fragmentul reprezintă o succesiune de intervenții procedurale de gestionare a ședinței parlamentare (amânări, apeluri la prezență). Nu există nicio argumentare substanțială, nicio justificare a pozițiilor și niciun angajament cu contraargumente, deoarece discursul se limitează la organizarea fluxului de lucru. Calitatea deliberativă este minimă, fiind un discurs pur administrativ. Framework_confidence este scăzut deoarece acest tip de intervenție nu constituie deliberare politică în sensul Steiner & Bächtiger."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.45,\n  \"level_of_justification\": 0,\n  \"content_of_justification\": \"none\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 0,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 0,\n      \"evidence\": { \"text\": \"Amânăm răspunsul pentru altă dată\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Intervenție pur procedurală fără nicio justificare argumentativă.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"none\",\n      \"evidence\": { \"text\": \"Amânăm răspunsul pentru altă dată\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Nicio justificare oferită; conținutul este nedefinit.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": { \"text\": \"domnule ministru\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Adresare convențională, neutră.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": { \"text\": \"Amânăm răspunsul pentru altă dată\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Procedură administrativă, nu angajament cu cereri politice.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 0,\n      \"evidence\": { \"text\": \"Nu este prezentă.\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Absența interlocutorului împiedică orice angajament cu argumente.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": { \"text\": \"Amânăm răspunsul pentru altă dată\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Decizie procedurală, nu propunere politică alternativă.\"\n    }\n  ],\n  \"rationale\": \"Fragmentul reprezintă o succesiune de intervenții procedurale de gestionare a ședinței parlamentare (amânări, apeluri la prezență). Nu există nicio argumentare substanțială, nicio justificare a pozițiilor și niciun angajament cu contraargumente, deoarece discursul se limitează la organizarea fluxului de lucru. Calitatea deliberativă este minimă, fiind un discurs pur administrativ. Framework_confidence este scăzut deoarece acest tip de intervenție nu constituie deliberare politică în sensul Steiner & Bächtiger.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12686,
+      "tokens_in_breakdown": {
+        "fresh": 12686,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 957,
+      "cost_usd": null,
+      "latency_ms": 3612,
+      "retries_used": 0
+    }
+  }
+}

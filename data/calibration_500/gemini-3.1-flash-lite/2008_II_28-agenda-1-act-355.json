@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2008/II/28#agenda-1#act-355",
+  "tier": "calibration",
+  "speaker": {
+    "id": "gheorghe-constantin",
+    "name": "Constantin Gheorghe",
+    "raw": "Domnul Constantin Gheorghe",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": "2008-03-12",
+    "year": 2008,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2008/II/28#agenda-1#act-355",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul se înscrie în registrul procedural și tehnic, concentrându-se pe critica unei inițiative legislative prin prisma tehnicii legislative și a argumentelor de oportunitate administrativă. Vorbitorul abordează subiectul într-o manieră pluralistă, recunoscând rolul grupurilor de prietenie și al instituțiilor, fără a recurge la un cadru maniheist popor-vs-elită. Nu există nicio invocare a unei voințe populare omogene sau a unei elite malefice, iar tonul rămâne unul de dezbatere parlamentară constructivă. Hawkins=0 cu încredere ridicată."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul se înscrie în registrul procedural și tehnic, concentrându-se pe critica unei inițiative legislative prin prisma tehnicii legislative și a argumentelor de oportunitate administrativă. Vorbitorul abordează subiectul într-o manieră pluralistă, recunoscând rolul grupurilor de prietenie și al instituțiilor, fără a recurge la un cadru maniheist popor-vs-elită. Nu există nicio invocare a unei voințe populare omogene sau a unei elite malefice, iar tonul rămâne unul de dezbatere parlamentară constructivă. Hawkins=0 cu încredere ridicată.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13882,
+      "tokens_in_breakdown": {
+        "fresh": 13882,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 213,
+      "cost_usd": null,
+      "latency_ms": 1908,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2008/II/28#agenda-1#act-355",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.85,
+        "level_of_justification": 2,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 2,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "acest proiect de lege are un caracter discriminatoriu, pentru că vreau să anunț plenul Senatului, inclusiv pe inițiatori, că există și cetățeni care nu au cetățenia română și care sunt ambasadori onorifici ai României în diverse țări ale lumii."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Vorbitorul oferă un motiv specific (existența ambasadorilor onorifici non-cetățeni) pentru a susține caracterul discriminatoriu al legii."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "acest proiect de lege are un caracter discriminatoriu"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.88,
+            "rationale_short": "Apelul la non-discriminare este un principiu universalizabil, vizând echitatea pentru toți ambasadorii onorifici."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "ambasadori onorifici ai României"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Grupul este menționat funcțional pentru a ilustra argumentul, fără a fi derogate sau lăudate explicit."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "a susținut această inițiativă"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Vorbitorul menționează susținerea inițiativei de către colegul său, dar nu se angajează cu legitimitatea cererii în sine."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 2,
+            "evidence": {
+              "text": "Să nu se supere domnul senator Vasilescu, nu există răutate în ceea ce i se spune, dumnealui _apriori_ crede că cineva îi este adversar declarat. Nu, sunt niște chestiuni și de tehnică legislativă, la urma urmei."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.91,
+            "rationale_short": "Vorbitorul identifică percepția colegului (adversitate) și o combate prin reîncadrarea discuției în termeni de tehnică legislativă."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Mi se pare puțin cam forțată această lege"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Vorbitorul își exprimă opoziția față de proiect fără a propune un amendament sau o soluție alternativă concretă."
+          }
+        ],
+        "rationale": "Discursul prezintă o calitate deliberativă medie-ridicată. Vorbitorul oferă o justificare calificată (level_of_justification=2) bazată pe un principiu de echitate (common_good), argumentând împotriva caracterului discriminatoriu al legii prin exemple concrete. Respectul pentru contraargumente este ridicat (respect_for_counterarguments=2), deoarece vorbitorul abordează direct percepția de adversitate a colegului său și o reîncadrează într-un context tehnic-legislativ. Totuși, discursul rămâne pozițional (constructive_politics=positional), deoarece nu oferă o alternativă legislativă sau o mediere. Respectul pentru grupuri și cereri este neutru, menținând un ton profesional în ciuda dezacordului."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.85,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 2,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"acest proiect de lege are un caracter discriminatoriu, pentru că vreau să anunț plenul Senatului, inclusiv pe inițiatori, că există și cetățeni care nu au cetățenia română și care sunt ambasadori onorifici ai României în diverse țări ale lumii.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Vorbitorul oferă un motiv specific (existența ambasadorilor onorifici non-cetățeni) pentru a susține caracterul discriminatoriu al legii.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"acest proiect de lege are un caracter discriminatoriu\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Apelul la non-discriminare este un principiu universalizabil, vizând echitatea pentru toți ambasadorii onorifici.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"ambasadori onorifici ai României\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Grupul este menționat funcțional pentru a ilustra argumentul, fără a fi derogate sau lăudate explicit.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"a susținut această inițiativă\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Vorbitorul menționează susținerea inițiativei de către colegul său, dar nu se angajează cu legitimitatea cererii în sine.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"Să nu se supere domnul senator Vasilescu, nu există răutate în ceea ce i se spune, dumnealui _apriori_ crede că cineva îi este adversar declarat. Nu, sunt niște chestiuni și de tehnică legislativă, la urma urmei.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.91,\n      \"rationale_short\": \"Vorbitorul identifică percepția colegului (adversitate) și o combate prin reîncadrarea discuției în termeni de tehnică legislativă.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"Mi se pare puțin cam forțată această lege\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.90,\n      \"rationale_short\": \"Vorbitorul își exprimă opoziția față de proiect fără a propune un amendament sau o soluție alternativă concretă.\"\n    }\n  ],\n  \"rationale\": \"Discursul prezintă o calitate deliberativă medie-ridicată. Vorbitorul oferă o justificare calificată (level_of_justification=2) bazată pe un principiu de echitate (common_good), argumentând împotriva caracterului discriminatoriu al legii prin exemple concrete. Respectul pentru contraargumente este ridicat (respect_for_counterarguments=2), deoarece vorbitorul abordează direct percepția de adversitate a colegului său și o reîncadrează într-un context tehnic-legislativ. Totuși, discursul rămâne pozițional (constructive_politics=positional), deoarece nu oferă o alternativă legislativă sau o mediere. Respectul pentru grupuri și cereri este neutru, menținând un ton profesional în ciuda dezacordului.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12683,
+      "tokens_in_breakdown": {
+        "fresh": 12683,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1280,
+      "cost_usd": null,
+      "latency_ms": 5186,
+      "retries_used": 0
+    }
+  }
+}

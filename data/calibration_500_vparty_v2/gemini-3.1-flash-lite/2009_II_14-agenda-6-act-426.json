@@ -1,0 +1,52 @@
+{
+  "speech_id": "mo://2009/II/14#agenda-6#act-426",
+  "tier": "calibration",
+  "speaker": {
+    "id": "motreanu-dan-stefan",
+    "name": "Dan Ștefan Motreanu",
+    "raw": "Domnul Dan Ștefan Motreanu",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2009-02-17",
+    "year": 2009,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": null,
+    "voice": null,
+    "dqi": null,
+    "vparty": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "vparty",
+      "speech_id": "mo://2009/II/14#agenda-6#act-426",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "vparty@2020 + vdem-attacks-on@v13",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul este unul procedural și de susținere a unei inițiative locale, fără a conține elemente de anti-pluralism. Vorbitorul face o referire la apartenența politică a primarului, însă aceasta rămâne în limitele retoricii parlamentare obișnuite și nu delegitimează opoziția sau alte instituții democratice. Nu există atacuri la adresa justiției, presei, societății civile, minorităților sau a normelor democratice. Discursul respectă pe deplin normele pluraliste."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"vparty@2020 + vdem-attacks-on@v13\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul este unul procedural și de susținere a unei inițiative locale, fără a conține elemente de anti-pluralism. Vorbitorul face o referire la apartenența politică a primarului, însă aceasta rămâne în limitele retoricii parlamentare obișnuite și nu delegitimează opoziția sau alte instituții democratice. Nu există atacuri la adresa justiției, presei, societății civile, minorităților sau a normelor democratice. Discursul respectă pe deplin normele pluraliste.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12901,
+      "tokens_in_breakdown": {
+        "fresh": 12901,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 201,
+      "cost_usd": null,
+      "latency_ms": 1688,
+      "retries_used": 0
+    }
+  }
+}

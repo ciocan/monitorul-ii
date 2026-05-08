@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2013/II/23#agenda-1#act-126",
+  "tier": "calibration",
+  "speaker": {
+    "id": "cadar-leonard",
+    "name": "Leonard Cadăr",
+    "raw": "Domnul Leonard Cadăr",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": "2013-02-26",
+    "year": 2013,
+    "legislature": "VII",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2013/II/23#agenda-1#act-126",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul este unul pur procedural și tehnic, axat pe o inițiativă legislativă specifică privind furtul de materiale din instalațiile electrice. Vorbitorul propune un amendament concret și invită la colaborare parlamentară, fără a utiliza cadre maniheiste, fără a invoca o voință populară omogenă și fără a ataca elita într-un registru populist. Discursul se înscrie în registrul dezbaterii parlamentare constructive, motiv pentru care scorul este 0."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul este unul pur procedural și tehnic, axat pe o inițiativă legislativă specifică privind furtul de materiale din instalațiile electrice. Vorbitorul propune un amendament concret și invită la colaborare parlamentară, fără a utiliza cadre maniheiste, fără a invoca o voință populară omogenă și fără a ataca elita într-un registru populist. Discursul se înscrie în registrul dezbaterii parlamentare constructive, motiv pentru care scorul este 0.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13698,
+      "tokens_in_breakdown": {
+        "fresh": 13698,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 183,
+      "cost_usd": null,
+      "latency_ms": 1846,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2013/II/23#agenda-1#act-126",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.85,
+        "level_of_justification": 2,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "alternative_proposal",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "pericolele la care sunt supuse unele instituții și societatea civilă din cauza furtului de materiale din instalațiile electrice exterioare. Facem o paralelă și referire doar la capacele de cămine furate și ne amintim câteva accidente de circulație în ultimii ani."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Vorbitorul oferă un mecanism cauzal specific (furtul de materiale electrice) și exemple empirice (capace de cămine, accidente) pentru a justifica necesitatea legii."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "pericolele la care sunt supuse unele instituții și societatea civilă"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Justificarea se bazează pe siguranța publică și protecția instituțiilor, apelând la binele comun."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Domnilor de la USL"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Referința la USL este funcțională, fără a fi nici derogatorie, nici explicit respectuoasă."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "nu respingeți legea doar pentru faptul că este inițiată de membri ai PDL"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.88,
+            "rationale_short": "Vorbitorul nu angajează cererile opoziției, ci critică motivația lor politică; neutru."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "nu respingeți legea doar pentru faptul că este inițiată de membri ai PDL"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Menționează opoziția față de lege fără a angaja substanțial argumentele lor tehnice."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "alternative_proposal",
+            "evidence": {
+              "text": "aș vrea să adăugăm un amendament la punctul 3[1] : „Unitatea achizitoare are obligația de a anunța organele de control abilitate în cazul în care constată abaterea de la condițiile legii.”"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.96,
+            "rationale_short": "Vorbitorul propune un amendament concret pentru a îmbunătăți legea, demonstrând o abordare constructivă."
+          }
+        ],
+        "rationale": "Discursul prezintă o calitate deliberativă medie-ridicată, marcată de o justificare calificată (level_of_justification=2) bazată pe siguranța publică (common_good). Vorbitorul evită atacurile directe, menținând un respect neutru față de grupurile politice (USL). Deși nu angajează profund contraargumentele opoziției, discursul este salvat de caracterul constructiv prin propunerea unui amendament specific (alternative_proposal). Profilul este unul de negociere legislativă pragmatică, orientată către îmbunătățirea textului normativ."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.85,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"alternative_proposal\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"pericolele la care sunt supuse unele instituții și societatea civilă din cauza furtului de materiale din instalațiile electrice exterioare. Facem o paralelă și referire doar la capacele de cămine furate și ne amintim câteva accidente de circulație în ultimii ani.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Vorbitorul oferă un mecanism cauzal specific (furtul de materiale electrice) și exemple empirice (capace de cămine, accidente) pentru a justifica necesitatea legii.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"pericolele la care sunt supuse unele instituții și societatea civilă\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Justificarea se bazează pe siguranța publică și protecția instituțiilor, apelând la binele comun.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Domnilor de la USL\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Referința la USL este funcțională, fără a fi nici derogatorie, nici explicit respectuoasă.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"nu respingeți legea doar pentru faptul că este inițiată de membri ai PDL\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Vorbitorul nu angajează cererile opoziției, ci critică motivația lor politică; neutru.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"nu respingeți legea doar pentru faptul că este inițiată de membri ai PDL\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Menționează opoziția față de lege fără a angaja substanțial argumentele lor tehnice.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"alternative_proposal\",\n      \"evidence\": {\n        \"text\": \"aș vrea să adăugăm un amendament la punctul 3[1] : „Unitatea achizitoare are obligația de a anunța organele de control abilitate în cazul în care constată abaterea de la condițiile legii.”\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.96,\n      \"rationale_short\": \"Vorbitorul propune un amendament concret pentru a îmbunătăți legea, demonstrând o abordare constructivă.\"\n    }\n  ],\n  \"rationale\": \"Discursul prezintă o calitate deliberativă medie-ridicată, marcată de o justificare calificată (level_of_justification=2) bazată pe siguranța publică (common_good). Vorbitorul evită atacurile directe, menținând un respect neutru față de grupurile politice (USL). Deși nu angajează profund contraargumentele opoziției, discursul este salvat de caracterul constructiv prin propunerea unui amendament specific (alternative_proposal). Profilul este unul de negociere legislativă pragmatică, orientată către îmbunătățirea textului normativ.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12499,
+      "tokens_in_breakdown": {
+        "fresh": 12499,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1222,
+      "cost_usd": null,
+      "latency_ms": 4281,
+      "retries_used": 0
+    }
+  }
+}

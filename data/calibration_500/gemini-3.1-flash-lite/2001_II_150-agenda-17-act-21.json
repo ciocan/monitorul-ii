@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2001/II/150#agenda-17#act-21",
+  "tier": "calibration",
+  "speaker": {
+    "id": "dorneanu-valer",
+    "name": "Valer Dorneanu",
+    "raw": "Domnul Valer Dorneanu",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": null,
+    "year": 2001,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2001/II/150#agenda-17#act-21",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul este pur procedural, concentrat pe gestionarea tehnică a unei comisii de mediere și pe procesul de votare a unor articole legislative. Nu există nicio urmă de cadru popor-vs-elită, maniheism moral sau invocare a unei voințe populare suverane. Vorbitorul se limitează la rolul de moderator al procedurii parlamentare, fără a exprima vreo viziune populistă. Hawkins=0 cu încredere maximă."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul este pur procedural, concentrat pe gestionarea tehnică a unei comisii de mediere și pe procesul de votare a unor articole legislative. Nu există nicio urmă de cadru popor-vs-elită, maniheism moral sau invocare a unei voințe populare suverane. Vorbitorul se limitează la rolul de moderator al procedurii parlamentare, fără a exprima vreo viziune populistă. Hawkins=0 cu încredere maximă.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 14041,
+      "tokens_in_breakdown": {
+        "fresh": 14041,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 176,
+      "cost_usd": null,
+      "latency_ms": 1704,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2001/II/150#agenda-17#act-21",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.45,
+        "level_of_justification": 0,
+        "content_of_justification": "none",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 0,
+            "evidence": {
+              "text": "Elementul pe care dumneavoastrã vreþi sã-l introduceþi nu fãcea parte din nici unul din cele douã texte ºi este de naturã sã schimbe ºi conþinutul lui, încât nu-l pot pune nici în discuþie."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.9,
+            "rationale_short": "Vorbitorul refuză procedural discutarea unui amendament fără a oferi o justificare substanțială."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "none",
+            "evidence": {
+              "text": "nu-l pot pune nici în discuþie"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.9,
+            "rationale_short": "Nicio justificare oferită; conținutul este nedefinit."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Trebuia sã mi-o spunã colegii în comisia de mediere."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.8,
+            "rationale_short": "Referință neutră la colegi; nicio derogare sau respect explicit."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Dacã aveþi obiecþiuni? Nu aveþi."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.85,
+            "rationale_short": "Procedură standard de vot; nu există angajament cu cereri adverse."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "Dacã aveþi obiecþiuni? Nu aveþi."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.85,
+            "rationale_short": "Procedură de verificare a obiecțiunilor fără angajament substanțial."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "comisia ne propune textul Senatului"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.9,
+            "rationale_short": "Vorbitorul prezintă propunerile comisiei; nu oferă alternative proprii."
+          }
+        ],
+        "rationale": "Acest fragment reprezintă un discurs pur procedural de conducere a ședinței de vot, în care vorbitorul gestionează ordinea de zi și solicită votul pentru diverse articole. Nu există nicio argumentare substanțială, nicio justificare a pozițiilor și nicio mediere a conflictelor politice, deoarece rolul vorbitorului este strict administrativ. Din acest motiv, toate dimensiunile DQI sunt codate la valorile lor implicite (neutru/pozițional). Încrederea în cadrul de lucru este scăzută, deoarece discursul nu conține deliberare politică, fiind un exemplu de procedură pură care nu se pretează la analiza calității deliberative."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.45,\n  \"level_of_justification\": 0,\n  \"content_of_justification\": \"none\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 0,\n      \"evidence\": { \"text\": \"Elementul pe care dumneavoastrã vreþi sã-l introduceþi nu fãcea parte din nici unul din cele douã texte ºi este de naturã sã schimbe ºi conþinutul lui, încât nu-l pot pune nici în discuþie.\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Vorbitorul refuză procedural discutarea unui amendament fără a oferi o justificare substanțială.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"none\",\n      \"evidence\": { \"text\": \"nu-l pot pune nici în discuþie\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Nicio justificare oferită; conținutul este nedefinit.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": { \"text\": \"Trebuia sã mi-o spunã colegii în comisia de mediere.\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.8,\n      \"rationale_short\": \"Referință neutră la colegi; nicio derogare sau respect explicit.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": { \"text\": \"Dacã aveþi obiecþiuni? Nu aveþi.\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Procedură standard de vot; nu există angajament cu cereri adverse.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": { \"text\": \"Dacã aveþi obiecþiuni? Nu aveþi.\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Procedură de verificare a obiecțiunilor fără angajament substanțial.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": { \"text\": \"comisia ne propune textul Senatului\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Vorbitorul prezintă propunerile comisiei; nu oferă alternative proprii.\"\n    }\n  ],\n  \"rationale\": \"Acest fragment reprezintă un discurs pur procedural de conducere a ședinței de vot, în care vorbitorul gestionează ordinea de zi și solicită votul pentru diverse articole. Nu există nicio argumentare substanțială, nicio justificare a pozițiilor și nicio mediere a conflictelor politice, deoarece rolul vorbitorului este strict administrativ. Din acest motiv, toate dimensiunile DQI sunt codate la valorile lor implicite (neutru/pozițional). Încrederea în cadrul de lucru este scăzută, deoarece discursul nu conține deliberare politică, fiind un exemplu de procedură pură care nu se pretează la analiza calității deliberative.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12842,
+      "tokens_in_breakdown": {
+        "fresh": 12842,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1100,
+      "cost_usd": null,
+      "latency_ms": 4196,
+      "retries_used": 0
+    }
+  }
+}

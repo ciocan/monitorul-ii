@@ -1,0 +1,63 @@
+{
+  "speech_id": "mo://2023/II/35#agenda-2#act-107",
+  "tier": "populist",
+  "speaker": {
+    "id": "sosoaca-diana",
+    "name": "Diana Iovanovici-Șoșoacă",
+    "raw": "Doamna Diana Iovanovici-Șoșoacă",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2023-03-07",
+    "year": 2023,
+    "legislature": "IX",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": null,
+    "voice": null,
+    "dqi": null,
+    "vparty": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "vparty",
+      "speech_id": "mo://2023/II/35#agenda-2#act-107",
+      "output": {
+        "score": 1,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "vparty@2020 + vdem-attacks-on@v13",
+        "framework_confidence": 0.88,
+        "markers": [
+          {
+            "kind": "opposition_delegitimization",
+            "evidence": {
+              "text": "președintele lor, pentru că pe mine nu m-a reprezentat, nu mă reprezintă și nu mă va reprezenta niciodată un președinte cu cetățenie germană care face interesele Austriei și ale Germaniei, care vinde țara"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Președintele este delegitimizat ca trădător de țară care servește interese străine, nu ca adversar politic."
+          }
+        ],
+        "rationale": "Discursul conține un atac virulent la adresa președintelui, folosind retorica delegitimării prin acuzația de trădare națională și servitute față de interese străine (Germania/Austria). Deși acest element atinge pragul de anti-pluralism prin atacul la adresa legitimității instituției prezidențiale, discursul nu susține un worldview anti-pluralist pervaziv care să vizeze multiple instituții democratice sau să respingă pluralismul ca mod de guvernare. Prin urmare, discursul este clasificat ca scor 1, reflectând prezența unui marker de delegitimare a unui actor instituțional central, fără a constitui un manifest anti-pluralist complet."
+      },
+      "raw_response": "{\n  \"score\": 1,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"vparty@2020 + vdem-attacks-on@v13\",\n  \"framework_confidence\": 0.88,\n  \"markers\": [\n    {\n      \"kind\": \"opposition_delegitimization\",\n      \"evidence\": {\n        \"text\": \"președintele lor, pentru că pe mine nu m-a reprezentat, nu mă reprezintă și nu mă va reprezenta niciodată un președinte cu cetățenie germană care face interesele Austriei și ale Germaniei, care vinde țara\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Președintele este delegitimizat ca trădător de țară care servește interese străine, nu ca adversar politic.\"\n    }\n  ],\n  \"rationale\": \"Discursul conține un atac virulent la adresa președintelui, folosind retorica delegitimării prin acuzația de trădare națională și servitute față de interese străine (Germania/Austria). Deși acest element atinge pragul de anti-pluralism prin atacul la adresa legitimității instituției prezidențiale, discursul nu susține un worldview anti-pluralist pervaziv care să vizeze multiple instituții democratice sau să respingă pluralismul ca mod de guvernare. Prin urmare, discursul este clasificat ca scor 1, reflectând prezența unui marker de delegitimare a unui actor instituțional central, fără a constitui un manifest anti-pluralist complet.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 11119,
+      "tokens_in_breakdown": {
+        "fresh": 11119,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 422,
+      "cost_usd": null,
+      "latency_ms": 2635,
+      "retries_used": 0
+    }
+  }
+}

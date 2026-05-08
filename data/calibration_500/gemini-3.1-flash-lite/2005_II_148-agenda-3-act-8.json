@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2005/II/148#agenda-3#act-8",
+  "tier": "calibration",
+  "speaker": {
+    "id": "neagoe-otilian",
+    "name": "Otilian Neagoe",
+    "raw": "Domnul Otilian Neagoe",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": null,
+    "year": 2005,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2005/II/148#agenda-3#act-8",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul este o interpelare parlamentară standard, axată pe probleme tehnice și economice specifice (reducerea personalului la societățile Tractorul și Rulmentul, situația șomerilor din județul Brașov). Vorbitorul solicită informații concrete și măsuri administrative, fără a utiliza un cadru maniheist popor-vs-elită, fără a invoca o voință populară omogenă și fără a recurge la retorică populistă. Discursul se înscrie în registrul procedural și tehnic al activității parlamentare, motiv pentru care scorul este 0."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul este o interpelare parlamentară standard, axată pe probleme tehnice și economice specifice (reducerea personalului la societățile Tractorul și Rulmentul, situația șomerilor din județul Brașov). Vorbitorul solicită informații concrete și măsuri administrative, fără a utiliza un cadru maniheist popor-vs-elită, fără a invoca o voință populară omogenă și fără a recurge la retorică populistă. Discursul se înscrie în registrul procedural și tehnic al activității parlamentare, motiv pentru care scorul este 0.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13958,
+      "tokens_in_breakdown": {
+        "fresh": 13958,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 206,
+      "cost_usd": null,
+      "latency_ms": 1823,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2005/II/148#agenda-3#act-8",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.85,
+        "level_of_justification": 1,
+        "content_of_justification": "group_interest",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 1,
+            "evidence": {
+              "text": "Preconizatele reduceri de personal la Societ„˛ile Comerciale îTractorul“ — S.A. ∫i îRulmentul“ — S.A. Bra∫ov, anun˛ate recent, vor pune noi probleme sociale ∫i economice at‚t la nivelul celor dou„ societ„˛i, dar ∫i la nivelul jude˛ului Ón ansamblu."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Vorbitorul invocă probleme sociale ca motiv, dar fără a oferi un lanț cauzal detaliat sau dovezi specifice."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "group_interest",
+            "evidence": {
+              "text": "la nivelul jude˛ului Ón ansamblu."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.88,
+            "rationale_short": "Justificarea se concentrează pe interesele specifice ale județului Brașov."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "doamnei Giliola Ciorteanu, pre∫edinte interimar al Autorit„˛ii pentru Valorificarea Activelor Statului."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Referință funcțională la autorități; ton neutru, fără derogare sau respect explicit."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Care este num„rul cu care se va reduce personalul la fiecare dintre societ„˛ile amintite?"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.94,
+            "rationale_short": "Interpelare procedurală; nu există cereri adverse angajate, ci solicitări de informații."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "Ce m„suri de protec˛ie social„ se au Ón vedere Ón aceste cazuri?"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.93,
+            "rationale_short": "Nu există contraargumente adresate; vorbitorul solicită măsuri fără a angaja o dezbatere."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Solicit, la ambele, r„spuns scris ∫i oral."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.96,
+            "rationale_short": "Discursul este o interpelare procedurală; nu propune alternative sau medieri."
+          }
+        ],
+        "rationale": "Discursul este o interpelare parlamentară standard, caracterizată prin solicitări de informații și expunerea unor probleme locale. Justificarea este de nivel 1, bazându-se pe impactul social general fără a oferi mecanisme cauzale detaliate sau dovezi empirice complexe. Conținutul justificării este orientat către interesul grupului (județul Brașov). Respectul pentru grupuri și cereri este neutru, fiind o comunicare procedurală. Nu există contraargumente angajate, iar natura discursului este pur pozițională, nefiind o propunere legislativă alternativă sau de mediere. Calitatea deliberativă este limitată de natura procedurală a intervenției."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.85,\n  \"level_of_justification\": 1,\n  \"content_of_justification\": \"group_interest\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Preconizatele reduceri de personal la Societ„˛ile Comerciale îTractorul“ — S.A. ∫i îRulmentul“ — S.A. Bra∫ov, anun˛ate recent, vor pune noi probleme sociale ∫i economice at‚t la nivelul celor dou„ societ„˛i, dar ∫i la nivelul jude˛ului Ón ansamblu.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Vorbitorul invocă probleme sociale ca motiv, dar fără a oferi un lanț cauzal detaliat sau dovezi specifice.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"group_interest\",\n      \"evidence\": {\n        \"text\": \"la nivelul jude˛ului Ón ansamblu.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Justificarea se concentrează pe interesele specifice ale județului Brașov.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"doamnei Giliola Ciorteanu, pre∫edinte interimar al Autorit„˛ii pentru Valorificarea Activelor Statului.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Referință funcțională la autorități; ton neutru, fără derogare sau respect explicit.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Care este num„rul cu care se va reduce personalul la fiecare dintre societ„˛ile amintite?\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.94,\n      \"rationale_short\": \"Interpelare procedurală; nu există cereri adverse angajate, ci solicitări de informații.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Ce m„suri de protec˛ie social„ se au Ón vedere Ón aceste cazuri?\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.93,\n      \"rationale_short\": \"Nu există contraargumente adresate; vorbitorul solicită măsuri fără a angaja o dezbatere.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"Solicit, la ambele, r„spuns scris ∫i oral.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.96,\n      \"rationale_short\": \"Discursul este o interpelare procedurală; nu propune alternative sau medieri.\"\n    }\n  ],\n  \"rationale\": \"Discursul este o interpelare parlamentară standard, caracterizată prin solicitări de informații și expunerea unor probleme locale. Justificarea este de nivel 1, bazându-se pe impactul social general fără a oferi mecanisme cauzale detaliate sau dovezi empirice complexe. Conținutul justificării este orientat către interesul grupului (județul Brașov). Respectul pentru grupuri și cereri este neutru, fiind o comunicare procedurală. Nu există contraargumente angajate, iar natura discursului este pur pozițională, nefiind o propunere legislativă alternativă sau de mediere. Calitatea deliberativă este limitată de natura procedurală a intervenției.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12759,
+      "tokens_in_breakdown": {
+        "fresh": 12759,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1211,
+      "cost_usd": null,
+      "latency_ms": 4815,
+      "retries_used": 0
+    }
+  }
+}

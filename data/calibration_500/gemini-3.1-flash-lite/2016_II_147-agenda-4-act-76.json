@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2016/II/147#agenda-4#act-76",
+  "tier": "calibration",
+  "speaker": {
+    "id": "chelaru-ioan",
+    "name": "Ioan Chelaru",
+    "raw": "Domnul Ioan Chelaru",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": "2016-10-17",
+    "year": 2016,
+    "legislature": "VII",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2016/II/147#agenda-4#act-76",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 1.0,
+        "markers": [],
+        "rationale": "Discursul este pur procedural, concentrat pe gestionarea ordinii de zi și a comportamentului parlamentar în plenul Senatului. Vorbitorul face apel la regulament și la normele de conduită democratică, fără a invoca vreun cadru populist, maniheist sau anti-elită. Nu există niciun marker populist prezent, discursul fiind un exemplu tipic de activitate administrativă parlamentară."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 1.0,\n  \"markers\": [],\n  \"rationale\": \"Discursul este pur procedural, concentrat pe gestionarea ordinii de zi și a comportamentului parlamentar în plenul Senatului. Vorbitorul face apel la regulament și la normele de conduită democratică, fără a invoca vreun cadru populist, maniheist sau anti-elită. Nu există niciun marker populist prezent, discursul fiind un exemplu tipic de activitate administrativă parlamentară.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13627,
+      "tokens_in_breakdown": {
+        "fresh": 13627,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 158,
+      "cost_usd": null,
+      "latency_ms": 2099,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2016/II/147#agenda-4#act-76",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.65,
+        "level_of_justification": 0,
+        "content_of_justification": "none",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 0,
+            "evidence": {
+              "text": "mi se pare firesc să avem puncte de vedere diferite, mi se pare firesc să le discutăm, decizia se ia prin vot"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.85,
+            "rationale_short": "Intervenție procedurală care invocă norme parlamentare generale fără a justifica o poziție politică specifică."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "none",
+            "evidence": {
+              "text": "mi se pare firesc să avem puncte de vedere diferite"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.85,
+            "rationale_short": "Nicio justificare oferită pentru o poziție; conținutul este nedefinit."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Stimați colegi"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.8,
+            "rationale_short": "Adresare convențională; niciun grup vizat explicit pentru respect sau derogare."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "mi se pare firesc să avem puncte de vedere diferite"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.75,
+            "rationale_short": "Recunoaștere procedurală a pluralismului, dar fără angajament cu cereri specifice."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "asta cu „în caz contrar” nu cade bine niciunuia dintre cei 120-130 de senatori"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.7,
+            "rationale_short": "Menționează o amenințare percepută fără a angaja substanțial raționamentul din spatele ei."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Insist la colegii care s-au înscris să fie pe procedură"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.8,
+            "rationale_short": "Intervenție de moderare a dezbaterii, nu o propunere politică alternativă."
+          }
+        ],
+        "rationale": "Acest fragment reprezintă o intervenție procedurală tipică în plenul Senatului, axată pe menținerea ordinii și a normelor de dezbatere. Vorbitorul nu avansează o poziție politică substanțială, ci moderează tonul discuției, ceea ce duce la un nivel de justificare zero și o clasificare de tip pozițional. Respectul pentru grupuri și cereri rămâne neutru, fiind limitat la convenții parlamentare. Deși există o referire la o amenințare percepută, aceasta nu este urmată de un angajament deliberativ cu raționamentul opoziției, ci de o simplă respingere procedurală. Calitatea deliberativă este scăzută, fiind un discurs de gestionare a ședinței, nu de argumentare politică."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.65,\n  \"level_of_justification\": 0,\n  \"content_of_justification\": \"none\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 0,\n      \"evidence\": { \"text\": \"mi se pare firesc să avem puncte de vedere diferite, mi se pare firesc să le discutăm, decizia se ia prin vot\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Intervenție procedurală care invocă norme parlamentare generale fără a justifica o poziție politică specifică.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"none\",\n      \"evidence\": { \"text\": \"mi se pare firesc să avem puncte de vedere diferite\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Nicio justificare oferită pentru o poziție; conținutul este nedefinit.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": { \"text\": \"Stimați colegi\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.80,\n      \"rationale_short\": \"Adresare convențională; niciun grup vizat explicit pentru respect sau derogare.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": { \"text\": \"mi se pare firesc să avem puncte de vedere diferite\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.75,\n      \"rationale_short\": \"Recunoaștere procedurală a pluralismului, dar fără angajament cu cereri specifice.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": { \"text\": \"asta cu „în caz contrar” nu cade bine niciunuia dintre cei 120-130 de senatori\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.70,\n      \"rationale_short\": \"Menționează o amenințare percepută fără a angaja substanțial raționamentul din spatele ei.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": { \"text\": \"Insist la colegii care s-au înscris să fie pe procedură\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.80,\n      \"rationale_short\": \"Intervenție de moderare a dezbaterii, nu o propunere politică alternativă.\"\n    }\n  ],\n  \"rationale\": \"Acest fragment reprezintă o intervenție procedurală tipică în plenul Senatului, axată pe menținerea ordinii și a normelor de dezbatere. Vorbitorul nu avansează o poziție politică substanțială, ci moderează tonul discuției, ceea ce duce la un nivel de justificare zero și o clasificare de tip pozițional. Respectul pentru grupuri și cereri rămâne neutru, fiind limitat la convenții parlamentare. Deși există o referire la o amenințare percepută, aceasta nu este urmată de un angajament deliberativ cu raționamentul opoziției, ci de o simplă respingere procedurală. Calitatea deliberativă este scăzută, fiind un discurs de gestionare a ședinței, nu de argumentare politică.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12428,
+      "tokens_in_breakdown": {
+        "fresh": 12428,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1120,
+      "cost_usd": null,
+      "latency_ms": 4362,
+      "retries_used": 0
+    }
+  }
+}

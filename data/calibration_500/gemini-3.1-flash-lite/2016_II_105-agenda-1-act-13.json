@@ -1,0 +1,215 @@
+{
+  "speech_id": "mo://2016/II/105#agenda-1#act-13",
+  "tier": "calibration",
+  "speaker": {
+    "id": "badalau-niculae",
+    "name": "Niculae Bădălău",
+    "raw": "Domnul Niculae Bădălău",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": "2016-06-15",
+    "year": 2016,
+    "legislature": "VII",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2016/II/105#agenda-1#act-13",
+      "output": {
+        "score": 1,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.85,
+        "markers": [
+          {
+            "kind": "people_vs_elite",
+            "evidence": {
+              "text": "Guvernarea tehnocrată nu doar că a adâncit nemulțumirea cetățenilor față de partidele politice și față de politic în general"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.85,
+            "rationale_short": "Invocă nemulțumirea cetățenilor față de clasa politică, stabilind un cadru de opoziție între oameni și elite."
+          },
+          {
+            "kind": "evil_elite",
+            "evidence": {
+              "text": "s-a lăsat impresia că înțelepciunea și lumina vin doar de afară și nicidecum din interior"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.9,
+            "marker_confidence": 0.8,
+            "rationale_short": "Sugerează o elită tehnocrată care ignoră valorile naționale în favoarea influențelor externe."
+          }
+        ],
+        "rationale": "Discursul combină critica tehnică a absorbției fondurilor europene cu elemente de retorică populistă. Vorbitorul folosește cadrul popor-vs-elită pentru a critica guvernarea tehnocrată, prezentând-o ca fiind deconectată de la realitatea românească și subordonată intereselor externe. Deși există o tentă maniheistă în contrastul dintre 'interior' și 'afară', discursul rămâne ancorat în analiza performanței administrative, ceea ce îl plasează la nivelul 1. Nu atinge pragul de 2 deoarece cadrul populist nu este singura coloană vertebrală a argumentației, fiind susținut de date concrete despre absorbția fondurilor."
+      },
+      "raw_response": "{\n  \"score\": 1,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.85,\n  \"markers\": [\n    {\n      \"kind\": \"people_vs_elite\",\n      \"evidence\": {\n        \"text\": \"Guvernarea tehnocrată nu doar că a adâncit nemulțumirea cetățenilor față de partidele politice și față de politic în general\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Invocă nemulțumirea cetățenilor față de clasa politică, stabilind un cadru de opoziție între oameni și elite.\"\n    },\n    {\n      \"kind\": \"evil_elite\",\n      \"evidence\": {\n        \"text\": \"s-a lăsat impresia că înțelepciunea și lumina vin doar de afară și nicidecum din interior\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.9,\n      \"marker_confidence\": 0.8,\n      \"rationale_short\": \"Sugerează o elită tehnocrată care ignoră valorile naționale în favoarea influențelor externe.\"\n    }\n  ],\n  \"rationale\": \"Discursul combină critica tehnică a absorbției fondurilor europene cu elemente de retorică populistă. Vorbitorul folosește cadrul popor-vs-elită pentru a critica guvernarea tehnocrată, prezentând-o ca fiind deconectată de la realitatea românească și subordonată intereselor externe. Deși există o tentă maniheistă în contrastul dintre 'interior' și 'afară', discursul rămâne ancorat în analiza performanței administrative, ceea ce îl plasează la nivelul 1. Nu atinge pragul de 2 deoarece cadrul populist nu este singura coloană vertebrală a argumentației, fiind susținut de date concrete despre absorbția fondurilor.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 14466,
+      "tokens_in_breakdown": {
+        "fresh": 14466,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 524,
+      "cost_usd": null,
+      "latency_ms": 3260,
+      "retries_used": 0
+    },
+    "voice": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "voice",
+      "speech_id": "mo://2016/II/105#agenda-1#act-13",
+      "output": {
+        "classifications": [
+          {
+            "marker_id": "m_0",
+            "voice": "speaker_first_person",
+            "voice_confidence": 0.95,
+            "voice_evidence": null,
+            "attributed_to": null,
+            "rationale_short": "Afirmație directă a vorbitorului, fără indicii de citare, raportare sau disclaimer; vorbitorul își asumă criticile aduse guvernării tehnocrate."
+          },
+          {
+            "marker_id": "m_1",
+            "voice": "weasel_attribution",
+            "voice_confidence": 0.85,
+            "voice_evidence": {
+              "text": "s-a lăsat impresia că"
+            },
+            "attributed_to": {
+              "raw": "s-a",
+              "kind": "unnamed"
+            },
+            "rationale_short": "Atribuire vagă prin construcția impersonală „s-a lăsat impresia”, care distanțează vorbitorul de afirmația despre percepția publică."
+          }
+        ]
+      },
+      "raw_response": "{\n  \"classifications\": [\n    {\n      \"marker_id\": \"m_0\",\n      \"voice\": \"speaker_first_person\",\n      \"voice_confidence\": 0.95,\n      \"voice_evidence\": null,\n      \"attributed_to\": null,\n      \"rationale_short\": \"Afirmație directă a vorbitorului, fără indicii de citare, raportare sau disclaimer; vorbitorul își asumă criticile aduse guvernării tehnocrate.\"\n    },\n    {\n      \"marker_id\": \"m_1\",\n      \"voice\": \"weasel_attribution\",\n      \"voice_confidence\": 0.85,\n      \"voice_evidence\": {\n        \"text\": \"s-a lăsat impresia că\"\n      },\n      \"attributed_to\": {\n        \"raw\": \"s-a\",\n        \"kind\": \"unnamed\"\n      },\n      \"rationale_short\": \"Atribuire vagă prin construcția impersonală „s-a lăsat impresia”, care distanțează vorbitorul de afirmația despre percepția publică.\"\n    }\n  ]\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12107,
+      "tokens_in_breakdown": {
+        "fresh": 12107,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 269,
+      "cost_usd": null,
+      "latency_ms": 1509,
+      "retries_used": 0
+    },
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2016/II/105#agenda-1#act-13",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.82,
+        "level_of_justification": 2,
+        "content_of_justification": "group_interest",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "În anul 2016, până la sfârșitul lunii martie, România a încasat doar 750 de milioane de euro de la Comisia Europeană, în baza cheltuielilor efectuate pe perioada de programare 2007–2013, adică o îmbunătățire de numai 3,5%."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Vorbitorul oferă date empirice specifice pentru a susține critica privind rata de absorbție a fondurilor."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "group_interest",
+            "evidence": {
+              "text": "Dezamăgirea cu privire la acest Guvern este din ce în ce mai mare. S-a dovedit, cel puțin până acum, că marile realizări promise nu au rămas decât mari neîndepliniri."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.85,
+            "rationale_short": "Justificarea se concentrează pe eșecul politic al guvernului în raport cu așteptările electoratului."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "miniștrii tehnocrați, experți în problemele europene, în frunte cu premierul Dacian Cioloș"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.96,
+            "marker_confidence": 0.88,
+            "rationale_short": "Referință funcțională la membrii guvernului; nicio derogare sau respect explicit."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Iată că promisiunile lui Dacian Cioloș, fost comisar european, preluat direct de la cabinetul președintelui Comisiei Europene, Jean-Claude Juncker, au rămas doar niște promisiuni"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.82,
+            "rationale_short": "Vorbitorul ignoră cererile sau justificările guvernului, concentrându-se pe neîndeplinirea promisiunilor."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "În Programul de guvernare al premierului Dacian Cioloș, în prima parte a acestuia, unde este descrisă „viziunea tehnocrat-guvernamentală”, se spune în felul următor"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.96,
+            "marker_confidence": 0.84,
+            "rationale_short": "Vorbitorul citează programul guvernului dar nu angajează substanțial raționamentul din spatele acestuia."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Până la urmă, degeaba ești premiant la Bruxelles, dacă ești repetent în țara ta."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Discursul este o critică politică pozițională fără a oferi o alternativă sau o mediere."
+          }
+        ],
+        "rationale": "Discursul reprezintă o critică politică axată pe performanța guvernului tehnocrat. Vorbitorul utilizează date empirice pentru a susține argumentul (level_of_justification=2), însă justificarea este orientată spre interesul politic de grup (content_of_justification=group_interest). Respectul pentru grupuri și cereri este neutru, limitându-se la referințe funcționale. Deși citează programul guvernului, vorbitorul nu angajează substanțial contraargumentele acestuia, preferând o abordare retorică (respect_for_counterarguments=1). Discursul rămâne pozițional, fără a propune soluții alternative sau medieri, încadrându-se într-un profil de opoziție critică standard."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.82,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"group_interest\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"În anul 2016, până la sfârșitul lunii martie, România a încasat doar 750 de milioane de euro de la Comisia Europeană, în baza cheltuielilor efectuate pe perioada de programare 2007–2013, adică o îmbunătățire de numai 3,5%.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Vorbitorul oferă date empirice specifice pentru a susține critica privind rata de absorbție a fondurilor.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"group_interest\",\n      \"evidence\": {\n        \"text\": \"Dezamăgirea cu privire la acest Guvern este din ce în ce mai mare. S-a dovedit, cel puțin până acum, că marile realizări promise nu au rămas decât mari neîndepliniri.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Justificarea se concentrează pe eșecul politic al guvernului în raport cu așteptările electoratului.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"miniștrii tehnocrați, experți în problemele europene, în frunte cu premierul Dacian Cioloș\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.96,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Referință funcțională la membrii guvernului; nicio derogare sau respect explicit.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Iată că promisiunile lui Dacian Cioloș, fost comisar european, preluat direct de la cabinetul președintelui Comisiei Europene, Jean-Claude Juncker, au rămas doar niște promisiuni\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.82,\n      \"rationale_short\": \"Vorbitorul ignoră cererile sau justificările guvernului, concentrându-se pe neîndeplinirea promisiunilor.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"În Programul de guvernare al premierului Dacian Cioloș, în prima parte a acestuia, unde este descrisă „viziunea tehnocrat-guvernamentală”, se spune în felul următor\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.96,\n      \"marker_confidence\": 0.84,\n      \"rationale_short\": \"Vorbitorul citează programul guvernului dar nu angajează substanțial raționamentul din spatele acestuia.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"Până la urmă, degeaba ești premiant la Bruxelles, dacă ești repetent în țara ta.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Discursul este o critică politică pozițională fără a oferi o alternativă sau o mediere.\"\n    }\n  ],\n  \"rationale\": \"Discursul reprezintă o critică politică axată pe performanța guvernului tehnocrat. Vorbitorul utilizează date empirice pentru a susține argumentul (level_of_justification=2), însă justificarea este orientată spre interesul politic de grup (content_of_justification=group_interest). Respectul pentru grupuri și cereri este neutru, limitându-se la referințe funcționale. Deși citează programul guvernului, vorbitorul nu angajează substanțial contraargumentele acestuia, preferând o abordare retorică (respect_for_counterarguments=1). Discursul rămâne pozițional, fără a propune soluții alternative sau medieri, încadrându-se într-un profil de opoziție critică standard.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13267,
+      "tokens_in_breakdown": {
+        "fresh": 13267,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1333,
+      "cost_usd": null,
+      "latency_ms": 5057,
+      "retries_used": 0
+    }
+  }
+}

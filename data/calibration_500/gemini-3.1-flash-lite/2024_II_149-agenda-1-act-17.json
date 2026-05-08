@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2024/II/149#agenda-1#act-17",
+  "tier": "calibration",
+  "speaker": {
+    "id": "stan-ioan",
+    "name": "Ioan Stan",
+    "raw": "Domnul Ioan Stan",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": "2024-12-20",
+    "year": 2024,
+    "legislature": "X",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2024/II/149#agenda-1#act-17",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 1.0,
+        "markers": [],
+        "rationale": "Discursul reprezintă o intervenție pur procedurală și administrativă, constând în citirea listei nominale a membrilor propuși pentru Comisia de validare. Nu există nicio referire la un cadru popor-vs-elită, nicio invocare a unei voințe populare omogene și niciun element de maniheism moral. Vorbitorul se limitează la gestionarea formală a procedurilor parlamentare, fără a exprima vreo viziune populistă. Hawkins=0 cu încredere maximă."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 1.0,\n  \"markers\": [],\n  \"rationale\": \"Discursul reprezintă o intervenție pur procedurală și administrativă, constând în citirea listei nominale a membrilor propuși pentru Comisia de validare. Nu există nicio referire la un cadru popor-vs-elită, nicio invocare a unei voințe populare omogene și niciun element de maniheism moral. Vorbitorul se limitează la gestionarea formală a procedurilor parlamentare, fără a exprima vreo viziune populistă. Hawkins=0 cu încredere maximă.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13844,
+      "tokens_in_breakdown": {
+        "fresh": 13844,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 184,
+      "cost_usd": null,
+      "latency_ms": 1935,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2024/II/149#agenda-1#act-17",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.45,
+        "level_of_justification": 0,
+        "content_of_justification": "none",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 0,
+            "evidence": {
+              "text": "Citesc componența... Vă prezint propunerile nominale pentru Comisia de validare"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Discursul este pur procedural, constând în citirea unei liste de nume; nu există nicio justificare."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "none",
+            "evidence": {
+              "text": "Citesc componența"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Nicio justificare oferită, deci conținutul este nedefinit."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "reprezentanții au trimis-o la noi"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Referință neutră la reprezentanții partidelor; nicio atitudine de respect sau dispreț."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Dacă sunt obiecții cu privire la aceste propuneri?"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.94,
+            "rationale_short": "Întrebare procedurală standard; nu există cereri adverse de tratat."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "Citesc componența"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Discursul nu conține argumente, deci nu există angajament cu contraargumente."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Vă prezint propunerile nominale"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Acțiune administrativă de prezentare a unei liste; nu este o propunere politică alternativă."
+          }
+        ],
+        "rationale": "Acest fragment reprezintă un discurs pur procedural de citire a unei liste nominale pentru o comisie parlamentară. Deoarece discursul nu conține argumentație, justificare sau dezbatere, acesta nu poate fi evaluat prin prisma calității deliberative, primind valori implicite pentru un astfel de context. Nu există nicio încercare de a convinge sau de a media, ci doar îndeplinirea unei sarcini administrative. Framework_confidence este scăzut deoarece discursul nu este deliberativ prin natură, fiind un act de procedură standard."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.45,\n  \"level_of_justification\": 0,\n  \"content_of_justification\": \"none\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 0,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 0,\n      \"evidence\": { \"text\": \"Citesc componența... Vă prezint propunerile nominale pentru Comisia de validare\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Discursul este pur procedural, constând în citirea unei liste de nume; nu există nicio justificare.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"none\",\n      \"evidence\": { \"text\": \"Citesc componența\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Nicio justificare oferită, deci conținutul este nedefinit.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": { \"text\": \"reprezentanții au trimis-o la noi\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Referință neutră la reprezentanții partidelor; nicio atitudine de respect sau dispreț.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": { \"text\": \"Dacă sunt obiecții cu privire la aceste propuneri?\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.94,\n      \"rationale_short\": \"Întrebare procedurală standard; nu există cereri adverse de tratat.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 0,\n      \"evidence\": { \"text\": \"Citesc componența\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.90,\n      \"rationale_short\": \"Discursul nu conține argumente, deci nu există angajament cu contraargumente.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": { \"text\": \"Vă prezint propunerile nominale\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Acțiune administrativă de prezentare a unei liste; nu este o propunere politică alternativă.\"\n    }\n  ],\n  \"rationale\": \"Acest fragment reprezintă un discurs pur procedural de citire a unei liste nominale pentru o comisie parlamentară. Deoarece discursul nu conține argumentație, justificare sau dezbatere, acesta nu poate fi evaluat prin prisma calității deliberative, primind valori implicite pentru un astfel de context. Nu există nicio încercare de a convinge sau de a media, ci doar îndeplinirea unei sarcini administrative. Framework_confidence este scăzut deoarece discursul nu este deliberativ prin natură, fiind un act de procedură standard.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12645,
+      "tokens_in_breakdown": {
+        "fresh": 12645,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1017,
+      "cost_usd": null,
+      "latency_ms": 4238,
+      "retries_used": 0
+    }
+  }
+}

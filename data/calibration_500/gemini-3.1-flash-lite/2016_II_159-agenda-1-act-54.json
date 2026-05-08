@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2016/II/159#agenda-1#act-54",
+  "tier": "calibration",
+  "speaker": {
+    "id": "fifor-mihai-viorel",
+    "name": "Mihai Viorel Fifor",
+    "raw": "Domnul Mihai Viorel Fifor",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": "2016-11-07",
+    "year": 2016,
+    "legislature": "VII",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2016/II/159#agenda-1#act-54",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.95,
+        "markers": [],
+        "rationale": "Discursul se înscrie într-un registru procedural și de susținere a unei categorii profesionale (personalul feroviar), fără a utiliza un cadru maniheist popor-vs-elită. Deși vorbitorul invocă „oameni care trudesc” și „facem dreptate”, aceste apeluri sunt specifice retoricii sindicale și de politici publice, nu unei viziuni populiste care să opună un popor omogen unei elite malefice. Nu există elemente de criză existențială, maniheism moral sau invocarea supremației voinței populare asupra instituțiilor. Discursul rămâne în limitele dezbaterii parlamentare constructive."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.95,\n  \"markers\": [],\n  \"rationale\": \"Discursul se înscrie într-un registru procedural și de susținere a unei categorii profesionale (personalul feroviar), fără a utiliza un cadru maniheist popor-vs-elită. Deși vorbitorul invocă „oameni care trudesc” și „facem dreptate”, aceste apeluri sunt specifice retoricii sindicale și de politici publice, nu unei viziuni populiste care să opună un popor omogen unei elite malefice. Nu există elemente de criză existențială, maniheism moral sau invocarea supremației voinței populare asupra instituțiilor. Discursul rămâne în limitele dezbaterii parlamentare constructive.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13800,
+      "tokens_in_breakdown": {
+        "fresh": 13800,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 222,
+      "cost_usd": null,
+      "latency_ms": 2026,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2016/II/159#agenda-1#act-54",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.78,
+        "level_of_justification": 1,
+        "content_of_justification": "group_interest",
+        "respect_for_groups": 2,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 1,
+            "evidence": {
+              "text": "Noi credem că transportul pe calea ferată reprezintă un lucru extrem de important și de necesar pentru dezvoltarea României în continuare, pentru creșterea economică."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Afirmație bazată pe convingere politică, fără un mecanism cauzal sau dovezi empirice specifice."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "group_interest",
+            "evidence": {
+              "text": "Mă gândesc la personalul feroviar, oameni care asigură non-stop o bună circulație pe infrastructura rutieră, oameni care sunt întotdeauna prezenți, indiferent că e zi, că e noapte, că e vară, că e iarnă, oameni care merită drepturi."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Justificarea se concentrează pe interesele specifice ale unei categorii profesionale (personalul feroviar)."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 2,
+            "evidence": {
+              "text": "oameni care asigură non-stop o bună circulație pe infrastructura rutieră, oameni care sunt întotdeauna prezenți, indiferent că e zi, că e noapte, că e vară, că e iarnă, oameni care merită drepturi."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.88,
+            "rationale_short": "Vorbitorul recunoaște explicit demnitatea și contribuția socială a personalului feroviar."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "vă invit să-l votăm."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.8,
+            "rationale_short": "Nu există o adresare directă a cererilor opoziției; postura este neutră."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "Eu știu că fostul ministru, la un moment dat, spunea că transportul pe calea ferată reprezintă un lux. Noi nu credem lucrul acesta."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Vorbitorul menționează o poziție anterioară, dar o respinge fără a angaja substanțial raționamentul din spatele ei."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "vă invit să-l votăm."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Discursul susține adoptarea proiectului fără a propune o alternativă sau o mediere."
+          }
+        ],
+        "rationale": "Discursul prezintă o calitate deliberativă mixtă, fiind marcat de o justificare inferioară (level_of_justification=1) bazată pe convingeri politice și interese de grup (content_of_justification=group_interest). Deși vorbitorul manifestă un respect explicit pentru personalul feroviar (respect_for_groups=2), acesta nu se angajează substanțial în contraargumente, limitându-se la a respinge opinia fostului ministru fără a oferi o analiză critică (respect_for_counterarguments=0). Discursul este în esență pozițional, vizând mobilizarea votului pentru statutul feroviarului. Lipsa unei justificări cauzale detaliate și a unui angajament deliberativ cu opoziția limitează scorul general de încredere."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.78,\n  \"level_of_justification\": 1,\n  \"content_of_justification\": \"group_interest\",\n  \"respect_for_groups\": 2,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 0,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Noi credem că transportul pe calea ferată reprezintă un lucru extrem de important și de necesar pentru dezvoltarea României în continuare, pentru creșterea economică.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Afirmație bazată pe convingere politică, fără un mecanism cauzal sau dovezi empirice specifice.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"group_interest\",\n      \"evidence\": {\n        \"text\": \"Mă gândesc la personalul feroviar, oameni care asigură non-stop o bună circulație pe infrastructura rutieră, oameni care sunt întotdeauna prezenți, indiferent că e zi, că e noapte, că e vară, că e iarnă, oameni care merită drepturi.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Justificarea se concentrează pe interesele specifice ale unei categorii profesionale (personalul feroviar).\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"oameni care asigură non-stop o bună circulație pe infrastructura rutieră, oameni care sunt întotdeauna prezenți, indiferent că e zi, că e noapte, că e vară, că e iarnă, oameni care merită drepturi.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Vorbitorul recunoaște explicit demnitatea și contribuția socială a personalului feroviar.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"vă invit să-l votăm.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.80,\n      \"rationale_short\": \"Nu există o adresare directă a cererilor opoziției; postura este neutră.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"Eu știu că fostul ministru, la un moment dat, spunea că transportul pe calea ferată reprezintă un lux. Noi nu credem lucrul acesta.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Vorbitorul menționează o poziție anterioară, dar o respinge fără a angaja substanțial raționamentul din spatele ei.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"vă invit să-l votăm.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.90,\n      \"rationale_short\": \"Discursul susține adoptarea proiectului fără a propune o alternativă sau o mediere.\"\n    }\n  ],\n  \"rationale\": \"Discursul prezintă o calitate deliberativă mixtă, fiind marcat de o justificare inferioară (level_of_justification=1) bazată pe convingeri politice și interese de grup (content_of_justification=group_interest). Deși vorbitorul manifestă un respect explicit pentru personalul feroviar (respect_for_groups=2), acesta nu se angajează substanțial în contraargumente, limitându-se la a respinge opinia fostului ministru fără a oferi o analiză critică (respect_for_counterarguments=0). Discursul este în esență pozițional, vizând mobilizarea votului pentru statutul feroviarului. Lipsa unei justificări cauzale detaliate și a unui angajament deliberativ cu opoziția limitează scorul general de încredere.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12601,
+      "tokens_in_breakdown": {
+        "fresh": 12601,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1291,
+      "cost_usd": null,
+      "latency_ms": 4565,
+      "retries_used": 0
+    }
+  }
+}

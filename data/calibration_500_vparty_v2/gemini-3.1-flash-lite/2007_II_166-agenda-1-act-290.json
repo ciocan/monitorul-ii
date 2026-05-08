@@ -1,0 +1,52 @@
+{
+  "speech_id": "mo://2007/II/166#agenda-1#act-290",
+  "tier": "calibration",
+  "speaker": {
+    "id": "istvan-toke",
+    "name": "Tőke István",
+    "raw": "Domnul Tőke István",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": "2007-12-03",
+    "year": 2007,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": null,
+    "voice": null,
+    "dqi": null,
+    "vparty": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "vparty",
+      "speech_id": "mo://2007/II/166#agenda-1#act-290",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "vparty@2020 + vdem-attacks-on@v13",
+        "framework_confidence": 1.0,
+        "markers": [],
+        "rationale": "Discursul este unul pur tehnic și administrativ, axat pe gestionarea unei crize sanitare veterinare (pesta porcină). Vorbitorul prezintă fapte, măsuri luate de autorități și proceduri de control, fără a ataca nicio instituție democratică, opoziția, presa sau minoritățile. Nu există nicio urmă de retorică anti-pluralistă sau de delegitimizare a normelor democratice. Discursul respectă pe deplin registrul parlamentar standard."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"vparty@2020 + vdem-attacks-on@v13\",\n  \"framework_confidence\": 1.0,\n  \"markers\": [],\n  \"rationale\": \"Discursul este unul pur tehnic și administrativ, axat pe gestionarea unei crize sanitare veterinare (pesta porcină). Vorbitorul prezintă fapte, măsuri luate de autorități și proceduri de control, fără a ataca nicio instituție democratică, opoziția, presa sau minoritățile. Nu există nicio urmă de retorică anti-pluralistă sau de delegitimizare a normelor democratice. Discursul respectă pe deplin registrul parlamentar standard.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13328,
+      "tokens_in_breakdown": {
+        "fresh": 13328,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 193,
+      "cost_usd": null,
+      "latency_ms": 2479,
+      "retries_used": 0
+    }
+  }
+}

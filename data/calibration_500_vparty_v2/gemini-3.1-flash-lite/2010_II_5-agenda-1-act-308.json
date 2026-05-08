@@ -1,0 +1,63 @@
+{
+  "speech_id": "mo://2010/II/5#agenda-1#act-308",
+  "tier": "calibration",
+  "speaker": {
+    "id": "munteanu-ioan",
+    "name": "Ioan Munteanu",
+    "raw": "Domnul Ioan Munteanu",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2010-01-13",
+    "year": 2010,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": null,
+    "voice": null,
+    "dqi": null,
+    "vparty": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "vparty",
+      "speech_id": "mo://2010/II/5#agenda-1#act-308",
+      "output": {
+        "score": 1,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "vparty@2020 + vdem-attacks-on@v13",
+        "framework_confidence": 0.85,
+        "markers": [
+          {
+            "kind": "judiciary_attack",
+            "evidence": {
+              "text": "Trec doar cele de la Curtea Constituțională, pentru că acolo știm că o decizie mai mică este pentru cei din opoziție, o decizie mai importantă – de exemplu, validarea alegerilor – este pentru ceilalți."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.88,
+            "rationale_short": "Curtea Constituțională este delegitimată ca instituție aservită politic, acuzată că emite decizii în funcție de interesele partizane."
+          }
+        ],
+        "rationale": "Discursul conține o intervenție procedurală și solicitări de finanțare locală, însă pivotul final al argumentației atacă direct legitimitatea Curții Constituționale. Vorbitorul nu critică o decizie specifică pe fondul ei juridic, ci delegitimează instituția ca fiind capturată politic, sugerând că aceasta funcționează pe criterii de partizanat. Deși acest atac este prezent, discursul nu este construit în întregime pe o viziune anti-pluralistă, păstrând un caracter predominant administrativ. Prin urmare, scorul 1 reflectă prezența unui moment de delegitimare instituțională într-un discurs altfel procedural."
+      },
+      "raw_response": "{\n  \"score\": 1,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"vparty@2020 + vdem-attacks-on@v13\",\n  \"framework_confidence\": 0.85,\n  \"markers\": [\n    {\n      \"kind\": \"judiciary_attack\",\n      \"evidence\": {\n        \"text\": \"Trec doar cele de la Curtea Constituțională, pentru că acolo știm că o decizie mai mică este pentru cei din opoziție, o decizie mai importantă – de exemplu, validarea alegerilor – este pentru ceilalți.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Curtea Constituțională este delegitimată ca instituție aservită politic, acuzată că emite decizii în funcție de interesele partizane.\"\n    }\n  ],\n  \"rationale\": \"Discursul conține o intervenție procedurală și solicitări de finanțare locală, însă pivotul final al argumentației atacă direct legitimitatea Curții Constituționale. Vorbitorul nu critică o decizie specifică pe fondul ei juridic, ci delegitimează instituția ca fiind capturată politic, sugerând că aceasta funcționează pe criterii de partizanat. Deși acest atac este prezent, discursul nu este construit în întregime pe o viziune anti-pluralistă, păstrând un caracter predominant administrativ. Prin urmare, scorul 1 reflectă prezența unui moment de delegitimare instituțională într-un discurs altfel procedural.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12943,
+      "tokens_in_breakdown": {
+        "fresh": 12943,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 411,
+      "cost_usd": null,
+      "latency_ms": 2454,
+      "retries_used": 0
+    }
+  }
+}

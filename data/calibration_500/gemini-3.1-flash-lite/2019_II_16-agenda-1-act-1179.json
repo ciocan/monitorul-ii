@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2019/II/16#agenda-1#act-1179",
+  "tier": "calibration",
+  "speaker": {
+    "id": "covaciu-severica-rodica",
+    "name": "Severica Rodica Covaciu",
+    "raw": "Doamna Severica Rodica Covaciu",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2019-02-14",
+    "year": 2019,
+    "legislature": "VIII",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2019/II/16#agenda-1#act-1179",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul este unul pur procedural și tehnic, axat pe prezentarea unui amendament bugetar specific pentru micii agricultori. Vorbitoarea utilizează un limbaj parlamentar standard, fără a invoca un cadru maniheist popor-vs-elită, fără a apela la o voință populară omogenă și fără a recurge la retorică populistă. Discursul se înscrie în registrul dezbaterii de politici publice, fiind un exemplu clar de scor 0."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul este unul pur procedural și tehnic, axat pe prezentarea unui amendament bugetar specific pentru micii agricultori. Vorbitoarea utilizează un limbaj parlamentar standard, fără a invoca un cadru maniheist popor-vs-elită, fără a apela la o voință populară omogenă și fără a recurge la retorică populistă. Discursul se înscrie în registrul dezbaterii de politici publice, fiind un exemplu clar de scor 0.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13654,
+      "tokens_in_breakdown": {
+        "fresh": 13654,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 179,
+      "cost_usd": null,
+      "latency_ms": 1824,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2019/II/16#agenda-1#act-1179",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.85,
+        "level_of_justification": 2,
+        "content_of_justification": "group_interest",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "alternative_proposal",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "Propun suplimentarea bugetului Ministerului Agriculturii și Dezvoltării Rurale cu suma de 250.000 mii lei, sumă care va fi destinată producătorilor agricoli, fermelor mici, în vederea subvenționării achiziției de mașini și echipamente agricole de mici dimensiuni."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Vorbitoarea oferă o justificare specifică pentru amendament, legând alocarea bugetară de un mecanism clar de sprijin pentru micii fermieri."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "group_interest",
+            "evidence": {
+              "text": "pentru toți micii agricultori din România"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Justificarea este ancorată explicit în interesul unui grup specific: micii agricultori."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Stimați colegi"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Adresare convențională; nu există referințe derogatorii sau de respect explicit față de out-group-uri."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "sper să analizați și dumneavoastră oportunitatea aprobării acestui amendament"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Vorbitoarea își prezintă propunerea fără a angaja sau respinge cereri adverse; atitudine neutră."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "Am ales unul din cele 122 de amendamente pe care le-am depus să-l prezint astăzi"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.88,
+            "rationale_short": "Discursul nu abordează niciun contraargument, concentrându-se exclusiv pe prezentarea propriei inițiative."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "alternative_proposal",
+            "evidence": {
+              "text": "Propun suplimentarea bugetului Ministerului Agriculturii și Dezvoltării Rurale cu suma de 250.000 mii lei"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Vorbitoarea înaintează un amendament bugetar concret, calificându-se drept propunere alternativă."
+          }
+        ],
+        "rationale": "Discursul prezintă un profil deliberativ moderat, caracterizat prin oferirea unei justificări clare și specifice pentru un amendament bugetar (level_of_justification=2). Justificarea este orientată către interesul unui grup definit (micii agricultori), ceea ce o plasează în categoria group_interest. Deși discursul este constructiv prin natura sa de amendament (alternative_proposal), acesta nu angajează contraargumente sau cereri adverse, menținând o atitudine neutră față de colegi. Lipsa angajamentului cu opoziția limitează scorul pe dimensiunile de respect, dar claritatea propunerii și a motivării sale oferă o calitate deliberativă solidă pentru acest tip de intervenție parlamentară."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.85,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"group_interest\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 0,\n  \"constructive_politics\": \"alternative_proposal\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"Propun suplimentarea bugetului Ministerului Agriculturii și Dezvoltării Rurale cu suma de 250.000 mii lei, sumă care va fi destinată producătorilor agricoli, fermelor mici, în vederea subvenționării achiziției de mașini și echipamente agricole de mici dimensiuni.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Vorbitoarea oferă o justificare specifică pentru amendament, legând alocarea bugetară de un mecanism clar de sprijin pentru micii fermieri.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"group_interest\",\n      \"evidence\": {\n        \"text\": \"pentru toți micii agricultori din România\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Justificarea este ancorată explicit în interesul unui grup specific: micii agricultori.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Stimați colegi\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Adresare convențională; nu există referințe derogatorii sau de respect explicit față de out-group-uri.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"sper să analizați și dumneavoastră oportunitatea aprobării acestui amendament\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Vorbitoarea își prezintă propunerea fără a angaja sau respinge cereri adverse; atitudine neutră.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"Am ales unul din cele 122 de amendamente pe care le-am depus să-l prezint astăzi\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Discursul nu abordează niciun contraargument, concentrându-se exclusiv pe prezentarea propriei inițiative.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"alternative_proposal\",\n      \"evidence\": {\n        \"text\": \"Propun suplimentarea bugetului Ministerului Agriculturii și Dezvoltării Rurale cu suma de 250.000 mii lei\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Vorbitoarea înaintează un amendament bugetar concret, calificându-se drept propunere alternativă.\"\n    }\n  ],\n  \"rationale\": \"Discursul prezintă un profil deliberativ moderat, caracterizat prin oferirea unei justificări clare și specifice pentru un amendament bugetar (level_of_justification=2). Justificarea este orientată către interesul unui grup definit (micii agricultori), ceea ce o plasează în categoria group_interest. Deși discursul este constructiv prin natura sa de amendament (alternative_proposal), acesta nu angajează contraargumente sau cereri adverse, menținând o atitudine neutră față de colegi. Lipsa angajamentului cu opoziția limitează scorul pe dimensiunile de respect, dar claritatea propunerii și a motivării sale oferă o calitate deliberativă solidă pentru acest tip de intervenție parlamentară.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12455,
+      "tokens_in_breakdown": {
+        "fresh": 12455,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1218,
+      "cost_usd": null,
+      "latency_ms": 4647,
+      "retries_used": 0
+    }
+  }
+}

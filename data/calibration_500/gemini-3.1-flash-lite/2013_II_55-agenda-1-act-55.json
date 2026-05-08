@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2013/II/55#agenda-1#act-55",
+  "tier": "calibration",
+  "speaker": {
+    "id": "cocei-erland",
+    "name": "Erland Cocei",
+    "raw": "Domnul Erland Cocei",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2013-04-23",
+    "year": 2013,
+    "legislature": "VII",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2013/II/55#agenda-1#act-55",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul este unul pur tehnic și procedural, axat pe prezentarea unei strategii guvernamentale de reindustrializare. Vorbitorul detaliază mecanisme de consultare, chestionare, direcții economice și documente administrative, fără a utiliza vreun cadru manihean popor-vs-elită. Nu există invocări ale unei voințe populare omogene, nici atacuri la adresa unei elite malefice, discursul fiind ancorat în registrul politicilor publice și al managementului economic. Hawkins=0 cu încredere ridicată."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul este unul pur tehnic și procedural, axat pe prezentarea unei strategii guvernamentale de reindustrializare. Vorbitorul detaliază mecanisme de consultare, chestionare, direcții economice și documente administrative, fără a utiliza vreun cadru manihean popor-vs-elită. Nu există invocări ale unei voințe populare omogene, nici atacuri la adresa unei elite malefice, discursul fiind ancorat în registrul politicilor publice și al managementului economic. Hawkins=0 cu încredere ridicată.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 14012,
+      "tokens_in_breakdown": {
+        "fresh": 14012,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 192,
+      "cost_usd": null,
+      "latency_ms": 1860,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2013/II/55#agenda-1#act-55",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.78,
+        "level_of_justification": 1,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 1,
+            "evidence": {
+              "text": "Strategia de reindustrializare a României reprezintă una dintre prioritățile majore ale actualului Guvern, care are menirea de a oferi soluții și de a revitaliza un domeniu ignorat și abandonat de fosta guvernare PDL."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Justificarea este bazată pe retorică politică și contrast cu trecutul, fără a oferi un mecanism cauzal sau dovezi empirice."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "Strategia de reindustrializare a României reprezintă una dintre prioritățile majore ale actualului Guvern"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.88,
+            "rationale_short": "Apelul este la interesul național (reindustrializarea României), universalizabil pentru cetățeni."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "fosta guvernare PDL"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.82,
+            "rationale_short": "Referință critică la un grup politic, dar fără a depăși limitele discursului parlamentar standard."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Strategia de reindustrializare a României reprezintă una dintre prioritățile majore ale actualului Guvern"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.8,
+            "rationale_short": "Vorbitorul își prezintă agenda fără a menționa sau angaja cererile opoziției."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "Strategia de reindustrializare a României reprezintă una dintre prioritățile majore ale actualului Guvern"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Discursul ignoră complet orice contraargumente sau critici aduse strategiei."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Ministerul Economiei va întocmi patru documente în scopul reindustrializării României"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Vorbitorul prezintă planurile ministerului fără a propune alternative sau medieri între poziții divergente."
+          }
+        ],
+        "rationale": "Discursul este unul de prezentare a unei strategii guvernamentale, caracterizat printr-o justificare de nivel 1, bazată pe retorică politică mai degrabă decât pe argumente cauzale detaliate. Deși vizează binele comun, discursul rămâne pozițional, fără a angaja criticile opoziției sau a oferi spațiu pentru mediere. Respectul pentru grupuri este neutru, iar lipsa oricărui angajament cu contraargumentele indică un profil deliberativ limitat. Discursul servește ca informare oficială, nu ca dezbatere deliberativă."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.78,\n  \"level_of_justification\": 1,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 0,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Strategia de reindustrializare a României reprezintă una dintre prioritățile majore ale actualului Guvern, care are menirea de a oferi soluții și de a revitaliza un domeniu ignorat și abandonat de fosta guvernare PDL.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Justificarea este bazată pe retorică politică și contrast cu trecutul, fără a oferi un mecanism cauzal sau dovezi empirice.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"Strategia de reindustrializare a României reprezintă una dintre prioritățile majore ale actualului Guvern\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Apelul este la interesul național (reindustrializarea României), universalizabil pentru cetățeni.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"fosta guvernare PDL\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.82,\n      \"rationale_short\": \"Referință critică la un grup politic, dar fără a depăși limitele discursului parlamentar standard.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Strategia de reindustrializare a României reprezintă una dintre prioritățile majore ale actualului Guvern\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.80,\n      \"rationale_short\": \"Vorbitorul își prezintă agenda fără a menționa sau angaja cererile opoziției.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"Strategia de reindustrializare a României reprezintă una dintre prioritățile majore ale actualului Guvern\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Discursul ignoră complet orice contraargumente sau critici aduse strategiei.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"Ministerul Economiei va întocmi patru documente în scopul reindustrializării României\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.90,\n      \"rationale_short\": \"Vorbitorul prezintă planurile ministerului fără a propune alternative sau medieri între poziții divergente.\"\n    }\n  ],\n  \"rationale\": \"Discursul este unul de prezentare a unei strategii guvernamentale, caracterizat printr-o justificare de nivel 1, bazată pe retorică politică mai degrabă decât pe argumente cauzale detaliate. Deși vizează binele comun, discursul rămâne pozițional, fără a angaja criticile opoziției sau a oferi spațiu pentru mediere. Respectul pentru grupuri este neutru, iar lipsa oricărui angajament cu contraargumentele indică un profil deliberativ limitat. Discursul servește ca informare oficială, nu ca dezbatere deliberativă.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12813,
+      "tokens_in_breakdown": {
+        "fresh": 12813,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1174,
+      "cost_usd": null,
+      "latency_ms": 4649,
+      "retries_used": 0
+    }
+  }
+}

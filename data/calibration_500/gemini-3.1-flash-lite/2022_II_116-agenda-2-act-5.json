@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2022/II/116#agenda-2#act-5",
+  "tier": "calibration",
+  "speaker": {
+    "id": "toma-ilie",
+    "name": "Ilie Toma",
+    "raw": "Domnul Ilie Toma",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2022-09-12",
+    "year": 2022,
+    "legislature": "IX",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2022/II/116#agenda-2#act-5",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul este unul comemorativ și procedural, axat pe evocarea istorică a lui Avram Iancu și a sfințirii bisericii de la Țebea. Deși menționează „lupta pentru drepturile românilor”, aceasta este încadrată într-un context istoric și omagial, nu într-un cadru maniheist popor-vs-elită. Nu există nicio invocare a unei voințe populare omogene care să se opună instituțiilor, niciun atac la adresa unei elite malefice și nicio retorică populistă. Discursul se înscrie în registrul discursului parlamentar festiv, scorul fiind 0 cu încredere ridicată."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul este unul comemorativ și procedural, axat pe evocarea istorică a lui Avram Iancu și a sfințirii bisericii de la Țebea. Deși menționează „lupta pentru drepturile românilor”, aceasta este încadrată într-un context istoric și omagial, nu într-un cadru maniheist popor-vs-elită. Nu există nicio invocare a unei voințe populare omogene care să se opună instituțiilor, niciun atac la adresa unei elite malefice și nicio retorică populistă. Discursul se înscrie în registrul discursului parlamentar festiv, scorul fiind 0 cu încredere ridicată.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13701,
+      "tokens_in_breakdown": {
+        "fresh": 13701,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 230,
+      "cost_usd": null,
+      "latency_ms": 2164,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2022/II/116#agenda-2#act-5",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.72,
+        "level_of_justification": 0,
+        "content_of_justification": "none",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 0,
+            "evidence": {
+              "text": "a fost sărbătorit, a fost elogiat și îl recunoaștem ca mare personalitate a istoriei României"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.92,
+            "rationale_short": "Discursul este o relatare a unor evenimente comemorative, fără a oferi o justificare pentru o poziție politică."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "none",
+            "evidence": {
+              "text": "Vă mulțumesc foarte mult."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Nicio justificare oferită; conținutul justificării este nedefinit."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Avram Iancu, Crăișorul Munților"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.96,
+            "marker_confidence": 0.85,
+            "rationale_short": "Referință istorică neutră; nu există derogare sau respect explicit pentru un grup politic contemporan."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "pe toți cei care au venit la tribuna oficială și au spus că nu cunoaștem despre acea sărbătoare"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.94,
+            "marker_confidence": 0.88,
+            "rationale_short": "Vorbitorul menționează critici anterioare fără a le angaja ca cereri politice; atitudine neutră."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "pe toți cei care au venit la tribuna oficială și au spus că nu cunoaștem despre acea sărbătoare"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.94,
+            "marker_confidence": 0.89,
+            "rationale_short": "Menționează argumentul criticilor, dar nu îl angajează substanțial, limitându-se la o relatare a faptelor."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "îl recunoaștem ca mare personalitate a istoriei României"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.96,
+            "marker_confidence": 0.91,
+            "rationale_short": "Discursul afirmă o poziție de recunoaștere istorică, fără a propune alternative sau medieri politice."
+          }
+        ],
+        "rationale": "Discursul are un caracter predominant comemorativ și informativ, nu deliberativ. Vorbitorul relatează participarea la evenimente istorice pentru a răspunde unor critici anterioare, însă nu oferă o justificare cauzală sau principială pentru o inițiativă politică (level_of_justification=0). Nu există un angajament substanțial cu cererile sau contraargumentele opoziției, ci doar o menționare a acestora în contextul relatării (respect_for_demands=1, respect_for_counterarguments=1). Discursul este pozițional, axat pe validarea unei personalități istorice. Calitatea deliberativă este scăzută deoarece discursul nu vizează negocierea sau argumentarea unei politici publice."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.72,\n  \"level_of_justification\": 0,\n  \"content_of_justification\": \"none\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 0,\n      \"evidence\": { \"text\": \"a fost sărbătorit, a fost elogiat și îl recunoaștem ca mare personalitate a istoriei României\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Discursul este o relatare a unor evenimente comemorative, fără a oferi o justificare pentru o poziție politică.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"none\",\n      \"evidence\": { \"text\": \"Vă mulțumesc foarte mult.\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Nicio justificare oferită; conținutul justificării este nedefinit.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": { \"text\": \"Avram Iancu, Crăișorul Munților\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.96,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Referință istorică neutră; nu există derogare sau respect explicit pentru un grup politic contemporan.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": { \"text\": \"pe toți cei care au venit la tribuna oficială și au spus că nu cunoaștem despre acea sărbătoare\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.94,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Vorbitorul menționează critici anterioare fără a le angaja ca cereri politice; atitudine neutră.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": { \"text\": \"pe toți cei care au venit la tribuna oficială și au spus că nu cunoaștem despre acea sărbătoare\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.94,\n      \"marker_confidence\": 0.89,\n      \"rationale_short\": \"Menționează argumentul criticilor, dar nu îl angajează substanțial, limitându-se la o relatare a faptelor.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": { \"text\": \"îl recunoaștem ca mare personalitate a istoriei României\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.96,\n      \"marker_confidence\": 0.91,\n      \"rationale_short\": \"Discursul afirmă o poziție de recunoaștere istorică, fără a propune alternative sau medieri politice.\"\n    }\n  ],\n  \"rationale\": \"Discursul are un caracter predominant comemorativ și informativ, nu deliberativ. Vorbitorul relatează participarea la evenimente istorice pentru a răspunde unor critici anterioare, însă nu oferă o justificare cauzală sau principială pentru o inițiativă politică (level_of_justification=0). Nu există un angajament substanțial cu cererile sau contraargumentele opoziției, ci doar o menționare a acestora în contextul relatării (respect_for_demands=1, respect_for_counterarguments=1). Discursul este pozițional, axat pe validarea unei personalități istorice. Calitatea deliberativă este scăzută deoarece discursul nu vizează negocierea sau argumentarea unei politici publice.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12502,
+      "tokens_in_breakdown": {
+        "fresh": 12502,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1155,
+      "cost_usd": null,
+      "latency_ms": 4419,
+      "retries_used": 0
+    }
+  }
+}

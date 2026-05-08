@@ -1,0 +1,192 @@
+{
+  "speech_id": "mo://2026/II/6#agenda-1#act-338",
+  "tier": "calibration",
+  "speaker": {
+    "id": null,
+    "name": "Gheorghe Vela",
+    "raw": "Domnul Gheorghe Vela",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": "2025-12-22",
+    "year": 2026,
+    "legislature": "X",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2026/II/6#agenda-1#act-338",
+      "output": {
+        "score": 1,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.85,
+        "markers": [
+          {
+            "kind": "people_vs_elite",
+            "evidence": {
+              "text": "pe de-o parte se susține energia verde și se recomandă unor țări din Estul Europei să-și închidă termocentralele pe cărbune, dar Germania, Franța fac notă discordantă, ca să spunem, cu celelalte țări. Cum ar veni, există egalitate sau... recomandări doar pentru unii, e egalitate între cei mari."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.85,
+            "rationale_short": "Invocă o dihotomie între țările din Est (poporul/victimele) și țările mari/Germania/Franța (elita/cei care impun reguli inegale)."
+          }
+        ],
+        "rationale": "Discursul conține un cadru populist clar, articulând o dihotomie între țările din Estul Europei și marile puteri (Germania, Franța) care impun reguli inegale, sugerând o relație de subordonare și nedreptate. Deși acest marker de tip 'popor-vs-elită' este prezent și susținut la persoana întâi, discursul rămâne scurt și nu dezvoltă o viziune maniheistă pervazivă sau alte elemente populiste (precum invocarea unei voințe populare omogene sau a unei crize existențiale). Este un exemplu tipic de populism episodic, unde retorica 'noi vs ei' este folosită pentru a justifica votul împotriva unui proiect, fără a structura întregul discurs ca un manifest populist. Scor 1 cu încredere ridicată."
+      },
+      "raw_response": "{\n  \"score\": 1,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.85,\n  \"markers\": [\n    {\n      \"kind\": \"people_vs_elite\",\n      \"evidence\": {\n        \"text\": \"pe de-o parte se susține energia verde și se recomandă unor țări din Estul Europei să-și închidă termocentralele pe cărbune, dar Germania, Franța fac notă discordantă, ca să spunem, cu celelalte țări. Cum ar veni, există egalitate sau... recomandări doar pentru unii, e egalitate între cei mari.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Invocă o dihotomie între țările din Est (poporul/victimele) și țările mari/Germania/Franța (elita/cei care impun reguli inegale).\"\n    }\n  ],\n  \"rationale\": \"Discursul conține un cadru populist clar, articulând o dihotomie între țările din Estul Europei și marile puteri (Germania, Franța) care impun reguli inegale, sugerând o relație de subordonare și nedreptate. Deși acest marker de tip 'popor-vs-elită' este prezent și susținut la persoana întâi, discursul rămâne scurt și nu dezvoltă o viziune maniheistă pervazivă sau alte elemente populiste (precum invocarea unei voințe populare omogene sau a unei crize existențiale). Este un exemplu tipic de populism episodic, unde retorica 'noi vs ei' este folosită pentru a justifica votul împotriva unui proiect, fără a structura întregul discurs ca un manifest populist. Scor 1 cu încredere ridicată.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13675,
+      "tokens_in_breakdown": {
+        "fresh": 13675,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 482,
+      "cost_usd": null,
+      "latency_ms": 3151,
+      "retries_used": 0
+    },
+    "voice": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "voice",
+      "speech_id": "mo://2026/II/6#agenda-1#act-338",
+      "output": {
+        "classifications": [
+          {
+            "marker_id": "m_0",
+            "voice": "speaker_first_person",
+            "voice_confidence": 0.95,
+            "voice_evidence": null,
+            "attributed_to": null,
+            "rationale_short": "Vorbitorul își asumă direct observația critică despre Comisia Europeană, fără a atribui afirmația unei surse externe sau a folosi un cadru de negație/apofază."
+          }
+        ]
+      },
+      "raw_response": "{\n  \"classifications\": [\n    {\n      \"marker_id\": \"m_0\",\n      \"voice\": \"speaker_first_person\",\n      \"voice_confidence\": 0.95,\n      \"voice_evidence\": null,\n      \"attributed_to\": null,\n      \"rationale_short\": \"Vorbitorul își asumă direct observația critică despre Comisia Europeană, fără a atribui afirmația unei surse externe sau a folosi un cadru de negație/apofază.\"\n    }\n  ]\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 11275,
+      "tokens_in_breakdown": {
+        "fresh": 11275,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 127,
+      "cost_usd": null,
+      "latency_ms": 1095,
+      "retries_used": 0
+    },
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2026/II/6#agenda-1#act-338",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.78,
+        "level_of_justification": 1,
+        "content_of_justification": "group_interest",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 1,
+            "evidence": {
+              "text": "Atâta vreme cât nu se respectă aceste principii și eu, ca senator POT – și sunt în asentimentul meu și ceilalți senatori tot din Partidul Oamenilor Tineri –, voi vota împotriva acestui COM."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Justificarea se bazează pe loialitatea față de partid și principii vagi, fără un lanț cauzal substanțial."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "group_interest",
+            "evidence": {
+              "text": "eu, ca senator POT – și sunt în asentimentul meu și ceilalți senatori tot din Partidul Oamenilor Tineri"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Apelul este explicit ancorat în identitatea și interesele grupului politic (POT)."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Germania, Franța fac notă discordantă"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.88,
+            "rationale_short": "Referință critică la state membre, dar fără derogare sau dispreț explicit; postura rămâne neutră."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Vreau să întăresc prin această luare de cuvânt toate argumentele care au fost spuse de către înainte vorbitor"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.85,
+            "rationale_short": "Vorbitorul se aliniază unei poziții anterioare fără a angaja cererile opoziției în mod substanțial."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "Observăm un lucru foarte interesant legat de Comisia Europeană"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.96,
+            "marker_confidence": 0.82,
+            "rationale_short": "Menționează argumentul Comisiei, dar nu îl angajează printr-o contra-argumentare logică."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "voi vota împotriva acestui COM"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Discursul este pur pozițional, exprimând un vot fără a propune o alternativă sau mediere."
+          }
+        ],
+        "rationale": "Discursul prezintă o calitate deliberativă scăzută, fiind caracterizat prin poziționare politică și justificare bazată pe loialitate de grup (POT). Vorbitorul se aliniază argumentelor unui coleg (AUR) fără a aduce contribuții analitice proprii, ceea ce limitează nivelul de justificare la 1. Deși menționează criticile la adresa Comisiei Europene, nu există un angajament substanțial cu contraargumentele, ci doar o observație retorică. Nu sunt oferite alternative sau propuneri de mediere, discursul fiind strict pozițional. Respectul pentru grupuri și cereri rămâne neutru, neexistând atacuri directe, dar nici recunoașterea legitimității pozițiilor adverse."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.78,\n  \"level_of_justification\": 1,\n  \"content_of_justification\": \"group_interest\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Atâta vreme cât nu se respectă aceste principii și eu, ca senator POT – și sunt în asentimentul meu și ceilalți senatori tot din Partidul Oamenilor Tineri –, voi vota împotriva acestui COM.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Justificarea se bazează pe loialitatea față de partid și principii vagi, fără un lanț cauzal substanțial.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"group_interest\",\n      \"evidence\": {\n        \"text\": \"eu, ca senator POT – și sunt în asentimentul meu și ceilalți senatori tot din Partidul Oamenilor Tineri\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Apelul este explicit ancorat în identitatea și interesele grupului politic (POT).\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Germania, Franța fac notă discordantă\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Referință critică la state membre, dar fără derogare sau dispreț explicit; postura rămâne neutră.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Vreau să întăresc prin această luare de cuvânt toate argumentele care au fost spuse de către înainte vorbitor\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Vorbitorul se aliniază unei poziții anterioare fără a angaja cererile opoziției în mod substanțial.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Observăm un lucru foarte interesant legat de Comisia Europeană\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.96,\n      \"marker_confidence\": 0.82,\n      \"rationale_short\": \"Menționează argumentul Comisiei, dar nu îl angajează printr-o contra-argumentare logică.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"voi vota împotriva acestui COM\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Discursul este pur pozițional, exprimând un vot fără a propune o alternativă sau mediere.\"\n    }\n  ],\n  \"rationale\": \"Discursul prezintă o calitate deliberativă scăzută, fiind caracterizat prin poziționare politică și justificare bazată pe loialitate de grup (POT). Vorbitorul se aliniază argumentelor unui coleg (AUR) fără a aduce contribuții analitice proprii, ceea ce limitează nivelul de justificare la 1. Deși menționează criticile la adresa Comisiei Europene, nu există un angajament substanțial cu contraargumentele, ci doar o observație retorică. Nu sunt oferite alternative sau propuneri de mediere, discursul fiind strict pozițional. Respectul pentru grupuri și cereri rămâne neutru, neexistând atacuri directe, dar nici recunoașterea legitimității pozițiilor adverse.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12476,
+      "tokens_in_breakdown": {
+        "fresh": 12476,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1201,
+      "cost_usd": null,
+      "latency_ms": 4673,
+      "retries_used": 0
+    }
+  }
+}

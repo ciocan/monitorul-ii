@@ -1,0 +1,153 @@
+{
+  "speech_id": "mo://2008/II/4#agenda-3#act-98",
+  "tier": "calibration",
+  "speaker": {
+    "id": "ujeniuc-dragos",
+    "name": "Dragoș Ujeniuc",
+    "raw": "Domnul Dragoș Ujeniuc",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2008-02-05",
+    "year": 2008,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2008/II/4#agenda-3#act-98",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul este unul tehnic, axat pe o problemă specifică de procedură judiciară (celeritatea judecării cauzelor și utilizarea excepțiilor de neconstituționalitate). Vorbitorul analizează disfuncționalități administrative și propune soluții legislative concrete, fără a invoca un cadru maniheist popor-vs-elită sau o voință populară omogenă. Deși menționează „abuzul continuu” al unor actori, acesta este încadrat în contextul tehnic al procesului civil, nu ca o trăsătură a unei elite malefice. Discursul rămâne în registrul procedural, neîntrunind criteriile pentru un scor populist."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul este unul tehnic, axat pe o problemă specifică de procedură judiciară (celeritatea judecării cauzelor și utilizarea excepțiilor de neconstituționalitate). Vorbitorul analizează disfuncționalități administrative și propune soluții legislative concrete, fără a invoca un cadru maniheist popor-vs-elită sau o voință populară omogenă. Deși menționează „abuzul continuu” al unor actori, acesta este încadrat în contextul tehnic al procesului civil, nu ca o trăsătură a unei elite malefice. Discursul rămâne în registrul procedural, neîntrunind criteriile pentru un scor populist.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13755,
+      "tokens_in_breakdown": {
+        "fresh": 13755,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 228,
+      "cost_usd": null,
+      "latency_ms": 2102,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2008/II/4#agenda-3#act-98",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.85,
+        "level_of_justification": 2,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "abuzul continuu și constant al celor care au interesul de a frâna procesul în justiție să apeleze la invocarea excepțiilor de neconstituționalitate, excepții care, odată ridicate, invariabil, ele au dus la suspendarea cauzelor pe rolul instanțelor civile și trimiterea la Curtea Constituțională"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Vorbitorul identifică un mecanism cauzal specific (invocarea excepțiilor) care duce la tergiversarea actului de justiție."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "credem că avem datoria să înlăturăm această posibilitate de a menține sindromul denumit tergiversarea actului de justiție"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Apelul este la interesul general al reformei în justiție, nu la un grup politic specific."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Stimați colegi"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.99,
+            "marker_confidence": 0.85,
+            "rationale_short": "Adresare convențională; niciun grup vizat explicit pentru respect sau derogare."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "abuzul continuu și constant al celor care au interesul de a frâna procesul în justiție"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.88,
+            "rationale_short": "Vorbitorul critică o practică, dar nu se angajează cu legitimitatea cererilor opoziției; neutru."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "privind lucrurile sub aspectul relevat și de domnul Gheorghe Gabor"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Menționează un alt vorbitor, dar nu angajează substanțial argumentul acestuia."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "credem că avem datoria să înlăturăm această posibilitate"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Vorbitorul susține o poziție de reformă fără a propune un amendament sau o mediere concretă."
+          }
+        ],
+        "rationale": "Discursul prezintă o calitate deliberativă medie, caracterizată printr-o justificare calificată (level_of_justification=2) care explică mecanismul cauzal al tergiversării proceselor prin excepții de neconstituționalitate. Apelul este orientat către binele comun (reforma justiției), însă discursul rămâne pozițional, fără a oferi o alternativă legislativă concretă sau o mediere. Respectul pentru grupuri și cereri este neutru, iar angajamentul față de contraargumente este limitat la o mențiune superficială a unui coleg. Profilul este cel al unui discurs argumentativ standard, care evită atacurile directe, dar nu atinge nivelul de sofisticare deliberativă ideală."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.85,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"abuzul continuu și constant al celor care au interesul de a frâna procesul în justiție să apeleze la invocarea excepțiilor de neconstituționalitate, excepții care, odată ridicate, invariabil, ele au dus la suspendarea cauzelor pe rolul instanțelor civile și trimiterea la Curtea Constituțională\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Vorbitorul identifică un mecanism cauzal specific (invocarea excepțiilor) care duce la tergiversarea actului de justiție.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"credem că avem datoria să înlăturăm această posibilitate de a menține sindromul denumit tergiversarea actului de justiție\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.90,\n      \"rationale_short\": \"Apelul este la interesul general al reformei în justiție, nu la un grup politic specific.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Stimați colegi\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.99,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Adresare convențională; niciun grup vizat explicit pentru respect sau derogare.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"abuzul continuu și constant al celor care au interesul de a frâna procesul în justiție\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Vorbitorul critică o practică, dar nu se angajează cu legitimitatea cererilor opoziției; neutru.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"privind lucrurile sub aspectul relevat și de domnul Gheorghe Gabor\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Menționează un alt vorbitor, dar nu angajează substanțial argumentul acestuia.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"credem că avem datoria să înlăturăm această posibilitate\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Vorbitorul susține o poziție de reformă fără a propune un amendament sau o mediere concretă.\"\n    }\n  ],\n  \"rationale\": \"Discursul prezintă o calitate deliberativă medie, caracterizată printr-o justificare calificată (level_of_justification=2) care explică mecanismul cauzal al tergiversării proceselor prin excepții de neconstituționalitate. Apelul este orientat către binele comun (reforma justiției), însă discursul rămâne pozițional, fără a oferi o alternativă legislativă concretă sau o mediere. Respectul pentru grupuri și cereri este neutru, iar angajamentul față de contraargumente este limitat la o mențiune superficială a unui coleg. Profilul este cel al unui discurs argumentativ standard, care evită atacurile directe, dar nu atinge nivelul de sofisticare deliberativă ideală.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [
+        "credem că avem datoria să înlăturăm această posibilitate de a menține sindromul denumit tergiversarea actului de justiție",
+        "credem că avem datoria să înlăturăm această posibilitate"
+      ],
+      "parse_repaired": false,
+      "tokens_in": 12556,
+      "tokens_in_breakdown": {
+        "fresh": 12556,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1229,
+      "cost_usd": null,
+      "latency_ms": 4926,
+      "retries_used": 0
+    }
+  }
+}

@@ -1,0 +1,210 @@
+{
+  "speech_id": "mo://2023/II/29#agenda-2#act-42",
+  "tier": "populist",
+  "speaker": {
+    "id": "damureanu-ringo",
+    "name": "Ringo Dămureanu",
+    "raw": "Domnul Ringo Dămureanu",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2023-02-28",
+    "year": 2023,
+    "legislature": "IX",
+    "delivery_mode": null
+  },
+  "model_key": "gpt-5.4-mini",
+  "model_label": "gpt-5.4-mini",
+  "results": {
+    "hawkins": {
+      "model_key": "gpt-5.4-mini",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2023/II/29#agenda-2#act-42",
+      "output": {
+        "score": 1,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.81,
+        "markers": [
+          {
+            "kind": "people_vs_elite",
+            "evidence": {
+              "text": "când vine vorba de legăturile lor cu lumea, fie ele rutiere sau feroviare"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.86,
+            "marker_confidence": 0.62,
+            "rationale_short": "Sugerează marginalizarea Doljului și Olteniei în raport cu restul țării, dar fără un antagonism popor-versus-elită explicit și stabil."
+          },
+          {
+            "kind": "crisis_invocation",
+            "evidence": {
+              "text": "Situația în domeniul feroviar este dezastruoasă."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.84,
+            "rationale_short": "Formulare clară de criză și degradare severă, folosită pentru a urgenta tema infrastructurii."
+          }
+        ],
+        "rationale": "Discursul este în principal unul tematic și administrativ, axat pe infrastructura din Dolj și Oltenia, cu exemple concrete de întârzieri, accidente și lipsă de investiții. Totuși, apare o tentă populistă când regiunea este prezentată ca nedreptățită și când situația feroviară este descrisă ca „dezastruoasă”, deci cu un cadru de criză. Nu există însă un cadru persistent popor-vs-elită, nici maniheism moral sau supremația voinței populare asupra instituțiilor. Prin urmare, discursul ajunge la un Hawkins=1, dar nu la un populism pervaziv."
+      },
+      "raw_response": "{\"score\":1,\"score_unit\":\"ordinal_0_2\",\"framework_version\":\"hawkins@2018\",\"framework_confidence\":0.81,\"markers\":[{\"kind\":\"people_vs_elite\",\"evidence\":{\"text\":\"când vine vorba de legăturile lor cu lumea, fie ele rutiere sau feroviare\"},\"preliminary_voice\":\"speaker_first_person\",\"preliminary_voice_confidence\":0.86,\"marker_confidence\":0.62,\"rationale_short\":\"Sugerează marginalizarea Doljului și Olteniei în raport cu restul țării, dar fără un antagonism popor-versus-elită explicit și stabil.\"},{\"kind\":\"crisis_invocation\",\"evidence\":{\"text\":\"Situația în domeniul feroviar este dezastruoasă.\"},\"preliminary_voice\":\"speaker_first_person\",\"preliminary_voice_confidence\":0.97,\"marker_confidence\":0.84,\"rationale_short\":\"Formulare clară de criză și degradare severă, folosită pentru a urgenta tema infrastructurii.\"}],\"rationale\":\"Discursul este în principal unul tematic și administrativ, axat pe infrastructura din Dolj și Oltenia, cu exemple concrete de întârzieri, accidente și lipsă de investiții. Totuși, apare o tentă populistă când regiunea este prezentată ca nedreptățită și când situația feroviară este descrisă ca „dezastruoasă”, deci cu un cadru de criză. Nu există însă un cadru persistent popor-vs-elită, nici maniheism moral sau supremația voinței populare asupra instituțiilor. Prin urmare, discursul ajunge la un Hawkins=1, dar nu la un populism pervaziv.\"}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 14218,
+      "tokens_in_breakdown": {
+        "fresh": 14218,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 398,
+      "cost_usd": null,
+      "latency_ms": 3328,
+      "retries_used": 0
+    },
+    "voice": {
+      "model_key": "gpt-5.4-mini",
+      "prompt_kind": "voice",
+      "speech_id": "mo://2023/II/29#agenda-2#act-42",
+      "output": {
+        "classifications": [
+          {
+            "marker_id": "m_0",
+            "voice": "speaker_first_person",
+            "voice_confidence": 0.97,
+            "voice_evidence": null,
+            "attributed_to": null,
+            "rationale_short": "Este o afirmație directă a vorbitorului despre Dolj și Oltenia, fără citare, raportare sau negație."
+          },
+          {
+            "marker_id": "m_1",
+            "voice": "speaker_first_person",
+            "voice_confidence": 0.98,
+            "voice_evidence": null,
+            "attributed_to": null,
+            "rationale_short": "Afirmație directă evaluativă despre situația feroviară, în vocea vorbitorului, fără marcă de atribuire sau negație."
+          }
+        ]
+      },
+      "raw_response": "{\"classifications\":[{\"marker_id\":\"m_0\",\"voice\":\"speaker_first_person\",\"voice_confidence\":0.97,\"voice_evidence\":null,\"attributed_to\":null,\"rationale_short\":\"Este o afirmație directă a vorbitorului despre Dolj și Oltenia, fără citare, raportare sau negație.\"},{\"marker_id\":\"m_1\",\"voice\":\"speaker_first_person\",\"voice_confidence\":0.98,\"voice_evidence\":null,\"attributed_to\":null,\"rationale_short\":\"Afirmație directă evaluativă despre situația feroviară, în vocea vorbitorului, fără marcă de atribuire sau negație.\"}]}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 11709,
+      "tokens_in_breakdown": {
+        "fresh": 11709,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 157,
+      "cost_usd": null,
+      "latency_ms": 1855,
+      "retries_used": 0
+    },
+    "dqi": {
+      "model_key": "gpt-5.4-mini",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2023/II/29#agenda-2#act-42",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.88,
+        "level_of_justification": 2,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 0,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "Căile de legătură cu sudul județului Dolj sunt reale pericole – pe ruta DN 55, către Bechet, spre Bulgaria, cinci poduri zac nerefăcute de peste 8 ani, iar pe drumul european 79, tot către Bulgaria, staționează tiruri pe zeci de kilometri, la Calafat, în vama spre Vidin."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.9,
+            "rationale_short": "Invocă pericole concrete și exemple specifice de infrastructură, deci justificarea este calificată și substanțială."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "când vine vorba de legăturile lor cu lumea, fie ele rutiere sau feroviare."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.96,
+            "marker_confidence": 0.86,
+            "rationale_short": "Apelul este la conectivitate și siguranță publică pentru regiune, adică la un interes generalizabil."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "PSD și PNL"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.7,
+            "rationale_short": "Partidele sunt numite critic, dar fără derogare explicită sau recunoaștere explicită a unei legitimări de grup."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 0,
+            "evidence": {
+              "text": "Ați dovedit ceea ce era de dovedit."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.96,
+            "marker_confidence": 0.9,
+            "rationale_short": "Cererea implicită a adversarilor este respinsă sarcastic, nu recunoscută ca legitimă."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "Garantat, nu multă vreme!"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.84,
+            "rationale_short": "Nu există angajament cu un contraargument concret; discursul merge pe atac și reproș, nu pe rebutare."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Ne întrebăm și vă întrebăm: oare cât vor mai avea de așteptat Doljul și Oltenia pentru a se bucura de beneficiile civilizației"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.96,
+            "marker_confidence": 0.89,
+            "rationale_short": "Vorbitorul atacă guvernarea și cere răspuns, dar nu oferă o alternativă sau o mediere concretă."
+          }
+        ],
+        "rationale": "Discursul are o justificare moderată: enumeră exemple concrete de drumuri, poduri și accidente feroviare, ceea ce ridică nivelul de justificare la 2. Conținutul justificării este orientat spre binele comun, fiind vorba de siguranță, conectivitate și acces infrastructural pentru o regiune întreagă, nu de un interes îngust de grup. În schimb, respectul deliberativ este slab: partidele adverse sunt vizate critic, iar formulări precum „Ați dovedit ceea ce era de dovedit” au un ton de respingere, fără a le recunoaște legitimitatea sau argumentele. Nu există nicio angajare reală cu contraargumentele, nici măcar una de tipul „am înțeles, dar răspund astfel”, deci respect_for_counterarguments rămâne 0. Discursul este pur pozițional: descrie degradarea infrastructurii și acuză incompetența PSD și PNL, dar nu propune o soluție alternativă concretă. Per ansamblu, profilul este cel al unei intervenții critice, informative și oarecum bine motivate, însă slab deliberative pe dimensiunile de respect și construcție."
+      },
+      "raw_response": "{\"framework_version\":\"steiner-bachtiger@2017\",\"score_unit\":\"dqi_multi\",\"framework_confidence\":0.88,\"level_of_justification\":2,\"content_of_justification\":\"common_good\",\"respect_for_groups\":1,\"respect_for_demands\":0,\"respect_for_counterarguments\":0,\"constructive_politics\":\"positional\",\"markers\":[{\"kind\":\"level_of_justification\",\"value\":2,\"evidence\":{\"text\":\"Căile de legătură cu sudul județului Dolj sunt reale pericole – pe ruta DN 55, către Bechet, spre Bulgaria, cinci poduri zac nerefăcute de peste 8 ani, iar pe drumul european 79, tot către Bulgaria, staționează tiruri pe zeci de kilometri, la Calafat, în vama spre Vidin.\"},\"preliminary_voice\":\"speaker_first_person\",\"preliminary_voice_confidence\":0.97,\"marker_confidence\":0.9,\"rationale_short\":\"Invocă pericole concrete și exemple specifice de infrastructură, deci justificarea este calificată și substanțială.\"},{\"kind\":\"content_of_justification\",\"value\":\"common_good\",\"evidence\":{\"text\":\"când vine vorba de legăturile lor cu lumea, fie ele rutiere sau feroviare.\"},\"preliminary_voice\":\"speaker_first_person\",\"preliminary_voice_confidence\":0.96,\"marker_confidence\":0.86,\"rationale_short\":\"Apelul este la conectivitate și siguranță publică pentru regiune, adică la un interes generalizabil.\"},{\"kind\":\"respect_for_groups\",\"value\":1,\"evidence\":{\"text\":\"PSD și PNL\"},\"preliminary_voice\":\"speaker_first_person\",\"preliminary_voice_confidence\":0.95,\"marker_confidence\":0.7,\"rationale_short\":\"Partidele sunt numite critic, dar fără derogare explicită sau recunoaștere explicită a unei legitimări de grup.\"},{\"kind\":\"respect_for_demands\",\"value\":0,\"evidence\":{\"text\":\"Ați dovedit ceea ce era de dovedit.\"},\"preliminary_voice\":\"speaker_first_person\",\"preliminary_voice_confidence\":0.96,\"marker_confidence\":0.9,\"rationale_short\":\"Cererea implicită a adversarilor este respinsă sarcastic, nu recunoscută ca legitimă.\"},{\"kind\":\"respect_for_counterarguments\",\"value\":0,\"evidence\":{\"text\":\"Garantat, nu multă vreme!\"},\"preliminary_voice\":\"speaker_first_person\",\"preliminary_voice_confidence\":0.95,\"marker_confidence\":0.84,\"rationale_short\":\"Nu există angajament cu un contraargument concret; discursul merge pe atac și reproș, nu pe rebutare.\"},{\"kind\":\"constructive_politics\",\"value\":\"positional\",\"evidence\":{\"text\":\"Ne întrebăm și vă întrebăm: oare cât vor mai avea de așteptat Doljul și Oltenia pentru a se bucura de beneficiile civilizației\"},\"preliminary_voice\":\"speaker_first_person\",\"preliminary_voice_confidence\":0.96,\"marker_confidence\":0.89,\"rationale_short\":\"Vorbitorul atacă guvernarea și cere răspuns, dar nu oferă o alternativă sau o mediere concretă.\"}],\"rationale\":\"Discursul are o justificare moderată: enumeră exemple concrete de drumuri, poduri și accidente feroviare, ceea ce ridică nivelul de justificare la 2. Conținutul justificării este orientat spre binele comun, fiind vorba de siguranță, conectivitate și acces infrastructural pentru o regiune întreagă, nu de un interes îngust de grup. În schimb, respectul deliberativ este slab: partidele adverse sunt vizate critic, iar formulări precum „Ați dovedit ceea ce era de dovedit” au un ton de respingere, fără a le recunoaște legitimitatea sau argumentele. Nu există nicio angajare reală cu contraargumentele, nici măcar una de tipul „am înțeles, dar răspund astfel”, deci respect_for_counterarguments rămâne 0. Discursul este pur pozițional: descrie degradarea infrastructurii și acuză incompetența PSD și PNL, dar nu propune o soluție alternativă concretă. Per ansamblu, profilul este cel al unei intervenții critice, informative și oarecum bine motivate, însă slab deliberative pe dimensiunile de respect și construcție.\"}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12868,
+      "tokens_in_breakdown": {
+        "fresh": 12868,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 984,
+      "cost_usd": null,
+      "latency_ms": 7687,
+      "retries_used": 0
+    }
+  }
+}

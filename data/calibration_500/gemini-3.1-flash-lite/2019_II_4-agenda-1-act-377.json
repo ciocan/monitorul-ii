@@ -1,0 +1,152 @@
+{
+  "speech_id": "mo://2019/II/4#agenda-1#act-377",
+  "tier": "calibration",
+  "speaker": {
+    "id": "stirbu-gigel-sorinel",
+    "name": "Gigel Sorinel Știrbu",
+    "raw": "Domnul Gigel Sorinel Știrbu",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2018-12-19",
+    "year": 2019,
+    "legislature": "VIII",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2019/II/4#agenda-1#act-377",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul este unul pur procedural și tehnic, axat pe o inițiativă legislativă agreată transpartinic pentru creșterea prezenței la vot. Deși menționează „cetățenii” și „dreptul constituțional”, acestea sunt folosite în contextul unei dezbateri parlamentare constructive, fără a construi un cadru maniheist popor-vs-elită sau a invoca o voință populară omogenă împotriva instituțiilor. Nu există niciun marker populist prezent; discursul se înscrie în registrul pluralist și procedural standard. Hawkins=0 cu încredere ridicată."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul este unul pur procedural și tehnic, axat pe o inițiativă legislativă agreată transpartinic pentru creșterea prezenței la vot. Deși menționează „cetățenii” și „dreptul constituțional”, acestea sunt folosite în contextul unei dezbateri parlamentare constructive, fără a construi un cadru maniheist popor-vs-elită sau a invoca o voință populară omogenă împotriva instituțiilor. Nu există niciun marker populist prezent; discursul se înscrie în registrul pluralist și procedural standard. Hawkins=0 cu încredere ridicată.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 14148,
+      "tokens_in_breakdown": {
+        "fresh": 14148,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 211,
+      "cost_usd": null,
+      "latency_ms": 1955,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2019/II/4#agenda-1#act-377",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.88,
+        "level_of_justification": 2,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "alternative_proposal",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "fiecare stație TV și radio, primele 15, în ordinea ratingului, în ordinea cotei de piață, vor fi obligate ca în fiecare zi, timp de 60 de zile, înainte de ziua alegerilor, să dea între un spot și șase spoturi pe zi care – atenție! – vor fi plătite de către Autoritatea Electorală Permanentă."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Vorbitorul oferă un mecanism cauzal specific și detaliat pentru creșterea participării la vot."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "conștientizarea cetățeanului, cel care a recâștigat în 1989 cu jertfă de sânge acest drept constituțional de a participa la vot"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Justificarea se ancorează în dreptul constituțional universal și în interesul civic general."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "membrii tuturor grupurilor politice reprezentate în Parlament au fost de acord"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Referință neutră și funcțională la consensul parlamentar; nicio derogare sau respect explicit."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "am ajuns la concluzia că trebuie să inițiem o procedură legislativă"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.88,
+            "rationale_short": "Vorbitorul se concentrează pe propria inițiativă fără a aborda cereri opuse specifice."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "ceea ce nu cred că este cazul"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.82,
+            "rationale_short": "Mențiune scurtă a unei alternative (vot obligatoriu) respinsă fără angajament substanțial."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "alternative_proposal",
+            "evidence": {
+              "text": "am inițiat această procedură legislativă, alături de toți colegii din Comisia pentru cultură"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.94,
+            "rationale_short": "Vorbitorul prezintă o inițiativă legislativă concretă ca soluție la problema scăderii participării."
+          }
+        ],
+        "rationale": "Discursul prezintă o calitate deliberativă solidă, caracterizată prin oferirea unei justificări calificate (level_of_justification=2) bazate pe un mecanism concret de informare publică. Apelul la binele comun (dreptul constituțional la vot) este clar și universalizabil. Vorbitorul adoptă o postură constructivă, propunând o inițiativă legislativă specifică (alternative_proposal) rezultată din consensul comisiilor. Respectul pentru grupuri și cereri rămâne neutru, reflectând o abordare incluzivă dar axată pe propria soluție. Angajamentul față de contraargumente este minim, limitându-se la respingerea ideii de vot obligatoriu, ceea ce este adecvat contextului de prezentare a unei inițiative consensuale."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.88,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"alternative_proposal\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"fiecare stație TV și radio, primele 15, în ordinea ratingului, în ordinea cotei de piață, vor fi obligate ca în fiecare zi, timp de 60 de zile, înainte de ziua alegerilor, să dea între un spot și șase spoturi pe zi care – atenție! – vor fi plătite de către Autoritatea Electorală Permanentă.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Vorbitorul oferă un mecanism cauzal specific și detaliat pentru creșterea participării la vot.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"conștientizarea cetățeanului, cel care a recâștigat în 1989 cu jertfă de sânge acest drept constituțional de a participa la vot\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Justificarea se ancorează în dreptul constituțional universal și în interesul civic general.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"membrii tuturor grupurilor politice reprezentate în Parlament au fost de acord\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Referință neutră și funcțională la consensul parlamentar; nicio derogare sau respect explicit.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"am ajuns la concluzia că trebuie să inițiem o procedură legislativă\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Vorbitorul se concentrează pe propria inițiativă fără a aborda cereri opuse specifice.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"ceea ce nu cred că este cazul\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.82,\n      \"rationale_short\": \"Mențiune scurtă a unei alternative (vot obligatoriu) respinsă fără angajament substanțial.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"alternative_proposal\",\n      \"evidence\": {\n        \"text\": \"am inițiat această procedură legislativă, alături de toți colegii din Comisia pentru cultură\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.94,\n      \"rationale_short\": \"Vorbitorul prezintă o inițiativă legislativă concretă ca soluție la problema scăderii participării.\"\n    }\n  ],\n  \"rationale\": \"Discursul prezintă o calitate deliberativă solidă, caracterizată prin oferirea unei justificări calificate (level_of_justification=2) bazate pe un mecanism concret de informare publică. Apelul la binele comun (dreptul constituțional la vot) este clar și universalizabil. Vorbitorul adoptă o postură constructivă, propunând o inițiativă legislativă specifică (alternative_proposal) rezultată din consensul comisiilor. Respectul pentru grupuri și cereri rămâne neutru, reflectând o abordare incluzivă dar axată pe propria soluție. Angajamentul față de contraargumente este minim, limitându-se la respingerea ideii de vot obligatoriu, ceea ce este adecvat contextului de prezentare a unei inițiative consensuale.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [
+        "conștientizarea cetățeanului, cel care a recâștigat în 1989 cu jertfă de sânge acest drept constituțional de a participa la vot"
+      ],
+      "parse_repaired": false,
+      "tokens_in": 12949,
+      "tokens_in_breakdown": {
+        "fresh": 12949,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1251,
+      "cost_usd": null,
+      "latency_ms": 4821,
+      "retries_used": 0
+    }
+  }
+}

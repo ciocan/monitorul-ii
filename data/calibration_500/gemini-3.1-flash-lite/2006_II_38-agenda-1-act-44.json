@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2006/II/38#agenda-1#act-44",
+  "tier": "calibration",
+  "speaker": {
+    "id": "vacaroiu-nicolae",
+    "name": "Nicolae V„c„roiu",
+    "raw": "Domnul Nicolae V„c„roiu",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": null,
+    "year": 2006,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2006/II/38#agenda-1#act-44",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul este unul pur procedural și tehnic, axat pe dezbaterea juridică privind caracterul legii (ordinară vs. organică) și pe argumente economice legate de privatizarea Loteriei Române și a Imprimeriei Naționale. Vorbitorul invocă Constituția și procedurile parlamentare, fără a construi un cadru manihean popor-vs-elită sau a apela la o voință populară omogenă. Deși menționează „oameni” în contextul istoric al înființării instituțiilor, acest lucru nu constituie un marker populist. Discursul se încadrează în registrul dezbaterii parlamentare standard, motiv pentru care scorul este 0."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul este unul pur procedural și tehnic, axat pe dezbaterea juridică privind caracterul legii (ordinară vs. organică) și pe argumente economice legate de privatizarea Loteriei Române și a Imprimeriei Naționale. Vorbitorul invocă Constituția și procedurile parlamentare, fără a construi un cadru manihean popor-vs-elită sau a apela la o voință populară omogenă. Deși menționează „oameni” în contextul istoric al înființării instituțiilor, acest lucru nu constituie un marker populist. Discursul se încadrează în registrul dezbaterii parlamentare standard, motiv pentru care scorul este 0.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 14594,
+      "tokens_in_breakdown": {
+        "fresh": 14594,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 228,
+      "cost_usd": null,
+      "latency_ms": 2121,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2006/II/38#agenda-1#act-44",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.82,
+        "level_of_justification": 2,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "Conform art. 73 lit. m) ∫i conform art. 136 din Constitu˛ia ˛„rii, o s„ vede˛i c„, de fapt, suntem Ón ceea ce se nume∫te o lege organic„."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Vorbitorul ancorează poziția sa juridică în articole specifice din Constituție (art. 73 și 136)."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "ele trebuie s„ r„m‚n„ Ón proprietatea exclusiv„ a statului."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Apelul la proprietatea statului este universalizabil și orientat către interesul public general."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Domnule pre∫edinte"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.99,
+            "marker_confidence": 0.95,
+            "rationale_short": "Adresare formală standard; niciun grup nu este vizat sau derogatoriu menționat."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Dac„ vrem s„ d„m exemple de ˛„ri Ón care sistemul loteriei sau cum se nume∫te el este sau nu este ∫i privatizat, fiecare Ó∫i alege ceea ce Ói convine."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.82,
+            "rationale_short": "Vorbitorul ignoră cererile opoziției, preferând o abordare generală fără angajament direct."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "Orice calcul a˛i vrea s„ face˛i, domnul coleg, antevorbitorul meu, s„ demonstreze c„ lu‚nd ceva din ac˛iuni"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.96,
+            "marker_confidence": 0.88,
+            "rationale_short": "Menționează argumentul antevorbitorului, dar nu îl reia sau combate substanțial."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "a∫a voi vota, c„ ele trebuie s„ r„m‚n„ Ón proprietatea exclusiv„ a statului."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.94,
+            "rationale_short": "Vorbitorul își susține poziția proprie fără a propune o alternativă sau un compromis."
+          }
+        ],
+        "rationale": "Discursul prezintă o calitate deliberativă medie, marcată de o justificare juridică solidă (level_of_justification=2) bazată pe Constituție, dar cu un caracter predominant pozițional. Vorbitorul apelează la binele comun prin protejarea proprietății statului, însă nu reușește să angajeze substanțial contraargumentele colegilor, limitându-se la o mențiune superficială a antevorbitorului. Respectul pentru grupuri și cereri rămâne neutru, fiind o intervenție procedurală și de fond care evită conflictul direct. Nu este oferită nicio alternativă constructivă sau mediere, discursul fiind axat pe susținerea propriei viziuni asupra regimului juridic al legii."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.82,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"Conform art. 73 lit. m) ∫i conform art. 136 din Constitu˛ia ˛„rii, o s„ vede˛i c„, de fapt, suntem Ón ceea ce se nume∫te o lege organic„.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Vorbitorul ancorează poziția sa juridică în articole specifice din Constituție (art. 73 și 136).\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"ele trebuie s„ r„m‚n„ Ón proprietatea exclusiv„ a statului.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Apelul la proprietatea statului este universalizabil și orientat către interesul public general.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Domnule pre∫edinte\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.99,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Adresare formală standard; niciun grup nu este vizat sau derogatoriu menționat.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Dac„ vrem s„ d„m exemple de ˛„ri Ón care sistemul loteriei sau cum se nume∫te el este sau nu este ∫i privatizat, fiecare Ó∫i alege ceea ce Ói convine.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.82,\n      \"rationale_short\": \"Vorbitorul ignoră cererile opoziției, preferând o abordare generală fără angajament direct.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Orice calcul a˛i vrea s„ face˛i, domnul coleg, antevorbitorul meu, s„ demonstreze c„ lu‚nd ceva din ac˛iuni\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.96,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Menționează argumentul antevorbitorului, dar nu îl reia sau combate substanțial.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"a∫a voi vota, c„ ele trebuie s„ r„m‚n„ Ón proprietatea exclusiv„ a statului.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.94,\n      \"rationale_short\": \"Vorbitorul își susține poziția proprie fără a propune o alternativă sau un compromis.\"\n    }\n  ],\n  \"rationale\": \"Discursul prezintă o calitate deliberativă medie, marcată de o justificare juridică solidă (level_of_justification=2) bazată pe Constituție, dar cu un caracter predominant pozițional. Vorbitorul apelează la binele comun prin protejarea proprietății statului, însă nu reușește să angajeze substanțial contraargumentele colegilor, limitându-se la o mențiune superficială a antevorbitorului. Respectul pentru grupuri și cereri rămâne neutru, fiind o intervenție procedurală și de fond care evită conflictul direct. Nu este oferită nicio alternativă constructivă sau mediere, discursul fiind axat pe susținerea propriei viziuni asupra regimului juridic al legii.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13395,
+      "tokens_in_breakdown": {
+        "fresh": 13395,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1252,
+      "cost_usd": null,
+      "latency_ms": 5068,
+      "retries_used": 0
+    }
+  }
+}

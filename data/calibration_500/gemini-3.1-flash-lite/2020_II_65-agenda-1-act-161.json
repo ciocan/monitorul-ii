@@ -1,0 +1,150 @@
+{
+  "speech_id": "mo://2020/II/65#agenda-1#act-161",
+  "tier": "calibration",
+  "speaker": {
+    "id": "iordache-florin",
+    "name": "Florin Iordache",
+    "raw": "Domnul Florin Iordache",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2020-06-17",
+    "year": 2020,
+    "legislature": "VIII",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2020/II/65#agenda-1#act-161",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 1.0,
+        "markers": [],
+        "rationale": "Discursul reprezintă o prezentare procedurală standard a unui raport al Comisiei juridice privind un proiect de lege. Vorbitorul se limitează la enumerarea etapelor legislative, a avizelor primite și a obiectului tehnic al reglementării, fără a utiliza nicio retorică populistă. Nu există nicio referire la un cadru popor-vs-elită, maniheism moral sau invocarea unei voințe populare suverane. Discursul este pur tehnic și procedural, încadrându-se perfect în registrul non-populist."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 1.0,\n  \"markers\": [],\n  \"rationale\": \"Discursul reprezintă o prezentare procedurală standard a unui raport al Comisiei juridice privind un proiect de lege. Vorbitorul se limitează la enumerarea etapelor legislative, a avizelor primite și a obiectului tehnic al reglementării, fără a utiliza nicio retorică populistă. Nu există nicio referire la un cadru popor-vs-elită, maniheism moral sau invocarea unei voințe populare suverane. Discursul este pur tehnic și procedural, încadrându-se perfect în registrul non-populist.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13849,
+      "tokens_in_breakdown": {
+        "fresh": 13849,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 194,
+      "cost_usd": null,
+      "latency_ms": 1819,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2020/II/65#agenda-1#act-161",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.85,
+        "level_of_justification": 0,
+        "content_of_justification": "none",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 0,
+            "evidence": {
+              "text": "În urma dezbaterilor, membrii Comisiei juridice, de disciplină și imunități au hotărât, cu majoritate de voturi, să propună plenului Camerei Deputaților adoptarea Proiectului de lege"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Discursul este o prezentare procedurală a raportului comisiei, fără argumentare proprie."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "none",
+            "evidence": {
+              "text": "În urma dezbaterilor, membrii Comisiei juridice, de disciplină și imunități au hotărât, cu majoritate de voturi, să propună plenului Camerei Deputaților adoptarea Proiectului de lege"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Nicio justificare oferită; conținutul justificării este nedefinit."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Comisia pentru drepturile omului, culte și problemele minorităților naționale a transmis un aviz negativ."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Referință neutră și funcțională la avizul unei alte comisii."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Guvernul a transmis puncte de vedere negative asupra inițiativei legislative."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Menționarea punctului de vedere al Guvernului este pur informativă, fără angajament deliberativ."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "Comisia pentru drepturile omului, culte și problemele minorităților naționale a transmis un aviz negativ."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Raportorul menționează existența avizelor negative fără a intra în substanța argumentelor."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "să propună plenului Camerei Deputaților adoptarea Proiectului de lege"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Prezentarea raportului comisiei este o acțiune procedurală, nu o propunere politică alternativă."
+          }
+        ],
+        "rationale": "Acest discurs reprezintă prezentarea formală a unui raport de comisie parlamentară, fiind un act procedural standard. Vorbitorul nu oferă o justificare proprie pentru susținerea proiectului, ci raportează decizia comisiei și avizele primite (level_of_justification=0). Respectul pentru grupuri și cereri este neutru, limitându-se la menționarea avizelor negative primite de la alte instituții fără a le angaja substanțial (respect_for_demands=1, respect_for_counterarguments=1). Discursul este pur pozițional în sensul procedural, nefiind o intervenție deliberativă în sensul Steiner-Bachtiger. Calitatea deliberativă este scăzută, dar adecvată genului de discurs (prezentarea raportului)."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.85,\n  \"level_of_justification\": 0,\n  \"content_of_justification\": \"none\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"În urma dezbaterilor, membrii Comisiei juridice, de disciplină și imunități au hotărât, cu majoritate de voturi, să propună plenului Camerei Deputaților adoptarea Proiectului de lege\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Discursul este o prezentare procedurală a raportului comisiei, fără argumentare proprie.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"none\",\n      \"evidence\": {\n        \"text\": \"În urma dezbaterilor, membrii Comisiei juridice, de disciplină și imunități au hotărât, cu majoritate de voturi, să propună plenului Camerei Deputaților adoptarea Proiectului de lege\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Nicio justificare oferită; conținutul justificării este nedefinit.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Comisia pentru drepturile omului, culte și problemele minorităților naționale a transmis un aviz negativ.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Referință neutră și funcțională la avizul unei alte comisii.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Guvernul a transmis puncte de vedere negative asupra inițiativei legislative.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Menționarea punctului de vedere al Guvernului este pur informativă, fără angajament deliberativ.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Comisia pentru drepturile omului, culte și problemele minorităților naționale a transmis un aviz negativ.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Raportorul menționează existența avizelor negative fără a intra în substanța argumentelor.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"să propună plenului Camerei Deputaților adoptarea Proiectului de lege\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Prezentarea raportului comisiei este o acțiune procedurală, nu o propunere politică alternativă.\"\n    }\n  ],\n  \"rationale\": \"Acest discurs reprezintă prezentarea formală a unui raport de comisie parlamentară, fiind un act procedural standard. Vorbitorul nu oferă o justificare proprie pentru susținerea proiectului, ci raportează decizia comisiei și avizele primite (level_of_justification=0). Respectul pentru grupuri și cereri este neutru, limitându-se la menționarea avizelor negative primite de la alte instituții fără a le angaja substanțial (respect_for_demands=1, respect_for_counterarguments=1). Discursul este pur pozițional în sensul procedural, nefiind o intervenție deliberativă în sensul Steiner-Bachtiger. Calitatea deliberativă este scăzută, dar adecvată genului de discurs (prezentarea raportului).\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12650,
+      "tokens_in_breakdown": {
+        "fresh": 12650,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1218,
+      "cost_usd": null,
+      "latency_ms": 4354,
+      "retries_used": 0
+    }
+  }
+}

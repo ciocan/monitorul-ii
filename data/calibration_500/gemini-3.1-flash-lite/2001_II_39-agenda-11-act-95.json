@@ -1,0 +1,224 @@
+{
+  "speech_id": "mo://2001/II/39#agenda-11#act-95",
+  "tier": "calibration",
+  "speaker": {
+    "id": "paunescu-adrian",
+    "name": "Adrian Pãunescu",
+    "raw": "Domnul Adrian Pãunescu",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": null,
+    "year": 2001,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2001/II/39#agenda-11#act-95",
+      "output": {
+        "score": 1,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.85,
+        "markers": [
+          {
+            "kind": "evil_elite",
+            "evidence": {
+              "text": "Foarfeca Ministerului Finanþelor este mult prea blândã."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.85,
+            "rationale_short": "Ministerul Finanțelor este portretizat ca o entitate malignă care taie fondurile culturii cu rea-voință."
+          },
+          {
+            "kind": "evil_elite",
+            "evidence": {
+              "text": "Aceastã tãcere a sistemului împotriva voinþei majoritãþii aratã cât de coruptã a devenit clasa politicã."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.9,
+            "rationale_short": "Clasa politică este acuzată de corupție și de ignorarea voinței majorității prin tăcere."
+          },
+          {
+            "kind": "crisis_invocation",
+            "evidence": {
+              "text": "Este foarte dureros momentul."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.9,
+            "marker_confidence": 0.75,
+            "rationale_short": "Situația culturii este prezentată ca un moment critic, dureros, care necesită atenție imediată."
+          }
+        ],
+        "rationale": "Discursul conține elemente populiste clare, în special prin atacul la adresa clasei politice și a Ministerului Finanțelor, portretizate ca entități corupte sau maligne care distrug cultura. Deși vorbitorul folosește un ton sarcastic și agresiv, acesta nu susține un cadru manihean pervaziv pe tot parcursul discursului, ci se concentrează pe o problemă specifică (bugetul culturii). Prezența markerilor de elită malefică și invocarea crizei justifică un scor de 1, dar lipsa unei structuri populiste care să domine întregul discurs împiedică acordarea scorului 2."
+      },
+      "raw_response": "{\n  \"score\": 1,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.85,\n  \"markers\": [\n    {\n      \"kind\": \"evil_elite\",\n      \"evidence\": {\n        \"text\": \"Foarfeca Ministerului Finanþelor este mult prea blândã.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Ministerul Finanțelor este portretizat ca o entitate malignă care taie fondurile culturii cu rea-voință.\"\n    },\n    {\n      \"kind\": \"evil_elite\",\n      \"evidence\": {\n        \"text\": \"Aceastã tãcere a sistemului împotriva voinþei majoritãþii aratã cât de coruptã a devenit clasa politicã.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.9,\n      \"rationale_short\": \"Clasa politică este acuzată de corupție și de ignorarea voinței majorității prin tăcere.\"\n    },\n    {\n      \"kind\": \"crisis_invocation\",\n      \"evidence\": {\n        \"text\": \"Este foarte dureros momentul.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.9,\n      \"marker_confidence\": 0.75,\n      \"rationale_short\": \"Situația culturii este prezentată ca un moment critic, dureros, care necesită atenție imediată.\"\n    }\n  ],\n  \"rationale\": \"Discursul conține elemente populiste clare, în special prin atacul la adresa clasei politice și a Ministerului Finanțelor, portretizate ca entități corupte sau maligne care distrug cultura. Deși vorbitorul folosește un ton sarcastic și agresiv, acesta nu susține un cadru manihean pervaziv pe tot parcursul discursului, ci se concentrează pe o problemă specifică (bugetul culturii). Prezența markerilor de elită malefică și invocarea crizei justifică un scor de 1, dar lipsa unei structuri populiste care să domine întregul discurs împiedică acordarea scorului 2.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [
+        "Aceastã tãcere a sistemului împotriva voinþei majoritãþii aratã cât de coruptã a devenit clasa politicã."
+      ],
+      "parse_repaired": false,
+      "tokens_in": 14174,
+      "tokens_in_breakdown": {
+        "fresh": 14174,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 618,
+      "cost_usd": null,
+      "latency_ms": 3255,
+      "retries_used": 0
+    },
+    "voice": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "voice",
+      "speech_id": "mo://2001/II/39#agenda-11#act-95",
+      "output": {
+        "classifications": [
+          {
+            "marker_id": "m_0",
+            "voice": "sarcastic",
+            "voice_confidence": 0.85,
+            "voice_evidence": {
+              "text": "Foarfeca Ministerului Finanþelor este mult prea blândã."
+            },
+            "attributed_to": null,
+            "rationale_short": "Vorbitorul folosește un ton ironic pentru a critica măsurile de austeritate, contextul confirmând intenția de a ironiza blândețea percepută a ministerului."
+          },
+          {
+            "marker_id": "m_2",
+            "voice": "speaker_first_person",
+            "voice_confidence": 0.95,
+            "voice_evidence": null,
+            "attributed_to": null,
+            "rationale_short": "Afirmație directă a vorbitorului despre starea actuală a culturii, fără elemente de citare sau raportare."
+          }
+        ]
+      },
+      "raw_response": "{\n  \"classifications\": [\n    {\n      \"marker_id\": \"m_0\",\n      \"voice\": \"sarcastic\",\n      \"voice_confidence\": 0.85,\n      \"voice_evidence\": {\n        \"text\": \"Foarfeca Ministerului Finanþelor este mult prea blândã.\"\n      },\n      \"attributed_to\": null,\n      \"rationale_short\": \"Vorbitorul folosește un ton ironic pentru a critica măsurile de austeritate, contextul confirmând intenția de a ironiza blândețea percepută a ministerului.\"\n    },\n    {\n      \"marker_id\": \"m_2\",\n      \"voice\": \"speaker_first_person\",\n      \"voice_confidence\": 0.95,\n      \"voice_evidence\": null,\n      \"attributed_to\": null,\n      \"rationale_short\": \"Afirmație directă a vorbitorului despre starea actuală a culturii, fără elemente de citare sau raportare.\"\n    }\n  ]\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12388,
+      "tokens_in_breakdown": {
+        "fresh": 12388,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 245,
+      "cost_usd": null,
+      "latency_ms": 1872,
+      "retries_used": 0
+    },
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2001/II/39#agenda-11#act-95",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.72,
+        "level_of_justification": 1,
+        "content_of_justification": "group_interest",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 1,
+            "evidence": {
+              "text": "Cultura dã gânduri negre, îndoieli, aºa cã am putea rezolva lucrurile în principiu."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.85,
+            "rationale_short": "Justificarea este vagă și bazată pe opinii subiective, fără a oferi un raționament cauzal solid."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "group_interest",
+            "evidence": {
+              "text": "Dacã oamenii ar ºti cât de prost sunt plãtiþi actorii în România, ar fi alãturi de mine"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.96,
+            "marker_confidence": 0.88,
+            "rationale_short": "Apelul este centrat pe interesele unei categorii profesionale specifice (actorii)."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Foarfeca Ministerului Finanþelor este mult prea blândã."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.94,
+            "marker_confidence": 0.82,
+            "rationale_short": "Referință critică la o instituție, dar fără a depăși limitele discursului politic standard."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Ceea ce nu au rezolvat, iatã! þãrãniºtii, vom rezolva noi."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.79,
+            "rationale_short": "Vorbitorul ignoră cererile opoziției, concentrându-se pe propria agendă."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "Pentru cã mã tem cã vorbim degeaba."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.96,
+            "marker_confidence": 0.91,
+            "rationale_short": "Vorbitorul refuză explicit angajamentul cu argumentele adverse, considerând dialogul inutil."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Eu nu accept. Nu se poate."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.93,
+            "rationale_short": "Discursul este pur pozițional, exprimând opoziție fără a propune alternative concrete."
+          }
+        ],
+        "rationale": "Discursul prezintă o calitate deliberativă scăzută, fiind marcat de un ton retoric agresiv și o lipsă de argumentare substanțială. Vorbitorul utilizează metafore (tunuri, foarfeca) în locul unei justificări bazate pe date sau principii, ceea ce duce la un nivel de justificare de 1. Apelul este orientat către interesul grupului profesional al actorilor, ignorând binele comun universalizabil. Nu există un angajament real cu contraargumentele, vorbitorul declarând inutilitatea dialogului, iar poziția rămâne strict critică, fără a oferi alternative sau medieri. Discursul este un exemplu tipic de retorică de opoziție care prioritizează impactul emoțional în detrimentul deliberării."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.72,\n  \"level_of_justification\": 1,\n  \"content_of_justification\": \"group_interest\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 0,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 1,\n      \"evidence\": { \"text\": \"Cultura dã gânduri negre, îndoieli, aºa cã am putea rezolva lucrurile în principiu.\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Justificarea este vagă și bazată pe opinii subiective, fără a oferi un raționament cauzal solid.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"group_interest\",\n      \"evidence\": { \"text\": \"Dacã oamenii ar ºti cât de prost sunt plãtiþi actorii în România, ar fi alãturi de mine\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.96,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Apelul este centrat pe interesele unei categorii profesionale specifice (actorii).\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": { \"text\": \"Foarfeca Ministerului Finanþelor este mult prea blândã.\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.94,\n      \"marker_confidence\": 0.82,\n      \"rationale_short\": \"Referință critică la o instituție, dar fără a depăși limitele discursului politic standard.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": { \"text\": \"Ceea ce nu au rezolvat, iatã! þãrãniºtii, vom rezolva noi.\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.79,\n      \"rationale_short\": \"Vorbitorul ignoră cererile opoziției, concentrându-se pe propria agendă.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 0,\n      \"evidence\": { \"text\": \"Pentru cã mã tem cã vorbim degeaba.\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.96,\n      \"marker_confidence\": 0.91,\n      \"rationale_short\": \"Vorbitorul refuză explicit angajamentul cu argumentele adverse, considerând dialogul inutil.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": { \"text\": \"Eu nu accept. Nu se poate.\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"marker_confidence\": 0.93,\n      \"rationale_short\": \"Discursul este pur pozițional, exprimând opoziție fără a propune alternative concrete.\"\n    }\n  ],\n  \"rationale\": \"Discursul prezintă o calitate deliberativă scăzută, fiind marcat de un ton retoric agresiv și o lipsă de argumentare substanțială. Vorbitorul utilizează metafore (tunuri, foarfeca) în locul unei justificări bazate pe date sau principii, ceea ce duce la un nivel de justificare de 1. Apelul este orientat către interesul grupului profesional al actorilor, ignorând binele comun universalizabil. Nu există un angajament real cu contraargumentele, vorbitorul declarând inutilitatea dialogului, iar poziția rămâne strict critică, fără a oferi alternative sau medieri. Discursul este un exemplu tipic de retorică de opoziție care prioritizează impactul emoțional în detrimentul deliberării.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12975,
+      "tokens_in_breakdown": {
+        "fresh": 12975,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1141,
+      "cost_usd": null,
+      "latency_ms": 4747,
+      "retries_used": 0
+    }
+  }
+}

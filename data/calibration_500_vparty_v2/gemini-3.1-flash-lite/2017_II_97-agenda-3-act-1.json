@@ -1,0 +1,52 @@
+{
+  "speech_id": "mo://2017/II/97#agenda-3#act-1",
+  "tier": "calibration",
+  "speaker": {
+    "id": "tilvar-angel",
+    "name": "Angel Tîlvăr",
+    "raw": "Domnul Angel Tîlvăr",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2017-06-12",
+    "year": 2017,
+    "legislature": "VIII",
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": null,
+    "voice": null,
+    "dqi": null,
+    "vparty": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "vparty",
+      "speech_id": "mo://2017/II/97#agenda-3#act-1",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "vparty@2020 + vdem-attacks-on@v13",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul reprezintă prezentarea unui raport tehnic al Comisiei pentru afaceri europene privind protecția copiilor migranți. Limbajul este unul instituțional, procedural și axat pe politici publice, fără a delegitima instituții democratice, opoziția, presa, ONG-urile sau minoritățile. Deși există observații critice privind eficiența resurselor Uniunii Europene sau riscurile de integrare culturală, acestea sunt formulate ca analize de politici și recomandări administrative, nu ca atacuri anti-pluraliste. Discursul respectă normele democratice și cadrul instituțional de lucru."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"vparty@2020 + vdem-attacks-on@v13\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul reprezintă prezentarea unui raport tehnic al Comisiei pentru afaceri europene privind protecția copiilor migranți. Limbajul este unul instituțional, procedural și axat pe politici publice, fără a delegitima instituții democratice, opoziția, presa, ONG-urile sau minoritățile. Deși există observații critice privind eficiența resurselor Uniunii Europene sau riscurile de integrare culturală, acestea sunt formulate ca analize de politici și recomandări administrative, nu ca atacuri anti-pluraliste. Discursul respectă normele democratice și cadrul instituțional de lucru.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13840,
+      "tokens_in_breakdown": {
+        "fresh": 13840,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 215,
+      "cost_usd": null,
+      "latency_ms": 2148,
+      "retries_used": 0
+    }
+  }
+}

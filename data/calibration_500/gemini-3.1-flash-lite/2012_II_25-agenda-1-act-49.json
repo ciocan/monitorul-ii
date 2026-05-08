@@ -1,0 +1,210 @@
+{
+  "speech_id": "mo://2012/II/25#agenda-1#act-49",
+  "tier": "calibration",
+  "speaker": {
+    "id": "bot-octavian",
+    "name": "Octavian Bot",
+    "raw": "Domnul Octavian Bot",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2012-03-20",
+    "year": 2012,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemini-3.1-flash-lite",
+  "model_label": "gemini-3.1-flash-lite",
+  "results": {
+    "hawkins": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2012/II/25#agenda-1#act-49",
+      "output": {
+        "score": 1,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.85,
+        "markers": [
+          {
+            "kind": "evil_elite",
+            "evidence": {
+              "text": "Prim-ministrul nu este decât o jucărie în mâinile dibaciului Traian Băsescu, care-l folosește pentru a menține PDL pe linia de plutire."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Elita politică este descrisă ca fiind manipulată de forțe oculte (Băsescu), sugerând o conspirație a puterii."
+          },
+          {
+            "kind": "evil_elite",
+            "evidence": {
+              "text": "Sunt trucuri ieftine, copilărești, pentru care SIE nu că nu l-ar angaja director, nu l-ar pune nici măcar responsabil la popotă."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.85,
+            "rationale_short": "Atac direct la competența și integritatea elitei, portretizând-o ca fiind incompetentă și ridicolă."
+          }
+        ],
+        "rationale": "Discursul conține elemente de retorică populistă, în special prin portretizarea elitei politice (Ungureanu și Băsescu) ca fiind marionete și incompetenți, însă nu reușește să construiască un cadru manihean pervaziv. Deși există atacuri la adresa „sistemului” și a „jucăriilor” politice, discursul rămâne ancorat într-o critică personalizată și partizană, fără a invoca „poporul” ca entitate morală colectivă sau a susține o viziune populistă structurală pe tot parcursul textului. Prin urmare, discursul se încadrează la scorul 1, fiind un exemplu de populism episodic, nu unul manifest."
+      },
+      "raw_response": "{\n  \"score\": 1,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.85,\n  \"markers\": [\n    {\n      \"kind\": \"evil_elite\",\n      \"evidence\": {\n        \"text\": \"Prim-ministrul nu este decât o jucărie în mâinile dibaciului Traian Băsescu, care-l folosește pentru a menține PDL pe linia de plutire.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Elita politică este descrisă ca fiind manipulată de forțe oculte (Băsescu), sugerând o conspirație a puterii.\"\n    },\n    {\n      \"kind\": \"evil_elite\",\n      \"evidence\": {\n        \"text\": \"Sunt trucuri ieftine, copilărești, pentru care SIE nu că nu l-ar angaja director, nu l-ar pune nici măcar responsabil la popotă.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Atac direct la competența și integritatea elitei, portretizând-o ca fiind incompetentă și ridicolă.\"\n    }\n  ],\n  \"rationale\": \"Discursul conține elemente de retorică populistă, în special prin portretizarea elitei politice (Ungureanu și Băsescu) ca fiind marionete și incompetenți, însă nu reușește să construiască un cadru manihean pervaziv. Deși există atacuri la adresa „sistemului” și a „jucăriilor” politice, discursul rămâne ancorat într-o critică personalizată și partizană, fără a invoca „poporul” ca entitate morală colectivă sau a susține o viziune populistă structurală pe tot parcursul textului. Prin urmare, discursul se încadrează la scorul 1, fiind un exemplu de populism episodic, nu unul manifest.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13939,
+      "tokens_in_breakdown": {
+        "fresh": 13939,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 559,
+      "cost_usd": null,
+      "latency_ms": 2862,
+      "retries_used": 0
+    },
+    "voice": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "voice",
+      "speech_id": "mo://2012/II/25#agenda-1#act-49",
+      "output": {
+        "classifications": [
+          {
+            "marker_id": "m_0",
+            "voice": "speaker_first_person",
+            "voice_confidence": 0.98,
+            "voice_evidence": null,
+            "attributed_to": null,
+            "rationale_short": "Afirmație directă a vorbitorului, fără indicii de citare, raportare sau disclaimer; vorbitorul își asumă responsabilitatea pentru caracterizarea prim-ministrului."
+          },
+          {
+            "marker_id": "m_1",
+            "voice": "speaker_first_person",
+            "voice_confidence": 0.95,
+            "voice_evidence": null,
+            "attributed_to": null,
+            "rationale_short": "Opinie personală exprimată direct de vorbitor despre competențele SIE; nu există indicii de citare sau atribuire către terți."
+          }
+        ]
+      },
+      "raw_response": "{\n  \"classifications\": [\n    {\n      \"marker_id\": \"m_0\",\n      \"voice\": \"speaker_first_person\",\n      \"voice_confidence\": 0.98,\n      \"voice_evidence\": null,\n      \"attributed_to\": null,\n      \"rationale_short\": \"Afirmație directă a vorbitorului, fără indicii de citare, raportare sau disclaimer; vorbitorul își asumă responsabilitatea pentru caracterizarea prim-ministrului.\"\n    },\n    {\n      \"marker_id\": \"m_1\",\n      \"voice\": \"speaker_first_person\",\n      \"voice_confidence\": 0.95,\n      \"voice_evidence\": null,\n      \"attributed_to\": null,\n      \"rationale_short\": \"Opinie personală exprimată direct de vorbitor despre competențele SIE; nu există indicii de citare sau atribuire către terți.\"\n    }\n  ]\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 11592,
+      "tokens_in_breakdown": {
+        "fresh": 11592,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 226,
+      "cost_usd": null,
+      "latency_ms": 1355,
+      "retries_used": 0
+    },
+    "dqi": {
+      "model_key": "gemini-3.1-flash-lite",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2012/II/25#agenda-1#act-49",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.85,
+        "level_of_justification": 0,
+        "content_of_justification": "none",
+        "respect_for_groups": 0,
+        "respect_for_demands": 0,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 0,
+            "evidence": {
+              "text": "Prim-ministrul nu este decât o jucărie în mâinile dibaciului Traian Băsescu"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Discursul conține atacuri la persoană și metafore politice, fără a oferi o justificare cauzală pentru poziția luată."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "none",
+            "evidence": {
+              "text": "Prim-ministrul nu este decât o jucărie în mâinile dibaciului Traian Băsescu"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Nicio justificare oferită; conținutul justificării este nedefinit."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 0,
+            "evidence": {
+              "text": "niște băieți de prăvălie"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.96,
+            "rationale_short": "Utilizarea unor termeni peiorativi („băieți de prăvălie”) pentru a descrie miniștrii constituie o formă de dispreț."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 0,
+            "evidence": {
+              "text": "Sunt trucuri ieftine, copilărești"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.94,
+            "rationale_short": "Cererile și acțiunile opoziției sunt respinse explicit ca fiind „trucuri ieftine, copilărești”."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "Sunt trucuri ieftine, copilărești"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.94,
+            "rationale_short": "Vorbitorul ignoră orice argumentație substanțială, preferând atacul retoric."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Pe zi ce trece, sunt tot mai convins că prim-ministrul Mihai Răzvan Ungureanu este un mit fals."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Discursul este pur pozițional, axat pe discreditarea adversarului fără a propune alternative."
+          }
+        ],
+        "rationale": "Discursul prezintă o calitate deliberativă foarte scăzută, fiind dominat de atacuri la persoană și retorică denigratoare. Nu există nicio justificare substanțială pentru pozițiile exprimate, iar limbajul utilizat (ex. „băieți de prăvălie”, „trucuri ieftine”) indică un nivel de respect pentru grupuri și cereri de 0. Vorbitorul nu angajează niciun contraargument, ci se limitează la a eticheta acțiunile adversarului. Discursul este pur pozițional, fără nicio tentativă de a oferi alternative sau soluții constructive. Profilul este unul de confruntare pură, lipsit de elemente deliberative."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.85,\n  \"level_of_justification\": 0,\n  \"content_of_justification\": \"none\",\n  \"respect_for_groups\": 0,\n  \"respect_for_demands\": 0,\n  \"respect_for_counterarguments\": 0,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 0,\n      \"evidence\": { \"text\": \"Prim-ministrul nu este decât o jucărie în mâinile dibaciului Traian Băsescu\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Discursul conține atacuri la persoană și metafore politice, fără a oferi o justificare cauzală pentru poziția luată.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"none\",\n      \"evidence\": { \"text\": \"Prim-ministrul nu este decât o jucărie în mâinile dibaciului Traian Băsescu\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Nicio justificare oferită; conținutul justificării este nedefinit.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 0,\n      \"evidence\": { \"text\": \"niște băieți de prăvălie\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.96,\n      \"rationale_short\": \"Utilizarea unor termeni peiorativi („băieți de prăvălie”) pentru a descrie miniștrii constituie o formă de dispreț.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 0,\n      \"evidence\": { \"text\": \"Sunt trucuri ieftine, copilărești\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.94,\n      \"rationale_short\": \"Cererile și acțiunile opoziției sunt respinse explicit ca fiind „trucuri ieftine, copilărești”.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 0,\n      \"evidence\": { \"text\": \"Sunt trucuri ieftine, copilărești\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.94,\n      \"rationale_short\": \"Vorbitorul ignoră orice argumentație substanțială, preferând atacul retoric.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": { \"text\": \"Pe zi ce trece, sunt tot mai convins că prim-ministrul Mihai Răzvan Ungureanu este un mit fals.\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Discursul este pur pozițional, axat pe discreditarea adversarului fără a propune alternative.\"\n    }\n  ],\n  \"rationale\": \"Discursul prezintă o calitate deliberativă foarte scăzută, fiind dominat de atacuri la persoană și retorică denigratoare. Nu există nicio justificare substanțială pentru pozițiile exprimate, iar limbajul utilizat (ex. „băieți de prăvălie”, „trucuri ieftine”) indică un nivel de respect pentru grupuri și cereri de 0. Vorbitorul nu angajează niciun contraargument, ci se limitează la a eticheta acțiunile adversarului. Discursul este pur pozițional, fără nicio tentativă de a oferi alternative sau soluții constructive. Profilul este unul de confruntare pură, lipsit de elemente deliberative.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12740,
+      "tokens_in_breakdown": {
+        "fresh": 12740,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1138,
+      "cost_usd": null,
+      "latency_ms": 4056,
+      "retries_used": 0
+    }
+  }
+}
