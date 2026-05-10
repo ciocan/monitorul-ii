@@ -1765,6 +1765,61 @@ The handler tests for `cmd_query` reuse the same `FakeES` pattern + `monkeypatch
 
 The `--rebuild` smoke against the live cluster is documented in `docs/elasticsearch-baseline-2026-05.md` (per-grain doc counts, p95 latencies per query, known gaps before P5). That baseline is the canonical "ready for P5" gate.
 
+## Coverage report — `monitorul-ii coverage`
+
+`monitorul-ii coverage` is a read-only diagnostic surface over the live `mo-*` indices: bird's-eye view of how much of the corpus is touched by each LLM-driven enrichment producer. Two questions it's designed to answer cheaply: (1) "what fraction of substantive speeches have been coded by the discourse rubrics, and how do markers distribute by year and chamber?" and (2) "what fraction of the embeddable text payload has a BGE-M3 vector?" Both are routine before/after diagnostics for an `analyze` or `embed` run, and both are noisy enough to set up wrong if every operator hand-rolls the ES query.
+
+### Module shape — pure data + pure formatters
+
+The module sits at `src/monitorul_ii/elasticsearch/coverage.py` and exposes a flat surface:
+
+- `compute_coverage(es) -> CoverageReport` — single entry point. Frozen dataclass return value carrying `discourse: DiscourseCoverage`, `embedding: EmbeddingCoverage`, `notes: tuple[str, ...]`, plus an ISO-8601 UTC `generated_at` timestamp so a JSON dump is self-describing.
+- `compute_discourse_coverage(es) -> DiscourseCoverage` and `compute_embedding_coverage(es) -> EmbeddingCoverage` — independent halves, callable on their own when a downstream consumer wants only one section.
+- `format_text(report) -> str` and `format_json(report) -> dict` — pure projections. No I/O, no mutation. The text formatter renders ASCII-pipe tables that are also valid markdown; the JSON formatter is a stable shape the daily-status dashboard or a jq pipeline can rely on.
+
+The dataclass split (`FrameworkCoverage`, `GrainEmbedding`, `DiscourseCoverage`, `EmbeddingCoverage`, `CoverageReport`) exists for the same reason `queries.py` returns dataclasses: stable serialisation contract that's easy to test and that doesn't accidentally leak `_source` shape into callers.
+
+### Probe semantics
+
+Three classes of probe:
+
+1. **Coded-any keystone.** `enrichments.discourse_producer` is the keyword the denormaliser writes whenever any framework payload lands on a doc; an `exists` probe over that field is the unambiguous "this speech has been touched by the discourse pipeline" signal. The by-year and by-chamber breakdowns use this as their filter.
+2. **Per-framework coded probe.** Hawkins / DQI / V-Party carry `framework_version` (canonical "this rubric ran" keyword); voice does not — its block shape is `{dominant_voice, voices_seen, classifications}` with no version field. The coverage module routes voice's "coded" probe to `enrichments.discourse.voice.dominant_voice` instead. Hardcoded routing was simpler than a fallback chain and the comment in the module explains the asymmetry once.
+3. **With-marker probe.** Hawkins / V-Party emit `marker_count` (integer), so a `range gt: 0` query is the right shape. Voice has no count; "with markers" reuses the `classifications` exists probe (always populated when voice runs, since voice runs only when Hawkins emits ≥1 marker). DQI emits per-axis levels (`level_of_justification`, `respect_*`, `content_of_justification`, `constructive_politics`) rather than a flat markers array — the column is intentionally `None`/`n/a` to avoid inventing a meaningless count.
+
+Probes go through read aliases (`mo-speeches`, `mo-agenda-items`, ...) rather than dated indices, so blue-green cutovers are transparent.
+
+### Embeddable-grain set is curated, not derived
+
+The module's `EMBEDDABLE_GRAINS` is hardcoded to the six grains carrying embeddable text:
+
+```python
+("mo-speeches", "mo-agenda-items", "mo-interpellations",
+ "mo-questions", "mo-committee-meetings", "mo-reports")
+```
+
+`mo-documents` (metadata-only, no text body), `mo-votes` (no narrative), and `mo-persons` (registry-derived) are intentionally omitted. Including them would dilute the % column with always-zero rows and lead a reader to think the embedding pipeline was broken. The denormaliser's mapping is the source of truth; the coverage module mirrors that decision rather than computing it dynamically (computing it would mean introspecting the index mappings — more code, same answer).
+
+### Cost
+
+Every probe is an O(1) `_count` against ES (the count API short-circuits to the lucene `IndexReader`'s docCount when the filter is `exists` / `term` / `range` on a doc-values field; no scoring, no sorting, no per-doc work). The by-year and by-chamber breakdowns are two `terms` aggregations, also O(1) on the cardinality of the field (year: 8-10 buckets; chamber: 2 buckets). Total work per coverage report: ~20 ES round-trips, sub-second wall-clock. Cheap enough to wire into a cron without a budget gate.
+
+### CLI surface — `monitorul-ii coverage`
+
+Single flag: `--json` switches the output from markdown-compatible text tables to a single JSON object. Both paths emit to stdout; ES errors go to stderr. Exit codes mirror `query`: `0` success, `2` missing ES env vars, `1` ES runtime error.
+
+The JSON shape is stable: `{generated_at, discourse: {total_speeches, substantive, coded_any, coded_pct_of_substantive, frameworks: [...], by_year: [...], by_chamber: [...]}, embedding: {grains: [...]}, notes: [...]}`. Numerics are integers everywhere except the `*_pct_of_*` / `embedded_pct` floats. `with_markers: null` (and the matching `with_markers_pct_of_coded: null`) is the canonical "N/A" signal for DQI.
+
+### What `coverage` does NOT do
+
+- **No histograms or score distributions.** Hawkins score buckets, V-Party marker-kind cross-tabs, DQI level distributions — interesting and useful, but they belong in a research notebook driven by `agg_speeches_by_party_year`-style queries, not in the bird's-eye coverage view. The mandate here is "is the work done?" not "what does the work say?"
+- **No alerting / SLO surface.** The report is just data; thresholds and operator action (re-run `analyze` when coverage drops below X%) are out of scope. Hook the JSON output into your monitoring stack of choice.
+- **No per-doc inspection.** Drill-down to which speeches are missing coverage is `monitorul-ii query --name search_speeches --params '{"q":"..."}'` territory.
+
+### Testing
+
+`tests/test_elasticsearch_coverage.py` drives a hand-rolled `FakeES` (count and search routed by `(index, query)` key with the query JSON sorted-key-canonicalised for stability) covering: dataclass shape + `pct` zero-safe path; text formatter renders every section incl. n/a column + by-year + by-chamber + zero-corpus edge case; JSON formatter shape + JSON-serialisability; `compute_discourse_coverage` fans out the right `_count` calls per framework with voice routed to `dominant_voice` and DQI's `with_markers` returning `None`; `compute_embedding_coverage` iterates `EMBEDDABLE_GRAINS`; `compute_coverage` stamps the timestamp + carries the operator-facing notes; CLI argparse wiring accepts `coverage` and `coverage --json`. 10 tests, all sub-100ms.
+
 ## Embedding producer (Phase 3) — `monitorul-ii embed`
 
 The third enrichment producer (alongside topics and the future discourse-analysis layer) ships as `monitorul-ii embed`. It projects every embeddable record from a sidecar into a 1024-dim BGE-M3 dense vector and persists the result as

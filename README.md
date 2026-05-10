@@ -515,6 +515,29 @@ The dedicated `search_speeches_knn` debug query is the same shape as `search_spe
 
 The CLI reads `ES_URL` / `ES_API_KEY` / `ES_VERIFY_CERTS` from the environment (or `.env`); set `ES_API_KEY` to the `monitorul_reader` key minted by `es-init` for read-only access. Exit codes: `0` on success, `2` on validation errors (unknown query name, malformed JSON params, missing required positional, missing ES env), `1` on ES connection / runtime errors.
 
+### `coverage`
+
+```sh
+# Markdown-compatible text tables to stdout (default)
+uv run monitorul-ii coverage
+
+# JSON for piping into jq or a dashboard
+uv run monitorul-ii coverage --json | jq '.discourse.coded_any'
+```
+
+Bird's-eye view of how much of the corpus is touched by each LLM-driven enrichment in the live ES indices. Read-only; no writes, no state, idempotent — every probe is an O(1) `_count` or a small terms aggregation. Useful as a sanity check before/after an `analyze` or `embed` run, and as a continuous-monitoring signal once you wire it into a cron.
+
+Two sections in the report:
+
+1. **Discourse LLM coverage on `mo-speeches`** — total / substantive / coded headline, followed by a per-framework table for Hawkins / voice / DQI / V-Party showing `coded` (docs where the rubric ran) and `with ≥1 marker` (docs where it emitted at least one structural finding). The voice row reports `coded` via an `exists` probe on `enrichments.discourse.voice.dominant_voice` (voice has no `framework_version` field — its block shape is `{dominant_voice, voices_seen, classifications}`); the markers column for voice is the count with at least one `classifications` entry. DQI emits per-axis levels rather than a flat markers array, so its `with ≥1 marker` column is `n/a`. By-year and by-chamber breakdowns follow, sourced from a single terms aggregation over `year` / `chamber` filtered to `enrichments.discourse_producer: exists` (the keystone sibling keyword the denormaliser writes whenever any framework payload lands on a doc).
+2. **Embedding coverage across grains** — per-grain `total` / `embedded` / `% embedded` for every embeddable grain (`mo-speeches`, `mo-agenda-items`, `mo-interpellations`, `mo-questions`, `mo-committee-meetings`, `mo-reports`). `mo-documents` / `mo-votes` / `mo-persons` carry no embeddable text payload and are omitted (their inclusion would just dilute the % with always-zero rows). The probe is `exists` on `enrichments.embedding`; `dense_vector` is sparse-tolerant so a missing field is the unambiguous "not yet embedded" signal.
+
+Flags:
+
+- `--json` — emit the report as a single JSON object instead of text tables. Top-level keys: `generated_at` (ISO-8601 UTC), `discourse` (counts + framework array + by_year + by_chamber), `embedding` (per-grain array), `notes` (operator-facing semantics footnotes). All numerics are integers except the `*_pct_of_*` / `embedded_pct` floats. The shape is stable across runs; downstream consumers can index by key without parsing the text tables.
+
+Reads `ES_URL` / `ES_API_KEY` / `ES_VERIFY_CERTS` from the environment (or `.env`). Exit codes: `0` success, `2` missing ES env vars, `1` ES runtime error.
+
 ### `verify-playback` (operator tool, `tools/verify_playback.py`)
 
 Data-integrity gate that proves the ES projection plays back faithfully against the source markdown for every doc in the corpus. Reads each MD body + the matching `*.extraction.json` sidecar (and optionally the live ES projection via `list_document_children`) and asserts twelve properties across three layers: hard correctness (positions in `[0, body_len)`, monotonic, dup-free, parent/child count parity, ES↔sidecar record-set parity), per-record content correctness (speech header at speech position, agenda title in body or SUMAR, interpellation questioner near position, vote-open phrase near vote position, qr-doc regnum within question span), and MD↔sidecar provenance (every body speaker-header is claimed by an activity OR by `coverage.claimed_by_policy[]` boilerplate; every sidecar speech text appears at its declared span). Three "expected, not bugs" exemptions are encoded as filters: speech continuations after narrator/vote/procedural events, agenda titles living in SUMAR rather than at the agenda's body position, and the literal `<chair narration>` speaker. See [`docs/architecture.md` § "Playback verification (Phase 4d)"](docs/architecture.md#playback-verification-phase-4d) for the full mechanics.

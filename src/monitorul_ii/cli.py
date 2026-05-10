@@ -1044,6 +1044,37 @@ def _build_parser() -> argparse.ArgumentParser:
     )
     query.set_defaults(func=cmd_query)
 
+    coverage = sub.add_parser(
+        "coverage",
+        help="Bird's-eye coverage of LLM enrichments across `mo-*` indices.",
+        description=(
+            "Compute and display coverage statistics for the LLM-driven "
+            "enrichments across the live `mo-*` Elasticsearch indices. "
+            "Reports discourse-analysis coverage on `mo-speeches` "
+            "(total / substantive / coded headline, per-framework "
+            "breakdown with marker rates, by-year and by-chamber "
+            "distribution) plus embedding coverage across every "
+            "embeddable grain. Read-only; no writes, no state, "
+            "idempotent.\n"
+            "Default output is text tables (markdown-compatible). Pass "
+            "`--json` for a JSON payload suitable for piping into `jq` "
+            "or a downstream dashboard.\n"
+            "Reads `ES_URL` / `ES_API_KEY` / `ES_VERIFY_CERTS` from the "
+            "environment (or `.env` via python-dotenv)."
+        ),
+    )
+    coverage.add_argument(
+        "--json",
+        dest="as_json",
+        action="store_true",
+        help=(
+            "Emit the report as a single JSON object to stdout instead "
+            "of text tables. Suitable for piping into `jq` or feeding a "
+            "monitoring dashboard."
+        ),
+    )
+    coverage.set_defaults(func=cmd_coverage)
+
     return p
 
 
@@ -4225,6 +4256,32 @@ def cmd_query(args: argparse.Namespace) -> int:
         return 1
 
     print(_render_query_result(result))
+    return 0
+
+
+def cmd_coverage(args: argparse.Namespace) -> int:
+    from monitorul_ii.elasticsearch import coverage as cov
+
+    cfg = ESConfig.from_env()
+    if cfg is None:
+        print(
+            "coverage: missing ES_URL or ES_API_KEY in environment "
+            "(set both via `.env` or shell exports).",
+            file=sys.stderr,
+        )
+        return 2
+    es = _build_es_client(cfg)
+
+    try:
+        report = cov.compute_coverage(es)
+    except Exception as exc:  # noqa: BLE001 — surface to operator
+        print(f"coverage: ES error: {type(exc).__name__}: {exc}", file=sys.stderr)
+        return 1
+
+    if args.as_json:
+        print(json.dumps(cov.format_json(report), indent=2, ensure_ascii=False))
+    else:
+        print(cov.format_text(report))
     return 0
 
 
