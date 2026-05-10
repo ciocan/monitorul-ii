@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.17.0](https://github.com/ciocan/monitorul-ii/compare/monitorul-ii-v0.16.0...monitorul-ii-v0.17.0) (2026-05-10)
+
+
+### Features
+
+* **analyze:** introduce discourse-analysis pipeline and update CLI ([e984fbe](https://github.com/ciocan/monitorul-ii/commit/e984fbe77f5e146766097fe955e260a2e1551683))
+
 ## [0.16.0](https://github.com/ciocan/monitorul-ii/compare/monitorul-ii-v0.15.0...monitorul-ii-v0.16.0) (2026-05-08)
 
 
