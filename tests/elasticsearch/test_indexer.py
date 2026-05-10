@@ -134,6 +134,23 @@ def _patch_bulk(monkeypatch: pytest.MonkeyPatch) -> list[list[dict[str, Any]]]:
     return captured
 
 
+def _patch_bulk_with_kwargs(
+    monkeypatch: pytest.MonkeyPatch,
+) -> list[dict[str, Any]]:
+    """Variant that captures the kwargs each `es_bulk` call received, so
+    the test can assert on retry parameters in addition to the actions.
+    """
+    captured: list[dict[str, Any]] = []
+
+    def fake_bulk(es, actions, *_, **kwargs):
+        actions = list(actions)
+        captured.append({"actions": actions, "kwargs": kwargs})
+        return len(actions), []
+
+    monkeypatch.setattr(indexer, "es_bulk", fake_bulk)
+    return captured
+
+
 # ----------------------------------------------------------------------
 # Tests
 # ----------------------------------------------------------------------
@@ -462,3 +479,103 @@ def test_index_all_parallel_single_path_short_circuit(
         indexer.index_all_parallel(es, db_path, paths, workers=8, dry_run=False)
     )
     assert len(results) == 1
+
+
+def test_bulk_upsert_passes_retry_params_to_es_bulk(
+    tmp_path: Path, db: DB, monkeypatch: pytest.MonkeyPatch
+):
+    """Bulk-helper retries (max_retries / initial_backoff / max_backoff)
+    are wired through `_bulk_upsert` so cluster-side 429s auto-retry.
+    Pre-fix the parallel `-j 16` indexer surfaced 3 transient bulk-error
+    failures on a 5556-doc corpus; the retry plumbing closes that loop.
+    """
+    sidecar = _minimal_plenary()
+    path = _write_sidecar(tmp_path, sidecar)
+    captured = _patch_bulk_with_kwargs(monkeypatch)
+    es = _CapturingES()
+
+    indexer.index_one(es, db, path)
+    assert len(captured) == 1
+    kwargs = captured[0]["kwargs"]
+    assert kwargs["max_retries"] == indexer.BULK_MAX_RETRIES
+    assert kwargs["initial_backoff"] == indexer.BULK_INITIAL_BACKOFF
+    assert kwargs["max_backoff"] == indexer.BULK_MAX_BACKOFF
+    assert kwargs["raise_on_error"] is True
+
+
+def test_persons_bulk_upsert_passes_retry_params(
+    tmp_path: Path, db: DB, monkeypatch: pytest.MonkeyPatch
+):
+    """The persons-registry projection path goes through its own
+    `es_bulk` callsite — retries must be wired there too."""
+    captured = _patch_bulk_with_kwargs(monkeypatch)
+    es = _CapturingES()
+    persons = {
+        "version": "0.1.0",
+        "entries": [{"id": "x-y", "canonical_name": "X Y"}],
+    }
+    indexer.index_persons_with_state(es, db, persons)
+    assert len(captured) == 1
+    kwargs = captured[0]["kwargs"]
+    assert kwargs["max_retries"] == indexer.BULK_MAX_RETRIES
+    assert kwargs["initial_backoff"] == indexer.BULK_INITIAL_BACKOFF
+    assert kwargs["max_backoff"] == indexer.BULK_MAX_BACKOFF
+
+
+def test_index_one_populates_sidecar_path_on_result(
+    tmp_path: Path, db: DB, monkeypatch: pytest.MonkeyPatch
+):
+    """Every `IndexResult` carries the originating sidecar path so the
+    CLI's errors-log can record which file failed (the parallel path
+    yields results in completion order — the path isn't reconstructible
+    from the result alone otherwise).
+    """
+    sidecar = _minimal_plenary()
+    path = _write_sidecar(tmp_path, sidecar)
+    _patch_bulk(monkeypatch)
+    es = _CapturingES()
+
+    indexed = indexer.index_one(es, db, path)
+    assert indexed.action == "indexed"
+    assert indexed.sidecar_path == str(path)
+
+    second = indexer.index_one(es, db, path)
+    assert second.action == "skipped"
+    assert second.sidecar_path == str(path)
+
+
+def test_index_one_error_result_carries_sidecar_path(
+    tmp_path: Path, db: DB, monkeypatch: pytest.MonkeyPatch
+):
+    """The bulk-error path also propagates `sidecar_path` so the
+    operator's errors-log entry points at the offending file."""
+    sidecar = _minimal_plenary()
+    path = _write_sidecar(tmp_path, sidecar)
+
+    def boom(*_, **__):
+        raise RuntimeError("simulated bulk failure")
+
+    monkeypatch.setattr(indexer, "es_bulk", boom)
+    es = _CapturingES()
+
+    result = indexer.index_one(es, db, path)
+    assert result.action == "error"
+    assert result.sidecar_path == str(path)
+    assert any("simulated bulk failure" in e for e in result.errors)
+
+
+def test_missing_document_id_error_carries_sidecar_path(
+    tmp_path: Path, db: DB, monkeypatch: pytest.MonkeyPatch
+):
+    """The early-error branch (sidecar without `document_id`) needs
+    `sidecar_path` too — that's the most operator-actionable
+    failure shape."""
+    bad = tmp_path / "broken.extraction.json"
+    bad.write_text(json.dumps({"content_sha": "sha-X"}), encoding="utf-8")
+    _patch_bulk(monkeypatch)
+    es = _CapturingES()
+
+    result = indexer.index_one(es, db, bad)
+    assert result.action == "error"
+    assert result.sidecar_path == str(bad)
+    assert "missing document_id" in "; ".join(result.errors)

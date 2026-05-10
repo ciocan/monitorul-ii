@@ -166,6 +166,20 @@ def _today() -> date:
     return date.today()
 
 
+def _repo_relative(p: Path) -> str:
+    """Render `p` relative to REPO_ROOT for stderr messages, falling
+    back to the absolute path when `p` lives outside the repo (e.g.
+    cron job pointed `--pdfs` at a sibling directory, or a unit test
+    using `tmp_path`). The bare `Path.relative_to(REPO_ROOT)` raises
+    ValueError on a non-prefix relationship — fail-loud-in-prod is
+    wrong for a stderr cosmetic.
+    """
+    try:
+        return str(p.relative_to(REPO_ROOT))
+    except ValueError:
+        return str(p)
+
+
 def _detect_date_range(db_path: Path) -> tuple[date, date]:
     """Auto-detect (from, until) for the catch-up run.
 
@@ -319,6 +333,8 @@ class Runner:
         es_api_key: str | None,
         include_cleanup: bool,
         continue_on_error: bool,
+        include_mapping_bump: bool = False,
+        analyze_provider: str = "openrouter",
         progress_stream=sys.stderr,
     ) -> None:
         self.date_from = date_from
@@ -330,6 +346,20 @@ class Runner:
         self.es_url = es_url.rstrip("/") if es_url else None
         self.es_api_key = es_api_key
         self.include_cleanup = include_cleanup
+        self.include_mapping_bump = include_mapping_bump
+        # Provider for the discourse-analysis stage. The CLI flag mirrors
+        # `monitorul-ii analyze --provider`; "openrouter" reads
+        # OPENROUTER_API_KEY / OPENROUTER_URL, "google" reads
+        # GOOGLE_AI_STUDIO_API_KEY / GOOGLE_AI_STUDIO_API_URL. Both
+        # produce the same `<basename>.discourse.flash-lite.v0_1.json`
+        # output (model class is `flash-lite` regardless of provider),
+        # so downstream enrichment loader / denormaliser are agnostic.
+        if analyze_provider not in ("openrouter", "google"):
+            raise ValueError(
+                f"unsupported analyze_provider: {analyze_provider!r} "
+                "(expected 'openrouter' or 'google')"
+            )
+        self.analyze_provider = analyze_provider
         self.continue_on_error = continue_on_error
         self.progress = progress_stream
 
@@ -416,17 +446,33 @@ class Runner:
 
     def _pre_analyze(self) -> dict[str, Any]:
         """Pre-check the discourse-analysis stage: sidecars in range +
-        OPENROUTER_API_KEY available. Doesn't probe OpenRouter itself
-        (the analyze CLI does that on its own startup via /models).
+        the right provider's API key available. Doesn't probe the LLM
+        provider itself (the analyze CLI does that on its own startup
+        via the provider's models endpoint).
+
+        Provider choice (`self.analyze_provider`) decides which env var
+        is required: `OPENROUTER_API_KEY` for OpenRouter (the default
+        gateway path; OpenAI-compatible API; pricing has a markup over
+        the upstream model rate) or `GOOGLE_AI_STUDIO_API_KEY` for
+        Google AI Studio (direct to Google's `generativelanguage.googleapis.com`
+        endpoint; ~25% cheaper at Flash-Lite rates per the constants in
+        `discourse.py`). Both providers route to the same Gemini Flash-
+        Lite model under the hood; output files are identical.
         """
         n = self._count_in_range("*.extraction.json")
         if n == 0:
             return {"ok": False, "sidecars_in_range": 0}
-        api_key_present = bool(os.environ.get("OPENROUTER_API_KEY"))
+        if self.analyze_provider == "google":
+            env_var = "GOOGLE_AI_STUDIO_API_KEY"
+        else:
+            env_var = "OPENROUTER_API_KEY"
+        api_key_present = bool(os.environ.get(env_var))
         return {
             "ok": api_key_present,
             "sidecars_in_range": n,
-            "openrouter_api_key_present": api_key_present,
+            "provider": self.analyze_provider,
+            "api_key_env": env_var,
+            "api_key_present": api_key_present,
         }
 
     def _pre_index(self) -> dict[str, Any]:
@@ -673,6 +719,11 @@ class Runner:
         args = [str(p) for p in paths]
         if name in ("convert", "backfill", "index", "analyze"):
             args += ["-j", str(self.workers)]
+        if name == "analyze" and self.analyze_provider != "openrouter":
+            # Forward the provider choice; only emit when it differs from
+            # the analyze CLI's own default so the daily-cron command
+            # line stays unchanged on the dominant openrouter path.
+            args += ["--provider", self.analyze_provider]
         return args
 
     def _run_subprocess(self, name: str, subcommand: str) -> dict[str, Any]:
@@ -709,7 +760,7 @@ class Runner:
             n = self._count_pdfs()
             report["pdfs_dir"] = {"path": str(self.pdfs_dir), "pdf_count": n}
             self._progress(
-                f"  ✓ pdfs dir:    {self.pdfs_dir.relative_to(REPO_ROOT)} ({n} PDFs)"
+                f"  ✓ pdfs dir:    {_repo_relative(self.pdfs_dir)} ({n} PDFs)"
             )
         else:
             report["pdfs_dir"] = {"path": str(self.pdfs_dir), "pdf_count": 0}
@@ -731,7 +782,7 @@ class Runner:
                     "latest_ok_date": latest[0],
                 }
                 self._progress(
-                    f"  ✓ db:          {self.db_path.relative_to(REPO_ROOT)} "
+                    f"  ✓ db:          {_repo_relative(self.db_path)} "
                     f"({rows[0]} days, latest ok={latest[0] or 'none'})"
                 )
             except sqlite3.OperationalError as exc:
@@ -757,9 +808,29 @@ class Runner:
             "S3_SECRET_ACCESS_KEY",
             "ES_URL",
             "ES_API_KEY",
-            "OPENROUTER_API_KEY",
+            # Discourse-analysis provider's API key. Tracks the operator's
+            # `--analyze-provider` choice so a Google AI Studio run flags
+            # the right env var as required and treats OPENROUTER_API_KEY
+            # as optional (and vice versa).
+            (
+                "GOOGLE_AI_STUDIO_API_KEY"
+                if self.analyze_provider == "google"
+                else "OPENROUTER_API_KEY"
+            ),
         )
-        optional_keys = ("EMBED_URL", "OPENROUTER_URL", "ES_VERIFY_CERTS")
+        optional_keys = (
+            "EMBED_URL",
+            "OPENROUTER_URL",
+            "GOOGLE_AI_STUDIO_API_URL",
+            "ES_VERIFY_CERTS",
+            # The non-selected provider's key is informational — present
+            # if the operator has both available, missing-but-fine if not.
+            (
+                "OPENROUTER_API_KEY"
+                if self.analyze_provider == "google"
+                else "GOOGLE_AI_STUDIO_API_KEY"
+            ),
+        )
         env_present: list[str] = []
         env_missing: list[str] = []
         for key in required_keys:
@@ -806,6 +877,18 @@ class Runner:
 
     def run(self, stages: list[dict[str, Any]]) -> list[StageResult]:
         results: list[StageResult] = []
+
+        # Mapping bump runs FIRST so the mo-* mapping is in place when
+        # the index stage writes new docs from this catch-up window
+        # (otherwise dynamic mapping would auto-detect rough types
+        # without our analyzer / dense_vector overrides). The matching
+        # post-step (index --force) runs after the pipeline to backfill
+        # existing docs that the incremental index would have skipped.
+        if self.include_mapping_bump:
+            results.append(self._run_mapping_bump_pre())
+            if results[-1].status != "ok" and not self.continue_on_error:
+                return results
+
         for stage in stages:
             name = stage["name"]
             self._progress(f"\n=== {name} ===")
@@ -859,6 +942,8 @@ class Runner:
             )
             self._progress(f"  ok ({results[-1].duration_s}s)  {post}")
 
+        if self.include_mapping_bump:
+            results.append(self._run_mapping_bump_post())
         if self.include_cleanup:
             results.append(self._run_cleanup())
         return results
@@ -913,6 +998,81 @@ class Runner:
             duration_s=round(time.monotonic() - t0, 2),
             subprocess={"steps": sub_results},
             reason=None if ok else "one or more cleanup commands failed",
+        )
+
+    def _run_mapping_bump_pre(self) -> StageResult:
+        """Push additive mapping diffs to the live cluster BEFORE the
+        index stage runs. Idempotent — `monitorul-ii es-init
+        --update-mappings` resolves each `<grain>` read alias to its
+        live concrete index and calls `indices.put_mapping(properties=...)`
+        with the full properties block; ES `put_mapping` only accepts
+        added fields, so the call is a no-op when the mapping is already
+        current.
+
+        Returns a `mapping-bump-pre` StageResult so the report shows the
+        operator that the bump ran. Honours `--continue-on-error`: a
+        failure here without that flag aborts the whole catch-up because
+        running the index stage against a stale mapping would write docs
+        with auto-detected (wrong) field types.
+        """
+        self._progress("\n=== mapping-bump-pre (es-init --update-mappings) ===")
+        t0 = time.monotonic()
+        if not self.es_url or not self.es_api_key:
+            return StageResult(
+                name="mapping-bump-pre",
+                status="skipped",
+                duration_s=round(time.monotonic() - t0, 2),
+                reason="ES_URL or ES_API_KEY missing",
+            )
+        cmd = ["uv", "run", "monitorul-ii", "es-init", "--update-mappings"]
+        self._progress(f"  $ {' '.join(cmd)}")
+        proc = subprocess.run(cmd, cwd=REPO_ROOT, check=False)
+        ok = proc.returncode == 0
+        return StageResult(
+            name="mapping-bump-pre",
+            status="ok" if ok else "fail",
+            duration_s=round(time.monotonic() - t0, 2),
+            subprocess={"command": "es-init", "exit_code": proc.returncode},
+            reason=None if ok else f"es-init --update-mappings exit {proc.returncode}",
+        )
+
+    def _run_mapping_bump_post(self) -> StageResult:
+        """Force-reindex the corpus AFTER the regular pipeline so docs
+        that the incremental index would have skipped (idempotency triple
+        match) get reprojected through the new denormalizer and pick up
+        the new mapping fields. ES does NOT retroactively re-analyze
+        existing docs on a put_mapping call — the document body has to
+        be written again. Timing: ~7 min for the full 5552-doc corpus on
+        the operator's standard `-j 16`.
+        """
+        self._progress("\n=== mapping-bump-post (index --force) ===")
+        t0 = time.monotonic()
+        if not self.es_url or not self.es_api_key:
+            return StageResult(
+                name="mapping-bump-post",
+                status="skipped",
+                duration_s=round(time.monotonic() - t0, 2),
+                reason="ES_URL or ES_API_KEY missing",
+            )
+        cmd = [
+            "uv",
+            "run",
+            "monitorul-ii",
+            "index",
+            str(self.pdfs_dir),
+            "--force",
+            "-j",
+            str(self.workers),
+        ]
+        self._progress(f"  $ {' '.join(cmd)}")
+        proc = subprocess.run(cmd, cwd=REPO_ROOT, check=False)
+        ok = proc.returncode == 0
+        return StageResult(
+            name="mapping-bump-post",
+            status="ok" if ok else "fail",
+            duration_s=round(time.monotonic() - t0, 2),
+            subprocess={"command": "index --force", "exit_code": proc.returncode},
+            reason=None if ok else f"index --force exit {proc.returncode}",
         )
 
 
@@ -1083,6 +1243,35 @@ def _build_parser() -> argparse.ArgumentParser:
         "the catch-up. Use after a matcher / persons.json registry change.",
     )
     p.add_argument(
+        "--analyze-provider",
+        choices=("openrouter", "google"),
+        default="openrouter",
+        help="LLM provider for the discourse-analysis stage. `openrouter` "
+        "(default) uses the OpenAI-compatible gateway; reads "
+        "OPENROUTER_API_KEY (+ optional OPENROUTER_URL). `google` calls "
+        "the Google AI Studio API directly; reads "
+        "GOOGLE_AI_STUDIO_API_KEY (+ optional GOOGLE_AI_STUDIO_API_URL). "
+        "Both route to the same Gemini Flash-Lite model and produce "
+        "identical `<basename>.discourse.flash-lite.v0_1.json` outputs; "
+        "Google is ~25%% cheaper at Flash-Lite rates (no gateway markup) "
+        "but lacks OpenRouter's per-call cost-reporting metadata. The "
+        "pre-check looks at the matching env var; the analyze stage "
+        "forwards `--provider <name>` to `monitorul-ii analyze`.",
+    )
+    p.add_argument(
+        "--include-mapping-bump",
+        action="store_true",
+        help="Push mo-* mapping diffs to ES BEFORE the index stage and "
+        "force-reindex the corpus AFTER it. Use after deploying a "
+        "mapping/denormalizer change so the new fields populate on every "
+        "doc, not just new ones from this catch-up window. The pre-step "
+        "calls `monitorul-ii es-init --update-mappings` (idempotent, "
+        "additive only); the post-step calls `monitorul-ii index pdfs/ "
+        "--force -j <workers>` (~7 min for the full 5552-doc corpus on "
+        "-j 16). Both stages skip cleanly when ES_URL/ES_API_KEY are "
+        "missing — same gate as the regular index stage.",
+    )
+    p.add_argument(
         "--continue-on-error",
         action="store_true",
         help="Don't stop on stage failure. Default: stop and write a partial report.",
@@ -1133,6 +1322,8 @@ def main(argv: list[str] | None = None) -> int:
         es_url=os.environ.get("ES_URL"),
         es_api_key=os.environ.get("ES_API_KEY"),
         include_cleanup=args.include_cleanup,
+        include_mapping_bump=args.include_mapping_bump,
+        analyze_provider=args.analyze_provider,
         continue_on_error=args.continue_on_error,
     )
 
@@ -1146,6 +1337,23 @@ def main(argv: list[str] | None = None) -> int:
         file=sys.stderr,
     )
     print(f"stages:        {stage_names}", file=sys.stderr)
+    if args.analyze_provider != "openrouter":
+        # Only mention provider when it's been switched off the default
+        # so the dominant openrouter run keeps a quiet header.
+        env_var = (
+            "GOOGLE_AI_STUDIO_API_KEY"
+            if args.analyze_provider == "google"
+            else "OPENROUTER_API_KEY"
+        )
+        print(
+            f"analyze:       provider={args.analyze_provider} (reads {env_var})",
+            file=sys.stderr,
+        )
+    if args.include_mapping_bump:
+        print(
+            "mapping-bump:  ON (es-init --update-mappings before, index --force after)",
+            file=sys.stderr,
+        )
     if args.include_cleanup:
         print(
             "cleanup:       ON (persons-backfill --force + index --force)",
@@ -1166,6 +1374,8 @@ def main(argv: list[str] | None = None) -> int:
             "only": args.only,
             "workers": args.workers,
             "include_cleanup": args.include_cleanup,
+            "include_mapping_bump": args.include_mapping_bump,
+            "analyze_provider": args.analyze_provider,
             "continue_on_error": args.continue_on_error,
         },
         preflight=preflight,

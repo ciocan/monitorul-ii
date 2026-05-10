@@ -30,6 +30,11 @@ from collections.abc import Iterable
 from datetime import date, datetime, timezone
 from typing import Any
 
+from monitorul_ii.extraction.enrichments.discourse import (
+    DISCOURSE_PRODUCER,
+    find_text_offsets_tolerant,
+)
+
 # Identifiers must match the ES bootstrap helpers in `bootstrap.py` — the
 # write-alias names are derived `<grain>-write`.
 GRAIN_DOCUMENTS = "mo-documents"
@@ -585,7 +590,10 @@ def _refs_subset(
 
 
 def _enrichments_for_grain(
-    payload: dict[str, Any], allowed: tuple[str, ...]
+    payload: dict[str, Any],
+    allowed: tuple[str, ...],
+    *,
+    speech_text: str | None = None,
 ) -> dict[str, Any]:
     """Subset the enrichment payload to the keys ES has mappings for.
 
@@ -601,6 +609,15 @@ def _enrichments_for_grain(
     (keyword). The producer's nesting is what the indexer's loader
     naturally produces (one dict per producer key); the ES mapping
     expects flat fields so kNN can score directly off `enrichments.embedding`.
+
+    `speech_text` (when provided) is forwarded to the discourse flatten
+    so each marker's `evidence.text` can be located in the speech body
+    via `find_text_offsets_tolerant` and surfaced as
+    `evidence.char_range = [start, end)`. The browser uses these offsets
+    to highlight the evidence inside the rendered speech without having
+    to re-implement Romanian-typography-tolerant matching client-side.
+    Omitted (None) for non-speech grains; markers still index, just
+    without offsets.
     """
     out: dict[str, Any] = {}
     for k, v in payload.items():
@@ -618,7 +635,7 @@ def _enrichments_for_grain(
             # per-grain `enrichments.discourse.*` namespace declared in
             # `mappings/mo-speeches.json` plus the `discourse_producer`
             # / `discourse_text_fingerprint` siblings.
-            flat = _flatten_discourse_payload(v)
+            flat = _flatten_discourse_payload(v, speech_text=speech_text)
             if flat and "discourse" in allowed:
                 out["discourse"] = flat["discourse"]
             if "discourse_producer" in flat and "discourse_producer" in allowed:
@@ -634,15 +651,18 @@ def _enrichments_for_grain(
     return out
 
 
-def _flatten_discourse_payload(payload: dict[str, Any]) -> dict[str, Any]:
+def _flatten_discourse_payload(
+    payload: dict[str, Any], *, speech_text: str | None = None
+) -> dict[str, Any]:
     """Project the discourse producer's per-record payload into the
     per-grain ES shape.
 
     Producer entries carry nested `{hawkins, voice, dqi, vparty, _meta,
-    text_fingerprint}`. The mapping declares flat shapes per framework —
-    Hawkins / V-Party expose `score / framework_confidence /
-    marker_count / marker_kinds`, voice exposes `dominant_voice /
-    voices_seen`, DQI exposes the six sub-codings. Two sibling fields
+    text_fingerprint}`. The mapping declares flat shapes per framework
+    plus a `markers[]` array carrying `kind`, `marker_confidence`,
+    `rationale_short`, and `evidence.{text, char_range}` so the web app
+    can render the evidence anchors and highlight them inside the
+    speech text without an extra round-trip to S3. Two sibling fields
     capture provenance: `discourse_producer` and
     `discourse_text_fingerprint`.
     """
@@ -650,21 +670,23 @@ def _flatten_discourse_payload(payload: dict[str, Any]) -> dict[str, Any]:
 
     hawkins = payload.get("hawkins") if isinstance(payload, dict) else None
     if isinstance(hawkins, dict):
-        out_disc["hawkins"] = _flatten_marker_framework(hawkins)
+        out_disc["hawkins"] = _flatten_marker_framework(
+            hawkins, speech_text=speech_text
+        )
 
     vparty = payload.get("vparty") if isinstance(payload, dict) else None
     if isinstance(vparty, dict):
-        out_disc["vparty"] = _flatten_marker_framework(vparty)
+        out_disc["vparty"] = _flatten_marker_framework(vparty, speech_text=speech_text)
 
     voice = payload.get("voice") if isinstance(payload, dict) else None
     if isinstance(voice, dict):
-        flat_voice = _flatten_voice(voice)
+        flat_voice = _flatten_voice(voice, speech_text=speech_text)
         if flat_voice:
             out_disc["voice"] = flat_voice
 
     dqi = payload.get("dqi") if isinstance(payload, dict) else None
     if isinstance(dqi, dict):
-        flat_dqi = _flatten_dqi(dqi)
+        flat_dqi = _flatten_dqi(dqi, speech_text=speech_text)
         if flat_dqi:
             out_disc["dqi"] = flat_dqi
 
@@ -690,21 +712,84 @@ def _flatten_discourse_payload(payload: dict[str, Any]) -> dict[str, Any]:
             payload.get(k) is not None for k in ("hawkins", "voice", "dqi", "vparty")
         )
     ):
-        # Default producer name for v0.1.
-        from monitorul_ii.extraction.enrichments.discourse import DISCOURSE_PRODUCER
-
         producer = DISCOURSE_PRODUCER
     if producer is not None:
         out["discourse_producer"] = producer
     return out
 
 
-def _flatten_marker_framework(framework: dict[str, Any]) -> dict[str, Any]:
+def _project_evidence(
+    evidence: Any, *, speech_text: str | None
+) -> dict[str, Any] | None:
+    """Pull `{text, char_range}` from a marker's `evidence` block.
+
+    `char_range` is computed via `find_text_offsets_tolerant` against
+    `speech_text` — Romanian-typography-tolerant (folds `„ " " « »`,
+    smart-quote dashes, ellipsis), so the model's quote rarely fails
+    to match. When the matcher misses (real paraphrase, or speech_text
+    omitted), the field is dropped: the browser can fall back to a
+    `String.indexOf` search if it wants. Returns None when there's no
+    text at all.
+    """
+    if not isinstance(evidence, dict):
+        return None
+    text = evidence.get("text")
+    if not isinstance(text, str) or not text:
+        return None
+    out: dict[str, Any] = {"text": text}
+    if speech_text:
+        offsets = find_text_offsets_tolerant(speech_text, text)
+        if offsets is not None:
+            out["char_range"] = offsets
+    return out
+
+
+def _project_marker(
+    marker: Any,
+    *,
+    speech_text: str | None,
+    coerce_value_to_str: bool = False,
+) -> dict[str, Any] | None:
+    """Project one Hawkins / V-Party / DQI marker dict into the ES
+    `markers[]` element shape declared in `mappings/mo-speeches.json`.
+
+    Drops markers whose `kind` is missing or non-string (the producer's
+    salvage tier should already have filtered these, but the indexer
+    must never crash on a bad sidecar). DQI markers may carry
+    `value: int | str`; `coerce_value_to_str` forces the int form to
+    its string repr so the ES `keyword` mapping accepts both shapes.
+    """
+    if not isinstance(marker, dict):
+        return None
+    kind = marker.get("kind")
+    if not isinstance(kind, str):
+        return None
+    out: dict[str, Any] = {"kind": kind}
+    confidence = marker.get("marker_confidence")
+    if isinstance(confidence, (int, float)):
+        out["marker_confidence"] = float(confidence)
+    rationale = marker.get("rationale_short")
+    if isinstance(rationale, str) and rationale:
+        out["rationale_short"] = rationale
+    evidence = _project_evidence(marker.get("evidence"), speech_text=speech_text)
+    if evidence is not None:
+        out["evidence"] = evidence
+    if coerce_value_to_str:
+        value = marker.get("value")
+        if value is not None:
+            out["value"] = str(value)
+    return out
+
+
+def _flatten_marker_framework(
+    framework: dict[str, Any], *, speech_text: str | None = None
+) -> dict[str, Any]:
     """Hawkins / V-Party share the `{score, framework_confidence,
-    markers[], rationale}` shape. Flattens to ES `{score,
-    framework_confidence, marker_count, marker_kinds}` — drops the
-    rationale and per-marker evidence (those live in the producer file
-    on disk; ES surfaces only the aggregate).
+    framework_version, markers[], rationale}` shape. The aggregate
+    fields (`score`, `marker_count`, `marker_kinds`) drive cross-tab
+    aggregations; the per-marker `markers[]` array drives the per-
+    speech rendering surface (kind chip + rationale + evidence
+    highlight).
     """
     out: dict[str, Any] = {}
     score = framework.get("score")
@@ -713,34 +798,53 @@ def _flatten_marker_framework(framework: dict[str, Any]) -> dict[str, Any]:
     fc = framework.get("framework_confidence")
     if isinstance(fc, (int, float)):
         out["framework_confidence"] = float(fc)
+    fv = framework.get("framework_version")
+    if isinstance(fv, str) and fv:
+        out["framework_version"] = fv
+    rationale = framework.get("rationale")
+    if isinstance(rationale, str) and rationale:
+        out["rationale"] = rationale
     markers = framework.get("markers")
     if isinstance(markers, list):
         out["marker_count"] = len(markers)
         kinds: list[str] = []
         seen: set[str] = set()
+        projected: list[dict[str, Any]] = []
         for m in markers:
             if not isinstance(m, dict):
                 continue
-            k = m.get("kind")
-            if isinstance(k, str) and k not in seen:
+            proj = _project_marker(m, speech_text=speech_text)
+            if proj is None:
+                continue
+            projected.append(proj)
+            k = proj["kind"]
+            if k not in seen:
                 kinds.append(k)
                 seen.add(k)
         if kinds:
             out["marker_kinds"] = kinds
+        if projected:
+            out["markers"] = projected
     return out
 
 
-def _flatten_voice(voice: dict[str, Any]) -> dict[str, Any]:
-    """Voice projection: `{classifications[].voice}` → `{dominant_voice,
-    voices_seen}`. dominant_voice is the argmax over the per-marker
-    voice counts (the most-frequent voice in the speech); voices_seen
-    is the deduplicated set.
+def _flatten_voice(
+    voice: dict[str, Any], *, speech_text: str | None = None
+) -> dict[str, Any]:
+    """Voice projection. The aggregate fields (`dominant_voice`,
+    `voices_seen`) come from argmax / dedup over `classifications[].voice`;
+    the per-classification array is also surfaced (mirroring the
+    hawkins/vparty/dqi `markers[]` pattern) so the web app can colour
+    each marker chip by attributed voice and link `marker_id` back to
+    the source marker. `voice_evidence.char_range` is computed against
+    the speech text the same way as marker evidence.
     """
     classifications = voice.get("classifications")
     if not isinstance(classifications, list) or not classifications:
         return {}
     counts: dict[str, int] = {}
     order: list[str] = []
+    projected: list[dict[str, Any]] = []
     for entry in classifications:
         if not isinstance(entry, dict):
             continue
@@ -750,17 +854,49 @@ def _flatten_voice(voice: dict[str, Any]) -> dict[str, Any]:
         if v not in counts:
             order.append(v)
         counts[v] = counts.get(v, 0) + 1
+        proj: dict[str, Any] = {"voice": v}
+        marker_id = entry.get("marker_id")
+        if isinstance(marker_id, str) and marker_id:
+            proj["marker_id"] = marker_id
+        attributed = entry.get("attributed_to")
+        if isinstance(attributed, str) and attributed:
+            proj["attributed_to"] = attributed
+        confidence = entry.get("voice_confidence")
+        if isinstance(confidence, (int, float)):
+            proj["voice_confidence"] = float(confidence)
+        rationale = entry.get("rationale_short")
+        if isinstance(rationale, str) and rationale:
+            proj["rationale_short"] = rationale
+        evidence = _project_evidence(
+            entry.get("voice_evidence"), speech_text=speech_text
+        )
+        if evidence is not None:
+            proj["voice_evidence"] = evidence
+        projected.append(proj)
     if not counts:
         return {}
     # argmax with stable tie-break on first-seen order
     dominant = max(order, key=lambda x: (counts[x], -order.index(x)))
-    return {"dominant_voice": dominant, "voices_seen": list(counts.keys())}
+    out: dict[str, Any] = {
+        "dominant_voice": dominant,
+        "voices_seen": list(counts.keys()),
+    }
+    if projected:
+        out["classifications"] = projected
+    return out
 
 
-def _flatten_dqi(dqi: dict[str, Any]) -> dict[str, Any]:
-    """DQI projection: top-level sub-codings flatten verbatim to the ES
-    mapping. The per-marker `markers[]` rationale is intentionally NOT
-    indexed (lives in the producer file on disk).
+def _flatten_dqi(
+    dqi: dict[str, Any], *, speech_text: str | None = None
+) -> dict[str, Any]:
+    """DQI projection. Top-level sub-codings flatten verbatim;
+    `framework_confidence`, `framework_version`, and `rationale` join
+    them so the web app can render the holistic explanation; the
+    per-marker `markers[]` array is surfaced with each marker's
+    `kind`, `value`, `rationale_short`, and `evidence.{text, char_range}`.
+    `value` is coerced to string because DQI markers carry mixed types
+    (`int` for level_of_justification / respect_*; `str` for
+    content_of_justification / constructive_politics).
     """
     out: dict[str, Any] = {}
     for k in (
@@ -776,6 +912,24 @@ def _flatten_dqi(dqi: dict[str, Any]) -> dict[str, Any]:
         v = dqi.get(k)
         if isinstance(v, str):
             out[k] = v
+    fc = dqi.get("framework_confidence")
+    if isinstance(fc, (int, float)):
+        out["framework_confidence"] = float(fc)
+    fv = dqi.get("framework_version")
+    if isinstance(fv, str) and fv:
+        out["framework_version"] = fv
+    rationale = dqi.get("rationale")
+    if isinstance(rationale, str) and rationale:
+        out["rationale"] = rationale
+    markers = dqi.get("markers")
+    if isinstance(markers, list):
+        projected: list[dict[str, Any]] = []
+        for m in markers:
+            proj = _project_marker(m, speech_text=speech_text, coerce_value_to_str=True)
+            if proj is not None:
+                projected.append(proj)
+        if projected:
+            out["markers"] = projected
     return out
 
 
@@ -831,6 +985,7 @@ def to_speeches_docs(
                     "discourse_producer",
                     "discourse_text_fingerprint",
                 ),
+                speech_text=text,
             )
             out.append(
                 {

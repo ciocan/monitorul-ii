@@ -79,14 +79,62 @@
                   "properties": {
                     "score":                 { "type": "byte" },
                     "framework_confidence":  { "type": "float" },
+                    "framework_version":     { "type": "keyword" },
                     "marker_count":          { "type": "byte" },
-                    "marker_kinds":          { "type": "keyword" }
+                    "marker_kinds":          { "type": "keyword" },
+                    "rationale": {
+                      "type": "text",
+                      "analyzer": "romanian",
+                      "fields": {
+                        "folded": { "type": "text", "analyzer": "romanian_folded" }
+                      }
+                    },
+                    "markers": {
+                      "properties": {
+                        "kind":              { "type": "keyword" },
+                        "marker_confidence": { "type": "float" },
+                        "rationale_short": {
+                          "type": "text",
+                          "analyzer": "romanian",
+                          "fields": {
+                            "folded": { "type": "text", "analyzer": "romanian_folded" }
+                          }
+                        },
+                        "evidence": {
+                          "properties": {
+                            "text":       { "type": "keyword", "ignore_above": 1024 },
+                            "char_range": { "type": "integer" }
+                          }
+                        }
+                      }
+                    }
                   }
                 },
                 "voice": {
                   "properties": {
                     "dominant_voice":        { "type": "keyword" },
-                    "voices_seen":           { "type": "keyword" }
+                    "voices_seen":           { "type": "keyword" },
+                    "classifications": {
+                      "properties": {
+                        "marker_id":         { "type": "keyword" },
+                        "voice":             { "type": "keyword" },
+                        "voice_confidence":  { "type": "float" },
+                        "attributed_to":     { "type": "keyword" },
+                        "rationale_short": {
+                          "type": "text",
+                          "analyzer": "romanian",
+                          "fields": {
+                            "folded": { "type": "text", "analyzer": "romanian_folded" }
+                          }
+                        },
+                        "voice_evidence": {
+                          "properties": {
+                            "text":       { "type": "keyword", "ignore_above": 1024 },
+                            "char_range": { "type": "integer" }
+                          }
+                        }
+                      }
+                    }
                   }
                 },
                 "dqi": {
@@ -96,15 +144,71 @@
                     "respect_for_groups":         { "type": "byte" },
                     "respect_for_demands":        { "type": "byte" },
                     "respect_for_counterarguments": { "type": "byte" },
-                    "constructive_politics":      { "type": "keyword" }
+                    "constructive_politics":      { "type": "keyword" },
+                    "framework_confidence":       { "type": "float" },
+                    "framework_version":          { "type": "keyword" },
+                    "rationale": {
+                      "type": "text",
+                      "analyzer": "romanian",
+                      "fields": {
+                        "folded": { "type": "text", "analyzer": "romanian_folded" }
+                      }
+                    },
+                    "markers": {
+                      "properties": {
+                        "kind":              { "type": "keyword" },
+                        "value":             { "type": "keyword" },
+                        "marker_confidence": { "type": "float" },
+                        "rationale_short": {
+                          "type": "text",
+                          "analyzer": "romanian",
+                          "fields": {
+                            "folded": { "type": "text", "analyzer": "romanian_folded" }
+                          }
+                        },
+                        "evidence": {
+                          "properties": {
+                            "text":       { "type": "keyword", "ignore_above": 1024 },
+                            "char_range": { "type": "integer" }
+                          }
+                        }
+                      }
+                    }
                   }
                 },
                 "vparty": {
                   "properties": {
                     "score":                 { "type": "byte" },
                     "framework_confidence":  { "type": "float" },
+                    "framework_version":     { "type": "keyword" },
                     "marker_count":          { "type": "byte" },
-                    "marker_kinds":          { "type": "keyword" }
+                    "marker_kinds":          { "type": "keyword" },
+                    "rationale": {
+                      "type": "text",
+                      "analyzer": "romanian",
+                      "fields": {
+                        "folded": { "type": "text", "analyzer": "romanian_folded" }
+                      }
+                    },
+                    "markers": {
+                      "properties": {
+                        "kind":              { "type": "keyword" },
+                        "marker_confidence": { "type": "float" },
+                        "rationale_short": {
+                          "type": "text",
+                          "analyzer": "romanian",
+                          "fields": {
+                            "folded": { "type": "text", "analyzer": "romanian_folded" }
+                          }
+                        },
+                        "evidence": {
+                          "properties": {
+                            "text":       { "type": "keyword", "ignore_above": 1024 },
+                            "char_range": { "type": "integer" }
+                          }
+                        }
+                      }
+                    }
                   }
                 }
               }

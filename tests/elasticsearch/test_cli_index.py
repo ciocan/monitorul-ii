@@ -213,3 +213,179 @@ def test_cmd_index_live_path_reports_indexed(monkeypatch, tmp_path: Path, capsys
     out = capsys.readouterr().out
     assert rc == 0
     assert "indexed=1" in out
+
+
+def test_parser_accepts_errors_log_flag():
+    """`--errors-log PATH` parses to args.errors_log as a Path."""
+    p = cli._build_parser()
+    args = p.parse_args(["index", "pdfs/", "--errors-log", "/tmp/e.jsonl"])
+    assert str(args.errors_log) == "/tmp/e.jsonl"
+
+
+def test_parser_errors_log_default_is_none():
+    """No `--errors-log` → args.errors_log is None (auto-default
+    happens at handler time, not at parse time, so a clean run leaves
+    no empty file behind)."""
+    p = cli._build_parser()
+    args = p.parse_args(["index", "pdfs/"])
+    assert args.errors_log is None
+
+
+def test_cmd_index_writes_jsonl_errors_log_on_failure(
+    monkeypatch, tmp_path: Path, capsys
+):
+    """When a sidecar errors, the CLI writes a JSONL line to
+    `--errors-log` and surfaces the path in the final summary so the
+    operator can find the failures after the rich progress bar's
+    transient ERR lines have scrolled past.
+    """
+    monkeypatch.setenv("ES_URL", "https://es.example.com")
+    monkeypatch.setenv("ES_API_KEY", "encoded")
+
+    paths = []
+    for n in ("a", "b"):
+        sp = tmp_path / f"{n}.extraction.json"
+        sp.write_text(json.dumps({"document_id": f"mo://X/Y/{n}"}), encoding="utf-8")
+        paths.append(sp)
+
+    from monitorul_ii.elasticsearch.indexer import IndexResult
+
+    def fake_index_one(es, db, path, **kwargs):
+        # First sidecar succeeds; second fails — verifies the log
+        # captures *only* the failure (no false positives on success).
+        name = Path(path).stem.replace(".extraction", "")
+        if name == "a":
+            return IndexResult(
+                document_id=f"mo://X/Y/{name}",
+                action="indexed",
+                grain_counts={"mo-documents": 1},
+                child_record_ids=[f"mo://X/Y/{name}"],
+                sidecar_path=str(path),
+            )
+        return IndexResult(
+            document_id=f"mo://X/Y/{name}",
+            action="error",
+            errors=["simulated bulk failure"],
+            sidecar_path=str(path),
+        )
+
+    log_path = tmp_path / "errors.jsonl"
+    with patch.object(cli, "_build_es_client") as build_es:
+        build_es.return_value = object()
+        with patch("monitorul_ii.elasticsearch.indexer.index_one", new=fake_index_one):
+            p = cli._build_parser()
+            args = p.parse_args(
+                [
+                    "index",
+                    str(tmp_path),
+                    "--db",
+                    str(tmp_path / "audit.db"),
+                    "--errors-log",
+                    str(log_path),
+                ]
+            )
+            rc = cli.cmd_index(args)
+
+    out = capsys.readouterr().out
+    assert rc == 1
+    assert "errors=1" in out
+    assert f"errors-log={log_path}" in out
+    assert log_path.exists()
+
+    lines = [json.loads(line) for line in log_path.read_text().splitlines() if line]
+    assert len(lines) == 1
+    entry = lines[0]
+    assert entry["document_id"] == "mo://X/Y/b"
+    assert entry["sidecar_path"].endswith("b.extraction.json")
+    assert "simulated bulk failure" in entry["errors"][0]
+    assert "ts" in entry  # ISO-8601 timestamp
+
+
+def test_cmd_index_clean_run_does_not_create_errors_log(
+    monkeypatch, tmp_path: Path, capsys
+):
+    """No errors → no log file written. Default-path behavior must
+    not litter `data/index-runs/` on green runs."""
+    monkeypatch.setenv("ES_URL", "https://es.example.com")
+    monkeypatch.setenv("ES_API_KEY", "encoded")
+
+    sp = tmp_path / "doc.extraction.json"
+    sp.write_text(json.dumps({"document_id": "mo://X/Y/Z"}), encoding="utf-8")
+
+    log_path = tmp_path / "errors.jsonl"
+
+    from monitorul_ii.elasticsearch.indexer import IndexResult
+
+    def fake_index_one(es, db, path, **kwargs):
+        return IndexResult(
+            document_id="mo://X/Y/Z",
+            action="indexed",
+            grain_counts={"mo-documents": 1},
+            child_record_ids=["mo://X/Y/Z"],
+            sidecar_path=str(path),
+        )
+
+    with patch.object(cli, "_build_es_client") as build_es:
+        build_es.return_value = object()
+        with patch("monitorul_ii.elasticsearch.indexer.index_one", new=fake_index_one):
+            p = cli._build_parser()
+            args = p.parse_args(
+                [
+                    "index",
+                    str(sp),
+                    "--db",
+                    str(tmp_path / "audit.db"),
+                    "--errors-log",
+                    str(log_path),
+                ]
+            )
+            rc = cli.cmd_index(args)
+
+    out = capsys.readouterr().out
+    assert rc == 0
+    assert "errors=0" in out
+    # Lazy-create: the file should NOT exist when no errors fire.
+    assert not log_path.exists()
+    # The summary should NOT include the errors-log breadcrumb.
+    assert "errors-log=" not in out
+
+
+def test_cmd_index_default_errors_log_path_used_when_unset(
+    monkeypatch, tmp_path: Path, capsys
+):
+    """When `--errors-log` is omitted but errors occur, the CLI auto-
+    picks a timestamped path under `data/index-runs/` so the operator
+    always has a breadcrumb. Run inside an isolated cwd so the test
+    doesn't pollute the repo's `data/` directory."""
+    monkeypatch.setenv("ES_URL", "https://es.example.com")
+    monkeypatch.setenv("ES_API_KEY", "encoded")
+    monkeypatch.chdir(tmp_path)
+
+    sp = tmp_path / "doc.extraction.json"
+    sp.write_text(json.dumps({"document_id": "mo://X/Y/Z"}), encoding="utf-8")
+
+    from monitorul_ii.elasticsearch.indexer import IndexResult
+
+    def fake_index_one(es, db, path, **kwargs):
+        return IndexResult(
+            document_id="mo://X/Y/Z",
+            action="error",
+            errors=["bulk error: ConnectionTimeout"],
+            sidecar_path=str(path),
+        )
+
+    with patch.object(cli, "_build_es_client") as build_es:
+        build_es.return_value = object()
+        with patch("monitorul_ii.elasticsearch.indexer.index_one", new=fake_index_one):
+            p = cli._build_parser()
+            args = p.parse_args(["index", str(sp), "--db", str(tmp_path / "audit.db")])
+            rc = cli.cmd_index(args)
+
+    out = capsys.readouterr().out
+    assert rc == 1
+    assert "errors-log=data/index-runs/index-errors-" in out
+    assert (tmp_path / "data" / "index-runs").exists()
+    logs = list((tmp_path / "data" / "index-runs").glob("index-errors-*.jsonl"))
+    assert len(logs) == 1
+    entries = [json.loads(line) for line in logs[0].read_text().splitlines() if line]
+    assert entries[0]["document_id"] == "mo://X/Y/Z"

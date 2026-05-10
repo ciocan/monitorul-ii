@@ -946,3 +946,641 @@ def test_position_in_document_none_when_source_span_missing():
     assert by_id["mo://2018/II/168#agenda-1#act-1"]["position_in_document"] is None
     # Other speeches still get their position
     assert by_id["mo://2018/II/168#agenda-1#act-2"]["position_in_document"] == 4226
+
+
+# ----------------------------------------------------------------------
+# Discourse markers: per-marker projection + char_range computation
+# ----------------------------------------------------------------------
+
+
+def test_speech_discourse_markers_projected_with_char_range():
+    """Each Hawkins marker must surface kind, marker_confidence,
+    rationale_short, and evidence.{text, char_range}. char_range is
+    computed against the speech text via find_text_offsets_tolerant
+    so the browser can highlight the evidence inline without porting
+    the typography-tolerant matcher to JS.
+    """
+    sidecar = _plenary_sidecar()
+    speech_text = sidecar["body"]["agenda_items"][0]["activities"][0]["text"]
+    # Pick verbatim substrings from the speech body so the matcher
+    # finds them strictly.
+    quote = "intervenție substanțială"
+    expected_start = speech_text.index(quote)
+    enrichments = {
+        "mo://2018/II/168#agenda-1#act-1": {
+            "discourse": {
+                "_meta": {"producer": "flash-lite", "version": "0.1"},
+                "text_fingerprint": "ff00",
+                "hawkins": {
+                    "score": 1,
+                    "framework_confidence": 0.7,
+                    "framework_version": "hawkins@2018",
+                    "rationale": "Marker rationale for the framework.",
+                    "markers": [
+                        {
+                            "kind": "people_vs_elite",
+                            "marker_confidence": 0.85,
+                            "rationale_short": "Anchored on people-vs-elite framing.",
+                            "evidence": {"text": quote},
+                        },
+                    ],
+                },
+                "voice": None,
+                "dqi": None,
+                "vparty": None,
+            }
+        }
+    }
+    docs = denormalize.to_speeches_docs(sidecar, enrichments=enrichments)
+    by_id = {d["_id"]: d["_source"] for d in docs}
+    speech = by_id["mo://2018/II/168#agenda-1#act-1"]
+    hawkins = speech["enrichments"]["discourse"]["hawkins"]
+    assert hawkins["framework_version"] == "hawkins@2018"
+    assert hawkins["rationale"] == "Marker rationale for the framework."
+    assert len(hawkins["markers"]) == 1
+    marker = hawkins["markers"][0]
+    assert marker["kind"] == "people_vs_elite"
+    assert marker["marker_confidence"] == 0.85
+    assert marker["rationale_short"] == "Anchored on people-vs-elite framing."
+    assert marker["evidence"]["text"] == quote
+    assert marker["evidence"]["char_range"] == [
+        expected_start,
+        expected_start + len(quote),
+    ]
+
+
+def test_speech_discourse_marker_char_range_handles_typography():
+    """Romanian-typography drift (the model paraphrasing curly-quoted
+    text against the speech's straight-quote source) must still yield
+    a char_range — that's the whole point of using
+    find_text_offsets_tolerant over String.indexOf.
+    """
+    sidecar = _plenary_sidecar()
+    # Inject a curly-quoted phrase into the speech text.
+    long_text = (
+        "## Doamnelor și domnilor,\n\nAceasta este o intervenție „substanțială"
+        ' și provocatoare" care depășește pragul de 100 de caractere fără probleme.'
+    )
+    sidecar["body"]["agenda_items"][0]["activities"][0]["text"] = long_text
+    # The model "remembers" the quote with straight quotes — typography
+    # drift, not a paraphrase. The tolerant matcher folds both forms
+    # to the same shape and recovers byte-correct offsets.
+    drifted_quote = '"substanțială și provocatoare"'
+    enrichments = {
+        "mo://2018/II/168#agenda-1#act-1": {
+            "discourse": {
+                "_meta": {"producer": "flash-lite", "version": "0.1"},
+                "text_fingerprint": "aa11",
+                "hawkins": {
+                    "score": 1,
+                    "framework_confidence": 0.8,
+                    "markers": [
+                        {
+                            "kind": "people_vs_elite",
+                            "evidence": {"text": drifted_quote},
+                        }
+                    ],
+                },
+                "voice": None,
+                "dqi": None,
+                "vparty": None,
+            }
+        }
+    }
+    docs = denormalize.to_speeches_docs(sidecar, enrichments=enrichments)
+    by_id = {d["_id"]: d["_source"] for d in docs}
+    marker = by_id["mo://2018/II/168#agenda-1#act-1"]["enrichments"]["discourse"][
+        "hawkins"
+    ]["markers"][0]
+    cr = marker["evidence"]["char_range"]
+    # The slice should land on the curly-quoted region in the source.
+    assert cr is not None
+    assert long_text[cr[0] : cr[1] + 1].startswith("„substanțială") or long_text[
+        cr[0] : cr[1]
+    ].startswith("„substanțială")
+
+
+def test_speech_discourse_marker_char_range_omitted_for_paraphrase():
+    """A genuine paraphrase (added/removed words) must NOT produce a
+    char_range. The marker still surfaces with its `text`, and the
+    browser can fall back to a simple substring search if it wants.
+    """
+    sidecar = _plenary_sidecar()
+    enrichments = {
+        "mo://2018/II/168#agenda-1#act-1": {
+            "discourse": {
+                "_meta": {"producer": "flash-lite", "version": "0.1"},
+                "text_fingerprint": "bb22",
+                "hawkins": {
+                    "score": 1,
+                    "framework_confidence": 0.7,
+                    "markers": [
+                        {
+                            "kind": "people_vs_elite",
+                            "evidence": {
+                                "text": "this fragment never appears in the speech body",
+                            },
+                        }
+                    ],
+                },
+                "voice": None,
+                "dqi": None,
+                "vparty": None,
+            }
+        }
+    }
+    docs = denormalize.to_speeches_docs(sidecar, enrichments=enrichments)
+    by_id = {d["_id"]: d["_source"] for d in docs}
+    marker = by_id["mo://2018/II/168#agenda-1#act-1"]["enrichments"]["discourse"][
+        "hawkins"
+    ]["markers"][0]
+    assert marker["evidence"]["text"] == (
+        "this fragment never appears in the speech body"
+    )
+    assert "char_range" not in marker["evidence"]
+
+
+def test_speech_discourse_dqi_markers_value_coerced_to_string():
+    """DQI markers carry mixed-type `value` (int for level_of_justification
+    / respect_*; str for content_of_justification / constructive_politics).
+    The ES `keyword` mapping rejects ints, so the denormalizer coerces
+    them to their string repr.
+    """
+    sidecar = _plenary_sidecar()
+    enrichments = {
+        "mo://2018/II/168#agenda-1#act-1": {
+            "discourse": {
+                "_meta": {"producer": "flash-lite", "version": "0.1"},
+                "text_fingerprint": "cc33",
+                "hawkins": None,
+                "voice": None,
+                "vparty": None,
+                "dqi": {
+                    "level_of_justification": 2,
+                    "content_of_justification": "common_good",
+                    "respect_for_groups": 1,
+                    "respect_for_demands": 1,
+                    "respect_for_counterarguments": 1,
+                    "constructive_politics": "alternative_proposal",
+                    "framework_confidence": 0.85,
+                    "framework_version": "steiner-bachtiger@2017",
+                    "rationale": "Holistic DQI explanation.",
+                    "markers": [
+                        {
+                            "kind": "level_of_justification",
+                            "value": 2,
+                            "marker_confidence": 0.9,
+                            "rationale_short": "Causal reasoning.",
+                            "evidence": {"text": "intervenție"},
+                        },
+                        {
+                            "kind": "content_of_justification",
+                            "value": "common_good",
+                            "marker_confidence": 0.92,
+                            "rationale_short": "Appeal to common good.",
+                            "evidence": {"text": "Doamnelor"},
+                        },
+                    ],
+                },
+            }
+        }
+    }
+    docs = denormalize.to_speeches_docs(sidecar, enrichments=enrichments)
+    by_id = {d["_id"]: d["_source"] for d in docs}
+    dqi = by_id["mo://2018/II/168#agenda-1#act-1"]["enrichments"]["discourse"]["dqi"]
+    assert dqi["framework_confidence"] == 0.85
+    assert dqi["framework_version"] == "steiner-bachtiger@2017"
+    assert dqi["rationale"] == "Holistic DQI explanation."
+    assert len(dqi["markers"]) == 2
+    by_kind = {m["kind"]: m for m in dqi["markers"]}
+    assert by_kind["level_of_justification"]["value"] == "2"
+    assert by_kind["content_of_justification"]["value"] == "common_good"
+
+
+def test_speech_discourse_voice_classifications_projected():
+    """Voice classifications must surface marker_id, voice, voice_confidence,
+    attributed_to, rationale_short, and voice_evidence.{text, char_range}
+    so the web app can colour each marker chip by attributed voice and
+    link it back to its source marker via marker_id.
+    """
+    sidecar = _plenary_sidecar()
+    speech_text = sidecar["body"]["agenda_items"][0]["activities"][0]["text"]
+    quote = "Doamnelor și domnilor"
+    expected_start = speech_text.index(quote)
+    enrichments = {
+        "mo://2018/II/168#agenda-1#act-1": {
+            "discourse": {
+                "_meta": {"producer": "flash-lite", "version": "0.1"},
+                "text_fingerprint": "dd44",
+                "hawkins": {
+                    "score": 1,
+                    "framework_confidence": 0.7,
+                    "markers": [
+                        {"kind": "people_vs_elite", "evidence": {"text": quote}}
+                    ],
+                },
+                "voice": {
+                    "classifications": [
+                        {
+                            "marker_id": "m_0",
+                            "voice": "speaker_first_person",
+                            "voice_confidence": 0.95,
+                            "attributed_to": None,
+                            "rationale_short": "Speaker speaks in their own voice.",
+                            "voice_evidence": {"text": quote},
+                        }
+                    ]
+                },
+                "dqi": None,
+                "vparty": None,
+            }
+        }
+    }
+    docs = denormalize.to_speeches_docs(sidecar, enrichments=enrichments)
+    by_id = {d["_id"]: d["_source"] for d in docs}
+    voice = by_id["mo://2018/II/168#agenda-1#act-1"]["enrichments"]["discourse"][
+        "voice"
+    ]
+    # Aggregates still emit (back-compat with existing queries).
+    assert voice["dominant_voice"] == "speaker_first_person"
+    assert voice["voices_seen"] == ["speaker_first_person"]
+    # New per-classification array.
+    assert len(voice["classifications"]) == 1
+    cls = voice["classifications"][0]
+    assert cls["marker_id"] == "m_0"
+    assert cls["voice"] == "speaker_first_person"
+    assert cls["voice_confidence"] == 0.95
+    assert cls["rationale_short"] == "Speaker speaks in their own voice."
+    assert "attributed_to" not in cls  # null attributed_to is dropped
+    assert cls["voice_evidence"]["text"] == quote
+    assert cls["voice_evidence"]["char_range"] == [
+        expected_start,
+        expected_start + len(quote),
+    ]
+
+
+def test_speech_discourse_handles_malformed_marker_shapes():
+    """Producer salvage tier may leave non-dict / missing-kind markers.
+    The denormaliser must skip them without crashing — the indexer
+    runs unattended in production and a single bad sidecar can't be
+    allowed to take down a whole bulk.
+    """
+    sidecar = _plenary_sidecar()
+    enrichments = {
+        "mo://2018/II/168#agenda-1#act-1": {
+            "discourse": {
+                "_meta": {"producer": "flash-lite", "version": "0.1"},
+                "text_fingerprint": "ee55",
+                "hawkins": {
+                    "score": 1,
+                    "framework_confidence": 0.7,
+                    "markers": [
+                        "stray-string-not-a-dict",  # skip
+                        {"evidence": {"text": "x"}},  # missing kind → skip
+                        {"kind": "people_vs_elite"},  # no evidence → keep
+                        {"kind": "evil_elite", "evidence": {}},  # empty evidence → keep
+                        {
+                            "kind": "manichean",
+                            "evidence": {"text": ""},
+                        },  # empty evidence text → keep, drop evidence
+                    ],
+                },
+                "voice": None,
+                "dqi": None,
+                "vparty": None,
+            }
+        }
+    }
+    docs = denormalize.to_speeches_docs(sidecar, enrichments=enrichments)
+    by_id = {d["_id"]: d["_source"] for d in docs}
+    hawkins = by_id["mo://2018/II/168#agenda-1#act-1"]["enrichments"]["discourse"][
+        "hawkins"
+    ]
+    # Two stray entries dropped; three good (evidence-less) markers survive.
+    kept_kinds = [m["kind"] for m in hawkins["markers"]]
+    assert kept_kinds == ["people_vs_elite", "evil_elite", "manichean"]
+    # marker_count uses the RAW count from the source list (incl. dropped
+    # entries) — the metric is "how many markers did the model emit",
+    # not "how many survived our projection". Keeps the cross-tab
+    # aggregations stable across producer salvage policy changes.
+    assert hawkins["marker_count"] == 5
+    # marker_kinds dedups projected entries (not raw).
+    assert set(hawkins["marker_kinds"]) == {
+        "people_vs_elite",
+        "evil_elite",
+        "manichean",
+    }
+
+
+def test_speech_discourse_speech_text_optional():
+    """When speech_text is None (caller wired a non-speeches grain that
+    happens to carry discourse), markers still project — just without
+    char_range. Non-regression for any future caller.
+    """
+    speech_text = "Lorem ipsum dolor sit amet."
+    payload = {
+        "hawkins": {
+            "score": 1,
+            "framework_confidence": 0.7,
+            "markers": [{"kind": "people_vs_elite", "evidence": {"text": "ipsum"}}],
+        }
+    }
+    flat = denormalize._flatten_discourse_payload(payload, speech_text=None)
+    marker = flat["discourse"]["hawkins"]["markers"][0]
+    assert marker["evidence"]["text"] == "ipsum"
+    assert "char_range" not in marker["evidence"]
+    # Sanity: same payload WITH speech_text recovers the offsets.
+    flat2 = denormalize._flatten_discourse_payload(payload, speech_text=speech_text)
+    cr = flat2["discourse"]["hawkins"]["markers"][0]["evidence"]["char_range"]
+    assert cr == [speech_text.index("ipsum"), speech_text.index("ipsum") + 5]
+
+
+# ----------------------------------------------------------------------
+# End-to-end smoke: full producer-shaped payload through the speeches grain
+# ----------------------------------------------------------------------
+
+
+def test_speech_discourse_end_to_end_smoke():
+    """Smoke test: feed a full producer-shaped payload (mirroring an
+    actual `<basename>.discourse.flash-lite.v0_1.json` entry — all four
+    frameworks populated) through `to_speeches_docs`, confirm every
+    declared mapping field is populated correctly, and validate the
+    resulting doc against the mo-speeches mapping. This is the closest
+    we can get to a full integration test without hitting an ES cluster.
+    """
+    sidecar = _plenary_sidecar()
+    # Use real substrings of the test fixture's speech text so the
+    # tolerant matcher recovers byte-correct offsets.
+    speech_text = sidecar["body"]["agenda_items"][0]["activities"][0]["text"]
+    quote_a = "intervenție substanțială"
+    quote_b = "puncte de discuție"
+    quote_c = "depăși pragul"
+    enrichments = {
+        "mo://2018/II/168#agenda-1#act-1": {
+            "discourse": {
+                "_meta": {
+                    "indexed_at": "2026-05-09T21:55:36.259739+00:00",
+                    "model_id": "google/gemini-3.1-flash-lite",
+                    "namespace": "discourse",
+                    "producer": "flash-lite",
+                    "prompt_versions": {
+                        "dqi": "v1",
+                        "hawkins": "v1",
+                        "voice": "v1",
+                        "vparty": "v2",
+                    },
+                    "source_sidecar_content_sha": "820fc06c1cd1",
+                    "version": "0.1",
+                },
+                "text_fingerprint": "79b9a7f2af13",
+                "hawkins": {
+                    "framework_confidence": 0.95,
+                    "framework_version": "hawkins@2018",
+                    "score": 1,
+                    "score_unit": "ordinal_0_2",
+                    "rationale": "Discursul prezintă elemente populiste moderate.",
+                    "markers": [
+                        {
+                            "kind": "people_vs_elite",
+                            "marker_confidence": 0.9,
+                            "rationale_short": "Construct people-vs-elite.",
+                            "preliminary_voice": "speaker_first_person",
+                            "preliminary_voice_confidence": 0.98,
+                            "evidence": {"text": quote_a},
+                        },
+                        {
+                            "kind": "evil_elite",
+                            "marker_confidence": 0.85,
+                            "rationale_short": "Elite character.",
+                            "preliminary_voice": "speaker_first_person",
+                            "preliminary_voice_confidence": 0.98,
+                            "evidence": {"text": quote_b},
+                        },
+                    ],
+                },
+                "voice": {
+                    "classifications": [
+                        {
+                            "marker_id": "m_0",
+                            "voice": "speaker_first_person",
+                            "voice_confidence": 0.96,
+                            "attributed_to": None,
+                            "rationale_short": "Speaker's own voice.",
+                            "voice_evidence": {"text": quote_a},
+                        },
+                        {
+                            "marker_id": "m_1",
+                            "voice": "quoted",
+                            "voice_confidence": 0.78,
+                            "attributed_to": "Opoziție",
+                            "rationale_short": "Quoted opposition.",
+                            "voice_evidence": {"text": quote_b},
+                        },
+                    ]
+                },
+                "dqi": {
+                    "constructive_politics": "positional",
+                    "content_of_justification": "common_good",
+                    "framework_confidence": 0.85,
+                    "framework_version": "steiner-bachtiger@2017",
+                    "level_of_justification": 2,
+                    "respect_for_counterarguments": 1,
+                    "respect_for_demands": 1,
+                    "respect_for_groups": 1,
+                    "rationale": "Discursul este coerent dar pozițional.",
+                    "score_unit": "dqi_multi",
+                    "markers": [
+                        {
+                            "kind": "level_of_justification",
+                            "value": 2,
+                            "marker_confidence": 0.88,
+                            "rationale_short": "Cauzal.",
+                            "evidence": {"text": quote_a},
+                        },
+                        {
+                            "kind": "content_of_justification",
+                            "value": "common_good",
+                            "marker_confidence": 0.92,
+                            "rationale_short": "Apel la binele comun.",
+                            "evidence": {"text": quote_c},
+                        },
+                    ],
+                },
+                "vparty": {
+                    "framework_confidence": 0.98,
+                    "framework_version": "vparty@2020 + vdem-attacks-on@v13",
+                    "score": 0,
+                    "score_unit": "ordinal_0_2",
+                    "rationale": "Niciun marker anti-pluralist identificat.",
+                    "markers": [],
+                },
+            }
+        }
+    }
+    docs = denormalize.to_speeches_docs(sidecar, enrichments=enrichments)
+    by_id = {d["_id"]: d["_source"] for d in docs}
+    src = by_id["mo://2018/II/168#agenda-1#act-1"]
+    enrich = src["enrichments"]
+
+    # Provenance siblings
+    assert enrich["discourse_producer"] == "flash-lite"
+    assert enrich["discourse_text_fingerprint"] == "79b9a7f2af13"
+
+    disc = enrich["discourse"]
+
+    # Hawkins: aggregate + per-marker
+    h = disc["hawkins"]
+    assert h["score"] == 1
+    assert h["framework_confidence"] == 0.95
+    assert h["framework_version"] == "hawkins@2018"
+    assert h["rationale"].startswith("Discursul")
+    assert h["marker_count"] == 2
+    assert sorted(h["marker_kinds"]) == ["evil_elite", "people_vs_elite"]
+    assert len(h["markers"]) == 2
+    assert h["markers"][0]["evidence"]["text"] == quote_a
+    cr_a = h["markers"][0]["evidence"]["char_range"]
+    assert speech_text[cr_a[0] : cr_a[1]] == quote_a
+
+    # Voice: aggregate + per-classification
+    v = disc["voice"]
+    assert v["dominant_voice"] in ("speaker_first_person", "quoted")
+    assert set(v["voices_seen"]) == {"speaker_first_person", "quoted"}
+    assert len(v["classifications"]) == 2
+    cls0 = v["classifications"][0]
+    assert cls0["marker_id"] == "m_0"
+    assert cls0["voice_evidence"]["char_range"] is not None
+    assert v["classifications"][1]["attributed_to"] == "Opoziție"
+
+    # DQI: aggregate + per-marker (with value coerced)
+    d = disc["dqi"]
+    assert d["level_of_justification"] == 2
+    assert d["framework_version"] == "steiner-bachtiger@2017"
+    assert d["rationale"].startswith("Discursul")
+    by_kind = {m["kind"]: m for m in d["markers"]}
+    assert by_kind["level_of_justification"]["value"] == "2"
+    assert by_kind["content_of_justification"]["value"] == "common_good"
+
+    # V-Party: aggregate + empty markers
+    vp = disc["vparty"]
+    assert vp["score"] == 0
+    assert vp["framework_version"].startswith("vparty@2020")
+    assert vp["rationale"].startswith("Niciun")
+    assert vp["marker_count"] == 0
+    assert "markers" not in vp  # no markers projected when source list is empty
+    assert "marker_kinds" not in vp
+
+    # Mapping conformance — full doc walks the mapping tree.
+    _assert_doc_matches_mapping("mo-speeches", docs[0])
+
+
+def test_speech_discourse_smoke_via_indexer_pipeline(tmp_path):
+    """Higher-level smoke: write a real `<basename>.discourse.flash-lite.v0_1.json`
+    file alongside a real sidecar.json, run the enrichment loader (the
+    actual code the indexer uses), then denormalise. This catches
+    breakage in the loader → denormaliser handoff that synthetic-dict
+    tests would miss.
+    """
+    import json as _json
+    from monitorul_ii.elasticsearch import enrichments as enrichments_mod
+
+    sidecar = _plenary_sidecar()
+    sidecar_path = tmp_path / "2018-11-20_MO-PII-168-2018.extraction.json"
+    sidecar_path.write_text(_json.dumps(sidecar), encoding="utf-8")
+
+    discourse_path = (
+        tmp_path / "2018-11-20_MO-PII-168-2018.discourse.flash-lite.v0_1.json"
+    )
+    speech_text = sidecar["body"]["agenda_items"][0]["activities"][0]["text"]
+    quote = "intervenție substanțială"
+    discourse_path.write_text(
+        _json.dumps(
+            {
+                "mo://2018/II/168#agenda-1#act-1": {
+                    "_meta": {
+                        "namespace": "discourse",
+                        "producer": "flash-lite",
+                        "version": "0.1",
+                        "source_sidecar_content_sha": sidecar["content_sha"],
+                    },
+                    "text_fingerprint": "abcdef",
+                    "hawkins": {
+                        "score": 1,
+                        "framework_confidence": 0.85,
+                        "framework_version": "hawkins@2018",
+                        "rationale": "Top-level rationale.",
+                        "markers": [
+                            {
+                                "kind": "people_vs_elite",
+                                "marker_confidence": 0.9,
+                                "rationale_short": "Per-marker rationale.",
+                                "evidence": {"text": quote},
+                            },
+                        ],
+                    },
+                    "voice": {
+                        "classifications": [
+                            {
+                                "marker_id": "m_0",
+                                "voice": "speaker_first_person",
+                                "voice_confidence": 0.92,
+                                "rationale_short": "First person.",
+                                "voice_evidence": {"text": quote},
+                            }
+                        ]
+                    },
+                    "dqi": {
+                        "level_of_justification": 1,
+                        "content_of_justification": "common_good",
+                        "respect_for_groups": 1,
+                        "respect_for_demands": 1,
+                        "respect_for_counterarguments": 0,
+                        "constructive_politics": "positional",
+                        "framework_confidence": 0.7,
+                        "rationale": "DQI rationale.",
+                        "markers": [
+                            {
+                                "kind": "level_of_justification",
+                                "value": 1,
+                                "marker_confidence": 0.75,
+                                "rationale_short": "Mid justification.",
+                                "evidence": {"text": quote},
+                            }
+                        ],
+                    },
+                    "vparty": {
+                        "score": 0,
+                        "framework_confidence": 0.95,
+                        "framework_version": "vparty@2020",
+                        "rationale": "No anti-pluralist markers.",
+                        "markers": [],
+                    },
+                }
+            }
+        ),
+        encoding="utf-8",
+    )
+
+    loaded = enrichments_mod.load_enrichments(
+        sidecar_path, sidecar_content_sha=sidecar["content_sha"]
+    )
+    docs = denormalize.to_speeches_docs(sidecar, enrichments=loaded)
+    by_id = {d["_id"]: d["_source"] for d in docs}
+    enrich = by_id["mo://2018/II/168#agenda-1#act-1"]["enrichments"]
+    assert enrich["discourse_producer"] == "flash-lite"
+    h = enrich["discourse"]["hawkins"]
+    assert h["rationale"] == "Top-level rationale."
+    assert h["framework_version"] == "hawkins@2018"
+    assert h["markers"][0]["evidence"]["text"] == quote
+    expected_start = speech_text.index(quote)
+    assert h["markers"][0]["evidence"]["char_range"] == [
+        expected_start,
+        expected_start + len(quote),
+    ]
+    assert (
+        enrich["discourse"]["voice"]["classifications"][0]["voice_evidence"][
+            "char_range"
+        ]
+        is not None
+    )
+    assert enrich["discourse"]["dqi"]["markers"][0]["value"] == "1"
+    _assert_doc_matches_mapping("mo-speeches", docs[0])

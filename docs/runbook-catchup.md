@@ -17,13 +17,17 @@ cd /home/ciocan/projects/monitorul
 # Confirm dependencies
 uv sync
 
-# Confirm env vars are set (S3 + ES + embed-service URL).
+# Confirm env vars are set (S3 + ES + embed-service URL + analyze-provider key).
 # `.env` is auto-loaded by python-dotenv; .env should have:
 #   S3_ENDPOINT, S3_ACCESS_KEY_ID, S3_SECRET_ACCESS_KEY, S3_BUCKET
 #   ES_URL, ES_API_KEY (the monitorul_indexer key for index ops)
 #   EMBED_URL (default http://127.0.0.1:8000 if omitted)
 #   PROXY_URL (if you use one for monitoruloficial.ro)
-grep -E '^(S3_|ES_|EMBED_URL|PROXY_URL)=' .env | sed 's/=.*/=…/'
+#   OPENROUTER_API_KEY  — required when analyze provider = openrouter (default)
+#   GOOGLE_AI_STUDIO_API_KEY — required when analyze provider = google
+#   GOOGLE_AI_STUDIO_API_URL — optional override (default
+#                              https://generativelanguage.googleapis.com/v1beta)
+grep -E '^(S3_|ES_|EMBED_URL|PROXY_URL|OPENROUTER_|GOOGLE_AI_STUDIO_)=' .env | sed 's/=.*/=…/'
 
 # Verify the embed service is up (BGE-M3 FastAPI in services/embed/).
 # If it returns a non-200 or hangs, start it before step 6.
@@ -185,12 +189,21 @@ If the embed service isn't reachable, the CLI fails fast with exit 2 — start `
 
 ## 6.5. Discourse-analysis (`monitorul-ii analyze`)
 
-Optional but recommended for any sidecars where the LLM coding hasn't run yet. Reads `OPENROUTER_API_KEY` from `.env`; calls Gemini 3.1 Flash-Lite via OpenRouter to score every substantive speech across Hawkins / voice / DQI / V-Party.
+Optional but recommended for any sidecars where the LLM coding hasn't run yet. Two provider backends, both routing to the same Gemini Flash-Lite model and producing identical `<basename>.discourse.flash-lite.v0_1.json` outputs:
+
+| Provider | Env vars | Endpoint | Pricing | Selector |
+|---|---|---|---|---|
+| **OpenRouter** (default) | `OPENROUTER_API_KEY` (+ optional `OPENROUTER_URL`) | `https://openrouter.ai/api/v1` | Flash-Lite at $0.10 / $0.40 per M tokens (gateway markup); per-call cost-reporting metadata | `--provider openrouter` (default) |
+| **Google AI Studio** | `GOOGLE_AI_STUDIO_API_KEY` (+ optional `GOOGLE_AI_STUDIO_API_URL`) | `https://generativelanguage.googleapis.com/v1beta` | Flash-Lite at $0.075 / $0.30 per M tokens (no markup; ~25% cheaper); no per-call cost metadata | `--provider google` |
 
 ```sh
-# Standard launch with budget cap + JSONL telemetry
+# Standard launch with budget cap + JSONL telemetry (OpenRouter, the default)
 mkdir -p data/analyze-runs
 uv run monitorul-ii analyze pdfs/ -j 36 --reverse --budget-usd 50 \
+    --log-file data/analyze-runs/run-$(date +%Y%m%d-%H%M).jsonl
+
+# Same launch via Google AI Studio's native API (cheaper; needs GOOGLE_AI_STUDIO_API_KEY in .env)
+uv run monitorul-ii analyze pdfs/ -j 36 --reverse --budget-usd 50 --provider google \
     --log-file data/analyze-runs/run-$(date +%Y%m%d-%H%M).jsonl
 ```
 
@@ -223,11 +236,23 @@ Run **before** the index step — the indexer's enrichment loader picks the disc
 Walks every sidecar, denormalises across the 9 grains, bulk-upserts via per-grain write aliases. State-tracked via SQLite `es_indexed` table on the triple `(sidecar_content_sha, enrichment_fingerprint, index_generation)` — already-indexed-and-unchanged docs are skipped.
 
 ```sh
+# IF a mo-* mapping has changed since the last bootstrap (new fields
+# added to mappings/<grain>.json — e.g. discourse marker fields, a
+# new enrichment slot), push the diff to the live cluster first.
+# Additive-only, idempotent — safe to run without checking.
+uv run monitorul-ii es-init --update-mappings
+
 # Sequential is fine; use -j for parallelism on large catchups
 uv run monitorul-ii index pdfs/ -j 16
+
+# After a mapping bump, force-reindex the affected docs so the new
+# fields populate (ES does NOT retroactively re-analyze on put_mapping).
+# Skip on a steady-state catch-up. Timing per the v0.2.0 precedent:
+# ~7 min for the full 5552-doc corpus on -j 16.
+uv run monitorul-ii index pdfs/ --force -j 16
 ```
 
-**What goes to ES**: per-doc + per-record documents into `mo-documents`, `mo-agenda-items`, `mo-speeches`, `mo-votes`, `mo-interpellations`, `mo-questions`, `mo-committee-meetings`, `mo-reports`. Embeddings flow into `enrichments.embedding` (1024-dim dense_vector) on the appropriate grains.
+**What goes to ES**: per-doc + per-record documents into `mo-documents`, `mo-agenda-items`, `mo-speeches`, `mo-votes`, `mo-interpellations`, `mo-questions`, `mo-committee-meetings`, `mo-reports`. Embeddings flow into `enrichments.embedding` (1024-dim dense_vector) on the appropriate grains. Discourse-analysis flows into `enrichments.discourse.{hawkins,vparty,dqi,voice}.*` — both the aggregates (score / framework_confidence / marker_count / marker_kinds[]) AND the per-marker arrays (`markers[].{kind, marker_confidence, rationale_short, evidence.text, evidence.char_range}` plus `voice.classifications[]`) so the web app can render markers + rationale and highlight evidence inline. See `docs/discourse-and-semantic-search.md` for the rendering pseudocode.
 
 **Verification** (count docs in `mo-documents` published since 2026-04-15):
 ```sh
@@ -331,8 +356,25 @@ uv run python tools/catchup.py
 # Explicit dates
 uv run python tools/catchup.py --from 2026-04-15 --until 2026-05-08
 
+# Route the analyze stage through Google AI Studio instead of OpenRouter
+# (~25% cheaper; needs GOOGLE_AI_STUDIO_API_KEY in .env). Both providers
+# produce identical discourse JSON files, so downstream stages don't care.
+uv run python tools/catchup.py --analyze-provider google
+
 # Bundle the Appendix A cleanup pass into the same run
 uv run python tools/catchup.py --include-cleanup
+
+# Push mo-* mapping diffs to ES + force-reindex the back catalogue. Use
+# AFTER deploying a mapping/denormalizer change so the new fields land
+# on every doc, not just the new ones from this catch-up window.
+# Pre-step: monitorul-ii es-init --update-mappings (additive, idempotent).
+# Post-step: monitorul-ii index pdfs/ --force -j <workers> (~7 min for the
+# 5552-doc corpus on -j 16). Both stages skip cleanly if ES creds are
+# missing — same gate as the regular index stage. The pre-step honours
+# --continue-on-error: a failure without that flag aborts the whole
+# catch-up because running the index stage against a stale mapping
+# would write docs with auto-detected (wrong) field types.
+uv run python tools/catchup.py --include-mapping-bump
 
 # Run only specific stages
 uv run python tools/catchup.py --only fetch --only convert
@@ -345,12 +387,24 @@ uv run python tools/catchup.py --continue-on-error
 uv run python tools/catchup.py --report /tmp/today.json
 ```
 
+**Discourse analysis on new MOs**: the catchup runner runs `analyze` by default (between `embed` and `index`), so new MOs flow through Hawkins / voice / DQI / V-Party automatically without any extra flag. Default provider is **OpenRouter** (gate: `OPENROUTER_API_KEY` present). To route the analyze stage through **Google AI Studio** instead, pass `--analyze-provider google` (gate becomes: `GOOGLE_AI_STUDIO_API_KEY` present); the runner forwards `--provider google` to the analyze subcommand and the pre-flight printout swaps the required-env-var entry to match. If the relevant key is missing, the analyze stage skips cleanly with `api_key_present=false` and the index stage continues without it (the affected speeches just won't carry the `enrichments.discourse.*` fields until you re-run with the key set). Daily catch-ups process ~50 new substantive speeches → ~$0.10/day at OpenRouter rates / ~$0.075/day at Google AI Studio rates; well below any practical budget cap.
+
+```sh
+# Default — OpenRouter
+uv run python tools/catchup.py
+
+# Same catchup, analyze through Google AI Studio's native API (~25% cheaper;
+# needs GOOGLE_AI_STUDIO_API_KEY in .env)
+uv run python tools/catchup.py --analyze-provider google
+```
+
 **Pre-checks** that gate each stage (skip with reason on failure):
 
 - `fetch` — `data/monitorul.db` parent directory writable
 - `convert` — at least one `pdfs/<date>_*.pdf` exists in the date range
 - `extract` / `link` / `backfill` — at least one MD or sidecar in range
 - `embed` — embed-service `GET /healthz` returns 200
+- `analyze` — at least one sidecar in range AND the analyze provider's API key env var present (`OPENROUTER_API_KEY` by default, or `GOOGLE_AI_STUDIO_API_KEY` when `--analyze-provider google`)
 - `index` — `ES_URL` + `ES_API_KEY` set; `GET ES_URL` returns 200
 
 **Post-checks** captured per stage (visible in the JSON report and in the stderr summary):
@@ -363,6 +417,7 @@ uv run python tools/catchup.py --report /tmp/today.json
 | link | sample-doc forward `defers_to` count, back-link `resolves` count, xref-resolved count |
 | backfill | sample-doc `speakers_with_person_id` / `speakers_unresolved` / `resolution_rate` |
 | embed | new embedding files, in-range coverage % |
+| analyze | new discourse files (`*.discourse.flash-lite.v0_1.json`) in range, coverage % vs sidecars |
 | index | ES doc count in range, latest `published`, latest `document_id` |
 
 **Stderr summary** (final block) shows ✓/✗/· marker, duration, and one headline metric per stage:

@@ -13,6 +13,7 @@ os.environ.setdefault("ORT_INTRA_OP_NUM_THREADS", "1")
 import argparse  # noqa: E402
 import json  # noqa: E402
 import sys  # noqa: E402
+import threading  # noqa: E402
 import time  # noqa: E402
 from dataclasses import replace  # noqa: E402
 from datetime import date, datetime, timezone  # noqa: E402
@@ -681,6 +682,22 @@ def _build_parser() -> argparse.ArgumentParser:
             "in completion order (not input order) when N > 1; set "
             "N=1 for deterministic ordering or single-process "
             "debugging. 20-core box: try -j 16 for a 5–10× speedup."
+        ),
+    )
+    index_cmd.add_argument(
+        "--errors-log",
+        type=Path,
+        default=None,
+        metavar="PATH",
+        help=(
+            "Append one JSON line per failed sidecar to PATH "
+            "(`{ts, document_id, sidecar_path, errors[]}`). "
+            "If unset and any error occurs, defaults to "
+            "`data/index-runs/index-errors-<ISO-timestamp>.jsonl` so "
+            "failures from a parallel run aren't buried under thousands "
+            "of `ok` lines. The path is surfaced in the final summary "
+            "when written. Pass `--errors-log /dev/null` to suppress "
+            "(rare — most operators want the log)."
         ),
     )
     index_cmd.add_argument(
@@ -3059,6 +3076,45 @@ def cmd_index(args: argparse.Namespace) -> int:
 
     workers = max(1, int(getattr(args, "workers", 1) or 1))
 
+    # Errors-log: lazy-create on first failure so a clean run leaves
+    # no empty file behind. Default path is timestamped under
+    # `data/index-runs/` so concurrent runs don't collide and the
+    # operator can `ls -t` to find the latest. An explicit `--errors-log`
+    # always uses the provided path verbatim (even if it's `/dev/null`).
+    errors_log_path: Path | None = (
+        Path(args.errors_log) if args.errors_log is not None else None
+    )
+    errors_log_default_dir = Path("data/index-runs")
+    errors_log_handle = None  # opened lazily below
+    errors_log_lock = threading.Lock()
+
+    def _ensure_errors_log_open():
+        nonlocal errors_log_handle, errors_log_path
+        if errors_log_handle is not None:
+            return errors_log_handle
+        if errors_log_path is None:
+            errors_log_default_dir.mkdir(parents=True, exist_ok=True)
+            ts = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
+            errors_log_path = errors_log_default_dir / f"index-errors-{ts}.jsonl"
+        else:
+            errors_log_path.parent.mkdir(parents=True, exist_ok=True)
+        errors_log_handle = open(errors_log_path, "a", encoding="utf-8")
+        return errors_log_handle
+
+    def _record_error(result) -> None:
+        """Append one JSON line per failure. Thread-safe via lock so the
+        parallel `-j N` path doesn't interleave half-flushed lines."""
+        with errors_log_lock:
+            handle = _ensure_errors_log_open()
+            payload = {
+                "ts": datetime.now(timezone.utc).isoformat(),
+                "document_id": result.document_id,
+                "sidecar_path": result.sidecar_path,
+                "errors": list(result.errors),
+            }
+            handle.write(json.dumps(payload, ensure_ascii=False) + "\n")
+            handle.flush()
+
     def _handle(result, *, report) -> None:
         """Project one IndexResult into counters + log lines.
 
@@ -3098,6 +3154,7 @@ def cmd_index(args: argparse.Namespace) -> int:
             counters["errors"] += 1
             msg = "; ".join(result.errors) or "unknown"
             report.print(f"  ERR  {result.document_id}  ({msg})", err=True)
+            _record_error(result)
         report.advance()
 
     try:
@@ -3143,8 +3200,19 @@ def cmd_index(args: argparse.Namespace) -> int:
                         except KeyboardInterrupt:
                             raise
                         except Exception as exc:
+                            from monitorul_ii.elasticsearch.indexer import (
+                                IndexResult as _IndexResult,
+                            )
+
+                            synth = _IndexResult(
+                                document_id=str(path),
+                                action="error",
+                                errors=[repr(exc)],
+                                sidecar_path=str(path),
+                            )
                             counters["errors"] += 1
                             report.print(f"  ERR   {path.name}  ({exc!r})", err=True)
+                            _record_error(synth)
                             report.advance()
                             continue
                         _handle(result, report=report)
@@ -3211,6 +3279,10 @@ def cmd_index(args: argparse.Namespace) -> int:
                 file=sys.stderr,
             )
             counters["errors"] += 1
+            _record_error(persons_result)
+
+    if errors_log_handle is not None:
+        errors_log_handle.close()
 
     summary = (
         f"indexed={counters['indexed']} "
@@ -3220,6 +3292,8 @@ def cmd_index(args: argparse.Namespace) -> int:
     )
     if counters["dry_run"]:
         summary += f" dry_run={counters['dry_run']}"
+    if counters["errors"] and errors_log_path is not None:
+        summary += f" errors-log={errors_log_path}"
     print(summary, flush=True)
     return 1 if counters["errors"] else 0
 

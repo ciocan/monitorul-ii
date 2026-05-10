@@ -12,25 +12,38 @@ Step-by-step operational guide for running `monitorul-ii analyze` — the four-p
 
 ## 0. Pre-flight
 
+The producer supports two LLM provider backends — pick one per run via `--provider`:
+
+| Provider | Required env vars | Optional env vars | Endpoint | Pricing |
+|---|---|---|---|---|
+| **OpenRouter** (default) | `OPENROUTER_API_KEY` | `OPENROUTER_URL` (default `https://openrouter.ai/api/v1`) | OpenAI-compatible `/chat/completions` | $0.10 in / $0.40 out per M tokens at Flash-Lite (gateway markup) |
+| **Google AI Studio** | `GOOGLE_AI_STUDIO_API_KEY` | `GOOGLE_AI_STUDIO_API_URL` (default `https://generativelanguage.googleapis.com/v1beta`) | Google's native `generateContent` | $0.075 in / $0.30 out per M tokens at Flash-Lite (~25% cheaper, no gateway markup) |
+
+Both route to the same Gemini Flash-Lite model and produce **identical** `<basename>.discourse.flash-lite.v0_1.json` outputs — the indexer's enrichment loader / denormaliser are agnostic to which provider coded the speech. Trade-offs: OpenRouter exposes per-call cost-reporting metadata in the response (the producer sums these into the run's `cost_usd` total); Google AI Studio doesn't, so the producer estimates cost from the per-token rates above. Pick Google when budget matters more than cost-precision telemetry.
+
 ```sh
 cd /home/ciocan/projects/monitorul
 uv sync
 
-# Confirm OpenRouter API key is in .env (auto-loaded by python-dotenv).
-grep '^OPENROUTER_API_KEY=' .env | sed 's/=.*/=…/'
+# OpenRouter path (default)
+grep -E '^OPENROUTER_(API_KEY|URL)=' .env | sed 's/=.*/=…/'
 
-# Optional override of endpoint (default https://openrouter.ai/api/v1).
-grep '^OPENROUTER_URL=' .env | sed 's/=.*/=…/'
+# Google AI Studio path
+grep -E '^GOOGLE_AI_STUDIO_(API_KEY|API_URL)=' .env | sed 's/=.*/=…/'
 
 # Confirm S3 mirroring is configured (so successful sidecars push to R2).
 grep -E '^(S3_ENDPOINT|S3_BUCKET)=' .env | sed 's/=.*/=…/'
 
-# Smoke OpenRouter reachability + auth.
+# Smoke reachability + auth — for whichever provider you intend to use.
 uv run monitorul-ii analyze pdfs/ --dry-run | head -3
-# Expected: "analyze: dry-run (would target https://openrouter.ai/api/v1)"
+# Expected: "analyze: dry-run (would target openrouter at https://openrouter.ai/api/v1; …)"
+
+# Same smoke against Google AI Studio
+uv run monitorul-ii analyze pdfs/ --dry-run --provider google | head -3
+# Expected: "analyze: dry-run (would target google at https://generativelanguage.googleapis.com/v1beta; …)"
 ```
 
-If `OPENROUTER_API_KEY` is missing, the CLI exits with code 2 before any network call.
+If the chosen provider's API-key env var is missing, the CLI exits with code 2 before any network call (and prints the env var name it expected).
 
 ---
 
@@ -63,7 +76,10 @@ Other useful flags:
 | `--limit N` | Process at most N sidecars (after `--reverse` is applied). Spike runs. |
 | `--max-words N` | Skip speeches above N words (default 800; v0.2 will chunk). |
 | `--retry-on-error N` | Retry budget per LLM call (default 1). For transport / json_parse / schema_invalid; **NOT** for 429s — those have their own budget. |
-| `--openrouter-url URL` | Endpoint override. |
+| `--provider {openrouter,google}` | Backend selector. Default `openrouter`; pass `google` to route through Google AI Studio's native API (~25% cheaper at Flash-Lite rates; needs `GOOGLE_AI_STUDIO_API_KEY`). Both produce identical discourse JSON. |
+| `--openrouter-url URL` | Endpoint override (used when `--provider openrouter`). |
+| `--google-url URL` | Endpoint override (used when `--provider google`). |
+| `--model NAME` | Override the model. Defaults: `google/gemini-3.1-flash-lite` for OpenRouter, `gemini-3.1-flash-lite` for Google AI Studio. |
 | `--no-upload` | Skip S3 mirror even when env vars are set. |
 
 ---
@@ -307,18 +323,35 @@ dry   <sidecar>  [would-code=N reuse=N]                             ← `--dry-r
 The discourse JSON files are now alongside the sidecars. To project them into Elasticsearch:
 
 ```sh
+# IF the mo-speeches mapping has changed since the last bootstrap (e.g.
+# new discourse marker fields landed via a code change), push the diff
+# to the live cluster first. Additive-only, idempotent — safe to run
+# without checking. Skip if you're sure the mapping is current.
+uv run monitorul-ii es-init --update-mappings
+
 # Re-index — the indexer's idempotency triple includes
 # enrichment_fingerprint, which changed when discourse files appeared.
 # Only sidecars with new discourse data are touched.
 uv run monitorul-ii index pdfs/ -j 16
+
+# After a mapping bump, force-reindex the affected docs so the new
+# fields populate (ES does NOT retroactively re-analyze on put_mapping).
+# Only needed when the mapping changed; skip on a steady-state catch-up.
+# Timing: ~7 min for the full 5552-doc corpus on -j 16 (the v0.2.0
+# position_in_document precedent — same shape of work).
+uv run monitorul-ii index pdfs/ --force -j 16
 ```
 
 Verify in ES:
 
 ```sh
-# Sample a discourse-coded speech
+# Sample a discourse-coded speech: aggregates + per-marker arrays
 uv run monitorul-ii query --name search_speeches --params '{"page_size": 1}' \
     | jq '.hits[0]._source.enrichments.discourse'
+# Expect: hawkins/vparty/dqi each carry {score, framework_confidence,
+# framework_version, rationale, marker_count, marker_kinds[], markers[]};
+# voice carries {dominant_voice, voices_seen[], classifications[]};
+# each marker has evidence.{text, char_range} for inline highlighting.
 
 # Cross-tab Hawkins × V-Party
 .venv/bin/python <<EOF
@@ -340,9 +373,34 @@ for h in res['aggregations']['hawkins']['buckets']:
     for v in h['vparty']['buckets']:
         print(f'H={h["key"]} V={v["key"]}: {v["doc_count"]:,}')
 EOF
+
+# Sanity-check char_range slicing — pick a discourse-coded speech and
+# confirm the evidence text matches the slice into speech.text. Catches
+# off-by-one or matcher regressions before the web app surfaces them.
+.venv/bin/python <<EOF
+from monitorul_ii.elasticsearch.config import ESConfig
+from monitorul_ii.elasticsearch.client import build_client
+from dotenv import load_dotenv; load_dotenv('.env')
+es = build_client(ESConfig.from_env())
+hit = es.search(index='mo-speeches', body={
+    'size': 1,
+    'query': {'exists': {'field': 'enrichments.discourse.hawkins.markers'}}
+})['hits']['hits'][0]
+src = hit['_source']
+text = src['text']
+for m in src['enrichments']['discourse']['hawkins'].get('markers', []):
+    ev = m.get('evidence', {})
+    cr = ev.get('char_range')
+    if cr:
+        slice_ = text[cr[0]:cr[1]]
+        match = '✓' if slice_ == ev['text'] else '✗'
+        print(f"{match} {m['kind']}: {ev['text'][:40]!r} == {slice_[:40]!r}")
+    else:
+        print(f"… {m['kind']}: char_range omitted (paraphrase)")
+EOF
 ```
 
-See `docs/discourse-and-semantic-search.md` for the canonical query patterns.
+See `docs/discourse-and-semantic-search.md` for the canonical query patterns and the per-speech rendering pseudocode.
 
 ---
 

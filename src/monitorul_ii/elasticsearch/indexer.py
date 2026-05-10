@@ -57,6 +57,16 @@ from monitorul_ii.elasticsearch.enrichments import (
 
 INDEXER_VERSION = "0.2.0"
 
+# Bulk-helper retry budget. `streaming_bulk` retries on 429
+# (es_rejected_execution_exception) when the cluster's bulk queue is
+# saturated under high parallelism (-j 16 saw transient bulk-error
+# failures on 3/5556 sidecars in the 5556-doc smoke). 3 retries with
+# 2/4/8s exponential backoff (capped at 8s) trade ~14s of worst-case
+# extra wait per failed chunk for auto-recovery.
+BULK_MAX_RETRIES = 3
+BULK_INITIAL_BACKOFF = 2
+BULK_MAX_BACKOFF = 8
+
 # All eight grains derived from a sidecar (mo-persons is the registry-
 # driven exception and isn't covered by the per-document state row).
 _log = logging.getLogger("monitorul_ii.indexer")
@@ -79,6 +89,7 @@ class IndexResult:
     child_record_ids: list[str] = field(default_factory=list)
     orphans_deleted: int = 0
     errors: list[str] = field(default_factory=list)
+    sidecar_path: str | None = None  # populated by index_one for the errors-log
 
 
 def _read_sidecar(path: Path) -> dict[str, Any]:
@@ -153,6 +164,16 @@ def _bulk_upsert(
         # populated; we let raise_on_error=True turn any failure into
         # an exception that the caller can record on IndexResult.
         stats_only=False,
+        # Per-chunk retries on `429 es_rejected_execution_exception`
+        # (cluster-side bulk queue saturation). Transport-level retries
+        # configured on the client itself cover ConnectionTimeout /
+        # ConnectionError; this layer covers the queue-pressure 429s
+        # that the transport doesn't see as a network failure.
+        # 3 retries × 2/4/8s backoff = up to 14s spent before bubbling
+        # up — small price next to the 19-min full-corpus baseline.
+        max_retries=BULK_MAX_RETRIES,
+        initial_backoff=BULK_INITIAL_BACKOFF,
+        max_backoff=BULK_MAX_BACKOFF,
     )
     return success
 
@@ -269,6 +290,7 @@ def index_one(
     `--target` so the state row's idempotency check tracks the right
     generation.
     """
+    sidecar_path_str = str(sidecar_path)
     sidecar = _read_sidecar(sidecar_path)
     document_id = sidecar.get("document_id")
     if not document_id:
@@ -276,6 +298,7 @@ def index_one(
             document_id=str(sidecar_path),
             action="error",
             errors=["sidecar missing document_id"],
+            sidecar_path=sidecar_path_str,
         )
 
     sidecar_content_sha = sidecar.get("content_sha") or ""
@@ -298,6 +321,7 @@ def index_one(
             document_id=document_id,
             action="skipped",
             child_record_ids=list(state.get("child_record_ids") or []),
+            sidecar_path=sidecar_path_str,
         )
 
     docs = denormalize_sidecar(
@@ -316,6 +340,7 @@ def index_one(
             action="dry-run",
             grain_counts={g: len(ids) for g, ids in grouped.items()},
             child_record_ids=new_record_ids,
+            sidecar_path=sidecar_path_str,
         )
 
     errors: list[str] = []
@@ -338,6 +363,7 @@ def index_one(
             grain_counts=grain_counts,
             child_record_ids=new_record_ids,
             errors=errors,
+            sidecar_path=sidecar_path_str,
         )
 
     # Orphan delete: per grain, drop any record_id that was indexed
@@ -393,6 +419,7 @@ def index_one(
         child_record_ids=new_record_ids,
         orphans_deleted=orphans_deleted,
         errors=errors,
+        sidecar_path=sidecar_path_str,
     )
 
 
@@ -641,7 +668,15 @@ def index_persons_registry(
     write_alias = _resolve_write_alias("mo-persons")
     for doc in docs:
         actions.append(_action_for(doc, target if target else write_alias))
-    success, _ = es_bulk(es, actions, refresh=refresh, raise_on_error=True)
+    success, _ = es_bulk(
+        es,
+        actions,
+        refresh=refresh,
+        raise_on_error=True,
+        max_retries=BULK_MAX_RETRIES,
+        initial_backoff=BULK_INITIAL_BACKOFF,
+        max_backoff=BULK_MAX_BACKOFF,
+    )
     return success
 
 
@@ -720,7 +755,15 @@ def index_persons_with_state(
                 _action_for(d, target if target else _resolve_write_alias("mo-persons"))
                 for d in docs
             ]
-            success, _ = es_bulk(es, actions, refresh=refresh, raise_on_error=True)
+            success, _ = es_bulk(
+                es,
+                actions,
+                refresh=refresh,
+                raise_on_error=True,
+                max_retries=BULK_MAX_RETRIES,
+                initial_backoff=BULK_INITIAL_BACKOFF,
+                max_backoff=BULK_MAX_BACKOFF,
+            )
             grain_counts["mo-persons"] = success
         except Exception as exc:  # noqa: BLE001 — bubble to result
             errors.append(f"persons bulk error: {exc}")

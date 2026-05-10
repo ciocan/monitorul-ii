@@ -45,22 +45,50 @@ The denormaliser projects the discourse producer's output onto every speech docu
     "session_date": "2025-04-15",
     "enrichments": {
       "embedding": [0.0123, -0.0456, ...],   // 1024 floats — semantic
-      "discourse": {                           // categorical — filterable
+      "discourse": {                           // aggregates — filter/agg/sort
         "hawkins": {
           "score": 2,
           "framework_confidence": 0.85,
+          "framework_version": "hawkins@2018",
           "marker_count": 4,
-          "marker_kinds": ["people_vs_elite", "evil_elite", "moralistic_manichaeism"]
+          "marker_kinds": ["people_vs_elite", "evil_elite", "moralistic_manichaeism"],
+          "rationale": "Discursul prezintă elemente populiste accentuate.",
+          "markers": [                         // per-marker — render + highlight
+            {
+              "kind": "people_vs_elite",
+              "marker_confidence": 0.9,
+              "rationale_short": "Construct people-vs-elite explicit.",
+              "evidence": {
+                "text": "corupția din justiție",
+                "char_range": [12, 33]         // slice into speech.text — highlight
+              }
+            },
+            ...
+          ]
         },
         "vparty": {
           "score": 2,
           "framework_confidence": 0.90,
+          "framework_version": "vparty@2020 + vdem-attacks-on@v13",
           "marker_count": 3,
-          "marker_kinds": ["judiciary_attack", "opposition_delegitimization"]
+          "marker_kinds": ["judiciary_attack", "opposition_delegitimization"],
+          "rationale": "Atacuri repetate la adresa instituțiilor.",
+          "markers": [...]                     // same per-marker shape as hawkins
         },
         "voice": {
           "dominant_voice": "speaker_first_person",
-          "voices_seen": ["speaker_first_person", "quoted"]
+          "voices_seen": ["speaker_first_person", "quoted"],
+          "classifications": [                 // per-classification — link to marker_id
+            {
+              "marker_id": "m_0",
+              "voice": "speaker_first_person",
+              "voice_confidence": 0.95,
+              "attributed_to": null,
+              "rationale_short": "Speaker speaks in their own voice.",
+              "voice_evidence": {"text": "corupția din justiție", "char_range": [12, 33]}
+            },
+            ...
+          ]
         },
         "dqi": {
           "level_of_justification": 0,
@@ -68,7 +96,14 @@ The denormaliser projects the discourse producer's output onto every speech docu
           "respect_for_groups": 0,
           "respect_for_demands": 0,
           "respect_for_counterarguments": 0,
-          "constructive_politics": "positional"
+          "constructive_politics": "positional",
+          "framework_confidence": 0.8,
+          "framework_version": "steiner-bachtiger@2017",
+          "rationale": "Discurs strict pozițional, fără justificare.",
+          "markers": [                         // value coerced to string for keyword mapping
+            {"kind": "level_of_justification", "value": "0", "marker_confidence": 0.9, ...},
+            {"kind": "content_of_justification", "value": "none", ...}
+          ]
         }
       },
       "discourse_producer": "flash-lite",
@@ -264,7 +299,7 @@ A short list of misconceptions worth flagging:
 
 - **They don't replace text matching.** Filtering on `H=2` doesn't tell you *what* the speech is populist about — you still need BM25 / kNN to surface the topic. Discourse fields restrict the universe; semantic search ranks within it.
 
-- **They aren't a knowledge base.** The `markers[]` evidence inside the producer's JSON file (on disk, not in ES) is auditable — but those snippets aren't searchable as facts. They're rationale anchors for the holistic score, not retrievable assertions.
+- **They aren't a knowledge base.** The `markers[]` evidence is auditable — and as of v0.16.x it's also indexed in ES under `enrichments.discourse.{framework}.markers[].evidence.{text, char_range}` — but those snippets aren't searchable as facts. They're rationale anchors for the holistic score, not retrievable assertions: a populist speech that quotes a CCR ruling will have `evidence.text` containing words from that ruling, but the marker's role is to anchor *why the speech is populist*, not to commit to the ruling's truth content.
 
 - **They aren't faithful to any single political-science school.** Hawkins is one of several populism rubrics; V-Party is one anti-pluralism operationalisation. Other frameworks (Mudde "thin ideology", Müller "moralised antipluralism", Schedler "authoritarian incumbency") would yield different scores on the same speeches. Stage 5 of the build order adds custom rubrics; v0.1 ships these four because they were calibration-validated.
 
@@ -343,6 +378,57 @@ The agent layer (per Q9) exposes the typed query functions as tools. The agent p
 - "Find speeches similar to this one but more measured" → Pattern 3 with `filter={"hawkins.score": {"lte": 1}}`
 
 The discourse fields surface as "facets the agent can reason about", much like the chamber/year/party facets. The agent doesn't need to understand the rubrics deeply — it just knows that `hawkins.score=2` means "more populist" and routes accordingly.
+
+### Rendering markers + rationale + evidence highlighting (per-speech page)
+
+The per-speech page (`/discurs/<slug>`) renders the speech body with each evidence anchor highlighted and a side panel listing markers with their rationale. Everything the renderer needs is in one ES doc — no extra fetch:
+
+```ts
+// Pseudocode for the React component
+const speech = await getSpeech(record_id);  // single ES request
+const { text, enrichments } = speech._source;
+const { hawkins, vparty, dqi, voice } = enrichments.discourse;
+
+// 1. Render highlighted evidence inside the speech body
+const spans = collectAllMarkers([hawkins, vparty, dqi]).map(m => ({
+  range: m.evidence.char_range,           // [start, end) into `text`
+  framework: m.framework,
+  kind: m.kind,
+  rationale: m.rationale_short,
+  voice: voice?.classifications?.find(c => c.marker_id === m.id)?.voice,
+}));
+// React: map spans to <mark data-framework="hawkins" data-voice="speaker_first_person">…</mark>
+// where the highlighted slice is text.slice(range[0], range[1]).
+
+// 2. Side panel — one card per marker
+markers.map(m => (
+  <MarkerCard
+    framework={m.framework}                // "Populism (Hawkins)" / "Anti-pluralism (V-Party)" / "Deliberative quality (DQI)"
+    kind={m.kind}                          // chip label
+    confidence={m.marker_confidence}       // sparkline
+    rationale={m.rationale_short}          // body text
+    evidenceText={m.evidence.text}         // verbatim quote
+    voice={voiceForMarker(m.id)}           // colour
+  />
+));
+
+// 3. Footer — framework-level rationale
+<RationalePanel
+  hawkins={hawkins.rationale}              // "Discursul prezintă elemente populiste accentuate."
+  vparty={vparty.rationale}
+  dqi={dqi.rationale}
+  hawkinsVersion={hawkins.framework_version}  // "hawkins@2018" — hover tooltip
+/>
+```
+
+A few load-bearing properties:
+
+- **`char_range` survives Romanian typography drift.** The producer's `find_text_offsets_tolerant` is called at INDEX TIME by `denormalize.py`, so even when the model paraphrases curly quotes / dashes / ellipsis the offsets land byte-correct in `text`. The browser does NOT need to re-implement the typography fold.
+- **Char-range absent ⇒ paraphrase, not a bug.** When the model genuinely reworded the evidence (added/removed words), `char_range` is omitted but `evidence.text` still ships. The renderer can fall back to `text.indexOf(evidence.text)` and either highlight the imperfect match or show the marker in the side panel only.
+- **`voice.classifications[].marker_id`** matches the index of the corresponding marker in the same framework's `markers[]` array (`m_0`, `m_1`, …). Use it to colour each highlighted span by attributed voice (speaker's own voice / quoted opposition / hypothetical / negated / etc.). Voice attribution is what tells the journalist whether a populist marker is the speaker's *own claim* or them *quoting an opponent to refute it*.
+- **Markers are an `object` field, not `nested`.** The full array round-trips via `_source` regardless. Per-marker filtering at query time (e.g. "Hawkins markers whose rationale mentions democracy") would need the `nested` type, which we'd graduate to if the query patterns demand it.
+
+Mapping update path for any marker-shape change: `monitorul-ii es-init --update-mappings` (additive only, safe + idempotent), then `monitorul-ii index pdfs/ --force` to backfill every existing speech. No new generation index needed unless a field's TYPE changes.
 
 ## Future extensions
 

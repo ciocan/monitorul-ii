@@ -269,6 +269,8 @@ def _runner(tmp_path: Path, **overrides) -> Runner:
         es_url="http://127.0.0.1:1",
         es_api_key="dummy",
         include_cleanup=False,
+        include_mapping_bump=False,
+        analyze_provider="openrouter",
         continue_on_error=False,
     )
     defaults.update(overrides)
@@ -604,3 +606,380 @@ def test_stage_pre_post_methods_exist_on_runner(tmp_path: Path):
     for s in STAGES:
         assert callable(getattr(r, s["pre"], None)), f"missing {s['pre']}"
         assert callable(getattr(r, s["post"], None)), f"missing {s['post']}"
+
+
+# ---- --include-mapping-bump ---------------------------------------------
+
+
+def test_parser_accepts_include_mapping_bump():
+    """The flag is plumbed through argparse and defaults to off."""
+    from tools.catchup import _build_parser
+
+    p = _build_parser()
+    assert p.parse_args([]).include_mapping_bump is False
+    assert p.parse_args(["--include-mapping-bump"]).include_mapping_bump is True
+
+
+def test_runner_mapping_bump_pre_runs_es_init(tmp_path: Path, monkeypatch):
+    """The pre-step shells out to `monitorul-ii es-init --update-mappings`
+    and reports the StageResult so the report shows the bump ran.
+    """
+    import tools.catchup as catchup
+
+    r = _runner(tmp_path, include_mapping_bump=True)
+    captured: list[list[str]] = []
+
+    class FakeProc:
+        def __init__(self, returncode: int = 0) -> None:
+            self.returncode = returncode
+
+    def fake_run(cmd, **kwargs):
+        captured.append(list(cmd))
+        return FakeProc(0)
+
+    monkeypatch.setattr(catchup.subprocess, "run", fake_run)
+    result = r._run_mapping_bump_pre()
+    assert result.name == "mapping-bump-pre"
+    assert result.status == "ok"
+    assert captured == [["uv", "run", "monitorul-ii", "es-init", "--update-mappings"]]
+
+
+def test_runner_mapping_bump_pre_skips_without_es_creds(tmp_path: Path, monkeypatch):
+    """Same gate as the index stage: missing ES creds → skipped, not failed."""
+    import tools.catchup as catchup
+
+    r = _runner(tmp_path, include_mapping_bump=True, es_url=None, es_api_key=None)
+    called: list[bool] = []
+
+    def fake_run(cmd, **kwargs):
+        called.append(True)
+        raise AssertionError("subprocess should not run when ES creds missing")
+
+    monkeypatch.setattr(catchup.subprocess, "run", fake_run)
+    result = r._run_mapping_bump_pre()
+    assert result.name == "mapping-bump-pre"
+    assert result.status == "skipped"
+    assert "ES_URL" in (result.reason or "")
+    assert called == []
+
+
+def test_runner_mapping_bump_pre_marks_fail_on_nonzero_exit(
+    tmp_path: Path, monkeypatch
+):
+    import tools.catchup as catchup
+
+    r = _runner(tmp_path, include_mapping_bump=True)
+
+    class FakeProc:
+        returncode = 7
+
+    monkeypatch.setattr(catchup.subprocess, "run", lambda *a, **kw: FakeProc())
+    result = r._run_mapping_bump_pre()
+    assert result.status == "fail"
+    assert "exit 7" in (result.reason or "")
+
+
+def test_runner_mapping_bump_post_runs_index_force(tmp_path: Path, monkeypatch):
+    """The post-step shells out to `monitorul-ii index <pdfs> --force -j N`
+    so existing docs reproject through the new denormalizer.
+    """
+    import tools.catchup as catchup
+
+    r = _runner(tmp_path, include_mapping_bump=True)
+    captured: list[list[str]] = []
+
+    class FakeProc:
+        returncode = 0
+
+    def fake_run(cmd, **kwargs):
+        captured.append(list(cmd))
+        return FakeProc()
+
+    monkeypatch.setattr(catchup.subprocess, "run", fake_run)
+    result = r._run_mapping_bump_post()
+    assert result.name == "mapping-bump-post"
+    assert result.status == "ok"
+    assert captured == [
+        [
+            "uv",
+            "run",
+            "monitorul-ii",
+            "index",
+            str(r.pdfs_dir),
+            "--force",
+            "-j",
+            str(r.workers),
+        ]
+    ]
+
+
+def test_runner_mapping_bump_post_skips_without_es_creds(tmp_path: Path, monkeypatch):
+    import tools.catchup as catchup
+
+    r = _runner(tmp_path, include_mapping_bump=True, es_url=None, es_api_key=None)
+
+    def fake_run(cmd, **kwargs):
+        raise AssertionError("subprocess should not run when ES creds missing")
+
+    monkeypatch.setattr(catchup.subprocess, "run", fake_run)
+    result = r._run_mapping_bump_post()
+    assert result.status == "skipped"
+    assert "ES_URL" in (result.reason or "")
+
+
+def test_runner_run_invokes_mapping_bump_pre_and_post(tmp_path: Path, monkeypatch):
+    """End-to-end: when --include-mapping-bump is on, `Runner.run([])`
+    appends a `mapping-bump-pre` StageResult before any pipeline stage
+    and a `mapping-bump-post` after, in that order. The empty stages
+    list keeps the test focused on the bump bracketing.
+    """
+    import tools.catchup as catchup
+
+    r = _runner(tmp_path, include_mapping_bump=True)
+
+    class FakeProc:
+        returncode = 0
+
+    captured: list[list[str]] = []
+
+    def fake_run(cmd, **kwargs):
+        captured.append(list(cmd))
+        return FakeProc()
+
+    monkeypatch.setattr(catchup.subprocess, "run", fake_run)
+    results = r.run([])
+    names = [s.name for s in results]
+    assert names == ["mapping-bump-pre", "mapping-bump-post"]
+    # Subprocess sequence: es-init then index --force.
+    assert captured[0][3] == "es-init"
+    assert captured[1][3] == "index"
+    assert "--force" in captured[1]
+
+
+def test_runner_run_skips_post_when_pre_failed_and_no_continue_on_error(
+    tmp_path: Path, monkeypatch
+):
+    """If the mapping bump pre-step fails AND --continue-on-error is off,
+    the catch-up aborts immediately — running the index stage against a
+    stale mapping would corrupt the new field types.
+    """
+    import tools.catchup as catchup
+
+    r = _runner(tmp_path, include_mapping_bump=True, continue_on_error=False)
+
+    class FakeProc:
+        def __init__(self, code: int) -> None:
+            self.returncode = code
+
+    calls: list[str] = []
+
+    def fake_run(cmd, **kwargs):
+        calls.append(cmd[3])
+        return FakeProc(7 if cmd[3] == "es-init" else 0)
+
+    monkeypatch.setattr(catchup.subprocess, "run", fake_run)
+    results = r.run([])
+    assert [s.name for s in results] == ["mapping-bump-pre"]
+    assert results[0].status == "fail"
+    # Critical: index --force did NOT run when pre failed without
+    # --continue-on-error.
+    assert "index" not in calls
+
+
+def test_runner_run_runs_post_when_pre_failed_and_continue_on_error(
+    tmp_path: Path, monkeypatch
+):
+    """With --continue-on-error, even a failing pre doesn't block the
+    post-step (mirrors the per-stage skip-on-fail semantics)."""
+    import tools.catchup as catchup
+
+    r = _runner(tmp_path, include_mapping_bump=True, continue_on_error=True)
+
+    class FakeProc:
+        def __init__(self, code: int) -> None:
+            self.returncode = code
+
+    def fake_run(cmd, **kwargs):
+        return FakeProc(7 if cmd[3] == "es-init" else 0)
+
+    monkeypatch.setattr(catchup.subprocess, "run", fake_run)
+    results = r.run([])
+    names = [s.name for s in results]
+    assert names == ["mapping-bump-pre", "mapping-bump-post"]
+    assert results[0].status == "fail"
+    assert results[1].status == "ok"
+
+
+def test_runner_run_no_bump_when_flag_off(tmp_path: Path, monkeypatch):
+    """Sanity: without the flag, the pipeline runs as today — no extra
+    subprocess invocations."""
+    import tools.catchup as catchup
+
+    r = _runner(tmp_path, include_mapping_bump=False)
+    called: list[bool] = []
+
+    def fake_run(cmd, **kwargs):
+        called.append(True)
+        raise AssertionError("subprocess should not run on empty stages w/o bump")
+
+    monkeypatch.setattr(catchup.subprocess, "run", fake_run)
+    results = r.run([])
+    assert results == []
+    assert called == []
+
+
+# ---- --analyze-provider --------------------------------------------------
+
+
+def test_parser_accepts_analyze_provider():
+    """Both providers accepted; openrouter is the default."""
+    from tools.catchup import _build_parser
+
+    p = _build_parser()
+    assert p.parse_args([]).analyze_provider == "openrouter"
+    assert p.parse_args(["--analyze-provider", "google"]).analyze_provider == "google"
+    assert (
+        p.parse_args(["--analyze-provider", "openrouter"]).analyze_provider
+        == "openrouter"
+    )
+
+
+def test_parser_rejects_unknown_analyze_provider():
+    """argparse `choices=` enforces the enum at parse time."""
+    from tools.catchup import _build_parser
+
+    p = _build_parser()
+    with pytest.raises(SystemExit):
+        p.parse_args(["--analyze-provider", "anthropic"])
+
+
+def test_runner_rejects_unsupported_analyze_provider(tmp_path: Path):
+    """Defence-in-depth at the constructor: caller can't bypass argparse."""
+    with pytest.raises(ValueError, match="unsupported analyze_provider"):
+        _runner(tmp_path, analyze_provider="invalid")
+
+
+def test_pre_analyze_checks_openrouter_key_by_default(tmp_path: Path, monkeypatch):
+    """Default provider → OPENROUTER_API_KEY is the gate.
+    GOOGLE_AI_STUDIO_API_KEY presence is irrelevant."""
+    monkeypatch.delenv("OPENROUTER_API_KEY", raising=False)
+    monkeypatch.setenv("GOOGLE_AI_STUDIO_API_KEY", "google-key-set")
+
+    r = _runner(tmp_path, analyze_provider="openrouter")
+    (r.pdfs_dir / "2026-04-20_MO-PII-1-2026.extraction.json").write_text("{}")
+    pre = r._pre_analyze()
+    assert pre["ok"] is False
+    assert pre["api_key_env"] == "OPENROUTER_API_KEY"
+    assert pre["api_key_present"] is False
+    assert pre["provider"] == "openrouter"
+
+    monkeypatch.setenv("OPENROUTER_API_KEY", "openrouter-key-set")
+    pre = r._pre_analyze()
+    assert pre["ok"] is True
+    assert pre["api_key_present"] is True
+
+
+def test_pre_analyze_checks_google_key_when_provider_google(
+    tmp_path: Path, monkeypatch
+):
+    """provider=google → GOOGLE_AI_STUDIO_API_KEY is the gate.
+    OPENROUTER_API_KEY presence is irrelevant."""
+    monkeypatch.delenv("GOOGLE_AI_STUDIO_API_KEY", raising=False)
+    monkeypatch.setenv("OPENROUTER_API_KEY", "or-key-set")
+
+    r = _runner(tmp_path, analyze_provider="google")
+    (r.pdfs_dir / "2026-04-20_MO-PII-1-2026.extraction.json").write_text("{}")
+    pre = r._pre_analyze()
+    assert pre["ok"] is False
+    assert pre["api_key_env"] == "GOOGLE_AI_STUDIO_API_KEY"
+    assert pre["api_key_present"] is False
+    assert pre["provider"] == "google"
+
+    monkeypatch.setenv("GOOGLE_AI_STUDIO_API_KEY", "google-key-set")
+    pre = r._pre_analyze()
+    assert pre["ok"] is True
+    assert pre["api_key_present"] is True
+
+
+def test_pre_analyze_skips_when_no_sidecars(tmp_path: Path, monkeypatch):
+    """Provider gate doesn't override the empty-input gate."""
+    monkeypatch.setenv("OPENROUTER_API_KEY", "set")
+    r = _runner(tmp_path, analyze_provider="openrouter")
+    pre = r._pre_analyze()
+    assert pre["ok"] is False
+    assert pre["sidecars_in_range"] == 0
+
+
+def test_stage_args_analyze_omits_provider_on_openrouter_default(tmp_path: Path):
+    """Don't pollute the dominant-path command line with the redundant
+    `--provider openrouter`. The analyze CLI defaults to openrouter
+    on its own, so absence is correct."""
+    r = _runner(tmp_path, analyze_provider="openrouter")
+    (r.pdfs_dir / "2026-04-20_MO-PII-1-2026.extraction.json").write_text("{}")
+    args = r._stage_args("analyze")
+    assert "--provider" not in args
+    assert "google" not in args
+    # Sanity: the standard `-j N` is still appended.
+    assert "-j" in args
+
+
+def test_stage_args_analyze_includes_provider_on_google(tmp_path: Path):
+    """provider=google → `--provider google` forwarded so the analyze
+    subprocess routes through Google AI Studio instead of OpenRouter."""
+    r = _runner(tmp_path, analyze_provider="google", workers=4)
+    (r.pdfs_dir / "2026-04-20_MO-PII-1-2026.extraction.json").write_text("{}")
+    args = r._stage_args("analyze")
+    assert args[-2:] == ["--provider", "google"]
+    # The -j workers flag is still appended too (just earlier in the args).
+    assert "-j" in args
+    assert "4" in args
+
+
+def test_stage_args_provider_only_affects_analyze(tmp_path: Path):
+    """Other stages must NOT carry the --provider forward (it's an
+    analyze-only flag — would crash any other subcommand's argparse)."""
+    r = _runner(tmp_path, analyze_provider="google")
+    (r.pdfs_dir / "2026-04-20_MO-PII-1-2026.pdf").write_bytes(b"%PDF")
+    (r.pdfs_dir / "2026-04-20_MO-PII-1-2026.md").write_text("body")
+    (r.pdfs_dir / "2026-04-20_MO-PII-1-2026.extraction.json").write_text("{}")
+    for stage in ("convert", "extract", "link", "backfill", "embed", "index"):
+        args = r._stage_args(stage)
+        assert "--provider" not in args, f"{stage} should not carry --provider"
+
+
+def test_run_preflight_lists_google_key_when_provider_google(
+    tmp_path: Path, monkeypatch, capsys
+):
+    """Pre-flight env-var section must require GOOGLE_AI_STUDIO_API_KEY
+    (not OPENROUTER_API_KEY) when the operator picks Google. Otherwise
+    a Google-provider run with no OpenRouter key would loudly warn about
+    a missing OPENROUTER_API_KEY that's irrelevant.
+    """
+    # Strip both keys + ES creds so we only test the analyze gate.
+    for key in (
+        "OPENROUTER_API_KEY",
+        "GOOGLE_AI_STUDIO_API_KEY",
+        "ES_URL",
+        "ES_API_KEY",
+        "EMBED_URL",
+    ):
+        monkeypatch.delenv(key, raising=False)
+
+    r = _runner(tmp_path, analyze_provider="google")
+    pre = r.run_preflight()
+    # Required keys include GOOGLE_AI_STUDIO_API_KEY (missing → flagged).
+    # The non-selected OPENROUTER_API_KEY moves to optional, not missing.
+    assert "GOOGLE_AI_STUDIO_API_KEY" in pre["env"]["missing"]
+    assert "OPENROUTER_API_KEY" not in pre["env"]["missing"]
+
+
+def test_build_report_carries_analyze_provider():
+    """The report's cli_args section must round-trip the provider so a
+    later post-mortem can see which backend coded the discourse."""
+    report = build_report(
+        date_from=date(2026, 5, 8),
+        date_until=date(2026, 5, 8),
+        results=[],
+        cli_args={"analyze_provider": "google"},
+    )
+    assert report["cli_args"]["analyze_provider"] == "google"
