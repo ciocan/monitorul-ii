@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.18.0](https://github.com/ciocan/monitorul-ii/compare/monitorul-ii-v0.17.0...monitorul-ii-v0.18.0) (2026-05-10)
+
+
+### Features
+
+* **coverage:** introduce coverage command for LLM enrichment statistics ([01d02ad](https://github.com/ciocan/monitorul-ii/commit/01d02ad80b6f1486c463cbf5abfe449157baa600))
+* **docs:** enhance discourse-analysis documentation and CLI functionality ([162814c](https://github.com/ciocan/monitorul-ii/commit/162814cbdb1c33a7782330ffc1642c637cf3910c))
+
 ## [0.17.0](https://github.com/ciocan/monitorul-ii/compare/monitorul-ii-v0.16.0...monitorul-ii-v0.17.0) (2026-05-10)
 
 
