@@ -17,6 +17,7 @@ import time  # noqa: E402
 from dataclasses import replace  # noqa: E402
 from datetime import date, datetime, timezone  # noqa: E402
 from pathlib import Path  # noqa: E402
+from typing import Any  # noqa: E402
 
 from dotenv import load_dotenv  # noqa: E402
 
@@ -578,6 +579,17 @@ def _build_parser() -> argparse.ArgumentParser:
         ),
     )
     index_cmd.add_argument(
+        "--reverse",
+        action="store_true",
+        help=(
+            "Process sidecars in reverse order (newest→oldest, since "
+            "filenames are date-prefixed). A partial run leaves the "
+            "most recent stretch indexed first — useful when ES is "
+            "behind on a long catch-up and you want the front page "
+            "fresh before older history backfills."
+        ),
+    )
+    index_cmd.add_argument(
         "--target",
         default=None,
         metavar="INDEX",
@@ -766,6 +778,203 @@ def _build_parser() -> argparse.ArgumentParser:
     _add_s3_args(embed)
     embed.set_defaults(func=cmd_embed)
 
+    analyze = sub.add_parser(
+        "analyze",
+        help=(
+            "Code substantive speeches under the Hawkins / voice / DQI / "
+            "V-Party rubrics via OpenRouter (Gemini 3.1 Flash-Lite)."
+        ),
+        description=(
+            "Walk `*.extraction.json` sidecars and run the four-prompt "
+            "discourse-analysis pipeline (Hawkins populism → voice "
+            "attribution → DQI deliberative quality → V-Party + V-Dem "
+            "anti-pluralism) over every substantive speech "
+            "(`text_length ≥ 100`, canonical-speaker, ≤ `--max-words`). "
+            "Persists structured outputs as "
+            "`<basename>.discourse.flash-lite.v0_1.json` next to the "
+            "sidecar; the indexer's enrichment loader picks the file up "
+            "on the next `monitorul-ii index` run and the denormaliser "
+            "flattens the payload onto "
+            "`mo-speeches.enrichments.discourse.{hawkins,voice,dqi,vparty}.*` "
+            "(`docs/elasticsearch-indexing.md` § Q3 / Q5; "
+            "`docs/discourse-pilot-baseline-2026-05.md` § 11 for the "
+            "four-cell Hawkins × V-Party design rationale).\n"
+            "Pipeline order per speech: Hawkins → voice (conditional on "
+            "Hawkins markers) → DQI → V-Party. The voice pass is skipped "
+            "when Hawkins emits no markers; DQI and V-Party are "
+            "independent classifiers and always run.\n"
+            "Idempotent: each entry stores a `text_fingerprint` "
+            "(sha256 of NFC + whitespace-collapsed speech text, 12 hex "
+            "chars). On re-run, fingerprint-matched entries reuse the "
+            "prior payload verbatim — no API call, no file rewrite. "
+            "Mismatches re-code only the affected record.\n"
+            "Long-tail handling (v0.1): speeches above `--max-words` are "
+            "skipped with reason `text_too_long`; v0.2 will introduce "
+            "chunked coding with `record_id#chunk-N` keys.\n"
+            "Reads `OPENROUTER_API_KEY` from environment / `.env`. "
+            "Endpoint reads from `--openrouter-url`, then `OPENROUTER_URL` "
+            "env var, then defaults to `https://openrouter.ai/api/v1`."
+        ),
+    )
+    analyze.add_argument(
+        "paths",
+        nargs="+",
+        type=Path,
+        help="Sidecar JSON files or directories (non-recursive).",
+    )
+    analyze.add_argument(
+        "--force",
+        action="store_true",
+        help=(
+            "Re-code every record regardless of `text_fingerprint` "
+            "match. Pair with a prompt-version bump or after the "
+            "producer's normalisation rules change."
+        ),
+    )
+    analyze.add_argument(
+        "--dry-run",
+        action="store_true",
+        help=(
+            "Walk the sidecars and report which records would be coded "
+            "vs reused, without contacting OpenRouter or writing files."
+        ),
+    )
+    analyze.add_argument(
+        "--limit",
+        type=int,
+        default=None,
+        metavar="N",
+        help=(
+            "Process at most N sidecars (after `--reverse` is applied). "
+            "Default: all collected sidecars."
+        ),
+    )
+    analyze.add_argument(
+        "--reverse",
+        action="store_true",
+        help=(
+            "Walk newest→oldest like `extract` / `embed`. Combined with "
+            "`--limit` this gives 'most recent N sidecars first'."
+        ),
+    )
+    analyze.add_argument(
+        "--provider",
+        choices=("openrouter", "google"),
+        default=None,
+        help=(
+            "LLM provider backend. `openrouter` (default) uses the "
+            "OpenAI-compatible `POST /chat/completions` endpoint with "
+            "`OPENROUTER_API_KEY` + `OPENROUTER_URL`. `google` uses "
+            "Google AI Studio's native Gemini API "
+            "(`POST /v1beta/models/{model}:generateContent`) with "
+            "`GOOGLE_AI_STUDIO_API_KEY` + `GOOGLE_AI_STUDIO_API_URL`. "
+            "Both run the same four-prompt pipeline; switch to compare "
+            "cost / latency / availability."
+        ),
+    )
+    analyze.add_argument(
+        "--openrouter-url",
+        default=None,
+        metavar="URL",
+        help=(
+            "OpenRouter base URL (default: $OPENROUTER_URL or "
+            "https://openrouter.ai/api/v1). Ignored when "
+            "`--provider=google`."
+        ),
+    )
+    analyze.add_argument(
+        "--google-url",
+        default=None,
+        metavar="URL",
+        help=(
+            "Google AI Studio base URL (default: $GOOGLE_AI_STUDIO_API_URL "
+            "or https://generativelanguage.googleapis.com/v1beta). "
+            "Used when `--provider=google`."
+        ),
+    )
+    analyze.add_argument(
+        "--model",
+        default=None,
+        metavar="MODEL",
+        help=(
+            "LLM model name. Default depends on provider: "
+            "`google/gemini-3.1-flash-lite` for OpenRouter, "
+            "`gemini-3.1-flash-lite` for Google direct."
+        ),
+    )
+    analyze.add_argument(
+        "--retry-on-error",
+        type=int,
+        default=1,
+        metavar="N",
+        help=(
+            "Retry budget per LLM call with exponential backoff "
+            "(1, 2, 4, 8s, capped 8s). Covers transport / json_parse / "
+            "schema_invalid; configuration errors short-circuit. "
+            "Default: 1."
+        ),
+    )
+    analyze.add_argument(
+        "--max-words",
+        type=int,
+        default=None,
+        metavar="N",
+        help=(
+            "Skip speeches above this many words (default: 800). "
+            "Long-tail v0.2 task: chunked coding with "
+            "`record_id#chunk-N` keys."
+        ),
+    )
+    analyze.add_argument(
+        "--budget-usd",
+        type=float,
+        default=None,
+        metavar="N",
+        help=(
+            "Soft cap in USD on cumulative estimated spend across the "
+            "current run. Per-call cost = "
+            "`tokens_in × $0.10/M + tokens_out × $0.40/M` "
+            "(Flash-Lite conservative bounds; constants live near the "
+            "top of `discourse.py`). When the cap is hit, the in-flight "
+            "sidecar finishes atomically and the producer exits "
+            "cleanly (exit 0). Resume by re-running — fingerprint-match "
+            "skips already-coded records at zero API cost."
+        ),
+    )
+    analyze.add_argument(
+        "-j",
+        "--workers",
+        type=int,
+        default=None,
+        metavar="N",
+        dest="workers",
+        help=(
+            "Parallelism via ThreadPoolExecutor (default: 1). Threads, "
+            "not processes — discourse calls are network-bound and "
+            "GIL-friendly via httpx. Each worker shares the OpenRouter "
+            "HTTP client (urllib3 connection pool is thread-safe)."
+        ),
+    )
+    analyze.add_argument(
+        "--log-file",
+        type=Path,
+        default=None,
+        metavar="PATH",
+        help=(
+            "Append one JSON line per coded speech to PATH "
+            "(`{ts, sidecar, record_id, hawkins_score, vparty_score, "
+            "dqi_level, voice_ran, tokens_in, tokens_out, cost_usd, "
+            "calls, fallbacks, rate_limit_retries, errors}`). "
+            "Useful for live observation: `tail -f PATH | jq` shows "
+            "every speech as it lands. Thread-safe append; -j N workers "
+            "share the file via a per-process lock. The file is "
+            "appended (never truncated) — re-runs add new lines without "
+            "losing prior runs' history."
+        ),
+    )
+    _add_s3_args(analyze)
+    analyze.set_defaults(func=cmd_analyze)
+
     query = sub.add_parser(
         "query",
         help="Run a named reference query against the live `mo-*` indices.",
@@ -851,6 +1060,15 @@ def _fmt_bytes(b: int) -> str:
     if b >= 1_000_000_000:
         return f"{b / 1_000_000_000:.2f} GB"
     return f"{b / 1_000_000:.1f} MB"
+
+
+def _fmt_tokens(n: int) -> str:
+    """Compact token count: 1.2M / 234K / 567 — fits in tight progress bars."""
+    if n >= 1_000_000:
+        return f"{n / 1_000_000:.1f}M"
+    if n >= 1_000:
+        return f"{n / 1_000:.0f}K"
+    return f"{n}"
 
 
 def _progress_line(
@@ -2796,6 +3014,8 @@ def cmd_index(args: argparse.Namespace) -> int:
     if not sidecars:
         print("no .extraction.json files found", file=sys.stderr)
         return 0
+    if args.reverse:
+        sidecars = list(reversed(sidecars))
 
     # `--rebuild` is the operator's "force a full re-index against this
     # generation" shortcut; it implies --force and demands --target.
@@ -3263,6 +3483,549 @@ def cmd_embed(args: argparse.Namespace) -> int:
             f"errors={counters['upload_errors']}"
         )
     print(summary, flush=True)
+    return 1 if counters["errors"] or counters["upload_errors"] else 0
+
+
+_ANALYZE_HEARTBEAT_EVERY = 5  # sidecars, for analyze in pipes
+
+
+class _AnalyzeProgressReporter:
+    """Live `rich` bar for `analyze`; heartbeat in pipes.
+
+    Counters: `analyzed` (records freshly coded this run), `reused`
+    (fingerprint-matched skips), `skipped_long` (records dropped by
+    the `--max-words` filter), `skipped_files` (sidecars with no
+    coding-eligible records or zero-delta runs), `errors`,
+    `cost_usd` (cumulative estimated spend).
+    """
+
+    def __init__(self, total: int, counters: dict[str, Any]) -> None:
+        self.total = total
+        self.counters = counters
+        self.start = time.monotonic()
+        self.done = 0
+        self._tty = sys.stderr.isatty()
+        self._progress = None
+        self._task = None
+        if self._tty and total > 0:
+            from rich.console import Console
+            from rich.progress import (
+                BarColumn,
+                MofNCompleteColumn,
+                Progress,
+                TextColumn,
+                TimeElapsedColumn,
+                TimeRemainingColumn,
+            )
+
+            self._progress = Progress(
+                BarColumn(bar_width=None),
+                TextColumn("[progress.percentage]{task.percentage:>5.1f}%"),
+                MofNCompleteColumn(),
+                TextColumn("·"),
+                TextColumn("[cyan]{task.description}"),
+                TextColumn("·"),
+                TimeElapsedColumn(),
+                TextColumn("ETA"),
+                TimeRemainingColumn(),
+                console=Console(stderr=True),
+                transient=False,
+            )
+            self._task = self._progress.add_task(self._desc(), total=total)
+
+    def _desc(self) -> str:
+        c = self.counters
+        # Wall-clock throughput — uses the run_start_monotonic anchor
+        # rather than the reporter's `self.start` so multi-stage pipes
+        # see consistent rate readings across reporter instances.
+        wall = max(0.001, time.monotonic() - c.get("run_start_monotonic", self.start))
+        recs = c["analyzed"]
+        calls = c.get("call_count", 0)
+        rec_per_min = recs / wall * 60
+        call_per_min = calls / wall * 60
+        cost_per_min = c["cost_usd"] / wall * 60
+
+        # Average per-call latency (LLM time / total calls); when -j > 1
+        # the wall-clock is shorter than llm_elapsed_s because parallel
+        # work compresses.
+        llm_s = c.get("llm_elapsed_s", 0.0) or 0.0
+        avg_call_ms = (llm_s * 1000 / calls) if calls else 0
+
+        # Voice-skip distribution — Hawkins=0 markers means voice didn't
+        # fire. Sanity check on Hawkins coverage; expect 60–80% no-marker
+        # speeches against the corpus baseline.
+        h_with = c.get("hawkins_with_markers", 0)
+        h_no = c.get("hawkins_no_markers", 0)
+        h_total = h_with + h_no
+        voice_skip_pct = (h_no / h_total * 100) if h_total else 0
+
+        s = (
+            f"ana={recs:,} reuse={c['reused']:,} "
+            f"fail={c.get('failed', 0):,} long={c['skipped_long']:,} "
+            f"skip={c['skipped_files']:,} err={c['errors']:,}"
+        )
+        s += f" · {rec_per_min:.0f}rec/m {call_per_min:.0f}c/m @{int(avg_call_ms)}ms"
+        s += (
+            f" · {_fmt_tokens(c.get('tokens_in', 0))}in "
+            f"{_fmt_tokens(c.get('tokens_out', 0))}out"
+        )
+        s += f" · ${c['cost_usd']:.3f} ({cost_per_min:.3f}$/m)"
+        if h_total:
+            s += f" · H+={h_with} H-={h_no} (vskip={voice_skip_pct:.0f}%)"
+        rl = c.get("rate_limit_retries", 0)
+        fb = c.get("fallback_count", 0)
+        rp = c.get("repaired_count", 0)
+        if rl or fb or rp:
+            s += f" · 429×{rl} fb×{fb}"
+            if rp:
+                s += f" rep×{rp}"
+        if c.get("uploaded") or c.get("in_bucket") or c.get("upload_errors"):
+            s += (
+                f" · s3 up={c['uploaded']:,} have={c['in_bucket']:,}"
+                f" err={c['upload_errors']:,}"
+            )
+        return s
+
+    def __enter__(self) -> "_AnalyzeProgressReporter":
+        if self._progress is not None:
+            self._progress.start()
+        return self
+
+    def __exit__(self, *exc: object) -> None:
+        if self._progress is not None:
+            self._progress.stop()
+
+    def print(self, line: str, *, err: bool = False) -> None:
+        if self._progress is not None:
+            self._progress.console.print(line, highlight=False)
+            self._progress.update(self._task, description=self._desc())
+        else:
+            print(line, file=sys.stderr if err else sys.stdout, flush=True)
+
+    def advance(self) -> None:
+        self.done += 1
+        if self._progress is not None:
+            self._progress.update(self._task, advance=1, description=self._desc())
+            return
+        if self.done % _ANALYZE_HEARTBEAT_EVERY == 0 and self.done < self.total:
+            elapsed = time.monotonic() - self.start
+            rate = self.done / elapsed if elapsed > 0 else 0.0
+            eta = (self.total - self.done) / rate if rate > 0 else 0.0
+            pct = self.done / self.total * 100 if self.total else 0.0
+            print(
+                f"progress: {self.done:,}/{self.total:,} ({pct:.1f}%) | "
+                f"{self._desc()} | "
+                f"elapsed={_fmt_duration(elapsed)} ETA={_fmt_duration(eta)}",
+                file=sys.stderr,
+                flush=True,
+            )
+
+
+def cmd_analyze(args: argparse.Namespace) -> int:
+    """`monitorul-ii analyze <path>...` — drive the discourse-analysis producer.
+
+    Resolves the OpenRouter URL from CLI flag → env var → default;
+    smoke-tests `/models` before walking the sidecar list so a
+    misconfigured endpoint or missing API key fails fast. Each
+    sidecar's `analyze_sidecar(...)` result feeds a counters dict the
+    `_AnalyzeProgressReporter` renders; modified discourse files
+    optionally mirror to S3 with `Content-Type: application/json`.
+
+    Parallelism is opt-in via `-j N`; the OpenRouter call is
+    network-bound + GIL-friendly via httpx, so a `ThreadPoolExecutor`
+    with a single shared `httpx.Client` is the right shape (mirrors the
+    indexer's `-j` path; not the embedding producer's per-sidecar
+    serial walk).
+    """
+    import concurrent.futures
+    import threading
+
+    from monitorul_ii.extraction.enrichments.discourse import (
+        DEFAULT_GOOGLE_AI_STUDIO_URL,
+        DEFAULT_MAX_WORDS,
+        DEFAULT_MODEL_BY_PROVIDER,
+        DEFAULT_OPENROUTER_URL,
+        DEFAULT_PROVIDER,
+        PROVIDER_OPENROUTER,
+        JsonlLogger,
+        analyze_sidecar as _analyze_sidecar,
+    )
+    from monitorul_ii.extraction.enrichments.discourse import (
+        healthcheck as _analyze_healthcheck,
+    )
+
+    log_path = getattr(args, "log_file", None)
+    log = JsonlLogger(log_path) if log_path else None
+    if log is not None:
+        print(f"analyze: per-speech log → {log_path}", file=sys.stderr)
+
+    sidecars = _collect_sidecars(list(args.paths))
+    if not sidecars:
+        print("no .extraction.json files found", file=sys.stderr)
+        return 0
+    if args.reverse:
+        sidecars = list(reversed(sidecars))
+    if args.limit is not None:
+        if args.limit < 0:
+            print("error: --limit must be >= 0", file=sys.stderr)
+            return 2
+        sidecars = sidecars[: args.limit]
+
+    # Resolve provider: CLI flag wins, then default. The same flag also
+    # selects the env-var pair the producer reads for URL + key, so
+    # `--provider google` automatically swaps in `GOOGLE_AI_STUDIO_*`.
+    provider = getattr(args, "provider", None) or DEFAULT_PROVIDER
+
+    if provider == PROVIDER_OPENROUTER:
+        base_url = (
+            getattr(args, "openrouter_url", None)
+            or os.environ.get("OPENROUTER_URL")
+            or DEFAULT_OPENROUTER_URL
+        ).rstrip("/")
+        api_key = os.environ.get("OPENROUTER_API_KEY")
+        api_key_env = "OPENROUTER_API_KEY"
+        url_env = "OPENROUTER_URL"
+    else:  # PROVIDER_GOOGLE
+        base_url = (
+            getattr(args, "google_url", None)
+            or os.environ.get("GOOGLE_AI_STUDIO_API_URL")
+            or DEFAULT_GOOGLE_AI_STUDIO_URL
+        ).rstrip("/")
+        api_key = os.environ.get("GOOGLE_AI_STUDIO_API_KEY")
+        api_key_env = "GOOGLE_AI_STUDIO_API_KEY"
+        url_env = "GOOGLE_AI_STUDIO_API_URL"
+
+    model = getattr(args, "model", None) or DEFAULT_MODEL_BY_PROVIDER[provider]
+    max_words = int(args.max_words) if args.max_words is not None else DEFAULT_MAX_WORDS
+
+    if not args.dry_run:
+        if not api_key:
+            print(
+                f"analyze: {api_key_env} not set; populate `.env` "
+                "or export the variable.",
+                file=sys.stderr,
+            )
+            return 2
+        ok, detail = _analyze_healthcheck(
+            api_key=api_key, provider=provider, base_url=base_url
+        )
+        if not ok:
+            print(
+                f"analyze: {provider} at {base_url} unreachable ({detail}). "
+                f"Check provider URL flag / ${url_env} / network.",
+                file=sys.stderr,
+            )
+            return 2
+        print(f"analyze: {provider} ok at {base_url} ({detail}); model={model}")
+    else:
+        print(
+            f"analyze: dry-run (would target {provider} at {base_url}; model={model})"
+        )
+
+    uploader = _resolve_uploader(args)
+
+    counters: dict[str, Any] = {
+        "analyzed": 0,
+        "reused": 0,
+        "failed": 0,
+        "skipped_long": 0,
+        "skipped_files": 0,
+        "errors": 0,
+        "cost_usd": 0.0,
+        "rate_limit_retries": 0,
+        "fallback_count": 0,
+        "repaired_count": 0,
+        "call_count": 0,
+        "tokens_in": 0,
+        "tokens_out": 0,
+        "hawkins_with_markers": 0,
+        "hawkins_no_markers": 0,
+        "llm_elapsed_s": 0.0,
+        "run_start_monotonic": time.monotonic(),
+        "uploaded": 0,
+        "in_bucket": 0,
+        "upload_errors": 0,
+    }
+
+    cost_lock = threading.Lock()
+    workers = int(args.workers or 1)
+    if workers < 1:
+        workers = 1
+
+    import httpx as _httpx
+
+    def _record_outcome(path: Path, result: Any, report: Any) -> None:
+        # Always tally diagnostics — they fire across all action shapes.
+        with cost_lock:
+            counters["cost_usd"] += result.cost_estimate_usd
+            counters["rate_limit_retries"] += getattr(result, "rate_limit_retries", 0)
+            counters["fallback_count"] += getattr(result, "fallback_count", 0)
+            counters["repaired_count"] += getattr(result, "repaired_count", 0)
+            counters["call_count"] += getattr(result, "call_count", 0)
+            counters["tokens_in"] += getattr(result, "tokens_in_total", 0)
+            counters["tokens_out"] += getattr(result, "tokens_out_total", 0)
+            counters["hawkins_with_markers"] += getattr(
+                result, "hawkins_with_markers", 0
+            )
+            counters["hawkins_no_markers"] += getattr(result, "hawkins_no_markers", 0)
+            counters["llm_elapsed_s"] += getattr(result, "elapsed_s", 0.0)
+
+        if result.action == "analyzed":
+            counters["analyzed"] += result.analyzed
+            counters["reused"] += result.reused
+            counters["skipped_long"] += result.skipped
+            counters["failed"] += getattr(result, "failed", 0)
+            elapsed_s = getattr(result, "elapsed_s", 0.0) or 0.0
+            calls = getattr(result, "call_count", 0)
+            avg_call_ms = (elapsed_s * 1000 / calls) if calls else 0
+            line = (
+                f"  ok   {path.name}  "
+                f"[ana={result.analyzed} reuse={result.reused}"
+                f" fail={getattr(result, 'failed', 0)}"
+                f" long={result.skipped} ${result.cost_estimate_usd:.4f}"
+                f" {calls}calls@{int(avg_call_ms)}ms]"
+            )
+            if getattr(result, "rate_limit_retries", 0):
+                line += f" 429×{result.rate_limit_retries}"
+            if getattr(result, "fallback_count", 0):
+                line += f" fb×{result.fallback_count}"
+            report.print(line)
+        elif result.action == "skipped":
+            counters["skipped_files"] += 1
+            counters["reused"] += result.reused
+            counters["skipped_long"] += result.skipped
+            # Distinguish the two skip flavours at a glance:
+            #   - "skip0" → zero coding-eligible records (committee /
+            #     qr / report — no speeches to code; no discourse file
+            #     ever created). Expected for ~21% of the corpus.
+            #   - "reuse" → every record matched its prior fingerprint
+            #     (file already fully coded by an earlier run).
+            if result.reused == 0:
+                report.print(f"  skip0 {path.name}  [no eligible speeches]")
+            else:
+                report.print(f"  reuse {path.name}  [reuse={result.reused}]")
+        elif result.action == "dry-run":
+            counters["analyzed"] += result.analyzed
+            counters["reused"] += result.reused
+            counters["skipped_long"] += result.skipped
+            report.print(
+                f"  dry  {path.name}  "
+                f"[would-code={result.analyzed} reuse={result.reused}]"
+            )
+        elif result.action == "budget-exhausted":
+            counters["analyzed"] += result.analyzed
+            counters["reused"] += result.reused
+            counters["failed"] += getattr(result, "failed", 0)
+            report.print(
+                f"  $$$  {path.name}  budget exhausted "
+                f"(${counters['cost_usd']:.3f} total)",
+                err=True,
+            )
+        elif result.action == "all-failed":
+            counters["failed"] += getattr(result, "failed", 0)
+            report.print(
+                f"  fail {path.name}  [all {result.failed} records failed; "
+                f"keeping prior {result.reused} clean entries]",
+                err=True,
+            )
+        else:  # error
+            counters["errors"] += 1
+            msg = "; ".join(result.errors) or "unknown"
+            report.print(f"  ERR  {path.name}  ({msg})", err=True)
+
+        if (
+            uploader is not None
+            and result.action in ("analyzed", "budget-exhausted")
+            and result.analyzed > 0  # only mirror when we wrote new data
+            and result.file_path is not None
+            and result.file_path.exists()
+            and result.file_path.stat().st_size > 0
+        ):
+            try:
+                up = uploader.upload_if_missing(
+                    result.file_path,
+                    content_type="application/json",
+                    overwrite=True,
+                )
+                if up.uploaded:
+                    counters["uploaded"] += 1
+                    report.print(f"  s3+   {result.file_path.name}")
+                else:
+                    counters["in_bucket"] += 1
+                    report.print(f"  s3=   {result.file_path.name}")
+            except Exception as exc:  # noqa: BLE001
+                counters["upload_errors"] += 1
+                report.print(
+                    f"  s3!   {result.file_path.name}  ({exc})",
+                    err=True,
+                )
+
+        report.advance()
+
+    try:
+        with (
+            _httpx.Client(timeout=_httpx.Timeout(300.0)) as http_client,
+            _AnalyzeProgressReporter(len(sidecars), counters) as report,
+        ):
+            if workers == 1:
+                for path in sidecars:
+                    if (
+                        args.budget_usd is not None
+                        and counters["cost_usd"] >= args.budget_usd
+                    ):
+                        # Budget already exhausted from a previous sidecar.
+                        # Emit a quick budget-exhausted result and continue
+                        # so the user sees the rest of the queue short-circuit.
+                        from monitorul_ii.extraction.enrichments.discourse import (
+                            AnalyzeResult,
+                        )
+
+                        result = AnalyzeResult(
+                            sidecar_path=path,
+                            document_id="",
+                            action="budget-exhausted",
+                        )
+                        _record_outcome(path, result, report)
+                        continue
+                    remaining = (
+                        max(0.0, args.budget_usd - counters["cost_usd"])
+                        if args.budget_usd is not None
+                        else None
+                    )
+                    try:
+                        result = _analyze_sidecar(
+                            path,
+                            provider=provider,
+                            base_url=base_url,
+                            api_key=api_key,
+                            model=model,
+                            force=args.force,
+                            write=not args.dry_run,
+                            dry_run=args.dry_run,
+                            retry_on_error=args.retry_on_error,
+                            max_words=max_words,
+                            budget_remaining_usd=remaining,
+                            client=http_client,
+                            log=log,
+                        )
+                    except KeyboardInterrupt:
+                        raise
+                    except Exception as exc:  # noqa: BLE001
+                        counters["errors"] += 1
+                        report.print(f"  ERR  {path.name}  ({exc!r})", err=True)
+                        report.advance()
+                        continue
+                    _record_outcome(path, result, report)
+            else:
+                # Threaded path. Each task runs `_analyze_sidecar` with
+                # the shared http_client; counter updates happen on the
+                # main thread inside `_record_outcome` as futures resolve.
+                with concurrent.futures.ThreadPoolExecutor(max_workers=workers) as ex:
+                    futures = {
+                        ex.submit(
+                            _analyze_sidecar,
+                            path,
+                            provider=provider,
+                            base_url=base_url,
+                            api_key=api_key,
+                            model=model,
+                            force=args.force,
+                            write=not args.dry_run,
+                            dry_run=args.dry_run,
+                            retry_on_error=args.retry_on_error,
+                            max_words=max_words,
+                            budget_remaining_usd=None,  # tracked at top level
+                            client=http_client,
+                            log=log,
+                        ): path
+                        for path in sidecars
+                    }
+                    for fut in concurrent.futures.as_completed(futures):
+                        path = futures[fut]
+                        try:
+                            result = fut.result()
+                        except Exception as exc:  # noqa: BLE001
+                            counters["errors"] += 1
+                            report.print(f"  ERR  {path.name}  ({exc!r})", err=True)
+                            report.advance()
+                            continue
+                        _record_outcome(path, result, report)
+                        if (
+                            args.budget_usd is not None
+                            and counters["cost_usd"] >= args.budget_usd
+                        ):
+                            # Cancel pending; in-flight workers finish.
+                            for f in futures:
+                                f.cancel()
+    except KeyboardInterrupt:
+        print(
+            f"\ninterrupted: analyzed={counters['analyzed']} "
+            f"reused={counters['reused']} "
+            f"failed={counters['failed']} "
+            f"skipped_long={counters['skipped_long']} "
+            f"skipped_files={counters['skipped_files']} "
+            f"errors={counters['errors']} ${counters['cost_usd']:.3f} "
+            f"(429×{counters['rate_limit_retries']} fb×{counters['fallback_count']})",
+            file=sys.stderr,
+        )
+        return 130
+
+    wall_run = max(0.001, time.monotonic() - counters["run_start_monotonic"])
+    rec_per_min = counters["analyzed"] / wall_run * 60
+    call_per_min = counters["call_count"] / wall_run * 60
+    avg_call_ms = (
+        (counters["llm_elapsed_s"] * 1000 / counters["call_count"])
+        if counters["call_count"]
+        else 0
+    )
+    summary = (
+        f"analyzed={counters['analyzed']} "
+        f"reused={counters['reused']} "
+        f"failed={counters['failed']} "
+        f"skipped_long={counters['skipped_long']} "
+        f"skipped_files={counters['skipped_files']} "
+        f"errors={counters['errors']} ${counters['cost_usd']:.3f}"
+    )
+    if counters["call_count"]:
+        summary += (
+            f" | calls={counters['call_count']:,} "
+            f"tokens_in={counters['tokens_in']:,} "
+            f"tokens_out={counters['tokens_out']:,} "
+            f"avg_call={int(avg_call_ms)}ms "
+            f"rec/min={rec_per_min:.1f} call/min={call_per_min:.1f}"
+        )
+    h_total = counters["hawkins_with_markers"] + counters["hawkins_no_markers"]
+    if h_total:
+        skip_pct = counters["hawkins_no_markers"] / h_total * 100
+        summary += (
+            f" | hawkins+={counters['hawkins_with_markers']} "
+            f"hawkins-={counters['hawkins_no_markers']} "
+            f"voice-skip={skip_pct:.1f}%"
+        )
+    if (
+        counters["rate_limit_retries"]
+        or counters["fallback_count"]
+        or counters["repaired_count"]
+    ):
+        summary += (
+            f" | 429-retries={counters['rate_limit_retries']}"
+            f" json_object-fallbacks={counters['fallback_count']}"
+            f" json-repairs={counters['repaired_count']}"
+        )
+    if counters["uploaded"] or counters["in_bucket"] or counters["upload_errors"]:
+        summary += (
+            f" | s3 uploaded={counters['uploaded']} "
+            f"in-bucket={counters['in_bucket']} "
+            f"errors={counters['upload_errors']}"
+        )
+    print(summary, flush=True)
+    if args.budget_usd is not None and counters["cost_usd"] >= args.budget_usd:
+        print(
+            f"budget exhausted at ${counters['cost_usd']:.3f} "
+            f"(cap ${args.budget_usd:.3f}); resume by re-running",
+            file=sys.stderr,
+        )
+        return 0
     return 1 if counters["errors"] or counters["upload_errors"] else 0
 
 

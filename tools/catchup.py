@@ -93,6 +93,7 @@ STAGE_INPUT_PATTERN: dict[str, str] = {
     "link": "*.extraction.json",
     "backfill": "*.extraction.json",
     "embed": "*.extraction.json",
+    "analyze": "*.extraction.json",
     "index": "*.extraction.json",
 }
 
@@ -132,6 +133,12 @@ STAGES: tuple[dict[str, Any], ...] = (
         "subcommand": "embed",
         "pre": "_pre_embed",
         "post": "_post_embed",
+    },
+    {
+        "name": "analyze",
+        "subcommand": "analyze",
+        "pre": "_pre_analyze",
+        "post": "_post_analyze",
     },
     {
         "name": "index",
@@ -332,6 +339,7 @@ class Runner:
         self._pre_md_count = self._count_glob("*.md")
         self._pre_sidecar_count = self._count_glob("*.extraction.json")
         self._pre_embedding_count = self._count_glob("*.embedding.bge-m3.v0_1.json")
+        self._pre_discourse_count = self._count_glob("*.discourse.flash-lite.v0_1.json")
 
     # ----- filesystem helpers ---------------------------------------------
 
@@ -404,6 +412,21 @@ class Runner:
             "sidecars_in_range": n,
             "embed_url": self.embed_url,
             "healthz": msg,
+        }
+
+    def _pre_analyze(self) -> dict[str, Any]:
+        """Pre-check the discourse-analysis stage: sidecars in range +
+        OPENROUTER_API_KEY available. Doesn't probe OpenRouter itself
+        (the analyze CLI does that on its own startup via /models).
+        """
+        n = self._count_in_range("*.extraction.json")
+        if n == 0:
+            return {"ok": False, "sidecars_in_range": 0}
+        api_key_present = bool(os.environ.get("OPENROUTER_API_KEY"))
+        return {
+            "ok": api_key_present,
+            "sidecars_in_range": n,
+            "openrouter_api_key_present": api_key_present,
         }
 
     def _pre_index(self) -> dict[str, Any]:
@@ -559,6 +582,21 @@ class Runner:
             "coverage_pct": round(embedded / sidecars, 4) if sidecars else 0.0,
         }
 
+    def _post_analyze(self) -> dict[str, Any]:
+        """Count fresh discourse files + report coverage in range."""
+        new_discourse = (
+            self._count_glob("*.discourse.flash-lite.v0_1.json")
+            - self._pre_discourse_count
+        )
+        analyzed = self._count_in_range("*.discourse.flash-lite.v0_1.json")
+        sidecars = self._count_in_range("*.extraction.json")
+        return {
+            "new_discourse_files": new_discourse,
+            "analyzed_in_range": analyzed,
+            "sidecars_in_range": sidecars,
+            "coverage_pct": round(analyzed / sidecars, 4) if sidecars else 0.0,
+        }
+
     def _post_index(self) -> dict[str, Any]:
         """Query ES for the doc count + latest published date in range.
 
@@ -633,7 +671,7 @@ class Runner:
             raise ValueError(f"unknown stage {name!r}")
         paths = self._files_in_range(pattern)
         args = [str(p) for p in paths]
-        if name in ("convert", "backfill", "index"):
+        if name in ("convert", "backfill", "index", "analyze"):
             args += ["-j", str(self.workers)]
         return args
 
@@ -719,8 +757,9 @@ class Runner:
             "S3_SECRET_ACCESS_KEY",
             "ES_URL",
             "ES_API_KEY",
+            "OPENROUTER_API_KEY",
         )
-        optional_keys = ("EMBED_URL", "ES_VERIFY_CERTS")
+        optional_keys = ("EMBED_URL", "OPENROUTER_URL", "ES_VERIFY_CERTS")
         env_present: list[str] = []
         env_missing: list[str] = []
         for key in required_keys:
@@ -966,6 +1005,7 @@ def print_summary(report: dict[str, Any], stream=sys.stderr) -> None:
             "vote_defers_to_count",
             "resolution_rate",
             "new_embedding_files",
+            "new_discourse_files",
             "es_doc_count_in_range",
         ):
             if key in post:

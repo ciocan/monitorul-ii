@@ -15,6 +15,17 @@ indexer doesn't need to know.
 
 from __future__ import annotations
 
+from monitorul_ii.extraction.enrichments.discourse import (
+    DISCOURSE_MODEL,
+    DISCOURSE_NAMESPACE,
+    DISCOURSE_PRODUCER,
+    DISCOURSE_VERSION,
+    DISCOURSE_VERSION_DOTTED,
+    AnalyzeResult,
+    analyze_all,
+    analyze_sidecar,
+    discourse_filename,
+)
 from monitorul_ii.extraction.enrichments.embedding import (
     EMBEDDING_DIMS,
     EMBEDDING_MODEL,
@@ -30,6 +41,12 @@ from monitorul_ii.extraction.enrichments.embedding import (
 )
 
 __all__ = [
+    "AnalyzeResult",
+    "DISCOURSE_MODEL",
+    "DISCOURSE_NAMESPACE",
+    "DISCOURSE_PRODUCER",
+    "DISCOURSE_VERSION",
+    "DISCOURSE_VERSION_DOTTED",
     "EMBEDDING_DIMS",
     "EMBEDDING_MODEL",
     "EMBEDDING_MODEL_ID",
@@ -38,6 +55,9 @@ __all__ = [
     "EMBEDDING_VERSION",
     "EMBEDDING_VERSION_DOTTED",
     "EmbedResult",
+    "analyze_all",
+    "analyze_sidecar",
+    "discourse_filename",
     "embed_all",
     "embed_sidecar",
     "embedding_filename",

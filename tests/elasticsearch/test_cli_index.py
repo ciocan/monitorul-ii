@@ -26,6 +26,67 @@ def test_parser_accepts_index_with_defaults():
     assert args.rebuild is False
     assert args.grain is None
     assert args.index_generation == "live"
+    assert args.reverse is False
+
+
+def test_parser_accepts_reverse_flag():
+    p = cli._build_parser()
+    args = p.parse_args(["index", "pdfs/", "--reverse"])
+    assert args.reverse is True
+
+
+def test_cmd_index_reverse_walks_sidecars_newest_first(
+    monkeypatch, tmp_path: Path, capsys
+):
+    """`--reverse` should flip the order in which `_index_one` is
+    called — newest filename first, since names are date-prefixed.
+    """
+    monkeypatch.setenv("ES_URL", "https://es.example.com")
+    monkeypatch.setenv("ES_API_KEY", "encoded")
+
+    # Date-prefixed filenames so the natural sort is oldest→newest.
+    names = [
+        "2024-01-15_MO-PII-1-2024.extraction.json",
+        "2024-06-20_MO-PII-200-2024.extraction.json",
+        "2025-03-10_MO-PII-50-2025.extraction.json",
+    ]
+    paths = []
+    for n in names:
+        p = tmp_path / n
+        p.write_text(json.dumps({"document_id": f"mo://X/Y/{n}"}), encoding="utf-8")
+        paths.append(p)
+
+    from monitorul_ii.elasticsearch.indexer import IndexResult
+
+    seen: list[str] = []
+
+    def fake_index_one(es, db, sidecar_path, **kwargs):
+        seen.append(Path(sidecar_path).name)
+        return IndexResult(
+            document_id=f"mo://X/Y/{Path(sidecar_path).name}",
+            action="indexed",
+            grain_counts={"mo-documents": 1},
+            child_record_ids=[],
+        )
+
+    with patch.object(cli, "_build_es_client") as build_es:
+        build_es.return_value = object()
+        with patch("monitorul_ii.elasticsearch.indexer.index_one", new=fake_index_one):
+            parser = cli._build_parser()
+            args = parser.parse_args(
+                [
+                    "index",
+                    str(tmp_path),
+                    "--reverse",
+                    "--db",
+                    str(tmp_path / "audit.db"),
+                ]
+            )
+            rc = cli.cmd_index(args)
+
+    assert rc == 0
+    assert seen == list(reversed(names))
+    capsys.readouterr()  # drain output
 
 
 def test_parser_accepts_full_blue_green_flags():

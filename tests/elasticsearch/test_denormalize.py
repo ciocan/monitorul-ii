@@ -701,6 +701,146 @@ def test_speech_embedding_flattened_to_top_level_fields():
     assert enrich["embedding_text_fingerprint"] == "abc123def456"
 
 
+def test_speech_discourse_flattened_to_per_grain_shape():
+    """The discourse producer's nested
+    `{hawkins, voice, dqi, vparty, _meta, text_fingerprint}` payload
+    must flatten to ES `enrichments.discourse.{hawkins,voice,dqi,vparty}.*`
+    plus the sibling `discourse_producer` / `discourse_text_fingerprint`
+    keywords. The Hawkins / V-Party `markers[]` collapse to
+    `marker_count` + `marker_kinds[]`; the voice classifications
+    collapse to `dominant_voice` + `voices_seen[]`; the DQI sub-codings
+    flatten verbatim.
+    """
+    sidecar = _plenary_sidecar()
+    enrichments = {
+        "mo://2018/II/168#agenda-1#act-1": {
+            "discourse": {
+                "_meta": {
+                    "producer": "flash-lite",
+                    "version": "0.1",
+                    "model_id": "google/gemini-3.1-flash-lite",
+                },
+                "text_fingerprint": "abcdef012345",
+                "hawkins": {
+                    "score": 2,
+                    "framework_confidence": 0.85,
+                    "markers": [
+                        {"kind": "people_vs_elite", "evidence": {"text": "x"}},
+                        {"kind": "evil_elite", "evidence": {"text": "y"}},
+                        {"kind": "people_vs_elite", "evidence": {"text": "z"}},
+                    ],
+                    "rationale": "...",
+                },
+                "voice": {
+                    "classifications": [
+                        {"marker_id": "m_0", "voice": "speaker_first_person"},
+                        {"marker_id": "m_1", "voice": "speaker_first_person"},
+                        {"marker_id": "m_2", "voice": "quoted"},
+                    ]
+                },
+                "dqi": {
+                    "level_of_justification": 2,
+                    "content_of_justification": "common_good",
+                    "respect_for_groups": 1,
+                    "respect_for_demands": 1,
+                    "respect_for_counterarguments": 0,
+                    "constructive_politics": "alternative_proposal",
+                },
+                "vparty": {
+                    "score": 1,
+                    "framework_confidence": 0.7,
+                    "markers": [
+                        {"kind": "judiciary_attack", "evidence": {"text": "a"}},
+                    ],
+                },
+            }
+        }
+    }
+    docs = denormalize.to_speeches_docs(sidecar, enrichments=enrichments)
+    by_id = {d["_id"]: d["_source"] for d in docs}
+    speech = by_id["mo://2018/II/168#agenda-1#act-1"]
+    enrich = speech["enrichments"]
+    assert enrich["discourse_producer"] == "flash-lite"
+    assert enrich["discourse_text_fingerprint"] == "abcdef012345"
+    disc = enrich["discourse"]
+    # Hawkins flatten
+    assert disc["hawkins"]["score"] == 2
+    assert disc["hawkins"]["framework_confidence"] == 0.85
+    assert disc["hawkins"]["marker_count"] == 3
+    # Dedup'd kind list, first-seen order
+    assert disc["hawkins"]["marker_kinds"] == ["people_vs_elite", "evil_elite"]
+    # Voice flatten — argmax (speaker_first_person, count=2)
+    assert disc["voice"]["dominant_voice"] == "speaker_first_person"
+    assert set(disc["voice"]["voices_seen"]) == {"speaker_first_person", "quoted"}
+    # DQI sub-codings flat
+    assert disc["dqi"]["level_of_justification"] == 2
+    assert disc["dqi"]["content_of_justification"] == "common_good"
+    assert disc["dqi"]["respect_for_groups"] == 1
+    assert disc["dqi"]["respect_for_demands"] == 1
+    assert disc["dqi"]["respect_for_counterarguments"] == 0
+    assert disc["dqi"]["constructive_politics"] == "alternative_proposal"
+    # V-Party flatten
+    assert disc["vparty"]["score"] == 1
+    assert disc["vparty"]["framework_confidence"] == 0.7
+    assert disc["vparty"]["marker_count"] == 1
+    assert disc["vparty"]["marker_kinds"] == ["judiciary_attack"]
+
+
+def test_speech_discourse_handles_missing_payload():
+    """When a record has no discourse enrichment, the per-grain `enrichments`
+    block must NOT include any `discourse*` field — sparse-tolerant.
+    """
+    sidecar = _plenary_sidecar()
+    docs = denormalize.to_speeches_docs(sidecar, enrichments=None)
+    for d in docs:
+        enrich = d["_source"]["enrichments"]
+        assert "discourse" not in enrich
+        assert "discourse_producer" not in enrich
+        assert "discourse_text_fingerprint" not in enrich
+
+
+def test_speech_discourse_handles_partial_voice():
+    """voice can be null when Hawkins emits no markers; the flatten
+    must skip the voice subkey rather than emit an empty placeholder.
+    """
+    sidecar = _plenary_sidecar()
+    enrichments = {
+        "mo://2018/II/168#agenda-1#act-1": {
+            "discourse": {
+                "_meta": {"producer": "flash-lite", "version": "0.1"},
+                "text_fingerprint": "ff00",
+                "hawkins": {
+                    "score": 0,
+                    "framework_confidence": 0.95,
+                    "markers": [],
+                },
+                "voice": None,
+                "dqi": {
+                    "level_of_justification": 1,
+                    "content_of_justification": "group_interest",
+                    "respect_for_groups": 1,
+                    "respect_for_demands": 1,
+                    "respect_for_counterarguments": 1,
+                    "constructive_politics": "positional",
+                },
+                "vparty": {"score": 0, "framework_confidence": 0.9, "markers": []},
+            }
+        }
+    }
+    docs = denormalize.to_speeches_docs(sidecar, enrichments=enrichments)
+    by_id = {d["_id"]: d["_source"] for d in docs}
+    enrich = by_id["mo://2018/II/168#agenda-1#act-1"]["enrichments"]
+    disc = enrich["discourse"]
+    # Hawkins still flattens (score-only, no markers).
+    assert disc["hawkins"]["score"] == 0
+    assert disc["hawkins"]["marker_count"] == 0
+    # voice block omitted entirely (None payload).
+    assert "voice" not in disc
+    # V-Party score-0 path: marker_count = 0, no marker_kinds.
+    assert disc["vparty"]["marker_count"] == 0
+    assert "marker_kinds" not in disc["vparty"]
+
+
 def test_agenda_item_embedding_flatten_only_emits_known_keys():
     """The agenda mapping has `embedding` (dense_vector) but does NOT
     declare `embedding_text_fingerprint`. The flatten must respect the

@@ -183,6 +183,41 @@ If the embed service isn't reachable, the CLI fails fast with exit 2 — start `
 
 ---
 
+## 6.5. Discourse-analysis (`monitorul-ii analyze`)
+
+Optional but recommended for any sidecars where the LLM coding hasn't run yet. Reads `OPENROUTER_API_KEY` from `.env`; calls Gemini 3.1 Flash-Lite via OpenRouter to score every substantive speech across Hawkins / voice / DQI / V-Party.
+
+```sh
+# Standard launch with budget cap + JSONL telemetry
+mkdir -p data/analyze-runs
+uv run monitorul-ii analyze pdfs/ -j 36 --reverse --budget-usd 50 \
+    --log-file data/analyze-runs/run-$(date +%Y%m%d-%H%M).jsonl
+```
+
+**What gets created**: `pdfs/<basename>.discourse.flash-lite.v0_1.json` per sidecar with substantive speeches. Per-speech JSONL log at the `--log-file` path. S3 mirror with `Content-Type: application/json` if env vars set.
+
+**Cost**: ~$0.005 / speech across 4 prompts; the 3-week catch-up is typically <$5. Full corpus backfill: ~$94 across ~19,200 substantive speeches.
+
+**Throughput** at -j 36: ~200-400 c/m (calls per minute). Watch the live progress bar's `c/m` against OpenRouter's per-key cap (200-450/min). 429s are absorbed silently with 15-120s backoff; check `429×N` in the bar to see if you should back off `-j`.
+
+**Idempotency**: each entry stores a `text_fingerprint` (12-char sha256 of NFC + whitespace-collapsed text). Re-runs reuse fingerprint-matched entries without API calls. Failed records (errors after retries exhausted) are NOT persisted, so the next run automatically retries them.
+
+**Ctrl+C safety**: the producer flushes the discourse JSON file every 5 successfully-coded records. A KeyboardInterrupt loses ≤5 records per active worker (≤180 at -j 36). The JSONL log captures every coded speech in real time as a paper trail.
+
+**Live tail** (open in another terminal):
+```sh
+tail -qf "$(ls -t data/analyze-runs/run-*.jsonl | head -1)" \
+    | jq -cR 'fromjson? | {ts, sidecar, record_id,
+                           h:.hawkins_score, v:.vparty_score,
+                           dqi:.dqi_level, cost:.cost_usd}'
+```
+
+For full operational details (failure modes, recovery, `-j N` tuning, skip-line vocabulary, post-run ES verification, orphaned-process cleanup) see [`docs/runbook-analyze.md`](runbook-analyze.md).
+
+Run **before** the index step — the indexer's enrichment loader picks the discourse files up automatically and the denormaliser flattens them onto `mo-speeches.enrichments.discourse.{hawkins,voice,dqi,vparty}.*`.
+
+---
+
 ## 7. Index to Elasticsearch
 
 Walks every sidecar, denormalises across the 9 grains, bulk-upserts via per-grain write aliases. State-tracked via SQLite `es_indexed` table on the triple `(sidecar_content_sha, enrichment_fingerprint, index_generation)` — already-indexed-and-unchanged docs are skipped.

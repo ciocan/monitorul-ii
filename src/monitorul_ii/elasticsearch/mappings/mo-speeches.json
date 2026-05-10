@@ -75,21 +75,42 @@
             "embedding_text_fingerprint": { "type": "keyword" },
             "discourse": {
               "properties": {
-                "frameworks":   { "type": "keyword" },
-                "populism_hawkins": {
+                "hawkins": {
                   "properties": {
-                    "score":    { "type": "byte" },
-                    "evidence": {
-                      "type": "nested",
-                      "properties": {
-                        "lines":         { "type": "integer_range" },
-                        "quote_excerpt": { "type": "text", "analyzer": "romanian" }
-                      }
-                    }
+                    "score":                 { "type": "byte" },
+                    "framework_confidence":  { "type": "float" },
+                    "marker_count":          { "type": "byte" },
+                    "marker_kinds":          { "type": "keyword" }
+                  }
+                },
+                "voice": {
+                  "properties": {
+                    "dominant_voice":        { "type": "keyword" },
+                    "voices_seen":           { "type": "keyword" }
+                  }
+                },
+                "dqi": {
+                  "properties": {
+                    "level_of_justification":     { "type": "byte" },
+                    "content_of_justification":   { "type": "keyword" },
+                    "respect_for_groups":         { "type": "byte" },
+                    "respect_for_demands":        { "type": "byte" },
+                    "respect_for_counterarguments": { "type": "byte" },
+                    "constructive_politics":      { "type": "keyword" }
+                  }
+                },
+                "vparty": {
+                  "properties": {
+                    "score":                 { "type": "byte" },
+                    "framework_confidence":  { "type": "float" },
+                    "marker_count":          { "type": "byte" },
+                    "marker_kinds":          { "type": "keyword" }
                   }
                 }
               }
-            }
+            },
+            "discourse_producer":         { "type": "keyword" },
+            "discourse_text_fingerprint": { "type": "keyword" }
           }
         },
         "slug":                 { "type": "keyword" },

@@ -1582,6 +1582,7 @@ Naïve catch-up would freeze writes to the live alias during the rebuild. Mirror
 monitorul-ii index <path>...
   [--force]            # bypass idempotency-triple check
   [--dry-run]          # denormalise + merge enrichments without ES writes
+  [--reverse]          # walk newest→oldest (filenames are date-prefixed)
   [--target=<index>]   # blue-green: write that grain's docs to a specific generation
   [--mirror]           # write to BOTH target AND live <grain>-write
   [--rebuild]          # convenience: --force + --target=<gen> required
@@ -1591,6 +1592,14 @@ monitorul-ii index <path>...
   [-j N | --workers=N] # ThreadPoolExecutor worker count (default 1)
   [--include-persons]  # also project persons.json into mo-persons
 ```
+
+### Order control (`--reverse`)
+
+Sidecar filenames are date-prefixed (`YYYY-MM-DD_MO-PII-<num>-<year>.extraction.json`), so `_collect_sidecars(...)` natural-sorts oldest→newest. `--reverse` flips the list before dispatch — the indexer then walks newest sidecars first.
+
+Operationally this matters during long catch-ups (the daily cron is one day's worth of sidecars; backfills after a force-reindex run, mapping changes, or DB restores can be thousands). Default oldest-first reflects history in chronological order, which matches the way the corpus accumulated. Newest-first via `--reverse` lets the public site's "latest sessions" page show fresh data while older history backfills behind it — the same logic the `extract` / `analyze` flags encode.
+
+The flag applies to both the sequential and `-j N` parallel paths. Parallel output is in completion order regardless (workers race), but **dispatch** order respects `--reverse` — important because the worker pool typically has fewer slots than total sidecars, and which sidecars get picked up first determines what's indexed when the operator interrupts a partial run.
 
 ### Persons-registry projection (`--include-persons`)
 
@@ -1840,6 +1849,162 @@ Bootstrap on the 5552-doc corpus: ~3 hours on a single consumer GPU (BGE-M3 at `
 - `tests/elasticsearch/test_denormalize.py` — 2 new tests for the embedding payload flatten: speeches get both `enrichments.embedding` (the vector) and `enrichments.embedding_text_fingerprint`; agenda items (whose mapping only declares `embedding`) get the vector but NOT the fingerprint.
 
 The full suite stays under 25 seconds on the test box and produces no real network calls.
+
+## Discourse-analysis producer (Phase 4) — `monitorul-ii analyze`
+
+> **Companion docs**:
+> - `docs/runbook-analyze.md` — operational runbook (launching, live observation via JSONL `tail -qf | jq`, Ctrl+C safety, resume mechanics, failure-mode triage, `-j N` tuning, post-run indexing).
+> - `docs/discourse-and-semantic-search.md` — retrieval-time use of the discourse fields (how Hawkins / voice / DQI / V-Party compose with BGE-M3 semantic search at query time).
+>
+> This section covers the *coding-time* mechanics (how the producer generates the discourse fields); the runbook covers operational running of the producer; the retrieval doc covers what the fields are used for downstream. Read all three for the full picture.
+
+The fourth enrichment producer ships as `monitorul-ii analyze`. It runs a four-prompt LLM pipeline (Hawkins populism → voice attribution → DQI deliberative quality → V-Party + V-Dem anti-pluralism) over every substantive speech in a sidecar and persists the structured outputs as
+
+```
+<basename>.discourse.flash-lite.v0_1.json
+```
+
+next to the sidecar. The indexer's existing enrichment loader picks up the file via the regex `<basename>.<producer>(.<model>)?.v<version>.json` (parsed as `producer="discourse"`, `model="flash-lite"`, `version="0.1"`); the denormaliser flattens the per-record payload into the per-grain `mo-speeches.enrichments.discourse.{hawkins,voice,dqi,vparty}.*` namespace plus the sibling `discourse_producer` / `discourse_text_fingerprint` keywords. No loader changes were needed — the loader was already producer-agnostic, and the additive ES mapping update lands via `monitorul-ii es-init --update-mappings` (no new generation required).
+
+### Why a separate producer from the embedding producer
+
+Both producers walk the same set of substantive speeches and emit a per-record JSON file alongside the sidecar. Their concerns diverge:
+
+- **Embedding** is a single-call, model-deterministic projection: one HTTP round-trip per record, identical text → identical vector, no semantic interpretation. Owns the BGE-M3 service path; FastAPI service is the model holder.
+- **Discourse analysis** is a multi-call LLM pipeline with framework-specific prompt versioning, conditional fan-out (voice depends on Hawkins markers), and per-record cost / latency that scales with the speech length. Owns the OpenRouter `chat/completions` path; the model holder is third-party.
+
+Sharing primitives (the `_normalise_text` function, the `text_fingerprint` shape, the `<basename>.<producer>(.<model>)?.v<version>.json` filename pattern, the atomic `.part`-rename write contract) without sharing implementation lets each producer evolve at its own cadence: a model bump in `embedding.py` doesn't invalidate `discourse.py` payloads, and a prompt-version bump in `discourse.py` doesn't force a re-embed.
+
+### Why pin prompt versions per framework instead of per producer
+
+Each framework (Hawkins, voice, DQI, V-Party) has its own published rubric and prompt iteration cadence. The calibration sweeps revealed the V-Party prompt needed two iterations (v1 surfaced too few markers in obvious anti-pluralist speeches; v2 fixed marker definitions and graduated to production); the others stayed at v1. Pinning per framework — `PROMPT_VERSIONS = {"hawkins": "v1", "voice": "v1", "dqi": "v1", "vparty": "v2"}` — lets a future framework bump (e.g. `hawkins=v2` after a Mudde rubric revision) invalidate only the affected slice via `--force`, instead of flushing the entire 4-framework cell. Each entry's `_meta.prompt_versions` carries the full dict so a downstream consumer can detect stale payloads at query time.
+
+### Pipeline order — Hawkins → voice → DQI → V-Party
+
+The voice classifier is conditional: it runs only when Hawkins emits at least one marker. If Hawkins says "no populist markers in this speech", voice has nothing to attribute (every voice classification is *about* a Hawkins marker). DQI and V-Party are independent classifiers (no marker dependency on Hawkins) but kept sequential at v0.1 for two reasons:
+
+1. **Simplicity.** Three independent calls in flight per speech mean tracking three Future objects, three retry budgets, three error paths. The four-call sequential loop is one-pass and trivial to reason about.
+2. **Per-key rate-limit headroom.** OpenRouter's per-key concurrency cap (free tier ~10 in-flight, paid tier ~50) is shared across all of the producer's running threads. At `-j 16` (the practical sweet spot for the production backfill), 16 in-flight sidecars × 4 sequential prompts = 16 in-flight calls; parallelising the three independent prompts within a sidecar would lift that to 48, which would back up at the rate-limit boundary on a paid key and immediately exhaust a free one.
+
+v0.2 may parallelise the three independent prompts inside a sidecar. The trade-off is a ~3× per-speech speedup vs. a ~3× per-key concurrency multiplier; profitability depends on the operator's rate-limit ceiling and is deferred until the v0.1 corpus backfill is in production.
+
+### Voice gate — typography-tolerant evidence-text matching (v0.1.0+)
+
+Hawkins / DQI markers carry an `evidence.text` string the model claims is a verbatim quote from the speech. To compose the voice prompt's input, the producer needs a `[start, end)` char range for each marker — a hint that helps the voice classifier locate the region. Pre-fix, offset recovery used a strict `str.find` (`find_text_offsets`) which failed whenever the model swapped typography (curly quotes for ASCII, em-dash for hyphen, joined newlines, sentence-leading capital → lowercase). All-paraphrased marker lists returned `""` from `build_prompt_for_voice`, the caller's `if voice_prompt:` gate evaluated falsy, and the voice pass silently skipped — leaving Hawkins markers unattributed and the entry's `voice` field None despite Hawkins emitting markers. The clean-test then marked the entry dirty and dropped it from the persistent file. Corpus smoke on the first 700 records of the production backfill: ~85/89 failures (≈12% of records, ~96% of failures) traced to this single mode.
+
+The fix has two pieces:
+
+1. **Tolerant matcher** (`find_text_offsets_tolerant`): tries strict `str.find` first (the byte-exact fast path; preserved for the per-call `fragments_not_found` telemetry). On miss, normalises both speech and fragment via `_normalise_for_match` (NFC + lowercase + whitespace-run-collapse + Romanian-quote / unicode-dash / ellipsis folding) AND tracks parallel `(src_starts, src_ends)` arrays so a successful match in normalised space projects back to byte-correct ranges in the *original* speech. The folds are typography-only — case differences, whitespace runs, and curly-vs-ASCII glyph swaps fold to a single normal form; real paraphrase (added/removed words, swapped synonyms) still misses, which is the right semantic boundary. Per-char `lower()` is 1:1 for the Romanian + extended Latin subset; the rare multi-char lower (German `ß → ss`) is collapsed back to a single char to keep the offset map invariant.
+
+2. **Voice fallback for irrecoverable paraphrase**: when even tolerant matching fails for a marker (real semantic drift), the marker is STILL forwarded to voice with `marker_id` + `marker_text`, just without `char_range`. The voice prompt explicitly says hints are signals not commitments — the classifier already has the marker text and can locate it (or grade as paraphrase) without an offset. Pre-fix, the marker was DROPPED entirely; with one paraphrased marker per Hawkins emit, an entire speech could fall off the production file.
+
+Smoke test on the original failing record (`mo://2025/II/134#agenda-6#act-71`): pre-fix `outcome=failed, calls=3, voice_ran=false, hawkins_markers=1`; post-fix `outcome=ok, calls=4, voice_ran=true`. The Hawkins marker `un ministru al economiei care distruge economia României` (lowercase) maps to the speech's `Un ministru al economiei care distruge economia României.` (capital) via the case-fold; previously Gemini's typography drift swallowed the entire record.
+
+`_collect_fragments_not_found` was migrated to the tolerant matcher too — the per-call `fragments_not_found` telemetry now surfaces ONLY real paraphrase, not typography drift, so the operator's "what fraction of markers did the model paraphrase" signal stays meaningful.
+
+### Schema-aware salvage in `parse_and_validate` (v0.1.0+)
+
+When strict `jsonschema.validate` rejects the model's output, two conservative salvage passes run before declaring the call a failure. Both passes only DROP things — they never invent missing required fields — so a record that pre-fix would land in `failed` now lands clean with `repaired=1` (the existing telemetry counter, which already covered json-repair recoveries; semantics are now expanded to also cover schema-repair recoveries because the operator just wants a "self-heal happened" signal — the kind of heal is debug-only and inspectable via `--explain`).
+
+**Pass 1 — `_filter_unknown_marker_kinds`**: drops entries from `markers[]` whose `kind` value isn't in the schema's `properties.markers.items.properties.kind.enum`. The drift this addresses: Gemini occasionally emits a voice-classifier value (`quoted` / `reported` / `negated` / `apophasis_disclaimed`) inside a Hawkins or V-Party marker's `kind` field — cross-contamination between the two enum sets. Real production example from `2023-10-13_MO-PII-131-2023#agenda-1#act-49`: a road-safety speech that opens with a curly-quoted statement; the model picks `kind: "quoted"` (because the speech *is* a quotation) instead of one of the seven Hawkins populist categories. Strict validation rejected the entire call; salvage drops just the bad marker, the rest of the markers stay, the holistic `score` and `rationale` are preserved.
+
+**Pass 2 — `_strip_unknown_properties`**: recursively walks the (object, schema) pair and strips object keys not declared in `properties` when the local schema sets `additionalProperties: false`. Descends into `anyOf` branches that include an object type (so the `evidence: anyOf [null, object]` shape used by some markers is handled correctly). The drift this addresses (in production frequency order):
+- DQI top-level `respect_for_constructive_politics` — hybrid name conflating the `respect_for_*` family and `constructive_politics`. Stripped; the canonical `constructive_politics` already present.
+- DQI markers' `evidence.{text_2, text_3}` — model emits multiple evidence fragments instead of a single string. Stripped at the nested evidence level.
+- Other `additionalProperties: false` violations encountered in the sweep get the same treatment automatically.
+
+**What salvage does NOT do**: invent missing required fields. When the model truncates mid-output and never emits `rationale`, no salvage path can recover it. ~25% of the failure bucket (≈0.5% of all records) hits this mode; those records stay in the `failed` bucket and surface to the operator via the per-call telemetry. Re-running may help (model output is non-deterministic; a second attempt may complete) but the producer doesn't auto-retry on schema_invalid because the cost of a re-call (3-4×) often exceeds the value of recovering one record.
+
+**Smoke test on the 8 real failed records from the production sweep** (8 distinct sidecars across 2022-2024): 6/8 = 75% recovered. The two remaining failures both hit `'rationale' is a required property` — closed downstream by the token-cap bump + terseness retry below. Cost of the salvage: zero additional API calls (the salvage is purely client-side); zero additional latency on the success path (validation passes first, salvage runs only on the exception path).
+
+**Why not bump the prompts** to forbid the cross-contamination at the source: prompt-version bumps invalidate every existing entry (forces `--force` on the next run, re-coding all ~19,200 substantive speeches at ~$94 each pass). The salvage closes the drift modes for free, so prompt revisions can be deferred to the next planned rubric iteration.
+
+### Truncation handling — token-cap bump + terseness-on-retry (v0.1.0+)
+
+Two changes target the runaway-output tail.
+
+**(1) `DEFAULT_MAX_TOKENS` 16384 → 32768.** Sized against the production output-token distribution. From the 45,189-call first sweep:
+
+| metric | tokens_out |
+|---|---|
+| p50 | 1,488 |
+| p95 | 2,352 |
+| p99 | 2,979 |
+| max (truncated tail) | 18,493 |
+
+The distribution is sharply bimodal: 99% of calls finish under 3K tokens, then a tiny tail (3 records, 0.01%) hits the cap exactly. The previous 16K cap turned that tail into truncated `'rationale' is a required property` failures — the schemas list `rationale` near the end of the required-list, so a runaway `markers[]` array exhausts the output budget before reaching the field. Bumping to 32K gives 2× headroom over the observed runaway cases. Cost is **bounded but not realised**: per-call cost is per-token-actually-emitted, not per-cap; the model emits what it needs, so the median call's cost is unchanged. The cap only matters on the truncation tail, where the new cap lets the response complete instead of failing entirely.
+
+A note on Google's quirk: reasoning tokens count toward `completion_tokens` in the response but NOT toward the `maxOutputTokens` cap. That's why a 16384-cap'd call could report `completion_tokens: 16778` — the model emitted 16384 visible tokens and ~400 reasoning tokens that didn't count against the budget. The 95% truncation-detector threshold accounts for this overshoot.
+
+**(2) Terseness-on-retry**. The cap bump alone closed 1 of 2 residual production truncations; the other (`mo://2023/II/153#agenda-1#act-199`, a 104-word personal-attack speech against a colleague) is a deterministic model-degenerate state that fills whatever budget is given (16K → 16778, 32K → 33159, repeated --force re-rolls → 33162). Bumping to Gemini's 65K max would just produce 65K of runaway markers at 4× cost — same outcome.
+
+`_is_truncation_failure(call, max_tokens)` detects this state via three conjunct conditions:
+- `call.error == "schema_invalid"`
+- `"is a required property"` in the error message
+- `call.tokens_out >= 95% of max_tokens` (the strongest signal that the response hit the budget)
+
+When the heuristic fires on the previous attempt, `_run_one_prompt` appends `_TERSENESS_RETRY_SUFFIX` to the retry's user prompt:
+
+> CRITICAL — token-budget guard for this retry: emit AT MOST 6 markers, the rationale field MUST be 4 sentences or fewer, do not enumerate every phrase as a separate marker, every required field must be present and complete in the JSON output.
+
+The terseness anchor breaks the runaway by capping marker count and rationale length explicitly. It re-uses the existing `--retry-on-error` budget (default 1 retry → 2 attempts max), so no extra HTTP call beyond what the operator already authorised. Cost on the success path is zero because terseness is only injected when the previous attempt matched the truncation heuristic — non-truncation retries (e.g., transport 5xx) get the unmodified prompt.
+
+**False-positive guard**: the heuristic deliberately requires BOTH `is a required property` AND high tokens_out. A wrong-enum failure at high tokens (the model emitted a complete output, just with a bad value — salvage handles it) doesn't trigger terseness. A missing-required failure at low tokens (the model is just buggy on this prompt — terseness wouldn't help) doesn't either. The unit-test bank (`test_truncation_detector_*`) covers all four corners of the (error_kind, tokens_at_cap) matrix.
+
+The combined producer reliability stack — typography-tolerant matcher (closes ~85/89 voice-skip failures) + schema-aware salvage (closes ~6 of 7 schema-invalid) + token-cap bump (closes ~half of the truncation tail) + terseness retry (closes the deterministic runaway tail) — drops the producer's failure rate from ~12% pre-fix to well under 0.01% expected on full-corpus runs. The residual is rare model truncation that even terseness can't recover (would land in the run's `failed` bucket and surface to the operator via the per-call telemetry).
+
+### Long-tail handling: skip-not-chunk at v0.1
+
+Speeches above `--max-words` (default 800 — ≈6,000 chars at the corpus's word-density) are SKIPPED with reason `text_too_long`. The alternative — chunking with `record_id#chunk-N` keys — is the v0.2 task; v0.1 ships skip because:
+
+1. Chunked coding raises a real semantic question: a Hawkins score is *holistic*, not chunk-additive. A populist speech that opens with a "we vs. them" frame and never repeats the rhetoric for the rest of its 30 minutes still grades populist; a chunked v0.2 would score the opening chunk 1, the rest 0, and need a chunk-aggregation rule. We don't have a published rule for that yet, and inventing one for v0.1 would lock in a choice we'd want to revisit.
+2. The skip rate is empirically low. Calibration sweep on 500 speeches: 12% above 800 words (the long-tail mostly lives in committee-of-the-whole budget debates and 2008-era stenograms with single-speaker monologues). Skipping those at v0.1 gives ~88% coverage which is enough to surface the corpus-wide signal; v0.2 closes the rest.
+3. The skip is recorded explicitly (`AnalyzeResult.skipped`) so the operator can audit how often it fires and the indexer can flag affected sidecars in the post-check report.
+
+### Cost model: $0.10/M in + $0.40/M out, ~$0.005 / speech
+
+Module constants `OPENROUTER_FLASH_LITE_INPUT_RATE_USD` and `OPENROUTER_FLASH_LITE_OUTPUT_RATE_USD` encode the conservative Flash-Lite per-token rates ($0.10/M input, $0.40/M output). Per-speech estimated spend is the sum across 3 (when Hawkins is empty, voice is skipped) or 4 (when Hawkins emits markers) calls — calibration sweep baseline: ~$0.005 / speech, dominated by the input tokens (the prompt + speech body is ~5K tokens; the output is ~500 tokens for Hawkins / V-Party / voice and ~1,500 tokens for DQI). The operator can tune both constants after the first OpenRouter invoice; the budget cap is enforced regardless of pricing tier.
+
+`--budget-usd N` is the operator-facing cap. The cumulative spend is tracked across the run (per-sidecar `cost_estimate_usd` accumulated in the CLI counters); when the cap is hit, the in-flight sidecar finishes atomically and the producer exits cleanly with `action="budget-exhausted"`. Resume is a no-op skip on every already-coded record. The dominant operator pattern: launch a background run with `--budget-usd 100`, walk away, come back the next day, re-run to mop up anything that was in-flight.
+
+### Why httpx-direct instead of the openai SDK
+
+The pilot harness (`tools/pilot_benchmark.py`) used the openai SDK because it was the fastest path to a working benchmarker. The production producer uses raw httpx for three reasons:
+
+1. **Testability.** `httpx.MockTransport` works out of the box for stubbing the OpenRouter endpoint; the openai SDK requires either subclassing or injecting an `http_client` parameter, both of which leak SDK internals into tests.
+2. **Dependency lean.** Adding the openai SDK to `pyproject.toml` pulls in `pydantic` v2, `tiktoken`, and `httpx` (already a dep) — net gain is a 30 MB install for a single endpoint we already have httpx for.
+3. **Single-format API surface.** OpenRouter exposes the OpenAI-compatible `POST /chat/completions` directly; we call it with the same JSON body shape the SDK would build, just without the Pydantic round-trip. The strict `json_schema` → `json_object` fallback is the only meaningful logic the SDK adds, and we lift it into `call_openrouter(...)` verbatim.
+
+The harness stays as-is — it's a discrete A/B / calibration tool, not a production code path, and stripping the openai SDK out of it would invalidate prior benchmark numbers.
+
+### Why direct OpenRouter and not Anthropic-via-SDK
+
+Three calibration models live in the harness's `MODELS` registry as `claude_code` launchers (Opus 4.7 / Sonnet 4.6 / Haiku 4.5) — they shell out to the locally-installed `claude` CLI rather than the Anthropic API. That made sense in the pilot phase (lower setup friction, used the operator's existing auth) but doesn't scale to the production backfill: we need ~19,200 calls × 4 prompts = ~77,000 sequential subprocess invocations, each ~3-second startup overhead. OpenRouter's HTTP path is ~50ms overhead. The pilot baseline picked Flash-Lite as the production model anyway; once selected, the choice of HTTP-vs-CLI follows from the throughput requirement.
+
+A future Opus-escalation hybrid (Stage 5 in `docs/discourse-analysis-schema.md`) will need either the Anthropic SDK direct or via OpenRouter (which proxies Claude). When that lands, the producer will gain a `--model` flag and a per-confidence-band model selector; v0.1 keeps the model pinned to `google/gemini-3.1-flash-lite` for simplicity.
+
+### Idempotency contract
+
+Each entry stores a `text_fingerprint` (12-char sha256 of the NFC + whitespace-collapsed speech text) — same shape as the identity layer's `compute_content_fingerprint` and the embedding producer's fingerprint. On re-run, fingerprint-matched entries reuse the existing payload (Hawkins / voice / DQI / V-Party outputs) verbatim. When a re-extract changes the speech text, the next `analyze` pass re-codes only the records whose fingerprint mismatched.
+
+The producer is **NOT** registered in `extractor_versions` (re-extracting a sidecar clobbers the discourse file's stale-fingerprint filter, but the next `analyze` run re-codes only the affected records — same Q11 contract as the cross-doc linker). Schema-version bumps in the sidecar envelope force re-extraction → re-analysis automatically. Prompt-version bumps require explicit `--force`.
+
+### CLI — `monitorul-ii analyze`
+
+Mirrors `cmd_embed`'s shape: argparse flag set, `_AnalyzeProgressReporter` rendering counters (`analyzed`, `reused`, `skipped_long`, `skipped_files`, `errors`, `cost_usd`), KbdInt-safe shutdown with a final `interrupted: …` summary, optional S3 mirror with `Content-Type: application/json` and `overwrite=True`. The threaded path (`-j N`) uses `concurrent.futures.ThreadPoolExecutor` with a single shared `httpx.Client` whose urllib3 pool is thread-safe. When `--budget-usd` is set, the threaded path cancels pending futures once the cap is hit, but in-flight workers finish atomically (no `.part` leaks).
+
+CLI smoke-test on startup: `OPENROUTER_API_KEY` must be set (exit 2 otherwise), and `GET /models` must return 200 (exit 2 with the error detail otherwise). `--dry-run` short-circuits before either check so it's safe in CI.
+
+### Tests
+
+- `tests/extraction/test_discourse.py` — 22 tests against an `httpx.MockTransport` stub of OpenRouter. Covers filename shape, loader regex back-compat, the substantive / canonical-speaker / max-words filters, the four-prompt pipeline order with voice conditional on Hawkins markers, fingerprint idempotency, force-flag re-coding, atomic-write contract, dry-run, budget-exhausted exit, service-failure handling, missing-API-key handling, the CLI parser includes every flag, threaded `-j N` dispatch, and healthcheck pass/fail.
+- `tests/elasticsearch/test_denormalize.py` — 3 new tests for the discourse payload flatten: speeches get `enrichments.discourse.{hawkins,voice,dqi,vparty}.*` populated from the producer's nested payload (Hawkins/V-Party `markers[]` → `marker_count` + dedup'd `marker_kinds[]`; voice classifications → argmax `dominant_voice` + dedup'd `voices_seen`; DQI sub-codings flatten verbatim); discourse missing → no `discourse*` fields land in the per-grain enrichments; voice null → voice block omitted entirely.
+
+### Production timing (target — 40-month backfill)
+
+Conservative cost: ~19,200 substantive speeches × $0.00493 / speech = ~$94 (within the $100 cap). Wall-clock at `-j 16`: ~3 hours, bounded by OpenRouter's per-key rate-limit ceiling (the producer can issue ~50–80 calls/sec at the paid-key concurrency cap; 19,200 × 4 = ~77,000 calls; ~16 min serial of API time, +retry budget, +OpenRouter latency variance). Spike runs from the operator's laptop saturate the network egress before they saturate the rate limit.
+
+Daily-cron post-bootstrap: 1–5 new MO sidecars produce ~50 new substantive speeches on average; sub-1-minute analyze runs at ~$0.10/day. The daily-cron stage filter accepts `analyze` between `embed` and `index` per `tools/catchup.py`.
 
 ## Future graduation candidates
 

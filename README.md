@@ -10,7 +10,7 @@ uv sync
 
 ## Usage
 
-Six core subcommands: `fetch` (download PDFs), `convert` (PDF → markdown), `classify` (type-detect MDs into the extraction-schema buckets), `extract` (MD → structured JSON sidecar), `link` (cross-doc + intra-doc linker), `backfill` (registry-driven `*_normalized` slots and `Speaker.person_id`). Plus `es-init` to provision the Elasticsearch projection layer (templates, indices, aliases, API keys), `embed` to generate BGE-M3 dense_vector enrichments, `index` to project sidecars + enrichments into the live ES indices, and `query` for the typed query layer that backs the public search and LLM-agent tools.
+Six core subcommands: `fetch` (download PDFs), `convert` (PDF → markdown), `classify` (type-detect MDs into the extraction-schema buckets), `extract` (MD → structured JSON sidecar), `link` (cross-doc + intra-doc linker), `backfill` (registry-driven `*_normalized` slots and `Speaker.person_id`). Plus `es-init` to provision the Elasticsearch projection layer (templates, indices, aliases, API keys), `embed` to generate BGE-M3 dense_vector enrichments, `analyze` to run the four-prompt discourse-analysis pipeline (Hawkins / voice / DQI / V-Party) over substantive speeches via OpenRouter, `index` to project sidecars + enrichments into the live ES indices, and `query` for the typed query layer that backs the public search and LLM-agent tools.
 
 ### `fetch`
 
@@ -326,6 +326,61 @@ Long-tail handling (Q8 v0.1): texts beyond `MAX_TEXT_CHARS = 8000` (≈2K BGE-M3
 
 The producer is sequential — embedding throughput is dominated by the service-side compute, not the producer-side I/O. The CLI does **not** support `-j N` for parallel sidecars; if the service is GPU-backed, run multiple `embed` processes pointed at the same service rather than threading inside one process. Bootstrap timing per Q8: ~3 hours on a single consumer GPU, ~30 hours on CPU. After the bootstrap, the daily-cron run typically embeds 1–5 new MO sidecars (~5 minutes).
 
+### `analyze`
+
+Run the four-prompt **discourse-analysis pipeline** (Hawkins populism → voice attribution → DQI deliberative quality → V-Party + V-Dem anti-pluralism) over every substantive speech in the corpus. Per-speech outputs persist as `<basename>.discourse.flash-lite.v0_1.json` enrichment files alongside each sidecar; the `index` step picks them up and the denormaliser flattens the payload onto `mo-speeches.enrichments.discourse.{hawkins,voice,dqi,vparty}.*` (see `docs/elasticsearch-indexing.md` § Q3 / Q5 + `docs/discourse-pilot-baseline-2026-05.md` § 11 for the four-cell Hawkins × V-Party design rationale). Calls are dispatched to OpenRouter against `google/gemini-3.1-flash-lite` (the model picked by the calibration sweeps); strict `json_schema` response_format is attempted first with an automatic fallback to `json_object` for backends that reject the schema (Gemini's well-known limitation). Run **after** `extract` / `link` / `backfill` / `embed`, **before** `index`.
+
+```sh
+# Analyse one sidecar
+uv run monitorul-ii analyze pdfs/2024-04-15_MO-PII-50-2024.extraction.json
+
+# Analyse every sidecar under pdfs/ — idempotent, fingerprint-skip
+uv run monitorul-ii analyze pdfs/
+
+# Dry-run: walk the records and report counts without contacting OpenRouter
+uv run monitorul-ii analyze pdfs/ --dry-run
+
+# Re-code everything regardless of fingerprint match (after a prompt-version bump)
+uv run monitorul-ii analyze pdfs/ --force
+
+# Walk newest→oldest and stop after 10 sidecars
+uv run monitorul-ii analyze pdfs/ --reverse --limit 10
+
+# Cap cumulative spend at $100 (in-flight sidecar finishes atomically, then exits)
+uv run monitorul-ii analyze pdfs/ --reverse --budget-usd 100
+
+# Parallel — threads scale near-linearly on OpenRouter round-trips
+uv run monitorul-ii analyze pdfs/ -j 16
+
+# Skip speeches over 500 words (default is 800; v0.2 will chunk instead)
+uv run monitorul-ii analyze pdfs/ --max-words 500
+```
+
+Flags:
+
+- `--force` — re-code every record regardless of `text_fingerprint` match. Pair with a prompt-version bump (the per-framework `PROMPT_VERSIONS` constants change) or after the producer's normalisation rules change. Without `--force`, every per-record entry whose fingerprint matches the current speech text reuses its prior payload verbatim — no API call, no file rewrite.
+- `--dry-run` — walk the sidecars and report which records would be coded vs reused, without contacting OpenRouter or writing files. Useful for "how much will this cost / take?" planning before kicking off a bulk run. Short-circuits the API-key / health-check entirely so it's safe in CI.
+- `--limit N` — process at most N sidecars (after `--reverse` is applied). Default: all collected sidecars. Convenient for spike runs ("only the last 5 sidecars").
+- `--reverse` — walk newest→oldest like `extract` / `embed`. Combined with `--limit` this gives "most recent N sidecars first" — the right shape for backfilling the recent corpus before the long tail.
+- `--openrouter-url URL` — OpenRouter base URL (default: `$OPENROUTER_URL` env var, then `https://openrouter.ai/api/v1`). The CLI smoke-tests `GET /models` before walking the sidecar list so a misconfigured endpoint or bad API key fails fast.
+- `--retry-on-error N` — retry budget per LLM call with exponential backoff (1, 2, 4, 8s, capped at 8s). Covers transport / `json_parse` / `schema_invalid`; configuration errors (missing API key) short-circuit. Default: 1.
+- `--max-words N` — skip speeches above this many words with reason `text_too_long` (default: 800). v0.2 will introduce chunked coding (`record_id#chunk-N`); v0.1 defers them. Tune up only if your average speech is short and you want to absorb more long-tail at the bottom of the budget.
+- `--budget-usd N` — soft cap in USD on cumulative estimated spend across the current run. Per-call cost ≈ `tokens_in × $0.10/M + tokens_out × $0.40/M` (Flash-Lite conservative bounds; constants live near the top of `discourse.py`). When the cap is hit, the in-flight sidecar finishes atomically and the producer exits cleanly (exit 0). **Resume by re-running** — fingerprint-match skips already-coded records at zero API cost. The dominant operator pattern: launch a background run with `--budget-usd 100`, walk away, come back the next day, re-run to mop up anything that was in-flight.
+- `-j N` / `--workers N` — parallelism via `ThreadPoolExecutor` (default: 1). Threads, not processes — discourse calls are network-bound and GIL-friendly via httpx. Each worker shares the OpenRouter HTTP client (urllib3 connection pool is thread-safe). 20-core box: `-j 16` lifts ~12 sidecars/min (sequential) to ~50–80 sidecars/min, bounded by OpenRouter's per-key rate limit.
+- `--no-upload` / `--bucket NAME` — same S3 mirror flags as the other subcommands. When the S3 env vars are configured, modified discourse files mirror to the bucket with `Content-Type: application/json` and `overwrite=True` (discourse files are mutable per-record — fingerprint-mismatched entries are rewritten in place).
+
+Idempotency contract: each entry's `text_fingerprint` is the 12-char sha256 of the NFC + whitespace-collapsed speech text — the same shape as the identity layer's `compute_content_fingerprint` and the embedding producer's fingerprint. On re-run, fingerprint-matched entries reuse the prior payload (Hawkins / voice / DQI / V-Party outputs) verbatim. When a re-extract changes the speech text, the next `analyze` pass re-codes only the records whose fingerprint mismatched. Each entry's `_meta` block carries `prompt_versions` (`hawkins=v1, voice=v1, dqi=v1, vparty=v2`); a future prompt-version bump will require `--force` to invalidate prior payloads.
+
+Pipeline order per speech: **Hawkins → voice (conditional) → DQI → V-Party**. The voice classifier only runs when Hawkins emits at least one marker — if Hawkins says "no populist markers", voice has nothing to attribute. DQI and V-Party are independent classifiers and always run. The four prompts cost on average ~$0.005 / speech at Flash-Lite rates; the calibration sweep's $0.00493 / speech baseline implies ~$94 for the ~19,200 substantive speeches in the March 2023 → present window, comfortably under the $100 budget cap. Reads `OPENROUTER_API_KEY` from environment / `.env`.
+
+Hawkins / DQI markers carry an `evidence.text` string the model claims is verbatim from the speech; the producer recovers char offsets via a typography-tolerant matcher (NFC + lowercase + whitespace-run-collapse + Romanian-quote / unicode-dash / ellipsis folding) so the model's typography drift (curly-vs-ASCII quotes, em-dash vs hyphen, joined newlines, sentence-leading capital → lowercase) doesn't drop voice runs. When even tolerant matching fails — real paraphrase, not just typography — the marker is still forwarded to the voice classifier without `char_range`; voice has `marker_text` and the prompt explicitly says hints are signals not commitments. Pre-fix the producer dropped paraphrased markers and silently skipped voice → entries marked failed and dropped from the persistent file; corpus smoke surfaced ~12% of records hitting this mode on Flash-Lite.
+
+Two schema-aware salvage passes run when strict `jsonschema.validate` rejects an output. (1) Drop `markers[]` entries whose `kind` isn't in the schema's enum (closes the Gemini drift mode where voice-classifier values like `"quoted"` leak into Hawkins / V-Party `markers[].kind`). (2) Recursively strip object keys not declared in `properties` when the schema sets `additionalProperties: false` (closes DQI drift modes like the hybrid `respect_for_constructive_politics`, stray `text_2` / `text_3` evidence keys, etc.). Both passes are conservative: they only DROP things, never invent missing required fields. Salvage events bump the per-call `repaired` counter (alongside json-repair recoveries) so `tools/analyze_progress.py` shows them under the "recovery counters" section.
+
+Two further fixes target the runaway-output tail. **(1)** `DEFAULT_MAX_TOKENS` is 32768 (was 16384), sized against the production output-token distribution: 99% of calls finish under 3K tokens, then a tiny tail of runaway-DQI calls hit the cap exactly. The bump is cost-neutral on the 99% path (model emits what it needs, not the cap) and lets the runaway tail complete instead of truncating. **(2)** Terseness-on-retry — when the previous attempt's failure looks like a truncation (`schema_invalid` + `is a required property` + `tokens_out >= 95%` of cap), the next attempt's prompt gets a `MAX 6 markers, MAX 4 sentences for rationale, every required field must be complete` suffix appended. Re-uses the existing `--retry-on-error` budget; zero cost on the success path because terseness is only injected when the heuristic fires. Together the four reliability layers (typography-tolerant matcher + schema-aware salvage + token-cap bump + terseness retry) drop the producer's failure rate from ~12% pre-fix to under ~0.005% expected on full-corpus runs.
+
+Long-tail handling (v0.1): speeches above `--max-words` (default 800) are SKIPPED with reason `text_too_long`. v0.2 will introduce chunked coding with `record_id#chunk-N` keys (mirroring the embedding producer's deferred chunking path). Bootstrap timing on the production corpus: ~$94 cost / ~3 hrs wall-clock at `-j 16` for the recent ~40 months (~19,200 speeches). The `--budget-usd` cap enforces the spend ceiling regardless of which pricing tier OpenRouter actually charges; resume is a no-op skip on every already-coded record.
+
 ### `index`
 
 Project `*.extraction.json` sidecars + parallel enrichment files into the live Elasticsearch indices provisioned by `es-init`. The indexer denormalises each sidecar across the nine `mo-*` grains (per Q5 of [`docs/elasticsearch-indexing.md`](docs/elasticsearch-indexing.md)), bulk-upserts via per-grain write aliases, tracks state in `data/monitorul.db` for idempotency, and runs orphan-delete to drop ES docs whose record_ids disappeared between runs (e.g. when a re-extract merges two adjacent speeches into one). Run **after** `extract` / `link` / `backfill` (and any enrichment producers) — the order is `fetch → convert → extract → link → backfill → enrich → index → sitemap`.
@@ -361,6 +416,10 @@ uv run monitorul-ii index pdfs/ -j 16
 # Project the curated persons.json registry into mo-persons too —
 # idempotent via a __persons_registry__ sentinel state row.
 uv run monitorul-ii index pdfs/ -j 16 --include-persons
+
+# Walk newest→oldest so the most recent stretch is fresh in ES first
+# during a long catch-up.
+uv run monitorul-ii index pdfs/ -j 16 --reverse
 ```
 
 Flags:
@@ -375,6 +434,7 @@ Flags:
 - `--index-generation LABEL` — third leg of the idempotency triple (default `live`). Set when running `--target` so the state row tracks the right generation independently of the live one.
 - `-j N` / `--workers N` — `ThreadPoolExecutor` worker count (default 1, sequential). Per-sidecar work is network-bound on ES round-trips (bulk + delete_by_query), both of which release the GIL via urllib3, so threads scale near-linearly with worker count up to the cluster's bulk-throughput ceiling. Each worker opens its own `DB(db_path)` connection (SQLite forbids cross-thread sharing); WAL mode handles concurrent reads + serialised writes fine at this rate (one row per sidecar, microseconds per write while ES round-trips are 500 ms+). Output is in **completion order** (not input order) when N > 1; set N=1 for deterministic ordering or single-process debugging. 20-core box: try `-j 16` for a 5–10× speedup. Falls back to the sequential generator path automatically when `N <= 1` or `len(sidecars) == 1`.
 - `--include-persons` — also project the curated `persons.json` registry into `mo-persons` after the sidecar loop finishes. Persons aren't sidecar-derived (Q4 of the design doc — they live in `src/monitorul_ii/registries/persons.json`, ~13K curated entries), so the default daily-cron run leaves `mo-persons` alone. Pair with the bootstrap rebuild or after a registry bump (stub merges, Wikidata enrichment). Idempotent: a `__persons_registry__` sentinel row in `es_indexed` stores the registry's content hash; subsequent runs skip until `persons.json` changes. Orphan-delete fires when an entry is removed from the registry, pulling its `/politicieni/<slug>` page out of `mo-persons` so the public site stops serving stale content.
+- `--reverse` — process sidecars in reverse order (newest→oldest, since filenames are date-prefixed). A partial run leaves the most recent stretch indexed first — useful when ES is behind on a long catch-up and you want the front page fresh before older history backfills. Applies to the sequential and `-j N` parallel paths alike (parallel output is in completion order regardless, but the dispatch order respects `--reverse`).
 
 The indexer reads `ES_URL` / `ES_API_KEY` / `ES_VERIFY_CERTS` from the environment (or `.env`); set `ES_API_KEY` to the `monitorul_indexer` key minted by `es-init` for the principle-of-least-privilege production setup. `--dry-run` short-circuits before any client construction so it doesn't need the env vars.
 
@@ -624,6 +684,33 @@ curl -X POST http://127.0.0.1:8000/embed \
 # → 1024
 uv run monitorul-ii embed pdfs/ --dry-run             # walk records without writing
 uv run monitorul-ii embed pdfs/                        # do the real thing
+```
+
+## Discourse analysis
+
+The `monitorul-ii analyze` subcommand runs a four-prompt LLM pipeline (Hawkins populism → voice attribution → DQI deliberative quality → V-Party + V-Dem anti-pluralism) over every substantive speech via OpenRouter. Default model: `google/gemini-3.1-flash-lite` (the one picked by the calibration sweeps documented in `docs/discourse-pilot-baseline-2026-05.md`). Outputs persist as `<basename>.discourse.flash-lite.v0_1.json` enrichment files; the indexer flattens the payload onto `mo-speeches.enrichments.discourse.{hawkins,voice,dqi,vparty}.*` automatically (see § `analyze` above for the full prose).
+
+> **Operational runbook**: see [`docs/runbook-analyze.md`](docs/runbook-analyze.md) for the production launch pattern, live observation (progress bar signals, JSONL tail with `jq`, OpenRouter dashboard), Ctrl+C safety contract, resume mechanics, failure-mode triage, `-j N` tuning, and orphaned-process cleanup.
+>
+> **Retrieval-time reference**: see [`docs/discourse-and-semantic-search.md`](docs/discourse-and-semantic-search.md) for how the discourse fields compose with BGE-M3 semantic search at query time (filters, sort keys, aggregation buckets, the seven canonical query patterns, journalist-UI surfaces, and the four-cell H × V cross-tab analysis pattern).
+
+Configuration:
+
+```
+OPENROUTER_API_KEY=sk-or-v1-...           # required for any live analyze run
+OPENROUTER_URL=https://openrouter.ai/api/v1   # optional (default)
+```
+
+- `OPENROUTER_API_KEY` is read from the environment (or `.env` via python-dotenv). The CLI fails fast (exit 2) when the key is missing.
+- `OPENROUTER_URL` is optional and defaults to OpenRouter's production endpoint. Override it for testing against a local proxy or an alternative gateway.
+- Cost: at the calibration baseline (~$0.005 / speech across the 4-prompt pipeline), a 40-month backfill of ~19,200 substantive speeches costs ~$94. The `--budget-usd` flag enforces the spend cap; resume after the cap is hit by re-running (fingerprint-match short-circuits at zero cost).
+- Pipeline prompts live in `prompts/<framework>_v<N>.{md,schema.json}`; production-pinned versions are `hawkins=v1, voice=v1, dqi=v1, vparty=v2` (the v2 V-Party prompt was rolled out alongside the calibration sweeps; v1 stays in tree for reproducibility).
+- The producer's `_meta.errors[]` records per-prompt failures without aborting the sidecar — a Hawkins parse failure, for example, persists the entry with `hawkins=null` and an error string under `_meta.errors`. Re-run with `--force` after fixing the upstream issue.
+
+```sh
+uv run monitorul-ii analyze pdfs/ --dry-run                    # plan-only
+uv run monitorul-ii analyze pdfs/ --reverse --budget-usd 100   # backfill recent corpus
+uv run monitorul-ii analyze pdfs/today/                        # daily-cron flavour
 ```
 
 ## How it works

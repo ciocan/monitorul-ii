@@ -613,7 +613,168 @@ def _enrichments_for_grain(
             if isinstance(fp, str) and "embedding_text_fingerprint" in allowed:
                 out["embedding_text_fingerprint"] = fp
             continue
+        if k == "discourse" and isinstance(v, dict):
+            # Flatten the discourse producer's nested payload into the
+            # per-grain `enrichments.discourse.*` namespace declared in
+            # `mappings/mo-speeches.json` plus the `discourse_producer`
+            # / `discourse_text_fingerprint` siblings.
+            flat = _flatten_discourse_payload(v)
+            if flat and "discourse" in allowed:
+                out["discourse"] = flat["discourse"]
+            if "discourse_producer" in flat and "discourse_producer" in allowed:
+                out["discourse_producer"] = flat["discourse_producer"]
+            if (
+                "discourse_text_fingerprint" in flat
+                and "discourse_text_fingerprint" in allowed
+            ):
+                out["discourse_text_fingerprint"] = flat["discourse_text_fingerprint"]
+            continue
         if k in allowed:
+            out[k] = v
+    return out
+
+
+def _flatten_discourse_payload(payload: dict[str, Any]) -> dict[str, Any]:
+    """Project the discourse producer's per-record payload into the
+    per-grain ES shape.
+
+    Producer entries carry nested `{hawkins, voice, dqi, vparty, _meta,
+    text_fingerprint}`. The mapping declares flat shapes per framework —
+    Hawkins / V-Party expose `score / framework_confidence /
+    marker_count / marker_kinds`, voice exposes `dominant_voice /
+    voices_seen`, DQI exposes the six sub-codings. Two sibling fields
+    capture provenance: `discourse_producer` and
+    `discourse_text_fingerprint`.
+    """
+    out_disc: dict[str, Any] = {}
+
+    hawkins = payload.get("hawkins") if isinstance(payload, dict) else None
+    if isinstance(hawkins, dict):
+        out_disc["hawkins"] = _flatten_marker_framework(hawkins)
+
+    vparty = payload.get("vparty") if isinstance(payload, dict) else None
+    if isinstance(vparty, dict):
+        out_disc["vparty"] = _flatten_marker_framework(vparty)
+
+    voice = payload.get("voice") if isinstance(payload, dict) else None
+    if isinstance(voice, dict):
+        flat_voice = _flatten_voice(voice)
+        if flat_voice:
+            out_disc["voice"] = flat_voice
+
+    dqi = payload.get("dqi") if isinstance(payload, dict) else None
+    if isinstance(dqi, dict):
+        flat_dqi = _flatten_dqi(dqi)
+        if flat_dqi:
+            out_disc["dqi"] = flat_dqi
+
+    out: dict[str, Any] = {"discourse": out_disc}
+    fp = payload.get("text_fingerprint") if isinstance(payload, dict) else None
+    if isinstance(fp, str):
+        out["discourse_text_fingerprint"] = fp
+    # `_enrichment_for` strips `_meta` upstream, so the producer name
+    # only round-trips when the caller passes a payload whose `_meta`
+    # is still present (test paths). Otherwise the flatten falls back
+    # to the module's constant — only one discourse producer is wired
+    # at v0.1 (`flash-lite`); future hybrid producers (e.g. opus
+    # escalation) would need to override this.
+    meta = payload.get("_meta") if isinstance(payload, dict) else None
+    producer: str | None = None
+    if isinstance(meta, dict):
+        m_prod = meta.get("producer")
+        if isinstance(m_prod, str):
+            producer = m_prod
+    if producer is None and (
+        isinstance(payload, dict)
+        and any(
+            payload.get(k) is not None for k in ("hawkins", "voice", "dqi", "vparty")
+        )
+    ):
+        # Default producer name for v0.1.
+        from monitorul_ii.extraction.enrichments.discourse import DISCOURSE_PRODUCER
+
+        producer = DISCOURSE_PRODUCER
+    if producer is not None:
+        out["discourse_producer"] = producer
+    return out
+
+
+def _flatten_marker_framework(framework: dict[str, Any]) -> dict[str, Any]:
+    """Hawkins / V-Party share the `{score, framework_confidence,
+    markers[], rationale}` shape. Flattens to ES `{score,
+    framework_confidence, marker_count, marker_kinds}` — drops the
+    rationale and per-marker evidence (those live in the producer file
+    on disk; ES surfaces only the aggregate).
+    """
+    out: dict[str, Any] = {}
+    score = framework.get("score")
+    if isinstance(score, int):
+        out["score"] = score
+    fc = framework.get("framework_confidence")
+    if isinstance(fc, (int, float)):
+        out["framework_confidence"] = float(fc)
+    markers = framework.get("markers")
+    if isinstance(markers, list):
+        out["marker_count"] = len(markers)
+        kinds: list[str] = []
+        seen: set[str] = set()
+        for m in markers:
+            if not isinstance(m, dict):
+                continue
+            k = m.get("kind")
+            if isinstance(k, str) and k not in seen:
+                kinds.append(k)
+                seen.add(k)
+        if kinds:
+            out["marker_kinds"] = kinds
+    return out
+
+
+def _flatten_voice(voice: dict[str, Any]) -> dict[str, Any]:
+    """Voice projection: `{classifications[].voice}` → `{dominant_voice,
+    voices_seen}`. dominant_voice is the argmax over the per-marker
+    voice counts (the most-frequent voice in the speech); voices_seen
+    is the deduplicated set.
+    """
+    classifications = voice.get("classifications")
+    if not isinstance(classifications, list) or not classifications:
+        return {}
+    counts: dict[str, int] = {}
+    order: list[str] = []
+    for entry in classifications:
+        if not isinstance(entry, dict):
+            continue
+        v = entry.get("voice")
+        if not isinstance(v, str):
+            continue
+        if v not in counts:
+            order.append(v)
+        counts[v] = counts.get(v, 0) + 1
+    if not counts:
+        return {}
+    # argmax with stable tie-break on first-seen order
+    dominant = max(order, key=lambda x: (counts[x], -order.index(x)))
+    return {"dominant_voice": dominant, "voices_seen": list(counts.keys())}
+
+
+def _flatten_dqi(dqi: dict[str, Any]) -> dict[str, Any]:
+    """DQI projection: top-level sub-codings flatten verbatim to the ES
+    mapping. The per-marker `markers[]` rationale is intentionally NOT
+    indexed (lives in the producer file on disk).
+    """
+    out: dict[str, Any] = {}
+    for k in (
+        "level_of_justification",
+        "respect_for_groups",
+        "respect_for_demands",
+        "respect_for_counterarguments",
+    ):
+        v = dqi.get(k)
+        if isinstance(v, int):
+            out[k] = v
+    for k in ("content_of_justification", "constructive_politics"):
+        v = dqi.get(k)
+        if isinstance(v, str):
             out[k] = v
     return out
 
@@ -667,6 +828,8 @@ def to_speeches_docs(
                     "embedding",
                     "embedding_text_fingerprint",
                     "discourse",
+                    "discourse_producer",
+                    "discourse_text_fingerprint",
                 ),
             )
             out.append(
