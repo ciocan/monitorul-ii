@@ -10,6 +10,7 @@ from pathlib import Path
 import pytest
 
 from tools.catchup import (
+    ANALYZE_MAX_WORDS,
     STAGE_INPUT_PATTERN,
     STAGES,
     STAGE_NAMES,
@@ -921,6 +922,7 @@ def test_stage_args_analyze_omits_provider_on_openrouter_default(tmp_path: Path)
     assert "google" not in args
     # Sanity: the standard `-j N` is still appended.
     assert "-j" in args
+    assert args[args.index("--max-words") + 1] == str(ANALYZE_MAX_WORDS)
 
 
 def test_stage_args_analyze_includes_provider_on_google(tmp_path: Path):
@@ -933,6 +935,7 @@ def test_stage_args_analyze_includes_provider_on_google(tmp_path: Path):
     # The -j workers flag is still appended too (just earlier in the args).
     assert "-j" in args
     assert "4" in args
+    assert args[args.index("--max-words") + 1] == str(ANALYZE_MAX_WORDS)
 
 
 def test_stage_args_provider_only_affects_analyze(tmp_path: Path):
@@ -945,6 +948,7 @@ def test_stage_args_provider_only_affects_analyze(tmp_path: Path):
     for stage in ("convert", "extract", "link", "backfill", "embed", "index"):
         args = r._stage_args(stage)
         assert "--provider" not in args, f"{stage} should not carry --provider"
+        assert "--max-words" not in args, f"{stage} should not carry --max-words"
 
 
 def test_run_preflight_lists_google_key_when_provider_google(

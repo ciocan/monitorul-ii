@@ -79,6 +79,7 @@ except ImportError:  # pragma: no cover — dotenv is a runtime dep
 REPO_ROOT = Path(__file__).resolve().parent.parent
 PDFS_DIR = REPO_ROOT / "pdfs"
 DEFAULT_DB = REPO_ROOT / "data" / "monitorul.db"
+ANALYZE_MAX_WORDS = 6000
 
 # Ordered pipeline stages. Each entry's `command_args` is appended to
 # `["uv", "run", "monitorul-ii", <subcommand>]` at run time. `pre` and
@@ -719,6 +720,8 @@ class Runner:
         args = [str(p) for p in paths]
         if name in ("convert", "backfill", "index", "analyze"):
             args += ["-j", str(self.workers)]
+        if name == "analyze":
+            args += ["--max-words", str(ANALYZE_MAX_WORDS)]
         if name == "analyze" and self.analyze_provider != "openrouter":
             # Forward the provider choice; only emit when it differs from
             # the analyze CLI's own default so the daily-cron command
