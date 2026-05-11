@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.19.0](https://github.com/ciocan/monitorul-ii/compare/monitorul-ii-v0.18.0...monitorul-ii-v0.19.0) (2026-05-11)
+
+
+### Features
+
+* **catchup:** add ANALYZE_MAX_WORDS constant and update analyze stage arguments ([bef3e39](https://github.com/ciocan/monitorul-ii/commit/bef3e392df81a7931b1ea4b5c1747e8389f46236))
+* **cli:** add pilot-results command for ranking LLM candidates ([67151a9](https://github.com/ciocan/monitorul-ii/commit/67151a958103e2a48d67477501a10f0120679c22))
+
 ## [0.18.0](https://github.com/ciocan/monitorul-ii/compare/monitorul-ii-v0.17.0...monitorul-ii-v0.18.0) (2026-05-10)
 
 
