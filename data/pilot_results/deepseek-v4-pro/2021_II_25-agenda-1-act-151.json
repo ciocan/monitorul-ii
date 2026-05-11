@@ -1,0 +1,151 @@
+{
+  "speech_id": "mo://2021/II/25#agenda-1#act-151",
+  "tier": "moderate",
+  "speaker": {
+    "id": "orban-ludovic",
+    "name": "Ludovic Orban",
+    "raw": "Domnul Ludovic Orban",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2021-02-17",
+    "year": 2021,
+    "legislature": "IX",
+    "delivery_mode": null
+  },
+  "model_key": "deepseek-v4-pro",
+  "model_label": "deepseek-v4-pro",
+  "results": {
+    "hawkins": {
+      "model_key": "deepseek-v4-pro",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2021/II/25#agenda-1#act-151",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.96,
+        "markers": [],
+        "rationale": "Discursul este o pledoarie pentru desființarea pensiilor speciale ale parlamentarilor, formulată în termeni de echitate și reprezentare corectă a cetățenilor. Vorbitorul condamnă explicit populismul și demagogia, iar contrastul dintre parlamentari și milioanele de români cu pensii contributive este un argument de politică publică, nu un cadru manihean popor-vs-elită. Nu se identifică niciun marker populist la persoana întâi: nu există invocarea unui popor omogen, a unei elite malefice, a unei crize sau a unor mize cosmice. Discursul rămâne în registrul procedural și al dezbaterii de fond, justificând scorul 0 cu încredere ridicată."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.96,\n  \"markers\": [],\n  \"rationale\": \"Discursul este o pledoarie pentru desființarea pensiilor speciale ale parlamentarilor, formulată în termeni de echitate și reprezentare corectă a cetățenilor. Vorbitorul condamnă explicit populismul și demagogia, iar contrastul dintre parlamentari și milioanele de români cu pensii contributive este un argument de politică publică, nu un cadru manihean popor-vs-elită. Nu se identifică niciun marker populist la persoana întâi: nu există invocarea unui popor omogen, a unei elite malefice, a unei crize sau a unor mize cosmice. Discursul rămâne în registrul procedural și al dezbaterii de fond, justificând scorul 0 cu încredere ridicată.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13783,
+      "tokens_in_breakdown": {
+        "fresh": 13783,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1376,
+      "cost_usd": null,
+      "latency_ms": 30530,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "deepseek-v4-pro",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2021/II/25#agenda-1#act-151",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.88,
+        "level_of_justification": 1,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 1,
+            "evidence": {
+              "text": "că nu este drept ca parlamentarii României să-și dea pensii speciale, în timp ce milioane de români sunt la pensie și trăiesc din pensie de contributivitate"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.96,
+            "marker_confidence": 0.85,
+            "rationale_short": "Justificare de nivel 1: apel la corectitudine („nu este drept”) fără ancoră normativă specifică sau dovezi."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "așa este corect și normal"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.96,
+            "marker_confidence": 0.9,
+            "rationale_short": "Apel la binele comun: principiul universal al corectitudinii („așa este corect și normal”)."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "parlamentarii României"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.8,
+            "rationale_short": "Menționează parlamentarii fără derogare sau respect explicit; neutru."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Noi trebuie să votăm desființarea pensiilor speciale pentru parlamentari"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.96,
+            "marker_confidence": 0.85,
+            "rationale_short": "Nu se adresează niciunei cereri opuse; discursul își urmează propria linie."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "Noi trebuie să votăm desființarea pensiilor speciale pentru parlamentari"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.96,
+            "marker_confidence": 0.9,
+            "rationale_short": "Ignoră complet contraargumentele; nu există nicio referire la raționamentul advers."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Noi trebuie să votăm desființarea pensiilor speciale pentru parlamentari"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.96,
+            "marker_confidence": 0.9,
+            "rationale_short": "Pozițional: susține desființarea pensiilor speciale, fără alternativă sau mediere."
+          }
+        ],
+        "rationale": "Discursul pledează pentru desființarea pensiilor speciale ale parlamentarilor, invocând un principiu de corectitudine („nu este drept”) fără a oferi o justificare elaborată sau ancorată în surse specifice. Justificarea este de nivel 1, cu apel la binele comun. Nu există angajament cu cererile sau contraargumentele opoziției, iar respectul față de grupuri rămâne neutru. Discursul este strict pozițional, fără propuneri alternative sau de mediere. Calitatea deliberativă este scăzută, tipică pentru un discurs de susținere a unei poziții fără dezbatere substanțială."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.88,\n  \"level_of_justification\": 1,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 0,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"că nu este drept ca parlamentarii României să-și dea pensii speciale, în timp ce milioane de români sunt la pensie și trăiesc din pensie de contributivitate\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.96,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Justificare de nivel 1: apel la corectitudine („nu este drept”) fără ancoră normativă specifică sau dovezi.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"așa este corect și normal\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.96,\n      \"marker_confidence\": 0.90,\n      \"rationale_short\": \"Apel la binele comun: principiul universal al corectitudinii („așa este corect și normal”).\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"parlamentarii României\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.80,\n      \"rationale_short\": \"Menționează parlamentarii fără derogare sau respect explicit; neutru.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Noi trebuie să votăm desființarea pensiilor speciale pentru parlamentari\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.96,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Nu se adresează niciunei cereri opuse; discursul își urmează propria linie.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"Noi trebuie să votăm desființarea pensiilor speciale pentru parlamentari\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.96,\n      \"marker_confidence\": 0.90,\n      \"rationale_short\": \"Ignoră complet contraargumentele; nu există nicio referire la raționamentul advers.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"Noi trebuie să votăm desființarea pensiilor speciale pentru parlamentari\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.96,\n      \"marker_confidence\": 0.90,\n      \"rationale_short\": \"Pozițional: susține desființarea pensiilor speciale, fără alternativă sau mediere.\"\n    }\n  ],\n  \"rationale\": \"Discursul pledează pentru desființarea pensiilor speciale ale parlamentarilor, invocând un principiu de corectitudine („nu este drept”) fără a oferi o justificare elaborată sau ancorată în surse specifice. Justificarea este de nivel 1, cu apel la binele comun. Nu există angajament cu cererile sau contraargumentele opoziției, iar respectul față de grupuri rămâne neutru. Discursul este strict pozițional, fără propuneri alternative sau de mediere. Calitatea deliberativă este scăzută, tipică pentru un discurs de susținere a unei poziții fără dezbatere substanțială.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12095,
+      "tokens_in_breakdown": {
+        "fresh": 12095,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 4610,
+      "cost_usd": null,
+      "latency_ms": 72655,
+      "retries_used": 0
+    },
+    "vparty": null
+  }
+}

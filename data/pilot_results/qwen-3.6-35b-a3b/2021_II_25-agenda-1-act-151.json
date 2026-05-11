@@ -1,0 +1,151 @@
+{
+  "speech_id": "mo://2021/II/25#agenda-1#act-151",
+  "tier": "moderate",
+  "speaker": {
+    "id": "orban-ludovic",
+    "name": "Ludovic Orban",
+    "raw": "Domnul Ludovic Orban",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2021-02-17",
+    "year": 2021,
+    "legislature": "IX",
+    "delivery_mode": null
+  },
+  "model_key": "qwen-3.6-35b-a3b",
+  "model_label": "qwen-3.6-35b-a3b",
+  "results": {
+    "hawkins": {
+      "model_key": "qwen-3.6-35b-a3b",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2021/II/25#agenda-1#act-151",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.95,
+        "markers": [],
+        "rationale": "Discursul este un argument de politică publică centrat pe desființarea pensiilor speciale pentru parlamentari, fundamentat pe principii de echitate și corectitudine fiscală („corect și normal”). Vorbitorul respinge explicit populismul și demagogia („a lăsa populismul, demagogia, egoismul partinic”) și nu construiește un cadru manihean popor-vs-elită. Contrastul dintre parlamentari și „milioane de români” funcționează ca o invocare standard a justiției sociale în dezbateri de politici, nu ca o viziune populistă pervazivă. Lipsa cadrului moralistic, a invocației de criză sau a supremației voinței populare asupra instituțiilor confirmă Hawkins=0 cu încredere ridicată."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.95,\n  \"markers\": [],\n  \"rationale\": \"Discursul este un argument de politică publică centrat pe desființarea pensiilor speciale pentru parlamentari, fundamentat pe principii de echitate și corectitudine fiscală („corect și normal”). Vorbitorul respinge explicit populismul și demagogia („a lăsa populismul, demagogia, egoismul partinic”) și nu construiește un cadru manihean popor-vs-elită. Contrastul dintre parlamentari și „milioane de români” funcționează ca o invocare standard a justiției sociale în dezbateri de politici, nu ca o viziune populistă pervazivă. Lipsa cadrului moralistic, a invocației de criză sau a supremației voinței populare asupra instituțiilor confirmă Hawkins=0 cu încredere ridicată.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13473,
+      "tokens_in_breakdown": {
+        "fresh": 13473,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 2827,
+      "cost_usd": null,
+      "latency_ms": 26219,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "qwen-3.6-35b-a3b",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2021/II/25#agenda-1#act-151",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.82,
+        "level_of_justification": 2,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "că nu este drept ca parlamentarii României să-și dea pensii speciale, în timp ce milioane de români sunt la pensie și trăiesc din pensie de contributivitate, pentru că așa este corect și normal"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.88,
+            "rationale_short": "Ancoră normativă și socială („nu este drept... în timp ce milioane de români...”) care leagă poziția de un mecanism de echitate; justificare calificată."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "Sănătatea democrației românești depinde de capacitatea noastră de a-i reprezenta în mod onest, cinstit, corect pe cetățenii români."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.86,
+            "rationale_short": "Justificarea apelează la bunăstarea democrației și a cetățenilor români în ansamblu, nu la un interes de partid sau grup specific."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Stimați colegi,"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.72,
+            "rationale_short": "Referință funcțională la colegi și la grupuri afectate; niciun out-group derogat sau respectat explicit; neutru convențional."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Am acceptat pentru că erați gata să blocați adoptarea acestui act normativ."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.78,
+            "rationale_short": "Vorbitorul menționează amenințarea cu blocarea ca motiv pragmatic de acceptare, fără a recunoaște legitimitatea cererii adverse."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "Noi trebuie să votăm desființarea pensiilor speciale pentru parlamentari"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.89,
+            "rationale_short": "Discursul avansează poziția fără a identifica, reformula sau combate raționamentul opoziției; angajament absent."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Noi trebuie să votăm desființarea pensiilor speciale pentru parlamentari"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.91,
+            "rationale_short": "Poziție declarată și susținută („trebuie să votăm desființarea”); nicio alternativă sau mediere propusă."
+          }
+        ],
+        "rationale": "Discursul prezintă o calitate deliberativă moderată, dominată de o justificare calificată (nivel 2) care leagă poziția de principii de echitate și de impactul social asupra cetățenilor români. Conținutul justificării este orientat spre binele comun, fără a invoca interese partinice sau de grup. Totuși, calitatea deliberativă este limitată de absența angajamentului cu raționamentul opoziției (respect_for_counterarguments=0) și de caracterul strict pozițional al intervenției (constructive_politics=positional). Respectul pentru grupuri și cereri rămâne neutru, limitat la adresarea convențională și la menționarea pragmatică a blocajului politic, fără recunoaștere explicită a legitimității adverse. Profilul general este cel al unui discurs de acceptare pragmatică, cu argumentație substanțială pe plan normativ, dar fără construcție deliberativă avansată sau mediere."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.82,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 0,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"că nu este drept ca parlamentarii României să-și dea pensii speciale, în timp ce milioane de români sunt la pensie și trăiesc din pensie de contributivitate, pentru că așa este corect și normal\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Ancoră normativă și socială („nu este drept... în timp ce milioane de români...”) care leagă poziția de un mecanism de echitate; justificare calificată.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"Sănătatea democrației românești depinde de capacitatea noastră de a-i reprezenta în mod onest, cinstit, corect pe cetățenii români.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.86,\n      \"rationale_short\": \"Justificarea apelează la bunăstarea democrației și a cetățenilor români în ansamblu, nu la un interes de partid sau grup specific.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Stimați colegi,\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.72,\n      \"rationale_short\": \"Referință funcțională la colegi și la grupuri afectate; niciun out-group derogat sau respectat explicit; neutru convențional.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Am acceptat pentru că erați gata să blocați adoptarea acestui act normativ.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.78,\n      \"rationale_short\": \"Vorbitorul menționează amenințarea cu blocarea ca motiv pragmatic de acceptare, fără a recunoaște legitimitatea cererii adverse.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"Noi trebuie să votăm desființarea pensiilor speciale pentru parlamentari\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.89,\n      \"rationale_short\": \"Discursul avansează poziția fără a identifica, reformula sau combate raționamentul opoziției; angajament absent.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"Noi trebuie să votăm desființarea pensiilor speciale pentru parlamentari\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.91,\n      \"rationale_short\": \"Poziție declarată și susținută („trebuie să votăm desființarea”); nicio alternativă sau mediere propusă.\"\n    }\n  ],\n  \"rationale\": \"Discursul prezintă o calitate deliberativă moderată, dominată de o justificare calificată (nivel 2) care leagă poziția de principii de echitate și de impactul social asupra cetățenilor români. Conținutul justificării este orientat spre binele comun, fără a invoca interese partinice sau de grup. Totuși, calitatea deliberativă este limitată de absența angajamentului cu raționamentul opoziției (respect_for_counterarguments=0) și de caracterul strict pozițional al intervenției (constructive_politics=positional). Respectul pentru grupuri și cereri rămâne neutru, limitat la adresarea convențională și la menționarea pragmatică a blocajului politic, fără recunoaștere explicită a legitimității adverse. Profilul general este cel al unui discurs de acceptare pragmatică, cu argumentație substanțială pe plan normativ, dar fără construcție deliberativă avansată sau mediere.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12186,
+      "tokens_in_breakdown": {
+        "fresh": 12186,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 5604,
+      "cost_usd": null,
+      "latency_ms": 48306,
+      "retries_used": 0
+    },
+    "vparty": null
+  }
+}

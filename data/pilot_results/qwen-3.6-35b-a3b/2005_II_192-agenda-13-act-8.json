@@ -1,0 +1,151 @@
+{
+  "speech_id": "mo://2005/II/192#agenda-13#act-8",
+  "tier": "moderate",
+  "speaker": {
+    "id": "nastase-adrian",
+    "name": "Adrian N„stase",
+    "raw": "Domnul Adrian N„stase",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": null,
+    "session_date": null,
+    "year": 2005,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "qwen-3.6-35b-a3b",
+  "model_label": "qwen-3.6-35b-a3b",
+  "results": {
+    "hawkins": {
+      "model_key": "qwen-3.6-35b-a3b",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2005/II/192#agenda-13#act-8",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul este strict procedural, limitându-se la administrarea votului pe titlul legii, pe articole și pe amendamente, fără nicio componentă de fond sau de mobilizare politică. Nu apare niciun cadru popor-vs-elită, niciun maniheism moralist, nicio invocare a unei voințe populare omogene sau a unei crize existențiale. Registrul este tehnic și de dezbatere de procedură, conform standardelor parlamentare convenționale. Conform rubricii Hawkins, absența totală a markerilor populist la persoana întâi și natura strict administrativă a intervenției justifică un scor holistic 0 cu încredere ridicată."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul este strict procedural, limitându-se la administrarea votului pe titlul legii, pe articole și pe amendamente, fără nicio componentă de fond sau de mobilizare politică. Nu apare niciun cadru popor-vs-elită, niciun maniheism moralist, nicio invocare a unei voințe populare omogene sau a unei crize existențiale. Registrul este tehnic și de dezbatere de procedură, conform standardelor parlamentare convenționale. Conform rubricii Hawkins, absența totală a markerilor populist la persoana întâi și natura strict administrativă a intervenției justifică un scor holistic 0 cu încredere ridicată.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13586,
+      "tokens_in_breakdown": {
+        "fresh": 13586,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1621,
+      "cost_usd": null,
+      "latency_ms": 13806,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "qwen-3.6-35b-a3b",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2005/II/192#agenda-13#act-8",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.42,
+        "level_of_justification": 0,
+        "content_of_justification": "none",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 0,
+            "evidence": {
+              "text": "Trecem la dezbaterea proiectului de lege."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.88,
+            "rationale_short": "Directive procedurală fără raționament substanțial; lipsă totală de justificare."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "none",
+            "evidence": {
+              "text": "Trecem la dezbaterea proiectului de lege."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.87,
+            "rationale_short": "Nicio justificare oferită; conținutul justificării este, prin urmare, nedefinit."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "V„ mul˛umesc."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.72,
+            "rationale_short": "Adresare convențională; niciun grup specific invocat sau evaluat în text."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Sunt obiec˛ii? Nu sunt obiec˛ii."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.75,
+            "rationale_short": "Nu se abordează cereri adverse; postura este strict procedurală și neutră."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "Nu sunt obiec˛ii."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.82,
+            "rationale_short": "Lipsă totală de angajament cu argumente adverse; ignorare procedurală."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Trecem la dezbaterea proiectului de lege."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.85,
+            "rationale_short": "Directive procedurală; nicio alternativă sau mediere propusă."
+          }
+        ],
+        "rationale": "Discursul este strict procedural, funcția vorbitorului fiind de a conduce dezbaterile legislative, nu de a argumenta o poziție politică. Nu conține justificări substantiale (level_of_justification=0, content=none), ci doar directive administrative pentru aprobarea titlului și articolelor. Respectul pentru grupuri și cereri este neutru (respect_for_groups=1, respect_for_demands=1), deoarece nu se fac referiri la interese specifice sau la poziții adverse. Nu există angajament cu contraargumente (respect_for_counterarguments=0), fiind un fragment de moderare care ignoră complet dimensiunea argumentativă. Poziția este strict procedurală (constructive_politics=positional), fără propuneri alternative sau medieri. Din cauza naturii administrative, a fragmentării și a lipsei de conținut deliberativ, încrederea globală este scăzută (~0.42), iar codarea reflectă limitele inerente ale acestui tip de intervenție în registrul DQI."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.42,\n  \"level_of_justification\": 0,\n  \"content_of_justification\": \"none\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 0,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"Trecem la dezbaterea proiectului de lege.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Directive procedurală fără raționament substanțial; lipsă totală de justificare.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"none\",\n      \"evidence\": {\n        \"text\": \"Trecem la dezbaterea proiectului de lege.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.87,\n      \"rationale_short\": \"Nicio justificare oferită; conținutul justificării este, prin urmare, nedefinit.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"V„ mul˛umesc.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.72,\n      \"rationale_short\": \"Adresare convențională; niciun grup specific invocat sau evaluat în text.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Sunt obiec˛ii? Nu sunt obiec˛ii.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.75,\n      \"rationale_short\": \"Nu se abordează cereri adverse; postura este strict procedurală și neutră.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"Nu sunt obiec˛ii.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.82,\n      \"rationale_short\": \"Lipsă totală de angajament cu argumente adverse; ignorare procedurală.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"Trecem la dezbaterea proiectului de lege.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Directive procedurală; nicio alternativă sau mediere propusă.\"\n    }\n  ],\n  \"rationale\": \"Discursul este strict procedural, funcția vorbitorului fiind de a conduce dezbaterile legislative, nu de a argumenta o poziție politică. Nu conține justificări substantiale (level_of_justification=0, content=none), ci doar directive administrative pentru aprobarea titlului și articolelor. Respectul pentru grupuri și cereri este neutru (respect_for_groups=1, respect_for_demands=1), deoarece nu se fac referiri la interese specifice sau la poziții adverse. Nu există angajament cu contraargumente (respect_for_counterarguments=0), fiind un fragment de moderare care ignoră complet dimensiunea argumentativă. Poziția este strict procedurală (constructive_politics=positional), fără propuneri alternative sau medieri. Din cauza naturii administrative, a fragmentării și a lipsei de conținut deliberativ, încrederea globală este scăzută (~0.42), iar codarea reflectă limitele inerente ale acestui tip de intervenție în registrul DQI.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12299,
+      "tokens_in_breakdown": {
+        "fresh": 12299,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 3898,
+      "cost_usd": null,
+      "latency_ms": 40577,
+      "retries_used": 0
+    },
+    "vparty": null
+  }
+}

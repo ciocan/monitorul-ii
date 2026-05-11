@@ -1,0 +1,151 @@
+{
+  "speech_id": "mo://2005/II/192#agenda-13#act-8",
+  "tier": "moderate",
+  "speaker": {
+    "id": "nastase-adrian",
+    "name": "Adrian N„stase",
+    "raw": "Domnul Adrian N„stase",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": null,
+    "session_date": null,
+    "year": 2005,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemma-4-31b",
+  "model_label": "gemma-4-31b-it",
+  "results": {
+    "hawkins": {
+      "model_key": "gemma-4-31b",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2005/II/192#agenda-13#act-8",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul este pur procedural, concentrându-se pe gestionarea tehnică a unei ședințe parlamentare (votul titlului legii, amendamentele de redactare, aprobarea articolelor). Nu există nicio referință la un conflict între popor și elite, nicio invocare a unei crize sau a unei voințe populare omogene. Vorbitorul utilizează un registru administrativ și neutru, specific conducerii dezbaterilor. Hawkins=0 cu încredere ridicată."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul este pur procedural, concentrându-se pe gestionarea tehnică a unei ședințe parlamentare (votul titlului legii, amendamentele de redactare, aprobarea articolelor). Nu există nicio referință la un conflict între popor și elite, nicio invocare a unei crize sau a unei voințe populare omogene. Vorbitorul utilizează un registru administrativ și neutru, specific conducerii dezbaterilor. Hawkins=0 cu încredere ridicată.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13757,
+      "tokens_in_breakdown": {
+        "fresh": 13757,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 185,
+      "cost_usd": null,
+      "latency_ms": 12475,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemma-4-31b",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2005/II/192#agenda-13#act-8",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.45,
+        "level_of_justification": 0,
+        "content_of_justification": "none",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 0,
+            "evidence": {
+              "text": "Trecem la dezbaterea proiectului de lege. Œncepem cu titlul."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Intervenție pur procedurală; nu există nicio poziție argumentată care să necesite justificare."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "none",
+            "evidence": {
+              "text": "Trecem la dezbaterea proiectului de lege"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Absența justificării face ca conținutul acesteia să fie nedefinit."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "V„ mul˛umesc."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.7,
+            "rationale_short": "Utilizarea formulelor de politețe convenționale; niciun grup social sau politic nu este vizat."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Dac„ sunt obiec˛ii? Nu sunt obiec˛ii."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.8,
+            "rationale_short": "Vorbitorul gestionează procedura de vot fără a angaja substanțial cererile adverse."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "Am v„zut, sunt mai multe amendamente."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.8,
+            "rationale_short": "Recunoaște existența amendamentelor, dar nu angajează raționamentul din spatele acestora."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "v„ rog s„ vedem ∫i propunerea comisiei ∫i, dac„ sunte˛i de acord, s„ opt„m pentru aceast„ variant„."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Vorbitorul propune adoptarea variantei comisiei, o poziție procedurală standard, fără mediere."
+          }
+        ],
+        "rationale": "Acest fragment de discurs are un caracter strict procedural, vorbitorul acționând în calitate de conducător al ședinței pentru a coordona votul unor articole. Nu există un proces de argumentare propriu-zis, ceea ce conduce la un nivel de justificare nul (level_of_justification=0) și un conținut nedefinit. Dimensiunile de respect sunt neutre, reflectând doar protocolul parlamentar, fără angajamente substantive cu contraargumentele sau cererile opoziției. Politica constructivă este codată ca pozițională, deoarece vorbitorul doar facilitează adoptarea propunerilor existente. framework_confidence este scăzut (~0.45) deoarece textul este prea procedural pentru a fi evaluat prin prisma calității deliberative a argumentației, conform rubricii DQI."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.45,\n  \"level_of_justification\": 0,\n  \"content_of_justification\": \"none\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"Trecem la dezbaterea proiectului de lege. Œncepem cu titlul.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Intervenție pur procedurală; nu există nicio poziție argumentată care să necesite justificare.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"none\",\n      \"evidence\": {\n        \"text\": \"Trecem la dezbaterea proiectului de lege\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Absența justificării face ca conținutul acesteia să fie nedefinit.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"V„ mul˛umesc.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.70,\n      \"rationale_short\": \"Utilizarea formulelor de politețe convenționale; niciun grup social sau politic nu este vizat.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Dac„ sunt obiec˛ii? Nu sunt obiec˛ii.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.80,\n      \"rationale_short\": \"Vorbitorul gestionează procedura de vot fără a angaja substanțial cererile adverse.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Am v„zut, sunt mai multe amendamente.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.80,\n      \"rationale_short\": \"Recunoaște existența amendamentelor, dar nu angajează raționamentul din spatele acestora.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"v„ rog s„ vedem ∫i propunerea comisiei ∫i, dac„ sunte˛i de acord, s„ opt„m pentru aceast„ variant„.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Vorbitorul propune adoptarea variantei comisiei, o poziție procedurală standard, fără mediere.\"\n    }\n  ],\n  \"rationale\": \"Acest fragment de discurs are un caracter strict procedural, vorbitorul acționând în calitate de conducător al ședinței pentru a coordona votul unor articole. Nu există un proces de argumentare propriu-zis, ceea ce conduce la un nivel de justificare nul (level_of_justification=0) și un conținut nedefinit. Dimensiunile de respect sunt neutre, reflectând doar protocolul parlamentar, fără angajamente substantive cu contraargumentele sau cererile opoziției. Politica constructivă este codată ca pozițională, deoarece vorbitorul doar facilitează adoptarea propunerilor existente. framework_confidence este scăzut (~0.45) deoarece textul este prea procedural pentru a fi evaluat prin prisma calității deliberative a argumentației, conform rubricii DQI.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12558,
+      "tokens_in_breakdown": {
+        "fresh": 12558,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1134,
+      "cost_usd": null,
+      "latency_ms": 112912,
+      "retries_used": 0
+    },
+    "vparty": null
+  }
+}

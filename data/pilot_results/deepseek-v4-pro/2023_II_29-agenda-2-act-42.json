@@ -1,0 +1,151 @@
+{
+  "speech_id": "mo://2023/II/29#agenda-2#act-42",
+  "tier": "populist",
+  "speaker": {
+    "id": "damureanu-ringo",
+    "name": "Ringo Dămureanu",
+    "raw": "Domnul Ringo Dămureanu",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2023-02-28",
+    "year": 2023,
+    "legislature": "IX",
+    "delivery_mode": null
+  },
+  "model_key": "deepseek-v4-pro",
+  "model_label": "deepseek-v4-pro",
+  "results": {
+    "hawkins": {
+      "model_key": "deepseek-v4-pro",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2023/II/29#agenda-2#act-42",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.95,
+        "markers": [],
+        "rationale": "Discursul este o pledoarie factuală pentru infrastructura de transport din Dolj, enumerând lipsa autostrăzilor, accidente feroviare și întârzieri. Critica finală la adresa PSD și PNL („incompetența dovedită”) este un atac politic obișnuit, nu o construcție maniheană popor-vs-elită. Nu se invocă poporul ca subiect omogen, nu există cadru de criză existențială sau supremație a voinței populare, iar discursul rămâne în registrul unei revendicări regionale concrete. Niciun marker populist nu se aprinde; scorul holistic este 0."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.95,\n  \"markers\": [],\n  \"rationale\": \"Discursul este o pledoarie factuală pentru infrastructura de transport din Dolj, enumerând lipsa autostrăzilor, accidente feroviare și întârzieri. Critica finală la adresa PSD și PNL („incompetența dovedită”) este un atac politic obișnuit, nu o construcție maniheană popor-vs-elită. Nu se invocă poporul ca subiect omogen, nu există cadru de criză existențială sau supremație a voinței populare, iar discursul rămâne în registrul unei revendicări regionale concrete. Niciun marker populist nu se aprinde; scorul holistic este 0.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 14572,
+      "tokens_in_breakdown": {
+        "fresh": 14572,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 933,
+      "cost_usd": null,
+      "latency_ms": 26593,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "deepseek-v4-pro",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2023/II/29#agenda-2#act-42",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.88,
+        "level_of_justification": 1,
+        "content_of_justification": "group_interest",
+        "respect_for_groups": 0,
+        "respect_for_demands": 0,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 1,
+            "evidence": {
+              "text": "Municipiul Craiova, cu o populație de peste 300.000 de locuitori, capitală de regiune europeană, cum ne place să-i spunem, nu este racordat încă, în anul de grație 2023, la nicio autostradă care să îl lege cu capitala țării sau cu Europa, deși a dat țării parlamentari, miniștri și chiar europarlamentari."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.96,
+            "marker_confidence": 0.85,
+            "rationale_short": "Oferă un motiv implicit (lipsa infrastructurii în ciuda contribuțiilor regiunii), dar raționamentul este circular și bazat pe resentiment, nu pe o legătură cauzală specifică."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "group_interest",
+            "evidence": {
+              "text": "Județul Dolj, pe care îl reprezint în Parlament, și, implicit, regiunea Oltenia, par a fi un soi de cenușăreasă"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.92,
+            "rationale_short": "Justificarea se bazează pe interesul explicit al unui grup specific (județul Dolj, regiunea Oltenia, craiovenii)."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 0,
+            "evidence": {
+              "text": "cât vor mai îndura craiovenii și oltenii incompetența dovedită a PSD și PNL?"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.93,
+            "rationale_short": "Atribuie explicit „incompetența dovedită” unor grupuri politice (PSD și PNL), ceea ce constituie o derogare."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 0,
+            "evidence": {
+              "text": "Ați dovedit ceea ce era de dovedit."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.96,
+            "marker_confidence": 0.88,
+            "rationale_short": "Respinge implicit orice cerere sau poziție a guvernării ca fiind deja invalidată, fără a le recunoaște legitimitatea."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "Ne întrebăm și vă întrebăm: oare cât vor mai avea de așteptat Doljul și Oltenia pentru a se bucura de beneficiile civilizației și cât vor mai îndura craiovenii și oltenii incompetența dovedită a PSD și PNL?"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.96,
+            "marker_confidence": 0.91,
+            "rationale_short": "Discursul ignoră complet orice argumente sau justificări pe care guvernarea le-ar fi putut oferi pentru situația infrastructurii."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Garantat, nu multă vreme!"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.96,
+            "marker_confidence": 0.9,
+            "rationale_short": "Discursul se încheie cu o declarație de poziție și o acuzație, fără a oferi o alternativă concretă sau o mediere."
+          }
+        ],
+        "rationale": "Discursul este un rechizitoriu pozițional în numele unui grup de interese (Dolj, Oltenia). Justificarea este de nivel inferior (1), bazându-se pe o enumerare de nemulțumiri și pe un apel la resentiment („a dat țării parlamentari...”), fără a construi un raționament cauzal solid. Conținutul justificării este strict de grup („group_interest”). Pe dimensiunile de respect, discursul este scăzut: acuză explicit PSD și PNL de „incompetență dovedită” (respect_for_groups=0), respinge implicit orice poziție a acestora (respect_for_demands=0) și nu se angajează deloc cu eventualele contraargumente (respect_for_counterarguments=0). Nu oferă nicio propunere alternativă sau de mediere, rămânând strict pozițional. Profilul general este al unui discurs de opoziție cu încărcătură emoțională, dar cu o calitate deliberativă scăzută pe toate planurile."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.88,\n  \"level_of_justification\": 1,\n  \"content_of_justification\": \"group_interest\",\n  \"respect_for_groups\": 0,\n  \"respect_for_demands\": 0,\n  \"respect_for_counterarguments\": 0,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Municipiul Craiova, cu o populație de peste 300.000 de locuitori, capitală de regiune europeană, cum ne place să-i spunem, nu este racordat încă, în anul de grație 2023, la nicio autostradă care să îl lege cu capitala țării sau cu Europa, deși a dat țării parlamentari, miniștri și chiar europarlamentari.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.96,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Oferă un motiv implicit (lipsa infrastructurii în ciuda contribuțiilor regiunii), dar raționamentul este circular și bazat pe resentiment, nu pe o legătură cauzală specifică.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"group_interest\",\n      \"evidence\": {\n        \"text\": \"Județul Dolj, pe care îl reprezint în Parlament, și, implicit, regiunea Oltenia, par a fi un soi de cenușăreasă\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Justificarea se bazează pe interesul explicit al unui grup specific (județul Dolj, regiunea Oltenia, craiovenii).\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"cât vor mai îndura craiovenii și oltenii incompetența dovedită a PSD și PNL?\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"marker_confidence\": 0.93,\n      \"rationale_short\": \"Atribuie explicit „incompetența dovedită” unor grupuri politice (PSD și PNL), ceea ce constituie o derogare.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"Ați dovedit ceea ce era de dovedit.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.96,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Respinge implicit orice cerere sau poziție a guvernării ca fiind deja invalidată, fără a le recunoaște legitimitatea.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"Ne întrebăm și vă întrebăm: oare cât vor mai avea de așteptat Doljul și Oltenia pentru a se bucura de beneficiile civilizației și cât vor mai îndura craiovenii și oltenii incompetența dovedită a PSD și PNL?\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.96,\n      \"marker_confidence\": 0.91,\n      \"rationale_short\": \"Discursul ignoră complet orice argumente sau justificări pe care guvernarea le-ar fi putut oferi pentru situația infrastructurii.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"Garantat, nu multă vreme!\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.96,\n      \"marker_confidence\": 0.90,\n      \"rationale_short\": \"Discursul se încheie cu o declarație de poziție și o acuzație, fără a oferi o alternativă concretă sau o mediere.\"\n    }\n  ],\n  \"rationale\": \"Discursul este un rechizitoriu pozițional în numele unui grup de interese (Dolj, Oltenia). Justificarea este de nivel inferior (1), bazându-se pe o enumerare de nemulțumiri și pe un apel la resentiment („a dat țării parlamentari...”), fără a construi un raționament cauzal solid. Conținutul justificării este strict de grup („group_interest”). Pe dimensiunile de respect, discursul este scăzut: acuză explicit PSD și PNL de „incompetență dovedită” (respect_for_groups=0), respinge implicit orice poziție a acestora (respect_for_demands=0) și nu se angajează deloc cu eventualele contraargumente (respect_for_counterarguments=0). Nu oferă nicio propunere alternativă sau de mediere, rămânând strict pozițional. Profilul general este al unui discurs de opoziție cu încărcătură emoțională, dar cu o calitate deliberativă scăzută pe toate planurile.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12884,
+      "tokens_in_breakdown": {
+        "fresh": 12884,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1417,
+      "cost_usd": null,
+      "latency_ms": 27278,
+      "retries_used": 0
+    },
+    "vparty": null
+  }
+}

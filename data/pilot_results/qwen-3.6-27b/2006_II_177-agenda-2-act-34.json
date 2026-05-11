@@ -1,0 +1,72 @@
+{
+  "speech_id": "mo://2006/II/177#agenda-2#act-34",
+  "tier": "register_shift",
+  "speaker": {
+    "id": "ponta-victor-viorel",
+    "name": "Victor Viorel Ponta",
+    "raw": "Domnul Victor Viorel Ponta",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": null,
+    "session_date": null,
+    "year": 2006,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "qwen-3.6-27b",
+  "model_label": "qwen-3.6-27b",
+  "results": {
+    "hawkins": {
+      "model_key": "qwen-3.6-27b",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2006/II/177#agenda-2#act-34",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul este un transcript strict procedural al adoptării pe articole a unui proiect de lege, fără nicio intervenție substanțială sau retorică din partea vorbitorilor. Textul se limitează la formulări de birou parlamentare („Obiecțiuni? Nu există. Adoptat.”), la menționarea punctelor de ordine și la stabilirea procedurii de urgență. Nu există niciun cadru popor-vs-elită, niciun maniheism moral, nici invocarea unei voințe populare omogene sau a unei crize existențiale. Înregistrarea reflectă exclusiv registrul tehnic și formal al dezbaterii legislative, conform așteptărilor pentru un scor Hawkins=0."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul este un transcript strict procedural al adoptării pe articole a unui proiect de lege, fără nicio intervenție substanțială sau retorică din partea vorbitorilor. Textul se limitează la formulări de birou parlamentare („Obiecțiuni? Nu există. Adoptat.”), la menționarea punctelor de ordine și la stabilirea procedurii de urgență. Nu există niciun cadru popor-vs-elită, niciun maniheism moral, nici invocarea unei voințe populare omogene sau a unei crize existențiale. Înregistrarea reflectă exclusiv registrul tehnic și formal al dezbaterii legislative, conform așteptărilor pentru un scor Hawkins=0.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 14287,
+      "tokens_in_breakdown": {
+        "fresh": 14287,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1624,
+      "cost_usd": null,
+      "latency_ms": 27207,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "qwen-3.6-27b",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2006/II/177#agenda-2#act-34",
+      "output": null,
+      "raw_response": null,
+      "error": "json_parse",
+      "error_detail": "strict: Expecting value: line 1 column 1 (char 0); repair: Expecting value: line 1 column 1 (char 0)",
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13000,
+      "tokens_in_breakdown": {
+        "fresh": 13000,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 3309,
+      "cost_usd": null,
+      "latency_ms": 170549,
+      "retries_used": 0
+    },
+    "vparty": null
+  }
+}

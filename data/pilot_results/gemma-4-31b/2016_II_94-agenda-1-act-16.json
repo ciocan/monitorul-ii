@@ -1,0 +1,151 @@
+{
+  "speech_id": "mo://2016/II/94#agenda-1#act-16",
+  "tier": "register_shift",
+  "speaker": {
+    "id": "popescu-tariceanu-calin",
+    "name": "Călin Constantin Anton Popescu-Tăriceanu",
+    "raw": "Domnul Călin Constantin Anton Popescu-Tăriceanu",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2016-05-10",
+    "year": 2016,
+    "legislature": "VII",
+    "delivery_mode": null
+  },
+  "model_key": "gemma-4-31b",
+  "model_label": "gemma-4-31b-it",
+  "results": {
+    "hawkins": {
+      "model_key": "gemma-4-31b",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2016/II/94#agenda-1#act-16",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul este pur procedural și administrativ, limitându-se la organizarea ședinței și la informarea parlamentarilor despre depunerea unor legi pentru sesizarea Curții Constituționale. Nu există niciun element de retorică populistă, niciun cadru de tip popor-vs-elită și nicio invocare a unei crize sau a unei voințe populare omogene. Vorbitorul utilizează un registru tehnic, referindu-se la prevederi legale specifice (Legea nr. 47/1992). Hawkins=0 cu încredere ridicată."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul este pur procedural și administrativ, limitându-se la organizarea ședinței și la informarea parlamentarilor despre depunerea unor legi pentru sesizarea Curții Constituționale. Nu există niciun element de retorică populistă, niciun cadru de tip popor-vs-elită și nicio invocare a unei crize sau a unei voințe populare omogene. Vorbitorul utilizează un registru tehnic, referindu-se la prevederi legale specifice (Legea nr. 47/1992). Hawkins=0 cu încredere ridicată.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13730,
+      "tokens_in_breakdown": {
+        "fresh": 13730,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 202,
+      "cost_usd": null,
+      "latency_ms": 16144,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemma-4-31b",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2016/II/94#agenda-1#act-16",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.45,
+        "level_of_justification": 0,
+        "content_of_justification": "none",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 0,
+            "evidence": {
+              "text": "Vă informez că, în conformitate cu prevederile art. 15 alin. (2) și (3) din Legea nr. 47/1992"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Text pur procedural de informare; nu există o poziție argumentată care să necesite justificare."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "none",
+            "evidence": {
+              "text": "Vă informez că"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Absența unei justificări substantive face ca conținutul acesteia să fie nedefinit."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Doamnelor și domnilor senatori și deputați"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Adresare formală și convențională; nu există derogare sau recunoaștere explicită a legitimității unui grup."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "în vederea exercitării de către senatori și deputați a dreptului de sesizare a Curții Constituționale"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.7,
+            "rationale_short": "Referire funcțională la un drept procedural, fără a angaja legitimitatea unor cereri politice specifice."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "s-au depus la secretarii generali ai Senatului și Camerei Deputaților"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.7,
+            "rationale_short": "Nicio referire la contraargumente; discursul este pur administrativ."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Îi invit pe membrii Birourilor permanente să se întrunească"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.8,
+            "rationale_short": "Intervenție procedurală; nu propune alternative sau mediere politică."
+          }
+        ],
+        "rationale": "Discursul analizat are un caracter pur procedural și administrativ, fiind o informare privind depunerea sesizărilor la Curtea Constituțională și o invitație pentru membrii Birourilor permanente. Nu există o argumentație politică, ceea ce conduce la un scor de justificare nul (level_of_justification=0) și un conținut nedefinit. Dimensiunile de respect sunt neutre, reflectând doar protocolul parlamentar standard. Nu se observă nicio încercare de mediere sau propunere alternativă, fiind o intervenție de tip pozițional/funcțional. framework_confidence este scăzut deoarece textul nu reprezintă un act de deliberare, ci o comunicare tehnică, făcând aplicarea rubricii DQI marginală."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.45,\n  \"level_of_justification\": 0,\n  \"content_of_justification\": \"none\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"Vă informez că, în conformitate cu prevederile art. 15 alin. (2) și (3) din Legea nr. 47/1992\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.90,\n      \"rationale_short\": \"Text pur procedural de informare; nu există o poziție argumentată care să necesite justificare.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"none\",\n      \"evidence\": {\n        \"text\": \"Vă informez că\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.90,\n      \"rationale_short\": \"Absența unei justificări substantive face ca conținutul acesteia să fie nedefinit.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Doamnelor și domnilor senatori și deputați\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Adresare formală și convențională; nu există derogare sau recunoaștere explicită a legitimității unui grup.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"în vederea exercitării de către senatori și deputați a dreptului de sesizare a Curții Constituționale\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.70,\n      \"rationale_short\": \"Referire funcțională la un drept procedural, fără a angaja legitimitatea unor cereri politice specifice.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"s-au depus la secretarii generali ai Senatului și Camerei Deputaților\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.70,\n      \"rationale_short\": \"Nicio referire la contraargumente; discursul este pur administrativ.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"Îi invit pe membrii Birourilor permanente să se întrunească\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.80,\n      \"rationale_short\": \"Intervenție procedurală; nu propune alternative sau mediere politică.\"\n    }\n  ],\n  \"rationale\": \"Discursul analizat are un caracter pur procedural și administrativ, fiind o informare privind depunerea sesizărilor la Curtea Constituțională și o invitație pentru membrii Birourilor permanente. Nu există o argumentație politică, ceea ce conduce la un scor de justificare nul (level_of_justification=0) și un conținut nedefinit. Dimensiunile de respect sunt neutre, reflectând doar protocolul parlamentar standard. Nu se observă nicio încercare de mediere sau propunere alternativă, fiind o intervenție de tip pozițional/funcțional. framework_confidence este scăzut deoarece textul nu reprezintă un act de deliberare, ci o comunicare tehnică, făcând aplicarea rubricii DQI marginală.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12531,
+      "tokens_in_breakdown": {
+        "fresh": 12531,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1133,
+      "cost_usd": null,
+      "latency_ms": 57512,
+      "retries_used": 0
+    },
+    "vparty": null
+  }
+}

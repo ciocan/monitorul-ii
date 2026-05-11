@@ -1,0 +1,151 @@
+{
+  "speech_id": "mo://2023/II/150#agenda-1#act-76",
+  "tier": "populist",
+  "speaker": {
+    "id": "sosoaca-diana",
+    "name": "Diana Iovanovici-Șoșoacă",
+    "raw": "Doamna Diana Iovanovici-Șoșoacă",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": "2023-10-30",
+    "year": 2023,
+    "legislature": "IX",
+    "delivery_mode": null
+  },
+  "model_key": "qwen-3.6-27b",
+  "model_label": "qwen-3.6-27b",
+  "results": {
+    "hawkins": {
+      "model_key": "qwen-3.6-27b",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2023/II/150#agenda-1#act-76",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.97,
+        "markers": [],
+        "rationale": "Discurs procedural și juridic care analizează un proiect de lege privind hărțuirea online și ordinele de protecție. Vorbitorul subliniază riscurile de supraîncărcare a poliției, posibilitatea criminalizării criticii legitime și lipsa pregătirii instituționale, folosind un registru tehnocratic și de politici publice. Nu există un cadru popor-vs-elită, nici maniheism moralist, nici invocarea unei voințe populare omogene. Critica este nuanțată („este o lege foarte bună... dar atenție la aceste lucruri”), specifică articolelor de lege și capacităților de aplicare. Hawkins=0 cu încredere ridicată."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.97,\n  \"markers\": [],\n  \"rationale\": \"Discurs procedural și juridic care analizează un proiect de lege privind hărțuirea online și ordinele de protecție. Vorbitorul subliniază riscurile de supraîncărcare a poliției, posibilitatea criminalizării criticii legitime și lipsa pregătirii instituționale, folosind un registru tehnocratic și de politici publice. Nu există un cadru popor-vs-elită, nici maniheism moralist, nici invocarea unei voințe populare omogene. Critica este nuanțată („este o lege foarte bună... dar atenție la aceste lucruri”), specifică articolelor de lege și capacităților de aplicare. Hawkins=0 cu încredere ridicată.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 14039,
+      "tokens_in_breakdown": {
+        "fresh": 14039,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 2401,
+      "cost_usd": null,
+      "latency_ms": 81931,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "qwen-3.6-27b",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2023/II/150#agenda-1#act-76",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.85,
+        "level_of_justification": 2,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 2,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "Nu poți să spui „orice act de hărțuire online”, pentru că hărțuirea asta poate să fie, într-adevăr, o critică sau poate să fie, evident, un mesaj de amenințare."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.92,
+            "rationale_short": "Justificare calificată prin mecanism concret (supraîncărcarea poliției) și distincție substanțială (critică vs. amenințare reală)."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "este normal să se extindă de la domeniul familial la cel, normal, în viața de zi cu zi, social"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.9,
+            "rationale_short": "Apel la funcționarea eficientă a sistemului și la extinderea protecției pentru toți cetățenii, nu la interes de grup."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "femeia – sau și bărbatul, am avut astfel de cazuri"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.88,
+            "rationale_short": "Referință funcțională la victime și polițiști; niciun ton derogatoriu sau recunoaștere explicită de out-group."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 2,
+            "evidence": {
+              "text": "În rest este o lege foarte bună și este normal să se extindă de la domeniul familial la cel, normal, în viața de zi cu zi, social."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.96,
+            "marker_confidence": 0.93,
+            "rationale_short": "Recunoaștere explicită a meritului și legitimității proiectului de lege în ansamblul său."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "polițistul să nu mai poată să ancheteze acel caz și să acționeze imediat din cauza nenumăratelor altor cazuri în care există doar un fel de critică"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.91,
+            "rationale_short": "Vorbitorul își dezvoltă propria linie de argumentare fără a reformula sau combate raționamentul advers."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Dar atenție la aceste lucruri care pot duce la ineficiența legii; mai mult, nu avem polițiști pregătiți pentru așa ceva!"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.9,
+            "rationale_short": "Poziție critică de avertizare privind implementarea; nicio propunere alternativă sau amendament concret formulat."
+          }
+        ],
+        "rationale": "Discursul prezintă un profil deliberativ echilibrat, dominat de o justificare calificată (nivel 2) care se ancorează pe riscuri practice de implementare și pe distincția dintre critică legitimă și amenințare reală. Justificarea apelează clar la binele comun și la eficiența sistemului de justiție, fără a invoca interese de partid sau de grup. Deși vorbitorul recunoaște explicit legitimitatea și calitatea generală a proiectului de lege (respect_for_demands=2), nu oferă o propunere alternativă concretă, rămânând pe o poziție de avertizare (constructive_politics=positional). Respectul pentru grupuri este neutru, iar contraargumentele adverselor nu sunt adresate substanțial, vorbitorul concentrându-se exclusiv pe propria experiență profesională și pe mecanismele de supraîncărcare instituțională. În ansamblu, discursul este pragmatic și bine fundamentat, dar rămâne pe planul pozițional fără a oferi soluții legislative alternative."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.85,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 2,\n  \"respect_for_counterarguments\": 0,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"Nu poți să spui „orice act de hărțuire online”, pentru că hărțuirea asta poate să fie, într-adevăr, o critică sau poate să fie, evident, un mesaj de amenințare.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Justificare calificată prin mecanism concret (supraîncărcarea poliției) și distincție substanțială (critică vs. amenințare reală).\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"este normal să se extindă de la domeniul familial la cel, normal, în viața de zi cu zi, social\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.90,\n      \"rationale_short\": \"Apel la funcționarea eficientă a sistemului și la extinderea protecției pentru toți cetățenii, nu la interes de grup.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"femeia – sau și bărbatul, am avut astfel de cazuri\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Referință funcțională la victime și polițiști; niciun ton derogatoriu sau recunoaștere explicită de out-group.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"În rest este o lege foarte bună și este normal să se extindă de la domeniul familial la cel, normal, în viața de zi cu zi, social.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.96,\n      \"marker_confidence\": 0.93,\n      \"rationale_short\": \"Recunoaștere explicită a meritului și legitimității proiectului de lege în ansamblul său.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"polițistul să nu mai poată să ancheteze acel caz și să acționeze imediat din cauza nenumăratelor altor cazuri în care există doar un fel de critică\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.91,\n      \"rationale_short\": \"Vorbitorul își dezvoltă propria linie de argumentare fără a reformula sau combate raționamentul advers.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"Dar atenție la aceste lucruri care pot duce la ineficiența legii; mai mult, nu avem polițiști pregătiți pentru așa ceva!\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.90,\n      \"rationale_short\": \"Poziție critică de avertizare privind implementarea; nicio propunere alternativă sau amendament concret formulat.\"\n    }\n  ],\n  \"rationale\": \"Discursul prezintă un profil deliberativ echilibrat, dominat de o justificare calificată (nivel 2) care se ancorează pe riscuri practice de implementare și pe distincția dintre critică legitimă și amenințare reală. Justificarea apelează clar la binele comun și la eficiența sistemului de justiție, fără a invoca interese de partid sau de grup. Deși vorbitorul recunoaște explicit legitimitatea și calitatea generală a proiectului de lege (respect_for_demands=2), nu oferă o propunere alternativă concretă, rămânând pe o poziție de avertizare (constructive_politics=positional). Respectul pentru grupuri este neutru, iar contraargumentele adverselor nu sunt adresate substanțial, vorbitorul concentrându-se exclusiv pe propria experiență profesională și pe mecanismele de supraîncărcare instituțională. În ansamblu, discursul este pragmatic și bine fundamentat, dar rămâne pe planul pozițional fără a oferi soluții legislative alternative.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12752,
+      "tokens_in_breakdown": {
+        "fresh": 12752,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 6016,
+      "cost_usd": null,
+      "latency_ms": 148001,
+      "retries_used": 0
+    },
+    "vparty": null
+  }
+}

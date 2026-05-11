@@ -180,6 +180,27 @@ MODELS: dict[str, dict[str, Any]] = {
         "label": "glm-5.1",
         "supports_strict_json_schema": True,
     },
+    # OpenRouter — OpenAI GPT-OSS 120B
+    "gpt-oss-120b": {
+        "launcher": "openrouter",
+        "model_arg": "openai/gpt-oss-120b",
+        "label": "gpt-oss-120b",
+        "supports_strict_json_schema": True,
+    },
+    # OpenRouter — DeepSeek V4 Pro
+    "deepseek-v4-pro": {
+        "launcher": "openrouter",
+        "model_arg": "deepseek/deepseek-v4-pro",
+        "label": "deepseek-v4-pro",
+        "supports_strict_json_schema": True,
+    },
+    # OpenRouter — DeepSeek V4 Flash
+    "deepseek-v4-flash": {
+        "launcher": "openrouter",
+        "model_arg": "deepseek/deepseek-v4-flash",
+        "label": "deepseek-v4-flash",
+        "supports_strict_json_schema": True,
+    },
 }
 
 PROMPT_FILES: dict[str, tuple[Path, Path]] = {

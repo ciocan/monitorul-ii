@@ -1,0 +1,72 @@
+{
+  "speech_id": "mo://2016/II/94#agenda-1#act-16",
+  "tier": "register_shift",
+  "speaker": {
+    "id": "popescu-tariceanu-calin",
+    "name": "Călin Constantin Anton Popescu-Tăriceanu",
+    "raw": "Domnul Călin Constantin Anton Popescu-Tăriceanu",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2016-05-10",
+    "year": 2016,
+    "legislature": "VII",
+    "delivery_mode": null
+  },
+  "model_key": "deepseek-v4-pro",
+  "model_label": "deepseek-v4-pro",
+  "results": {
+    "hawkins": {
+      "model_key": "deepseek-v4-pro",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2016/II/94#agenda-1#act-16",
+      "output": {
+        "framework_confidence": 0.98,
+        "framework_version": "hawkins@2018",
+        "markers": [],
+        "rationale": "Discursul este o comunicare procedurală a președintelui de ședință: invită membrii Birourilor permanente la o ședință administrativă și informează plenul despre depunerea unor legi la secretarii generali, în vederea sesizării Curții Constituționale, conform Legii nr. 47/1992. Nu conține niciun cadru de tip popor-vs-elită, nici invocări maniheiste, nici referiri la o voință populară omogenă sau la o criză. Registrul este strict instituțional și neutru. Hawkins=0 cu încredere foarte ridicată.",
+        "score": 0,
+        "score_unit": "ordinal_0_2"
+      },
+      "raw_response": "{\n  \"framework_confidence\": 0.98,\n  \"framework_version\": \"hawkins@2018\",\n  \"markers\": [],\n  \"rationale\": \"Discursul este o comunicare procedurală a președintelui de ședință: invită membrii Birourilor permanente la o ședință administrativă și informează plenul despre depunerea unor legi la secretarii generali, în vederea sesizării Curții Constituționale, conform Legii nr. 47/1992. Nu conține niciun cadru de tip popor-vs-elită, nici invocări maniheiste, nici referiri la o voință populară omogenă sau la o criză. Registrul este strict instituțional și neutru. Hawkins=0 cu încredere foarte ridicată.\",\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13837,
+      "tokens_in_breakdown": {
+        "fresh": 13837,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 290,
+      "cost_usd": null,
+      "latency_ms": 75157,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "deepseek-v4-pro",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2016/II/94#agenda-1#act-16",
+      "output": null,
+      "raw_response": null,
+      "error": "json_parse",
+      "error_detail": "strict: Expecting value: line 1 column 1 (char 0); repair: Expecting value: line 1 column 1 (char 0)",
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12149,
+      "tokens_in_breakdown": {
+        "fresh": 12149,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 16384,
+      "cost_usd": null,
+      "latency_ms": 471581,
+      "retries_used": 0
+    },
+    "vparty": null
+  }
+}

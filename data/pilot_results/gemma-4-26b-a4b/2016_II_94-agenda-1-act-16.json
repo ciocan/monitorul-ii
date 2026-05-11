@@ -1,0 +1,151 @@
+{
+  "speech_id": "mo://2016/II/94#agenda-1#act-16",
+  "tier": "register_shift",
+  "speaker": {
+    "id": "popescu-tariceanu-calin",
+    "name": "Călin Constantin Anton Popescu-Tăriceanu",
+    "raw": "Domnul Călin Constantin Anton Popescu-Tăriceanu",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2016-05-10",
+    "year": 2016,
+    "legislature": "VII",
+    "delivery_mode": null
+  },
+  "model_key": "gemma-4-26b-a4b",
+  "model_label": "gemma-4-26b-a4b-it",
+  "results": {
+    "hawkins": {
+      "model_key": "gemma-4-26b-a4b",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2016/II/94#agenda-1#act-16",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 1.0,
+        "markers": [],
+        "rationale": "Discursul este strict procedural și administrativ, concentrându-se pe formalități parlamentare (constatarea rezultatului votului, semnarea procesului-verbal) și pe citarea unor prevederi legale (Legea nr. 47/1992). Nu există nicio mențiune a unui cadru popor-vs-elită, nicio invocare a unei voințe populare sau a unei crize. Vorbitorul utilizează un registru tehnocratic și instituțional, fără nicio tentativă de mobilizare populistă. Hawkins=0 cu încredere maximă."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 1.0,\n  \"markers\": [],\n  \"rationale\": \"Discursul este strict procedural și administrativ, concentrându-se pe formalități parlamentare (constatarea rezultatului votului, semnarea procesului-verbal) și pe citarea unor prevederi legale (Legea nr. 47/1992). Nu există nicio mențiune a unui cadru popor-vs-elită, nicio invocare a unei voințe populare sau a unei crize. Vorbitorul utilizează un registru tehnocratic și instituțional, fără nicio tentativă de mobilizare populistă. Hawkins=0 cu încredere maximă.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13730,
+      "tokens_in_breakdown": {
+        "fresh": 13730,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 198,
+      "cost_usd": null,
+      "latency_ms": 2835,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemma-4-26b-a4b",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2016/II/94#agenda-1#act-16",
+      "output": {
+        "constructive_politics": "positional",
+        "content_of_justification": "none",
+        "framework_confidence": 0.35,
+        "framework_version": "steiner-bachtiger@2017",
+        "level_of_justification": 0,
+        "markers": [
+          {
+            "evidence": {
+              "text": "Vă informez că, în conformitate cu prevederile art. 15 alin. (2) și (3) din Legea nr. 47/1992 privind organizarea și funcționarea Curții Constituționale, republicată, astăzi, 10 mai 2016, s-au depus la secretarii generali ai Senatului și Camerei Deputaților"
+            },
+            "kind": "content_of_justification",
+            "marker_confidence": 0.85,
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "rationale_short": "Fragmentul este de natură procedurală/informativă, nu oferă o justificare a unei poziții politice.",
+            "value": "none"
+          },
+          {
+            "evidence": {
+              "text": "Vă informez că, în conformitate cu prevederile art. 15 alin. (2) și (3) din Legea nr. 47/1992 privind organizarea și funcționarea Curții Constituționale"
+            },
+            "kind": "constructive_politics",
+            "marker_confidence": 0.8,
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "rationale_short": "Intervenție pur procedurală; nu există o poziție politică sau o propunere de mediere.",
+            "value": "positional"
+          },
+          {
+            "evidence": {
+              "text": "Vă informez că"
+            },
+            "kind": "level_of_justification",
+            "marker_confidence": 0.85,
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "rationale_short": "Nicio poziție politică este argumentată; textul este o simplă comunicare de fapte procedurale.",
+            "value": 0
+          },
+          {
+            "evidence": {
+              "text": "Doamnelor și domnilor senatori și deputați"
+            },
+            "kind": "respect_for_groups",
+            "marker_confidence": 0.7,
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "rationale_short": "Adresare formală standard; neutru implicit.",
+            "value": 1
+          },
+          {
+            "evidence": {
+              "text": "Vă informez că"
+            },
+            "kind": "respect_for_counterarguments",
+            "marker_confidence": 0.6,
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "rationale_short": "Nu există argumente adverse abordate; discursul este pur informativ.",
+            "value": 1
+          },
+          {
+            "evidence": {
+              "text": "Vă informez că"
+            },
+            "kind": "respect_for_demands",
+            "marker_confidence": 0.6,
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "rationale_short": "Nicio cerere sau exigență politică este menționată sau abordată.",
+            "value": 1
+          }
+        ],
+        "rationale": "Fragmentul analizat este de natură strict procedurală și administrativă, neavând caracter deliberativ. Vorbitorul doar informează despre depunerea unor legi pentru sesizarea Curții Constituționale, fără a exprima o poziție politică, o opinie sau o argumentare (level_of_justification=0, content=none). Nu există interacțiune cu argumente sau cereri adverse (respect_for_counterarguments=1, respect_for_demands=1), iar abordarea este neutru formal față de grupuri (respect_for_groups=1). Deoarece nu se propune nicio alternativă sau mediere, discursul este clasificat ca fiind pur pozițional/procedural (constructive_politics=positional). framework_confidence este scăzut deoarece DQI nu este instrumentul optim pentru a codifica acte pur administrative care lipsesc de argumentație.",
+        "respect_for_counterarguments": 1,
+        "respect_for_demands": 1,
+        "respect_for_groups": 1,
+        "score_unit": "dqi_multi"
+      },
+      "raw_response": "{\n  \"constructive_politics\": \"positional\",\n  \"content_of_justification\": \"none\",\n  \"framework_confidence\": 0.35,\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"level_of_justification\": 0,\n  \"markers\": [\n    {\n      \"evidence\": {\n        \"text\": \"Vă informez că, în conformitate cu prevederile art. 15 alin. (2) și (3) din Legea nr. 47/1992 privind organizarea și funcționarea Curții Constituționale, republicată, astăzi, 10 mai 2016, s-au depus la secretarii generali ai Senatului și Camerei Deputaților\"\n      },\n      \"kind\": \"content_of_justification\",\n      \"marker_confidence\": 0.85,\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"rationale_short\": \"Fragmentul este de natură procedurală/informativă, nu oferă o justificare a unei poziții politice.\",\n      \"value\": \"none\"\n    },\n    {\n      \"evidence\": {\n        \"text\": \"Vă informez că, în conformitate cu prevederile art. 15 alin. (2) și (3) din Legea nr. 47/1992 privind organizarea și funcționarea Curții Constituționale\"\n      },\n      \"kind\": \"constructive_politics\",\n      \"marker_confidence\": 0.80,\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"rationale_short\": \"Intervenție pur procedurală; nu există o poziție politică sau o propunere de mediere.\",\n      \"value\": \"positional\"\n    },\n    {\n      \"evidence\": {\n        \"text\": \"Vă informez că\"\n      },\n      \"kind\": \"level_of_justification\",\n      \"marker_confidence\": 0.85,\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"rationale_short\": \"Nicio poziție politică este argumentată; textul este o simplă comunicare de fapte procedurale.\",\n      \"value\": 0\n    },\n    {\n      \"evidence\": {\n        \"text\": \"Doamnelor și domnilor senatori și deputați\"\n      },\n      \"kind\": \"respect_for_groups\",\n      \"marker_confidence\": 0.70,\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"rationale_short\": \"Adresare formală standard; neutru implicit.\",\n      \"value\": 1\n    },\n    {\n      \"evidence\": {\n        \"text\": \"Vă informez că\"\n      },\n      \"kind\": \"respect_for_counterarguments\",\n      \"marker_confidence\": 0.60,\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"rationale_short\": \"Nu există argumente adverse abordate; discursul este pur informativ.\",\n      \"value\": 1\n    },\n    {\n      \"evidence\": {\n        \"text\": \"Vă informez că\"\n      },\n      \"kind\": \"respect_for_demands\",\n      \"marker_confidence\": 0.60,\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"rationale_short\": \"Nicio cerere sau exigență politică este menționată sau abordată.\",\n      \"value\": 1\n    }\n  ],\n  \"rationale\": \"Fragmentul analizat este de natură strict procedurală și administrativă, neavând caracter deliberativ. Vorbitorul doar informează despre depunerea unor legi pentru sesizarea Curții Constituționale, fără a exprima o poziție politică, o opinie sau o argumentare (level_of_justification=0, content=none). Nu există interacțiune cu argumente sau cereri adverse (respect_for_counterarguments=1, respect_for_demands=1), iar abordarea este neutru formal față de grupuri (respect_for_groups=1). Deoarece nu se propune nicio alternativă sau mediere, discursul este clasificat ca fiind pur pozițional/procedural (constructive_politics=positional). framework_confidence este scăzut deoarece DQI nu este instrumentul optim pentru a codifica acte pur administrative care lipsesc de argumentație.\",\n  \"respect_for_counterarguments\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_groups\": 1,\n  \"score_unit\": \"dqi_multi\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12531,
+      "tokens_in_breakdown": {
+        "fresh": 12531,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1199,
+      "cost_usd": null,
+      "latency_ms": 41830,
+      "retries_used": 0
+    },
+    "vparty": null
+  }
+}

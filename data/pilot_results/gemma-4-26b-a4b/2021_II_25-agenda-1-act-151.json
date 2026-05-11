@@ -1,0 +1,211 @@
+{
+  "speech_id": "mo://2021/II/25#agenda-1#act-151",
+  "tier": "moderate",
+  "speaker": {
+    "id": "orban-ludovic",
+    "name": "Ludovic Orban",
+    "raw": "Domnul Ludovic Orban",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2021-02-17",
+    "year": 2021,
+    "legislature": "IX",
+    "delivery_mode": null
+  },
+  "model_key": "gemma-4-26b-a4b",
+  "model_label": "gemma-4-26b-a4b-it",
+  "results": {
+    "hawkins": {
+      "model_key": "gemma-4-26b-a4b",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2021/II/25#agenda-1#act-151",
+      "output": {
+        "score": 1,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.88,
+        "markers": [
+          {
+            "kind": "people_vs_elite",
+            "evidence": {
+              "text": "desființarea pensiilor speciale pentru parlamentari, că nu este drept ca parlamentarii României să-și dea pensii speciale, în timp ce milioane de români sunt la pensie și trăiesc din pensie de contributivitate"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.96,
+            "marker_confidence": 0.92,
+            "rationale_short": "Contrastul dintre privilegiile parlamentarilor și realitatea celor milioane de români care trăiesc din pensii de contributivitate creează un cadru popor-vs-elită."
+          },
+          {
+            "kind": "moralistic_manichaeism",
+            "evidence": {
+              "text": "pentru că așa este corect și normal"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.9,
+            "marker_confidence": 0.75,
+            "rationale_short": "Utilizarea termenilor de moralitate („corect și normal”) pentru a valida o poziție politică, deși într-un context de argumentare de politică publică."
+          }
+        ],
+        "rationale": "Discursul este în principal unul de politică publică, axat pe o reformă concretă (desființarea pensiilor speciale) și pe argumente de echitate socială. Totuși, vorbitorul folosește un cadru de tip people-vs-elite prin contrastarea directă a beneficiilor parlamentarilor cu situația „milioanelor de români”, și apelează la un registru moralist („corect și normal”). Deoarece aceste elemente apar ca momente retorice într-un discurs care altfel urmărește o reformă legislativă și nu susține un manifest populist pervaziv, scorul este 1. Nu există un maniheism structural sau o invocare a unei voințe populare care să suprimați procedurile instituționale, ceea ce exclude scorul 2."
+      },
+      "raw_response": "{\n  \"score\": 1,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.88,\n  \"markers\": [\n    {\n      \"kind\": \"people_vs_elite\",\n      \"evidence\": {\n        \"text\": \"desființarea pensiilor speciale pentru parlamentari, că nu este drept ca parlamentarii României să-și dea pensii speciale, în timp ce milioane de români sunt la pensie și trăiesc din pensie de contributivitate\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.96,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Contrastul dintre privilegiile parlamentarilor și realitatea celor milioane de români care trăiesc din pensii de contributivitate creează un cadru popor-vs-elită.\"\n    },\n    {\n      \"kind\": \"moralistic_manichaeism\",\n      \"evidence\": {\n        \"text\": \"pentru că așa este corect și normal\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.90,\n      \"marker_confidence\": 0.75,\n      \"rationale_short\": \"Utilizarea termenilor de moralitate („corect și normal”) pentru a valida o poziție politică, deși într-un context de argumentare de politică publică.\"\n    }\n  ],\n  \"rationale\": \"Discursul este în principal unul de politică publică, axat pe o reformă concretă (desființarea pensiilor speciale) și pe argumente de echitate socială. Totuși, vorbitorul folosește un cadru de tip people-vs-elite prin contrastarea directă a beneficiilor parlamentarilor cu situația „milioanelor de români”, și apelează la un registru moralist („corect și normal”). Deoarece aceste elemente apar ca momente retorice într-un discurs care altfel urmărește o reformă legislativă și nu susține un manifest populist pervaziv, scorul este 1. Nu există un maniheism structural sau o invocare a unei voințe populare care să suprimați procedurile instituționale, ceea ce exclude scorul 2.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13654,
+      "tokens_in_breakdown": {
+        "fresh": 13654,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 575,
+      "cost_usd": null,
+      "latency_ms": 5383,
+      "retries_used": 0
+    },
+    "voice": {
+      "model_key": "gemma-4-26b-a4b",
+      "prompt_kind": "voice",
+      "speech_id": "mo://2021/II/25#agenda-1#act-151",
+      "output": {
+        "classifications": [
+          {
+            "marker_id": "m_0",
+            "voice": "speaker_first_person",
+            "voice_confidence": 0.96,
+            "voice_evidence": null,
+            "attributed_to": null,
+            "rationale_short": "Afirmație directă la persoana întâi (subiectul 'noi' este implicat prin verbul 'trebuie să votăm'); vorbitorul își asumă cererea."
+          },
+          {
+            "marker_id": "m_1",
+            "voice": "speaker_first_person",
+            "voice_confidence": 0.96,
+            "voice_evidence": null,
+            "attributed_to": null,
+            "rationale_short": "Afirmație directă de tip justificator, fără indicii de citare, raportare sau negație; vorbitorul își asumă punctul de vedere."
+          }
+        ]
+      },
+      "raw_response": "{\n  \"classifications\": [\n    {\n      \"marker_id\": \"m_0\",\n      \"voice\": \"speaker_first_person\",\n      \"voice_confidence\": 0.96,\n      \"voice_evidence\": null,\n      \"attributed_to\": null,\n      \"rationale_short\": \"Afirmație directă la persoana întâi (subiectul 'noi' este implicat prin verbul 'trebuie să votăm'); vorbitorul își asumă cererea.\"\n    },\n    {\n      \"marker_id\": \"m_1\",\n      \"voice\": \"speaker_first_person\",\n      \"voice_confidence\": 0.96,\n      \"voice_evidence\": null,\n      \"attributed_to\": null,\n      \"rationale_short\": \"Afirmație directă de tip justificator, fără indicii de citare, raportare sau negație; vorbitorul își asumă punctul de vedere.\"\n    }\n  ]\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 11281,
+      "tokens_in_breakdown": {
+        "fresh": 11281,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 229,
+      "cost_usd": null,
+      "latency_ms": 5405,
+      "retries_used": 0
+    },
+    "dqi": {
+      "model_key": "gemma-4-26b-a4b",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2021/II/25#agenda-1#act-151",
+      "output": {
+        "constructive_politics": "positional",
+        "content_of_justification": "common_good",
+        "framework_confidence": 0.85,
+        "framework_version": "steiner-bachtiger@2017",
+        "level_of_justification": 1,
+        "markers": [
+          {
+            "evidence": {
+              "text": "pentru că așa este corect și normal"
+            },
+            "kind": "level_of_justification",
+            "marker_confidence": 0.88,
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "rationale_short": "Justificare de tip inferior; argumentul se bazează pe apeluri la moralitate și normativitate vagă („corect și normal”), fără un mecanism causal sau sursă concretă.",
+            "value": 1
+          },
+          {
+            "evidence": {
+              "text": "Sănătatea democrației românești depinde de capacitatea noastră de a-i reprezenta în mod onest, cinstit, corect pe cetățenii români"
+            },
+            "kind": "content_of_justification",
+            "marker_confidence": 0.92,
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.96,
+            "rationale_short": "Justificarea apelează la principii universale de reprezentare și la interesul general al cetățenilor români.",
+            "value": "common_good"
+          },
+          {
+            "evidence": {
+              "text": "Stimați colegi"
+            },
+            "kind": "respect_for_groups",
+            "marker_confidence": 0.75,
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.96,
+            "rationale_short": "Adresare convențională în sală; niciun grup social specific nu este vizat prin respect sau dispreț explicit.",
+            "value": 1
+          },
+          {
+            "evidence": {
+              "text": "Am acceptat pentru că erați gata să blocați adoptarea acestui act normativ."
+            },
+            "kind": "respect_for_demands",
+            "marker_confidence": 0.82,
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "rationale_short": "Vorbitorul critică acțiunile adversarilor, dar nu caracterizează cererile lor ca fiind ridicole sau ilegitime în mod explicit.",
+            "value": 1
+          },
+          {
+            "evidence": {
+              "text": "Am acceptat pentru că erați gata să blocați adoptarea acestui act normativ."
+            },
+            "kind": "respect_for_counterarguments",
+            "marker_confidence": 0.78,
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.94,
+            "rationale_short": "Se face o referire la acțiunea adversarilor, dar nu există un angajament substanțial cu raționamentul lor.",
+            "value": 1
+          },
+          {
+            "evidence": {
+              "text": "Noi trebuie să votăm desființarea pensiilor speciale pentru parlamentari"
+            },
+            "kind": "constructive_politics",
+            "marker_confidence": 0.9,
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "rationale_short": "Vorbitorul își afirmă o poziție politică clară; nu propune o mediere sau o alternativă tehnică la un text legislativ specific.",
+            "value": "positional"
+          }
+        ],
+        "rationale": "Discursul prezintă o poziție politică fermă, de tip positional, axată pe desființarea pensiilor speciale. Justificarea este de nivel inferior (level_of_justification=1), deoarece se bazează pe argumente de tip moral/normativ („este corect și normal”) și pe o retorică a dreptății, fără a oferi mecanisme causale sau date concrete. Apelul este unul către binele comun (common_good), invocând interesul cetățenilor și sănătatea democrației. Respectul pentru grupuri și pentru cererile adversarilor rămâne la un nivel neutru, evitând derogările explicite, deși tonul este critic. Nu există un angajament substanțial cu argumentele opoziției, ci doar o referire la acțiunile lor de blocare. Profilul este unul de campanie, cu o calitate deliberativă moderată.",
+        "respect_for_counterarguments": 1,
+        "respect_for_demands": 1,
+        "respect_for_groups": 1,
+        "score_unit": "dqi_multi"
+      },
+      "raw_response": "{\n  \"constructive_politics\": \"positional\",\n  \"content_of_justification\": \"common_good\",\n  \"framework_confidence\": 0.85,\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"level_of_justification\": 1,\n  \"markers\": [\n    {\n      \"evidence\": {\n        \"text\": \"pentru că așa este corect și normal\"\n      },\n      \"kind\": \"level_of_justification\",\n      \"marker_confidence\": 0.88,\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"rationale_short\": \"Justificare de tip inferior; argumentul se bazează pe apeluri la moralitate și normativitate vagă („corect și normal”), fără un mecanism causal sau sursă concretă.\"\n    ,\n    \"value\": 1\n    },\n    {\n      \"evidence\": {\n        \"text\": \"Sănătatea democrației românești depinde de capacitatea noastră de a-i reprezenta în mod onest, cinstit, corect pe cetățenii români\"\n      },\n      \"kind\": \"content_of_justification\",\n      \"marker_confidence\": 0.92,\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.96,\n      \"rationale_short\": \"Justificarea apelează la principii universale de reprezentare și la interesul general al cetățenilor români.\"\n    ,\n    \"value\": \"common_good\"\n    },\n    {\n      \"evidence\": {\n        \"text\": \"Stimați colegi\"\n      },\n      \"kind\": \"respect_for_groups\",\n      \"marker_confidence\": 0.75,\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.96,\n      \"rationale_short\": \"Adresare convențională în sală; niciun grup social specific nu este vizat prin respect sau dispreț explicit.\"\n    ,\n    \"value\": 1\n    },\n    {\n      \"evidence\": {\n        \"text\": \"Am acceptat pentru că erați gata să blocați adoptarea acestui act normativ.\"\n      },\n      \"kind\": \"respect_for_demands\",\n      \"marker_confidence\": 0.82,\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"rationale_short\": \"Vorbitorul critică acțiunile adversarilor, dar nu caracterizează cererile lor ca fiind ridicole sau ilegitime în mod explicit.\"\n    ,\n    \"value\": 1\n    },\n    {\n      \"evidence\": {\n        \"text\": \"Am acceptat pentru că erați gata să blocați adoptarea acestui act normativ.\"\n      },\n      \"kind\": \"respect_for_counterarguments\",\n      \"marker_confidence\": 0.78,\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.94,\n      \"rationale_short\": \"Se face o referire la acțiunea adversarilor, dar nu există un angajament substanțial cu raționamentul lor.\"\n    ,\n    \"value\": 1\n    },\n    {\n      \"evidence\": {\n        \"text\": \"Noi trebuie să votăm desființarea pensiilor speciale pentru parlamentari\"\n      },\n      \"kind\": \"constructive_politics\",\n      \"marker_confidence\": 0.90,\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"rationale_short\": \"Vorbitorul își afirmă o poziție politică clară; nu propune o mediere sau o alternativă tehnică la un text legislativ specific.\"\n    ,\n    \"value\": \"positional\"\n    }\n  ],\n  \"rationale\": \"Discursul prezintă o poziție politică fermă, de tip positional, axată pe desființarea pensiilor speciale. Justificarea este de nivel inferior (level_of_justification=1), deoarece se bazează pe argumente de tip moral/normativ („este corect și normal”) și pe o retorică a dreptății, fără a oferi mecanisme causale sau date concrete. Apelul este unul către binele comun (common_good), invocând interesul cetățenilor și sănătatea democrației. Respectul pentru grupuri și pentru cererile adversarilor rămâne la un nivel neutru, evitând derogările explicite, deși tonul este critic. Nu există un angajament substanțial cu argumentele opoziției, ci doar o referire la acțiunile lor de blocare. Profilul este unul de campanie, cu o calitate deliberativă moderată.\",\n  \"respect_for_counterarguments\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_groups\": 1,\n  \"score_unit\": \"dqi_multi\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12455,
+      "tokens_in_breakdown": {
+        "fresh": 12455,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1254,
+      "cost_usd": null,
+      "latency_ms": 44271,
+      "retries_used": 0
+    },
+    "vparty": null
+  }
+}

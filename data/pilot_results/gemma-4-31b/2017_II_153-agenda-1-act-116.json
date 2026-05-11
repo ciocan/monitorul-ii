@@ -1,0 +1,153 @@
+{
+  "speech_id": "mo://2017/II/153#agenda-1#act-116",
+  "tier": "register_shift",
+  "speaker": {
+    "id": "basescu-traian",
+    "name": "Traian Băsescu",
+    "raw": "Domnul Traian Băsescu",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": "2017-10-24",
+    "year": 2017,
+    "legislature": "VIII",
+    "delivery_mode": null
+  },
+  "model_key": "gemma-4-31b",
+  "model_label": "gemma-4-31b-it",
+  "results": {
+    "hawkins": {
+      "model_key": "gemma-4-31b",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2017/II/153#agenda-1#act-116",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.95,
+        "markers": [],
+        "rationale": "Discursul are un caracter strict procedural și administrativ, concentrându-se pe subordinea instituțională a Monitorului Oficial. Vorbitorul utilizează un registru juridic și politic convențional, invocând încălcarea Constituției și a legii, fără a recurge la cadre populiste. Nu există nicio referință la un conflict manihean între un popor virtuos și o elită coruptă, nici apeluri la o voință populară omogenă. Argumentația se bazează pe echilibrul puterilor între Executiv și Parlament, rămânând în sfera dezbaterii instituționale. Hawkins=0 cu încredere ridicată."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.95,\n  \"markers\": [],\n  \"rationale\": \"Discursul are un caracter strict procedural și administrativ, concentrându-se pe subordinea instituțională a Monitorului Oficial. Vorbitorul utilizează un registru juridic și politic convențional, invocând încălcarea Constituției și a legii, fără a recurge la cadre populiste. Nu există nicio referință la un conflict manihean între un popor virtuos și o elită coruptă, nici apeluri la o voință populară omogenă. Argumentația se bazează pe echilibrul puterilor între Executiv și Parlament, rămânând în sfera dezbaterii instituționale. Hawkins=0 cu încredere ridicată.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13690,
+      "tokens_in_breakdown": {
+        "fresh": 13690,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 217,
+      "cost_usd": null,
+      "latency_ms": 25817,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemma-4-31b",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2017/II/153#agenda-1#act-116",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.92,
+        "level_of_justification": 1,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 1,
+            "evidence": {
+              "text": "a fost o mișcare politică ce a decurs din nevoia de a genera ilegalități: încălcarea Constituției și nerespectarea legii"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.88,
+            "rationale_short": "Justificare inferioară: invocă încălcarea Constituției și a legii, dar fără a specifica articolele sau mecanismele concrete de ilegalitate."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "încălcarea Constituției și nerespectarea legii"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.94,
+            "rationale_short": "Apelul este făcut la respectarea normelor fundamentale ale statului (Constituția), ceea ce reprezintă un interes al binei comune."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "majoritate"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.85,
+            "rationale_short": "Referința la majoritate este funcțională și preventivă, fără a recurge la derogare explicită sau respect special."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "susțin fără rezerve varianta revenirii Monitorului Oficial acolo unde îi este locul"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.9,
+            "rationale_short": "Vorbitorul își expune propria cerere fără a adresa sau recunoaște legitimitatea cererilor adverse."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "Trecerea Monitorului Oficial la Guvern, la Secretariatul General al Guvernului, a fost o mișcare politică ce a decurs din nevoia de a genera ilegalități"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.95,
+            "rationale_short": "Argumentele Guvernului pentru mutare sunt complet ignorate; vorbitorul trece direct la concluzia că actul a fost ilegal."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "susțin fără rezerve revenirea Monitorului Oficial în subordinea Camerei Deputaților"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.96,
+            "rationale_short": "Vorbitorul își reafirmă poziția de bază fără a propune o alternativă concretă sau o mediere a conflictului."
+          }
+        ],
+        "rationale": "Discursul prezintă o calitate deliberativă scăzută, fiind predominant pozițional și critic. Justificarea este considerată inferioară (level_of_justification=1) deoarece, deși invocă Constituția și legea, nu oferă dovezi specifice sau analize juridice care să demonstreze ilegalitatea susținută. Conținutul justificării se referă la binele comun prin prisma legalității constituționale. Vorbitorul nu angajează deloc contraargumentele adversarilor (respect_for_counterarguments=0) și nu recunoaște legitimitatea niciunei cereri opuse. Respectul față de grupuri rămâne neutru, referințele la majoritate fiind funcționale. În final, intervenția este pur pozițională, fără propuneri de mediere sau alternative constructive."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.92,\n  \"level_of_justification\": 1,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 0,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"a fost o mișcare politică ce a decurs din nevoia de a genera ilegalități: încălcarea Constituției și nerespectarea legii\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Justificare inferioară: invocă încălcarea Constituției și a legii, dar fără a specifica articolele sau mecanismele concrete de ilegalitate.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"încălcarea Constituției și nerespectarea legii\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.94,\n      \"rationale_short\": \"Apelul este făcut la respectarea normelor fundamentale ale statului (Constituția), ceea ce reprezintă un interes al binei comune.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"majoritate\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Referința la majoritate este funcțională și preventivă, fără a recurge la derogare explicită sau respect special.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"susțin fără rezerve varianta revenirii Monitorului Oficial acolo unde îi este locul\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.90,\n      \"rationale_short\": \"Vorbitorul își expune propria cerere fără a adresa sau recunoaște legitimitatea cererilor adverse.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"Trecerea Monitorului Oficial la Guvern, la Secretariatul General al Guvernului, a fost o mișcare politică ce a decurs din nevoia de a genera ilegalități\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.95,\n      \"rationale_short\": \"Argumentele Guvernului pentru mutare sunt complet ignorate; vorbitorul trece direct la concluzia că actul a fost ilegal.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"susțin fără rezerve revenirea Monitorului Oficial în subordinea Camerei Deputaților\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.96,\n      \"rationale_short\": \"Vorbitorul își reafirmă poziția de bază fără a propune o alternativă concretă sau o mediere a conflictului.\"\n    }\n  ],\n  \"rationale\": \"Discursul prezintă o calitate deliberativă scăzută, fiind predominant pozițional și critic. Justificarea este considerată inferioară (level_of_justification=1) deoarece, deși invocă Constituția și legea, nu oferă dovezi specifice sau analize juridice care să demonstreze ilegalitatea susținută. Conținutul justificării se referă la binele comun prin prisma legalității constituționale. Vorbitorul nu angajează deloc contraargumentele adversarilor (respect_for_counterarguments=0) și nu recunoaște legitimitatea niciunei cereri opuse. Respectul față de grupuri rămâne neutru, referințele la majoritate fiind funcționale. În final, intervenția este pur pozițională, fără propuneri de mediere sau alternative constructive.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [
+        "susțin fără rezerve varianta revenirii Monitorului Oficial acolo unde îi este locul"
+      ],
+      "parse_repaired": false,
+      "tokens_in": 12491,
+      "tokens_in_breakdown": {
+        "fresh": 12491,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1210,
+      "cost_usd": null,
+      "latency_ms": 106394,
+      "retries_used": 0
+    },
+    "vparty": null
+  }
+}

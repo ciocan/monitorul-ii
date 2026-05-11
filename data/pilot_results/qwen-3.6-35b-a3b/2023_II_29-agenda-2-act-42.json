@@ -1,0 +1,153 @@
+{
+  "speech_id": "mo://2023/II/29#agenda-2#act-42",
+  "tier": "populist",
+  "speaker": {
+    "id": "damureanu-ringo",
+    "name": "Ringo Dămureanu",
+    "raw": "Domnul Ringo Dămureanu",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2023-02-28",
+    "year": 2023,
+    "legislature": "IX",
+    "delivery_mode": null
+  },
+  "model_key": "qwen-3.6-35b-a3b",
+  "model_label": "qwen-3.6-35b-a3b",
+  "results": {
+    "hawkins": {
+      "model_key": "qwen-3.6-35b-a3b",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2023/II/29#agenda-2#act-42",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.96,
+        "markers": [],
+        "rationale": "Discursul este un demers de politică publică și dezvoltare regională, centrat pe infrastructura rutieră și feroviară din Dolj și Oltenia. Vorbitorul citează incidente concrete, starea podurilor și a căilor ferate, și atribuie neglijența partidelor PSD și PNL, într-un registru de critică partisană și tehnică, nu de mobilizare populistă. Nu există un cadru popor-vs-elită, nici un maniheism moralist, nici invocarea unei voințe populare omogene sau a supremației acesteia asupra instituțiilor. Critica la adresa PSD și PNL se rezumă la incompetență în gestionarea fondurilor și a proiectelor, fără a fi încadrată într-o narativă de elită malefică sau conspirativă. Hawkins=0 cu încredere ridicată."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.96,\n  \"markers\": [],\n  \"rationale\": \"Discursul este un demers de politică publică și dezvoltare regională, centrat pe infrastructura rutieră și feroviară din Dolj și Oltenia. Vorbitorul citează incidente concrete, starea podurilor și a căilor ferate, și atribuie neglijența partidelor PSD și PNL, într-un registru de critică partisană și tehnică, nu de mobilizare populistă. Nu există un cadru popor-vs-elită, nici un maniheism moralist, nici invocarea unei voințe populare omogene sau a supremației acesteia asupra instituțiilor. Critica la adresa PSD și PNL se rezumă la incompetență în gestionarea fondurilor și a proiectelor, fără a fi încadrată într-o narativă de elită malefică sau conspirativă. Hawkins=0 cu încredere ridicată.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 14206,
+      "tokens_in_breakdown": {
+        "fresh": 14206,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 2681,
+      "cost_usd": null,
+      "latency_ms": 22725,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "qwen-3.6-35b-a3b",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2023/II/29#agenda-2#act-42",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.88,
+        "level_of_justification": 2,
+        "content_of_justification": "group_interest",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "Situația în domeniul feroviar este dezastruoasă. În noiembrie 2022, în Halta Răcari, Regionala CF Craiova, nouă vagoane cu cărbune au deraiat"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.9,
+            "rationale_short": "Lista de incidente feroviare și rutiere ancorează poziția de neglijare în dovezi empirice specifice, fără a fi sofisticată."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "group_interest",
+            "evidence": {
+              "text": "Județul Dolj, pe care îl reprezint în Parlament, și, implicit, regiunea Oltenia, par a fi un soi de cenușăreasă"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.88,
+            "rationale_short": "Justificarea se ancorează pe interesele specifice ale regiunii Oltenia și ale județului Dolj, nu pe un principiu universal."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Stimați colegi, Doamnelor și domnilor deputați"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.85,
+            "rationale_short": "Adresare convențională în sală; niciun out-group social sau politic nu este derogat sau respectat explicit."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Ne întrebăm și vă întrebăm: oare cât vor mai avea de așteptat Doljul și Oltenia"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.92,
+            "rationale_short": "Vorbitorul nu menționează cereri adverse; se concentrează exclusiv pe propria narativă a neglijării."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "Ați dovedit ceea ce era de dovedit."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.94,
+            "rationale_short": "Refuză complet angajamentul cu raționamentul advers; discursul este un monolog pozițional."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Ați dovedit ceea ce era de dovedit."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.91,
+            "rationale_short": "Poziție declarată și critică; nicio alternativă concretă sau mediere propusă pentru rezolvarea problemelor."
+          }
+        ],
+        "rationale": "Discursul prezintă un profil deliberativ de tip pozițional-evidențiar. Vorbitorul oferă o justificare calificată (level_of_justification=2) prin enumerarea incidentelor rutiere și feroviare, dar aceasta apelează preponderent la interesul regional (group_interest), concentrându-se pe neglijarea Doljului și Olteniei. Respectul pentru grupuri și cereri este neutru sau absent (respect_for_groups=1, respect_for_demands=1), iar raționamentul advers este complet ignorat (respect_for_counterarguments=0). Nu se propune nicio alternativă sau mediere, ci se încheie cu o critică partisană directă (constructive_politics=positional). Profilul reflectă un discurs de opoziție regională, bazat pe evidență factuală dar lipsit de angajament deliberativ cu adversarii sau de construcție politică."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.88,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"group_interest\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 0,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": { \"text\": \"Situația în domeniul feroviar este dezastruoasă. În noiembrie 2022, în Halta Răcari, Regionala CF Craiova, nouă vagoane cu cărbune au deraiat\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.90,\n      \"rationale_short\": \"Lista de incidente feroviare și rutiere ancorează poziția de neglijare în dovezi empirice specifice, fără a fi sofisticată.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"group_interest\",\n      \"evidence\": { \"text\": \"Județul Dolj, pe care îl reprezint în Parlament, și, implicit, regiunea Oltenia, par a fi un soi de cenușăreasă\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Justificarea se ancorează pe interesele specifice ale regiunii Oltenia și ale județului Dolj, nu pe un principiu universal.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": { \"text\": \"Stimați colegi, Doamnelor și domnilor deputați\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Adresare convențională în sală; niciun out-group social sau politic nu este derogat sau respectat explicit.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": { \"text\": \"Ne întrebăm și vă întrebăm: oare cât vor mai avea de așteptat Doljul și Oltenia\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Vorbitorul nu menționează cereri adverse; se concentrează exclusiv pe propria narativă a neglijării.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 0,\n      \"evidence\": { \"text\": \"Ați dovedit ceea ce era de dovedit.\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.94,\n      \"rationale_short\": \"Refuză complet angajamentul cu raționamentul advers; discursul este un monolog pozițional.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": { \"text\": \"Ați dovedit ceea ce era de dovedit.\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.91,\n      \"rationale_short\": \"Poziție declarată și critică; nicio alternativă concretă sau mediere propusă pentru rezolvarea problemelor.\"\n    }\n  ],\n  \"rationale\": \"Discursul prezintă un profil deliberativ de tip pozițional-evidențiar. Vorbitorul oferă o justificare calificată (level_of_justification=2) prin enumerarea incidentelor rutiere și feroviare, dar aceasta apelează preponderent la interesul regional (group_interest), concentrându-se pe neglijarea Doljului și Olteniei. Respectul pentru grupuri și cereri este neutru sau absent (respect_for_groups=1, respect_for_demands=1), iar raționamentul advers este complet ignorat (respect_for_counterarguments=0). Nu se propune nicio alternativă sau mediere, ci se încheie cu o critică partisană directă (constructive_politics=positional). Profilul reflectă un discurs de opoziție regională, bazat pe evidență factuală dar lipsit de angajament deliberativ cu adversarii sau de construcție politică.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [
+        "Situația în domeniul feroviar este dezastruoasă. În noiembrie 2022, în Halta Răcari, Regionala CF Craiova, nouă vagoane cu cărbune au deraiat"
+      ],
+      "parse_repaired": false,
+      "tokens_in": 12919,
+      "tokens_in_breakdown": {
+        "fresh": 12919,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 7521,
+      "cost_usd": null,
+      "latency_ms": 68852,
+      "retries_used": 0
+    },
+    "vparty": null
+  }
+}

@@ -1,0 +1,151 @@
+{
+  "speech_id": "mo://2005/II/192#agenda-13#act-8",
+  "tier": "moderate",
+  "speaker": {
+    "id": "nastase-adrian",
+    "name": "Adrian N„stase",
+    "raw": "Domnul Adrian N„stase",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": null,
+    "session_date": null,
+    "year": 2005,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemma-4-26b-a4b",
+  "model_label": "gemma-4-26b-a4b-it",
+  "results": {
+    "hawkins": {
+      "model_key": "gemma-4-26b-a4b",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2005/II/192#agenda-13#act-8",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.99,
+        "markers": [],
+        "rationale": "Discurs strict procedural de conducere a unei dezbateri parlamentare, axat pe aprobarea titlului și a amendamentelor unui proiect de lege. Vorbitorul utilizează un registru administrativ și tehnic, gestionând ordinea de zi fără nicio referință la cadre populiste. Nu există nicio invocare a poporului, nicio opoziție față de elite și nici nicio retorică de criză sau maniheism. Discursul este un exemplu tipic de activitate parlamentară de rutină, care se încadrează perfect în scorul 0."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.99,\n  \"markers\": [],\n  \"rationale\": \"Discurs strict procedural de conducere a unei dezbateri parlamentare, axat pe aprobarea titlului și a amendamentelor unui proiect de lege. Vorbitorul utilizează un registru administrativ și tehnic, gestionând ordinea de zi fără nicio referință la cadre populiste. Nu există nicio invocare a poporului, nicio opoziție față de elite și nici nicio retorică de criză sau maniheism. Discursul este un exemplu tipic de activitate parlamentară de rutină, care se încadrează perfect în scorul 0.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13757,
+      "tokens_in_breakdown": {
+        "fresh": 13757,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 199,
+      "cost_usd": null,
+      "latency_ms": 2769,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemma-4-26b-a4b",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2005/II/192#agenda-13#act-8",
+      "output": {
+        "constructive_politics": "positional",
+        "content_of_justification": "none",
+        "framework_confidence": 0.45,
+        "framework_version": "steiner-bachtiger@2017",
+        "level_of_justification": 0,
+        "markers": [
+          {
+            "evidence": {
+              "text": "Titlul legii este aprobat."
+            },
+            "kind": "constructive_politics",
+            "marker_confidence": 0.85,
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "rationale_short": "Intervenție pur procedurală; nicio propunere de mediere sau alternativă oferită.",
+            "value": "positional"
+          },
+          {
+            "evidence": {
+              "text": "Titlul legii este aprobat."
+            },
+            "kind": "content_of_justification",
+            "marker_confidence": 0.8,
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "rationale_short": "Nicio justificare oferită; conținutul este nedefinit.",
+            "value": "none"
+          },
+          {
+            "evidence": {
+              "text": "Titlul legii este aprobat."
+            },
+            "kind": "level_of_justification",
+            "marker_confidence": 0.88,
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "rationale_short": "Afirmații de tipul „este aprobat” fără nicio justificare sau raționament.",
+            "value": 0
+          },
+          {
+            "evidence": {
+              "text": "Dac„ sunt obiec˛ii? Nu sunt obiec˛ii."
+            },
+            "kind": "respect_for_counterarguments",
+            "marker_confidence": 0.75,
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "rationale_short": "Vorbitorul trece peste posibilele obiecții fără a le menționa sau analiza.",
+            "value": 0
+          },
+          {
+            "evidence": {
+              "text": "Dac„ sunt obiec˛ii? Nu sunt obiec˛ii."
+            },
+            "kind": "respect_for_demands",
+            "marker_confidence": 0.7,
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "rationale_short": "Nicio cerere sau obiecție adversă este abordată; proces pur de conducere a ședinței.",
+            "value": 1
+          },
+          {
+            "evidence": {
+              "text": "V„ mul˛umesc."
+            },
+            "kind": "respect_for_groups",
+            "marker_confidence": 0.6,
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "rationale_short": "Adresare formală standard; nicio referință la grupuri sociale sau politice.",
+            "value": 1
+          }
+        ],
+        "rationale": "Fragmentul reprezintă o intervenție pur procedurală de conducere a ședinței, nu un discurs deliberativ. Vorbitorul gestionează votul asupra titlului și a articolelor fără a oferi nicio justificare pentru pozițiile luate (level_of_justification=0, content=none). Nu există angajament cu argumente sau cereri adverse, deoarece procesul este prezentat ca fiind lipsit de obiecții (respect_for_counterarguments=0, respect_for_demands=1). Respectul pentru grupuri este neutru, limitându-se la formule de curtoazie standard. Deoarece discursul este de natură administrativă/procedurală, framework_confidence este scăzut, reflectând imposibilitatea de a evalua o calitate argumentativă acolo ce nu există.",
+        "respect_for_counterarguments": 0,
+        "respect_for_demands": 1,
+        "respect_for_groups": 1,
+        "score_unit": "dqi_multi"
+      },
+      "raw_response": "{\n  \"constructive_politics\": \"positional\",\n  \"content_of_justification\": \"none\",\n  \"framework_confidence\": 0.45,\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"level_of_justification\": 0,\n  \"markers\": [\n    {\n      \"evidence\": {\n        \"text\": \"Titlul legii este aprobat.\"\n      },\n      \"kind\": \"constructive_politics\",\n      \"marker_confidence\": 0.85,\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"rationale_short\": \"Intervenție pur procedurală; nicio propunere de mediere sau alternativă oferită.\",\n      \"value\": \"positional\"\n    },\n    {\n      \"evidence\": {\n        \"text\": \"Titlul legii este aprobat.\"\n      },\n      \"kind\": \"content_of_justification\",\n      \"marker_confidence\": 0.80,\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"rationale_short\": \"Nicio justificare oferită; conținutul este nedefinit.\",\n      \"value\": \"none\"\n    },\n    {\n      \"evidence\": {\n        \"text\": \"Titlul legii este aprobat.\"\n      },\n      \"kind\": \"level_of_justification\",\n      \"marker_confidence\": 0.88,\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"rationale_short\": \"Afirmații de tipul „este aprobat” fără nicio justificare sau raționament.\",\n      \"value\": 0\n    },\n    {\n      \"evidence\": {\n        \"text\": \"Dac„ sunt obiec˛ii? Nu sunt obiec˛ii.\"\n      },\n      \"kind\": \"respect_for_counterarguments\",\n      \"marker_confidence\": 0.75,\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"rationale_short\": \"Vorbitorul trece peste posibilele obiecții fără a le menționa sau analiza.\",\n      \"value\": 0\n    },\n    {\n      \"evidence\": {\n        \"text\": \"Dac„ sunt obiec˛ii? Nu sunt obiec˛ii.\"\n      },\n      \"kind\": \"respect_for_demands\",\n      \"marker_confidence\": 0.70,\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"rationale_short\": \"Nicio cerere sau obiecție adversă este abordată; proces pur de conducere a ședinței.\",\n      \"value\": 1\n    },\n    {\n      \"evidence\": {\n        \"text\": \"V„ mul˛umesc.\"\n      },\n      \"kind\": \"respect_for_groups\",\n      \"marker_confidence\": 0.60,\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"rationale_short\": \"Adresare formală standard; nicio referință la grupuri sociale sau politice.\",\n      \"value\": 1\n    }\n  ],\n  \"rationale\": \"Fragmentul reprezintă o intervenție pur procedurală de conducere a ședinței, nu un discurs deliberativ. Vorbitorul gestionează votul asupra titlului și a articolelor fără a oferi nicio justificare pentru pozițiile luate (level_of_justification=0, content=none). Nu există angajament cu argumente sau cereri adverse, deoarece procesul este prezentat ca fiind lipsit de obiecții (respect_for_counterarguments=0, respect_for_demands=1). Respectul pentru grupuri este neutru, limitându-se la formule de curtoazie standard. Deoarece discursul este de natură administrativă/procedurală, framework_confidence este scăzut, reflectând imposibilitatea de a evalua o calitate argumentativă acolo ce nu există.\",\n  \"respect_for_counterarguments\": 0,\n  \"respect_for_demands\": 1,\n  \"respect_for_groups\": 1,\n  \"score_unit\": \"dqi_multi\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12558,
+      "tokens_in_breakdown": {
+        "fresh": 12558,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1081,
+      "cost_usd": null,
+      "latency_ms": 37912,
+      "retries_used": 0
+    },
+    "vparty": null
+  }
+}

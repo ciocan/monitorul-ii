@@ -1,29 +1,44 @@
 {
-  "n_speeches": 1,
+  "n_speeches": 10,
   "totals": {
-    "tokens_in": 26261,
-    "tokens_in_fresh": 26261,
+    "tokens_in": 273395,
+    "tokens_in_fresh": 273395,
     "tokens_in_cache_creation": 0,
     "tokens_in_cache_read": 0,
-    "tokens_out": 9673,
+    "tokens_out": 80857,
     "cost_usd": 0.0,
-    "latency_ms": 194330,
-    "calls": 2,
+    "latency_ms": 1848977,
+    "calls": 21,
     "retries_used": 0,
     "calls_with_retries": 0,
     "calls_with_repair": 0
   },
-  "errors": {},
-  "fragments_not_found_by_kind": {},
-  "hawkins_score_histogram": {
-    "0": 1
+  "errors": {
+    "dqi/json_parse": 1,
+    "hawkins/json_parse": 3
   },
-  "hawkins_marker_kinds": {},
-  "voice_distribution": {},
-  "dqi_level_of_justification_histogram": {
+  "fragments_not_found_by_kind": {
+    "dqi": 4
+  },
+  "hawkins_score_histogram": {
+    "0": 6,
     "1": 1
   },
+  "hawkins_marker_kinds": {
+    "people_vs_elite": 2,
+    "homogeneous_people": 1
+  },
+  "voice_distribution": {
+    "speaker_first_person": 3
+  },
+  "dqi_level_of_justification_histogram": {
+    "0": 4,
+    "2": 5
+  },
   "dqi_constructive_politics": {
+    "positional": 8,
     "alternative_proposal": 1
-  }
+  },
+  "vparty_score_histogram": {},
+  "vparty_marker_kinds": {}
 }

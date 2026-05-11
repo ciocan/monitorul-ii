@@ -1,0 +1,151 @@
+{
+  "speech_id": "mo://2006/II/177#agenda-2#act-34",
+  "tier": "register_shift",
+  "speaker": {
+    "id": "ponta-victor-viorel",
+    "name": "Victor Viorel Ponta",
+    "raw": "Domnul Victor Viorel Ponta",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": null,
+    "session_date": null,
+    "year": 2006,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemma-4-31b",
+  "model_label": "gemma-4-31b-it",
+  "results": {
+    "hawkins": {
+      "model_key": "gemma-4-31b",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2006/II/177#agenda-2#act-34",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul este pur procedural, concentrându-se pe coordonarea votării pe articole a unui proiect de lege și pe respectarea regulamentului parlamentar. Nu există nicio referință la un conflict între popor și elite, nu se utilizează un limbaj manihean și nu se invocă o voință populară omogenă. Mențiunile privind „procedura de urgență” sau „prioritatea legislativă” sunt tehnice și administrative, nu reprezintă invocări retorice de criză. Hawkins=0 cu încredere ridicată."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul este pur procedural, concentrându-se pe coordonarea votării pe articole a unui proiect de lege și pe respectarea regulamentului parlamentar. Nu există nicio referință la un conflict între popor și elite, nu se utilizează un limbaj manihean și nu se invocă o voință populară omogenă. Mențiunile privind „procedura de urgență” sau „prioritatea legislativă” sunt tehnice și administrative, nu reprezintă invocări retorice de criză. Hawkins=0 cu încredere ridicată.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 14436,
+      "tokens_in_breakdown": {
+        "fresh": 14436,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 194,
+      "cost_usd": null,
+      "latency_ms": 13682,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemma-4-31b",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2006/II/177#agenda-2#act-34",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.45,
+        "level_of_justification": 0,
+        "content_of_justification": "none",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 0,
+            "evidence": {
+              "text": "Obiec˛iuni? Nu exist„. Adoptat."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.9,
+            "rationale_short": "Text pur procedural de constatare a lipsei obiecțiunilor, fără nicio justificare argumentativă."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "none",
+            "evidence": {
+              "text": "Adoptat."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.9,
+            "rationale_short": "Lipsa justificării face ca conținutul acesteia să fie nedefinit."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "domnule deputat"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.8,
+            "rationale_short": "Adresare convențională, neutră, fără referințe specifice la grupuri sociale sau politice."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Dac„ exist„ obiec˛iuni? Nu exist„."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.85,
+            "rationale_short": "Vorbitorul solicită obiecțiuni, dar nu există cereri adverse cu care să interacționeze; neutru implicit."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "Nu sunt obiec˛iuni."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.85,
+            "rationale_short": "Nu există contraargumente prezentate în text pentru a fi analizate sau rebutate."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Legea a fost adoptat„ pe articole."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.9,
+            "rationale_short": "Activitate pur procedurală de adoptare; nu se propun alternative sau mediere."
+          }
+        ],
+        "rationale": "Fragmentul analizat nu reprezintă un discurs deliberativ, ci o succesiune de intervenții procedurale de conducere a ședinței (moderare). Vorbitorul gestionează adoptarea pe articole a unui proiect de lege, constatând absența obiecțiunilor și pronunțând adoptarea. Din acest motiv, nu există justificare (level_of_justification=0), nu există angajament cu contraargumente sau cereri adverse (valorile rămân neutre) și nu există propuneri constructive, ci doar constatări poziționale procedurale. framework_confidence este setat sub 0.5 deoarece textul este prea procedural pentru a suporta o codare DQI relevantă din punct de vedere al calității argumentației. Valorile returnate sunt cele implicite pentru un context non-deliberativ."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.45,\n  \"level_of_justification\": 0,\n  \"content_of_justification\": \"none\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"Obiec˛iuni? Nu exist„. Adoptat.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.90,\n      \"rationale_short\": \"Text pur procedural de constatare a lipsei obiecțiunilor, fără nicio justificare argumentativă.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"none\",\n      \"evidence\": {\n        \"text\": \"Adoptat.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.90,\n      \"rationale_short\": \"Lipsa justificării face ca conținutul acesteia să fie nedefinit.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"domnule deputat\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.80,\n      \"rationale_short\": \"Adresare convențională, neutră, fără referințe specifice la grupuri sociale sau politice.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Dac„ exist„ obiec˛iuni? Nu exist„.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Vorbitorul solicită obiecțiuni, dar nu există cereri adverse cu care să interacționeze; neutru implicit.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Nu sunt obiec˛iuni.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Nu există contraargumente prezentate în text pentru a fi analizate sau rebutate.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"Legea a fost adoptat„ pe articole.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.90,\n      \"rationale_short\": \"Activitate pur procedurală de adoptare; nu se propun alternative sau mediere.\"\n    }\n  ],\n  \"rationale\": \"Fragmentul analizat nu reprezintă un discurs deliberativ, ci o succesiune de intervenții procedurale de conducere a ședinței (moderare). Vorbitorul gestionează adoptarea pe articole a unui proiect de lege, constatând absența obiecțiunilor și pronunțând adoptarea. Din acest motiv, nu există justificare (level_of_justification=0), nu există angajament cu contraargumente sau cereri adverse (valorile rămân neutre) și nu există propuneri constructive, ci doar constatări poziționale procedurale. framework_confidence este setat sub 0.5 deoarece textul este prea procedural pentru a suporta o codare DQI relevantă din punct de vedere al calității argumentației. Valorile returnate sunt cele implicite pentru un context non-deliberativ.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13237,
+      "tokens_in_breakdown": {
+        "fresh": 13237,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1086,
+      "cost_usd": null,
+      "latency_ms": 53101,
+      "retries_used": 0
+    },
+    "vparty": null
+  }
+}

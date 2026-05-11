@@ -1,0 +1,151 @@
+{
+  "speech_id": "mo://2023/II/150#agenda-1#act-76",
+  "tier": "populist",
+  "speaker": {
+    "id": "sosoaca-diana",
+    "name": "Diana Iovanovici-Șoșoacă",
+    "raw": "Doamna Diana Iovanovici-Șoșoacă",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": "2023-10-30",
+    "year": 2023,
+    "legislature": "IX",
+    "delivery_mode": null
+  },
+  "model_key": "deepseek-v4-pro",
+  "model_label": "deepseek-v4-pro",
+  "results": {
+    "hawkins": {
+      "model_key": "deepseek-v4-pro",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2023/II/150#agenda-1#act-76",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.97,
+        "markers": [],
+        "rationale": "Discursul este o critică tehnică a unui proiect de lege privind ordinele de protecție și hărțuirea online, cu argumente bazate pe experiența profesională a vorbitorului și pe probleme de capacitate polițienească. Nu conține cadru popor-vs-elită, maniheism moral, invocarea unei voințe populare omogene sau alte tropi populiste. Registrul este unul de dezbatere legislativă, nu de mobilizare populistă. Hawkins=0 cu încredere ridicată."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.97,\n  \"markers\": [],\n  \"rationale\": \"Discursul este o critică tehnică a unui proiect de lege privind ordinele de protecție și hărțuirea online, cu argumente bazate pe experiența profesională a vorbitorului și pe probleme de capacitate polițienească. Nu conține cadru popor-vs-elită, maniheism moral, invocarea unei voințe populare omogene sau alte tropi populiste. Registrul este unul de dezbatere legislativă, nu de mobilizare populistă. Hawkins=0 cu încredere ridicată.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 14448,
+      "tokens_in_breakdown": {
+        "fresh": 14448,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 745,
+      "cost_usd": null,
+      "latency_ms": 58084,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "deepseek-v4-pro",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2023/II/150#agenda-1#act-76",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.88,
+        "level_of_justification": 2,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "Nu poți să spui „orice act de hărțuire online”, pentru că hărțuirea asta poate să fie, într-adevăr, o critică sau poate să fie, evident, un mesaj de amenințare."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.96,
+            "marker_confidence": 0.92,
+            "rationale_short": "Oferă o justificare cauzală explicită („pentru că”) care distinge între critică și amenințare, ancorând poziția într-un raționament substanțial."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "Absolut toți vom fi amenințați."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.9,
+            "rationale_short": "Justificarea se sprijină pe un interes universal („toți”), nu pe un grup particular, indicând un apel la binele comun."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "polițiștii nu sunt pregătiți"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.85,
+            "rationale_short": "Referire neutră la o categorie profesională; nu conține derogare sau laudă explicită, rămânând în registrul neutru."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Problema este în felul următor – pe lângă cea ridicată de predecesorul meu: că avem, la lit. e), „orice act de hărțuire online”."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.96,
+            "marker_confidence": 0.88,
+            "rationale_short": "Vorbitorul își expune propriul argument fără a se raporta la cereri concrete ale opoziției; non-angajare."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "pe lângă cea ridicată de predecesorul meu"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.96,
+            "marker_confidence": 0.91,
+            "rationale_short": "Recunoaște explicit intervenția anterioară, dar nu o reformulează și nu o combate; simplă mențiune."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "În rest este o lege foarte bună și este normal să se extindă de la domeniul familial la cel, normal, în viața de zi cu zi, social."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.93,
+            "rationale_short": "Exprimă o poziție favorabilă legii, dar nu oferă o alternativă concretă sau o mediere; rămâne pozițional."
+          }
+        ],
+        "rationale": "Discursul combină o justificare calificată (nivel 2) cu un apel la binele comun, evidențiind riscurile formulării largi a legii. Vorbitorul nu angajează cereri sau contraargumente adverse în mod substanțial, deși recunoaște contribuția predecesorului. Tonul față de grupuri este neutru, iar poziția finală este una de susținere cu rezerve, fără a propune o alternativă concretă. Astfel, profilul deliberativ este unul moderat: argumentare solidă, dar fără angajament dialectic sau constructiv."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.88,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"Nu poți să spui „orice act de hărțuire online”, pentru că hărțuirea asta poate să fie, într-adevăr, o critică sau poate să fie, evident, un mesaj de amenințare.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.96,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Oferă o justificare cauzală explicită („pentru că”) care distinge între critică și amenințare, ancorând poziția într-un raționament substanțial.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"Absolut toți vom fi amenințați.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"marker_confidence\": 0.90,\n      \"rationale_short\": \"Justificarea se sprijină pe un interes universal („toți”), nu pe un grup particular, indicând un apel la binele comun.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"polițiștii nu sunt pregătiți\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Referire neutră la o categorie profesională; nu conține derogare sau laudă explicită, rămânând în registrul neutru.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Problema este în felul următor – pe lângă cea ridicată de predecesorul meu: că avem, la lit. e), „orice act de hărțuire online”.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.96,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Vorbitorul își expune propriul argument fără a se raporta la cereri concrete ale opoziției; non-angajare.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"pe lângă cea ridicată de predecesorul meu\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.96,\n      \"marker_confidence\": 0.91,\n      \"rationale_short\": \"Recunoaște explicit intervenția anterioară, dar nu o reformulează și nu o combate; simplă mențiune.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"În rest este o lege foarte bună și este normal să se extindă de la domeniul familial la cel, normal, în viața de zi cu zi, social.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"marker_confidence\": 0.93,\n      \"rationale_short\": \"Exprimă o poziție favorabilă legii, dar nu oferă o alternativă concretă sau o mediere; rămâne pozițional.\"\n    }\n  ],\n  \"rationale\": \"Discursul combină o justificare calificată (nivel 2) cu un apel la binele comun, evidențiind riscurile formulării largi a legii. Vorbitorul nu angajează cereri sau contraargumente adverse în mod substanțial, deși recunoaște contribuția predecesorului. Tonul față de grupuri este neutru, iar poziția finală este una de susținere cu rezerve, fără a propune o alternativă concretă. Astfel, profilul deliberativ este unul moderat: argumentare solidă, dar fără angajament dialectic sau constructiv.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12760,
+      "tokens_in_breakdown": {
+        "fresh": 12760,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 4530,
+      "cost_usd": null,
+      "latency_ms": 131324,
+      "retries_used": 0
+    },
+    "vparty": null
+  }
+}

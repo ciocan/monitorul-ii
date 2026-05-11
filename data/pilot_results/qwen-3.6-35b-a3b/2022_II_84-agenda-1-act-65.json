@@ -1,0 +1,151 @@
+{
+  "speech_id": "mo://2022/II/84#agenda-1#act-65",
+  "tier": "moderate",
+  "speaker": {
+    "id": "citu-florin",
+    "name": "Florin-Vasile Cîțu",
+    "raw": "Domnul Florin-Vasile Cîțu",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": "2022-05-30",
+    "year": 2022,
+    "legislature": "IX",
+    "delivery_mode": null
+  },
+  "model_key": "qwen-3.6-35b-a3b",
+  "model_label": "qwen-3.6-35b-a3b",
+  "results": {
+    "hawkins": {
+      "model_key": "qwen-3.6-35b-a3b",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2022/II/84#agenda-1#act-65",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Intervenția este strict procedurală și administrativă, limitându-se la închiderea dezbaterilor, trecerea la următorul punct de pe ordinea de zi și dirijarea fizică a unui deputat către microfon. Nu conține niciun cadru popor-vs-elită, niciun apel la o voință populară omogenă, niciun maniheism moral sau invocare a unei crize existențiale. Registrul este cel al moderării parlamentare și al gestionării rutinier a ședinței, conform regulilor de procedură. Hawkins=0 cu încredere foarte ridicată."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Intervenția este strict procedurală și administrativă, limitându-se la închiderea dezbaterilor, trecerea la următorul punct de pe ordinea de zi și dirijarea fizică a unui deputat către microfon. Nu conține niciun cadru popor-vs-elită, niciun apel la o voință populară omogenă, niciun maniheism moral sau invocare a unei crize existențiale. Registrul este cel al moderării parlamentare și al gestionării rutinier a ședinței, conform regulilor de procedură. Hawkins=0 cu încredere foarte ridicată.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13502,
+      "tokens_in_breakdown": {
+        "fresh": 13502,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1796,
+      "cost_usd": null,
+      "latency_ms": 13845,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "qwen-3.6-35b-a3b",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2022/II/84#agenda-1#act-65",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.42,
+        "level_of_justification": 0,
+        "content_of_justification": "none",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 0,
+            "evidence": {
+              "text": "Declar deschise dezbaterile generale asupra propunerii."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.88,
+            "rationale_short": "Declarație procedurală pură; nicio justificare a unei poziții sau argumente oferite."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "none",
+            "evidence": {
+              "text": "Declar deschise dezbaterile generale asupra propunerii."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.87,
+            "rationale_short": "Nicio justificare prezentată; conținutul este nedefinit conform rubricii."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Vă mulțumesc, domnule senator."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.72,
+            "rationale_short": "Adresare convențională de moderare; neutru procedural, fără angajare cu grupuri."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Nu mai sunt, declar încheiate dezbaterile."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.75,
+            "rationale_short": "Închidere procedurală a dezbaterii fără a lua în considerare cereri sau intervenții adverse."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "Nu este prezent."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.7,
+            "rationale_short": "Ignorare completă a oricăror argumente adverse; focus exclusiv pe fluxul procedural."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Inițiativa legislativă rămâne la vot final."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.85,
+            "rationale_short": "Poziție procedurală standard; nicio alternativă sau mediere propusă."
+          }
+        ],
+        "rationale": "Textul este strict procedural și de moderare, gestionând fluxul dezbaterii și anunțând punctele de pe ordinea de zi. Nu conține nicio poziție politică, argumentare sau justificare a unei inițiative (level_of_justification=0, content=none). Adresările sunt convenționale și neutre din punct de vedere deliberativ (respect_for_groups=1), iar dezbaterile sunt închise fără a lua în considerare cereri sau contraargumente (respect_for_demands=1, respect_for_counterarguments=0). Nu se propune nicio alternativă sau mediere, ci se menține o poziție procedurală standard (constructive_politics=positional). Din cauza naturii strict administrative a fragmentului, calitatea deliberativă este inobservabilă, iar încrederea globală este scăzută pentru a reflecta imposibilitatea codării substanțiale."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.42,\n  \"level_of_justification\": 0,\n  \"content_of_justification\": \"none\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 0,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"Declar deschise dezbaterile generale asupra propunerii.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Declarație procedurală pură; nicio justificare a unei poziții sau argumente oferite.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"none\",\n      \"evidence\": {\n        \"text\": \"Declar deschise dezbaterile generale asupra propunerii.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.87,\n      \"rationale_short\": \"Nicio justificare prezentată; conținutul este nedefinit conform rubricii.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Vă mulțumesc, domnule senator.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.72,\n      \"rationale_short\": \"Adresare convențională de moderare; neutru procedural, fără angajare cu grupuri.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Nu mai sunt, declar încheiate dezbaterile.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.75,\n      \"rationale_short\": \"Închidere procedurală a dezbaterii fără a lua în considerare cereri sau intervenții adverse.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"Nu este prezent.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.70,\n      \"rationale_short\": \"Ignorare completă a oricăror argumente adverse; focus exclusiv pe fluxul procedural.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"Inițiativa legislativă rămâne la vot final.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Poziție procedurală standard; nicio alternativă sau mediere propusă.\"\n    }\n  ],\n  \"rationale\": \"Textul este strict procedural și de moderare, gestionând fluxul dezbaterii și anunțând punctele de pe ordinea de zi. Nu conține nicio poziție politică, argumentare sau justificare a unei inițiative (level_of_justification=0, content=none). Adresările sunt convenționale și neutre din punct de vedere deliberativ (respect_for_groups=1), iar dezbaterile sunt închise fără a lua în considerare cereri sau contraargumente (respect_for_demands=1, respect_for_counterarguments=0). Nu se propune nicio alternativă sau mediere, ci se menține o poziție procedurală standard (constructive_politics=positional). Din cauza naturii strict administrative a fragmentului, calitatea deliberativă este inobservabilă, iar încrederea globală este scăzută pentru a reflecta imposibilitatea codării substanțiale.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12215,
+      "tokens_in_breakdown": {
+        "fresh": 12215,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 4081,
+      "cost_usd": null,
+      "latency_ms": 34836,
+      "retries_used": 0
+    },
+    "vparty": null
+  }
+}

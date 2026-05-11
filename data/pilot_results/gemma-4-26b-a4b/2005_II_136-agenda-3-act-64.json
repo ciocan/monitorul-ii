@@ -22,38 +22,30 @@
       "prompt_kind": "hawkins",
       "speech_id": "mo://2005/II/136#agenda-3#act-64",
       "output": {
-        "score": 0,
+        "score": 1,
         "score_unit": "ordinal_0_2",
         "framework_version": "hawkins@2018",
-        "framework_confidence": 0.92,
+        "framework_confidence": 0.85,
         "markers": [
-          {
-            "kind": "people_vs_elite",
-            "evidence": {
-              "text": "colegi de la Alian˛a P.N.L.-P.D. care acuzau sistemul deficitar de vot"
-            },
-            "preliminary_voice": "reported",
-            "preliminary_voice_confidence": 0.95,
-            "marker_confidence": 0.85,
-            "rationale_short": "Referință la o acuzație a unor colegi privind un sistem deficitar, dar înregistrată în voce raportată."
-          },
           {
             "kind": "crisis_invocation",
             "evidence": {
-              "text": "o problem„ de via˛„ ∫i de moarte a rom‚nilor"
+              "text": "o problem„ de viaŢ„ i şi de moarte a rom„nilor"
             },
             "preliminary_voice": "speaker_first_person",
-            "preliminary_voice_confidence": 0.9,
-            "marker_confidence": 0.8,
-            "rationale_short": "Invocarea unei probleme de „viață și de moarte”, deși folosită într-un context de critică a demagogiei."
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.9,
+            "rationale_short": "Invocarea unei probleme de „viaţă şi de moarte”, sugerând un stadiu de criză existenţială."
           }
         ],
-        "rationale": "Discursul este o intervenție de tip critic-procedural legată de un proces de vot și de transparența acestuia. Deși vorbitorul folosește o retorică aprinsă și menționează o „problemă de viață și de moarte”, aceasta pare a fi o hiperbolă retorică pentru a sublinia seriozitatea unei erori tehnice, nu un cadru structural de mobilizare populistă. Nu există un cadru coerent de tip popor-vs-elită care să pervade discursul; acuzațiile privind sistemul sunt raportate ca fiind făcute de alți colegi. Vorbitorul rămâne în registrul dezbaterii politice și a criticii de procedură. Hawkins=0."
+        "rationale": "Discursul este în principal unul de critică procedurală și de reacţie la un incident legat de votul electronic, menţinând un registru de dezbatere parlamentară. Totuşi, vorbitorul pivotează spre un registru populist la final, invocând o problemă de „viaţă şi de moarte a românilor”, ceea ce introduce un element de criză și dramatizare. Deoarece acest cadru nu este pilonul central al întregului discurs, care rămâne axat pe validitatea votului și pe efortul de procedură, scorul este 1. Nu există un cadru structural de tip popor-vs-elită sau un maniheism moralist care să pervadeze întreaga intervenţie."
       },
-      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.92,\n  \"markers\": [\n    {\n      \"kind\": \"people_vs_elite\",\n      \"evidence\": {\n        \"text\": \"colegi de la Alian˛a P.N.L.-P.D. care acuzau sistemul deficitar de vot\"\n      },\n      \"preliminary_voice\": \"reported\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Referință la o acuzație a unor colegi privind un sistem deficitar, dar înregistrată în voce raportată.\"\n    },\n    {\n      \"kind\": \"crisis_invocation\",\n      \"evidence\": {\n        \"text\": \"o problem„ de via˛„ ∫i de moarte a rom‚nilor\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.90,\n      \"marker_confidence\": 0.80,\n      \"rationale_short\": \"Invocarea unei probleme de „viață și de moarte”, deși folosită într-un context de critică a demagogiei.\"\n    }\n  ],\n  \"rationale\": \"Discursul este o intervenție de tip critic-procedural legată de un proces de vot și de transparența acestuia. Deși vorbitorul folosește o retorică aprinsă și menționează o „problemă de viață și de moarte”, aceasta pare a fi o hiperbolă retorică pentru a sublinia seriozitatea unei erori tehnice, nu un cadru structural de mobilizare populistă. Nu există un cadru coerent de tip popor-vs-elită care să pervade discursul; acuzațiile privind sistemul sunt raportate ca fiind făcute de alți colegi. Vorbitorul rămâne în registrul dezbaterii politice și a criticii de procedură. Hawkins=0.\"\n}",
+      "raw_response": "{\n  \"score\": 1,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.85,\n  \"markers\": [\n    {\n      \"kind\": \"crisis_invocation\",\n      \"evidence\": {\n        \"text\": \"o problem„ de viaŢ„ i şi de moarte a rom„nilor\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.90,\n      \"rationale_short\": \"Invocarea unei probleme de „viaţă şi de moarte”, sugerând un stadiu de criză existenţială.\"\n    }\n  ],\n  \"rationale\": \"Discursul este în principal unul de critică procedurală și de reacţie la un incident legat de votul electronic, menţinând un registru de dezbatere parlamentară. Totuşi, vorbitorul pivotează spre un registru populist la final, invocând o problemă de „viaţă şi de moarte a românilor”, ceea ce introduce un element de criză și dramatizare. Deoarece acest cadru nu este pilonul central al întregului discurs, care rămâne axat pe validitatea votului și pe efortul de procedură, scorul este 1. Nu există un cadru structural de tip popor-vs-elită sau un maniheism moralist care să pervadeze întreaga intervenţie.\"\n}",
       "error": null,
       "error_detail": null,
-      "fragments_not_found": [],
+      "fragments_not_found": [
+        "o problem„ de viaŢ„ i şi de moarte a rom„nilor"
+      ],
       "parse_repaired": false,
       "tokens_in": 13941,
       "tokens_in_breakdown": {
@@ -61,56 +53,12 @@
         "cache_creation": 0,
         "cache_read": 0
       },
-      "tokens_out": 515,
+      "tokens_out": 368,
       "cost_usd": null,
-      "latency_ms": 13589,
+      "latency_ms": 8091,
       "retries_used": 0
     },
-    "voice": {
-      "model_key": "gemma-4-26b-a4b",
-      "prompt_kind": "voice",
-      "speech_id": "mo://2005/II/136#agenda-3#act-64",
-      "output": {
-        "classifications": [
-          {
-            "marker_id": "m_0",
-            "voice": "reported",
-            "voice_confidence": 0.92,
-            "voice_evidence": {
-              "text": "care acuzau"
-            },
-            "attributed_to": {
-              "raw": "colegi de la Alian˛a P.N.L.-P.D.",
-              "kind": "individual"
-            },
-            "rationale_short": "Marker de tip raportat; descrie acțiunile unor colegi menționați anterior, fără a folosi ghilimele sau un introductor de citare directă."
-          },
-          {
-            "marker_id": "m_1",
-            "voice": "speaker_first_person",
-            "voice_confidence": 0.95,
-            "voice_evidence": null,
-            "attributed_to": null,
-            "rationale_short": "Afirmație directă a vorbitorului în cadrul unei întrebări retorice; fără indicii de atribuire sau negație."
-          }
-        ]
-      },
-      "raw_response": "{\n  \"classifications\": [\n    {\n      \"marker_id\": \"m_0\",\n      \"voice\": \"reported\",\n      \"voice_confidence\": 0.92,\n      \"voice_evidence\": {\n        \"text\": \"care acuzau\"\n      },\n      \"attributed_to\": {\n        \"raw\": \"colegi de la Alian˛a P.N.L.-P.D.\",\n        \"kind\": \"individual\"\n      },\n      \"rationale_short\": \"Marker de tip raportat; descrie acțiunile unor colegi menționați anterior, fără a folosi ghilimele sau un introductor de citare directă.\"\n    },\n    {\n      \"marker_id\": \"m_1\",\n      \"voice\": \"speaker_first_person\",\n      \"voice_confidence\": 0.95,\n      \"voice_evidence\": null,\n      \"attributed_to\": null,\n      \"rationale_short\": \"Afirmație directă a vorbitorului în cadrul unei întrebări retorice; fără indicii de atribuire sau negație.\"\n    }\n  ]\n}",
-      "error": null,
-      "error_detail": null,
-      "fragments_not_found": [],
-      "parse_repaired": false,
-      "tokens_in": 11558,
-      "tokens_in_breakdown": {
-        "fresh": 11558,
-        "cache_creation": 0,
-        "cache_read": 0
-      },
-      "tokens_out": 264,
-      "cost_usd": null,
-      "latency_ms": 13316,
-      "retries_used": 0
-    },
+    "voice": null,
     "dqi": {
       "model_key": "gemma-4-26b-a4b",
       "prompt_kind": "dqi",
@@ -122,7 +70,7 @@
         "level_of_justification": 1,
         "content_of_justification": "common_good",
         "respect_for_groups": 1,
-        "respect_for_demands": 1,
+        "respect_for_demands": 0,
         "respect_for_counterarguments": 1,
         "constructive_politics": "positional",
         "markers": [
@@ -130,76 +78,80 @@
             "kind": "level_of_justification",
             "value": 1,
             "evidence": {
-              "text": "De unde avem noi garan˛ia c„ nu se va repeta aceast„ eroare? Nu suntem japonezi, nu suntem nem˛i, nu suntem americani, suntem Ón preistoria epocii electronice."
+              "text": "De unde avem noi garan˛ia c„ nu se va repeta aceast„ eroare?"
             },
             "preliminary_voice": "speaker_first_person",
             "preliminary_voice_confidence": 0.96,
-            "marker_confidence": 0.89,
-            "rationale_short": "Justificare inferioară bazată pe analogii retorice și comparații cu alte țări, fără un mecanism causal specific."
+            "marker_confidence": 0.85,
+            "rationale_short": "Justificare inferioară: se ridică o problemă de garanție, dar argumentul este formulat sub formă de întrebare retorică, fără un mecanism causal clar."
           },
           {
             "kind": "content_of_justification",
             "value": "common_good",
             "evidence": {
-              "text": "De unde avem noi garan˛ia c„ nu se va repeta aceast„ eroare?"
+              "text": "dacă tot se spunea că nu asta este realitatea societății românești"
             },
             "preliminary_voice": "speaker_first_person",
-            "preliminary_voice_confidence": 0.95,
-            "marker_confidence": 0.85,
-            "rationale_short": "Apelul la garanția procesului de vot vizează integritatea sistemului, un interes general (common good)."
+            "preliminary_voice_confidence": 0.94,
+            "marker_confidence": 0.8,
+            "rationale_short": "Apelul la realitatea societății românești indică o încercare de a ancora argumentul în interesul general (common good)."
           },
           {
             "kind": "respect_for_groups",
             "value": 1,
             "evidence": {
-              "text": "colegi de la Alian˛a P.N.L.-P.D."
+              "text": "colegi de la Alianța P.N.L.-P.D."
             },
             "preliminary_voice": "speaker_first_person",
             "preliminary_voice_confidence": 0.96,
-            "marker_confidence": 0.82,
-            "rationale_short": "Referire funcțională la un grup politic; nicio derogare explicită sau respect specializat."
+            "marker_confidence": 0.75,
+            "rationale_short": "Referire funcțională la un grup politic; deși tonul este critic, nu există o derogare explicită sau dehumanizare a grupului în sine."
           },
           {
             "kind": "respect_for_demands",
-            "value": 1,
+            "value": 0,
             "evidence": {
-              "text": "nu e p„cat de eforturile lor, nu e p„cat de efortul Óntregului Senat?"
+              "text": "nu se poate. Totul are o limită, domnilor."
             },
             "preliminary_voice": "speaker_first_person",
-            "preliminary_voice_confidence": 0.94,
-            "marker_confidence": 0.75,
-            "rationale_short": "Vorbitorul trece peste cererile sau pozițiile celorlalți fără a le recunoaște sau a le respinge explicit."
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.9,
+            "rationale_short": "Respingere categorică a situației/cererilor prin afirmația că „totul are o limită”."
           },
           {
             "kind": "respect_for_counterarguments",
             "value": 1,
             "evidence": {
-              "text": "Au spus c„ ei au votat Óntr-un anumit fel, dar pe lista electronic„ a ap„rut altfel."
+              "text": "Au spus că ei au votat Într-un anumit fel, dar pe lista electronică a apărut altfel."
             },
             "preliminary_voice": "speaker_first_person",
             "preliminary_voice_confidence": 0.95,
             "marker_confidence": 0.88,
-            "rationale_short": "Menționarea argumentului advers (discrepanța votului) fără o angajare substanțială sau o respingere argumentată."
+            "rationale_short": "Vorbitorul menționează/raportează argumentul adversarilor, dar nu îl analizează substanțial, ci îl folosește pentru a ataca sistemul."
           },
           {
             "kind": "constructive_politics",
             "value": "positional",
             "evidence": {
-              "text": "Cine se teme de un vot nominal dup„ strigarea catalogului, din moment ce s-a depus at‚ta efort?"
+              "text": "Nu suntem japonezi, nu suntem nemți, nu suntem americani, suntem În preistoria epocii electronice."
             },
             "preliminary_voice": "speaker_first_person",
             "preliminary_voice_confidence": 0.96,
-            "marker_confidence": 0.9,
-            "rationale_short": "Vorbitorul își susține poziția critică fără a propune o alternativă concretă sau o mediere."
+            "marker_confidence": 0.92,
+            "rationale_short": "Discurs pur pozițional de critică; nu se propune nicio alternativă sau soluție de mediere."
           }
         ],
-        "rationale": "Discursul prezintă o calitate deliberativă medie-scăzută. Vorbitorul oferă o justificare de nivel inferior (level_of_justification=1), folosind analogii retorice (nu suntem japonezi/nemți) în loc de argumente tehnice sau cauzale pentru a susține nevoia de vot nominal. Justificarea vizează interesul general pentru siguranța procesului electoral (common_good). Deși menționează poziția colegilor de la Alianța P.N.L.-P.D., acesta face doar o referire funcțională, fără a angaja substanțial contraargumentele lor (respect_for_counterarguments=1) sau a recunoaște legitimitatea cererilor lor (respect_for_demands=1). Discursul rămâne strict pozițional (constructive_politics=positional), concentrându-se pe critică și retorică rather than pe soluții alternative. Respectul pentru grupuri este neutru (respect_for_groups=1)."
+        "rationale": "Discursul prezintă o calitate deliberativă medie spre scăzută. Vorbitorul ridică probleme de validitate a votului (level_of_justification=1), dar argumentația este fragmentată și bazată pe întrebări retorice și comparații ironice, fără a oferi un mecanism de soluționare. Justificarea apelează la interesul general al societății (common_good). Deși menționează argumentele adversarilor (respect_for_counterarguments=1), acestea sunt folosite doar pentru a susține critica, nu pentru un angajament substanțial. Respectul pentru cererile opoziției este absent, fiind caracterizat printr-o respingere a limitei de toleranță (respect_for_demands=0). Discursul este strict pozițional (constructive_politics=positional), concentrându-se pe critică și pe demonstrarea unui deficit sistemic, fără a oferi propuneri constructive."
       },
-      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.88,\n  \"level_of_justification\": 1,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"De unde avem noi garan˛ia c„ nu se va repeta aceast„ eroare? Nu suntem japonezi, nu suntem nem˛i, nu suntem americani, suntem Ón preistoria epocii electronice.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.96,\n      \"marker_confidence\": 0.89,\n      \"rationale_short\": \"Justificare inferioară bazată pe analogii retorice și comparații cu alte țări, fără un mecanism causal specific.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"De unde avem noi garan˛ia c„ nu se va repeta aceast„ eroare?\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Apelul la garanția procesului de vot vizează integritatea sistemului, un interes general (common good).\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"colegi de la Alian˛a P.N.L.-P.D.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.96,\n      \"marker_confidence\": 0.82,\n      \"rationale_short\": \"Referire funcțională la un grup politic; nicio derogare explicită sau respect specializat.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"nu e p„cat de eforturile lor, nu e p„cat de efortul Óntregului Senat?\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.94,\n      \"marker_confidence\": 0.75,\n      \"rationale_short\": \"Vorbitorul trece peste cererile sau pozițiile celorlalți fără a le recunoaște sau a le respinge explicit.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Au spus c„ ei au votat Óntr-un anumit fel, dar pe lista electronic„ a ap„rut altfel.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Menționarea argumentului advers (discrepanța votului) fără o angajare substanțială sau o respingere argumentată.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"Cine se teme de un vot nominal dup„ strigarea catalogului, din moment ce s-a depus at‚ta efort?\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.96,\n      \"marker_confidence\": 0.90,\n      \"rationale_short\": \"Vorbitorul își susține poziția critică fără a propune o alternativă concretă sau o mediere.\"\n    }\n  ],\n  \"rationale\": \"Discursul prezintă o calitate deliberativă medie-scăzută. Vorbitorul oferă o justificare de nivel inferior (level_of_justification=1), folosind analogii retorice (nu suntem japonezi/nemți) în loc de argumente tehnice sau cauzale pentru a susține nevoia de vot nominal. Justificarea vizează interesul general pentru siguranța procesului electoral (common_good). Deși menționează poziția colegilor de la Alianța P.N.L.-P.D., acesta face doar o referire funcțională, fără a angaja substanțial contraargumentele lor (respect_for_counterarguments=1) sau a recunoaște legitimitatea cererilor lor (respect_for_demands=1). Discursul rămâne strict pozițional (constructive_politics=positional), concentrându-se pe critică și retorică rather than pe soluții alternative. Respectul pentru grupuri este neutru (respect_for_groups=1).\"\n}",
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.88,\n  \"level_of_justification\": 1,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 0,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"De unde avem noi garan˛ia c„ nu se va repeta aceast„ eroare?\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.96,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Justificare inferioară: se ridică o problemă de garanție, dar argumentul este formulat sub formă de întrebare retorică, fără un mecanism causal clar.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"dacă tot se spunea că nu asta este realitatea societății românești\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.94,\n      \"marker_confidence\": 0.80,\n      \"rationale_short\": \"Apelul la realitatea societății românești indică o încercare de a ancora argumentul în interesul general (common good).\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"colegi de la Alianța P.N.L.-P.D.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.96,\n      \"marker_confidence\": 0.75,\n      \"rationale_short\": \"Referire funcțională la un grup politic; deși tonul este critic, nu există o derogare explicită sau dehumanizare a grupului în sine.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"nu se poate. Totul are o limită, domnilor.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"marker_confidence\": 0.90,\n      \"rationale_short\": \"Respingere categorică a situației/cererilor prin afirmația că „totul are o limită”.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Au spus că ei au votat Într-un anumit fel, dar pe lista electronică a apărut altfel.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Vorbitorul menționează/raportează argumentul adversarilor, dar nu îl analizează substanțial, ci îl folosește pentru a ataca sistemul.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"Nu suntem japonezi, nu suntem nemți, nu suntem americani, suntem În preistoria epocii electronice.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.96,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Discurs pur pozițional de critică; nu se propune nicio alternativă sau soluție de mediere.\"\n    }\n  ],\n  \"rationale\": \"Discursul prezintă o calitate deliberativă medie spre scăzută. Vorbitorul ridică probleme de validitate a votului (level_of_justification=1), dar argumentația este fragmentată și bazată pe întrebări retorice și comparații ironice, fără a oferi un mecanism de soluționare. Justificarea apelează la interesul general al societății (common_good). Deși menționează argumentele adversarilor (respect_for_counterarguments=1), acestea sunt folosite doar pentru a susține critica, nu pentru un angajament substanțial. Respectul pentru cererile opoziției este absent, fiind caracterizat printr-o respingere a limitei de toleranță (respect_for_demands=0). Discursul este strict pozițional (constructive_politics=positional), concentrându-se pe critică și pe demonstrarea unui deficit sistemic, fără a oferi propuneri constructive.\"\n}",
       "error": null,
       "error_detail": null,
       "fragments_not_found": [
-        "nu e p„cat de eforturile lor, nu e p„cat de efortul Óntregului Senat?"
+        "dacă tot se spunea că nu asta este realitatea societății românești",
+        "colegi de la Alianța P.N.L.-P.D.",
+        "nu se poate. Totul are o limită, domnilor.",
+        "Au spus că ei au votat Într-un anumit fel, dar pe lista electronică a apărut altfel.",
+        "Nu suntem japonezi, nu suntem nemți, nu suntem americani, suntem În preistoria epocii electronice."
       ],
       "parse_repaired": false,
       "tokens_in": 12742,
@@ -208,10 +160,11 @@
         "cache_creation": 0,
         "cache_read": 0
       },
-      "tokens_out": 1292,
+      "tokens_out": 1262,
       "cost_usd": null,
-      "latency_ms": 23855,
+      "latency_ms": 23973,
       "retries_used": 0
-    }
+    },
+    "vparty": null
   }
 }

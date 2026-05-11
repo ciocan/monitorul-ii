@@ -27,9 +27,9 @@
         "framework_version": "hawkins@2018",
         "framework_confidence": 0.96,
         "markers": [],
-        "rationale": "Discurs procedural și politic, axat pe critica sistemului de vot electronic și pe propunerea unui vot nominal, precum și pe ideea de a invita publicul la ședință pentru a verifica dacă prețurile sunt o problemă reală. Nu există un cadru manihean popor-vs-elită, nici invocarea unei voințe populare omogene sau supremația acesteia asupra instituțiilor. Mențiunea la „populism” este folosită retoric pentru a eticheta discursul altora despre prețuri, nu ca auto-referință. Registrul rămâne în sfera dezbaterii parlamentare convenționale. Hawkins=0 cu încredere ridicată."
+        "rationale": "Discursul se încadrează clar în registrul procedural-parlamentar, concentrându-se pe mecanismul de vot (electronic vs. nominal), transparența rezultatelor și invitația la o ședință publică cu prezența pensionarilor pentru a discuta prețurile. Nu există un cadru structural popor-vs-elită, nici o invocare a voinței populare omogene sau a unei elite malefice. Mențiunea explicită a termenului „populism” apare într-o construcție interogativă („dacă prețurile sunt o demagogie și o dovadă de populism”), funcționând ca o punere la îndoială a retoricii, nu ca o adoptare a viziunii populiste. Fără markeri activi la persoana întâi și cu o argumentație axată pe procedură și transparență, discursul nu susține o viziune populistă. Hawkins=0 cu încredere ridicată."
       },
-      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.96,\n  \"markers\": [],\n  \"rationale\": \"Discurs procedural și politic, axat pe critica sistemului de vot electronic și pe propunerea unui vot nominal, precum și pe ideea de a invita publicul la ședință pentru a verifica dacă prețurile sunt o problemă reală. Nu există un cadru manihean popor-vs-elită, nici invocarea unei voințe populare omogene sau supremația acesteia asupra instituțiilor. Mențiunea la „populism” este folosită retoric pentru a eticheta discursul altora despre prețuri, nu ca auto-referință. Registrul rămâne în sfera dezbaterii parlamentare convenționale. Hawkins=0 cu încredere ridicată.\"\n}",
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.96,\n  \"markers\": [],\n  \"rationale\": \"Discursul se încadrează clar în registrul procedural-parlamentar, concentrându-se pe mecanismul de vot (electronic vs. nominal), transparența rezultatelor și invitația la o ședință publică cu prezența pensionarilor pentru a discuta prețurile. Nu există un cadru structural popor-vs-elită, nici o invocare a voinței populare omogene sau a unei elite malefice. Mențiunea explicită a termenului „populism” apare într-o construcție interogativă („dacă prețurile sunt o demagogie și o dovadă de populism”), funcționând ca o punere la îndoială a retoricii, nu ca o adoptare a viziunii populiste. Fără markeri activi la persoana întâi și cu o argumentație axată pe procedură și transparență, discursul nu susține o viziune populistă. Hawkins=0 cu încredere ridicată.\"\n}",
       "error": null,
       "error_detail": null,
       "fragments_not_found": [],
@@ -40,9 +40,9 @@
         "cache_creation": 0,
         "cache_read": 0
       },
-      "tokens_out": 2937,
+      "tokens_out": 3219,
       "cost_usd": null,
-      "latency_ms": 92970,
+      "latency_ms": 108376,
       "retries_used": 0
     },
     "voice": null,
@@ -53,98 +53,99 @@
       "output": {
         "framework_version": "steiner-bachtiger@2017",
         "score_unit": "dqi_multi",
-        "framework_confidence": 0.85,
-        "level_of_justification": 1,
-        "content_of_justification": "group_interest",
-        "respect_for_groups": 0,
+        "framework_confidence": 0.78,
+        "level_of_justification": 2,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
         "respect_for_demands": 0,
-        "respect_for_counterarguments": 1,
+        "respect_for_counterarguments": 0,
         "constructive_politics": "alternative_proposal",
         "markers": [
           {
             "kind": "level_of_justification",
-            "value": 1,
+            "value": 2,
             "evidence": {
               "text": "De unde avem noi garan˛ia c„ nu se va repeta aceast„ eroare? Nu suntem japonezi, nu suntem nem˛i, nu suntem americani, suntem Ón preistoria epocii electronice."
             },
             "preliminary_voice": "speaker_first_person",
-            "preliminary_voice_confidence": 0.96,
-            "marker_confidence": 0.91,
-            "rationale_short": "Motivare bazată pe neîncredere și o metaforă despre nivelul tehnologic, fără lanț causal sau dovezi concrete."
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.89,
+            "rationale_short": "Argumentează nesiguranța sistemului electronic și necesitatea transparenței prin vot nominal."
           },
           {
             "kind": "content_of_justification",
-            "value": "group_interest",
+            "value": "common_good",
             "evidence": {
-              "text": "dac„ tot se spunea c„ nu asta este realitatea societ„˛ii rom‚ne∫ti"
+              "text": "Hai s„ vedem ∫i noi care e raportul adev„rat de for˛e, dac„ tot se spunea c„ nu asta este realitatea societ„˛ii rom‚ne∫ti."
             },
             "preliminary_voice": "speaker_first_person",
             "preliminary_voice_confidence": 0.95,
-            "marker_confidence": 0.89,
-            "rationale_short": "Apel explicit la realitatea și interesele societății românești, nu la principii universale."
+            "marker_confidence": 0.87,
+            "rationale_short": "Apel la transparență instituțională și la reflectarea realității societății, nu la interes de grup."
           },
           {
             "kind": "respect_for_groups",
-            "value": 0,
+            "value": 1,
             "evidence": {
-              "text": "sincer sau ipocrit"
+              "text": "c‚teva sute de oameni am„r‚˛i, c‚teva sute de pensionari"
             },
             "preliminary_voice": "speaker_first_person",
-            "preliminary_voice_confidence": 0.97,
-            "marker_confidence": 0.93,
-            "rationale_short": "Referință disprețuitoare la motivațiile colegilor de la alianță, caracterizate ca ipocrite."
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.82,
+            "rationale_short": "Referință funcțională la pensionari și cetățeni; ton neutru, fără derogare sau recunoaștere explicită."
           },
           {
             "kind": "respect_for_demands",
             "value": 0,
             "evidence": {
-              "text": "Totul are o limit„, domnilor."
+              "text": "dac„ pre˛urile sunt o demagogie ∫i o dovad„ de populism sau sunt cumva o problem„ de via˛„ ∫i de moarte a rom‚nilor."
             },
             "preliminary_voice": "speaker_first_person",
-            "preliminary_voice_confidence": 0.96,
-            "marker_confidence": 0.92,
-            "rationale_short": "Cererile și atitudinea opoziției sunt respinse ca jigniri inacceptabile, fără recunoaștere a legitimității."
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.91,
+            "rationale_short": "Cadrul opoziției este etichetat ca „demagogie” și „populism”, indicând respingere a legitimității cererii."
           },
           {
             "kind": "respect_for_counterarguments",
-            "value": 1,
+            "value": 0,
             "evidence": {
-              "text": "Au spus c„ ei au votat Óntr-un anumit fel, dar pe lista electronic„ a ap„rut altfel."
+              "text": "Nu suntem japonezi, nu suntem nem˛i, nu suntem americani, suntem Ón preistoria epocii electronice."
             },
             "preliminary_voice": "speaker_first_person",
             "preliminary_voice_confidence": 0.95,
             "marker_confidence": 0.88,
-            "rationale_short": "Se menționează afirmația adversă, dar fără angajament substanțial sau refutare a raționamentului."
+            "rationale_short": "Vorbitorul își susține poziția procedurală fără a aborda raționamentul advers, concentrându-se pe propria argumentație."
           },
           {
             "kind": "constructive_politics",
             "value": "alternative_proposal",
             "evidence": {
-              "text": "Cine se teme de un vot nominal dup„ strigarea catalogului"
+              "text": "Cine se teme de un vot nominal dup„ strigarea catalogului, din moment ce s-a depus at‚ta efort?"
             },
             "preliminary_voice": "speaker_first_person",
-            "preliminary_voice_confidence": 0.96,
-            "marker_confidence": 0.94,
-            "rationale_short": "Se propune explicit o metodă alternativă de votare (nominal) în locul celei electronice."
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.9,
+            "rationale_short": "Propune votul nominal și ședința publică ca alternative procedurale la sistemul electronic contestat."
           }
         ],
-        "rationale": "Discursul prezintă un profil deliberativ slab pe dimensiunile de respect și justificare, dar oferă o alternativă concretă. Justificarea este inferioară (nivel 1), bazându-se pe neîncredere în sistemul electronic și pe o caracterizare metaforică a nivelului tehnologic național, fără a oferi mecanisme cauzale sau dovezi empirice. Conținutul justificării apelează la interesul de grup (realitatea societății românești, pensionari, oameni amărîți), nu la principii universale. Respectul pentru grupuri și cereri este absent (scor 0), vorbitorul caracterizând motivațiile opoziției ca ipocrite și respingând intervențiile lor ca jigniri inacceptabile. Contraargumentele adverse sunt doar menționate superficial (scor 1), fără angajament substanțial sau refutare. În schimb, discursul este constructiv prin propunerea unei alternative concrete (vot nominal și ședință publică cu cetățenii), încadrându-se în tiparul populist-confrontațional. Calitatea deliberativă generală este scăzută din cauza lipsei de respect procedural și a justificării slabe, deși există o orientare clară spre o soluție alternativă."
+        "rationale": "Discursul prezintă o justificare calificată (nivel 2) care ancorează opoziția față de votul electronic în preocupări legitime de transparență instituțională și fiabilitate procedurală, apelând la binele comun. Vorbitorul recunoaște superficial reclamațiile opoziției, dar le discreditează rapid ca potențial ipocrite sau demagogice, ceea ce duce la scoruri scăzute pe dimensiunile de respect față de cereri și contraargumente (0). Referințele la grupuri sociale (pensionari, cetățeni) sunt funcționale și neutre, fără derogare explicită. În schimb, discursul este constructiv pe plan procedural, oferind o alternativă concretă (vot nominal și ședință publică) pentru a verifica „raportul adevărat de forțe”. Profilul deliberativ este unul de opoziție procedurală: justificat și orientat spre transparență, dar reticent la angajamentul substanțial cu raționamentul advers."
       },
-      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.85,\n  \"level_of_justification\": 1,\n  \"content_of_justification\": \"group_interest\",\n  \"respect_for_groups\": 0,\n  \"respect_for_demands\": 0,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"alternative_proposal\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"De unde avem noi garan˛ia c„ nu se va repeta aceast„ eroare? Nu suntem japonezi, nu suntem nem˛i, nu suntem americani, suntem Ón preistoria epocii electronice.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.96,\n      \"marker_confidence\": 0.91,\n      \"rationale_short\": \"Motivare bazată pe neîncredere și o metaforă despre nivelul tehnologic, fără lanț causal sau dovezi concrete.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"group_interest\",\n      \"evidence\": {\n        \"text\": \"dac„ tot se spunea c„ nu asta este realitatea societ„˛ii rom‚ne∫ti\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.89,\n      \"rationale_short\": \"Apel explicit la realitatea și interesele societății românești, nu la principii universale.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"sincer sau ipocrit\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"marker_confidence\": 0.93,\n      \"rationale_short\": \"Referință disprețuitoare la motivațiile colegilor de la alianță, caracterizate ca ipocrite.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"Totul are o limit„, domnilor.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.96,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Cererile și atitudinea opoziției sunt respinse ca jigniri inacceptabile, fără recunoaștere a legitimității.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Au spus c„ ei au votat Óntr-un anumit fel, dar pe lista electronic„ a ap„rut altfel.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Se menționează afirmația adversă, dar fără angajament substanțial sau refutare a raționamentului.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"alternative_proposal\",\n      \"evidence\": {\n        \"text\": \"Cine se teme de un vot nominal dup„ strigarea catalogului\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.96,\n      \"marker_confidence\": 0.94,\n      \"rationale_short\": \"Se propune explicit o metodă alternativă de votare (nominal) în locul celei electronice.\"\n    }\n  ],\n  \"rationale\": \"Discursul prezintă un profil deliberativ slab pe dimensiunile de respect și justificare, dar oferă o alternativă concretă. Justificarea este inferioară (nivel 1), bazându-se pe neîncredere în sistemul electronic și pe o caracterizare metaforică a nivelului tehnologic național, fără a oferi mecanisme cauzale sau dovezi empirice. Conținutul justificării apelează la interesul de grup (realitatea societății românești, pensionari, oameni amărîți), nu la principii universale. Respectul pentru grupuri și cereri este absent (scor 0), vorbitorul caracterizând motivațiile opoziției ca ipocrite și respingând intervențiile lor ca jigniri inacceptabile. Contraargumentele adverse sunt doar menționate superficial (scor 1), fără angajament substanțial sau refutare. În schimb, discursul este constructiv prin propunerea unei alternative concrete (vot nominal și ședință publică cu cetățenii), încadrându-se în tiparul populist-confrontațional. Calitatea deliberativă generală este scăzută din cauza lipsei de respect procedural și a justificării slabe, deși există o orientare clară spre o soluție alternativă.\"\n}",
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.78,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 0,\n  \"respect_for_counterarguments\": 0,\n  \"constructive_politics\": \"alternative_proposal\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"De unde avem noi garan˛ia c„ nu se va repeta aceast„ eroare? Nu suntem japonezi, nu suntem nem˛i, nu suntem americani, suntem Ón preistoria epocii electronice.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.89,\n      \"rationale_short\": \"Argumentează nesiguranța sistemului electronic și necesitatea transparenței prin vot nominal.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"Hai s„ vedem ∫i noi care e raportul adev„rat de for˛e, dac„ tot se spunea c„ nu asta este realitatea societ„˛ii rom‚ne∫ti.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.87,\n      \"rationale_short\": \"Apel la transparență instituțională și la reflectarea realității societății, nu la interes de grup.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"c‚teva sute de oameni am„r‚˛i, c‚teva sute de pensionari\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.82,\n      \"rationale_short\": \"Referință funcțională la pensionari și cetățeni; ton neutru, fără derogare sau recunoaștere explicită.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"dac„ pre˛urile sunt o demagogie ∫i o dovad„ de populism sau sunt cumva o problem„ de via˛„ ∫i de moarte a rom‚nilor.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.91,\n      \"rationale_short\": \"Cadrul opoziției este etichetat ca „demagogie” și „populism”, indicând respingere a legitimității cererii.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"Nu suntem japonezi, nu suntem nem˛i, nu suntem americani, suntem Ón preistoria epocii electronice.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Vorbitorul își susține poziția procedurală fără a aborda raționamentul advers, concentrându-se pe propria argumentație.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"alternative_proposal\",\n      \"evidence\": {\n        \"text\": \"Cine se teme de un vot nominal dup„ strigarea catalogului, din moment ce s-a depus at‚ta efort?\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.90,\n      \"rationale_short\": \"Propune votul nominal și ședința publică ca alternative procedurale la sistemul electronic contestat.\"\n    }\n  ],\n  \"rationale\": \"Discursul prezintă o justificare calificată (nivel 2) care ancorează opoziția față de votul electronic în preocupări legitime de transparență instituțională și fiabilitate procedurală, apelând la binele comun. Vorbitorul recunoaște superficial reclamațiile opoziției, dar le discreditează rapid ca potențial ipocrite sau demagogice, ceea ce duce la scoruri scăzute pe dimensiunile de respect față de cereri și contraargumente (0). Referințele la grupuri sociale (pensionari, cetățeni) sunt funcționale și neutre, fără derogare explicită. În schimb, discursul este constructiv pe plan procedural, oferind o alternativă concretă (vot nominal și ședință publică) pentru a verifica „raportul adevărat de forțe”. Profilul deliberativ este unul de opoziție procedurală: justificat și orientat spre transparență, dar reticent la angajamentul substanțial cu raționamentul advers.\"\n}",
       "error": null,
       "error_detail": null,
       "fragments_not_found": [],
       "parse_repaired": false,
-      "tokens_in": 12488,
+      "tokens_in": 12486,
       "tokens_in_breakdown": {
-        "fresh": 12488,
+        "fresh": 12486,
         "cache_creation": 0,
         "cache_read": 0
       },
-      "tokens_out": 6736,
+      "tokens_out": 6678,
       "cost_usd": null,
-      "latency_ms": 101360,
+      "latency_ms": 106335,
       "retries_used": 0
-    }
+    },
+    "vparty": null
   }
 }

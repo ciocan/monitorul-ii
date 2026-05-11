@@ -1,0 +1,151 @@
+{
+  "speech_id": "mo://2016/II/94#agenda-1#act-16",
+  "tier": "register_shift",
+  "speaker": {
+    "id": "popescu-tariceanu-calin",
+    "name": "Călin Constantin Anton Popescu-Tăriceanu",
+    "raw": "Domnul Călin Constantin Anton Popescu-Tăriceanu",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2016-05-10",
+    "year": 2016,
+    "legislature": "VII",
+    "delivery_mode": null
+  },
+  "model_key": "qwen-3.6-35b-a3b",
+  "model_label": "qwen-3.6-35b-a3b",
+  "results": {
+    "hawkins": {
+      "model_key": "qwen-3.6-35b-a3b",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2016/II/94#agenda-1#act-16",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.98,
+        "markers": [],
+        "rationale": "Discursul este strict procedural și administrativ, limitându-se la constatarea rezultatului votului, convocarea Birourilor permanente și comunicarea depunerii unor legi la Curtea Constituțională conform art. 15 alin. (2) și (3) din Legea nr. 47/1992. Nu conține nicio trăsătură a viziunii populiste: lipsesc cadrele popor-vs-elită, maniheismul moral, invocarea unei voințe populare omogene sau a unei crize existențiale. Registrul este tehnic-juridic și de rutină parlamentară, specific majorității intervențiilor din corpus. Hawkins=0 cu încredere foarte ridicată."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.98,\n  \"markers\": [],\n  \"rationale\": \"Discursul este strict procedural și administrativ, limitându-se la constatarea rezultatului votului, convocarea Birourilor permanente și comunicarea depunerii unor legi la Curtea Constituțională conform art. 15 alin. (2) și (3) din Legea nr. 47/1992. Nu conține nicio trăsătură a viziunii populiste: lipsesc cadrele popor-vs-elită, maniheismul moral, invocarea unei voințe populare omogene sau a unei crize existențiale. Registrul este tehnic-juridic și de rutină parlamentară, specific majorității intervențiilor din corpus. Hawkins=0 cu încredere foarte ridicată.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13554,
+      "tokens_in_breakdown": {
+        "fresh": 13554,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1975,
+      "cost_usd": null,
+      "latency_ms": 17886,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "qwen-3.6-35b-a3b",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2016/II/94#agenda-1#act-16",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.45,
+        "level_of_justification": 0,
+        "content_of_justification": "none",
+        "respect_for_groups": 1,
+        "respect_for_demands": 0,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 0,
+            "evidence": {
+              "text": "Vă informez că, în conformitate cu prevederile art. 15 alin. (2) și (3) din Legea nr. 47/1992"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.88,
+            "rationale_short": "Anunț procedural și informativ; nicio poziție sau argument care să necesite justificare."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "none",
+            "evidence": {
+              "text": "Vă informez că"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.87,
+            "rationale_short": "Nicio justificare oferită; conținutul este nedefinit conform rubricii."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Doamnelor și domnilor senatori și deputați,"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.75,
+            "rationale_short": "Adresare formală și convențională în sală; neutru, fără angajament cu out-group-uri."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 0,
+            "evidence": {
+              "text": "Îi invit pe membrii Birourilor permanente să se întrunească"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.82,
+            "rationale_short": "Nicio cerere adversă prezentă sau adresată; text strict procedural."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "Vă informez că, în conformitate cu prevederile"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.82,
+            "rationale_short": "Absență totală a dezbaterii sau a raționamentelor adverse; ignorat implicit."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Îi invit pe membrii Birourilor permanente"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.85,
+            "rationale_short": "Execuție procedurală; nicio alternativă sau mediere propusă."
+          }
+        ],
+        "rationale": "Acest fragment este strict procedural și administrativ, tipic pentru un președinte de ședință care anunță rezultate și depuneri legislative. Nu conține nicio poziție politică, argument sau raționament care să necesite evaluare deliberativă, motiv pentru care level_of_justification și content_of_justification sunt setate la 0/none. Adresarea către colegi este formală și convențională, fără angajament substanțial cu grupuri adverse, ceea ce plasează respect_for_groups la neutru (1). Nu sunt prezente cereri opozante sau contraargumente dezbătute, deci dimensiunile de respect sunt codate la valori implicite (0). Discursul execută o funcție procedurală, nu una constructivă sau de mediere, rămânând positional. framework_confidence este scăzut (~0.45) deoarece textul este prea scurt și lipsit de conținut deliberativ pentru a susține judecăți robuste; consumatorii ar trebui să filtreze astfel de intervenții procedurale."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.45,\n  \"level_of_justification\": 0,\n  \"content_of_justification\": \"none\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 0,\n  \"respect_for_counterarguments\": 0,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"Vă informez că, în conformitate cu prevederile art. 15 alin. (2) și (3) din Legea nr. 47/1992\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Anunț procedural și informativ; nicio poziție sau argument care să necesite justificare.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"none\",\n      \"evidence\": {\n        \"text\": \"Vă informez că\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.87,\n      \"rationale_short\": \"Nicio justificare oferită; conținutul este nedefinit conform rubricii.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Doamnelor și domnilor senatori și deputați,\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.75,\n      \"rationale_short\": \"Adresare formală și convențională în sală; neutru, fără angajament cu out-group-uri.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"Îi invit pe membrii Birourilor permanente să se întrunească\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.82,\n      \"rationale_short\": \"Nicio cerere adversă prezentă sau adresată; text strict procedural.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"Vă informez că, în conformitate cu prevederile\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.82,\n      \"rationale_short\": \"Absență totală a dezbaterii sau a raționamentelor adverse; ignorat implicit.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"Îi invit pe membrii Birourilor permanente\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Execuție procedurală; nicio alternativă sau mediere propusă.\"\n    }\n  ],\n  \"rationale\": \"Acest fragment este strict procedural și administrativ, tipic pentru un președinte de ședință care anunță rezultate și depuneri legislative. Nu conține nicio poziție politică, argument sau raționament care să necesite evaluare deliberativă, motiv pentru care level_of_justification și content_of_justification sunt setate la 0/none. Adresarea către colegi este formală și convențională, fără angajament substanțial cu grupuri adverse, ceea ce plasează respect_for_groups la neutru (1). Nu sunt prezente cereri opozante sau contraargumente dezbătute, deci dimensiunile de respect sunt codate la valori implicite (0). Discursul execută o funcție procedurală, nu una constructivă sau de mediere, rămânând positional. framework_confidence este scăzut (~0.45) deoarece textul este prea scurt și lipsit de conținut deliberativ pentru a susține judecăți robuste; consumatorii ar trebui să filtreze astfel de intervenții procedurale.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12267,
+      "tokens_in_breakdown": {
+        "fresh": 12267,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 5093,
+      "cost_usd": null,
+      "latency_ms": 37133,
+      "retries_used": 0
+    },
+    "vparty": null
+  }
+}

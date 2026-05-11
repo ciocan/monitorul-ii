@@ -1,0 +1,146 @@
+{
+  "speech_id": "mo://2023/II/29#agenda-2#act-42",
+  "tier": "populist",
+  "speaker": {
+    "id": "damureanu-ringo",
+    "name": "Ringo Dămureanu",
+    "raw": "Domnul Ringo Dămureanu",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2023-02-28",
+    "year": 2023,
+    "legislature": "IX",
+    "delivery_mode": null
+  },
+  "model_key": "qwen-3.6-27b",
+  "model_label": "qwen-3.6-27b",
+  "results": {
+    "hawkins": {
+      "model_key": "qwen-3.6-27b",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2023/II/29#agenda-2#act-42",
+      "output": null,
+      "raw_response": null,
+      "error": "json_parse",
+      "error_detail": "strict: Expecting value: line 1 column 1 (char 0); repair: Expecting value: line 1 column 1 (char 0)",
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 14206,
+      "tokens_in_breakdown": {
+        "fresh": 14206,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1815,
+      "cost_usd": null,
+      "latency_ms": 44305,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "qwen-3.6-27b",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2023/II/29#agenda-2#act-42",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.88,
+        "level_of_justification": 2,
+        "content_of_justification": "group_interest",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "cinci poduri zac nerefăcute de peste 8 ani, iar pe drumul european 79, tot către Bulgaria, staționează tiruri pe zeci de kilometri"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.92,
+            "rationale_short": "Prezintă dovezi empirice specifice (poduri nerefăcute, tiruri staționate) pentru a susține poziția privind neglijarea infrastructurii."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "group_interest",
+            "evidence": {
+              "text": "Județul Dolj, pe care îl reprezint în Parlament, și, implicit, regiunea Oltenia, par a fi un soi de cenușăreasă"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.93,
+            "rationale_short": "Justificarea se ancorează explicit în interesul și suferința unei regiuni specifice (Dolj/Oltenia), nu în binele comun universal."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "S-au obișnuit oltenii cu așteptarea."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.88,
+            "rationale_short": "Referință funcțională și empatică la locuitorii regiunii; nicio derogare explicită sau recunoaștere deliberativă a unui out-group."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Ne întrebăm și vă întrebăm: oare cât vor mai avea de așteptat Doljul și Oltenia pentru a se bucura de beneficiile civilizației"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.89,
+            "rationale_short": "Vorbitorul nu adresează cererile adverse, concentrându-se exclusiv pe plângerile regionale; non-angajament implicit."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "cât vor mai îndura craiovenii și oltenii incompetența dovedită a PSD și PNL?"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.91,
+            "rationale_short": "Discursul este monologic și nu menționează sau contestă niciun raționament al opoziției; argumentele adverse sunt ignorate."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Garantat, nu multă vreme! Ați dovedit ceea ce era de dovedit."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.94,
+            "rationale_short": "Se limitează la o poziție de reproș și așteptare politică; nicio alternativă, amendament sau propunere de mediere este avansată."
+          }
+        ],
+        "rationale": "Discursul prezintă un profil deliberativ de tip plângere regională, cu o justificare calificată (nivel 2) bazată pe enumerarea unor incidente și deficiențe infrastructurale specifice (accidente feroviare, poduri nerefăcute, lipsa autostrăzilor). Conținutul justificării este clar orientat spre interesul de grup (regiunea Oltenia/județul Dolj), fără apeluri la principii universalizabile. Dimensiunile de respect sunt neutre sau nule: vorbitorul nu adresează cererile sau argumentele adverse (respect_for_demands=1, respect_for_counterarguments=0), iar referirile la grupuri sociale rămân funcționale, fără derogare explicită (respect_for_groups=1). Din punct de vedere constructiv, intervenția este strict pozițională, limitându-se la reproșuri politice și așteptare, fără a propune amendamente, alternative sau soluții de mediere. Calitatea deliberativă este moderată pe axa justificării, dar scăzută pe axele angajamentului advers și construcției politice, reflectând un registru tipic de advocacy regional în dezbaterile parlamentare."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.88,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"group_interest\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 0,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": { \"text\": \"cinci poduri zac nerefăcute de peste 8 ani, iar pe drumul european 79, tot către Bulgaria, staționează tiruri pe zeci de kilometri\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Prezintă dovezi empirice specifice (poduri nerefăcute, tiruri staționate) pentru a susține poziția privind neglijarea infrastructurii.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"group_interest\",\n      \"evidence\": { \"text\": \"Județul Dolj, pe care îl reprezint în Parlament, și, implicit, regiunea Oltenia, par a fi un soi de cenușăreasă\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.93,\n      \"rationale_short\": \"Justificarea se ancorează explicit în interesul și suferința unei regiuni specifice (Dolj/Oltenia), nu în binele comun universal.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": { \"text\": \"S-au obișnuit oltenii cu așteptarea.\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Referință funcțională și empatică la locuitorii regiunii; nicio derogare explicită sau recunoaștere deliberativă a unui out-group.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": { \"text\": \"Ne întrebăm și vă întrebăm: oare cât vor mai avea de așteptat Doljul și Oltenia pentru a se bucura de beneficiile civilizației\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.89,\n      \"rationale_short\": \"Vorbitorul nu adresează cererile adverse, concentrându-se exclusiv pe plângerile regionale; non-angajament implicit.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 0,\n      \"evidence\": { \"text\": \"cât vor mai îndura craiovenii și oltenii incompetența dovedită a PSD și PNL?\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.91,\n      \"rationale_short\": \"Discursul este monologic și nu menționează sau contestă niciun raționament al opoziției; argumentele adverse sunt ignorate.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": { \"text\": \"Garantat, nu multă vreme! Ați dovedit ceea ce era de dovedit.\" },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.94,\n      \"rationale_short\": \"Se limitează la o poziție de reproș și așteptare politică; nicio alternativă, amendament sau propunere de mediere este avansată.\"\n    }\n  ],\n  \"rationale\": \"Discursul prezintă un profil deliberativ de tip plângere regională, cu o justificare calificată (nivel 2) bazată pe enumerarea unor incidente și deficiențe infrastructurale specifice (accidente feroviare, poduri nerefăcute, lipsa autostrăzilor). Conținutul justificării este clar orientat spre interesul de grup (regiunea Oltenia/județul Dolj), fără apeluri la principii universalizabile. Dimensiunile de respect sunt neutre sau nule: vorbitorul nu adresează cererile sau argumentele adverse (respect_for_demands=1, respect_for_counterarguments=0), iar referirile la grupuri sociale rămân funcționale, fără derogare explicită (respect_for_groups=1). Din punct de vedere constructiv, intervenția este strict pozițională, limitându-se la reproșuri politice și așteptare, fără a propune amendamente, alternative sau soluții de mediere. Calitatea deliberativă este moderată pe axa justificării, dar scăzută pe axele angajamentului advers și construcției politice, reflectând un registru tipic de advocacy regional în dezbaterile parlamentare.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [
+        "Garantat, nu multă vreme! Ați dovedit ceea ce era de dovedit."
+      ],
+      "parse_repaired": false,
+      "tokens_in": 12919,
+      "tokens_in_breakdown": {
+        "fresh": 12919,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 7203,
+      "cost_usd": null,
+      "latency_ms": 186949,
+      "retries_used": 0
+    },
+    "vparty": null
+  }
+}

@@ -1075,6 +1075,58 @@ def _build_parser() -> argparse.ArgumentParser:
     )
     coverage.set_defaults(func=cmd_coverage)
 
+    pilot = sub.add_parser(
+        "pilot-results",
+        help="Rank LLM candidates by agreement with the opus gold standard.",
+        description=(
+            "Read the pilot-benchmark results directory (default: "
+            "`data/pilot_results/`) and rank every candidate model by "
+            "how closely it agrees with the opus gold annotations across "
+            "two axes:\n"
+            "  • **Hawkins** — `results.hawkins.output.score` (0-2 ordinal).\n"
+            "  • **DQI** — `results.dqi.output.level_of_justification` "
+            "(0-2 ordinal).\n"
+            "For each model the report shows: number of speeches paired "
+            "with gold, exact-match rate and mean-absolute-delta (MAD) per "
+            "axis, estimated cost per speech (from the `_summary.json` "
+            "file), latency per speech, error count, and fragments missed. "
+            "Models are ranked: highest Hawkins agreement first → highest "
+            "DQI agreement → cheapest per speech.\n"
+            "Read-only; no writes, no state, no network calls. Pass "
+            "`--json` for a machine-readable payload."
+        ),
+    )
+    pilot.add_argument(
+        "--results-dir",
+        type=Path,
+        default=Path("data/pilot_results"),
+        metavar="DIR",
+        help=(
+            "Root directory of pilot results (default: data/pilot_results). "
+            "Must contain one subdirectory per model (including the gold "
+            "model) and optional `<model>_summary.json` files."
+        ),
+    )
+    pilot.add_argument(
+        "--gold",
+        default="opus",
+        metavar="MODEL",
+        help=(
+            "Directory name of the gold model (default: opus). "
+            "All other subdirectories are treated as candidates."
+        ),
+    )
+    pilot.add_argument(
+        "--json",
+        dest="as_json",
+        action="store_true",
+        help=(
+            "Emit the report as a single JSON object to stdout instead "
+            "of text tables. Suitable for piping into `jq`."
+        ),
+    )
+    pilot.set_defaults(func=cmd_pilot)
+
     return p
 
 
@@ -4282,6 +4334,38 @@ def cmd_coverage(args: argparse.Namespace) -> int:
         print(json.dumps(cov.format_json(report), indent=2, ensure_ascii=False))
     else:
         print(cov.format_text(report))
+    return 0
+
+
+def cmd_pilot(args: argparse.Namespace) -> int:
+    from monitorul_ii import pilot as _pilot
+
+    results_dir: Path = args.results_dir
+    if not results_dir.is_dir():
+        print(
+            f"pilot: results directory not found: {results_dir}",
+            file=sys.stderr,
+        )
+        return 2
+
+    gold_dir = results_dir / args.gold
+    if not gold_dir.is_dir():
+        print(
+            f"pilot: gold model directory not found: {gold_dir}",
+            file=sys.stderr,
+        )
+        return 2
+
+    try:
+        report = _pilot.compute_benchmark(results_dir, gold=args.gold)
+    except Exception as exc:  # noqa: BLE001
+        print(f"pilot: error computing benchmark: {exc}", file=sys.stderr)
+        return 1
+
+    if args.as_json:
+        print(json.dumps(_pilot.format_json(report), indent=2, ensure_ascii=False))
+    else:
+        print(_pilot.format_text(report))
     return 0
 
 

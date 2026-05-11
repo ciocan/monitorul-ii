@@ -1,0 +1,151 @@
+{
+  "speech_id": "mo://2023/II/29#agenda-2#act-42",
+  "tier": "populist",
+  "speaker": {
+    "id": "damureanu-ringo",
+    "name": "Ringo Dămureanu",
+    "raw": "Domnul Ringo Dămureanu",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2023-02-28",
+    "year": 2023,
+    "legislature": "IX",
+    "delivery_mode": null
+  },
+  "model_key": "deepseek-v4-flash",
+  "model_label": "deepseek-v4-flash",
+  "results": {
+    "hawkins": {
+      "model_key": "deepseek-v4-flash",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2023/II/29#agenda-2#act-42",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.95,
+        "markers": [],
+        "rationale": "Discursul este o intervenție procedurală pe tema infrastructurii de transport în județul Dolj, cu descrieri detaliate ale unor incidente feroviare și rutiere, fără a construi un cadru popor-vs-elită. Vorbitorul critică incompetența PSD și PNL în ultima frază, dar aceasta este o critică partizană, nu un cadru manihean populist. Nu se invocă „poporul român” ca subiect omogen, nu se acuză o elită malefică, nu se cere supremația voinței populare asupra instituțiilor. Registrul este cel al unei plângeri tehnice și al unei critici politice obișnuite, nu al unui manifest populist. Hawkins=0 cu încredere ridicată."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.95,\n  \"markers\": [],\n  \"rationale\": \"Discursul este o intervenție procedurală pe tema infrastructurii de transport în județul Dolj, cu descrieri detaliate ale unor incidente feroviare și rutiere, fără a construi un cadru popor-vs-elită. Vorbitorul critică incompetența PSD și PNL în ultima frază, dar aceasta este o critică partizană, nu un cadru manihean populist. Nu se invocă „poporul român” ca subiect omogen, nu se acuză o elită malefică, nu se cere supremația voinței populare asupra instituțiilor. Registrul este cel al unei plângeri tehnice și al unei critici politice obișnuite, nu al unui manifest populist. Hawkins=0 cu încredere ridicată.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 14574,
+      "tokens_in_breakdown": {
+        "fresh": 14574,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1201,
+      "cost_usd": null,
+      "latency_ms": 28564,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "deepseek-v4-flash",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2023/II/29#agenda-2#act-42",
+      "output": {
+        "constructive_politics": "positional",
+        "content_of_justification": "group_interest",
+        "framework_confidence": 0.82,
+        "framework_version": "steiner-bachtiger@2017",
+        "level_of_justification": 1,
+        "markers": [
+          {
+            "evidence": {
+              "text": "Județul Dolj, pe care îl reprezint în Parlament, și, implicit, regiunea Oltenia, par a fi un soi de cenușăreasă, când vine vorba de legăturile lor cu lumea, fie ele rutiere sau feroviare."
+            },
+            "kind": "level_of_justification",
+            "marker_confidence": 0.85,
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.96,
+            "rationale_short": "Afirmația că Doljul este „cenușăreasa” transporturilor este o metaforă, nu o justificare cu rațiuni specifice.",
+            "value": 1
+          },
+          {
+            "evidence": {
+              "text": "Județul Dolj, pe care îl reprezint în Parlament, și, implicit, regiunea Oltenia, par a fi un soi de cenușăreasă"
+            },
+            "kind": "content_of_justification",
+            "marker_confidence": 0.8,
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.96,
+            "rationale_short": "Apelul este la interesul regiunii Oltenia și al județului Dolj, nu la binele comun universal.",
+            "value": "group_interest"
+          },
+          {
+            "evidence": {
+              "text": "cât vor mai îndura craiovenii și oltenii incompetența dovedită a PSD și PNL"
+            },
+            "kind": "respect_for_groups",
+            "marker_confidence": 0.88,
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "rationale_short": "Acuză explicit PSD și PNL de incompetență, ceea ce constituie o derogare a unui grup politic.",
+            "value": 0
+          },
+          {
+            "evidence": {
+              "text": "cât vor mai îndura craiovenii și oltenii incompetența dovedită a PSD și PNL"
+            },
+            "kind": "respect_for_demands",
+            "marker_confidence": 0.82,
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "rationale_short": "Nu se angajează cu nicio cerere specifică a opoziției sau a majorității; doar acuză incompetența.",
+            "value": 1
+          },
+          {
+            "evidence": {
+              "text": "Ne întrebăm și vă întrebăm: oare cât vor mai avea de așteptat Doljul și Oltenia pentru a se bucura de beneficiile civilizației și cât vor mai îndura craiovenii și oltenii incompetența dovedită a PSD și PNL?"
+            },
+            "kind": "respect_for_counterarguments",
+            "marker_confidence": 0.85,
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "rationale_short": "Nu reformulează și nu răspunde niciunui argument contrar; doar își exprimă propria nemulțumire.",
+            "value": 0
+          },
+          {
+            "evidence": {
+              "text": "Garantat, nu multă vreme!"
+            },
+            "kind": "constructive_politics",
+            "marker_confidence": 0.9,
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.96,
+            "rationale_short": "Nu oferă nicio alternativă sau mediere; doar anunță o schimbare iminentă fără propunere concretă.",
+            "value": "positional"
+          }
+        ],
+        "rationale": "Discursul deputatului Ringo Dămureanu (AUR) este o pledoarie emoțională pentru regiunea Oltenia, cu accent pe nemulțumirile legate de infrastructura rutieră și feroviară. Justificarea este inferioară (nivel 1): enumeră probleme (poduri nerefăcute, accidente feroviare) dar nu leagă aceste fapte de o cauză sau un principiu specific printr-un raționament explicit. Conținutul justificării este de interes de grup („Doljul”, „Oltenia”), nu de bine comun universal. Respectul pentru grupuri este scăzut (0): acuză direct PSD și PNL de „incompetență dovedită”, o derogare explicită. Nu se angajează cu cererile sau argumentele opoziției (respect_for_demands=1, respect_for_counterarguments=0), ci doar își exprimă propria poziție. Constructive_politics este pozițional: nu propune amendamente, soluții alternative sau medieri. Profilul general este al unui discurs de opoziție vehement, cu justificare slabă și respect scăzut pentru adversarii politici.",
+        "respect_for_counterarguments": 0,
+        "respect_for_demands": 1,
+        "respect_for_groups": 0,
+        "score_unit": "dqi_multi"
+      },
+      "raw_response": "{\n  \"constructive_politics\": \"positional\",\n  \"content_of_justification\": \"group_interest\",\n  \"framework_confidence\": 0.82,\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"level_of_justification\": 1,\n  \"markers\": [\n    {\n      \"evidence\": {\n        \"text\": \"Județul Dolj, pe care îl reprezint în Parlament, și, implicit, regiunea Oltenia, par a fi un soi de cenușăreasă, când vine vorba de legăturile lor cu lumea, fie ele rutiere sau feroviare.\"\n      },\n      \"kind\": \"level_of_justification\",\n      \"marker_confidence\": 0.85,\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.96,\n      \"rationale_short\": \"Afirmația că Doljul este „cenușăreasa” transporturilor este o metaforă, nu o justificare cu rațiuni specifice.\",\n      \"value\": 1\n    },\n    {\n      \"evidence\": {\n        \"text\": \"Județul Dolj, pe care îl reprezint în Parlament, și, implicit, regiunea Oltenia, par a fi un soi de cenușăreasă\"\n      },\n      \"kind\": \"content_of_justification\",\n      \"marker_confidence\": 0.80,\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.96,\n      \"rationale_short\": \"Apelul este la interesul regiunii Oltenia și al județului Dolj, nu la binele comun universal.\",\n      \"value\": \"group_interest\"\n    },\n    {\n      \"evidence\": {\n        \"text\": \"cât vor mai îndura craiovenii și oltenii incompetența dovedită a PSD și PNL\"\n      },\n      \"kind\": \"respect_for_groups\",\n      \"marker_confidence\": 0.88,\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"rationale_short\": \"Acuză explicit PSD și PNL de incompetență, ceea ce constituie o derogare a unui grup politic.\",\n      \"value\": 0\n    },\n    {\n      \"evidence\": {\n        \"text\": \"cât vor mai îndura craiovenii și oltenii incompetența dovedită a PSD și PNL\"\n      },\n      \"kind\": \"respect_for_demands\",\n      \"marker_confidence\": 0.82,\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"rationale_short\": \"Nu se angajează cu nicio cerere specifică a opoziției sau a majorității; doar acuză incompetența.\",\n      \"value\": 1\n    },\n    {\n      \"evidence\": {\n        \"text\": \"Ne întrebăm și vă întrebăm: oare cât vor mai avea de așteptat Doljul și Oltenia pentru a se bucura de beneficiile civilizației și cât vor mai îndura craiovenii și oltenii incompetența dovedită a PSD și PNL?\"\n      },\n      \"kind\": \"respect_for_counterarguments\",\n      \"marker_confidence\": 0.85,\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"rationale_short\": \"Nu reformulează și nu răspunde niciunui argument contrar; doar își exprimă propria nemulțumire.\",\n      \"value\": 0\n    },\n    {\n      \"evidence\": {\n        \"text\": \"Garantat, nu multă vreme!\"\n      },\n      \"kind\": \"constructive_politics\",\n      \"marker_confidence\": 0.90,\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.96,\n      \"rationale_short\": \"Nu oferă nicio alternativă sau mediere; doar anunță o schimbare iminentă fără propunere concretă.\",\n      \"value\": \"positional\"\n    }\n  ],\n  \"rationale\": \"Discursul deputatului Ringo Dămureanu (AUR) este o pledoarie emoțională pentru regiunea Oltenia, cu accent pe nemulțumirile legate de infrastructura rutieră și feroviară. Justificarea este inferioară (nivel 1): enumeră probleme (poduri nerefăcute, accidente feroviare) dar nu leagă aceste fapte de o cauză sau un principiu specific printr-un raționament explicit. Conținutul justificării este de interes de grup („Doljul”, „Oltenia”), nu de bine comun universal. Respectul pentru grupuri este scăzut (0): acuză direct PSD și PNL de „incompetență dovedită”, o derogare explicită. Nu se angajează cu cererile sau argumentele opoziției (respect_for_demands=1, respect_for_counterarguments=0), ci doar își exprimă propria poziție. Constructive_politics este pozițional: nu propune amendamente, soluții alternative sau medieri. Profilul general este al unui discurs de opoziție vehement, cu justificare slabă și respect scăzut pentru adversarii politici.\",\n  \"respect_for_counterarguments\": 0,\n  \"respect_for_demands\": 1,\n  \"respect_for_groups\": 0,\n  \"score_unit\": \"dqi_multi\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12886,
+      "tokens_in_breakdown": {
+        "fresh": 12886,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 2311,
+      "cost_usd": null,
+      "latency_ms": 37506,
+      "retries_used": 0
+    },
+    "vparty": null
+  }
+}

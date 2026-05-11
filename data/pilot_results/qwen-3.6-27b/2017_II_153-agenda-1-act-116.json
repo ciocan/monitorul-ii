@@ -1,0 +1,144 @@
+{
+  "speech_id": "mo://2017/II/153#agenda-1#act-116",
+  "tier": "register_shift",
+  "speaker": {
+    "id": "basescu-traian",
+    "name": "Traian Băsescu",
+    "raw": "Domnul Traian Băsescu",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": "2017-10-24",
+    "year": 2017,
+    "legislature": "VIII",
+    "delivery_mode": null
+  },
+  "model_key": "qwen-3.6-27b",
+  "model_label": "qwen-3.6-27b",
+  "results": {
+    "hawkins": {
+      "model_key": "qwen-3.6-27b",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2017/II/153#agenda-1#act-116",
+      "output": null,
+      "raw_response": null,
+      "error": "json_parse",
+      "error_detail": "strict: Expecting value: line 1 column 1 (char 0); repair: Expecting value: line 1 column 1 (char 0)",
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13507,
+      "tokens_in_breakdown": {
+        "fresh": 13507,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1159,
+      "cost_usd": null,
+      "latency_ms": 33860,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "qwen-3.6-27b",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2017/II/153#agenda-1#act-116",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.86,
+        "level_of_justification": 2,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 0,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "a fost o mișcare politică ce a decurs din nevoia de a genera ilegalități: încălcarea Constituției și nerespectarea legii. De aceea, susținem fără rezerve varianta revenirii Monitorului Oficial"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.91,
+            "rationale_short": "Justificare principială explicită (încălcarea Constituției/legii) care leagă poziția de un mecanism instituțional, fără detalii tehnice avansate."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "încălcarea Constituției și nerespectarea legii"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.9,
+            "rationale_short": "Apel la ordinea constituțională și statul de drept, principii universalizabile, nu la interes de partid sau de grup."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Și un avertisment și pentru majoritate"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.88,
+            "rationale_short": "Adresarea majorității este critică și avertizantă, dar nu conține derogare explicită sau deumanizare; rămâne în zona neutru-critică."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 0,
+            "evidence": {
+              "text": "Nu trebuie să perpetuăm dreptul Executivului, pe care avem pretenția că-l controlăm, să jongleze cu actele normative în funcție de nevoile lui."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.92,
+            "rationale_short": "Cererile executive sunt caracterizate explicit ca ilegitime și auto-interesate („jongleze... în funcție de nevoile lui“)."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "susținem fără rezerve varianta revenirii Monitorului Oficial acolo unde îi este locul, adică în subordinea Parlamentului României"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.9,
+            "rationale_short": "Vorbitorul își susține poziția fără a reformula sau aborda raționamentul majorității; ignoră contraargumentele."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "susținem fără rezerve varianta revenirii Monitorului Oficial acolo unde îi este locul"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.91,
+            "rationale_short": "Se limitează la apărarea poziției proprii (revenirea la status-quo ante); nicio alternativă sau mediere concretă nu este propusă."
+          }
+        ],
+        "rationale": "Discursul prezintă un profil de opoziție principială, cu o justificare calificată (nivel 2) ancorată în apărarea ordinii constituționale și a statului de drept (bine comun). Vorbitorul leagă explicit poziția de un motiv substanțial — prevenirea ilegalităților și a abuzurilor executive — dar nu dezvoltă lanțuri causale complexe sau surse tehnice specifice, rămânând la nivelul unei argumentații instituționale standard. Pe dimensiunile de respect, discursul este clar dispozițional: cererile executive sunt respinse ca ilegitime și auto-interesate (respect_for_demands=0), iar raționamentul majorității este ignorat complet (respect_for_counterarguments=0). Atitudinea față de grupurile politice menționate (majoritate, Executiv) este critică și avertizantă, dar nu atinge pragul derogării explicite, rămânând neutră (respect_for_groups=1). În final, discursul este strict pozițional, apărând revenirea la status-quo ante fără a oferi alternative concrete sau punți de mediere. Calitatea deliberativă este moderată, dominată de claritatea principială, dar limitată de absența angajamentului cu argumentele adverse și de lipsa unei propuneri constructive."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.86,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 0,\n  \"respect_for_counterarguments\": 0,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"a fost o mișcare politică ce a decurs din nevoia de a genera ilegalități: încălcarea Constituției și nerespectarea legii. De aceea, susținem fără rezerve varianta revenirii Monitorului Oficial\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.91,\n      \"rationale_short\": \"Justificare principială explicită (încălcarea Constituției/legii) care leagă poziția de un mecanism instituțional, fără detalii tehnice avansate.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"încălcarea Constituției și nerespectarea legii\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.90,\n      \"rationale_short\": \"Apel la ordinea constituțională și statul de drept, principii universalizabile, nu la interes de partid sau de grup.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Și un avertisment și pentru majoritate\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Adresarea majorității este critică și avertizantă, dar nu conține derogare explicită sau deumanizare; rămâne în zona neutru-critică.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"Nu trebuie să perpetuăm dreptul Executivului, pe care avem pretenția că-l controlăm, să jongleze cu actele normative în funcție de nevoile lui.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Cererile executive sunt caracterizate explicit ca ilegitime și auto-interesate („jongleze... în funcție de nevoile lui“).\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"susținem fără rezerve varianta revenirii Monitorului Oficial acolo unde îi este locul, adică în subordinea Parlamentului României\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.90,\n      \"rationale_short\": \"Vorbitorul își susține poziția fără a reformula sau aborda raționamentul majorității; ignoră contraargumentele.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"susținem fără rezerve varianta revenirii Monitorului Oficial acolo unde îi este locul\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.91,\n      \"rationale_short\": \"Se limitează la apărarea poziției proprii (revenirea la status-quo ante); nicio alternativă sau mediere concretă nu este propusă.\"\n    }\n  ],\n  \"rationale\": \"Discursul prezintă un profil de opoziție principială, cu o justificare calificată (nivel 2) ancorată în apărarea ordinii constituționale și a statului de drept (bine comun). Vorbitorul leagă explicit poziția de un motiv substanțial — prevenirea ilegalităților și a abuzurilor executive — dar nu dezvoltă lanțuri causale complexe sau surse tehnice specifice, rămânând la nivelul unei argumentații instituționale standard. Pe dimensiunile de respect, discursul este clar dispozițional: cererile executive sunt respinse ca ilegitime și auto-interesate (respect_for_demands=0), iar raționamentul majorității este ignorat complet (respect_for_counterarguments=0). Atitudinea față de grupurile politice menționate (majoritate, Executiv) este critică și avertizantă, dar nu atinge pragul derogării explicite, rămânând neutră (respect_for_groups=1). În final, discursul este strict pozițional, apărând revenirea la status-quo ante fără a oferi alternative concrete sau punți de mediere. Calitatea deliberativă este moderată, dominată de claritatea principială, dar limitată de absența angajamentului cu argumentele adverse și de lipsa unei propuneri constructive.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12220,
+      "tokens_in_breakdown": {
+        "fresh": 12220,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 5557,
+      "cost_usd": null,
+      "latency_ms": 181724,
+      "retries_used": 0
+    },
+    "vparty": null
+  }
+}

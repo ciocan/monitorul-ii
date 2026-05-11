@@ -1,0 +1,223 @@
+{
+  "speech_id": "mo://2024/II/105#agenda-6#act-84",
+  "tier": "populist",
+  "speaker": {
+    "id": "simion-george-nicolae",
+    "name": "George-Nicolae Simion",
+    "raw": "Domnul George-Nicolae Simion",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2024-09-17",
+    "year": 2024,
+    "legislature": "IX",
+    "delivery_mode": null
+  },
+  "model_key": "deepseek-v4-pro",
+  "model_label": "deepseek-v4-pro",
+  "results": {
+    "hawkins": {
+      "model_key": "deepseek-v4-pro",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2024/II/105#agenda-6#act-84",
+      "output": {
+        "score": 2,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.85,
+        "markers": [
+          {
+            "kind": "people_vs_elite",
+            "evidence": {
+              "text": "Încetați batjocura la adresa românilor, mai ales de aici, din aceste bănci, unde sunteți remunerați mai mult decât generos de către poporul român."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.96,
+            "marker_confidence": 0.92,
+            "rationale_short": "Opoziția dintre poporul român (care plătește) și parlamentari (remunerați generos, dar care îi batjocoresc) constituie cadrul structural al discursului."
+          },
+          {
+            "kind": "evil_elite",
+            "evidence": {
+              "text": "v-ați bătut joc de cadrele didactice"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.9,
+            "rationale_short": "Elita (guvernul/parlamentul) este acuzată direct de batjocură și umilire, nu doar de greșeală, ceea ce indică o intenție malefică."
+          },
+          {
+            "kind": "homogeneous_people",
+            "evidence": {
+              "text": "ai noștri dorm în corturi, având statut de bătaie de joc pentru Guvernul României"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.94,
+            "marker_confidence": 0.85,
+            "rationale_short": "„Ai noștri” tratează românii ca un grup omogen, victimă colectivă a guvernului, fără a recunoaște diversitatea situațiilor individuale."
+          }
+        ],
+        "rationale": "Discursul este construit integral pe opoziția dintre poporul român (cadre didactice, persoane cu dizabilități, copii români) și elita politică (guvern, parlamentari) care îi batjocorește, îi umilește și îi neglijează în favoarea altora. Markerii people_vs_elite, evil_elite și homogeneous_people se aprind la persoana întâi și se susțin reciproc, fără nuanțe sau recunoașterea unor poziții legitime alternative. Fără acest cadru manihean, discursul nu ar avea coloană vertebrală. Deși scurt, textul este un manifest populist coerent, ceea ce justifică scorul 2 cu încredere ridicată, la limita superioară a intervalului din cauza lungimii reduse."
+      },
+      "raw_response": "{\n  \"score\": 2,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.85,\n  \"markers\": [\n    {\n      \"kind\": \"people_vs_elite\",\n      \"evidence\": {\n        \"text\": \"Încetați batjocura la adresa românilor, mai ales de aici, din aceste bănci, unde sunteți remunerați mai mult decât generos de către poporul român.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.96,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Opoziția dintre poporul român (care plătește) și parlamentari (remunerați generos, dar care îi batjocoresc) constituie cadrul structural al discursului.\"\n    },\n    {\n      \"kind\": \"evil_elite\",\n      \"evidence\": {\n        \"text\": \"v-ați bătut joc de cadrele didactice\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.90,\n      \"rationale_short\": \"Elita (guvernul/parlamentul) este acuzată direct de batjocură și umilire, nu doar de greșeală, ceea ce indică o intenție malefică.\"\n    },\n    {\n      \"kind\": \"homogeneous_people\",\n      \"evidence\": {\n        \"text\": \"ai noștri dorm în corturi, având statut de bătaie de joc pentru Guvernul României\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.94,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"„Ai noștri” tratează românii ca un grup omogen, victimă colectivă a guvernului, fără a recunoaște diversitatea situațiilor individuale.\"\n    }\n  ],\n  \"rationale\": \"Discursul este construit integral pe opoziția dintre poporul român (cadre didactice, persoane cu dizabilități, copii români) și elita politică (guvern, parlamentari) care îi batjocorește, îi umilește și îi neglijează în favoarea altora. Markerii people_vs_elite, evil_elite și homogeneous_people se aprind la persoana întâi și se susțin reciproc, fără nuanțe sau recunoașterea unor poziții legitime alternative. Fără acest cadru manihean, discursul nu ar avea coloană vertebrală. Deși scurt, textul este un manifest populist coerent, ceea ce justifică scorul 2 cu încredere ridicată, la limita superioară a intervalului din cauza lungimii reduse.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [
+        "v-ați bătut joc de cadrele didactice"
+      ],
+      "parse_repaired": false,
+      "tokens_in": 13894,
+      "tokens_in_breakdown": {
+        "fresh": 13894,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 2638,
+      "cost_usd": null,
+      "latency_ms": 338588,
+      "retries_used": 0
+    },
+    "voice": {
+      "model_key": "deepseek-v4-pro",
+      "prompt_kind": "voice",
+      "speech_id": "mo://2024/II/105#agenda-6#act-84",
+      "output": {
+        "classifications": [
+          {
+            "marker_id": "m_0",
+            "voice": "speaker_first_person",
+            "voice_confidence": 0.96,
+            "voice_evidence": null,
+            "attributed_to": null,
+            "rationale_short": "Afirmație directă la persoana întâi; fără citat, raport, negație sau disclaimer; vorbitorul își asumă afirmația."
+          },
+          {
+            "marker_id": "m_2",
+            "voice": "speaker_first_person",
+            "voice_confidence": 0.96,
+            "voice_evidence": null,
+            "attributed_to": null,
+            "rationale_short": "Afirmație directă la persoana întâi; fără citat, raport, negație sau disclaimer; vorbitorul își asumă afirmația."
+          }
+        ]
+      },
+      "raw_response": "{\n  \"classifications\": [\n    {\n      \"marker_id\": \"m_0\",\n      \"voice\": \"speaker_first_person\",\n      \"voice_confidence\": 0.96,\n      \"voice_evidence\": null,\n      \"attributed_to\": null,\n      \"rationale_short\": \"Afirmație directă la persoana întâi; fără citat, raport, negație sau disclaimer; vorbitorul își asumă afirmația.\"\n    },\n    {\n      \"marker_id\": \"m_2\",\n      \"voice\": \"speaker_first_person\",\n      \"voice_confidence\": 0.96,\n      \"voice_evidence\": null,\n      \"attributed_to\": null,\n      \"rationale_short\": \"Afirmație directă la persoana întâi; fără citat, raport, negație sau disclaimer; vorbitorul își asumă afirmația.\"\n    }\n  ]\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 11303,
+      "tokens_in_breakdown": {
+        "fresh": 11303,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 675,
+      "cost_usd": null,
+      "latency_ms": 13009,
+      "retries_used": 0
+    },
+    "dqi": {
+      "model_key": "deepseek-v4-pro",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2024/II/105#agenda-6#act-84",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.88,
+        "level_of_justification": 1,
+        "content_of_justification": "group_interest",
+        "respect_for_groups": 0,
+        "respect_for_demands": 0,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 1,
+            "evidence": {
+              "text": "Astăzi îi umiliți, iar pe ordinea de zi a Parlamentului avem mărirea cotizației la Fondul Monetar Internațional."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.96,
+            "marker_confidence": 0.85,
+            "rationale_short": "Juxtapunerea a două fapte (umilirea pensionarilor vs. mărirea cotizației FMI) sugerează o legătură cauzală implicită, dar lipsește un raționament explicit de tipul „pentru că”."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "group_interest",
+            "evidence": {
+              "text": "ai noștri dorm în corturi, având statut de bătaie de joc pentru Guvernul României."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.92,
+            "rationale_short": "Apelul la „ai noștri” (copiii români) în contrast cu „copiii din Ucraina” invocă explicit interesul unui grup național specific."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 0,
+            "evidence": {
+              "text": "Pentru unii mumă, pentru alții ciumă! De regulă, pentru alții sunteți foarte darnici."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.91,
+            "rationale_short": "Guvernul este acuzat de favoritism și tratament inechitabil, o formă de derogare implicită a unui grup („alții”) în raport cu „ai noștri”."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 0,
+            "evidence": {
+              "text": "Încetați batjocura la adresa românilor, mai ales de aici, din aceste bănci, unde sunteți remunerați mai mult decât generos de către poporul român."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.93,
+            "rationale_short": "Cererile protestatarilor (dreptul la pensie) sunt implicit tratate ca legitime, dar poziția adversă (Guvernul) este respinsă ca „batjocură”, fără a i se recunoaște vreo legitimitate."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "V-ați bătut joc de cadrele didactice, ceea ce le-ați promis nu a fost respectat în totalitate."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.96,
+            "marker_confidence": 0.9,
+            "rationale_short": "Discursul nu menționează și nu angajează niciun argument al guvernului; se limitează la a acuza și a respinge poziția acestuia."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Încetați batjocura la adresa românilor"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.94,
+            "rationale_short": "Discursul se limitează la a condamna acțiunile guvernului și a cere încetarea lor, fără a oferi o alternativă sau o mediere concretă."
+          }
+        ],
+        "rationale": "Discursul este un atac pozițional vehement la adresa Guvernului, cu o justificare slabă (nivel 1) bazată pe juxtapuneri implicite și apel la interesul de grup („ai noștri” vs. „alții”). Deși apără cauza unor grupuri vulnerabile (pensionari cu dizabilități, copii), o face printr-o retorică a disprețului față de guvernanți, acuzați de „batjocură” și favoritism, ceea ce coboară respectul pentru grupuri la 0. Nu există nicio încercare de a angaja argumentele sau cererile opoziției (respect_for_demands=0, respect_for_counterarguments=0), iar discursul nu propune nicio soluție alternativă, rămânând strict pozițional. Profilul general este cel al unui discurs de opoziție populist, cu încărcătură emoțională ridicată și calitate deliberativă scăzută."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.88,\n  \"level_of_justification\": 1,\n  \"content_of_justification\": \"group_interest\",\n  \"respect_for_groups\": 0,\n  \"respect_for_demands\": 0,\n  \"respect_for_counterarguments\": 0,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Astăzi îi umiliți, iar pe ordinea de zi a Parlamentului avem mărirea cotizației la Fondul Monetar Internațional.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.96,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Juxtapunerea a două fapte (umilirea pensionarilor vs. mărirea cotizației FMI) sugerează o legătură cauzală implicită, dar lipsește un raționament explicit de tipul „pentru că”.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"group_interest\",\n      \"evidence\": {\n        \"text\": \"ai noștri dorm în corturi, având statut de bătaie de joc pentru Guvernul României.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Apelul la „ai noștri” (copiii români) în contrast cu „copiii din Ucraina” invocă explicit interesul unui grup național specific.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"Pentru unii mumă, pentru alții ciumă! De regulă, pentru alții sunteți foarte darnici.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.91,\n      \"rationale_short\": \"Guvernul este acuzat de favoritism și tratament inechitabil, o formă de derogare implicită a unui grup („alții”) în raport cu „ai noștri”.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"Încetați batjocura la adresa românilor, mai ales de aici, din aceste bănci, unde sunteți remunerați mai mult decât generos de către poporul român.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"marker_confidence\": 0.93,\n      \"rationale_short\": \"Cererile protestatarilor (dreptul la pensie) sunt implicit tratate ca legitime, dar poziția adversă (Guvernul) este respinsă ca „batjocură”, fără a i se recunoaște vreo legitimitate.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"V-ați bătut joc de cadrele didactice, ceea ce le-ați promis nu a fost respectat în totalitate.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.96,\n      \"marker_confidence\": 0.90,\n      \"rationale_short\": \"Discursul nu menționează și nu angajează niciun argument al guvernului; se limitează la a acuza și a respinge poziția acestuia.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"Încetați batjocura la adresa românilor\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"marker_confidence\": 0.94,\n      \"rationale_short\": \"Discursul se limitează la a condamna acțiunile guvernului și a cere încetarea lor, fără a oferi o alternativă sau o mediere concretă.\"\n    }\n  ],\n  \"rationale\": \"Discursul este un atac pozițional vehement la adresa Guvernului, cu o justificare slabă (nivel 1) bazată pe juxtapuneri implicite și apel la interesul de grup („ai noștri” vs. „alții”). Deși apără cauza unor grupuri vulnerabile (pensionari cu dizabilități, copii), o face printr-o retorică a disprețului față de guvernanți, acuzați de „batjocură” și favoritism, ceea ce coboară respectul pentru grupuri la 0. Nu există nicio încercare de a angaja argumentele sau cererile opoziției (respect_for_demands=0, respect_for_counterarguments=0), iar discursul nu propune nicio soluție alternativă, rămânând strict pozițional. Profilul general este cel al unui discurs de opoziție populist, cu încărcătură emoțională ridicată și calitate deliberativă scăzută.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12206,
+      "tokens_in_breakdown": {
+        "fresh": 12206,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1386,
+      "cost_usd": null,
+      "latency_ms": 32272,
+      "retries_used": 0
+    },
+    "vparty": null
+  }
+}

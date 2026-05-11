@@ -1,0 +1,151 @@
+{
+  "speech_id": "mo://2006/II/177#agenda-2#act-34",
+  "tier": "register_shift",
+  "speaker": {
+    "id": "ponta-victor-viorel",
+    "name": "Victor Viorel Ponta",
+    "raw": "Domnul Victor Viorel Ponta",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": null,
+    "session_date": null,
+    "year": 2006,
+    "legislature": null,
+    "delivery_mode": null
+  },
+  "model_key": "gemma-4-26b-a4b",
+  "model_label": "gemma-4-26b-a4b-it",
+  "results": {
+    "hawkins": {
+      "model_key": "gemma-4-26b-a4b",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2006/II/177#agenda-2#act-34",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 1.0,
+        "markers": [],
+        "rationale": "Discurs strict procedural de gestionare a unei dezbateri parlamentare, axat pe adoptarea unui proiect de lege pe articole. Textul conține doar formule de rigoare legislativă, mențiuni de procedură (adoptat, obiecțiuni, raport de comisie) și coordonarea votului. Nu există nicio mențiune a unui cadru popor-vs-elită, nicio invocare a unei voințe populare sau a unei crize. Vorbitorul rămâne în registrul tehnocratic și instituțional. Hawkins=0 cu încredere maximă."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 1.0,\n  \"markers\": [],\n  \"rationale\": \"Discurs strict procedural de gestionare a unei dezbateri parlamentare, axat pe adoptarea unui proiect de lege pe articole. Textul conține doar formule de rigoare legislativă, mențiuni de procedură (adoptat, obiecțiuni, raport de comisie) și coordonarea votului. Nu există nicio mențiune a unui cadru popor-vs-elită, nicio invocare a unei voințe populare sau a unei crize. Vorbitorul rămâne în registrul tehnocratic și instituțional. Hawkins=0 cu încredere maximă.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 14436,
+      "tokens_in_breakdown": {
+        "fresh": 14436,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 195,
+      "cost_usd": null,
+      "latency_ms": 2060,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "gemma-4-26b-a4b",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2006/II/177#agenda-2#act-34",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.4,
+        "level_of_justification": 0,
+        "content_of_justification": "none",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 0,
+            "evidence": {
+              "text": "Legea a fost adoptat„ pe articole."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.85,
+            "rationale_short": "Discurs pur procedural; nicio justificare argumentativă oferită pentru deciziile luate."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "none",
+            "evidence": {
+              "text": "Legea a fost adoptat„ pe articole."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.85,
+            "rationale_short": "Lipsa justificării face conținutul acesteia nedefinit."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "domnule deputat"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.96,
+            "marker_confidence": 0.6,
+            "rationale_short": "Adresare formală standard; nicio referire la grupuri sociale care să permită un scor non-neutru."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Alte opinii din partea colegilor? Nu sunt."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.96,
+            "marker_confidence": 0.65,
+            "rationale_short": "Gestionare procedurală a obiecțiunilor; nicio interacțiune cu cereri substantive."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "Obiec˛iuni? Nu exist„. Adoptat."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.96,
+            "marker_confidence": 0.6,
+            "rationale_short": "Verificarea absenței obiecțiunilor este un act procedural, nu un angajament cu argumente."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Urmeaz„ s„ fie supus„ votului final."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.88,
+            "rationale_short": "Continuarea procedurii legislative fără propuneri de mediere sau alternative."
+          }
+        ],
+        "rationale": "Fragmentul reprezintă un discurs pur procedural de conducere a ședinței, axat pe gestionarea votului pe articole și trecerea la următorul punct de pe ordinea de zi. Din punct de vedere deliberativ, calitatea este minimă deoarece nu există nicio justificare a pozițiilor (level_of_justification=0, content=none), ci doar constatări de fapt privind procesul de vot. Respectul pentru grupuri, cereri și contraargumente rămâne la un nivel neutru/implicit, fiind dictate de ritualul parlamentar, nu de un angajament substanțial. Nu sunt oferite propuneri constructive, discursul fiind strict pozițional în raport cu procedura în desfășurare. framework_confidence este scăzut deoarece textul nu conține argumentație, fiind un exercițiu de management al ședinței, nu de dezbatere."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.40,\n  \"level_of_justification\": 0,\n  \"content_of_justification\": \"none\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"Legea a fost adoptat„ pe articole.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Discurs pur procedural; nicio justificare argumentativă oferită pentru deciziile luate.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"none\",\n      \"evidence\": {\n        \"text\": \"Legea a fost adoptat„ pe articole.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Lipsa justificării face conținutul acesteia nedefinit.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"domnule deputat\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.96,\n      \"marker_confidence\": 0.60,\n      \"rationale_short\": \"Adresare formală standard; nicio referire la grupuri sociale care să permită un scor non-neutru.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Alte opinii din partea colegilor? Nu sunt.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.96,\n      \"marker_confidence\": 0.65,\n      \"rationale_short\": \"Gestionare procedurală a obiecțiunilor; nicio interacțiune cu cereri substantive.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Obiec˛iuni? Nu exist„. Adoptat.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.96,\n      \"marker_confidence\": 0.60,\n      \"rationale_short\": \"Verificarea absenței obiecțiunilor este un act procedural, nu un angajament cu argumente.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"Urmeaz„ s„ fie supus„ votului final.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Continuarea procedurii legislative fără propuneri de mediere sau alternative.\"\n    }\n  ],\n  \"rationale\": \"Fragmentul reprezintă un discurs pur procedural de conducere a ședinței, axat pe gestionarea votului pe articole și trecerea la următorul punct de pe ordinea de zi. Din punct de vedere deliberativ, calitatea este minimă deoarece nu există nicio justificare a pozițiilor (level_of_justification=0, content=none), ci doar constatări de fapt privind procesul de vot. Respectul pentru grupuri, cereri și contraargumente rămâne la un nivel neutru/implicit, fiind dictate de ritualul parlamentar, nu de un angajament substanțial. Nu sunt oferite propuneri constructive, discursul fiind strict pozițional în raport cu procedura în desfășurare. framework_confidence este scăzut deoarece textul nu conține argumentație, fiind un exercițiu de management al ședinței, nu de dezbatere.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13237,
+      "tokens_in_breakdown": {
+        "fresh": 13237,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1102,
+      "cost_usd": null,
+      "latency_ms": 10338,
+      "retries_used": 0
+    },
+    "vparty": null
+  }
+}

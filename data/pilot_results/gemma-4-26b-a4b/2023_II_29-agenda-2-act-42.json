@@ -1,0 +1,193 @@
+{
+  "speech_id": "mo://2023/II/29#agenda-2#act-42",
+  "tier": "populist",
+  "speaker": {
+    "id": "damureanu-ringo",
+    "name": "Ringo Dămureanu",
+    "raw": "Domnul Ringo Dămureanu",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2023-02-28",
+    "year": 2023,
+    "legislature": "IX",
+    "delivery_mode": null
+  },
+  "model_key": "gemma-4-26b-a4b",
+  "model_label": "gemma-4-26b-a4b-it",
+  "results": {
+    "hawkins": {
+      "model_key": "gemma-4-26b-a4b",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2023/II/29#agenda-2#act-42",
+      "output": {
+        "score": 1,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.88,
+        "markers": [
+          {
+            "kind": "evil_elite",
+            "evidence": {
+              "text": "incompetența dovedită a PSD și PNL"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.85,
+            "rationale_short": "Atacul asupra partidelor de guvernare (PSD și PNL) prin etichetarea lor cu „incompetență dovedită”, sugerând o eșec de guvernare care afectează regiunea."
+          }
+        ],
+        "rationale": "Discursul este predominant unul de critică politică și regională, bazat pe o enumerare detaliată de probleme de infrastructură și accidente feroviare (date tehnice, cronologie, locații specifice). Vorbitorul folosește un registru de nemulțumire politică, dar cadrul populist nu este pervaziv; acesta apare doar la final, prin atacul la adresa incompetenței partidelor de guvernare. Nu există un cadru structural de tip popor-vs-elită, nici invocări ale unei voințe populare omogene sau ale unor proporții cosmice. Deoarece elementul populist este un moment episodic într-un discurs altfel axat pe probleme de politici publice și infrastructură, scorul este 1. Hawkins=1 cu încredere ridicată."
+      },
+      "raw_response": "{\n  \"score\": 1,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.88,\n  \"markers\": [\n    {\n      \"kind\": \"evil_elite\",\n      \"evidence\": {\n        \"text\": \"incompetența dovedită a PSD și PNL\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Atacul asupra partidelor de guvernare (PSD și PNL) prin etichetarea lor cu „incompetență dovedită”, sugerând o eșec de guvernare care afectează regiunea.\"\n    }\n  ],\n  \"rationale\": \"Discursul este predominant unul de critică politică și regională, bazat pe o enumerare detaliată de probleme de infrastructură și accidente feroviare (date tehnice, cronologie, locații specifice). Vorbitorul folosește un registru de nemulțumire politică, dar cadrul populist nu este pervaziv; acesta apare doar la final, prin atacul la adresa incompetenței partidelor de guvernare. Nu există un cadru structural de tip popor-vs-elită, nici invocări ale unei voințe populare omogene sau ale unor proporții cosmice. Deoarece elementul populist este un moment episodic într-un discurs altfel axat pe probleme de politici publice și infrastructură, scorul este 1. Hawkins=1 cu încredere ridicată.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 14376,
+      "tokens_in_breakdown": {
+        "fresh": 14376,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 398,
+      "cost_usd": null,
+      "latency_ms": 13700,
+      "retries_used": 0
+    },
+    "voice": {
+      "model_key": "gemma-4-26b-a4b",
+      "prompt_kind": "voice",
+      "speech_id": "mo://2023/II/29#agenda-2#act-42",
+      "output": {
+        "classifications": [
+          {
+            "marker_id": "m_0",
+            "voice": "speaker_first_person",
+            "voice_confidence": 0.96,
+            "voice_evidence": null,
+            "attributed_to": null,
+            "rationale_short": "Afirmație directă a vorbitorului, fără indicii de citare, raportare sau negație; vorbitorul își asumă critică asupra partidelor menționate."
+          }
+        ]
+      },
+      "raw_response": "{\n  \"classifications\": [\n    {\n      \"marker_id\": \"m_0\",\n      \"voice\": \"speaker_first_person\",\n      \"voice_confidence\": 0.96,\n      \"voice_evidence\": null,\n      \"attributed_to\": null,\n      \"rationale_short\": \"Afirmație directă a vorbitorului, fără indicii de citare, raportare sau negație; vorbitorul își asumă critică asupra partidelor menționate.\"\n    }\n  ]\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 11925,
+      "tokens_in_breakdown": {
+        "fresh": 11925,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 126,
+      "cost_usd": null,
+      "latency_ms": 5862,
+      "retries_used": 0
+    },
+    "dqi": {
+      "model_key": "gemma-4-26b-a4b",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2023/II/29#agenda-2#act-42",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.88,
+        "level_of_justification": 2,
+        "content_of_justification": "group_interest",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "Căile de legătură cu sudul județului Dolj sunt reale pericole – pe ruta DN 55, către Bechet, spre Bulgaria, cinci poduri zac nerefăcute de peste 8 ani, iar pe drumul european 79, tot către Bulgaria, staționează tiruri pe zeci de kilometri, la Calafat, în vama spre Vidin."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.94,
+            "rationale_short": "Justificare calificată prin enumerarea unor probleme infrastructurale specifice și date factuale (poduri nerefăcute, aglomerație în vamă)."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "group_interest",
+            "evidence": {
+              "text": "Județul Dolj, pe care îl reprezint în Parlament, și, implicit, regiunea Oltenia"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.98,
+            "marker_confidence": 0.92,
+            "rationale_short": "Argumentația este ancorată în interesele specifice ale grupului reprezentat (județul Dolj și regiunea Oltenia)."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "Stimați colegi, Doamnelor și domnilor deputați"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.96,
+            "marker_confidence": 0.8,
+            "rationale_short": "Adresare formală și neutră către colegii de parlament; nicio derogare sau respect explicit de out-group."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Ne întrebăm și vă întrebăm: oare cât vor mai avea de așteptat Doljul și Oltenia"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.75,
+            "rationale_short": "Nu există o abordare a cererilor adverse; discursul este centrat pe critică și pe nevoile propriului grup."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "incompetența dovedită a PSD și PNL?"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.96,
+            "marker_confidence": 0.9,
+            "rationale_short": "Vorbitorul nu angajează argumentele adversarilor, ci trece direct la atacul asupra incompetenței acestora."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Ați dovedit ceea ce era de dovedit."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.97,
+            "marker_confidence": 0.92,
+            "rationale_short": "Discurs pur de critică și poziționare; nu se propune nicio alternativă sau soluție de mediere."
+          }
+        ],
+        "rationale": "Discursul prezintă un profil deliberativ mixt, caracterizat printr-o justificare de calitate calificată (level_of_justification=2), deoarece vorbitorul folosește exemple concrete și date factuale despre starea infrastructurii pentru a susține afirmațiile sale. Totuși, conținutul justificării este centrat pe interesele de grup (group_interest=group_interest), vizând specific județul Dolj și regiunea Oltenia. Respectul pentru grupuri și cereri este neutru, în absența unor interacțiuni substantive cu partidele adverse. Nu există angajament cu contraargumentele (respect_for_counterarguments=0), discursul fiind marcat de o critică directă și politică. În final, intervenția este pur pozițională (constructive_politics=positional), lipsită de propuneri constructive sau de mediere, concentrându-se pe evidențierea incompetenței adversarilor."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.88,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"group_interest\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 0,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"Căile de legătură cu sudul județului Dolj sunt reale pericole – pe ruta DN 55, către Bechet, spre Bulgaria, cinci poduri zac nerefăcute de peste 8 ani, iar pe drumul european 79, tot către Bulgaria, staționează tiruri pe zeci de kilometri, la Calafat, în vama spre Vidin.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"marker_confidence\": 0.94,\n      \"rationale_short\": \"Justificare calificată prin enumerarea unor probleme infrastructurale specifice și date factuale (poduri nerefăcute, aglomerație în vamă).\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"group_interest\",\n      \"evidence\": {\n        \"text\": \"Județul Dolj, pe care îl reprezint în Parlament, și, implicit, regiunea Oltenia\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.98,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Argumentația este ancorată în interesele specifice ale grupului reprezentat (județul Dolj și regiunea Oltenia).\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Stimați colegi, Doamnelor și domnilor deputați\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.96,\n      \"marker_confidence\": 0.80,\n      \"rationale_short\": \"Adresare formală și neutră către colegii de parlament; nicio derogare sau respect explicit de out-group.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Ne întrebăm și vă întrebăm: oare cât vor mai avea de așteptat Doljul și Oltenia\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.75,\n      \"rationale_short\": \"Nu există o abordare a cererilor adverse; discursul este centrat pe critică și pe nevoile propriului grup.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"incompetența dovedită a PSD și PNL?\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.96,\n      \"marker_confidence\": 0.90,\n      \"rationale_short\": \"Vorbitorul nu angajează argumentele adversarilor, ci trece direct la atacul asupra incompetenței acestora.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"Ați dovedit ceea ce era de dovedit.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.97,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Discurs pur de critică și poziționare; nu se propune nicio alternativă sau soluție de mediere.\"\n    }\n  ],\n  \"rationale\": \"Discursul prezintă un profil deliberativ mixt, caracterizat printr-o justificare de calitate calificată (level_of_justification=2), deoarece vorbitorul folosește exemple concrete și date factuale despre starea infrastructurii pentru a susține afirmațiile sale. Totuși, conținutul justificării este centrat pe interesele de grup (group_interest=group_interest), vizând specific județul Dolj și regiunea Oltenia. Respectul pentru grupuri și cereri este neutru, în absența unor interacțiuni substantive cu partidele adverse. Nu există angajament cu contraargumentele (respect_for_counterarguments=0), discursul fiind marcat de o critică directă și politică. În final, intervenția este pur pozițională (constructive_politics=positional), lipsită de propuneri constructive sau de mediere, concentrându-se pe evidențierea incompetenței adversarilor.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13177,
+      "tokens_in_breakdown": {
+        "fresh": 13177,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1283,
+      "cost_usd": null,
+      "latency_ms": 24434,
+      "retries_used": 0
+    },
+    "vparty": null
+  }
+}

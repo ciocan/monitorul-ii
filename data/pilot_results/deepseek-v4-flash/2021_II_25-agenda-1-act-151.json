@@ -1,0 +1,151 @@
+{
+  "speech_id": "mo://2021/II/25#agenda-1#act-151",
+  "tier": "moderate",
+  "speaker": {
+    "id": "orban-ludovic",
+    "name": "Ludovic Orban",
+    "raw": "Domnul Ludovic Orban",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2021-02-17",
+    "year": 2021,
+    "legislature": "IX",
+    "delivery_mode": null
+  },
+  "model_key": "deepseek-v4-flash",
+  "model_label": "deepseek-v4-flash",
+  "results": {
+    "hawkins": {
+      "model_key": "deepseek-v4-flash",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2021/II/25#agenda-1#act-151",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.92,
+        "markers": [],
+        "rationale": "Discursul este un apel procedural la votarea desființării pensiilor speciale pentru parlamentari, argumentat pe principii de corectitudine și echitate față de cetățenii care contribuie la sistemul public de pensii. Vorbitorul folosește un registru al responsabilității democratice și al reprezentării oneste, criticând populismul și demagogia ca fenomene de evitat, nu ca instrumente retorice proprii. Nu există un cadru popor-vs-elită de tip manihean: „cetățenii români” sunt invocați ca mandatari ai reprezentării, nu ca o masă omogenă opusă unei elite malefice. Critica la adresa pensiilor speciale este una de principiu și echitate, nu o acuzație de trădare sau corupție sistemică. Fără markeri populisti la persoana întâi, discursul rămâne în registrul dezbaterii de politici publice. Hawkins=0 cu încredere ridicată."
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.92,\n  \"markers\": [],\n  \"rationale\": \"Discursul este un apel procedural la votarea desființării pensiilor speciale pentru parlamentari, argumentat pe principii de corectitudine și echitate față de cetățenii care contribuie la sistemul public de pensii. Vorbitorul folosește un registru al responsabilității democratice și al reprezentării oneste, criticând populismul și demagogia ca fenomene de evitat, nu ca instrumente retorice proprii. Nu există un cadru popor-vs-elită de tip manihean: „cetățenii români” sunt invocați ca mandatari ai reprezentării, nu ca o masă omogenă opusă unei elite malefice. Critica la adresa pensiilor speciale este una de principiu și echitate, nu o acuzație de trădare sau corupție sistemică. Fără markeri populisti la persoana întâi, discursul rămâne în registrul dezbaterii de politici publice. Hawkins=0 cu încredere ridicată.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13785,
+      "tokens_in_breakdown": {
+        "fresh": 13785,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 987,
+      "cost_usd": null,
+      "latency_ms": 13616,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "deepseek-v4-flash",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2021/II/25#agenda-1#act-151",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.72,
+        "level_of_justification": 1,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 1,
+            "evidence": {
+              "text": "că nu este drept ca parlamentarii României să-și dea pensii speciale, în timp ce milioane de români sunt la pensie și trăiesc din pensie de contributivitate, pentru că așa este corect și normal"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.96,
+            "marker_confidence": 0.78,
+            "rationale_short": "Justificare prin echitate comparativă („nu este drept”) și apel la normalitate, dar fără mecanism sau sursă specifică — justificare inferioară."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "că nu este drept ca parlamentarii României să-și dea pensii speciale, în timp ce milioane de români sunt la pensie și trăiesc din pensie de contributivitate"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.96,
+            "marker_confidence": 0.82,
+            "rationale_short": "Apel la echitate universală („nu este drept”) și la interesul tuturor cetățenilor, nu al unui grup particular."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "milioane de români sunt la pensie și trăiesc din pensie de contributivitate"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.7,
+            "rationale_short": "Grupul pensionarilor este menționat funcțional, fără derogare sau respect explicit; neutru."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "Am acceptat pentru că erați gata să blocați adoptarea acestui act normativ."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.96,
+            "marker_confidence": 0.68,
+            "rationale_short": "Referire la o cerere adversă (blocarea) fără a-i recunoaște legitimitatea sau a o respinge explicit; neangajare."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "Noi trebuie să votăm desființarea pensiilor speciale pentru parlamentari"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.96,
+            "marker_confidence": 0.85,
+            "rationale_short": "Vorbitorul își susține poziția fără a menționa sau a se angaja cu vreun argument al opoziției."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Noi trebuie să votăm desființarea pensiilor speciale pentru parlamentari"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.96,
+            "marker_confidence": 0.9,
+            "rationale_short": "Poziție clară (vot pentru desființare) fără alternativă sau mediere propusă."
+          }
+        ],
+        "rationale": "Discursul combină un apel la echitate universală („nu este drept”) cu o justificare slab ancorată — invocă normalitatea și corectitudinea fără a oferi un mecanism, o sursă sau un principiu specific, ceea ce plasează nivelul de justificare la 1. Conținutul justificării este orientat spre binele comun (pensionarii vs. parlamentarii), nu spre interes de grup. Respectul pentru grupuri este neutru: pensionarii sunt menționați funcțional, fără derogare sau laudă explicită. Cererile adverse sunt doar aluzive („erați gata să blocați”), fără recunoaștere a legitimității lor (respect_for_demands=1), iar contraargumentele opoziției sunt complet ignorate (respect_for_counterarguments=0). Nu există nicio propunere alternativă sau de mediere — discursul este strict pozițional. Profilul general este al unui discurs de mobilizare etică, cu justificare slabă și fără angajament față de cealaltă parte, specific voturilor de principiu în plen."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.72,\n  \"level_of_justification\": 1,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 0,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"că nu este drept ca parlamentarii României să-și dea pensii speciale, în timp ce milioane de români sunt la pensie și trăiesc din pensie de contributivitate, pentru că așa este corect și normal\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.96,\n      \"marker_confidence\": 0.78,\n      \"rationale_short\": \"Justificare prin echitate comparativă („nu este drept”) și apel la normalitate, dar fără mecanism sau sursă specifică — justificare inferioară.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"că nu este drept ca parlamentarii României să-și dea pensii speciale, în timp ce milioane de români sunt la pensie și trăiesc din pensie de contributivitate\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.96,\n      \"marker_confidence\": 0.82,\n      \"rationale_short\": \"Apel la echitate universală („nu este drept”) și la interesul tuturor cetățenilor, nu al unui grup particular.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"milioane de români sunt la pensie și trăiesc din pensie de contributivitate\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.70,\n      \"rationale_short\": \"Grupul pensionarilor este menționat funcțional, fără derogare sau respect explicit; neutru.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"Am acceptat pentru că erați gata să blocați adoptarea acestui act normativ.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.96,\n      \"marker_confidence\": 0.68,\n      \"rationale_short\": \"Referire la o cerere adversă (blocarea) fără a-i recunoaște legitimitatea sau a o respinge explicit; neangajare.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"Noi trebuie să votăm desființarea pensiilor speciale pentru parlamentari\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.96,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Vorbitorul își susține poziția fără a menționa sau a se angaja cu vreun argument al opoziției.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"Noi trebuie să votăm desființarea pensiilor speciale pentru parlamentari\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.96,\n      \"marker_confidence\": 0.90,\n      \"rationale_short\": \"Poziție clară (vot pentru desființare) fără alternativă sau mediere propusă.\"\n    }\n  ],\n  \"rationale\": \"Discursul combină un apel la echitate universală („nu este drept”) cu o justificare slab ancorată — invocă normalitatea și corectitudinea fără a oferi un mecanism, o sursă sau un principiu specific, ceea ce plasează nivelul de justificare la 1. Conținutul justificării este orientat spre binele comun (pensionarii vs. parlamentarii), nu spre interes de grup. Respectul pentru grupuri este neutru: pensionarii sunt menționați funcțional, fără derogare sau laudă explicită. Cererile adverse sunt doar aluzive („erați gata să blocați”), fără recunoaștere a legitimității lor (respect_for_demands=1), iar contraargumentele opoziției sunt complet ignorate (respect_for_counterarguments=0). Nu există nicio propunere alternativă sau de mediere — discursul este strict pozițional. Profilul general este al unui discurs de mobilizare etică, cu justificare slabă și fără angajament față de cealaltă parte, specific voturilor de principiu în plen.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12095,
+      "tokens_in_breakdown": {
+        "fresh": 12095,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 1320,
+      "cost_usd": null,
+      "latency_ms": 62907,
+      "retries_used": 0
+    },
+    "vparty": null
+  }
+}

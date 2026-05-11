@@ -1,0 +1,151 @@
+{
+  "speech_id": "mo://2023/II/150#agenda-1#act-76",
+  "tier": "populist",
+  "speaker": {
+    "id": "sosoaca-diana",
+    "name": "Diana Iovanovici-Șoșoacă",
+    "raw": "Doamna Diana Iovanovici-Șoșoacă",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Senatul",
+    "session_date": "2023-10-30",
+    "year": 2023,
+    "legislature": "IX",
+    "delivery_mode": null
+  },
+  "model_key": "qwen-3.6-35b-a3b",
+  "model_label": "qwen-3.6-35b-a3b",
+  "results": {
+    "hawkins": {
+      "model_key": "qwen-3.6-35b-a3b",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2023/II/150#agenda-1#act-76",
+      "output": {
+        "score": 0,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.95,
+        "markers": [],
+        "rationale": "Discursul se înscrie integral în registrul dezbaterii de politici publice și al criticii procedurale. Vorbitorul analizează aspecte tehnice ale proiectului de lege (definirea hărțuirii online, capacitatea poliției, pregătirea forțelor), susținând argumentația cu experiență personală și date practice, nu cu invocarea unei voințe populare omogene sau a unui conflict moralist. Critica adusă instituțiilor (judecători, polițiști) vizează incompetența și lipsa de resurse, nu o elită malefică sau conspirativă. Încheierea explicită („În rest este o lege foarte bună"
+      },
+      "raw_response": "{\n  \"score\": 0,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.95,\n  \"markers\": [],\n  \"rationale\": \"Discursul se înscrie integral în registrul dezbaterii de politici publice și al criticii procedurale. Vorbitorul analizează aspecte tehnice ale proiectului de lege (definirea hărțuirii online, capacitatea poliției, pregătirea forțelor), susținând argumentația cu experiență personală și date practice, nu cu invocarea unei voințe populare omogene sau a unui conflict moralist. Critica adusă instituțiilor (judecători, polițiști) vizează incompetența și lipsa de resurse, nu o elită malefică sau conspirativă. Încheierea explicită („În rest este o lege foarte bună\"\n  }",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 14039,
+      "tokens_in_breakdown": {
+        "fresh": 14039,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 2269,
+      "cost_usd": null,
+      "latency_ms": 23095,
+      "retries_used": 0
+    },
+    "voice": null,
+    "dqi": {
+      "model_key": "qwen-3.6-35b-a3b",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2023/II/150#agenda-1#act-76",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.82,
+        "level_of_justification": 2,
+        "content_of_justification": "common_good",
+        "respect_for_groups": 1,
+        "respect_for_demands": 1,
+        "respect_for_counterarguments": 1,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 2,
+            "evidence": {
+              "text": "Nu poți să spui „orice act de hărțuire online”, pentru că hărțuirea asta poate să fie, într-adevăr, o critică sau poate să fie, evident, un mesaj de amenințare."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.96,
+            "marker_confidence": 0.88,
+            "rationale_short": "Critica se ancorează pe o cauză practică (vaghezza normei) și o consecință operațională (capacitate poliție) — justificare calificată."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "common_good",
+            "evidence": {
+              "text": "nu avem polițiști pregătiți pentru așa ceva! Asta v-o spun din propria experiență, polițiștii nu sunt pregătiți."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.96,
+            "marker_confidence": 0.85,
+            "rationale_short": "Apelează la eficiența legii și pregătirea forțelor de ordine pentru binele public, nu la interes de partid."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "femeia – sau și bărbatul, am avut astfel de cazuri"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.78,
+            "rationale_short": "Referire funcțională la genuri și profesii fără ton derogatoriu sau respect explicit; neutru standard."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 1,
+            "evidence": {
+              "text": "În rest este o lege foarte bună și este normal să se extindă de la domeniul familial la cel, normal, în viața de zi cu zi, social."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.96,
+            "marker_confidence": 0.76,
+            "rationale_short": "Concesie formală („lege foarte bună”) fără recunoaștere explicită a legitimității cererilor adverse."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 1,
+            "evidence": {
+              "text": "pe lângă cea ridicată de predecesorul meu"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.74,
+            "rationale_short": "Mențiune la punctul predecesorului fără reformulare sau combatere substanțială; cel mult o recunoaștere ușoară."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "Dar atenție la aceste lucruri care pot duce la ineficiența legii; mai mult, nu avem polițiști pregătiți pentru așa ceva!"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.96,
+            "marker_confidence": 0.89,
+            "rationale_short": "Critica și avertizarea rămân la nivel pozițional; nicio alternativă concretă sau mediere propusă."
+          }
+        ],
+        "rationale": "Discursul prezintă o calitate deliberativă moderată, caracterizată printr-o justificare calificată (nivel 2) care leagă poziția de o cauză practică concretă — vaghezza clauzei „orice act de hărțuire online” — și de o consecință operațională directă, anume capacitatea limitată a poliției. Conținutul justificării se orientează spre binele comun, apelând la eficiența legii și la pregătirea forțelor de ordine, fără a invoca interese de grup. Respectul pentru grupuri și pentru cererile adverse este neutru (nivel 1), limitându-se la referiri funcționale și o concesie formală („lege foarte bună”) fără recunoaștere explicită a legitimității argumentelor opozanților. Nu se observă angajament substanțial cu contraargumente (nivel 1), iar discursul rămâne pozițional, criticând o clauză și solicitând atenție fără a propune un amendament concret sau o mediere. Profilul corespunde unui discurs de opoziție tehnic-practic, cu densitate argumentativă prezentă dar fără construcție deliberativă avansată."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.82,\n  \"level_of_justification\": 2,\n  \"content_of_justification\": \"common_good\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 1,\n  \"respect_for_counterarguments\": 1,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 2,\n      \"evidence\": {\n        \"text\": \"Nu poți să spui „orice act de hărțuire online”, pentru că hărțuirea asta poate să fie, într-adevăr, o critică sau poate să fie, evident, un mesaj de amenințare.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.96,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Critica se ancorează pe o cauză practică (vaghezza normei) și o consecință operațională (capacitate poliție) — justificare calificată.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"common_good\",\n      \"evidence\": {\n        \"text\": \"nu avem polițiști pregătiți pentru așa ceva! Asta v-o spun din propria experiență, polițiștii nu sunt pregătiți.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.96,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Apelează la eficiența legii și pregătirea forțelor de ordine pentru binele public, nu la interes de partid.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"femeia – sau și bărbatul, am avut astfel de cazuri\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.78,\n      \"rationale_short\": \"Referire funcțională la genuri și profesii fără ton derogatoriu sau respect explicit; neutru standard.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"În rest este o lege foarte bună și este normal să se extindă de la domeniul familial la cel, normal, în viața de zi cu zi, social.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.96,\n      \"marker_confidence\": 0.76,\n      \"rationale_short\": \"Concesie formală („lege foarte bună”) fără recunoaștere explicită a legitimității cererilor adverse.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"pe lângă cea ridicată de predecesorul meu\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.74,\n      \"rationale_short\": \"Mențiune la punctul predecesorului fără reformulare sau combatere substanțială; cel mult o recunoaștere ușoară.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"Dar atenție la aceste lucruri care pot duce la ineficiența legii; mai mult, nu avem polițiști pregătiți pentru așa ceva!\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.96,\n      \"marker_confidence\": 0.89,\n      \"rationale_short\": \"Critica și avertizarea rămân la nivel pozițional; nicio alternativă concretă sau mediere propusă.\"\n    }\n  ],\n  \"rationale\": \"Discursul prezintă o calitate deliberativă moderată, caracterizată printr-o justificare calificată (nivel 2) care leagă poziția de o cauză practică concretă — vaghezza clauzei „orice act de hărțuire online” — și de o consecință operațională directă, anume capacitatea limitată a poliției. Conținutul justificării se orientează spre binele comun, apelând la eficiența legii și la pregătirea forțelor de ordine, fără a invoca interese de grup. Respectul pentru grupuri și pentru cererile adverse este neutru (nivel 1), limitându-se la referiri funcționale și o concesie formală („lege foarte bună”) fără recunoaștere explicită a legitimității argumentelor opozanților. Nu se observă angajament substanțial cu contraargumente (nivel 1), iar discursul rămâne pozițional, criticând o clauză și solicitând atenție fără a propune un amendament concret sau o mediere. Profilul corespunde unui discurs de opoziție tehnic-practic, cu densitate argumentativă prezentă dar fără construcție deliberativă avansată.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12752,
+      "tokens_in_breakdown": {
+        "fresh": 12752,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 6662,
+      "cost_usd": null,
+      "latency_ms": 62272,
+      "retries_used": 0
+    },
+    "vparty": null
+  }
+}

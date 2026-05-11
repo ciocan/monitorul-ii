@@ -1,0 +1,247 @@
+{
+  "speech_id": "mo://2024/II/105#agenda-6#act-84",
+  "tier": "populist",
+  "speaker": {
+    "id": "simion-george-nicolae",
+    "name": "George-Nicolae Simion",
+    "raw": "Domnul George-Nicolae Simion",
+    "party_group": null
+  },
+  "metadata": {
+    "chamber": "Camera Deputaților",
+    "session_date": "2024-09-17",
+    "year": 2024,
+    "legislature": "IX",
+    "delivery_mode": null
+  },
+  "model_key": "qwen-3.6-35b-a3b",
+  "model_label": "qwen-3.6-35b-a3b",
+  "results": {
+    "hawkins": {
+      "model_key": "qwen-3.6-35b-a3b",
+      "prompt_kind": "hawkins",
+      "speech_id": "mo://2024/II/105#agenda-6#act-84",
+      "output": {
+        "score": 1,
+        "score_unit": "ordinal_0_2",
+        "framework_version": "hawkins@2018",
+        "framework_confidence": 0.82,
+        "markers": [
+          {
+            "kind": "people_vs_elite",
+            "evidence": {
+              "text": "Pentru unii mumă, pentru alții ciumă! De regulă, pentru alții sunteți foarte darnici."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.88,
+            "rationale_short": "Contrastează poporul (cadre, persoane cu dizabilități, copii) cu guvernul/parlamentul, definind conflictul ca binar popor-vs-elită."
+          },
+          {
+            "kind": "evil_elite",
+            "evidence": {
+              "text": "V-ați bătut joc de cadrele didactice"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.96,
+            "marker_confidence": 0.9,
+            "rationale_short": "Guvernul este acuzat de batjocură și umilire, fiind prezentat ca activ malefic și lipsit de respect față de cetățeni."
+          },
+          {
+            "kind": "homogeneous_people",
+            "evidence": {
+              "text": "poporul român"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.94,
+            "marker_confidence": 0.85,
+            "rationale_short": "Invocat ca subiect singular care remunerează generos parlamentarii, colapsând diversitatea socială într-o voință colectivă."
+          },
+          {
+            "kind": "crisis_invocation",
+            "evidence": {
+              "text": "imagini pe care nu credeam că le vom vedea vreodată în țara noastră"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.93,
+            "marker_confidence": 0.87,
+            "rationale_short": "Situația este încadrată retoric ca un moment fără precedent și dramatic, cerând atenție imediată."
+          }
+        ],
+        "rationale": "Discursul de opoziție integrează un cadru populist clar (popor vs. guvern/parlament) într-o critică politică specifică (promisiuni nerespectate pentru cadre, pensii, cotizația FMI, comparația cu copiii ucraineni). Markerii se aprind la persoana întâi și transmit o condamnare morală puternică, dar nu structurează întregul discurs ca un manifest pervaziv; rămân ancorate pe acuzații concrete și pe o retorică de protest episodic. Lipsa invocației supremației voinței populare asupra instituțiilor și densitatea limitată a markerilor mențin scorul la 1. Hawkins=1 cu încredere moderată, la limita superioară a acestui prag."
+      },
+      "raw_response": "{\n  \"score\": 1,\n  \"score_unit\": \"ordinal_0_2\",\n  \"framework_version\": \"hawkins@2018\",\n  \"framework_confidence\": 0.82,\n  \"markers\": [\n    {\n      \"kind\": \"people_vs_elite\",\n      \"evidence\": {\n        \"text\": \"Pentru unii mumă, pentru alții ciumă! De regulă, pentru alții sunteți foarte darnici.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.88,\n      \"rationale_short\": \"Contrastează poporul (cadre, persoane cu dizabilități, copii) cu guvernul/parlamentul, definind conflictul ca binar popor-vs-elită.\"\n    },\n    {\n      \"kind\": \"evil_elite\",\n      \"evidence\": {\n        \"text\": \"V-ați bătut joc de cadrele didactice\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.96,\n      \"marker_confidence\": 0.90,\n      \"rationale_short\": \"Guvernul este acuzat de batjocură și umilire, fiind prezentat ca activ malefic și lipsit de respect față de cetățeni.\"\n    },\n    {\n      \"kind\": \"homogeneous_people\",\n      \"evidence\": {\n        \"text\": \"poporul român\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.94,\n      \"marker_confidence\": 0.85,\n      \"rationale_short\": \"Invocat ca subiect singular care remunerează generos parlamentarii, colapsând diversitatea socială într-o voință colectivă.\"\n    },\n    {\n      \"kind\": \"crisis_invocation\",\n      \"evidence\": {\n        \"text\": \"imagini pe care nu credeam că le vom vedea vreodată în țara noastră\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.93,\n      \"marker_confidence\": 0.87,\n      \"rationale_short\": \"Situația este încadrată retoric ca un moment fără precedent și dramatic, cerând atenție imediată.\"\n    }\n  ],\n  \"rationale\": \"Discursul de opoziție integrează un cadru populist clar (popor vs. guvern/parlament) într-o critică politică specifică (promisiuni nerespectate pentru cadre, pensii, cotizația FMI, comparația cu copiii ucraineni). Markerii se aprind la persoana întâi și transmit o condamnare morală puternică, dar nu structurează întregul discurs ca un manifest pervaziv; rămân ancorate pe acuzații concrete și pe o retorică de protest episodic. Lipsa invocației supremației voinței populare asupra instituțiilor și densitatea limitată a markerilor mențin scorul la 1. Hawkins=1 cu încredere moderată, la limita superioară a acestui prag.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 13564,
+      "tokens_in_breakdown": {
+        "fresh": 13564,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 4269,
+      "cost_usd": null,
+      "latency_ms": 36427,
+      "retries_used": 0
+    },
+    "voice": {
+      "model_key": "qwen-3.6-35b-a3b",
+      "prompt_kind": "voice",
+      "speech_id": "mo://2024/II/105#agenda-6#act-84",
+      "output": {
+        "classifications": [
+          {
+            "marker_id": "m_0",
+            "voice": "speaker_first_person",
+            "voice_confidence": 0.95,
+            "voice_evidence": null,
+            "attributed_to": null,
+            "rationale_short": "Acuzație directă adresată guvernului; fără citat, negație sau wrapper de atribuire; vorbitorul își asumă afirmația."
+          },
+          {
+            "marker_id": "m_1",
+            "voice": "speaker_first_person",
+            "voice_confidence": 0.96,
+            "voice_evidence": null,
+            "attributed_to": null,
+            "rationale_short": "Acuzație directă la persoana a II-a plural; fără indicatori de citat, raport sau negație → speaker_first_person."
+          },
+          {
+            "marker_id": "m_2",
+            "voice": "speaker_first_person",
+            "voice_confidence": 0.95,
+            "voice_evidence": null,
+            "attributed_to": null,
+            "rationale_short": "Mențiune integrată într-o afirmație directă a vorbitorului; fără citat sau atribuire externă → speaker_first_person."
+          },
+          {
+            "marker_id": "m_3",
+            "voice": "speaker_first_person",
+            "voice_confidence": 0.96,
+            "voice_evidence": null,
+            "attributed_to": null,
+            "rationale_short": "Relatare directă a experienței personale a vorbitorului ('am văzut', 'nu credeam'); fără citat sau atribuire → speaker_first_person."
+          }
+        ]
+      },
+      "raw_response": "{\n  \"classifications\": [\n    {\n      \"marker_id\": \"m_0\",\n      \"voice\": \"speaker_first_person\",\n      \"voice_confidence\": 0.95,\n      \"voice_evidence\": null,\n      \"attributed_to\": null,\n      \"rationale_short\": \"Acuzație directă adresată guvernului; fără citat, negație sau wrapper de atribuire; vorbitorul își asumă afirmația.\"\n    },\n    {\n      \"marker_id\": \"m_1\",\n      \"voice\": \"speaker_first_person\",\n      \"voice_confidence\": 0.96,\n      \"voice_evidence\": null,\n      \"attributed_to\": null,\n      \"rationale_short\": \"Acuzație directă la persoana a II-a plural; fără indicatori de citat, raport sau negație → speaker_first_person.\"\n    },\n    {\n      \"marker_id\": \"m_2\",\n      \"voice\": \"speaker_first_person\",\n      \"voice_confidence\": 0.95,\n      \"voice_evidence\": null,\n      \"attributed_to\": null,\n      \"rationale_short\": \"Mențiune integrată într-o afirmație directă a vorbitorului; fără citat sau atribuire externă → speaker_first_person.\"\n    },\n    {\n      \"marker_id\": \"m_3\",\n      \"voice\": \"speaker_first_person\",\n      \"voice_confidence\": 0.96,\n      \"voice_evidence\": null,\n      \"attributed_to\": null,\n      \"rationale_short\": \"Relatare directă a experienței personale a vorbitorului ('am văzut', 'nu credeam'); fără citat sau atribuire → speaker_first_person.\"\n    }\n  ]\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 11327,
+      "tokens_in_breakdown": {
+        "fresh": 11327,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 4561,
+      "cost_usd": null,
+      "latency_ms": 30841,
+      "retries_used": 0
+    },
+    "dqi": {
+      "model_key": "qwen-3.6-35b-a3b",
+      "prompt_kind": "dqi",
+      "speech_id": "mo://2024/II/105#agenda-6#act-84",
+      "output": {
+        "framework_version": "steiner-bachtiger@2017",
+        "score_unit": "dqi_multi",
+        "framework_confidence": 0.92,
+        "level_of_justification": 0,
+        "content_of_justification": "none",
+        "respect_for_groups": 1,
+        "respect_for_demands": 0,
+        "respect_for_counterarguments": 0,
+        "constructive_politics": "positional",
+        "markers": [
+          {
+            "kind": "level_of_justification",
+            "value": 0,
+            "evidence": {
+              "text": "V-ați bătut joc de cadrele didactice, ceea ce le-ați promis nu a fost respectat în totalitate."
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.96,
+            "marker_confidence": 0.94,
+            "rationale_short": "Afirmație pură și acuzație retorică fără lanț cauzal sau principiu invocat ca motiv."
+          },
+          {
+            "kind": "content_of_justification",
+            "value": "none",
+            "evidence": {
+              "text": "V-ați bătut joc de cadrele didactice"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.96,
+            "marker_confidence": 0.93,
+            "rationale_short": "Nicio justificare oferită; conținutul este, prin urmare, nedefinit."
+          },
+          {
+            "kind": "respect_for_groups",
+            "value": 1,
+            "evidence": {
+              "text": "persoane cu dizabilități, în scaune cu rotile"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.95,
+            "marker_confidence": 0.82,
+            "rationale_short": "Referință funcțională la grupuri afectate fără recunoaștere explicită de legitimitate procedurală."
+          },
+          {
+            "kind": "respect_for_demands",
+            "value": 0,
+            "evidence": {
+              "text": "Pentru unii mumă, pentru alții ciumă!"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.96,
+            "marker_confidence": 0.91,
+            "rationale_short": "Abordarea guvernului caracterizată retoric drept „mumă” și „ciumă” — respingere fără angajament."
+          },
+          {
+            "kind": "respect_for_counterarguments",
+            "value": 0,
+            "evidence": {
+              "text": "V-ați bătut joc de cadrele didactice"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.96,
+            "marker_confidence": 0.92,
+            "rationale_short": "Discursul avansează acuzații fără a reformula sau combate raționamentul advers."
+          },
+          {
+            "kind": "constructive_politics",
+            "value": "positional",
+            "evidence": {
+              "text": "V-ați bătut joc de cadrele didactice"
+            },
+            "preliminary_voice": "speaker_first_person",
+            "preliminary_voice_confidence": 0.96,
+            "marker_confidence": 0.93,
+            "rationale_short": "Poziție declarată și atac retoric; nicio alternativă sau mediere propusă."
+          }
+        ],
+        "rationale": "Discursul prezintă un profil deliberativ scăzut, tipic pentru intervențiile de opoziție de tip pozițional-acuzator. Nu oferă nicio justificare substanțială (level_of_justification=0), limitându-se la acuzații retrice („V-ați bătut joc”, „batjocura”) și contraste emoționale între beneficiile pentru copiii ucraineni și situația persoanelor cu dizabilități. Conținutul justificării este nedefinit (content=none). Respectul pentru grupurile afectate este neutru (respect_for_groups=1), iar cererile și raționamentul guvernului sunt respinse sau ignorate (respect_for_demands=0, respect_for_counterarguments=0). Nu se propune nicio alternativă sau mediere (constructive_politics=positional). Profilul este clar dispozițional, fără angajament deliberativ, iar încrederea globală este ridicată datorită univocității semnalelor."
+      },
+      "raw_response": "{\n  \"framework_version\": \"steiner-bachtiger@2017\",\n  \"score_unit\": \"dqi_multi\",\n  \"framework_confidence\": 0.92,\n  \"level_of_justification\": 0,\n  \"content_of_justification\": \"none\",\n  \"respect_for_groups\": 1,\n  \"respect_for_demands\": 0,\n  \"respect_for_counterarguments\": 0,\n  \"constructive_politics\": \"positional\",\n  \"markers\": [\n    {\n      \"kind\": \"level_of_justification\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"V-ați bătut joc de cadrele didactice, ceea ce le-ați promis nu a fost respectat în totalitate.\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.96,\n      \"marker_confidence\": 0.94,\n      \"rationale_short\": \"Afirmație pură și acuzație retorică fără lanț cauzal sau principiu invocat ca motiv.\"\n    },\n    {\n      \"kind\": \"content_of_justification\",\n      \"value\": \"none\",\n      \"evidence\": {\n        \"text\": \"V-ați bătut joc de cadrele didactice\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.96,\n      \"marker_confidence\": 0.93,\n      \"rationale_short\": \"Nicio justificare oferită; conținutul este, prin urmare, nedefinit.\"\n    },\n    {\n      \"kind\": \"respect_for_groups\",\n      \"value\": 1,\n      \"evidence\": {\n        \"text\": \"persoane cu dizabilități, în scaune cu rotile\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.95,\n      \"marker_confidence\": 0.82,\n      \"rationale_short\": \"Referință funcțională la grupuri afectate fără recunoaștere explicită de legitimitate procedurală.\"\n    },\n    {\n      \"kind\": \"respect_for_demands\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"Pentru unii mumă, pentru alții ciumă!\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.96,\n      \"marker_confidence\": 0.91,\n      \"rationale_short\": \"Abordarea guvernului caracterizată retoric drept „mumă” și „ciumă” — respingere fără angajament.\"\n    },\n    {\n      \"kind\": \"respect_for_counterarguments\",\n      \"value\": 0,\n      \"evidence\": {\n        \"text\": \"V-ați bătut joc de cadrele didactice\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.96,\n      \"marker_confidence\": 0.92,\n      \"rationale_short\": \"Discursul avansează acuzații fără a reformula sau combate raționamentul advers.\"\n    },\n    {\n      \"kind\": \"constructive_politics\",\n      \"value\": \"positional\",\n      \"evidence\": {\n        \"text\": \"V-ați bătut joc de cadrele didactice\"\n      },\n      \"preliminary_voice\": \"speaker_first_person\",\n      \"preliminary_voice_confidence\": 0.96,\n      \"marker_confidence\": 0.93,\n      \"rationale_short\": \"Poziție declarată și atac retoric; nicio alternativă sau mediere propusă.\"\n    }\n  ],\n  \"rationale\": \"Discursul prezintă un profil deliberativ scăzut, tipic pentru intervențiile de opoziție de tip pozițional-acuzator. Nu oferă nicio justificare substanțială (level_of_justification=0), limitându-se la acuzații retrice („V-ați bătut joc”, „batjocura”) și contraste emoționale între beneficiile pentru copiii ucraineni și situația persoanelor cu dizabilități. Conținutul justificării este nedefinit (content=none). Respectul pentru grupurile afectate este neutru (respect_for_groups=1), iar cererile și raționamentul guvernului sunt respinse sau ignorate (respect_for_demands=0, respect_for_counterarguments=0). Nu se propune nicio alternativă sau mediere (constructive_politics=positional). Profilul este clar dispozițional, fără angajament deliberativ, iar încrederea globală este ridicată datorită univocității semnalelor.\"\n}",
+      "error": null,
+      "error_detail": null,
+      "fragments_not_found": [],
+      "parse_repaired": false,
+      "tokens_in": 12277,
+      "tokens_in_breakdown": {
+        "fresh": 12277,
+        "cache_creation": 0,
+        "cache_read": 0
+      },
+      "tokens_out": 5325,
+      "cost_usd": null,
+      "latency_ms": 34569,
+      "retries_used": 0
+    },
+    "vparty": null
+  }
+}
