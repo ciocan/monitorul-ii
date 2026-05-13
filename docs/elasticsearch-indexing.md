@@ -420,7 +420,8 @@ export async function getReport(id: string): Promise<Report | null>;
 
 - Public search: 60 req/min per IP via Next.js middleware.
 - LLM agent tools: max 30 ES calls per agent turn, enforced in tool wrapper.
-- All queries logged to a `monitorul_query_log` index for cost analysis and abuse detection.
+- All queries logged to a `mo_query_log` index for cost analysis and abuse detection.
+- Query-log observability is versioned under `kibana/dashboards/query-log-overview.json` and deployed with `scripts/kibana_dashboards.py upsert` on Kibana 9.4+. The dashboard targets `QUERY_LOG_INDEX` and expects the web app query logger to emit the small operational field set needed for abuse/cost work: `timestamp`, `op`, `took_ms`, `es_took_ms`, `error`, `hits_total`, `surface`, and served retrieval `mode`. Field-name overrides are explicit env vars so the dashboard can survive a web-app logging rename without editing panel JSON.
 
 **Rejected: direct ES client in route handlers.** Failure mode: every route handler builds its own query; cost-runaway and injection-hardening are ad-hoc; no central enforcement of `pageSize` caps or filter constraints.
 

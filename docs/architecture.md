@@ -1503,9 +1503,23 @@ The CLI calls each bootstrap helper individually (`create_component_templates`, 
 ### What `es-init` does NOT do
 
 - It does **not** populate any ES doc bodies — that's the indexer's job (Phase 4b).
-- It does **not** create the `monitorul_query_log` audit index; that lands with the search layer (Phase 4c / Phase 5).
+- It does **not** create the `mo_query_log` audit index; that lands with the search layer (Phase 4c / Phase 5).
 - It does **not** install ingest pipelines. Per the design doc Q6, all normalization (slug minting, mojibake repair, refs flattening) happens in the Python indexer, never in ES — ingest pipelines duplicate logic and are debug-hostile.
 - It does **not** change index settings (`refresh_interval`, `number_of_shards`, `number_of_replicas`) from ES defaults. Per Q6 those are tuned in the indexer (`refresh_interval: 30s` routine, `-1` during blue-green rebuild). Defaults are fine for the bootstrap smoke.
+
+### Query-log dashboard
+
+The query-log dashboard is intentionally outside `monitorul-ii es-init`: Kibana saved objects are an operational surface, not part of the ES projection bootstrap. The versioned definition lives at `kibana/dashboards/query-log-overview.json`; `scripts/kibana_dashboards.py` renders `${...}` placeholders from env and upserts it through Kibana's Dashboard API with the stable id `monitorul-query-log-overview`.
+
+The dashboard uses inline ES|QL panels so it does not depend on saved data views. Required env: `QUERY_LOG_INDEX`. The default field contract matches the web app producer in `../monitorul.ai/src/lib/search.ts`: `timestamp`, `op`, `took_ms`, `es_took_ms`, `error`, `hits_total`, `surface`, and served retrieval `mode`; each field has a `QUERY_LOG_*_FIELD` override. The helper validates index and field tokens before substitution to avoid accidental ES|QL injection from an env typo. Programmatic upsert requires Kibana 9.4+ because earlier 9.x releases expose only the older dashboard saved-object API shape, which does not accept the declarative inline ES|QL panel format used here.
+
+Live deployment is deliberately a separate operator command:
+
+```bash
+uv run python scripts/kibana_dashboards.py render
+uv run python scripts/kibana_dashboards.py test
+uv run python scripts/kibana_dashboards.py upsert
+```
 
 ### Future phases (not in this layer yet)
 

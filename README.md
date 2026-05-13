@@ -659,6 +659,25 @@ ES_VERIFY_CERTS=1
 
 The Elasticsearch projection layer is **not** the system of record — sidecars on disk + S3 are SOT, and ES is rebuildable overnight from them. See [`docs/elasticsearch-indexing.md`](docs/elasticsearch-indexing.md) for the full design rationale (Q1–Q9, including rejected alternatives), and [`docs/architecture.md`](docs/architecture.md) for the operational mechanics of the bootstrap.
 
+### Query log Kibana dashboard
+
+The query-log observability bundle lives in [`kibana/dashboards/query-log-overview.json`](kibana/dashboards/query-log-overview.json). It renders ES|QL panels against `QUERY_LOG_INDEX` and tracks total query volume, error rate, zero-result rate, latency percentiles, quality-rate trends, top operations, surface health, served retrieval mode health, slow operations, app overhead vs Elasticsearch time, and zero-result operations. Programmatic upsert uses Kibana's declarative Dashboards API and requires Kibana 9.4+; on older Kibana versions, use `render` to inspect the queries and create equivalent ES|QL panels manually in the UI.
+
+The dashboard assumes query-log documents carry `timestamp`, `op`, `took_ms`, `es_took_ms`, `error`, `hits_total`, `surface`, and `mode`, matching the producer in `../monitorul.ai/src/lib/search.ts`. If the web app writes different field names, override them with `QUERY_LOG_TIMESTAMP_FIELD`, `QUERY_LOG_NAME_FIELD`, `QUERY_LOG_DURATION_FIELD`, `QUERY_LOG_ES_DURATION_FIELD`, `QUERY_LOG_ERROR_FIELD`, `QUERY_LOG_TOTAL_FIELD`, `QUERY_LOG_SURFACE_FIELD`, and `QUERY_LOG_RANK_FUSION_FIELD`.
+
+Configure Kibana with either `KIBANA_URL` + `KIBANA_API_KEY` or `KIBANA_URL` + `KIBANA_USERNAME` / `KIBANA_PASSWORD`. `KIBANA_SPACE_ID` defaults to `default`; set `KIBANA_INSECURE=true` only for self-signed development clusters.
+
+```bash
+# Inspect the rendered dashboard JSON without touching Kibana.
+QUERY_LOG_INDEX=mo_query_log uv run python scripts/kibana_dashboards.py render
+
+# Verify Kibana connectivity and the Dashboard API.
+QUERY_LOG_INDEX=mo_query_log uv run python scripts/kibana_dashboards.py test
+
+# Upsert the dashboard as monitorul-query-log-overview.
+QUERY_LOG_INDEX=mo_query_log uv run python scripts/kibana_dashboards.py upsert
+```
+
 ### Diacritic-insensitive search
 
 Romanian users frequently type without diacritics — `sosoaca` instead of `șoșoacă`, `educatie` instead of `educație`. Every user-searchable text field (`text`, `agenda_title`, `title`, `topic`, `purpose`, `summary`, `committee_name`, `question_text`, `response.text`, `headings.text`, `agenda_items.title`, `agenda_items.outcome_text`) carries a `.folded` subfield analyzed with the custom `romanian_folded` analyzer (`standard` tokenizer + `lowercase` + `asciifolding` filters). The main field keeps the built-in `romanian` analyzer (preserves diacritics, applies stemming) at a higher boost; the `.folded` subfield is searched in parallel at a lower boost. A query for `sosoaca` matches indexed `șoșoacă` via the folded subfield; a query for `șoșoacă` still ranks the diacritic-correct match first because the main field's higher boost dominates. `mo-persons.canonical_name.folded` already followed this pattern; the v0.16.x mapping change extends it to every other grain.

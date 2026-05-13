@@ -1,0 +1,436 @@
+{
+  "title": "Monitorul Query Logs",
+  "description": "Operational metrics for the Elasticsearch query log index configured by QUERY_LOG_INDEX.",
+  "time_range": {
+    "from": "now-24h",
+    "to": "now"
+  },
+  "panels": [
+    {
+      "type": "vis",
+      "id": "total-queries",
+      "grid": { "x": 0, "y": 0, "w": 12, "h": 5 },
+      "config": {
+        "title": "",
+        "type": "metric",
+        "data_source": {
+          "type": "esql",
+          "query": "FROM ${QUERY_LOG_INDEX} | WHERE `${QUERY_LOG_TIMESTAMP_FIELD}` <= ?_tend AND `${QUERY_LOG_TIMESTAMP_FIELD}` > ?_tstart | STATS `Total queries` = COUNT(*)"
+        },
+        "metrics": [
+          {
+            "type": "primary",
+            "column": "Total queries",
+            "format": { "type": "number", "decimals": 0, "compact": true }
+          }
+        ]
+      }
+    },
+    {
+      "type": "vis",
+      "id": "errored-queries",
+      "grid": { "x": 12, "y": 0, "w": 12, "h": 5 },
+      "config": {
+        "title": "",
+        "type": "metric",
+        "data_source": {
+          "type": "esql",
+          "query": "FROM ${QUERY_LOG_INDEX} | WHERE `${QUERY_LOG_TIMESTAMP_FIELD}` <= ?_tend AND `${QUERY_LOG_TIMESTAMP_FIELD}` > ?_tstart | STATS `Errored queries` = COUNT(CASE(`${QUERY_LOG_ERROR_FIELD}` IS NOT NULL, 1, null))"
+        },
+        "metrics": [
+          {
+            "type": "primary",
+            "column": "Errored queries",
+            "format": { "type": "number", "decimals": 0, "compact": true }
+          }
+        ]
+      }
+    },
+    {
+      "type": "vis",
+      "id": "error-rate",
+      "grid": { "x": 24, "y": 0, "w": 12, "h": 5 },
+      "config": {
+        "title": "",
+        "type": "metric",
+        "data_source": {
+          "type": "esql",
+          "query": "FROM ${QUERY_LOG_INDEX} | WHERE `${QUERY_LOG_TIMESTAMP_FIELD}` <= ?_tend AND `${QUERY_LOG_TIMESTAMP_FIELD}` > ?_tstart | STATS queries = COUNT(*), errors = COUNT(CASE(`${QUERY_LOG_ERROR_FIELD}` IS NOT NULL, 1, null)) | EVAL `Error rate` = CASE(queries > 0, errors * 100.0 / queries, 0.0)"
+        },
+        "metrics": [
+          {
+            "type": "primary",
+            "column": "Error rate",
+            "format": { "type": "number", "decimals": 3, "suffix": "%" }
+          }
+        ]
+      }
+    },
+    {
+      "type": "vis",
+      "id": "zero-result-rate",
+      "grid": { "x": 36, "y": 0, "w": 12, "h": 5 },
+      "config": {
+        "title": "",
+        "type": "metric",
+        "data_source": {
+          "type": "esql",
+          "query": "FROM ${QUERY_LOG_INDEX} | WHERE `${QUERY_LOG_TIMESTAMP_FIELD}` <= ?_tend AND `${QUERY_LOG_TIMESTAMP_FIELD}` > ?_tstart | STATS queries = COUNT(*), zero_results = COUNT(CASE(`${QUERY_LOG_TOTAL_FIELD}` <= 0, 1, null)) | EVAL `Zero-result rate` = CASE(queries > 0, zero_results * 100.0 / queries, 0.0)"
+        },
+        "metrics": [
+          {
+            "type": "primary",
+            "column": "Zero-result rate",
+            "format": { "type": "number", "decimals": 2, "suffix": "%" }
+          }
+        ]
+      }
+    },
+    {
+      "type": "vis",
+      "id": "avg-latency",
+      "grid": { "x": 0, "y": 5, "w": 12, "h": 5 },
+      "config": {
+        "title": "",
+        "type": "metric",
+        "data_source": {
+          "type": "esql",
+          "query": "FROM ${QUERY_LOG_INDEX} | WHERE `${QUERY_LOG_TIMESTAMP_FIELD}` <= ?_tend AND `${QUERY_LOG_TIMESTAMP_FIELD}` > ?_tstart | STATS `Avg latency` = AVG(`${QUERY_LOG_DURATION_FIELD}`)"
+        },
+        "metrics": [
+          {
+            "type": "primary",
+            "column": "Avg latency",
+            "format": { "type": "number", "decimals": 1, "suffix": " ms" }
+          }
+        ]
+      }
+    },
+    {
+      "type": "vis",
+      "id": "p50-latency",
+      "grid": { "x": 12, "y": 5, "w": 12, "h": 5 },
+      "config": {
+        "title": "",
+        "type": "metric",
+        "data_source": {
+          "type": "esql",
+          "query": "FROM ${QUERY_LOG_INDEX} | WHERE `${QUERY_LOG_TIMESTAMP_FIELD}` <= ?_tend AND `${QUERY_LOG_TIMESTAMP_FIELD}` > ?_tstart | STATS `P50 latency` = PERCENTILE(`${QUERY_LOG_DURATION_FIELD}`, 50)"
+        },
+        "metrics": [
+          {
+            "type": "primary",
+            "column": "P50 latency",
+            "format": { "type": "number", "decimals": 1, "suffix": " ms" }
+          }
+        ]
+      }
+    },
+    {
+      "type": "vis",
+      "id": "p95-latency",
+      "grid": { "x": 24, "y": 5, "w": 12, "h": 5 },
+      "config": {
+        "title": "",
+        "type": "metric",
+        "data_source": {
+          "type": "esql",
+          "query": "FROM ${QUERY_LOG_INDEX} | WHERE `${QUERY_LOG_TIMESTAMP_FIELD}` <= ?_tend AND `${QUERY_LOG_TIMESTAMP_FIELD}` > ?_tstart | STATS `P95 latency` = PERCENTILE(`${QUERY_LOG_DURATION_FIELD}`, 95)"
+        },
+        "metrics": [
+          {
+            "type": "primary",
+            "column": "P95 latency",
+            "format": { "type": "number", "decimals": 1, "suffix": " ms" }
+          }
+        ]
+      }
+    },
+    {
+      "type": "vis",
+      "id": "p99-latency",
+      "grid": { "x": 36, "y": 5, "w": 12, "h": 5 },
+      "config": {
+        "title": "",
+        "type": "metric",
+        "data_source": {
+          "type": "esql",
+          "query": "FROM ${QUERY_LOG_INDEX} | WHERE `${QUERY_LOG_TIMESTAMP_FIELD}` <= ?_tend AND `${QUERY_LOG_TIMESTAMP_FIELD}` > ?_tstart | STATS `P99 latency` = PERCENTILE(`${QUERY_LOG_DURATION_FIELD}`, 99)"
+        },
+        "metrics": [
+          {
+            "type": "primary",
+            "column": "P99 latency",
+            "format": { "type": "number", "decimals": 1, "suffix": " ms" }
+          }
+        ]
+      }
+    },
+    {
+      "type": "vis",
+      "id": "query-volume-over-time",
+      "grid": { "x": 0, "y": 10, "w": 24, "h": 10 },
+      "config": {
+        "title": "Query volume and errors",
+        "type": "xy",
+        "axis": {
+          "x": {
+            "title": { "visible": false },
+            "scale": "temporal",
+            "domain": { "type": "fit", "rounding": false }
+          },
+          "y": { "title": { "visible": false } }
+        },
+        "layers": [
+          {
+            "type": "area",
+            "data_source": {
+              "type": "esql",
+              "query": "FROM ${QUERY_LOG_INDEX} | WHERE `${QUERY_LOG_TIMESTAMP_FIELD}` <= ?_tend AND `${QUERY_LOG_TIMESTAMP_FIELD}` > ?_tstart | STATS queries = COUNT(*), errors = COUNT(CASE(`${QUERY_LOG_ERROR_FIELD}` IS NOT NULL, 1, null)) BY BUCKET(`${QUERY_LOG_TIMESTAMP_FIELD}`, 75, ?_tstart, ?_tend)"
+            },
+            "x": {
+              "column": "BUCKET(`${QUERY_LOG_TIMESTAMP_FIELD}`, 75, ?_tstart, ?_tend)",
+              "label": "Time"
+            },
+            "y": [
+              { "column": "queries", "label": "Queries", "format": { "type": "number", "decimals": 0, "compact": true } },
+              { "column": "errors", "label": "Errors", "format": { "type": "number", "decimals": 0, "compact": true } }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "type": "vis",
+      "id": "latency-over-time",
+      "grid": { "x": 24, "y": 10, "w": 24, "h": 10 },
+      "config": {
+        "title": "Latency over time",
+        "type": "xy",
+        "axis": {
+          "x": {
+            "title": { "visible": false },
+            "scale": "temporal",
+            "domain": { "type": "fit", "rounding": false }
+          },
+          "y": { "title": { "visible": false } }
+        },
+        "layers": [
+          {
+            "type": "line",
+            "data_source": {
+              "type": "esql",
+              "query": "FROM ${QUERY_LOG_INDEX} | WHERE `${QUERY_LOG_TIMESTAMP_FIELD}` <= ?_tend AND `${QUERY_LOG_TIMESTAMP_FIELD}` > ?_tstart | STATS avg_ms = AVG(`${QUERY_LOG_DURATION_FIELD}`), p95_ms = PERCENTILE(`${QUERY_LOG_DURATION_FIELD}`, 95), p99_ms = PERCENTILE(`${QUERY_LOG_DURATION_FIELD}`, 99) BY BUCKET(`${QUERY_LOG_TIMESTAMP_FIELD}`, 75, ?_tstart, ?_tend)"
+            },
+            "x": {
+              "column": "BUCKET(`${QUERY_LOG_TIMESTAMP_FIELD}`, 75, ?_tstart, ?_tend)",
+              "label": "Time"
+            },
+            "y": [
+              { "column": "avg_ms", "label": "Average", "format": { "type": "number", "decimals": 1, "suffix": " ms" } },
+              { "column": "p95_ms", "label": "P95", "format": { "type": "number", "decimals": 1, "suffix": " ms" } },
+              { "column": "p99_ms", "label": "P99", "format": { "type": "number", "decimals": 1, "suffix": " ms" } }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "type": "vis",
+      "id": "quality-rates-over-time",
+      "grid": { "x": 0, "y": 20, "w": 24, "h": 10 },
+      "config": {
+        "title": "Quality rates over time",
+        "type": "xy",
+        "axis": {
+          "x": {
+            "title": { "visible": false },
+            "scale": "temporal",
+            "domain": { "type": "fit", "rounding": false }
+          },
+          "y": { "title": { "visible": false } }
+        },
+        "layers": [
+          {
+            "type": "line",
+            "data_source": {
+              "type": "esql",
+              "query": "FROM ${QUERY_LOG_INDEX} | WHERE `${QUERY_LOG_TIMESTAMP_FIELD}` <= ?_tend AND `${QUERY_LOG_TIMESTAMP_FIELD}` > ?_tstart | STATS queries = COUNT(*), errors = COUNT(CASE(`${QUERY_LOG_ERROR_FIELD}` IS NOT NULL, 1, null)), zero_results = COUNT(CASE(`${QUERY_LOG_TOTAL_FIELD}` <= 0, 1, null)) BY BUCKET(`${QUERY_LOG_TIMESTAMP_FIELD}`, 75, ?_tstart, ?_tend) | EVAL error_rate = CASE(queries > 0, errors * 100.0 / queries, 0.0), zero_result_rate = CASE(queries > 0, zero_results * 100.0 / queries, 0.0)"
+            },
+            "x": {
+              "column": "BUCKET(`${QUERY_LOG_TIMESTAMP_FIELD}`, 75, ?_tstart, ?_tend)",
+              "label": "Time"
+            },
+            "y": [
+              { "column": "error_rate", "label": "Error rate", "format": { "type": "number", "decimals": 3, "suffix": "%" } },
+              { "column": "zero_result_rate", "label": "Zero-result rate", "format": { "type": "number", "decimals": 2, "suffix": "%" } }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "type": "vis",
+      "id": "top-query-names",
+      "grid": { "x": 24, "y": 20, "w": 24, "h": 10 },
+      "config": {
+        "title": "Top operations",
+        "type": "xy",
+        "axis": {
+          "x": { "title": { "visible": false } },
+          "y": { "title": { "visible": false } }
+        },
+        "layers": [
+          {
+            "type": "bar",
+            "data_source": {
+              "type": "esql",
+              "query": "FROM ${QUERY_LOG_INDEX} | WHERE `${QUERY_LOG_TIMESTAMP_FIELD}` <= ?_tend AND `${QUERY_LOG_TIMESTAMP_FIELD}` > ?_tstart | STATS queries = COUNT(*) BY `${QUERY_LOG_NAME_FIELD}` | SORT queries DESC | LIMIT 12"
+            },
+            "x": { "column": "${QUERY_LOG_NAME_FIELD}", "label": "Operation" },
+            "y": [
+              { "column": "queries", "label": "Queries", "format": { "type": "number", "decimals": 0, "compact": true } }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "type": "vis",
+      "id": "surface-health",
+      "grid": { "x": 0, "y": 30, "w": 16, "h": 10 },
+      "config": {
+        "title": "Surface health",
+        "type": "data_table",
+        "data_source": {
+          "type": "esql",
+          "query": "FROM ${QUERY_LOG_INDEX} | WHERE `${QUERY_LOG_TIMESTAMP_FIELD}` <= ?_tend AND `${QUERY_LOG_TIMESTAMP_FIELD}` > ?_tstart | STATS queries = COUNT(*), errors = COUNT(CASE(`${QUERY_LOG_ERROR_FIELD}` IS NOT NULL, 1, null)), zero_results = COUNT(CASE(`${QUERY_LOG_TOTAL_FIELD}` <= 0, 1, null)), avg_ms = AVG(`${QUERY_LOG_DURATION_FIELD}`), p95_ms = PERCENTILE(`${QUERY_LOG_DURATION_FIELD}`, 95) BY `${QUERY_LOG_SURFACE_FIELD}` | EVAL error_rate = CASE(queries > 0, errors * 100.0 / queries, 0.0), zero_result_rate = CASE(queries > 0, zero_results * 100.0 / queries, 0.0) | SORT queries DESC"
+        },
+        "rows": [
+          { "column": "${QUERY_LOG_SURFACE_FIELD}", "label": "Surface" }
+        ],
+        "metrics": [
+          { "column": "queries", "label": "Queries", "format": { "type": "number", "decimals": 0, "compact": true } },
+          { "column": "error_rate", "label": "Error %", "format": { "type": "number", "decimals": 3, "suffix": "%" } },
+          { "column": "zero_result_rate", "label": "Zero %", "format": { "type": "number", "decimals": 2, "suffix": "%" } },
+          { "column": "avg_ms", "label": "Avg", "format": { "type": "number", "decimals": 1, "suffix": " ms" } },
+          { "column": "p95_ms", "label": "P95", "format": { "type": "number", "decimals": 1, "suffix": " ms" } }
+        ]
+      }
+    },
+    {
+      "type": "vis",
+      "id": "retrieval-mode-health",
+      "grid": { "x": 16, "y": 30, "w": 16, "h": 10 },
+      "config": {
+        "title": "Retrieval mode health",
+        "type": "data_table",
+        "data_source": {
+          "type": "esql",
+          "query": "FROM ${QUERY_LOG_INDEX} | WHERE `${QUERY_LOG_TIMESTAMP_FIELD}` <= ?_tend AND `${QUERY_LOG_TIMESTAMP_FIELD}` > ?_tstart | STATS queries = COUNT(*), zero_results = COUNT(CASE(`${QUERY_LOG_TOTAL_FIELD}` <= 0, 1, null)), avg_ms = AVG(`${QUERY_LOG_DURATION_FIELD}`), p95_ms = PERCENTILE(`${QUERY_LOG_DURATION_FIELD}`, 95) BY `${QUERY_LOG_RANK_FUSION_FIELD}` | EVAL zero_result_rate = CASE(queries > 0, zero_results * 100.0 / queries, 0.0) | SORT queries DESC"
+        },
+        "rows": [
+          { "column": "${QUERY_LOG_RANK_FUSION_FIELD}", "label": "Served mode" }
+        ],
+        "metrics": [
+          { "column": "queries", "label": "Queries", "format": { "type": "number", "decimals": 0, "compact": true } },
+          { "column": "zero_result_rate", "label": "Zero %", "format": { "type": "number", "decimals": 2, "suffix": "%" } },
+          { "column": "avg_ms", "label": "Avg", "format": { "type": "number", "decimals": 1, "suffix": " ms" } },
+          { "column": "p95_ms", "label": "P95", "format": { "type": "number", "decimals": 1, "suffix": " ms" } }
+        ]
+      }
+    },
+    {
+      "type": "vis",
+      "id": "error-breakdown",
+      "grid": { "x": 32, "y": 30, "w": 16, "h": 10 },
+      "config": {
+        "title": "Error messages",
+        "type": "pie",
+        "data_source": {
+          "type": "esql",
+          "query": "FROM ${QUERY_LOG_INDEX} | WHERE `${QUERY_LOG_TIMESTAMP_FIELD}` <= ?_tend AND `${QUERY_LOG_TIMESTAMP_FIELD}` > ?_tstart AND `${QUERY_LOG_ERROR_FIELD}` IS NOT NULL | STATS queries = COUNT(*) BY `${QUERY_LOG_ERROR_FIELD}` | SORT queries DESC | LIMIT 10"
+        },
+        "metrics": [
+          { "column": "queries", "format": { "type": "number", "decimals": 0, "compact": true } }
+        ],
+        "group_by": [
+          { "column": "${QUERY_LOG_ERROR_FIELD}", "label": "Error" }
+        ]
+      }
+    },
+    {
+      "type": "vis",
+      "id": "slow-query-table",
+      "grid": { "x": 0, "y": 40, "w": 48, "h": 13 },
+      "config": {
+        "title": "Slow operations by surface",
+        "type": "data_table",
+        "data_source": {
+          "type": "esql",
+          "query": "FROM ${QUERY_LOG_INDEX} | WHERE `${QUERY_LOG_TIMESTAMP_FIELD}` <= ?_tend AND `${QUERY_LOG_TIMESTAMP_FIELD}` > ?_tstart | STATS queries = COUNT(*), errors = COUNT(CASE(`${QUERY_LOG_ERROR_FIELD}` IS NOT NULL, 1, null)), zero_results = COUNT(CASE(`${QUERY_LOG_TOTAL_FIELD}` <= 0, 1, null)), avg_ms = AVG(`${QUERY_LOG_DURATION_FIELD}`), p95_ms = PERCENTILE(`${QUERY_LOG_DURATION_FIELD}`, 95), p99_ms = PERCENTILE(`${QUERY_LOG_DURATION_FIELD}`, 99) BY `${QUERY_LOG_NAME_FIELD}`, `${QUERY_LOG_SURFACE_FIELD}` | EVAL error_rate = CASE(queries > 0, errors * 100.0 / queries, 0.0), zero_result_rate = CASE(queries > 0, zero_results * 100.0 / queries, 0.0) | SORT p99_ms DESC | LIMIT 25"
+        },
+        "rows": [
+          { "column": "${QUERY_LOG_NAME_FIELD}", "label": "Operation" },
+          { "column": "${QUERY_LOG_SURFACE_FIELD}", "label": "Surface" }
+        ],
+        "metrics": [
+          { "column": "queries", "label": "Queries", "format": { "type": "number", "decimals": 0, "compact": true } },
+          { "column": "avg_ms", "label": "Avg", "format": { "type": "number", "decimals": 1, "suffix": " ms" } },
+          { "column": "p95_ms", "label": "P95", "format": { "type": "number", "decimals": 1, "suffix": " ms" } },
+          { "column": "p99_ms", "label": "P99", "format": { "type": "number", "decimals": 1, "suffix": " ms" } },
+          { "column": "error_rate", "label": "Error %", "format": { "type": "number", "decimals": 3, "suffix": "%" } },
+          { "column": "zero_result_rate", "label": "Zero %", "format": { "type": "number", "decimals": 2, "suffix": "%" } }
+        ]
+      }
+    },
+    {
+      "type": "vis",
+      "id": "app-overhead-table",
+      "grid": { "x": 0, "y": 53, "w": 48, "h": 13 },
+      "config": {
+        "title": "App overhead vs Elasticsearch time",
+        "type": "data_table",
+        "data_source": {
+          "type": "esql",
+          "query": "FROM ${QUERY_LOG_INDEX} | WHERE `${QUERY_LOG_TIMESTAMP_FIELD}` <= ?_tend AND `${QUERY_LOG_TIMESTAMP_FIELD}` > ?_tstart AND `${QUERY_LOG_ES_DURATION_FIELD}` IS NOT NULL | EVAL app_overhead_ms = `${QUERY_LOG_DURATION_FIELD}` - `${QUERY_LOG_ES_DURATION_FIELD}` | STATS queries = COUNT(*), avg_ms = AVG(`${QUERY_LOG_DURATION_FIELD}`), avg_es_ms = AVG(`${QUERY_LOG_ES_DURATION_FIELD}`), avg_overhead_ms = AVG(app_overhead_ms), p95_overhead_ms = PERCENTILE(app_overhead_ms, 95) BY `${QUERY_LOG_NAME_FIELD}`, `${QUERY_LOG_SURFACE_FIELD}` | SORT avg_overhead_ms DESC | LIMIT 25"
+        },
+        "rows": [
+          { "column": "${QUERY_LOG_NAME_FIELD}", "label": "Operation" },
+          { "column": "${QUERY_LOG_SURFACE_FIELD}", "label": "Surface" }
+        ],
+        "metrics": [
+          { "column": "queries", "label": "Queries", "format": { "type": "number", "decimals": 0, "compact": true } },
+          { "column": "avg_ms", "label": "Avg total", "format": { "type": "number", "decimals": 1, "suffix": " ms" } },
+          { "column": "avg_es_ms", "label": "Avg ES", "format": { "type": "number", "decimals": 1, "suffix": " ms" } },
+          { "column": "avg_overhead_ms", "label": "Avg overhead", "format": { "type": "number", "decimals": 1, "suffix": " ms" } },
+          { "column": "p95_overhead_ms", "label": "P95 overhead", "format": { "type": "number", "decimals": 1, "suffix": " ms" } }
+        ]
+      }
+    },
+    {
+      "type": "vis",
+      "id": "zero-result-table",
+      "grid": { "x": 0, "y": 66, "w": 48, "h": 12 },
+      "config": {
+        "title": "Zero-result operations by surface",
+        "type": "data_table",
+        "data_source": {
+          "type": "esql",
+          "query": "FROM ${QUERY_LOG_INDEX} | WHERE `${QUERY_LOG_TIMESTAMP_FIELD}` <= ?_tend AND `${QUERY_LOG_TIMESTAMP_FIELD}` > ?_tstart | STATS queries = COUNT(*), zero_results = COUNT(CASE(`${QUERY_LOG_TOTAL_FIELD}` <= 0, 1, null)), avg_ms = AVG(`${QUERY_LOG_DURATION_FIELD}`), p95_ms = PERCENTILE(`${QUERY_LOG_DURATION_FIELD}`, 95) BY `${QUERY_LOG_NAME_FIELD}`, `${QUERY_LOG_SURFACE_FIELD}` | WHERE zero_results > 0 | EVAL zero_result_rate = CASE(queries > 0, zero_results * 100.0 / queries, 0.0) | SORT zero_results DESC | LIMIT 25"
+        },
+        "rows": [
+          { "column": "${QUERY_LOG_NAME_FIELD}", "label": "Operation" },
+          { "column": "${QUERY_LOG_SURFACE_FIELD}", "label": "Surface" }
+        ],
+        "metrics": [
+          { "column": "queries", "label": "Queries", "format": { "type": "number", "decimals": 0, "compact": true } },
+          { "column": "zero_results", "label": "Zero results", "format": { "type": "number", "decimals": 0, "compact": true } },
+          { "column": "zero_result_rate", "label": "Zero %", "format": { "type": "number", "decimals": 2, "suffix": "%" } },
+          { "column": "avg_ms", "label": "Avg", "format": { "type": "number", "decimals": 1, "suffix": " ms" } },
+          { "column": "p95_ms", "label": "P95", "format": { "type": "number", "decimals": 1, "suffix": " ms" } }
+        ]
+      }
+    }
+  ]
+}
