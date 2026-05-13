@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.20.0](https://github.com/ciocan/monitorul-ii/compare/monitorul-ii-v0.19.0...monitorul-ii-v0.20.0) (2026-05-13)
+
+
+### Features
+
+* **kibana:** add query-log dashboard and environment configuration ([56a2ab0](https://github.com/ciocan/monitorul-ii/commit/56a2ab0f685bf7216fb63fdf12d47e02fff8ce0c))
+
 ## [0.19.0](https://github.com/ciocan/monitorul-ii/compare/monitorul-ii-v0.18.0...monitorul-ii-v0.19.0) (2026-05-11)
 
 
